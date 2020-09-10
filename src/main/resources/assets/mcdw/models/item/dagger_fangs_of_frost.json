@@ -1,0 +1,39 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "mcdw:item/dagger_fangs_of_frost"
+	},
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 90, 45],
+			"translation": [0, 6, 2.25]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, -90, -45],
+			"translation": [0, 6, 2.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 90, 30],
+			"translation": [2.5, 5.5, 0.5],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -90, -30],
+			"translation": [1.5, 5.5, 1],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"ground": {
+			"translation": [0, 4.75, 0]
+		},
+		"gui": {
+			"rotation": [0, -180, 90],
+			"translation": [1.5, 2.25, 0]
+		},
+		"fixed": {
+			"rotation": [0, 0, 90],
+			"translation": [-2.75, 2.75, -0.5]
+		}
+	}
+}

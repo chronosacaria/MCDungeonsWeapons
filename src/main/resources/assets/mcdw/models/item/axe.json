@@ -1,0 +1,43 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "mcdw:item/axe"
+	},
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 90, 45],
+			"translation": [0, 6, 2.5],
+			"scale": [1.2, 1.2, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, -90, -45],
+			"translation": [0, 6, 2.5],
+			"scale": [1.2, 1.2, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 90, 26],
+			"translation": [0, 6, 0.1],
+			"scale": [1, 1, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -90, -26],
+			"translation": [0, 6, 0.1],
+			"scale": [1, 1, 0.68]
+		},
+		"ground": {
+			"translation": [0, 5, 0],
+			"scale": [1, 1, 1]
+		},
+		"gui": {
+			"rotation": [0, -180, 90],
+			"translation": [1.5, 0, 0],
+			"scale": [1, 1, 1]
+		},
+		"fixed": {
+			"rotation": [0, 0, 90],
+			"translation": [0, 0, 0],
+			"scale": [0.9, 0.9, 0.9]
+		}
+	}
+}

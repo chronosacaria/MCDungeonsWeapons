@@ -1,0 +1,29 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"SDS",
+		"L/L",
+		"BDB"
+	],
+	"key": {
+		"S": {
+			"item": "minecraft:soul_sand"
+		},
+		"B": {
+			"item": "minecraft:nether_star"
+		},
+		"L": {
+			"item": "minecraft:wither_skeleton_skull"
+		},
+		"/": {
+			"item": "mcdw:dagger_soul_knife"
+		},
+		"D": {
+			"item": "minecraft:dragon_head"
+		}
+	},
+	"result": {
+		"item": "mcdw:dagger_eternal_knife",
+		"count": 1
+	}
+}

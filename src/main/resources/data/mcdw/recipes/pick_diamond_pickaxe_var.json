@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " DD",
+        " /D",
+        "/  "
+    ],
+    "key": {
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mcdw:pick_diamond_pickaxe_var",
+        "count": 1
+    }
+}

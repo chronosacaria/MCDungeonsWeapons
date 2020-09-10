@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "FAF",
+        " /B",
+        "B/ "
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "A": {
+            "item": "mcdw:axe_double"
+        },
+        "F": {
+            "item": "minecraft:feather"
+        },
+        "B": {
+            "item": "minecraft:phantom_membrane"
+        }
+    },
+    "result": {
+        "item": "mcdw:axe_whirlwind",
+        "count": 1
+    }
+}

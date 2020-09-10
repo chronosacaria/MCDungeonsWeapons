@@ -1,0 +1,44 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "mcdw:item/spear_grave_bane"
+	},
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 90, 45],
+			"translation": [0, 26, 1.75],
+			"scale": [4, 4, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, -90, -45],
+			"translation": [0, 26.25, 2.5],
+			"scale": [4, 4, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 90, 30],
+			"translation": [2, 12, 0.75],
+			"scale": [1.36, 1.36, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -90, -30],
+			"translation": [1.5, 12.5, 1],
+			"scale": [1.36, 1.36, 0.68]
+		},
+		"ground": {
+			"translation": [0, 12, 0],
+			"scale": [2, 2, 1]
+		},
+		"gui": {
+			"rotation": [0, -180, 90],
+			"translation": [7.25, 8.25, 0],
+			"scale": [1.8, 1.8, 1]
+		},
+		"fixed": {
+			"rotation": [0, 0, 90],
+			"translation": [-7.75, 8.25, -0.5],
+			"scale": [2, 2, 1]
+		}
+	}
+}

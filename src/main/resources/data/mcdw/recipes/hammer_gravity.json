@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#E#",
+        "DHD",
+        "D/D"
+    ],
+    "key": {
+        "H": {
+            "item": "mcdw:hammer_great"
+        },
+        "E": {
+            "item": "minecraft:ender_eye"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "D": {
+            "item": "minecraft:dragon_breath"
+        },
+        "#": {
+            "item": "minecraft:purpur_block"
+        }
+    },
+    "result": {
+        "item": "mcdw:hammer_gravity",
+        "count": 1
+    }
+}

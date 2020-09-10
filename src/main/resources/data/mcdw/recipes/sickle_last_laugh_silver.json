@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " I ",
+        "IDI",
+        "/  "
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "mcdw:sickle_last_laugh_silver",
+        "count": 1
+    }
+}

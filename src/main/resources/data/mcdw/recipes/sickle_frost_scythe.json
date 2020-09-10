@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " BS",
+        "B/I",
+        "/I "
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "S": {
+            "item": "mcdw:sickle_sickle"
+        },
+        "B": {
+            "item": "minecraft:blue_ice"
+        },
+        "I": {
+            "item": "minecraft:ice"
+        }
+    },
+    "result": {
+        "item": "mcdw:sickle_frost_scythe",
+        "count": 1
+    }
+}

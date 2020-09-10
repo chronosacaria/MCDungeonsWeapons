@@ -1,0 +1,53 @@
+{
+  "itemGroup.mcdw.weapons": "Minecraft Dungeons的武器",
+
+  "item.mcdw.axe": "斧头",
+  "item.mcdw.axe_cursed": "诅咒之斧",
+  "item.mcdw.axe_double": "双刃斧",
+  "item.mcdw.axe_highland": "高地之斧",
+  "item.mcdw.axe_whirlwind": "旋风斧",
+  "item.mcdw.axe_firebrand": "烙火",
+
+  "item.mcdw.dagger_dagger": "匕首",
+  "item.mcdw.dagger_fangs_of_frost": "寒霜獠牙",
+  "item.mcdw.dagger_moon": "月之匕首",
+  "item.mcdw.dagger_soul_knife": "灵魂之刃",
+  "item.mcdw.dagger_eternal_knife": "永恒之刃",
+
+  "item.mcdw.hammer_flail": "链锤",
+  "item.mcdw.hammer_gravity": "引力之锤",
+  "item.mcdw.hammer_great": "大锤",
+  "item.mcdw.hammer_stormlander": "雷霆之锤",
+  "item.mcdw.hammer_suns_grace": "日之恩惠",
+
+  "item.mcdw.pick_diamond_pickaxe_var": "钻石剑",
+
+  "item.mcdw.sickle_sickle": "镰刀",
+  "item.mcdw.sickle_nightmares_bite": "梦魇之噬",
+  "item.mcdw.sickle_last_laugh_gold": "笑到最后",
+  "item.mcdw.sickle_last_laugh_silver": "笑到最后",
+  "item.mcdw.sickle_frost_scythe": "冰霜长镰",
+  "item.mcdw.sickle_jailors_scythe": "狱卒的镰刀",
+  "item.mcdw.sickle_soul_scythe": "灵魂长镰",
+
+  "item.mcdw.spear_spear": "长矛",
+  "item.mcdw.spear_fortune": "幸运长矛",
+  "item.mcdw.spear_whispering_spear": "W呢喃矛",
+  "item.mcdw.spear_glaive": "长柄刀",
+  "item.mcdw.spear_grave_bane": "弑墓者",
+  "item.mcdw.spear_venom_glaive": "剧毒长刀",
+
+  "item.mcdw.sword_iron_sword_var": "剑",
+  "item.mcdw.sword_diamond_sword_var": "钻石剑",
+  "item.mcdw.sword_hawkbrand": "鹰身大剑",
+  "item.mcdw.sword_broadsword": "大剑",
+  "item.mcdw.sword_claymore": "阔剑",
+  "item.mcdw.sword_heartstealer": "窃心者",
+  "item.mcdw.sword_cutlass": "弯刀",
+  "item.mcdw.sword_dancers_sword": "舞者之剑",
+  "item.mcdw.sword_nameless_blade": "无名之刃",
+  "item.mcdw.sword_katana": "武士刀",
+  "item.mcdw.sword_masters_katana": "大师的武士刀",
+  "item.mcdw.sword_dark_katana": "暗黑武士刀",
+  "item.mcdw.sword_truthseeker": "求真者"
+}

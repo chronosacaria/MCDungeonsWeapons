@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  D",
+        " / ",
+        "/  "
+    ],
+    "key": {
+        "D": {
+            "item": "mcdw:dagger_dagger"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mcdw:spear_spear",
+        "count": 1
+    }
+}

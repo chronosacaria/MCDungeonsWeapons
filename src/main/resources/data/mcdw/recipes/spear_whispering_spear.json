@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " ID",
+        "PSI",
+        "IP "
+    ],
+    "key": {
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "S": {
+            "item": "mcdw:spear_spear"
+        },
+        "P": {
+            "item": "minecraft:prismarine_crystals"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "mcdw:spear_whispering_spear",
+        "count": 1
+    }
+}

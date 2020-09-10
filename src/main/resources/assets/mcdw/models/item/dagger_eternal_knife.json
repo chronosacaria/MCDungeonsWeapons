@@ -1,0 +1,44 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "mcdw:item/dagger_eternal_knife"
+	},
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 45],
+			"translation": [0, 15.25, 2.25],
+			"scale": [2, 2, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -45],
+			"translation": [0, 15.25, 2.5],
+			"scale": [2, 2, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 30],
+			"translation": [2.5, 11, 0.5],
+			"scale": [1.36, 1.36, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, -30],
+			"translation": [1.5, 11.25, 1],
+			"scale": [1.36, 1.36, 0.68]
+		},
+		"ground": {
+			"translation": [0, 12, 0],
+			"scale": [2, 2, 1]
+		},
+		"gui": {
+			"rotation": [0, -180, 90],
+			"translation": [5, 6, 0],
+			"scale": [1.5, 1.5, 1]
+		},
+		"fixed": {
+			"rotation": [0, 0, 90],
+			"translation": [-7, 6.5, -0.5],
+			"scale": [1.5, 1.5, 1]
+		}
+	}
+}

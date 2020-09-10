@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "mcdw",
+  "version": "${version}",
+  "name": "Minecraft Dungeons Weapons",
+  "description": "Add the weapons (and some tools) from Minecraft Dungeons to Minecraft Java",
+  "authors": [
+    "Chronosacaria",
+    "Kai1907"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/mcdw/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "chronosacaria.mcdw.client.McdwClient"
+    ],
+    "main": [
+      "chronosacaria.mcdw.Mcdw"
+    ]
+  },
+  "mixins": [
+
+  ],
+  "depends": {
+    "fabricloader": ">=0.9.2+build.206",
+    "fabric": "*",
+    "minecraft": "1.16.1"
+  }
+}

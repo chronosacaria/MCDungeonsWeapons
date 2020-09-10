@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " I#",
+        "C# ",
+        "/C "
+    ],
+    "key": {
+        "C": {
+            "item": "minecraft:gold_ingot"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "#": {
+            "item": "minecraft:iron_block"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mcdw:sword_cutlass",
+        "count": 1
+    }
+}

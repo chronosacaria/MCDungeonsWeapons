@@ -1,0 +1,53 @@
+{
+  "itemGroup.mcdw.weapons": "Minecraft Dungeons Waffen",
+
+  "item.mcdw.axe": "Axt",
+  "item.mcdw.axe_cursed": "Verfluchte Axt",
+  "item.mcdw.axe_double": "Doppelaxt",
+  "item.mcdw.axe_highland": "Hochlandaxt",
+  "item.mcdw.axe_whirlwind": "Wirbelwind",
+  "item.mcdw.axe_firebrand": "Feuerbrand",
+
+  "item.mcdw.dagger_dagger": "Dolch",
+  "item.mcdw.dagger_fangs_of_frost": "Reißzähne des Frosts",
+  "item.mcdw.dagger_moon": "Monddolch",
+  "item.mcdw.dagger_soul_knife": "Seelenmesser",
+  "item.mcdw.dagger_eternal_knife": "Ewiges Messer",
+
+  "item.mcdw.hammer_flail": "Dreschflegel",
+  "item.mcdw.hammer_gravity": "Hammer der Schwerkraft",
+  "item.mcdw.hammer_great": "Großhammer",
+  "item.mcdw.hammer_stormlander": "Sturmländer",
+  "item.mcdw.hammer_suns_grace": "Sonnengnade",
+
+  "item.mcdw.pick_diamond_pickaxe_var": "Diamantspitzhacke",
+
+  "item.mcdw.sickle_sickle": "Sichel",
+  "item.mcdw.sickle_nightmares_bite": "Albtraumbiss",
+  "item.mcdw.sickle_last_laugh_gold": "Das Letzte Lachen",
+  "item.mcdw.sickle_last_laugh_silver": "Das Letzte Lachen",
+  "item.mcdw.sickle_frost_scythe": "Frostsense",
+  "item.mcdw.sickle_jailors_scythe": "Sense des Gefängniswärters",
+  "item.mcdw.sickle_soul_scythe": "Seelensense",
+
+  "item.mcdw.spear_spear": "Speer",
+  "item.mcdw.spear_fortune": "Glücksspeer",
+  "item.mcdw.spear_whispering_spear": "Flüsternder Speer",
+  "item.mcdw.spear_glaive": "Glefe",
+  "item.mcdw.spear_grave_bane": "Grabesfluch",
+  "item.mcdw.spear_venom_glaive": "Toxingleve",
+
+  "item.mcdw.sword_iron_sword_var": "Eisenschwert",
+  "item.mcdw.sword_diamond_sword_var": "Diamantschwert",
+  "item.mcdw.sword_hawkbrand": "Falkenklaue",
+  "item.mcdw.sword_broadsword": "Breitschwert",
+  "item.mcdw.sword_claymore": "Claymore",
+  "item.mcdw.sword_heartstealer": "Herzdieb",
+  "item.mcdw.sword_cutlass": "Entersäbel",
+  "item.mcdw.sword_dancers_sword": "Tänzerschwert",
+  "item.mcdw.sword_nameless_blade": "Namenlose Klinge",
+  "item.mcdw.sword_katana": "Katana",
+  "item.mcdw.sword_masters_katana": "Katana des Meisters",
+  "item.mcdw.sword_dark_katana": "Dunkles Katana",
+  "item.mcdw.sword_truthseeker": "Wahrheitssucher"
+}

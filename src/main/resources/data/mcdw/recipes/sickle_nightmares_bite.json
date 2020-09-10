@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PSI",
+        "P/I",
+        "/  "
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "S": {
+            "item": "mcdw:sickle_sickle"
+        },
+        "P": {
+            "item": "minecraft:poisonous_potato"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:sickle_nightmares_bite",
+        "count": 1
+    }
+}

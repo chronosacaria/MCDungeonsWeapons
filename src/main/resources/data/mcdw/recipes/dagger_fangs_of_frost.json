@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "BSB",
+        "B/B",
+        "BBB"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:snow_block"
+        },
+        "B": {
+            "item": "minecraft:blue_ice"
+        },
+        "/": {
+            "item": "mcdw:dagger_dagger"
+        }
+    },
+    "result": {
+        "item": "mcdw:dagger_fangs_of_frost",
+        "count": 1
+    }
+}

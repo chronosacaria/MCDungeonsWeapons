@@ -1,0 +1,53 @@
+{
+  "itemGroup.mcdw.weapons": "Minecraft Dungeons Weapons",
+
+  "item.mcdw.axe": "Axe",
+  "item.mcdw.axe_cursed": "Cursed Axe",
+  "item.mcdw.axe_double": "Double Axe",
+  "item.mcdw.axe_highland": "Highland Axe",
+  "item.mcdw.axe_whirlwind": "Whirlwind",
+  "item.mcdw.axe_firebrand": "Firebrand",
+
+  "item.mcdw.dagger_dagger": "Dagger",
+  "item.mcdw.dagger_fangs_of_frost": "Fangs of Frost",
+  "item.mcdw.dagger_moon": "Moon Dagger",
+  "item.mcdw.dagger_soul_knife": "Soul Knife",
+  "item.mcdw.dagger_eternal_knife": "Eternal Knife",
+
+  "item.mcdw.hammer_flail": "Flail",
+  "item.mcdw.hammer_gravity": "Gravity Hammer",
+  "item.mcdw.hammer_great": "Great Hammer",
+  "item.mcdw.hammer_stormlander": "Stormlander",
+  "item.mcdw.hammer_suns_grace": "Sun's Grace",
+
+  "item.mcdw.pick_diamond_pickaxe_var": "Diamond Pickaxe",
+
+  "item.mcdw.sickle_sickle": "Sickle",
+  "item.mcdw.sickle_nightmares_bite": "Nightmare's Bite",
+  "item.mcdw.sickle_last_laugh_gold": "The Last Laugh",
+  "item.mcdw.sickle_last_laugh_silver": "The Last Laugh",
+  "item.mcdw.sickle_frost_scythe": "Frost Scythe",
+  "item.mcdw.sickle_jailors_scythe": "Jailor's Scythe",
+  "item.mcdw.sickle_soul_scythe": "Soul Scythe",
+
+  "item.mcdw.spear_spear": "Spear",
+  "item.mcdw.spear_fortune": "Fortune Spear",
+  "item.mcdw.spear_whispering_spear": "Whispering Spear",
+  "item.mcdw.spear_glaive": "Glaive",
+  "item.mcdw.spear_grave_bane": "Grave Bane",
+  "item.mcdw.spear_venom_glaive": "Venom Glaive",
+
+  "item.mcdw.sword_iron_sword_var": "Iron Sword",
+  "item.mcdw.sword_diamond_sword_var": "Diamond Sword",
+  "item.mcdw.sword_hawkbrand": "Hawkbrand",
+  "item.mcdw.sword_broadsword": "Broadsword",
+  "item.mcdw.sword_claymore": "Claymore",
+  "item.mcdw.sword_heartstealer": "Heartstealer",
+  "item.mcdw.sword_cutlass": "Cutlass",
+  "item.mcdw.sword_dancers_sword": "Dancer's Sword",
+  "item.mcdw.sword_nameless_blade": "Nameless Blade",
+  "item.mcdw.sword_katana": "Katana",
+  "item.mcdw.sword_masters_katana": "Master's Katana",
+  "item.mcdw.sword_dark_katana": "Dark Katana",
+  "item.mcdw.sword_truthseeker": "Truthseeker"
+}

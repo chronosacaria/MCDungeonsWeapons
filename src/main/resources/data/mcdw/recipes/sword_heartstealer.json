@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " D#",
+        "R/D",
+        "rR "
+    ],
+    "key": {
+        "r": {
+            "item": "minecraft:redstone"
+        },
+        "R": {
+            "item": "minecraft:redstone_block"
+        },
+        "#": {
+            "item": "minecraft:iron_block"
+        },
+        "/": {
+            "item": "mcdw:sword_claymore"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "mcdw:sword_heartstealer",
+        "count": 1
+    }
+}

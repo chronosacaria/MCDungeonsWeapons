@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PPP",
+        "J/J",
+        " P "
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:poisonous_potato"
+        },
+        "/": {
+            "item": "mcdw:spear_glaive"
+        },
+        "J": {
+            "item": "minecraft:vine"
+        }
+    },
+    "result": {
+        "item": "mcdw:spear_venom_glaive",
+        "count": 1
+    }
+}

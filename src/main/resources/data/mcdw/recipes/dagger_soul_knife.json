@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "SsS",
+        "L/L",
+        "BsB"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:soul_sand"
+        },
+        "B": {
+            "item": "minecraft:soul_torch"
+        },
+        "L": {
+            "item": "minecraft:soul_lantern"
+        },
+        "/": {
+            "item": "mcdw:dagger_dagger"
+        },
+        "s": {
+            "item": "minecraft:soul_soil"
+        }
+    },
+    "result": {
+        "item": "mcdw:dagger_soul_knife",
+        "count": 1
+    }
+}

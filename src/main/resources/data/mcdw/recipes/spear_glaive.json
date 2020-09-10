@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  S",
+        " / ",
+        "/  "
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:iron_sword"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mcdw:spear_glaive",
+        "count": 1
+    }
+}

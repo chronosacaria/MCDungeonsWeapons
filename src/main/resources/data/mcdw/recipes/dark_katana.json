@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  N",
+        "NN ",
+        "KN "
+    ],
+    "key": {
+        "K": {
+            "item": "mcdw:sword_masters_katana"
+        },
+        "N": {
+            "item": "minecraft:netherite_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:sword_dark_katana",
+        "count": 1
+    }
+}

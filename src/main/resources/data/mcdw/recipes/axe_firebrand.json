@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#AF",
+        " /B",
+        " B "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_block"
+        },
+        "/": {
+            "item": "minecraft:blaze_rod"
+        },
+        "A": {
+            "item": "mcdw:axe"
+        },
+        "F": {
+            "item": "minecraft:fire_charge"
+        },
+        "B": {
+            "item": "minecraft:blaze_powder"
+        }
+    },
+    "result": {
+        "item": "mcdw:axe_firebrand",
+        "count": 1
+    }
+}

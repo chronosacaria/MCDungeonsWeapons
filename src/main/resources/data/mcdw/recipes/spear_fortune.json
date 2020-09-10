@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " GR",
+        " SG",
+        "G  "
+    ],
+    "key": {
+        "R": {
+            "item": "minecraft:rabbit_foot"
+        },
+        "S": {
+            "item": "mcdw:spear_spear"
+        },
+        "G": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:spear_fortune",
+        "count": 1
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  G",
+        "CG ",
+        "KC "
+    ],
+    "key": {
+        "G": {
+            "item": "minecraft:diamond"
+        },
+        "K": {
+            "item": "mcdw:sword_katana"
+        },
+        "C": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:sword_masters_katana",
+        "count": 1
+    }
+}

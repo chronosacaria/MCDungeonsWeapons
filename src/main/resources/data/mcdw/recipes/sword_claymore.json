@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " II",
+        "I#I",
+        "BI "
+    ],
+    "key": {
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "B": {
+            "item": "mcdw:sword_broadsword"
+        },
+        "#": {
+            "item": "minecraft:iron_block"
+        }
+    },
+    "result": {
+        "item": "mcdw:sword_claymore",
+        "count": 1
+    }
+}

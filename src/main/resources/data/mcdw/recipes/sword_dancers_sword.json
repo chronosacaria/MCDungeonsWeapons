@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "LSC",
+        "S/S",
+        "CSL"
+    ],
+    "key": {
+        "C": {
+            "item": "mcdw:sword_cutlass"
+        },
+        "S": {
+            "item": "minecraft:slime_ball"
+        },
+        "L": {
+            "item": "minecraft:leather"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mcdw:sword_dancers_sword",
+        "count": 1
+    }
+}
