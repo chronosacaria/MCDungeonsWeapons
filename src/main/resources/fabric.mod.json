@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "mcdw",
   "version": "${version}",
-  "name": "Minecraft Dungeons Weapons",
+  "name": "MC Dungeons Weapons",
   "description": "Add the weapons (and some tools) from Minecraft Dungeons to Minecraft Java",
   "authors": [
     "Chronosacaria",
@@ -26,6 +26,6 @@
   "depends": {
     "fabricloader": ">=0.9.2+build.206",
     "fabric": "*",
-    "minecraft": "1.16.1"
+    "minecraft": "1.16.2"
   }
 }
