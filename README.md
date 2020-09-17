@@ -9,7 +9,7 @@ Art: Kai1907
 
 ## Links
 
-Minecraft Dungeons Weapons Downloads - Link Coming Soon
+[Minecraft Dungeons Weapons Downloads - Link Coming Soon](https://www.curseforge.com/minecraft/mc-mods/mcdw)
 
 [Kai1907's Minecraft Dungeons Texture Pack on Planet Minecraft](https://www.planetminecraft.com/texture-pack/minecraft-dungeons-textures-for-minecraft-java-edition/)
 
