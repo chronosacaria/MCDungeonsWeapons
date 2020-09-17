@@ -6,6 +6,8 @@ import net.minecraft.item.ToolMaterials;
 
 public class Swords {
     public static McdwSword SWORD_BROADSWORD;
+    public static McdwSword SWORD_BEESTINGER;
+    public static McdwSword SWORD_FREEZING_FOIL;
     public static McdwSword SWORD_CLAYMORE;
     public static McdwSword SWORD_CUTLASS;
     public static McdwSword SWORD_DARK_KATANA;
@@ -15,6 +17,7 @@ public class Swords {
     public static McdwSword SWORD_HEARTSTEALER;
     public static McdwSword SWORD_IRON_SWORD_VAR;
     public static McdwSword SWORD_KATANA;
+    public static McdwSword SWORD_RAPIER;
     public static McdwSword SWORD_MASTERS_KATANA;
     public static McdwSword SWORD_NAMELESS_BLADE;
     public static McdwSword SWORD_TRUTHSEEKER;
@@ -23,6 +26,9 @@ public class Swords {
         SWORD_IRON_SWORD_VAR = new McdwSword(ToolMaterials.IRON, 3, -2.4F, "sword_iron_sword_var");
         SWORD_HAWKBRAND = new McdwSword(ToolMaterials.IRON, 5, -2.0F, "sword_hawkbrand");
         SWORD_BROADSWORD = new McdwSword(ToolMaterials.IRON, 5, -1.4F, "sword_broadsword");
+        SWORD_RAPIER = new McdwSword(ToolMaterials.IRON,0, -0.9F, "sword_rapier");
+        SWORD_BEESTINGER = new McdwSword(ToolMaterials.DIAMOND, 0,-0.9F, "sword_beestinger");
+        SWORD_FREEZING_FOIL = new McdwSword(ToolMaterials.DIAMOND, 0,-0.9F, "sword_freezing_foil");
         SWORD_CLAYMORE = new McdwSword(ToolMaterials.IRON, 6, -2.4F, "sword_claymore");
         SWORD_HEARTSTEALER = new McdwSword(ToolMaterials.DIAMOND, 4, -1.8F, "sword_heartstealer");
         SWORD_CUTLASS = new McdwSword(ToolMaterials.IRON, 3, -2.1F, "sword_cutlass");

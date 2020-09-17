@@ -18,6 +18,8 @@ public class Mcdw implements ModInitializer {
             new Identifier(MOD_ID, "weapons"),
             () -> new ItemStack(Swords.SWORD_HEARTSTEALER));
 
+
+
     @Override
     public void onInitialize() {
 

@@ -1,0 +1,56 @@
+{
+  "itemGroup.mcdw.weapons": "Armas de Minecraft Dungeons",
+
+  "item.mcdw.axe": "Hacha",
+  "item.mcdw.axe_cursed": "Hacha Maldita",
+  "item.mcdw.axe_double": "Hacha Doble",
+  "item.mcdw.axe_highland": "Hacha de las Tierras Altas",
+  "item.mcdw.axe_whirlwind": "Torbellino",
+  "item.mcdw.axe_firebrand": "Hacha de Fuego",
+
+  "item.mcdw.dagger_dagger": "Puñal",
+  "item.mcdw.dagger_fangs_of_frost": "Colmillos de Escarcha",
+  "item.mcdw.dagger_moon": "Puñal de Luna",
+  "item.mcdw.dagger_soul_knife": "Cuchillo de Ánima",
+  "item.mcdw.dagger_eternal_knife": "Cuchillo Eterno",
+
+  "item.mcdw.hammer_flail": "Mangual",
+  "item.mcdw.hammer_gravity": "Martillo de Gravedad",
+  "item.mcdw.hammer_great": "Gran Martillo",
+  "item.mcdw.hammer_stormlander": "Martillo de Trueno",
+  "item.mcdw.hammer_suns_grace": "Gracia del Sol",
+
+  "item.mcdw.pick_diamond_pickaxe_var": "Pico de Diamante",
+
+  "item.mcdw.sickle_sickle": "Hoz",
+  "item.mcdw.sickle_nightmares_bite": "Mordisco de la Pesadilla",
+  "item.mcdw.sickle_last_laugh_gold": "La Última Risa",
+  "item.mcdw.sickle_last_laugh_silver": "La Última Risa",
+  "item.mcdw.sickle_frost_scythe": "Guadaña de Escarcha",
+  "item.mcdw.sickle_jailors_scythe": "Guadaña del Carcelero",
+  "item.mcdw.sickle_soul_scythe": "Guadaña de Ánima",
+
+  "item.mcdw.spear_spear": "Lanza",
+  "item.mcdw.spear_fortune": "Lanza de la Fortuna",
+  "item.mcdw.spear_whispering_spear": "Lanza Susurrante",
+  "item.mcdw.spear_glaive": "Guja",
+  "item.mcdw.spear_grave_bane": "Asesino de Tumbas",
+  "item.mcdw.spear_venom_glaive": "Guja Tóxica",
+
+  "item.mcdw.sword_iron_sword_var": "Espada de Hierro",
+  "item.mcdw.sword_diamond_sword_var": "Espada de Diamante",
+  "item.mcdw.sword_rapier": "Estoque",
+  "item.mcdw.sword_beestinger": "Aguijón de Abeja",
+  "item.mcdw.sword_freezing_foil": "Florete de Congelación",
+  "item.mcdw.sword_hawkbrand": "Espada de Águila",
+  "item.mcdw.sword_broadsword": "Gran Espada",
+  "item.mcdw.sword_claymore": "Claymore",
+  "item.mcdw.sword_heartstealer": "Robacorazones",
+  "item.mcdw.sword_cutlass": "Machete",
+  "item.mcdw.sword_dancers_sword": "Espada de Bailarina",
+  "item.mcdw.sword_nameless_blade": "Hoja sin Nombre",
+  "item.mcdw.sword_katana": "Katana",
+  "item.mcdw.sword_masters_katana": "Katana del Maestro",
+  "item.mcdw.sword_dark_katana": "Katana Oscura",
+  "item.mcdw.sword_truthseeker": "Buscador de la Verdad"
+}
