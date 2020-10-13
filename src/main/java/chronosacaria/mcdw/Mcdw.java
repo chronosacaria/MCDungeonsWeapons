@@ -8,6 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
 import chronosacaria.mcdw.weapons.*;
+import chronosacaria.mcdw.entity.McdwEntities;
+
 
 
 public class Mcdw implements ModInitializer {
@@ -17,8 +19,9 @@ public class Mcdw implements ModInitializer {
     public static final ItemGroup WEAPONS = FabricItemGroupBuilder.build(
             new Identifier(MOD_ID, "weapons"),
             () -> new ItemStack(Swords.SWORD_HEARTSTEALER));
-
-
+    public static final ItemGroup RANGED = FabricItemGroupBuilder.build(
+            new Identifier(MOD_ID, "weapons/bows"),
+            () -> new ItemStack(Bows.BOW_LONGBOW));
 
     @Override
     public void onInitialize() {
@@ -28,7 +31,16 @@ public class Mcdw implements ModInitializer {
         Hammers.init();
         Picks.init();
         Sickles.init();
-        Spears.init();
+        Longs.init();
         Swords.init();
+        Bows.init();
     }
+
+    public static void register(){
+        McdwEntities.register();
+    }
+
+    /*public static void registerServerboundPackets(){
+        ServerSidePacketRegistry.INSTANCE.register(C2SRotateHeldItem.ID, C2SRotateHeldItem::onPacket);
+    }*/
 }

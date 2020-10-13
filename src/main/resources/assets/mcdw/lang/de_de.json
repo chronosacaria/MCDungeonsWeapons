@@ -1,5 +1,9 @@
 {
-  "itemGroup.mcdw.weapons": "Minecraft Dungeons Waffen",
+  "itemGroup.mcdw.weapons": "MC Dungeons Waffen (Nahkampf)",
+  "itemGroup.mcdw.weapons/bows": "MC Dungeons Weapons (Abstandkampf)",
+
+  "attribute.name.generic.reach-entity-attributes.reach": "Reichweite",
+  "attribute.name.generic.reach-entity-attributes.attack_range": "TTreffer Reichweite",
 
   "item.mcdw.axe": "Axt",
   "item.mcdw.axe_cursed": "Verfluchte Axt",
@@ -7,6 +11,27 @@
   "item.mcdw.axe_highland": "Hochlandaxt",
   "item.mcdw.axe_whirlwind": "Wirbelwind",
   "item.mcdw.axe_firebrand": "Feuerbrand",
+
+  "item.mcdw.bow_bonebow": "Knochenbogen",
+  "item.mcdw.bow_twin_bow": "Zwillingsbogen",
+  "item.mcdw.bow_longbow": "Langbogen",
+  "item.mcdw.bow_red_snake": "Rote Schlange",
+  "item.mcdw.bow_guardian_bow": "Wächterbogen",
+  "item.mcdw.bow_shortbow": "Kurzbogen",
+  "item.mcdw.bow_mechanical_shortbow": "Mechanischer Kurzbogen",
+  "item.mcdw.bow_purple_storm": "Violetter Sturm",
+  "item.mcdw.bow_trickbow": "Trickbogen",
+  "item.mcdw.bow_green_menace": "Die Grüne Bedrohung",
+  "item.mcdw.bow_pink_scoundrel": "Der Pinke Halunke",
+  "item.mcdw.bow_power_bow": "Kraftbogen",
+  "item.mcdw.bow_elite_power_bow": "Elitärer Kraftbogen",
+  "item.mcdw.bow_hunting_bow": "Jagdbogen",
+  "item.mcdw.bow_sabrewing": "Sabrewing",
+  "item.mcdw.bow_masters_bow": "Meisterbogen",
+  "item.mcdw.bow_hunters_promise": "Jägerbogen",
+  "item.mcdw.bow_soul_bow": "Seelenbogen",
+  "item.mcdw.bow_nocturnal_bow": "Nachtbogen",
+  "item.mcdw.bow_lost_souls": "Bogen der Verlorenen Seelen",
 
   "item.mcdw.dagger_dagger": "Dolch",
   "item.mcdw.dagger_fangs_of_frost": "Reißzähne des Frosts",
@@ -36,6 +61,10 @@
   "item.mcdw.spear_glaive": "Glefe",
   "item.mcdw.spear_grave_bane": "Grabesfluch",
   "item.mcdw.spear_venom_glaive": "Toxingleve",
+
+  "item.mcdw.staff_battlestaff": "Kampfstab",
+  "item.mcdw.staff_battlestaff_of_terror": "Kampfstab des Terrors",
+  "item.mcdw.staff_growing_staff": "Wachturmstab",
 
   "item.mcdw.sword_iron_sword_var": "Eisenschwert",
   "item.mcdw.sword_diamond_sword_var": "Diamantschwert",

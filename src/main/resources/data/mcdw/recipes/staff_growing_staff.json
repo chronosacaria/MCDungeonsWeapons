@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " NI",
+    "NSN",
+    "IN "
+  ],
+  "key": {
+    "S": {
+      "item": "mcdw:staff_battlestaff"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "item": "mcdw:staff_growing_staff",
+    "count": 1
+  }
+}

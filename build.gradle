@@ -10,6 +10,12 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+repositories {
+    mavenLocal()
+    maven {
+        url "https://maven.jamieswhiteshirt.com/libs-release/"
+    }
+}
 dependencies {
     //to change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -19,8 +25,9 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
-    // You may need to force-disable transitiveness on them.
+    // Jamie White Shirt Reach
+    modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
+    include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
 }
 
 processResources {

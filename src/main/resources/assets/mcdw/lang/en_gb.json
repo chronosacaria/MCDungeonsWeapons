@@ -1,5 +1,10 @@
 {
-  "itemGroup.mcdw.weapons": "Minecraft Dungeons Weapons",
+  "itemGroup.mcdw.weapons": "MC Dungeons Weapons (Melee)",
+  "itemGroup.mcdw.weapons/bows": "MC Dungeons Weapons (Ranged)",
+
+  "attribute.name.generic.reach-entity-attributes.reach": "Reach",
+  "attribute.name.generic.reach-entity-attributes.attack_range": "Attack Range",
+
 
   "item.mcdw.axe": "Axe",
   "item.mcdw.axe_cursed": "Cursed Axe",
@@ -7,6 +12,27 @@
   "item.mcdw.axe_highland": "Highland Axe",
   "item.mcdw.axe_whirlwind": "Whirlwind",
   "item.mcdw.axe_firebrand": "Firebrand",
+
+  "item.mcdw.bow_bonebow": "Bonebow",
+  "item.mcdw.bow_twin_bow": "Twin Bow",
+  "item.mcdw.bow_longbow": "Longbow",
+  "item.mcdw.bow_red_snake": "Red Snake",
+  "item.mcdw.bow_guardian_bow": "Guardian Bow",
+  "item.mcdw.bow_shortbow": "Shortbow",
+  "item.mcdw.bow_mechanical_shortbow": "Mechanical Shortbow",
+  "item.mcdw.bow_purple_storm": "The Purple Storm",
+  "item.mcdw.bow_trickbow": "Trickbow",
+  "item.mcdw.bow_green_menace": "The Green Menace",
+  "item.mcdw.bow_pink_scoundrel": "The Pink Scoundrel",
+  "item.mcdw.bow_power_bow": "Power Bow",
+  "item.mcdw.bow_elite_power_bow": "Elite Power Bow",
+  "item.mcdw.bow_hunting_bow": "Hunting Bow",
+  "item.mcdw.bow_sabrewing": "Sabrewing",
+  "item.mcdw.bow_masters_bow": "Master's Bow",
+  "item.mcdw.bow_hunters_promise": "Hunter's Promise",
+  "item.mcdw.bow_soul_bow": "Soul Bow",
+  "item.mcdw.bow_nocturnal_bow": "Nocturnal Bow",
+  "item.mcdw.bow_lost_souls": "The Bow of Lost Souls",
 
   "item.mcdw.dagger_dagger": "Dagger",
   "item.mcdw.dagger_fangs_of_frost": "Fangs of Frost",
@@ -36,6 +62,10 @@
   "item.mcdw.spear_glaive": "Glaive",
   "item.mcdw.spear_grave_bane": "Grave Bane",
   "item.mcdw.spear_venom_glaive": "Venom Glaive",
+
+  "item.mcdw.staff_battlestaff": "Battlestaff",
+  "item.mcdw.staff_battlestaff_of_terror": "Battlestaff of Terror",
+  "item.mcdw.staff_growing_staff": "Growing Staff",
 
   "item.mcdw.sword_iron_sword_var": "Iron Sword",
   "item.mcdw.sword_diamond_sword_var": "Diamond Sword",

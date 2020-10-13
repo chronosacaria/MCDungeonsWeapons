@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "chronosacaria.mcdw.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "AccessorItemTags",
+    "MixinEntity"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

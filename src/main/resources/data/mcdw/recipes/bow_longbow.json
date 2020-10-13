@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "//S",
+        "/ S",
+        "//S"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_longbow",
+        "count": 1
+    }
+}

@@ -21,7 +21,9 @@
     ]
   },
   "mixins": [
-
+    "mcdw.mixins.json"
+  ],
+  "client": [
   ],
   "depends": {
     "fabricloader": ">=0.9.3+build.207",
