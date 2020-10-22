@@ -7,7 +7,7 @@
     ],
     "key": {
         "p": {
-            "item": "minecraft:prismarine_shard"
+            "item": "minecraft:redstone"
         },
         "S": {
             "item": "minecraft:string"
@@ -16,14 +16,14 @@
             "item": "minecraft:iron_ingot"
         },
         "P": {
-            "item": "minecraft:prismarine"
+            "item": "minecraft:redstone_block"
         },
         "L": {
             "item": "mcdw:bow_longbow"
         }
     },
     "result": {
-        "item": "mcdw:bow_guardian_bow",
+        "item": "mcdw:bow_red_snake",
         "count": 1
     }
 }
