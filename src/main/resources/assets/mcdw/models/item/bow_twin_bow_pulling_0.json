@@ -1,8 +1,7 @@
 {
-	"credit": "Made with Blockbench",
-	"parent": "item/generated",
+	"parent": "item/bow",
 	"textures": {
-		"layer0": "mcdw:item/bows/twin_bow"
+		"layer0": "mcdw:item/bows/twin_bow_pulling_0"
 	},
 	"display": {
 		"thirdperson_righthand": {
@@ -25,40 +24,9 @@
 			"translation": [3.25, 8.5, 1.25],
 			"scale": [1.36, 1.36, 0.68]
 		},
-		"ground": {
-			"translation": [0, 12, 0],
-			"scale": [2, 2, 1]
-		},
 		"gui": {
 			"translation": [6.75, 7, 0],
 			"scale": [1.7, 1.7, 1]
-		},
-		"fixed": {
-			"translation": [7, 7, 0],
-			"scale": [2, 2, 1]
 		}
-	},
-	"overrides": [
-
-		{
-			"predicate": {
-				"pulling": 1
-			},
-			"model": "mcdw:item/bow_twin_bow_pulling_0"
-		},
-		{
-			"predicate": {
-				"pulling": 1,
-				"pull": 0.65
-			},
-			"model": "mcdw:item/bow_twin_bow_pulling_1"
-		},
-		{
-			"predicate": {
-				"pulling": 1,
-				"pull": 0.9
-			},
-			"model": "mcdw:item/bow_twin_bow_pulling_2"
-		}
-	]
+	}
 }

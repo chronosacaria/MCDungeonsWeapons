@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PIP",
+        "IsS",
+        "PIP"
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:purple_dye"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "s": {
+            "item": "mcdw:bow_shortbow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_purple_storm",
+        "count": 1
+    }
+}

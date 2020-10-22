@@ -37,7 +37,7 @@ public class Swords {
         SWORD_NAMELESS_BLADE = new McdwSword(ToolMaterials.DIAMOND, 2, -1.7F, "sword_nameless_blade");
         SWORD_KATANA = new McdwSword(ToolMaterials.IRON, 2, -1.5F, "sword_katana");
         SWORD_MASTERS_KATANA = new McdwSword(ToolMaterials.DIAMOND, 4, -1.35F, "sword_masters_katana");
-        SWORD_DARK_KATANA = new McdwSword(ToolMaterials.DIAMOND, 5, -1.15F, "sword_dark_katana");
+        SWORD_DARK_KATANA = new McdwSword(ToolMaterials.NETHERITE, 5, -1.15F, "sword_dark_katana");
         SWORD_TRUTHSEEKER = new McdwSword(ToolMaterials.IRON, 5, -1.5F, "sword_truthseeker");
     }
 }

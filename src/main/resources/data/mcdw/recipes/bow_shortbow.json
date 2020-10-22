@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " //",
+        "/IS",
+        " //"
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_shortbow",
+        "count": 1
+    }
+}

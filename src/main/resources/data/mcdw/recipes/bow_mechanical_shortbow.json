@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " IP",
+        "IsS",
+        " IP"
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:piston"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "s": {
+            "item": "mcdw:bow_shortbow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_mechanical_shortbow",
+        "count": 1
+    }
+}

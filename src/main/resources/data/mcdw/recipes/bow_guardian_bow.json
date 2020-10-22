@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "pIS",
+        "PLS",
+        "pIS"
+    ],
+    "key": {
+        "p": {
+            "item": "minecraft:prismarine_shard"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "P": {
+            "item": "minecraft:prismarine"
+        },
+        "L": {
+            "item": "mcdw:bow_longbow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_guardian_bow",
+        "count": 1
+    }
+}

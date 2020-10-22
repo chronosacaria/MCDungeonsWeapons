@@ -27,26 +27,32 @@ public class McdwBow extends BowItem {
 
     private final ToolMaterial material;
     private final float maxDrawTime;
+    private final float maxBowRange;
     private final ParticleEffect type;
 
-    public McdwBow(ToolMaterial material, Settings settings, float maxDrawTime, String id) {
+    public McdwBow(ToolMaterial material, Settings settings, float maxDrawTime, float maxBowRange, String id) {
         super(settings);
         this.material = material;
         this.maxDrawTime = maxDrawTime;
+        this.maxBowRange = maxBowRange;
         type = null;
         Registry.register(Registry.ITEM, new Identifier(Mcdw.MOD_ID, id), this);
     }
 
-    public McdwBow(ToolMaterial material, Settings settings, float maxDrawTime, ParticleEffect particles){
+    public McdwBow(ToolMaterial material, Settings settings, float maxDrawTime, float maxBowRange,
+                   ParticleEffect particles){
         super(settings);
         this.material = material;
         this.maxDrawTime = maxDrawTime;
+        this.maxBowRange = maxBowRange;
         type = particles;
     }
 
     public float getMaxDrawTime(ItemStack bow){
         return (float) Math.max(0, maxDrawTime);
     }
+
+    public float getMaxBowRange(ItemStack bow) {return (float) Math.max(0, maxBowRange); }
 
     public ParticleEffect getArrowParticles(){
         return type;
@@ -76,7 +82,7 @@ public class McdwBow extends BowItem {
                                 itemStack, playerEntity);
 
                         persistentProjectileEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw,
-                                0.0F, f * 3.2F, 1.0F);
+                                0.0F, f * maxBowRange, 1.0F);
                         if (f == 1.0F){
                             persistentProjectileEntity.setCritical(true);
                         }

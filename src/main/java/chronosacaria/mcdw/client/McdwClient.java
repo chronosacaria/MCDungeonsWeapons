@@ -27,8 +27,14 @@ public class McdwClient implements ClientModInitializer {
         //(dispatcher, context) -> new SpearEntityRenderer(dispatcher));
         //}
 
-        //registerBowPredicates(Bows.BOW_BONEBOW);
+        registerBowPredicates(Bows.BOW_BONEBOW);
+        //registerBowPredicates(Bows.BOW_TWIN_BOW);
         registerBowPredicates(Bows.BOW_LONGBOW);
+        registerBowPredicates(Bows.BOW_RED_SNAKE);
+        registerBowPredicates(Bows.BOW_GUARDIAN_BOW);
+        registerBowPredicates(Bows.BOW_SHORTBOW);
+        registerBowPredicates(Bows.BOW_MECHANICAL_SHORTBOW);
+        registerBowPredicates(Bows.BOW_PURPLE_STORM);
     }
     public static void registerBowPredicates(McdwBow bow) {
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,

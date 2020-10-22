@@ -2,30 +2,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "mcdw:item/bows/red_snake"
+		"layer0": "mcdw:item/bows/red_snake_pulling_2"
 	},
-	"overrides": [
-		{
-			"predicate": {
-				"pulling": 1
-			},
-			"model": "mcdw:item/bow_red_snake_pulling_0"
-		},
-		{
-			"predicate": {
-				"pulling": 1,
-				"pull": 0.65
-			},
-			"model": "mcdw:item/bow_red_snake_pulling_1"
-		},
-		{
-			"predicate": {
-				"pulling": 1,
-				"pull": 0.9
-			},
-			"model": "mcdw:item/bow_red_snake_pulling_2"
-		}
-	],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [-80, 260, -40],
@@ -52,12 +30,11 @@
 			"scale": [2, 2, 1]
 		},
 		"gui": {
-			"translation": [5.5, 6.25, 0],
+			"translation": [6.25, 6.25, 0],
 			"scale": [1.7, 1.7, 1]
 		},
 		"fixed": {
-			"rotation": [0, 0, -90],
-			"translation": [7.5, -6.5, -0.25],
+			"translation": [7.5, 7.5, -0.25],
 			"scale": [2, 2, 1]
 		}
 	}

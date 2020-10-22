@@ -9,15 +9,15 @@ import net.minecraft.item.ToolMaterials;
 public class Bows {
 
 
-    //public static McdwBow BOW_BONEBOW;
+    public static McdwBow BOW_BONEBOW;
     //public static McdwBow BOW_TWIN_BOW;
     public static McdwBow BOW_LONGBOW;
-    /*
     public static McdwBow BOW_RED_SNAKE;
     public static McdwBow BOW_GUARDIAN_BOW;
     public static McdwBow BOW_SHORTBOW;
     public static McdwBow BOW_MECHANICAL_SHORTBOW;
     public static McdwBow BOW_PURPLE_STORM;
+    /*
     public static McdwBow BOW_TRICKBOW;
     public static McdwBow BOW_GREEN_MENACE;
     public static McdwBow BOW_PINK_SCOUNDREL;
@@ -33,23 +33,24 @@ public class Bows {
     */
 
     public static void init() {
-        //BOW_BONEBOW = new McdwBow(ToolMaterials.WOOD,
-                //new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, "bow_bonebow");
+        BOW_BONEBOW = new McdwBow(ToolMaterials.WOOD,
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, 3.2F, "bow_bonebow");
         //BOW_TWIN_BOW = new McdwBow(ToolMaterials.WOOD,
-                //new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, "bow_twin_bow");
+                //new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,16.0F, 3.2F, "bow_twin_bow");
         BOW_LONGBOW = new McdwBow(ToolMaterials.WOOD,
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,20.0F, "bow_longbow");
-        /*BOW_RED_SNAKE = new McdwBow(ToolMaterials.WOOD,
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,20.0F, "bow_red_snake");
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,20.0F, 6.4F ,"bow_longbow");
+        BOW_RED_SNAKE = new McdwBow(ToolMaterials.WOOD,
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,30.0F, 6.4F, "bow_red_snake");
         BOW_GUARDIAN_BOW = new McdwBow(ToolMaterials.WOOD,
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,20.0F, "bow_guardian_bow");
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,30.0F, 6.4F, "bow_guardian_bow");
         BOW_SHORTBOW = new McdwBow(ToolMaterials.WOOD,
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,10.0F, "bow_shortbow");
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,8.0F, 2.0F, "bow_shortbow");
         BOW_MECHANICAL_SHORTBOW = new McdwBow(ToolMaterials.WOOD,
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,8.0F, "bow_mechanical_shortbow");
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,8.0F, 2.8F,
+                "bow_mechanical_shortbow");
         BOW_PURPLE_STORM = new McdwBow(ToolMaterials.WOOD,
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,8.0F, "bow_purple_storm");
-        BOW_TRICKBOW = new McdwBow(ToolMaterials.WOOD,
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,8.0F, 2.0F, "bow_purple_storm");
+        /*BOW_TRICKBOW = new McdwBow(ToolMaterials.WOOD,
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, "bow_trickbow");
         BOW_GREEN_MENACE = new McdwBow(ToolMaterials.WOOD,
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, "bow_green_menace");
