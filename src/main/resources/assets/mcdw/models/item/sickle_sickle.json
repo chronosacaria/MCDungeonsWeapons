@@ -1,6 +1,5 @@
 {
-	"credit": "Made with Blockbench",
-	"parent": "item/generated",
+	"parent": "item/handheld",
 	"textures": {
 		"layer0": "mcdw:item/sickle_sickle"
 	},
