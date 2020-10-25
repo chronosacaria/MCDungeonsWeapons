@@ -23,21 +23,17 @@ public class Swords {
     public static McdwSword SWORD_TRUTHSEEKER;
 
     public static void init() {
-        SWORD_IRON_SWORD_VAR = new McdwSword(ToolMaterials.IRON, 3, -2.4F, "sword_iron_sword_var");
-        SWORD_HAWKBRAND = new McdwSword(ToolMaterials.IRON, 5, -2.0F, "sword_hawkbrand");
+        SWORD_CLAYMORE = new McdwSword(ToolMaterials.IRON, 6, -2.4F, "sword_claymore");
         SWORD_BROADSWORD = new McdwSword(ToolMaterials.IRON, 5, -1.4F, "sword_broadsword");
+        SWORD_HEARTSTEALER = new McdwSword(ToolMaterials.DIAMOND, 4, -1.8F, "sword_heartstealer");
+        SWORD_CUTLASS = new McdwSword(ToolMaterials.IRON, 3, -2.1F, "sword_cutlass");
+        SWORD_NAMELESS_BLADE = new McdwSword(ToolMaterials.DIAMOND, 2, -1.7F, "sword_nameless_blade");
+        SWORD_DANCERS_SWORD = new McdwSword(ToolMaterials.IRON, 1, -1F, "sword_dancers_sword");
+        SWORD_IRON_SWORD_VAR = new McdwSword(ToolMaterials.IRON, 3, -2.4F, "sword_iron_sword_var");
+        SWORD_DIAMOND_SWORD = new McdwSword(ToolMaterials.DIAMOND, 3, -2.4F, "sword_diamond_sword_var");
+        SWORD_HAWKBRAND = new McdwSword(ToolMaterials.IRON, 5, -2.0F, "sword_hawkbrand");
         SWORD_RAPIER = new McdwSword(ToolMaterials.IRON,0, -0.9F, "sword_rapier");
         SWORD_BEESTINGER = new McdwSword(ToolMaterials.DIAMOND, 0,-0.9F, "sword_beestinger");
         SWORD_FREEZING_FOIL = new McdwSword(ToolMaterials.DIAMOND, 0,-0.9F, "sword_freezing_foil");
-        SWORD_CLAYMORE = new McdwSword(ToolMaterials.IRON, 6, -2.4F, "sword_claymore");
-        SWORD_HEARTSTEALER = new McdwSword(ToolMaterials.DIAMOND, 4, -1.8F, "sword_heartstealer");
-        SWORD_CUTLASS = new McdwSword(ToolMaterials.IRON, 3, -2.1F, "sword_cutlass");
-        SWORD_DANCERS_SWORD = new McdwSword(ToolMaterials.IRON, 1, -1F, "sword_dancers_sword");
-        SWORD_DIAMOND_SWORD = new McdwSword(ToolMaterials.DIAMOND, 3, -2.4F, "sword_diamond_sword_var");
-        SWORD_NAMELESS_BLADE = new McdwSword(ToolMaterials.DIAMOND, 2, -1.7F, "sword_nameless_blade");
-        SWORD_KATANA = new McdwSword(ToolMaterials.IRON, 2, -1.5F, "sword_katana");
-        SWORD_MASTERS_KATANA = new McdwSword(ToolMaterials.DIAMOND, 4, -1.35F, "sword_masters_katana");
-        SWORD_DARK_KATANA = new McdwSword(ToolMaterials.NETHERITE, 5, -1.15F, "sword_dark_katana");
-        SWORD_TRUTHSEEKER = new McdwSword(ToolMaterials.IRON, 5, -1.5F, "sword_truthseeker");
-    }
+        }
 }

@@ -3,7 +3,7 @@
   "itemGroup.mcdw.weapons/bows": "MC Dungeons Weapons (Ranged)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Reach",
-  "attribute.name.generic.reach-entity-attributes.attack_range": "Attack Range",
+  "attribute.name.generic.reach-entity-attributes.attack_range": "Attack Reach",
 
   "item.mcdw.axe": "Axe",
   "item.mcdw.axe_cursed": "Cursed Axe",
@@ -40,7 +40,7 @@
   "item.mcdw.dagger_eternal_knife": "Eternal Knife",
 
   "item.mcdw.hammer_flail": "Flail",
-  "item.mcdw.hammer_gravity": "Gravity Hammer",
+  "item.mcdw.hammer_gravity": "Hammer of Gravity",
   "item.mcdw.hammer_great": "Great Hammer",
   "item.mcdw.hammer_stormlander": "Stormlander",
   "item.mcdw.hammer_suns_grace": "Sun's Grace",
@@ -66,10 +66,10 @@
   "item.mcdw.staff_battlestaff_of_terror": "Battlestaff of Terror",
   "item.mcdw.staff_growing_staff": "Growing Staff",
 
-  "item.mcdw.sword_iron_sword_var": "Iron Sword",
+  "item.mcdw.sword_iron_sword_var": "Sword",
   "item.mcdw.sword_diamond_sword_var": "Diamond Sword",
   "item.mcdw.sword_rapier": "Rapier",
-  "item.mcdw.sword_beestinger": "Beestinger",
+  "item.mcdw.sword_beestinger": "Bee Stinger",
   "item.mcdw.sword_freezing_foil": "Freezing Foil",
   "item.mcdw.sword_hawkbrand": "Hawkbrand",
   "item.mcdw.sword_broadsword": "Broadsword",

@@ -26,13 +26,18 @@ public class Mcdw implements ModInitializer {
     @Override
     public void onInitialize() {
 
-        Axes.init();
+
+        Swords.init();
         Daggers.init();
+        Longs.init();
+        Katanas.init();
+        Scythes.init();
+        Sickles.init();
+        Staves.init();
+        Axes.init();
+        DoubleAxes.init();
         Hammers.init();
         Picks.init();
-        Sickles.init();
-        Longs.init();
-        Swords.init();
         Bows.init();
     }
 

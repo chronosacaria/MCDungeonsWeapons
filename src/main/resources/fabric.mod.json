@@ -6,7 +6,8 @@
   "description": "Add the weapons (and some tools) from Minecraft Dungeons to Minecraft Java",
   "authors": [
     "Chronosacaria",
-    "Kai1907"
+    "Kai1907",
+    "SeaOfPixels"
   ],
   "contact": {},
   "license": "MIT",
@@ -28,6 +29,6 @@
   "depends": {
     "fabricloader": ">=0.9.3+build.207",
     "fabric": "*",
-    "minecraft": "1.16.3"
+    "minecraft": "1.16.x"
   }
 }

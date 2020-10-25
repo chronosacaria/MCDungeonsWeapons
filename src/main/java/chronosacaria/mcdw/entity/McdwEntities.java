@@ -3,6 +3,7 @@ package chronosacaria.mcdw.entity;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwLong;
 import chronosacaria.mcdw.weapons.Longs;
+import chronosacaria.mcdw.weapons.Staves;
 import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -31,9 +32,12 @@ public class McdwEntities {
 
 
     //BATTLESTAVES
-    public static final EntityType<SpearEntity> STAFF_BATTLESTAFF = add("staff_battlestaff", createSpear(Longs.STAFF_BATTLESTAFF));
-    public static final EntityType<SpearEntity> STAFF_BATTLESTAFF_OF_TERROR = add("staff_battlestaff_of_terror", createSpear(Longs.STAFF_BATTLESTAFF_OF_TERROR));
-    public static final EntityType<SpearEntity> STAFF_GROWING_STAFF = add("staff_growing_staff", createSpear(Longs.STAFF_GROWING_STAFF));
+    public static final EntityType<SpearEntity> STAFF_BATTLESTAFF = add("staff_battlestaff",
+            createSpear(Staves.STAFF_BATTLESTAFF));
+    public static final EntityType<SpearEntity> STAFF_BATTLESTAFF_OF_TERROR = add("staff_battlestaff_of_terror",
+            createSpear(Staves.STAFF_BATTLESTAFF_OF_TERROR));
+    public static final EntityType<SpearEntity> STAFF_GROWING_STAFF = add("staff_growing_staff",
+            createSpear(Staves.STAFF_GROWING_STAFF));
 
     public static void register() {
         for (Identifier id : ENTITY_TYPES.keySet()) {

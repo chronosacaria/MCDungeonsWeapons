@@ -1,43 +1,49 @@
 {
-	"credit": "Made with Blockbench",
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "mcdw:item/staff_battlestaff"
-	},
-	"gui_light": "front",
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, 90, 45],
-			"translation": [0, 8.5, 2.25],
-			"scale": [2, 2, 1]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [68, -180, 0],
-			"translation": [2, -3.25, 13.5],
-			"scale": [2, 2, 1]
-		},
-		"firstperson_righthand": {
-			"rotation": [-20, 72, 30],
-			"translation": [2.5, 7.5, 0],
-			"scale": [1.36, 1.36, 0.68]
-		},
-		"firstperson_lefthand": {
-			"rotation": [-8, -109, -30],
-			"translation": [1, 7, 1.75],
-			"scale": [1.36, 1.36, 0.68]
-		},
-		"ground": {
-			"translation": [0, 12, 0],
-			"scale": [2, 2, 1]
-		},
-		"gui": {
-			"translation": [4.75, 4.75, 0],
-			"scale": [1.5, 1.5, 1.5]
-		},
-		"fixed": {
-			"rotation": [0, 180, 0],
-			"translation": [-5.25, 5.25, -0.5],
-			"scale": [1.7, 1.7, 1.7]
-		}
-	}
+  "credit": "Made by SeaOfPixels",
+  "parent": "item/generated",
+  "textures": {
+	  "layer0": "mcdw:item/staff_battlestaff"
+  },
+  "gui_light": "front",
+  "display": {
+    "gui": {
+      "rotation": [ 0, 0, 0 ],
+      "translation": [ 3.75, 3.75, 0 ],
+      "scale":[ 1.5, 1.5, 1 ]
+    },
+    "ground": {
+      "translation": [ 0, 2, 0 ],
+      "scale": [ 1, 1, 0.5 ]
+    },
+    "head": {
+      "rotation": [ 0, 0, 0 ],
+      "translation": [ 0, 0, 0],
+      "scale":[ 5, 5, 5 ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [ 0, -90, 55 ],
+      "translation": [ 0, 4.0, 0.5 ],
+      "scale": [ 1.70, 1.70, 0.85 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 0, 90, -55 ],
+      "translation": [ 0, 4.0, 0.5 ],
+      "scale": [ 1.70, 1.70, 0.85 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, -90, 25 ],
+      "translation": [ 1.13, 7.0, 1.0 ],
+      "scale": [ 1.36, 1.36, 0.68 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 90, -25 ],
+      "translation": [ 1.13, 7.0, 1.0 ],
+      "scale": [ 1.36, 1.36, 0.68 ]
+    },
+    "fixed": {
+      "rotation": [ 0, 180, 0 ],
+      "translation": [-5.25, 5.25, -0.5],
+      "scale": [ 2, 2, 1 ]
+    }
+  }
 }

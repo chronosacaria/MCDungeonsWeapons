@@ -46,8 +46,8 @@ public class McdwLong extends TridentItem {
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool" +
                 " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Reach", 1.5,
-                EntityAttributeModifier.Operation.ADDITION));
+        //builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Reach", 1.5,
+                //EntityAttributeModifier.Operation.ADDITION));
         builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range", 1.5,
                 EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();

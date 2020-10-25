@@ -1,5 +1,5 @@
 {
-	"credit": "Made with Blockbench",
+	"credit": "Made by SeaOfPixels",
 	"parent": "item/generated",
 	"textures": {
 		"layer0": "mcdw:item/axe_whirlwind"
@@ -7,37 +7,37 @@
 	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [0, 90, 45],
-			"translation": [0.5, 3.5, 1.5],
-			"scale": [2.28, 2.28, 1]
+			"rotation": [0, -90, 55],
+			"translation": [0, 4.0, 0.5],
+			"scale": [1.95, 1.95, 1.10]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [0, -90, -45],
-			"translation": [-0.5, 3.5, 1.5],
-			"scale": [2.28, 2.28, 1]
+			"rotation": [0, 90, -55],
+			"translation": [0, 4.0, 0.5],
+			"scale": [1.95, 1.95, 1.10]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, 92, 25],
-			"translation": [1.25, 5, 0.1],
-			"scale": [2, 2, 0.68]
+			"rotation": [0, -90, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [1.61, 1.61, 0.93]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-18, -74, -36],
-			"translation": [1.5, 4, 1],
-			"scale": [1.5, 1.5, 0.68]
+			"rotation": [0, 90, -25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [1.61, 1.61, 0.93]
 		},
 		"ground": {
-			"translation": [0, 5, 0],
-			"scale": [2, 2, 1]
+			"translation": [0, 2, 0],
+			"scale": [1.25, 1.25, 0.75]
 		},
 		"gui": {
-			"translation": [0.25, -0.25, 0],
-			"scale": [1.67, 1.67, 0.9]
+			"translation": [-0.5, -0.5, 0],
+			"scale": [1.80, 1.80, 1]
 		},
 		"fixed": {
-			"rotation": [0, -180, 0],
-			"translation": [-0.5, -0.5, -0.75],
-			"scale": [2, 2, 1]
+			"rotation": [0, 180, 0],
+			"translation": [2.25, 2.25, 1.25],
+			"scale": [2.25, 2.25, 1.25]
 		}
 	}
 }
