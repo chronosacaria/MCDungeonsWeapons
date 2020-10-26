@@ -1,8 +1,19 @@
 {
+	"credit": "Made with Blockbench",
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "mcdw:item/sword_iron_sword_var",
-		"particle": "mcdw:item/sword_iron_sword_var"
+		"particle": "mcdw:item/sword_iron_sword_var",
+		"layer0": "mcdw:item/sword_iron_sword_var"
 	},
-	"gui_light": "front"
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 90, 55],
+			"translation": [0, 4.75, 2.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -40],
+			"translation": [0, 4.75, 2.5]
+		}
+	}
 }
