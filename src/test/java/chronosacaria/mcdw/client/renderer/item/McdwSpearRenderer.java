@@ -1,7 +1,7 @@
 /*
 package chronosacaria.mcdw.client.renderer.item;
 
-import chronosacaria.mcdw.bases.McdwLong;
+import chronosacaria.mcdw.bases.McdwSpear;
 import chronosacaria.mcdw.client.model.entity.SpearEntityModel;
 import chronosacaria.mcdw.client.renderer.entity.SpearEntityRenderer;
 import net.minecraft.client.render.VertexConsumer;
@@ -40,7 +40,7 @@ public enum McdwSpearRenderer {
         matrices.scale(2.0F, -2.0F, -2.0F);
         VertexConsumer spear = ItemRenderer.getArmorVertexConsumer(
                 vertexConsumers,
-                this.spearEntityModel.getLayer(SpearEntityRenderer.getTexture(((McdwLong)stack.getItem()).getType())),
+                this.spearEntityModel.getLayer(SpearEntityRenderer.getTexture(((McdwSpear)stack.getItem()).getType())),
                 false,
                 stack.hasGlint()
         );

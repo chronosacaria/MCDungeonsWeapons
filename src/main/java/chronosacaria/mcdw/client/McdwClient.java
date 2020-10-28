@@ -35,6 +35,7 @@ public class McdwClient implements ClientModInitializer {
         registerBowPredicates(Bows.BOW_SHORTBOW);
         registerBowPredicates(Bows.BOW_MECHANICAL_SHORTBOW);
         registerBowPredicates(Bows.BOW_PURPLE_STORM);
+        registerBowPredicates(Bows.BOW_HAUNTED_BOW);
     }
     public static void registerBowPredicates(McdwBow bow) {
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,

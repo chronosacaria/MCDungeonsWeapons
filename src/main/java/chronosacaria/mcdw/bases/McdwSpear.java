@@ -1,6 +1,6 @@
 package chronosacaria.mcdw.bases;
 
-import chronosacaria.mcdw.entity.SpearEntity;
+//import chronosacaria.mcdw.entity.SpearEntity;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -26,21 +26,24 @@ import net.minecraft.world.World;
 
 import java.util.function.Supplier;
 
-public class McdwLong extends TridentItem {
+public class McdwSpear extends AxeItem {
 
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     private final ToolMaterial material;
     private final float attackDamage;
-    private final Supplier<EntityType<SpearEntity>> typeSupplier;
-    private EntityType<SpearEntity> cachedType = null;
+    //private final Supplier<EntityType<SpearEntity>> typeSupplier;
+    //private EntityType<SpearEntity> cachedType = null;
 
-    public McdwLong(ToolMaterial material, float attackDamage, float attackSpeed,
-                    Supplier<EntityType<SpearEntity>> typeSupplier, String id) {
-        super(new Item.Settings().group(Mcdw.WEAPONS));
+    public McdwSpear(ToolMaterial material,
+                    int attackDamage,
+                    float attackSpeed,
+                    //Supplier<EntityType<SpearEntity>> typeSupplier,
+                    String id) {
+        super(material, attackDamage, attackSpeed, new Item.Settings().group(Mcdw.WEAPONS));
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
-        this.typeSupplier = typeSupplier;
+        //this.typeSupplier = typeSupplier;
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID,
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
@@ -48,18 +51,18 @@ public class McdwLong extends TridentItem {
                 " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         //builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Reach", 1.5,
                 //EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range", 1.5,
+        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range", 1.0,
                 EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
         Registry.register(Registry.ITEM, new Identifier(Mcdw.MOD_ID, id), this);
     }
 
-    public EntityType<SpearEntity> getType(){
+    /*public EntityType<SpearEntity> getType(){
         if (cachedType == null){
             cachedType = typeSupplier.get();
         }
         return cachedType;
-    }
+    }*/
 
     public ToolMaterial getMaterial() {
         return this.material;

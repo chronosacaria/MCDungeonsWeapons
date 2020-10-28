@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
-//import chronosacaria.mcdw.entity.SpearEntity;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -9,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -19,16 +17,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.TridentItem;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-import java.util.function.Supplier;
-
-public class McdwStaff extends AxeItem {
+public class McdwWhip extends AxeItem {
 
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
@@ -37,11 +32,11 @@ public class McdwStaff extends AxeItem {
     //private final Supplier<EntityType<SpearEntity>> typeSupplier;
     //private EntityType<SpearEntity> cachedType = null;
 
-    public McdwStaff(ToolMaterial material,
-                     float attackDamage,
-                     float attackSpeed,
-                     //Supplier<EntityType<SpearEntity>> typeSupplier,
-                     String id) {
+    public McdwWhip(ToolMaterial material,
+                    float attackDamage,
+                    float attackSpeed,
+                    //Supplier<EntityType<SpearEntity>> typeSupplier,
+                    String id) {
         super(material, attackDamage, attackSpeed, new Settings().group(Mcdw.WEAPONS));
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
@@ -53,7 +48,7 @@ public class McdwStaff extends AxeItem {
                 " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         //builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Reach", 1.5,
                 //EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range", 0.75,
+        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range", 1.5,
                 EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
         Registry.register(Registry.ITEM, new Identifier(Mcdw.MOD_ID, id), this);

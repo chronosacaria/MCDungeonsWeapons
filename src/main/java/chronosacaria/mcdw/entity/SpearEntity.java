@@ -1,7 +1,8 @@
-package chronosacaria.mcdw.entity;
+/*package chronosacaria.mcdw.entity;
 
-import chronosacaria.mcdw.bases.McdwLong;
+import chronosacaria.mcdw.bases.McdwSpear;
 
+import chronosacaria.mcdw.bases.McdwStaff;
 import chronosacaria.mcdw.network.S2CEntitySpawnPacket;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -37,12 +38,12 @@ public class SpearEntity extends PersistentProjectileEntity {
     private ItemStack spearStack;
     private final Set<UUID> piercedEntities = new HashSet<>();
 
-    public SpearEntity(EntityType<? extends SpearEntity> entityType, World world, McdwLong item){
+    public SpearEntity(EntityType<? extends SpearEntity> entityType, World world, McdwSpear item){
         super(entityType, world);
         this.spearStack = new ItemStack(item);
     }
 
-    public SpearEntity(World world, LivingEntity owner, McdwLong item, ItemStack stack){
+    public SpearEntity(World world, LivingEntity owner, McdwSpear item, ItemStack stack){
         super(item.getType(), owner, world);
         this.spearStack = new ItemStack(item);
         this.spearStack = stack.copy();
@@ -50,7 +51,7 @@ public class SpearEntity extends PersistentProjectileEntity {
     }
 
     @Environment(EnvType.CLIENT)
-    public SpearEntity(World world, double x, double y, double z, McdwLong item) {
+    public SpearEntity(World world, double x, double y, double z, McdwSpear item) {
         super(item.getType(), x, y, z, world);
         this.spearStack = new ItemStack(item);
     }
@@ -84,13 +85,15 @@ public class SpearEntity extends PersistentProjectileEntity {
             return;
         }
         this.piercedEntities.add(hitEntity.getUuid());
-        float damage = ((McdwLong) this.spearStack.getItem()).getAttackDamage() * 2;
+        float damage = ((McdwSpear) this.spearStack.getItem()).getAttackDamage() * 2;
         if (hitEntity instanceof LivingEntity){
             int impalingLevel = EnchantmentHelper.getLevel(Enchantments.IMPALING, this.spearStack);
             if (impalingLevel > 0) {
                 damage += impalingLevel * 1.5F;
             }
         }
+
+
 
         Entity owner = this.getOwner();
         DamageSource damageSource = createSpearDamageSource(this, owner == null ? this : owner);
@@ -184,4 +187,4 @@ public class SpearEntity extends PersistentProjectileEntity {
     public static DamageSource createSpearDamageSource(Entity spear, Entity owner){
         return new ProjectileDamageSource("spear", spear, owner).setProjectile();
     }
-}
+}*/

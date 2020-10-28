@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "mcdw:item/bows/guardian_bow"
+		"layer0": "mcdw:item/bows/haunted_bow"
 	},
 	"gui_light": "front",
 	"overrides": [
@@ -10,21 +10,21 @@
 			"predicate": {
 				"pulling": 1
 			},
-			"model": "mcdw:item/bow_guardian_bow_pulling_0"
+			"model": "mcdw:item/bow_haunted_bow_pulling_0"
 		},
 		{
 			"predicate": {
 				"pulling": 1,
 				"pull": 0.65
 			},
-			"model": "mcdw:item/bow_guardian_bow_pulling_1"
+			"model": "mcdw:item/bow_haunted_bow_pulling_1"
 		},
 		{
 			"predicate": {
 				"pulling": 1,
 				"pull": 0.9
 			},
-			"model": "mcdw:item/bow_guardian_bow_pulling_2"
+			"model": "mcdw:item/bow_haunted_bow_pulling_2"
 		}
 	],
 	"display": {
@@ -35,7 +35,7 @@
 		},
 		"thirdperson_lefthand": {
 			"rotation": [-80, -280, 40],
-			"translation": [-0.75, -2, 2.5],
+			"translation": [1, -2, 2.5],
 			"scale": [1.8, 1.8, 0.9]
 		},
 		"firstperson_righthand": {
@@ -53,13 +53,13 @@
 			"scale": [1, 1, 0.5]
 		},
 		"gui": {
-			"translation": [0.25, 0.5, 0],
-			"scale": [1.5, 1.5, 1]
+			"translation": [-0.25, 0.5, 0],
+			"scale": [1.4, 1.4, 1]
 		},
 		"fixed": {
-			"rotation": [0, 180, 0],
-			"translation": [0, 0, -0.25],
-			"scale": [1.9, 1.9, 1]
+			"rotation": [0, -180, 0],
+			"translation": [0.5, 0.5, -0.25],
+			"scale": [1.8, 1.8, 1]
 		}
 	}
 }
