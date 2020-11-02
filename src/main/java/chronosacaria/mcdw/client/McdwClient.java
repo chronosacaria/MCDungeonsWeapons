@@ -8,7 +8,7 @@ import chronosacaria.mcdw.weapons.Bows;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-//import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.util.Identifier;
@@ -22,19 +22,19 @@ public class McdwClient implements ClientModInitializer {
         registerClientboundPackets();
 
 
-        //private static void registerEntityRenderers(){
-        //EntityRendererRegistry.INSTANCE.register(McdwEntities.SPEAR_SPEAR,
-        //(dispatcher, context) -> new SpearEntityRenderer(dispatcher));
-        //}
+        /*private static void registerEntityRenderers(){
+        EntityRendererRegistry.INSTANCE.register(McdwEntities.SPEAR_SPEAR,
+        (dispatcher, context) -> new SpearEntityRenderer(dispatcher));
+        }*/
 
         registerBowPredicates(Bows.BOW_BONEBOW);
         //registerBowPredicates(Bows.BOW_TWIN_BOW);
         registerBowPredicates(Bows.BOW_LONGBOW);
         registerBowPredicates(Bows.BOW_RED_SNAKE);
         registerBowPredicates(Bows.BOW_GUARDIAN_BOW);
-        //registerBowPredicates(Bows.BOW_SHORTBOW);
-        //registerBowPredicates(Bows.BOW_MECHANICAL_SHORTBOW);
-        //registerBowPredicates(Bows.BOW_PURPLE_STORM);
+        registerBowPredicates(Bows.BOW_SHORTBOW);
+        registerBowPredicates(Bows.BOW_MECHANICAL_SHORTBOW);
+        registerBowPredicates(Bows.BOW_PURPLE_STORM);
         registerBowPredicates(Bows.BOW_HAUNTED_BOW);
     }
     public static void registerBowPredicates(McdwBow bow) {
