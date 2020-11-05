@@ -33,12 +33,19 @@
   "item.mcdw.bow_nocturnal_bow": "光灵弓",
   "item.mcdw.bow_lost_souls": "失魂之弓",
   "item.mcdw.bow_haunted_bow": "鬼魅弓",
+  "item.mcdw.bow_love_spell_bow": "魅力弓",
+  "item.mcdw.bow_ancient_bow": "古代弓",
+  "item.mcdw.bow_snow_bow": "雪弓",
+  "item.mcdw.bow_winters_touch": "冬天的触摸",
 
   "item.mcdw.dagger_dagger": "匕首",
   "item.mcdw.dagger_fangs_of_frost": "寒霜獠牙",
   "item.mcdw.dagger_moon": "月之匕首",
   "item.mcdw.dagger_soul_knife": "灵魂之刃",
   "item.mcdw.dagger_eternal_knife": "永恒之刃",
+  "item.mcdw.dagger_chill_gale_knife": "冷大风之刃",
+  "item.mcdw.dagger_resolute_tempest_knife": "坚毅的暴风雨刀",
+  "item.mcdw.dagger_sheer_dagger": "剪刀匕首",
 
   "item.mcdw.hammer_flail": "链锤",
   "item.mcdw.hammer_gravity": "引力之锤",
@@ -76,11 +83,16 @@
   "item.mcdw.sword_broadsword": "大剑",
   "item.mcdw.sword_claymore": "阔剑",
   "item.mcdw.sword_heartstealer": "窃心者",
+  "item.mcdw.sword_great_axeblade": "大斧头剑",
   "item.mcdw.sword_cutlass": "弯刀",
   "item.mcdw.sword_dancers_sword": "舞者之剑",
   "item.mcdw.sword_nameless_blade": "无名之刃",
   "item.mcdw.sword_katana": "武士刀",
   "item.mcdw.sword_masters_katana": "大师的武士刀",
   "item.mcdw.sword_dark_katana": "暗黑武士刀",
-  "item.mcdw.sword_truthseeker": "求真者"
+  "item.mcdw.sword_truthseeker": "求真者",
+  "item.mcdw.sword_sinister_sword": "邪恶之剑",
+
+  "item.mcdw.whip_whip": "鞭子",
+  "item.mcdw.whip_vine_whip": "藤蔓长鞭"
 }

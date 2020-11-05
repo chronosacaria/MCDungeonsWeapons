@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "BBs",
+        "WSG",
+        "BBs"
+    ],
+    "key": {
+        "s": {
+            "item": "minecraft:string"
+        },
+        "B": {
+            "item": "minecraft:bone_block"
+        },
+        "S": {
+            "item": "mcdw:bow_soul_bow"
+        },
+        "G": {
+            "item": "ghast_tear"
+        },
+        "W": {
+            "item": "wither_skeleton_skull"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_lost_souls",
+        "count": 1
+    }
+}

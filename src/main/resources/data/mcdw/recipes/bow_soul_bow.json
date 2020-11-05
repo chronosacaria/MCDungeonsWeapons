@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ISs",
+        "IBs",
+        "ISs"
+    ],
+    "key": {
+        "s": {
+            "item": "minecraft:string"
+        },
+        "n": {
+            "item": "minecraft:iron_nugget"
+        },
+        "B": {
+            "item": "minecraft:bow"
+        },
+        "S": {
+            "item": "minecraft:soul_sand"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_soul_bow",
+        "count": 1
+    }
+}

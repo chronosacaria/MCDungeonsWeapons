@@ -29,13 +29,39 @@ public class McdwClient implements ClientModInitializer {
 
         registerBowPredicates(Bows.BOW_BONEBOW);
         //registerBowPredicates(Bows.BOW_TWIN_BOW);
+        registerBowPredicates(Bows.BOW_HAUNTED_BOW);
+
         registerBowPredicates(Bows.BOW_LONGBOW);
         registerBowPredicates(Bows.BOW_RED_SNAKE);
         registerBowPredicates(Bows.BOW_GUARDIAN_BOW);
+
         registerBowPredicates(Bows.BOW_SHORTBOW);
         registerBowPredicates(Bows.BOW_MECHANICAL_SHORTBOW);
         registerBowPredicates(Bows.BOW_PURPLE_STORM);
-        registerBowPredicates(Bows.BOW_HAUNTED_BOW);
+        registerBowPredicates(Bows.BOW_LOVE_SPELL_BOW);
+
+        registerBowPredicates(Bows.BOW_TRICKBOW);
+        registerBowPredicates(Bows.BOW_GREEN_MENACE);
+        registerBowPredicates(Bows.BOW_PINK_SCOUNDREL);
+
+        registerBowPredicates(Bows.BOW_POWER_BOW);
+        registerBowPredicates(Bows.BOW_ELITE_POWER_BOW);
+        registerBowPredicates(Bows.BOW_SABREWING);
+
+        registerBowPredicates(Bows.BOW_HUNTING_BOW);
+        registerBowPredicates(Bows.BOW_MASTERS_BOW);
+        registerBowPredicates(Bows.BOW_HUNTERS_PROMISE);
+        registerBowPredicates(Bows.BOW_ANCIENT_BOW);
+
+        registerBowPredicates(Bows.BOW_SOUL_BOW);
+        registerBowPredicates(Bows.BOW_NOCTURNAL_BOW);
+        registerBowPredicates(Bows.BOW_LOST_SOULS);
+
+        //registerBowPredicates(Bows.BOW_WIND_BOW);
+        //registerBowPredicates(Bows.BOW_ECHO_OF_THE_VALLEY);
+
+        //registerBowPredicates(Bows.BOW_SNOW_BOW);
+        //registerBowPredicates(Bows.BOW_WINTERS_TOUCH);
     }
     public static void registerBowPredicates(McdwBow bow) {
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,

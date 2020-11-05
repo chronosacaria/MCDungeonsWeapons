@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "RMS",
+        "PTS",
+        "GMS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "R": {
+            "item": "minecraft:redstone_block"
+        },
+        "P": {
+            "item": "minecraft:pink_dye"
+        },
+        "M": {
+            "item": "minecraft:magenta_dye"
+        },
+        "T": {
+            "item": "mcdw:bow_trickbow"
+        },
+        "G": {
+            "item": "minecraft:gunpowder"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_pink_scoundrel",
+        "count": 1
+    }
+}

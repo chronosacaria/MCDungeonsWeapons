@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ISs",
+        "IBG",
+        "ISs"
+    ],
+    "key": {
+        "s": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "B": {
+            "item": "mcdw:bow_soul_bow"
+        },
+        "S": {
+            "item": "minecraft:soul_soil"
+        },
+        "G": {
+            "item": "ghast_tear"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_nocturnal_bow",
+        "count": 1
+    }
+}

@@ -33,12 +33,19 @@
   "item.mcdw.bow_nocturnal_bow": "Nachtbogen",
   "item.mcdw.bow_lost_souls": "Bogen der Verlorenen Seelen",
   "item.mcdw.bow_haunted_bow": "Spukbogen",
+  "item.mcdw.bow_love_spell_bow": "Bezaubernder Bogen",
+  "item.mcdw.bow_ancient_bow": "Antiker Bogen",
+  "item.mcdw.bow_snow_bow": "Schnee Bogen",
+  "item.mcdw.bow_winters_touch": "Berührung des Winters",
 
   "item.mcdw.dagger_dagger": "Dolch",
   "item.mcdw.dagger_fangs_of_frost": "Reißzähne des Frosts",
   "item.mcdw.dagger_moon": "Monddolch",
   "item.mcdw.dagger_soul_knife": "Seelenmesser",
   "item.mcdw.dagger_eternal_knife": "Ewiges Messer",
+  "item.mcdw.dagger_chill_gale_knife": "Kalte Böe",
+  "item.mcdw.dagger_resolute_tempest_knife": "Entschlossen Sturmdolch",
+  "item.mcdw.dagger_sheer_dagger": "Scherendolch",
 
   "item.mcdw.hammer_flail": "Dreschflegel",
   "item.mcdw.hammer_gravity": "Hammer der Schwerkraft",
@@ -76,11 +83,16 @@
   "item.mcdw.sword_broadsword": "Breitschwert",
   "item.mcdw.sword_claymore": "Claymore",
   "item.mcdw.sword_heartstealer": "Herzdieb",
+  "item.mcdw.sword_great_axeblade": "Axtklinge",
   "item.mcdw.sword_cutlass": "Entersäbel",
   "item.mcdw.sword_dancers_sword": "Tänzerschwert",
   "item.mcdw.sword_nameless_blade": "Namenlose Klinge",
   "item.mcdw.sword_katana": "Katana",
   "item.mcdw.sword_masters_katana": "Katana des Meisters",
   "item.mcdw.sword_dark_katana": "Dunkles Katana",
-  "item.mcdw.sword_truthseeker": "Wahrheitssucher"
+  "item.mcdw.sword_truthseeker": "Wahrheitssucher",
+  "item.mcdw.sword_sinister_sword": "Finsteres Schwert",
+
+  "item.mcdw.whip_whip": "Peitsche",
+  "item.mcdw.whip_vine_whip": "Rankenpeitsche"
 }
