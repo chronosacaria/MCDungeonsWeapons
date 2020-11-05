@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "rLF",
+        " BH",
+        "rLH"
+    ],
+    "key": {
+        "H": {
+            "item": "minecraft:honeycomb"
+        },
+        "r": {
+            "item": "minecraft:rabbit_hide"
+        },
+        "B": {
+            "item": "mcdw:bow_hunting_bow"
+        },
+        "L": {
+            "item": "minecraft:leather"
+        },
+        "F": {
+            "item": "minecraft:feather"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_hunters_promise",
+        "count": 1
+    }
+}

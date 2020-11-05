@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "rLS",
+        "LBS",
+        "rLS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "r": {
+            "item": "minecraft:rabbit_hide"
+        },
+        "B": {
+            "item": "mcdw:bow_hunting_bow"
+        },
+        "L": {
+            "item": "minecraft:leather"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_masters_bow",
+        "count": 1
+    }
+}

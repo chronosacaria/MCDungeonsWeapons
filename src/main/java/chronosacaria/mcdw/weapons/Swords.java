@@ -7,7 +7,6 @@ import net.minecraft.item.ToolMaterials;
 public class Swords {
     public static McdwSword SWORD_DIAMOND_SWORD;
     public static McdwSword SWORD_HAWKBRAND;
-    public static McdwSword SWORD_HEARTSTEALER;
     public static McdwSword SWORD_IRON_SWORD_VAR;
 
     public static void init() {

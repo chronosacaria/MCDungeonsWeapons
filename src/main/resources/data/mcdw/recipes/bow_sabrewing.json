@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "DiG",
+        "IPG",
+        "DiG"
+    ],
+    "key": {
+        "D": {
+            "item": "minecraft:dandelion"
+        },
+        "G": {
+            "item": "minecraft:gold_ingot"
+        },
+        "P": {
+            "item": "mcdw:bow_power_bow"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "i": {
+            "item": "minecraft:iron_block"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_sabrewing",
+        "count": 1
+    }
+}

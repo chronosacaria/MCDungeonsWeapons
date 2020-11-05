@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "nLS",
+        " BS",
+        "nLS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "n": {
+            "item": "minecraft:iron_nugget"
+        },
+        "B": {
+            "item": "minecraft:bow"
+        },
+        "L": {
+            "item": "minecraft:leather"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_hunting_bow",
+        "count": 1
+    }
+}

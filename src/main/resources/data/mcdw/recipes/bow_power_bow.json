@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "i/S",
+        "I S",
+        "i/S"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "I": {
+            "item": "minecraft:iron_block"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_power_bow",
+        "count": 1
+    }
+}

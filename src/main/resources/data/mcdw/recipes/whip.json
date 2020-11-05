@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  S",
+        " SS",
+        "/SL"
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:leather"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "S": {
+            "item": "minecraft:string"
+        }
+    },
+    "result": {
+        "item": "mcdw:whip_whip",
+        "count": 1
+    }
+}

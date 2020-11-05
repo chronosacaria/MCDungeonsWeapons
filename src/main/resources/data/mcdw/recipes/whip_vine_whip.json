@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " VS",
+        "VWl",
+        "VSL"
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:leather"
+        },
+        "l": {
+            "item": "minecraft:lilac"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "V": {
+            "item": "minecraft:vine"
+        },
+        "W": {
+            "item": "mcdw:whip_whip"
+        }
+    },
+    "result": {
+        "item": "mcdw:whip_vine_whip",
+        "count": 1
+    }
+}

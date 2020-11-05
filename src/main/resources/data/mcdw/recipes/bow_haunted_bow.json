@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "sIS",
+        "PLS",
+        "NIS"
+    ],
+    "key": {
+        "s": {
+            "item": "minecraft:soul_sand"
+        },
+        "N": {
+            "item": "minecraft:soul_soil"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "P": {
+            "item": "minecraft:diamond"
+        },
+        "L": {
+            "item": "minecraft:bow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_haunted_bow",
+        "count": 1
+    }
+}

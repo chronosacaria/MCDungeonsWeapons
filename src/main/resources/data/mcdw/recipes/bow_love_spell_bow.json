@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PIP",
+        "IsS",
+        "PIP"
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:pink_dye"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:gold_ingot"
+        },
+        "s": {
+            "item": "mcdw:bow_shortbow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_love_spell_bow",
+        "count": 1
+    }
+}

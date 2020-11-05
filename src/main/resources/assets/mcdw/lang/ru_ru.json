@@ -32,13 +32,20 @@
   "item.mcdw.bow_soul_bow": "Лук Душ",
   "item.mcdw.bow_nocturnal_bow": "Сумеречный Лук",
   "item.mcdw.bow_lost_souls": "Лук Потерянных Душ",
-  "item.mcdw.bow_haunted_bow": "",
+  "item.mcdw.bow_haunted_bow": "ПризрачныйЛук ",
+  "item.mcdw.bow_love_spell_bow": "Чарующий Лук",
+  "item.mcdw.bow_ancient_bow": "Древний Лук",
+  "item.mcdw.bow_snow_bow": "Снежный Лук",
+  "item.mcdw.bow_winters_touch": "Прикосновение Зимы",
 
   "item.mcdw.dagger_dagger": "Кинжал",
   "item.mcdw.dagger_fangs_of_frost": "Морозные Клыки",
   "item.mcdw.dagger_moon": "Лунный Кинжал",
   "item.mcdw.dagger_soul_knife": "Духовный Нож",
   "item.mcdw.dagger_eternal_knife": "Вечный Нож",
+  "item.mcdw.dagger_chill_gale_knife": "Кинжал Холодной Нож",
+  "item.mcdw.dagger_resolute_tempest_knife": "Штормовой Кинжал Нож",
+  "item.mcdw.dagger_sheer_dagger": "Ножниц Нож",
 
   "item.mcdw.hammer_flail": "Кистень",
   "item.mcdw.hammer_gravity": "Кувалда Гравитации",
@@ -75,6 +82,7 @@
   "item.mcdw.sword_hawkbrand": "Орлобой",
   "item.mcdw.sword_broadsword": "Палаш",
   "item.mcdw.sword_claymore": "Клеймор",
+  "item.mcdw.sword_great_axeblade": "Топорамеч",
   "item.mcdw.sword_heartstealer": "Похититель Сердец",
   "item.mcdw.sword_cutlass": "Сабля",
   "item.mcdw.sword_dancers_sword": "Меч Танцора",
@@ -82,5 +90,9 @@
   "item.mcdw.sword_katana": "Катана",
   "item.mcdw.sword_masters_katana": "Катана Мастера",
   "item.mcdw.sword_dark_katana": "Тёмная Катана",
-  "item.mcdw.sword_truthseeker": "Искатель Правды"
+  "item.mcdw.sword_truthseeker": "Искатель Правды",
+  "item.mcdw.sword_sinister_sword": "Зловещий Меч",
+
+  "item.mcdw.whip_whip": "Кнут",
+  "item.mcdw.whip_vine_whip": "Кнут Лозы́"
 }

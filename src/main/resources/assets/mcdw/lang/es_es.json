@@ -1,9 +1,9 @@
 {
   "itemGroup.mcdw.weapons": "Armas de MC Dungeons (a Cuerpo)",
-  "itemGroup.mcdw.weapons/bows": "Armas de MC Dungeons (a Distancia)",
+  "itemGroup.mcdw.weapons/bows": "Armas de MC Dungeons (de Distancia)",
 
-  "attribute.name.generic.reach-entity-attributes.reach": "Rango",
-  "attribute.name.generic.reach-entity-attributes.attack_range": "Rango de Golpe",
+  "attribute.name.generic.reach-entity-attributes.reach": "Alcance",
+  "attribute.name.generic.reach-entity-attributes.attack_range": "Alcance de Golpe",
 
   "item.mcdw.axe": "Hacha",
   "item.mcdw.axe_cursed": "Hacha Maldita",
@@ -33,12 +33,19 @@
   "item.mcdw.bow_nocturnal_bow": "Arco Norcurno",
   "item.mcdw.bow_lost_souls": "Arco de las Almas Perdidas",
   "item.mcdw.bow_haunted_bow": "Arco Embrujado",
+  "item.mcdw.bow_love_spell_bow": "Arco Encantador",
+  "item.mcdw.bow_ancient_bow": "Arco Antiguo",
+  "item.mcdw.bow_snow_bow": "Arco de Nieve",
+  "item.mcdw.bow_winters_touch": "Mano de Invierno",
 
   "item.mcdw.dagger_dagger": "Puñal",
   "item.mcdw.dagger_fangs_of_frost": "Colmillos de Escarcha",
   "item.mcdw.dagger_moon": "Puñal de Luna",
   "item.mcdw.dagger_soul_knife": "Cuchillo de Ánima",
   "item.mcdw.dagger_eternal_knife": "Cuchillo Eterno",
+  "item.mcdw.dagger_chill_gale_knife": "Cuchillo de Vendaval Frío",
+  "item.mcdw.dagger_resolute_tempest_knife": "Cuchillo de Tempestad Resuelto",
+  "item.mcdw.dagger_sheer_dagger": "Puñal de Tijeras",
 
   "item.mcdw.hammer_flail": "Mangual",
   "item.mcdw.hammer_gravity": "Martillo de Gravedad",
@@ -76,11 +83,16 @@
   "item.mcdw.sword_broadsword": "Gran Espada",
   "item.mcdw.sword_claymore": "Claymore",
   "item.mcdw.sword_heartstealer": "Robacorazones",
+  "item.mcdw.sword_great_axeblade": "Hoja de Hacha Grande",
   "item.mcdw.sword_cutlass": "Machete",
   "item.mcdw.sword_dancers_sword": "Espada de Bailarina",
   "item.mcdw.sword_nameless_blade": "Hoja sin Nombre",
   "item.mcdw.sword_katana": "Katana",
   "item.mcdw.sword_masters_katana": "Katana del Maestro",
   "item.mcdw.sword_dark_katana": "Katana Oscura",
-  "item.mcdw.sword_truthseeker": "Buscador de la Verdad"
+  "item.mcdw.sword_truthseeker": "Buscador de la Verdad",
+  "item.mcdw.sword_sinister_sword": "Espada Siniestra",
+
+  "item.mcdw.whip_whip": "Fusta",
+  "item.mcdw.whip_vine_whip": "Fusta de Enredadera"
 }

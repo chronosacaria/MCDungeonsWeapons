@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "IGS",
+        "GTS",
+        "PGS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "G": {
+            "item": "minecraft:green_dye"
+        },
+        "T": {
+            "item": "mcdw:bow_trickbow"
+        },
+        "P": {
+            "item": "minecraft:poisonous_potato"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_green_menace",
+        "count": 1
+    }
+}
