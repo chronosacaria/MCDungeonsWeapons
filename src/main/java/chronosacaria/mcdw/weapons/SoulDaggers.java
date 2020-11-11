@@ -9,9 +9,9 @@ public class SoulDaggers {
     public static McdwDagger SWORD_TRUTHSEEKER;
 
     public static void init() {
-        DAGGER_SOUL_KNIFE = new McdwDagger(ToolMaterials.IRON, 5, -1.1F, "dagger_soul_knife");
-        DAGGER_ETERNAL_KNIFE = new McdwDagger(ToolMaterials.DIAMOND, 5, -0.9F, "dagger_eternal_knife");
-        SWORD_TRUTHSEEKER = new McdwDagger(ToolMaterials.IRON, 5, -1.5F, "sword_truthseeker");
+        DAGGER_SOUL_KNIFE = new McdwDagger(ToolMaterials.IRON, 1, -1.1F, "dagger_soul_knife");
+        DAGGER_ETERNAL_KNIFE = new McdwDagger(ToolMaterials.DIAMOND, 0, -0.9F, "dagger_eternal_knife");
+        SWORD_TRUTHSEEKER = new McdwDagger(ToolMaterials.IRON, 3, -1.5F, "sword_truthseeker");
 
     }
 }

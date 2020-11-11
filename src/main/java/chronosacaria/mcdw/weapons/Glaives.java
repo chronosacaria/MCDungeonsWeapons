@@ -19,8 +19,8 @@ public class Glaives {
         SPEAR_GRAVE_BANE =
                 new McdwGlaive(
                         ToolMaterials.IRON,
-                        6,
-                        -2.5F,
+                        5,
+                        -2.4F,
                         //() -> McdwEntities.SPEAR_GRAVE_BANE,
                         "spear_grave_bane");
         SPEAR_VENOM_GLAIVE =
