@@ -11,7 +11,7 @@ public class Curves {
 
     public static void init() {
         SWORD_CUTLASS = new McdwSword(ToolMaterials.IRON, 3, -2.1F, "sword_cutlass");
-        SWORD_NAMELESS_BLADE = new McdwSword(ToolMaterials.DIAMOND, 2, -1.7F, "sword_nameless_blade");
+        SWORD_NAMELESS_BLADE = new McdwSword(ToolMaterials.DIAMOND, 1, -1.7F, "sword_nameless_blade");
         SWORD_DANCERS_SWORD = new McdwSword(ToolMaterials.IRON, 1, -1F, "sword_dancers_sword");
 
         }

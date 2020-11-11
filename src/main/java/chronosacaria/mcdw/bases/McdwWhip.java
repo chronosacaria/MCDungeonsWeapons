@@ -22,7 +22,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-
+//TODO Make sure that they cannot strip logs
 public class McdwWhip extends AxeItem {
 
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;

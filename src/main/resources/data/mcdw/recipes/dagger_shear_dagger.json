@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  I",
+        " / "
+    ],
+    "key": {
+        "I": {
+            "item": "minecraft:shears"
+        },
+        "/": {
+            "item": "mcdw:dagger_dagger"
+        }
+    },
+    "result": {
+        "item": "mcdw:dagger_shear_dagger",
+        "count": 1
+    }
+}

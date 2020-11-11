@@ -25,7 +25,7 @@ import chronosacaria.mcdw.Mcdw;
 import net.minecraft.world.World;
 
 import java.util.function.Supplier;
-
+//TODO Make sure that Spears cannot strip logs (lol)
 public class McdwSpear extends AxeItem {
 
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
