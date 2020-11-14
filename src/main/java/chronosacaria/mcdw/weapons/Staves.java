@@ -18,7 +18,7 @@ public class Staves {
                         "staff_battlestaff");
         STAFF_GROWING_STAFF =
                 new McdwStaff(
-                        ToolMaterials.GOLD,
+                        ToolMaterials.IRON,
                         1,
                         -0.1F,
                         //() -> McdwEntities.STAFF_GROWING_STAFF,
