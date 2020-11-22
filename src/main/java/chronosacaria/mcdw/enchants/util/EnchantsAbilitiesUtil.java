@@ -46,7 +46,7 @@ public class EnchantsAbilitiesUtil {
     }
 
     //Exploding
-    public static void spawnExplosionCloud(LivingEntity user,LivingEntity target, float radius){
+    public static void spawnExplosionCloud(LivingEntity user, LivingEntity target, float radius){
         AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(
                 target.world,
                 target.getX(),

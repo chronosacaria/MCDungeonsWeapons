@@ -1,8 +1,11 @@
 package chronosacaria.mcdw.client;
 
 //import chronosacaria.mcdw.client.renderer.entity.SpearEntityRenderer;
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwBow;
 //import chronosacaria.mcdw.entity.McdwEntities;
+import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
+import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRenderRegistry;
 import chronosacaria.mcdw.network.S2CEntitySpawnPacket;
 import chronosacaria.mcdw.weapons.Bows;
 import net.fabricmc.api.ClientModInitializer;
@@ -18,6 +21,9 @@ public class McdwClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        SummonedEntityRegistry.register();
+        SummonedEntityRenderRegistry.register();
+
         //registerEntityRenderers();
         registerClientboundPackets();
 
@@ -84,6 +90,10 @@ public class McdwClient implements ClientModInitializer {
     private static void registerClientboundPackets() {
         ClientSidePacketRegistry.INSTANCE.register(S2CEntitySpawnPacket.ID, S2CEntitySpawnPacket::onPacket);
     }
+
+
+
+
 
 
 }

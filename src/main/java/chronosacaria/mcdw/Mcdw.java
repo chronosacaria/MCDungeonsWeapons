@@ -1,10 +1,17 @@
 package chronosacaria.mcdw;
 
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+//import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
+import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
+import net.fabricmc.fabric.api.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -12,7 +19,7 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
 import chronosacaria.mcdw.weapons.*;
-
+import net.minecraft.util.registry.Registry;
 
 
 public class Mcdw implements ModInitializer {
@@ -44,6 +51,15 @@ public class Mcdw implements ModInitializer {
                 itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.FREEZING,3)));
             })
             .build();
+
+    /*public static final EntityType<SummonedBeeEntity> SUMMONED_BEE_ENTITY =
+            Registry.register(
+                    Registry.ENTITY_TYPE,
+                    new Identifier("summonedbee", "summoned_bee"),
+                    FabricEntityTypeBuilder
+                            .create(SpawnGroup.CREATURE, SummonedBeeEntity::new)
+                            .size(EntityDimensions.fixed(1,2)).build()
+            );*/
 
     //private static final Enchantment POISON_CLOUD = new PoisonCloud(Enchantment.Rarity.COMMON,
             //EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
@@ -78,13 +94,9 @@ public class Mcdw implements ModInitializer {
         // Enchants
         EnchantsRegistry.init();
 
-        //Registry.register(Registry.ENCHANTMENT,new Identifier(MOD_ID, "poison_cloud"),POISON_CLOUD);
 
     }
 
-    /*public static void register(){
-        McdwEntities.register();
-    }*/
 
     /*public static void registerServerboundPackets(){
         ServerSidePacketRegistry.INSTANCE.register(C2SRotateHeldItem.ID, C2SRotateHeldItem::onPacket);
