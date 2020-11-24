@@ -11,6 +11,8 @@ public class EnchantsRegistry {
     public static Enchantment GRAVITY;
     public static Enchantment EXPLODING;
     public static Enchantment FREEZING;
+    public static Enchantment LEECHING;
+    public static Enchantment STUNNING;
 
     public static void init() {
         POISON_CLOUD = new PoisonCloud(Enchantment.Rarity.COMMON, EnchantmentTarget.WEAPON,
@@ -23,6 +25,11 @@ public class EnchantsRegistry {
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         FREEZING = new Freezing(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        LEECHING = new Leeching(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        STUNNING = new Stunning(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+
     }
 
 }

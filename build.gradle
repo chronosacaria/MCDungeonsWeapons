@@ -15,6 +15,10 @@ repositories {
     maven {
         url "https://maven.jamieswhiteshirt.com/libs-release/"
     }
+    maven {
+        name = "Ladysnake Libs"
+        url = 'https://dl.bintray.com/ladysnake/libs'
+    }
 }
 dependencies {
     //to change the versions see the gradle.properties file
@@ -28,6 +32,13 @@ dependencies {
     // Jamie White Shirt Reach
     modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
     include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
+
+    modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cardinal_version}"
+        include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cardinal_version}"
+    modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cardinal_version}"
+        include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cardinal_version}"
+    modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:${cardinal_version}"
+        include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:${cardinal_version}"
 }
 
 processResources {

@@ -3,6 +3,8 @@ package chronosacaria.mcdw;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 //import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
+import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.loottables.McdwLoottables;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
@@ -49,8 +51,15 @@ public class Mcdw implements ModInitializer {
                 itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.FREEZING,1)));
                 itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.FREEZING,2)));
                 itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.FREEZING,3)));
+                itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.LEECHING,1)));
+                itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.LEECHING,2)));
+                itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.LEECHING,3)));
+                itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.STUNNING,1)));
+                itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.STUNNING,2)));
+                itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.STUNNING,3)));
             })
             .build();
+
 
     /*public static final EntityType<SummonedBeeEntity> SUMMONED_BEE_ENTITY =
             Registry.register(
@@ -94,7 +103,11 @@ public class Mcdw implements ModInitializer {
         // Enchants
         EnchantsRegistry.init();
 
+        // Items
+        ItemRegistry.init();
 
+        // Loot
+        McdwLoottables.init();
     }
 
 

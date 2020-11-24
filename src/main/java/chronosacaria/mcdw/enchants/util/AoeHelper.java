@@ -18,6 +18,7 @@ import java.util.List;
 
 public class AoeHelper {
 
+    //GRAVITY BEGIN
     public static void pullInNearbyEntities(LivingEntity user, Entity target, int distance){
         World world = target.getEntityWorld();
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
@@ -31,7 +32,7 @@ public class AoeHelper {
 
             nearbyEntity.setVelocity(vec3d);
         }
-    }
+    } //GRAVITY END
 
     //THUNDERING BEGIN
     public static void createVisualLightningBoltOnEntity(LivingEntity user, Entity target){
