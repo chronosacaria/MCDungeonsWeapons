@@ -18,11 +18,11 @@ public class BeeStingerItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext){
-        tooltip.add(new TranslatableText("item.mcdw.bee_stinger_item.tooltip"));
+        tooltip.add(new TranslatableText("item.mcdw.item_bee_stinger.tooltip"));
         tooltip.add(new TranslatableText("item.mcdw.moreinfo.tooltip"));
         if (InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), 340)){
             tooltip.remove(new TranslatableText("item.mcdw.moreinfo.tooptip"));
-            tooltip.add(new TranslatableText("item.mcdw.bee_stinger_item.tooltip2"));
+            tooltip.add(new TranslatableText("item.mcdw.item_bee_stinger.tooltip2"));
         }
     }
 }

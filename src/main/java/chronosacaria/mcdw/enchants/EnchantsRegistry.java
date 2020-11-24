@@ -13,6 +13,8 @@ public class EnchantsRegistry {
     public static Enchantment FREEZING;
     public static Enchantment LEECHING;
     public static Enchantment STUNNING;
+    public static Enchantment CHAINS;
+    public static Enchantment COMMITTED;
 
     public static void init() {
         POISON_CLOUD = new PoisonCloud(Enchantment.Rarity.COMMON, EnchantmentTarget.WEAPON,
@@ -28,6 +30,10 @@ public class EnchantsRegistry {
         LEECHING = new Leeching(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         STUNNING = new Stunning(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        CHAINS = new Chains(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        COMMITTED = new Committed(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
 
     }

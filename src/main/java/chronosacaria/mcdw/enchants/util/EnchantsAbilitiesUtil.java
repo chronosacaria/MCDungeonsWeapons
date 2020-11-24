@@ -70,4 +70,5 @@ public class EnchantsAbilitiesUtil {
         areaEffectCloudEntity.setDuration(0);
         user.world.spawnEntity(areaEffectCloudEntity);
     }
+
 }

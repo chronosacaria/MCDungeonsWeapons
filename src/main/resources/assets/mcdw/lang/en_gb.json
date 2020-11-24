@@ -94,5 +94,19 @@
   "item.mcdw.sword_sinister_sword": "Sinister Sword",
 
   "item.mcdw.whip_whip": "Whip",
-  "item.mcdw.whip_vine_whip": "Vine Whip"
+  "item.mcdw.whip_vine_whip": "Vine Whip",
+
+  "item.mcdw.item_bee_stinger": "Bee Stinger",
+  "item.mcdw.item_bee_stinger.tooltip": "The business end of the bee.",
+  "item.mcdw.moreinfo.tooltip": "Hold [SHIFT] for more info",
+  "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
+
+  "enchantment.mcdw.committing": "Committed",
+  "enchantment.mcdw.exploding": "Exploding",
+  "enchantment.mcdw.freezing": "Freezing",
+  "enchantment.mcdw.gravity": "Gravity",
+  "enchantment.mcdw.leeching": "Leeching",
+  "enchantment.mcdw.poison_cloud": "Poison Cloud",
+  "enchantment.mcdw.stunning": "Stunning",
+  "enchantment.mcdw.thundering": "Thundering"
 }

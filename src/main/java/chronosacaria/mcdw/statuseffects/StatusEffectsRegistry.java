@@ -1,6 +1,5 @@
 package chronosacaria.mcdw.statuseffects;
 
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectType;
 
 public class StatusEffectsRegistry {

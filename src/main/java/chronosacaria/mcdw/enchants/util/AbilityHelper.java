@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.enchants.util;
 
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.HorseBaseEntity;
 import net.minecraft.entity.passive.IronGolemEntity;

@@ -2,7 +2,6 @@ package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.util.AoeHelper;
-import chronosacaria.mcdw.enchants.util.EnchantsAbilitiesUtil;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;

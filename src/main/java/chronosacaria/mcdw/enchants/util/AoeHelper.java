@@ -1,14 +1,13 @@
 package chronosacaria.mcdw.enchants.util;
 
 import chronosacaria.mcdw.damagesources.ElectricShockDamageSource;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.client.util.math.Vector3d;
 import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -86,6 +85,7 @@ public class AoeHelper {
         }
     } //THUNDERING END
 
+    //EXPLODING BEGIN
     public static void causeExplosionAttack(LivingEntity user, LivingEntity target, float damageAmount, float distance){
         World world = target.getEntityWorld();
         DamageSource explosion = DamageSource.explosion(user);
@@ -111,5 +111,29 @@ public class AoeHelper {
         for (LivingEntity nearbyEntity : nearbyEntities){
             nearbyEntity.damage(magicExplosion, damageAmount);
         }
+    }//EXPLODING END
+
+    //CHAINING BEGIN
+    public static void chainNearbyEntities(LivingEntity user, LivingEntity target, float distance, int timeMultiplier) {
+        World world = user.getEntityWorld();
+
+        List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
+                new Box(target.getBlockPos()).expand(distance),
+                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+
+        if (nearbyEntities.isEmpty()) return;
+        StatusEffectInstance chained = new StatusEffectInstance(StatusEffects.SLOWNESS, 20 * timeMultiplier, 5);
+        target.addStatusEffect(chained);
+        for (LivingEntity nearbyEntity : nearbyEntities) {
+            double motionX = target.getX() - (nearbyEntity.getX());
+            double motionY = target.getX() - (nearbyEntity.getY());
+            double motionZ = target.getX() - (nearbyEntity.getZ());
+            Vec3d vec3d = new Vec3d(motionX, motionY, motionZ);
+
+            nearbyEntity.setVelocity(vec3d);
+
+            nearbyEntity.setVelocity(vec3d);
+            nearbyEntity.addStatusEffect(chained);
+        }//END CHAINING
     }
 }

@@ -3,10 +3,11 @@ package chronosacaria.mcdw.mixin;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
+import chronosacaria.mcdw.enchants.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.statuseffects.ShieldingStatusEffect;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
-import chronosacaria.mcdw.weapons.Rapiers;
+import chronosacaria.mcdw.weapons.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -17,6 +18,7 @@ import net.minecraft.entity.damage.DamageTracker;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.collection.DefaultedList;
@@ -28,6 +30,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
@@ -94,96 +97,21 @@ public abstract class LivingEntityMixin extends Entity {
             method = "damage",
             cancellable = true)
 
-    private void onAttacking(DamageSource source, float damage, CallbackInfoReturnable<Boolean> ci) {
-        DamageSource.player(attackingPlayer);
-        PlayerEntity user = attackingPlayer;
-        LivingEntity target = (LivingEntity) (Object) this;
-        ItemStack mainHandStack = getMainHandStack();
-
-        int level = EnchantmentHelper.getLevel(EnchantsRegistry.LEECHING, mainHandStack);
-
-        if (EnchantmentHelper.getLevel(EnchantsRegistry.LEECHING, mainHandStack) >= 1 ) {
-
-            //float getInitHealth = target.getHealth();
-            //float getNewHealth = getInitHealth - damage;
-            //float healthRegained;
-            //healthRegained = (0.02F + 0.02F * level) * damage;
-            //if (user != null) {
-            //    user.heal(healthRegained);
-            //}
-
-            float getTargetHealth = target.getHealth();
-            //float getNewHealth = getTargetHealth - damage;
-            float healthRegained;
-            healthRegained = (0.02F + 0.02F * level) * (damage - getTargetHealth);
-            if (attacker != null) {
-                attacker.heal(healthRegained);
-            }
-
-            //float damageDealt = (target.getMaxHealth() - (target.getHealth()));
-            //float targetMaxHealth = target.getMaxHealth();
-            //float healthRegained;
-            //healthRegained = (0.02F + 0.02F * level) * damageDealt;
-            //user.heal(healthRegained);
+    private void onCommittedDamage(DamageSource source, float damage, CallbackInfoReturnable<Boolean> ci) {
+        LivingEntity attacker = (LivingEntity)source.getSource();
+        LivingEntity victim = (LivingEntity)source.getSource();
+        if (!(victim.getMaxHealth() < victim.getMaxHealth())) return;
+        ItemStack mainhand = attacker.getMainHandStack();
+        boolean uniqueWeaponFlag =
+                mainhand.getItem() == SoulDaggers.SWORD_TRUTHSEEKER || mainhand.getItem() == Staves.STAFF_GROWING_STAFF;
+        if ((McdwEnchantmentHelper.hasEnchantment(mainhand, EnchantsRegistry.COMMITTED)) || uniqueWeaponFlag){
+            int committedLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COMMITTED, mainhand);
+            float victimRemainingHealth = victim.getHealth() / victim.getMaxHealth();
+            float originalDamage = damage;
+            float extraDamageMultiplier;
+            extraDamageMultiplier = 0.25F + committedLevel * 0.25F;
+            float extraDamage = (originalDamage * (1 - victimRemainingHealth)) * extraDamageMultiplier;
+            victim.damage(DamageSource.player(attackingPlayer), (originalDamage + extraDamage));
         }
-    } //END LEECHING ENCHANTMENT
-
-    /*@Inject(
-            at = @At("HEAD"),
-            method = "attackLivingEntity",
-            cancellable = true)
-
-    private void onAttacking(LivingEntity target, CallbackInfo ci) {
-        LivingEntity user = attacker;
-
-        ItemStack mainHandStack = equippedHand.get(0);
-
-        int level = EnchantmentHelper.getLevel(EnchantsRegistry.LEECHING, mainHandStack);
-
-        if (EnchantmentHelper.getLevel(EnchantsRegistry.LEECHING, mainHandStack) >= 1 ) {
-
-            float getInitHealth = target.getHealth();
-            float getNewHealth = getInitHealth - mainHandStack.getDamage();
-            float damageDealt = getInitHealth - getNewHealth;
-            float healthRegained;
-            healthRegained = (0.02F + 0.02F * level) * damageDealt;
-            user.heal(healthRegained);
-
-            //float damageDealt = (target.getMaxHealth() - (target.getHealth()));
-            //float targetMaxHealth = target.getMaxHealth();
-            //float healthRegained;
-            //healthRegained = (0.02F + 0.02F * level) * damageDealt;
-            //user.heal(healthRegained);
-        }
-    }*/
-
-    /*@Inject(
-            at = @At("HEAD"),
-            method = "attackLivingEntity",
-            cancellable = true)
-
-    private void onAttacking(LivingEntity target, CallbackInfo ci) {
-        LivingEntity user = (LivingEntity) (Object) this;
-        ItemStack mainHandStack = equippedHand.get(0);
-        int level = EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHandStack);
-
-        if (EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHandStack) >= 1) {
-            //if (!(target instanceof LivingEntity)) return;
-            float chance = user.getRandom().nextFloat();
-            if (chance <= level * 0.05) {
-                StatusEffectInstance stunned = new StatusEffectInstance(StatusEffectsRegistry.STUNNED, 60);
-                StatusEffectInstance nausea = new StatusEffectInstance(StatusEffects.NAUSEA, 60);
-                StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 5);
-                target.addStatusEffect(stunned);
-                target.addStatusEffect(nausea);
-                target.addStatusEffect(slowness);
-            }
-
-            //float damageDealt = (target.getMaxHealth() - (target.getHealth()));
-            //float targetMaxHealth = target.getMaxHealth();
-            //float healthRegained;
-            //healthRegained = (0.02F + 0.02F * level) * damageDealt;
-            //user.heal(healthRegained);
-        }
-    }*/
+    } //END LEECHING ENCHANTMENT*/
 }

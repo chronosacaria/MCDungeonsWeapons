@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.impl.base.event.EventFactoryImpl;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 
 @FunctionalInterface

@@ -93,6 +93,20 @@
   "item.mcdw.sword_truthseeker": "求真者",
   "item.mcdw.sword_sinister_sword": "邪恶之剑",
 
+  "item.mcdw.item_bee_stinger": "蜜蜂毒刺",
+  "item.mcdw.item_bee_stinger.tooltip": "武器选择的蜜蜂。",
+  "item.mcdw.moreinfo.tooltip": "按住[SHIFT]了解更多信息。",
+  "item.mcdw.item_bee_stinger.tooltip2": "我认为我可以将其用于某些事情。",
+
   "item.mcdw.whip_whip": "鞭子",
-  "item.mcdw.whip_vine_whip": "藤蔓长鞭"
+  "item.mcdw.whip_vine_whip": "藤蔓长鞭",
+
+  "enchantment.mcdw.committing": "进伤",
+  "enchantment.mcdw.exploding": "爆炸",
+  "enchantment.mcdw.freezing": "霜冻",
+  "enchantment.mcdw.gravity": "引力",
+  "enchantment.mcdw.leeching": "吸血",
+  "enchantment.mcdw.poison_cloud": "毒雾",
+  "enchantment.mcdw.stunning": "眩晕",
+  "enchantment.mcdw.thundering": "引雷"
 }

@@ -10,10 +10,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Gravity extends Enchantment {
-    public Gravity (Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+public class Chains extends Enchantment {
+    public Chains(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "gravity"),this);
+        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "chained"),this);
     }
 
     @Override
@@ -28,10 +28,11 @@ public class Gravity extends Enchantment {
         if (!(target instanceof LivingEntity)) return;
         float chance = user.getRandom().nextFloat();
         if (chance <= 1.0) {
-            AoeHelper.pullInNearbyEntities(
+            AoeHelper.chainNearbyEntities(
                     user,
-                    target,
-                    level * 3);
+                    (LivingEntity)target,
+                    1.5F,
+                    level);
         }
     }
 }
