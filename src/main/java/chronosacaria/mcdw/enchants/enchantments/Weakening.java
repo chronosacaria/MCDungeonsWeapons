@@ -10,28 +10,28 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Gravity extends Enchantment {
-    public Gravity (Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+public class Weakening extends Enchantment {
+    public Weakening(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "gravity"),this);
+        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "weakening"), this);
     }
 
     @Override
-    public int getMaxLevel(){
+    public int getMaxLevel() {
         return 3;
     }
 
     @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level){
-
+    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
 
         if (!(target instanceof LivingEntity)) return;
         float chance = user.getRandom().nextFloat();
         if (chance <= 1.0) {
-            AOEHelper.pullInNearbyEntities(
+            AOEHelper.weakenNearbyEntities(
                     user,
-                    target,
-                    level * 3);
+                    (LivingEntity) target,
+                    5,
+                    level - 1);
         }
     }
 }

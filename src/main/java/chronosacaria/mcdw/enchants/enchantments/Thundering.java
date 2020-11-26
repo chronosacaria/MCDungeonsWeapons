@@ -1,7 +1,7 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.enchants.util.AoeHelper;
+import chronosacaria.mcdw.enchants.util.AOEHelper;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
@@ -28,13 +28,13 @@ public class Thundering extends Enchantment {
         if (!(target instanceof LivingEntity)) return;
         float chance = user.getRandom().nextFloat();
         if (chance <= 1.0) {
-            AoeHelper.electrocuteNearbyEnemies(
+            AOEHelper.electrocuteNearbyEnemies(
                     user,
                     target,
                     5,
                     10,
                     Integer.MAX_VALUE);
-            /*EnchantsAbilitiesUtil.spawnLightning(
+            /*AOECloudHelper.spawnLightning(
                     user,
                     (LivingEntity) target);*/
             //user.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 1, 0));

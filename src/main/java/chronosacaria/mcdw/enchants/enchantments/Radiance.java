@@ -10,10 +10,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class PoisonCloud extends Enchantment {
-    public PoisonCloud(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+public class Radiance extends Enchantment {
+    public Radiance(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "poison_cloud"),this);
+        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "radiance"),this);
     }
 
     @Override
@@ -25,12 +25,11 @@ public class PoisonCloud extends Enchantment {
     public void onTargetDamaged(LivingEntity user, Entity target, int level){
 
         float chance = user.getRandom().nextFloat();
-        //Spawn Poison Cloud @ 30% chance
+        //Spawn Regen Cloud @ 20% chance
         if (target instanceof LivingEntity) {
-            if (chance <= 0.3) {
-                AOECloudHelper.spawnPoisonCloud(
+            if (chance <= 1.0) {
+                AOECloudHelper.spawnRegenCloud(
                         user,
-                        (LivingEntity) target,
                         level - 1);
             }
         }

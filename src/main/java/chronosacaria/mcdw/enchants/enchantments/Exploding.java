@@ -18,7 +18,5 @@ public class Exploding extends Enchantment {
     public int getMaxLevel() {
         return 3;
     }
-
-
     
 }

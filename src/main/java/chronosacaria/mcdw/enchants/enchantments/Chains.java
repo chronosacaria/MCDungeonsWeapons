@@ -1,7 +1,7 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.enchants.util.AoeHelper;
+import chronosacaria.mcdw.enchants.util.AOEHelper;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
@@ -28,7 +28,7 @@ public class Chains extends Enchantment {
         if (!(target instanceof LivingEntity)) return;
         float chance = user.getRandom().nextFloat();
         if (chance <= 1.0) {
-            AoeHelper.chainNearbyEntities(
+            AOEHelper.chainNearbyEntities(
                     user,
                     (LivingEntity)target,
                     1.5F,

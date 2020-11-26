@@ -1,11 +1,15 @@
 package chronosacaria.mcdw.enchants.util;
 
+import chronosacaria.mcdw.CommonProxy;
 import chronosacaria.mcdw.damagesources.ElectricShockDamageSource;
 import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleType;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Box;
@@ -15,7 +19,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 
-public class AoeHelper {
+public class AOEHelper {
 
     //GRAVITY BEGIN
     public static void pullInNearbyEntities(LivingEntity user, Entity target, int distance){
@@ -92,24 +96,11 @@ public class AoeHelper {
 
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+                (nearbyEntity) -> AbilityHelper
+                        .canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities){
             nearbyEntity.damage(explosion, damageAmount);
-        }
-    }
-
-    public static void causeMagicExplosionAttack(LivingEntity user, LivingEntity target, float damageAmount,
-                                             float distance){
-        World world = target.getEntityWorld();
-        DamageSource magicExplosion = DamageSource.explosion(user).setUsesMagic();
-
-        List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
-                new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
-        if (nearbyEntities.isEmpty()) return;
-        for (LivingEntity nearbyEntity : nearbyEntities){
-            nearbyEntity.damage(magicExplosion, damageAmount);
         }
     }//EXPLODING END
 
@@ -135,5 +126,19 @@ public class AoeHelper {
             nearbyEntity.setVelocity(vec3d);
             nearbyEntity.addStatusEffect(chained);
         }//END CHAINING
+    }
+
+    public static void weakenNearbyEntities(LivingEntity user, Entity target, int distance, int amplifier){
+        World world = target.getEntityWorld();
+
+        List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
+                new Box(target.getBlockPos()).expand(distance),
+                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+
+        if (nearbyEntities.isEmpty()) return;
+        for (LivingEntity nearbyEntity : nearbyEntities){
+            StatusEffectInstance weakness = new StatusEffectInstance(StatusEffects.WEAKNESS, 100, amplifier);
+            nearbyEntity.addStatusEffect(weakness);
+        }
     }
 }
