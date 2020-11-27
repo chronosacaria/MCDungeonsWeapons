@@ -24,6 +24,14 @@
     },
     "result": {
         "item": "mcdw:whip_vine_whip",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "mcdw:poison_cloud",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }

@@ -21,6 +21,14 @@
     },
     "result": {
         "item": "mcdw:spear_grave_bane",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "minecraft:smite",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }

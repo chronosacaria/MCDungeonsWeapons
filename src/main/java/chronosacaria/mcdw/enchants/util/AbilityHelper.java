@@ -2,11 +2,13 @@ package chronosacaria.mcdw.enchants.util;
 
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.passive.HorseBaseEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.World;
 
 public class AbilityHelper {
     public static boolean isPetOfUser(LivingEntity possibleOwner, LivingEntity possiblePet){
@@ -79,4 +81,6 @@ public class AbilityHelper {
                 && !isAlly(user, nearbyEntity)
                 && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
     }
+
+
 }

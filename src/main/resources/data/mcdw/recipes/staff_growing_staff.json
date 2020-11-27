@@ -18,6 +18,14 @@
   },
   "result": {
     "item": "mcdw:staff_growing_staff",
+    "data": {
+      "Enchantments": [
+        {
+          "id": "mcdw:committed",
+          "lvl": 1
+        }
+      ]
+    },
     "count": 1
   }
 }

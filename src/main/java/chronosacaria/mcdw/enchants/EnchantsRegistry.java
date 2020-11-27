@@ -17,6 +17,11 @@ public class EnchantsRegistry {
     public static Enchantment COMMITTED;
     public static Enchantment RADIANCE;
     public static Enchantment WEAKENING;
+    public static Enchantment ECHO;
+    public static Enchantment SWIRLING;
+    public static Enchantment SHOCKWAVE;
+    public static Enchantment CRITICAL_HIT;
+
 
 
     public static void init() {
@@ -41,6 +46,14 @@ public class EnchantsRegistry {
         RADIANCE = new Radiance(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         WEAKENING = new Weakening(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        ECHO = new Echo(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        SWIRLING = new Swirling(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        SHOCKWAVE = new Shockwave(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        CRITICAL_HIT = new CriticalHit(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
 
     }

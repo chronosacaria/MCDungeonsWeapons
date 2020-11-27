@@ -15,6 +15,14 @@
     },
     "result": {
         "item": "mcdw:sword_nameless_blade",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "mcdw:weakening",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }

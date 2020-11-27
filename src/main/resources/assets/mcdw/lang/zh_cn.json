@@ -1,6 +1,7 @@
 {
   "itemGroup.mcdw.weapons": "MC Dungeons的武器 (近戰)",
   "itemGroup.mcdw.weapons/bows": "MC Dungeons的武器 (距离戰)",
+  "itemGroup.mcdw.enchants": "MC Dungeons的武器 (魔咒)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "范围",
   "attribute.name.generic.reach-entity-attributes.attack_range": "击范围",
@@ -101,12 +102,21 @@
   "item.mcdw.whip_whip": "鞭子",
   "item.mcdw.whip_vine_whip": "藤蔓长鞭",
 
-  "enchantment.mcdw.committing": "进伤",
+  "enchantment.mcdw.chained": "链锁",
+  "enchantment.mcdw.committed": "进伤",
+  "enchantment.mcdw.critical_hit": "暴击",
+  "enchantment.mcdw.echo": "回击",
   "enchantment.mcdw.exploding": "爆炸",
   "enchantment.mcdw.freezing": "霜冻",
   "enchantment.mcdw.gravity": "引力",
   "enchantment.mcdw.leeching": "吸血",
   "enchantment.mcdw.poison_cloud": "毒雾",
+  "enchantment.mcdw.radiance": "治愈光辉",
+  "enchantment.mcdw.shockwave": "冲击波",
   "enchantment.mcdw.stunning": "眩晕",
-  "enchantment.mcdw.thundering": "引雷"
+  "enchantment.mcdw.swirling": "旋涡",
+  "enchantment.mcdw.thundering": "引雷",
+  "enchantment.mcdw.weakening": "虚弱",
+
+  "subtitles.mcdw.echo_sound": "回击的削减"
 }

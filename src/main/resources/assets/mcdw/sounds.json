@@ -1,0 +1,9 @@
+{
+  "echo_sound": {
+    "subtitle": "subtitles.mcdw.echo_sound",
+    "category": "players",
+    "sounds": [
+      "mcdw:echo_sound"
+    ]
+  }
+}

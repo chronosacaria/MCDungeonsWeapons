@@ -1,17 +1,23 @@
 package chronosacaria.mcdw.mixin;
 
+import chronosacaria.mcdw.api.EnchantmentSkeleton;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enchants.enchantments.CriticalHit;
+import chronosacaria.mcdw.enchants.enchantments.Leeching;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.util.AOEHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import chronosacaria.mcdw.weapons.*;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.TargetPredicate;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTracker;
 import net.minecraft.entity.effect.StatusEffect;
@@ -31,6 +37,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
@@ -77,7 +84,11 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Shadow public abstract void onDeath(DamageSource source);
 
-    //BEGIN BUSY BEE ENCHANTMENT
+
+    /* * * * * * * * * * * * * * * * * |
+    |**** ENCHANTMENTS -- BUSY BEE ****|
+    | * * * * * * * * * * * * * * * * */
+
     public EntityType<SummonedBeeEntity> s_bee =
             SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
 
@@ -105,7 +116,98 @@ public abstract class LivingEntityMixin extends Entity {
         }
     } //END BUSY BEE ENCHANTMENT
 
-    // Remove Poison Effect if Player has weapon with Poison Cloud Enchantment
+    /* * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- CHAINS *****|
+    | * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * *|
+    |***** ENCHANTMENTS -- COMMITTED *****|
+    |* * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- CRITICAL HIT *****|
+    | * * * * * * * * * * * * * * * * * * * */
+
+
+    /* * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- ECHO *****|
+    | * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * *|
+    |***** ENCHANTMENTS -- EXPLODING *****|
+    |* * * * * * * * * * * * * * * * * * */
+
+    @Inject(
+             at = @At("HEAD"),
+             method = "onDeath",
+             cancellable = true)
+     public void onDeath(DamageSource damageSource, CallbackInfo ci){
+         ItemStack handStack = getMainHandStack();
+         LivingEntity user = (LivingEntity) damageSource.getSource();
+         LivingEntity target = (LivingEntity) (Object) this;
+         if (EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, handStack) >= 1){
+             int explodingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, handStack);
+             float explosionDamage;
+             explosionDamage = target.getMaxHealth() * 0.2F * explodingLevel;
+             target.world.playSound(
+                     (PlayerEntity) null,
+                     target.getX(),
+                     target.getY(),
+                     target.getZ(),
+                     SoundEvents.ENTITY_GENERIC_EXPLODE,
+                     SoundCategory.PLAYERS,
+                     64.0F,
+                     1.0F);
+             AOEHelper.causeExplosionAttack(user,target,explosionDamage, 3.0F);
+         }
+     }
+
+    /* * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- FREEZING *****|
+    | * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * *|
+    |***** ENCHANTMENTS -- GRAVITY *****|
+    |* * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- LEECHING *****|
+    | * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- POISON CLOUD *****|
+    | * * * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- RADIANCE *****|
+    | * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * *|
+    |***** ENCHANTMENTS -- SHOCKWAVE *****|
+    |* * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- STUNNING *****|
+    | * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- SWIRLING *****|
+    | * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- THUNDERING *****|
+    | * * * * * * * * * * * * * * * * * * */
+
+    /* * * * * * * * * * * * * * * * * * *|
+    |***** ENCHANTMENTS -- WEAKENING *****|
+    |* * * * * * * * * * * * * * * * * * */
+
+
+
+    /* * * * * * * * * * * |
+    |****STATUS REMOVAL****|
+    | * * * * * * * * * * */
+// Remove Poison Effect if Player has weapon with Poison Cloud Enchantment
     @Inject(
             at = @At("HEAD"),
             method = "tick",
@@ -121,27 +223,6 @@ public abstract class LivingEntityMixin extends Entity {
             }
         }
     }
-
-    /*@Inject( //TODO GET ADDSTATUSEFFECT METHOD TO WORK RATHER THAN TICK METHOD
-            at = @At("HEAD"),
-            method = "addStatusEffect",
-            cancellable = true)
-
-    private void removePoisonEffect(StatusEffectInstance effect, CallbackInfoReturnable<Boolean> ci) {
-        if ((Object) this instanceof PlayerEntity) {
-            PlayerEntity entity = (PlayerEntity) (Object) this;
-            ItemStack handStack = getMainHandStack();
-
-            if (EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, handStack) >= 0) {
-                if (effect.getEffectType() == StatusEffects.POISON) {
-                    this.removeStatusEffect(StatusEffects.POISON);
-                } else {
-                    ci.setReturnValue(false);
-                }
-
-            }
-        }*/
-
     // Remove Stunned Effects if Player has weapon with Stunning Enchantment
 
     @Inject(
@@ -180,50 +261,5 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }*/
 
-    @Inject(
-            at = @At("HEAD"),
-            method = "onDeath",
-            cancellable = true)
-    public void onDeath(DamageSource damageSource, CallbackInfo ci){
-        ItemStack handStack = getMainHandStack();
-        LivingEntity user = (LivingEntity) damageSource.getSource();
-        LivingEntity target = (LivingEntity) (Object) this;
-        if (EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, handStack) >= 1){
-            int explodingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, handStack);
-            float explosionDamage;
-            explosionDamage = target.getMaxHealth() * 0.2F * explodingLevel;
-            target.world.playSound(
-                    (PlayerEntity) null,
-                    target.getX(),
-                    target.getY(),
-                    target.getZ(),
-                    SoundEvents.ENTITY_GENERIC_EXPLODE,
-                    SoundCategory.PLAYERS,
-                    64.0F,
-                    1.0F);
-            AOEHelper.causeExplosionAttack(user,target,explosionDamage, 3.0F);
-        }
-    }
-    /*@Inject(
-            at = @At("HEAD"),
-            method = "damage",
-            cancellable = true)
 
-    private void onCommittedDamage(DamageSource source, float damage, CallbackInfoReturnable<Boolean> ci) {
-        LivingEntity attacker = (LivingEntity)source.getSource();
-        LivingEntity victim = (LivingEntity)source.getSource();
-        if (!(victim.getMaxHealth() < victim.getMaxHealth())) return;
-        ItemStack mainhand = attacker.getMainHandStack();
-        boolean uniqueWeaponFlag =
-                mainhand.getItem() == SoulDaggers.SWORD_TRUTHSEEKER || mainhand.getItem() == Staves.STAFF_GROWING_STAFF;
-        if ((McdwEnchantmentHelper.hasEnchantment(mainhand, EnchantsRegistry.COMMITTED)) || uniqueWeaponFlag){
-            int committedLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COMMITTED, mainhand);
-            float victimRemainingHealth = victim.getHealth() / victim.getMaxHealth();
-            float originalDamage = damage;
-            float extraDamageMultiplier;
-            extraDamageMultiplier = 0.25F + committedLevel * 0.25F;
-            float extraDamage = (originalDamage * (1 - victimRemainingHealth)) * extraDamageMultiplier;
-            victim.damage(DamageSource.player(attackingPlayer), (originalDamage + extraDamage));
-        }
-    } //END LEECHING ENCHANTMENT*/
 }

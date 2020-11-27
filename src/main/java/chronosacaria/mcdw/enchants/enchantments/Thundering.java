@@ -18,16 +18,16 @@ public class Thundering extends Enchantment {
 
     @Override
     public int getMaxLevel(){
-        return 1;
+        return 3;
     }
 
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level){
 
-        //Spawn Lightning @ 30% chance
+        //Spawn Lightning @ 10%/20%/30% chance respective of level
         if (!(target instanceof LivingEntity)) return;
         float chance = user.getRandom().nextFloat();
-        if (chance <= 1.0) {
+        if (chance <= 0.1F * level) {
             AOEHelper.electrocuteNearbyEnemies(
                     user,
                     target,

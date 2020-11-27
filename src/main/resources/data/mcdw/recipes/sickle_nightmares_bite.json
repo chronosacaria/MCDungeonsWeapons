@@ -21,6 +21,14 @@
     },
     "result": {
         "item": "mcdw:sickle_nightmares_bite",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "mcdw:poison_cloud",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }

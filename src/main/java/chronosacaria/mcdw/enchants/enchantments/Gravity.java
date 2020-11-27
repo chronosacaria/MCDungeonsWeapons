@@ -27,7 +27,7 @@ public class Gravity extends Enchantment {
 
         if (!(target instanceof LivingEntity)) return;
         float chance = user.getRandom().nextFloat();
-        if (chance <= 1.0) {
+        if (chance <= 0.3) {
             AOEHelper.pullInNearbyEntities(
                     user,
                     target,

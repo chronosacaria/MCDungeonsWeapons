@@ -18,6 +18,14 @@
     },
     "result": {
         "item": "mcdw:dagger_fangs_of_frost",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "mcdw:freezing",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }

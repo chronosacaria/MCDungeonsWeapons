@@ -16,7 +16,7 @@ public class BeeStingerItem extends Item {
         super(settings);
     }
 
-    @Override
+    /*@Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext){
         tooltip.add(new TranslatableText("item.mcdw.item_bee_stinger.tooltip"));
         tooltip.add(new TranslatableText("item.mcdw.moreinfo.tooltip"));
@@ -24,5 +24,5 @@ public class BeeStingerItem extends Item {
             tooltip.remove(new TranslatableText("item.mcdw.moreinfo.tooptip"));
             tooltip.add(new TranslatableText("item.mcdw.item_bee_stinger.tooltip2"));
         }
-    }
+    }*/
 }

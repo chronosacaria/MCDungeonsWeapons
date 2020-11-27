@@ -21,6 +21,14 @@
     },
     "result": {
         "item": "mcdw:sword_truthseeker",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "mcdw:committed",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }

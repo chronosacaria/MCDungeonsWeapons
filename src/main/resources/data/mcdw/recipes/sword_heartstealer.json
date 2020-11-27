@@ -24,6 +24,14 @@
     },
     "result": {
         "item": "mcdw:sword_heartstealer",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "mcdw:leeching",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }

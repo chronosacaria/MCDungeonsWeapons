@@ -21,6 +21,14 @@
     },
     "result": {
         "item": "mcdw:sickle_jailors_scythe",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "mcdw:chained",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }

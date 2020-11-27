@@ -2,6 +2,7 @@ package chronosacaria.mcdw.enchants.util;
 
 import chronosacaria.mcdw.CommonProxy;
 import chronosacaria.mcdw.damagesources.ElectricShockDamageSource;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -139,6 +140,48 @@ public class AOEHelper {
         for (LivingEntity nearbyEntity : nearbyEntities){
             StatusEffectInstance weakness = new StatusEffectInstance(StatusEffects.WEAKNESS, 100, amplifier);
             nearbyEntity.addStatusEffect(weakness);
+        }
+    }
+
+    public static void causeEchoAttack(LivingEntity user, Entity target, float damageAmount, float distance
+            , int echoLevel){
+        World world = target.getEntityWorld();
+        DamageSource echo = DamageSource.mob(user);
+        if (user instanceof PlayerEntity){
+            echo = DamageSource.player((PlayerEntity)user);
+        }
+        List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
+                new Box(target.getBlockPos()).expand(distance),
+                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+        if (nearbyEntities.isEmpty()) return;
+        for (LivingEntity nearbyEntity : nearbyEntities){
+            if (nearbyEntity == null) return;
+            nearbyEntity.damage(echo, damageAmount);
+            echoLevel--;
+            if (echoLevel <=0) return;
+        }
+    }
+    public static void causeSwirlingAttack(PlayerEntity user, LivingEntity target, float damageAmound, float distance){
+        World world = target.getEntityWorld();
+        DamageSource swirling = DamageSource.mob((PlayerEntity)user);
+        List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
+                new Box(target.getBlockPos()).expand(distance),
+                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+        if (nearbyEntities.isEmpty()) return;
+        for (LivingEntity nearbyEntity : nearbyEntities){
+            nearbyEntity.damage(swirling, damageAmound);
+        }
+    }
+
+    public static void causeShockwaveAttack(PlayerEntity user, LivingEntity target, float damageAmound, float distance){
+        World world = target.getEntityWorld();
+        DamageSource shockwave = DamageSource.explosion((PlayerEntity)user);
+        List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
+                new Box(target.getBlockPos()).expand(distance),
+                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+        if (nearbyEntities.isEmpty()) return;
+        for (LivingEntity nearbyEntity : nearbyEntities){
+            nearbyEntity.damage(shockwave, damageAmound);
         }
     }
 }

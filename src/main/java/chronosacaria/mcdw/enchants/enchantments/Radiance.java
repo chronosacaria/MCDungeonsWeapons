@@ -27,7 +27,7 @@ public class Radiance extends Enchantment {
         float chance = user.getRandom().nextFloat();
         //Spawn Regen Cloud @ 20% chance
         if (target instanceof LivingEntity) {
-            if (chance <= 1.0) {
+            if (chance <= 0.2) {
                 AOECloudHelper.spawnRegenCloud(
                         user,
                         level - 1);

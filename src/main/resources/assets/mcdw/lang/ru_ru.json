@@ -1,6 +1,7 @@
 {
-  "itemGroup.mcdw.weapons": "Оружие МК Подземелье (Ближнее)",
-  "itemGroup.mcdw.weapons/bows": "Оружие МК Подземелье (Дальнее)",
+  "itemGroup.mcdw.weapons":       "Оружие МК Подземелье (Ближнее)",
+  "itemGroup.mcdw.weapons/bows":  "Оружие МК Подземелье (Дальнее)",
+  "itemGroup.mcdw.enchants":      "Оружие МК Подземелье (Зачарованиями)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Радиус Действия",
   "attribute.name.generic.reach-entity-attributes.attack_range": "Дальность Атаки",
@@ -101,12 +102,23 @@
   "item.mcdw.moreinfo.tooltip": "Hold [SHIFT] for more info",
   "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
 
-  "enchantment.mcdw.committing": "Целеустремлённость",
+
+  "enchantment.mcdw.chained": "Цепи",
+  "enchantment.mcdw.committed": "Целеустремлённость",
+  "enchantment.mcdw.critical_hit": "Критический Удар",
+  "enchantment.mcdw.echo": "Эхо",
   "enchantment.mcdw.exploding": "Взрыв",
   "enchantment.mcdw.freezing": "Паралич",
   "enchantment.mcdw.gravity": "Притяжение",
   "enchantment.mcdw.leeching": "Вампиризм",
   "enchantment.mcdw.poison_cloud": "Отравленное Облако",
+  "enchantment.mcdw.radiance": "Лучезарный Выстрел",
+  "enchantment.mcdw.shockwave": "Ударная Волна",
   "enchantment.mcdw.stunning": "Оглушение",
-  "enchantment.mcdw.thundering": "Гроза"
+  "enchantment.mcdw.swirling": "Вихрь",
+  "enchantment.mcdw.thundering": "Гроза",
+  "enchantment.mcdw.weakening": "Ослабление",
+
+
+  "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing"
 }

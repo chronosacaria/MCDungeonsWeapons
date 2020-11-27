@@ -18,6 +18,14 @@
     },
     "result": {
         "item": "mcdw:sword_hawkbrand",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "mcdw:critical_hit",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }

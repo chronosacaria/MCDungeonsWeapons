@@ -1,6 +1,7 @@
 {
-  "itemGroup.mcdw.weapons": "Armas de MC Dungeons (a Corpo)",
-  "itemGroup.mcdw.weapons/bows": "Armas de MC Dungeons (de Alcance)",
+  "itemGroup.mcdw.weapons":       "Armas de MC Dungeons (a Corpo)",
+  "itemGroup.mcdw.weapons/bows":  "Armas de MC Dungeons (de Alcance)",
+  "itemGroup.mcdw.enchants":      "Armas de MC Dungeons (Encantamentos)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Alcance",
   "attribute.name.generic.reach-entity-attributes.attack_range": "Alcance de Golpe",
@@ -101,12 +102,21 @@
   "item.mcdw.moreinfo.tooltip": "Hold [SHIFT] for more info",
   "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
 
-  "enchantment.mcdw.committing": "Committed",
+  "enchantment.mcdw.chained": "Chains",
+  "enchantment.mcdw.committed": "Committed",
+  "enchantment.mcdw.critical_hit": "Critical Hit",
+  "enchantment.mcdw.echo": "Echo",
   "enchantment.mcdw.exploding": "Exploding",
   "enchantment.mcdw.freezing": "Freezing",
   "enchantment.mcdw.gravity": "Gravity",
   "enchantment.mcdw.leeching": "Leeching",
   "enchantment.mcdw.poison_cloud": "Poison Cloud",
+  "enchantment.mcdw.radiance": "Radiance",
+  "enchantment.mcdw.shockwave": "Shockwave",
   "enchantment.mcdw.stunning": "Stunning",
-  "enchantment.mcdw.thundering": "Thundering"
+  "enchantment.mcdw.swirling": "Swirling",
+  "enchantment.mcdw.thundering": "Thundering",
+  "enchantment.mcdw.weakening": "Weakening",
+
+  "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing"
 }

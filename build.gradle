@@ -19,6 +19,14 @@ repositories {
         name = "Ladysnake Libs"
         url = 'https://dl.bintray.com/ladysnake/libs'
     }
+    maven {
+        name = "Siphalor's Maven"
+        url = "https://maven.siphalor.de"
+    }
+    repositories {
+        jcenter()
+    }
+
 }
 dependencies {
     //to change the versions see the gradle.properties file
@@ -33,12 +41,15 @@ dependencies {
     modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
     include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
 
-    modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cardinal_version}"
-        include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cardinal_version}"
-    modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cardinal_version}"
-        include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${cardinal_version}"
-    modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:${cardinal_version}"
-        include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:${cardinal_version}"
+    //AutoConfig
+    modApi("me.sargunvohra.mcmods:autoconfig1u:${autoconfig1u_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+        include "me.sargunvohra.mcmods:autoconfig1u:${autoconfig1u_version}"
+    }
+
+    //NBT Crafting
+    modImplementation "de.siphalor:nbtcrafting-1.16:2+"
+
 }
 
 processResources {

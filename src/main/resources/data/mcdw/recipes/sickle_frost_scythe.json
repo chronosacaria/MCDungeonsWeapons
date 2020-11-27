@@ -21,6 +21,14 @@
     },
     "result": {
         "item": "mcdw:sickle_frost_scythe",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "mcdw:freezing",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }

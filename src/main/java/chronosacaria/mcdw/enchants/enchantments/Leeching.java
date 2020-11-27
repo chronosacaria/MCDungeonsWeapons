@@ -20,13 +20,13 @@ public class Leeching extends Enchantment{
         return 3;
     }
 
-@Override
+    @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level){
-    float chance = user.getRandom().nextFloat();
+        float chance = user.getRandom().nextFloat();
         if (!(target instanceof LivingEntity)){
             return;}
         else {
-            if (chance <= 1.0) {
+            if (chance <= 0.3) {
                 float damageDealt = ((LivingEntity) target).getMaxHealth() - ((LivingEntity) target).getHealth();
                 //float targetMaxHealth = ((LivingEntity) target).getMaxHealth();
                 float healthRegained;
