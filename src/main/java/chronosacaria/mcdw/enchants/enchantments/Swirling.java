@@ -1,10 +1,12 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.configs.McdwConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import chronosacaria.mcdw.enchants.util.AOEHelper;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -20,6 +22,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class Swirling extends AOEEnchantment {
+    McdwConfig config = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
 
     public static final float SWIRLING_DAMAGE_MULTIPLIER = 0.5F;
 
@@ -32,6 +35,12 @@ public class Swirling extends AOEEnchantment {
     public int getMaxLevel() {
         return 3;
     }
+
+    @Override
+    protected boolean canAccept (Enchantment other){
+        return config.enableAOEMixing || !(other instanceof AOEEnchantment);
+    }
+
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
 

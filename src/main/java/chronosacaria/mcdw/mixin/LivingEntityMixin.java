@@ -1,23 +1,16 @@
 package chronosacaria.mcdw.mixin;
 
-import chronosacaria.mcdw.api.EnchantmentSkeleton;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.enchants.enchantments.CriticalHit;
-import chronosacaria.mcdw.enchants.enchantments.Leeching;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
-import chronosacaria.mcdw.enchants.util.AOEHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import chronosacaria.mcdw.weapons.*;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.TargetPredicate;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTracker;
 import net.minecraft.entity.effect.StatusEffect;
@@ -25,8 +18,6 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
@@ -37,7 +28,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
@@ -49,29 +39,9 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow
     public abstract ItemStack getOffHandStack();
 
-    @Shadow
-    private @Nullable LivingEntity attacker;
 
     @Shadow
     public abstract ItemStack getMainHandStack();
-
-    @Shadow public native boolean hasStatusEffect(StatusEffect effect);
-
-    @Shadow public native void setHealth(float health);
-
-    @Shadow public native boolean clearStatusEffects();
-
-    @Shadow public native boolean addStatusEffect(StatusEffectInstance statusEffectInstance_1);
-
-    @Shadow
-    @Final
-    private DamageTracker damageTracker;
-    @Shadow
-    @Nullable
-    protected PlayerEntity attackingPlayer;
-
-    @Shadow
-    public abstract boolean isTarget(LivingEntity entity, TargetPredicate predicate);
 
     @Shadow
     public abstract boolean damage(DamageSource source, float amount);
@@ -137,30 +107,6 @@ public abstract class LivingEntityMixin extends Entity {
     |***** ENCHANTMENTS -- EXPLODING *****|
     |* * * * * * * * * * * * * * * * * * */
 
-    @Inject(
-             at = @At("HEAD"),
-             method = "onDeath",
-             cancellable = true)
-     public void onDeath(DamageSource damageSource, CallbackInfo ci){
-         ItemStack handStack = getMainHandStack();
-         LivingEntity user = (LivingEntity) damageSource.getSource();
-         LivingEntity target = (LivingEntity) (Object) this;
-         if (EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, handStack) >= 1){
-             int explodingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, handStack);
-             float explosionDamage;
-             explosionDamage = target.getMaxHealth() * 0.2F * explodingLevel;
-             target.world.playSound(
-                     (PlayerEntity) null,
-                     target.getX(),
-                     target.getY(),
-                     target.getZ(),
-                     SoundEvents.ENTITY_GENERIC_EXPLODE,
-                     SoundCategory.PLAYERS,
-                     64.0F,
-                     1.0F);
-             AOEHelper.causeExplosionAttack(user,target,explosionDamage, 3.0F);
-         }
-     }
 
     /* * * * * * * * * * * * * * * * * * |
     |***** ENCHANTMENTS -- FREEZING *****|
@@ -245,7 +191,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     // Remove Weakness Effect if Player has weapon with Weakening Enchantment
 
-    /*@Inject(
+    @Inject(
             at = @At("HEAD"),
             method = "tick",
             cancellable = true)
@@ -259,7 +205,7 @@ public abstract class LivingEntityMixin extends Entity {
                 this.removeStatusEffect(StatusEffects.WEAKNESS);
             }
         }
-    }*/
+    }
 
 
 }

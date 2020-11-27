@@ -82,5 +82,12 @@ public class AbilityHelper {
                 && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
     }
 
+    public static boolean canApplyToEnemy(LivingEntity attacker, LivingEntity nearbyEntity) {
+        return nearbyEntity != attacker
+                && isAliveAndCanBeSeen(nearbyEntity, attacker)
+                && !isAlly(attacker, nearbyEntity)
+                && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
+    }
+
 
 }
