@@ -10,4 +10,6 @@ public class McdwConfig implements ConfigData {
     public boolean enableAOEMixing = false;
     @Comment("Can DamageBoost Enchantments combine with Leeching?")
     public boolean extraLeeching = false;
+    @Comment("Can Soul Siphon and Anima Conduit be combined?")
+    public boolean extraXpHealing = false;
 }

@@ -10,12 +10,12 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Exploding extends AOEEnchantment {
+public class SoulSiphon extends AOEEnchantment {
     McdwConfig config = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
 
-    public Exploding (Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public SoulSiphon(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "exploding"),this);
+        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "soul_siphon"),this);
     }
 
     public int getMaxLevel() {
@@ -23,8 +23,8 @@ public class Exploding extends AOEEnchantment {
     }
 
     @Override
-    protected boolean canAccept (Enchantment other){
-        return config.enableAOEMixing || !(other instanceof AOEEnchantment);
+    protected boolean canAccept(Enchantment other) {
+        return config.extraXpHealing || !(other instanceof AnimaConduit);
     }
     
 }

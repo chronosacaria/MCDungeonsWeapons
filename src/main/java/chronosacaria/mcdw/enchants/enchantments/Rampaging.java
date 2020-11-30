@@ -10,21 +10,16 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Exploding extends AOEEnchantment {
+public class Rampaging extends Enchantment {
     McdwConfig config = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
 
-    public Exploding (Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public Rampaging(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "exploding"),this);
+        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "rampaging"),this);
     }
 
     public int getMaxLevel() {
         return 3;
     }
 
-    @Override
-    protected boolean canAccept (Enchantment other){
-        return config.enableAOEMixing || !(other instanceof AOEEnchantment);
-    }
-    
 }

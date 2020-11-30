@@ -41,11 +41,12 @@ public class AOEHelper {
     //THUNDERING BEGIN
     public static void createVisualLightningBoltOnEntity(LivingEntity user, Entity target){
         World world = target.getEntityWorld();
-        LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);
+        LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(target.world);
         if (lightningEntity != null){
             lightningEntity.pushAwayFrom(user);
+            lightningEntity.teleport(target.getX(), target.getY(), target.getZ());
             lightningEntity.setCosmetic(true);
-            world.spawnEntity(lightningEntity);
+            target.world.spawnEntity(lightningEntity);
         }
     }
 

@@ -1,6 +1,10 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.configs.McdwConfig;
+import chronosacaria.mcdw.enchants.types.AOEEnchantment;
+import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
@@ -10,6 +14,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class Leeching extends Enchantment{
+    McdwConfig config = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
 
     public Leeching (Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
@@ -20,7 +25,11 @@ public class Leeching extends Enchantment{
         return 3;
     }
 
-    @Override
+    protected boolean canAccept (Enchantment other){
+        return config.extraLeeching || !(other instanceof DamageBoostEnchantment);
+    }
+
+    /*@Override // LEECHING AS PER HIT
     public void onTargetDamaged(LivingEntity user, Entity target, int level){
         float chance = user.getRandom().nextFloat();
         if (!(target instanceof LivingEntity)){
@@ -34,5 +43,5 @@ public class Leeching extends Enchantment{
                 user.heal(healthRegained);
             }
         }
-    }
+    }*/
 }

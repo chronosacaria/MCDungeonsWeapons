@@ -37,7 +37,7 @@ public class Chains extends AOEEnchantment {
 
         if (!(target instanceof LivingEntity)) return;
         float chance = user.getRandom().nextFloat();
-        if (chance <= 1.0) {
+        if (chance <= 0.2) {
             AOEHelper.chainNearbyEntities(
                     user,
                     (LivingEntity)target,
