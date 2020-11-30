@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
@@ -23,17 +22,4 @@ public class Stunning extends Enchantment{
         return 3;
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-        if (!(target instanceof LivingEntity)) return;
-        float chance = user.getRandom().nextFloat();
-        if (chance <= 1 /*level * 0.05*/) {
-            StatusEffectInstance stunned = new StatusEffectInstance(StatusEffectsRegistry.STUNNED, 60);
-            StatusEffectInstance nausea = new StatusEffectInstance(StatusEffects.NAUSEA, 60);
-            StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 5);
-            ((LivingEntity) target).addStatusEffect(stunned);
-            ((LivingEntity) target).addStatusEffect(nausea);
-            ((LivingEntity) target).addStatusEffect(slowness);
-        }
-    }
 }

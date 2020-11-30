@@ -22,10 +22,5 @@ public class JunglePoison extends Enchantment{
         return 3;
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level){
-        if (!(target instanceof LivingEntity)) return;
-        StatusEffectInstance poison = new StatusEffectInstance(StatusEffects.POISON, 60, level-1);
-        ((LivingEntity)target).addStatusEffect(poison);
-    }
+
 }

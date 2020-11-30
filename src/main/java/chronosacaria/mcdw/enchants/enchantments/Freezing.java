@@ -22,12 +22,5 @@ public class Freezing extends Enchantment{
         return 3;
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level){
-        if (!(target instanceof LivingEntity)) return;
-        StatusEffectInstance freezing = new StatusEffectInstance(StatusEffects.SLOWNESS, 60, level-1);
-        StatusEffectInstance miningFatigue = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, level-1);
-        ((LivingEntity)target).addStatusEffect(freezing);
-        ((LivingEntity)target).addStatusEffect(miningFatigue);
-    }
+
 }

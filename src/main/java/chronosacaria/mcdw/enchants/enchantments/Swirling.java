@@ -41,28 +41,5 @@ public class Swirling extends AOEEnchantment {
         return config.enableAOEMixing || !(other instanceof AOEEnchantment);
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-
-        //Spawn Lightning @ 10%/20%/30% chance respective of level
-        if (!(target instanceof LivingEntity)) return;
-
-        float attackDamage = (float)user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-        float cooledAttackStrength = 0.5F;
-        attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
-
-        float swirlingDamage = attackDamage * SWIRLING_DAMAGE_MULTIPLIER;
-        swirlingDamage *= (level + 1) / 2.0F;
-        target.world.playSound(
-                (PlayerEntity)null,
-                target.getX(),
-                target.getY(),
-                target.getZ(),
-                SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP,
-                SoundCategory.PLAYERS,
-                64.0F,
-                1.0F);
-        AOEHelper.causeSwirlingAttack((PlayerEntity)user, (LivingEntity)target, swirlingDamage, 1.5f);
-    }
 }
 

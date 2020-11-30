@@ -7,7 +7,6 @@ import chronosacaria.mcdw.enchants.util.AOECloudHelper;
 import chronosacaria.mcdw.enchants.util.AOEHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
-import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import chronosacaria.mcdw.weapons.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -761,10 +760,9 @@ public abstract class LivingEntityMixin extends Entity {
                     int level = EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHandStack);
 
                     float chance = user.getRandom().nextFloat();
-                    if (chance <= 0.1 * level * 0.05) {
-                        target.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.STUNNED, 60, 1));
+                    if (chance <= 0.2 * level) {
+                        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 10));
                         target.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 60, 1));
-                        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 1));
                         //this.world.sendEntityStatus(this,(byte)35);
                     }
                 }
@@ -855,7 +853,7 @@ public abstract class LivingEntityMixin extends Entity {
                     int level = EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, mainHandStack);
 
                     float chance = user.getRandom().nextFloat();
-                    if (chance <= 0.1f * level) {
+                    if (chance <= 0.2) {
                         AOEHelper.electrocuteNearbyEnemies(
                                 user,
                                 target,
@@ -943,7 +941,6 @@ public abstract class LivingEntityMixin extends Entity {
 
             if (EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHand) >= 1
                     || mainHand.getItem() == Axes.AXE_HIGHLAND.asItem()) {
-                this.removeStatusEffect(StatusEffectsRegistry.STUNNED);
                 this.removeStatusEffect(StatusEffects.NAUSEA);
                 this.removeStatusEffect(StatusEffects.SLOWNESS);
             }

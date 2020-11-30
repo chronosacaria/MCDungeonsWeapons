@@ -31,17 +31,5 @@ public class Weakening extends AOEEnchantment {
         return config.enableAOEMixing || !(other instanceof AOEEnchantment);
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
 
-        if (!(target instanceof LivingEntity)) return;
-        float chance = user.getRandom().nextFloat();
-        if (chance <= 1.0) {
-            AOEHelper.weakenNearbyEntities(
-                    user,
-                    (LivingEntity) target,
-                    5,
-                    level - 1);
-        }
-    }
 }
