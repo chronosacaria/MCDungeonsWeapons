@@ -56,17 +56,25 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow
     public abstract void onDeath(DamageSource source);
 
-    @Shadow private @Nullable LivingEntity attacker;
-    @Shadow protected float lastDamageTaken;
-    @Shadow @Nullable protected PlayerEntity attackingPlayer;
+    @Shadow
+    private @Nullable LivingEntity attacker;
+    @Shadow
+    protected float lastDamageTaken;
+    @Shadow
+    @Nullable
+    protected PlayerEntity attackingPlayer;
 
-    @Shadow public abstract float getHealth();
+    @Shadow
+    public abstract float getHealth();
 
-    @Shadow public abstract float getMaxHealth();
+    @Shadow
+    public abstract float getMaxHealth();
 
-    @Shadow protected abstract void spawnItemParticles(ItemStack stack, int count);
+    @Shadow
+    protected abstract void spawnItemParticles(ItemStack stack, int count);
 
-    @Shadow protected abstract int getCurrentExperience(PlayerEntity player);
+    @Shadow
+    protected abstract int getCurrentExperience(PlayerEntity player);
 
 
     /* * * * * * * * * * * * * * * * * * * *|
@@ -79,7 +87,7 @@ public abstract class LivingEntityMixin extends Entity {
             cancellable = true)
 
     private void onAnimaConduitKill(DamageSource source, CallbackInfo ci) {
-        LivingEntity user = (LivingEntity)source.getAttacker();
+        LivingEntity user = (LivingEntity) source.getAttacker();
 
         ItemStack mainHandStack = null;
         if (user != null) {
@@ -92,9 +100,9 @@ public abstract class LivingEntityMixin extends Entity {
 
             //ANIMA CONDUIT AS PER KILL
             if (user.getHealth() < user.getMaxHealth()) {
-                healthRegained = (float)(getCurrentExperience((PlayerEntity)user)*(0.2*level));
+                healthRegained = (float) (getCurrentExperience((PlayerEntity) user) * (0.2 * level));
                 user.heal(healthRegained);
-                ((PlayerEntity)user).addExperienceLevels(-999999999);
+                ((PlayerEntity) user).addExperienceLevels(-999999999);
             }
         }
     }
@@ -135,6 +143,41 @@ public abstract class LivingEntityMixin extends Entity {
     |***** ENCHANTMENTS -- CHAINS *****|
     | * * * * * * * * * * * * * * * * */
 
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyChains(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Hammers.HAMMER_FLAIL.asItem()
+                            || mainHandStack.getItem() == Scythes.SICKLE_JAILORS_SCYTHE.asItem();
+                    ;
+                }
+
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack);
+
+                    float chance = user.getRandom().nextFloat();
+                    if (chance <= 0.2) {
+                        AOEHelper.chainNearbyEntities(
+                                user,
+                                target,
+                                1.5F,
+                                level);
+                    }
+                }
+            }
+        }
+    }
+
     /* * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- COMMITTED *****|
     |* * * * * * * * * * * * * * * * * * */
@@ -143,16 +186,64 @@ public abstract class LivingEntityMixin extends Entity {
     |***** ENCHANTMENTS -- CRITICAL HIT *****|
     | * * * * * * * * * * * * * * * * * * * */
 
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyCriticalHitDamage(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Swords.SWORD_HAWKBRAND.asItem()
+                    || mainHandStack.getItem() == Katanas.SWORD_MASTERS_KATANA.asItem();
+                }
+
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, mainHandStack);
+
+                    float criticalHitChance;
+                    criticalHitChance = 0.5f + level * 0.05F;
+                    float criticalHitRand = user.getRandom().nextFloat();
+                    float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                    float extraDamageMultiplier = 1.5F;
+                    float getExtraDamage = (attackDamage * (extraDamageMultiplier));
+
+                    if (criticalHitRand <= criticalHitChance) {
+                        target.damage(DamageSource.player((PlayerEntity) user),
+                                getExtraDamage);
+                        target.world.playSound(
+                                (PlayerEntity) null,
+                                target.getX(),
+                                target.getY(),
+                                target.getZ(),
+                                SoundEvents.ENTITY_PLAYER_ATTACK_CRIT,
+                                SoundCategory.PLAYERS,
+                                64.0F,
+                                1.0F);
+                    }
+                }
+            }
+        }
+    }
+
+
     /* * * * * * * * * * * * * * * * |
     |***** ENCHANTMENTS -- ECHO *****|
     | * * * * * * * * * * * * * * * */
-    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("RETURN"))
-    public void applyDamage(DamageSource source, float damage, CallbackInfo info) {
-        LivingEntity user = (LivingEntity)source.getAttacker();
+
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyEchoDamage(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
-        if (source.getSource() instanceof LivingEntity && target.getHealth() < damage) {
-            if (!target.isInvulnerableTo(source)) {
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
                 ItemStack mainHandStack = null;
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
@@ -166,11 +257,11 @@ public abstract class LivingEntityMixin extends Entity {
                 if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ECHO, mainHandStack) >= 1 || uniqueWeaponFlag)) {
                     int level = EnchantmentHelper.getLevel(EnchantsRegistry.ECHO, mainHandStack);
 
-                    float attackDamage = (float)user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                    float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                     float cooledAttackStrength = 0.5F;
                     attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
                     float chance = user.getRandom().nextFloat();
-                    if (chance <= 1/* * level*/) {
+                    if (chance <= 0.1 * level) {
                         AOEHelper.causeEchoAttack(user, target, attackDamage, 3.0f, level);
                         user.world.playSound(
                                 (PlayerEntity) null,
@@ -198,7 +289,7 @@ public abstract class LivingEntityMixin extends Entity {
             cancellable = true)
 
     private void onExplodingKill(DamageSource source, CallbackInfo ci) {
-        LivingEntity user = (LivingEntity)source.getAttacker();
+        LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;
         if (user != null) {
@@ -237,10 +328,75 @@ public abstract class LivingEntityMixin extends Entity {
     |***** ENCHANTMENTS -- FREEZING *****|
     | * * * * * * * * * * * * * * * * * */
 
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyFreezing(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_FANGS_OF_FROST.asItem()
+                            || mainHandStack.getItem() == Scythes.SICKLE_FROST_SCYTHE.asItem();
+                }
+
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, mainHandStack);
+
+                    float chance = user.getRandom().nextFloat();
+                    if (chance <= 0.3) {
+                        StatusEffectInstance freezing = new StatusEffectInstance(StatusEffects.SLOWNESS, 60, level - 1);
+                        StatusEffectInstance miningFatigue = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, level - 1);
+                        target.addStatusEffect(freezing);
+                        target.addStatusEffect(miningFatigue);
+                    }
+                }
+            }
+        }
+    }
+
+
     /* * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- GRAVITY *****|
     |* * * * * * * * * * * * * * * * * */
 
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyGravity(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Hammers.HAMMER_GRAVITY.asItem();
+                }
+
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack);
+
+                    float chance = user.getRandom().nextFloat();
+                    if (chance <= 0.3) {
+                        AOEHelper.pullInNearbyEntities(
+                                user,
+                                target,
+                                (level + 1) * 3);
+                    }
+                }
+            }
+        }
+    }
     /* * * * * * * * * * * * * * * * * * |
     |***** ENCHANTMENTS -- LEECHING *****|
     | * * * * * * * * * * * * * * * * * */
@@ -251,7 +407,7 @@ public abstract class LivingEntityMixin extends Entity {
             cancellable = true)
 
     private void onLeechingKill(DamageSource source, CallbackInfo ci) {
-        LivingEntity user = (LivingEntity)source.getAttacker();
+        LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
         ItemStack mainHandStack = null;
@@ -267,7 +423,6 @@ public abstract class LivingEntityMixin extends Entity {
         if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.LEECHING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
             int level = EnchantmentHelper.getLevel(EnchantsRegistry.LEECHING, mainHandStack);
             float healthRegained;
-            assert target != null;
             float targetMaxHealth = target.getMaxHealth();
 
             //LEECHING AS PER KILL
@@ -283,9 +438,79 @@ public abstract class LivingEntityMixin extends Entity {
     |***** ENCHANTMENTS -- POISON CLOUD *****|
     | * * * * * * * * * * * * * * * * * * * */
 
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyPoisonCloud(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Sickles.SICKLE_NIGHTMARES_BITE.asItem()
+                            || mainHandStack.getItem() == Glaives.SPEAR_VENOM_GLAIVE.asItem();
+                }
+
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHandStack);
+
+                    float chance = user.getRandom().nextFloat();
+                    //Spawn Poison Cloud @ 30% chance
+                    if (target instanceof LivingEntity) {
+                        if (chance <= 0.3) {
+                            AOECloudHelper.spawnPoisonCloud(
+                                    user,
+                                    (LivingEntity) target,
+                                    level - 1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     /* * * * * * * * * * * * * * * * * * |
     |***** ENCHANTMENTS -- RADIANCE *****|
     | * * * * * * * * * * * * * * * * * */
+
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyRadianceCloud(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Hammers.HAMMER_SUNS_GRACE.asItem();
+                }
+
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, mainHandStack);
+
+                    float chance = user.getRandom().nextFloat();
+                    //Spawn Regen Cloud @ 20% chance
+                    if (target instanceof LivingEntity) {
+                        if (chance <= 0.2) {
+                            AOECloudHelper.spawnRegenCloud(
+                                    user,
+                                    level - 1);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     /* * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- RAMPAGING *****|
@@ -296,7 +521,7 @@ public abstract class LivingEntityMixin extends Entity {
             cancellable = true)
 
     private void onRampagingKill(DamageSource source, CallbackInfo ci) {
-        LivingEntity user = (LivingEntity)source.getAttacker();
+        LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;
         if (user != null) {
@@ -311,14 +536,14 @@ public abstract class LivingEntityMixin extends Entity {
         if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RAMPAGING, mainHandStack) >= 1)) {
             int level = EnchantmentHelper.getLevel(EnchantsRegistry.RAMPAGING, mainHandStack);
             float rampagingRand = user.getRandom().nextFloat();
-            if (rampagingRand <= 0.1F){
+            if (rampagingRand <= 0.1F) {
                 StatusEffectInstance rampage = new StatusEffectInstance(StatusEffects.HASTE, level * 100, 4);
                 user.addStatusEffect(rampage);
             }
         }
-        if (uniqueWeaponFlag){
+        if (uniqueWeaponFlag) {
             float rampagingRand = user.getRandom().nextFloat();
-            if (rampagingRand <= 0.1F){
+            if (rampagingRand <= 0.1F) {
                 StatusEffectInstance rampage = new StatusEffectInstance(StatusEffects.HASTE, 100, 4);
                 user.addStatusEffect(rampage);
             }
@@ -329,6 +554,59 @@ public abstract class LivingEntityMixin extends Entity {
     |***** ENCHANTMENTS -- SHOCKWAVE *****|
     |* * * * * * * * * * * * * * * * * * */
 
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyShockwaveDamage(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == DoubleAxes.AXE_WHIRLWIND.asItem();
+                }
+
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SHOCKWAVE, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.SHOCKWAVE, mainHandStack);
+
+                    float SHOCKWAVE_DAMAGE_MULTIPLIER = 0.25F;
+
+
+                    float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                    float cooledAttackStrength = 0.5F;
+                    attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
+
+                    float shockwaveDamage = attackDamage * SHOCKWAVE_DAMAGE_MULTIPLIER;
+                    shockwaveDamage *= (level + 1) / 2.0F;
+
+
+                    float chance = user.getRandom().nextFloat();
+                    if (chance <= 0.1 * level) {
+                        AOEHelper.causeShockwaveAttack(
+                                (PlayerEntity) user,
+                                target,
+                                shockwaveDamage,
+                                3.0f);
+
+                        target.world.playSound(
+                                (PlayerEntity) null,
+                                target.getX(),
+                                target.getY(),
+                                target.getZ(),
+                                SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT,
+                                SoundCategory.PLAYERS,
+                                1.0F,
+                                1.0F);
+                    }
+                }
+            }
+        }
+    }
 
     /* * * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- SOUL SIPHON *****|
@@ -379,10 +657,97 @@ public abstract class LivingEntityMixin extends Entity {
     |***** ENCHANTMENTS -- SWIRLING *****|
     | * * * * * * * * * * * * * * * * * */
 
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applySwirlingDamage(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_SHEER_DAGGER.asItem();
+                }
+
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SWIRLING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.SWIRLING, mainHandStack);
+
+                    float SWIRLING_DAMAGE_MULTIPLIER = 0.5F;
+
+
+                    float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                    float cooledAttackStrength = 0.5F;
+                    attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
+
+                    float swirlingDamage = attackDamage * SWIRLING_DAMAGE_MULTIPLIER;
+                    swirlingDamage *= (level + 1) / 2.0F;
+
+
+                    float chance = user.getRandom().nextFloat();
+                    if (chance <= 0.1 * level) {
+                        AOEHelper.causeSwirlingAttack(
+                                (PlayerEntity) user,
+                                target,
+                                swirlingDamage,
+                                1.5f);
+
+                        target.world.playSound(
+                                (PlayerEntity)null,
+                                target.getX(),
+                                target.getY(),
+                                target.getZ(),
+                                SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP,
+                                SoundCategory.PLAYERS,
+                                64.0F,
+                                1.0F);
+                    }
+                }
+            }
+        }
+    }
+
     /* * * * * * * * * * * * * * * * * * * |
     |***** ENCHANTMENTS -- THUNDERING *****|
     | * * * * * * * * * * * * * * * * * * */
 
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyThunderingDamage(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Hammers.HAMMER_STORMLANDER.asItem();
+                }
+
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, mainHandStack);
+
+                    float chance = user.getRandom().nextFloat();
+                    if (chance <= 0.1f * level) {
+                        AOEHelper.electrocuteNearbyEnemies(
+                                user,
+                                target,
+                                5,
+                                10,
+                                Integer.MAX_VALUE);
+                    }
+                }
+            }
+        }
+    }
 
     /* * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- WEAKENING *****|
@@ -403,7 +768,11 @@ public abstract class LivingEntityMixin extends Entity {
             PlayerEntity entity = (PlayerEntity) (Object) this;
             ItemStack mainHand = getMainHandStack();
 
-            if (EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHand) >= 1) {
+
+            if (EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHand) >= 1
+                    || mainHand.getItem() == Sickles.SICKLE_NIGHTMARES_BITE.asItem()
+                    || mainHand.getItem() == Glaives.SPEAR_VENOM_GLAIVE.asItem())
+            {
                 this.removeStatusEffect(StatusEffects.POISON);
             }
         }

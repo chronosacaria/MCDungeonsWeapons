@@ -50,6 +50,7 @@ public class Swirling extends AOEEnchantment {
         float attackDamage = (float)user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
         float cooledAttackStrength = 0.5F;
         attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
+
         float swirlingDamage = attackDamage * SWIRLING_DAMAGE_MULTIPLIER;
         swirlingDamage *= (level + 1) / 2.0F;
         target.world.playSound(

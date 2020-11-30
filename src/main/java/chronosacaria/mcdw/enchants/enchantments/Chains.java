@@ -31,18 +31,4 @@ public class Chains extends AOEEnchantment {
         return config.enableAOEMixing || !(other instanceof AOEEnchantment);
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level){
-
-
-        if (!(target instanceof LivingEntity)) return;
-        float chance = user.getRandom().nextFloat();
-        if (chance <= 0.2) {
-            AOEHelper.chainNearbyEntities(
-                    user,
-                    (LivingEntity)target,
-                    1.5F,
-                    level);
-        }
-    }
 }

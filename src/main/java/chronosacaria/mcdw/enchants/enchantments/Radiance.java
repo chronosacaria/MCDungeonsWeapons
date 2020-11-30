@@ -21,17 +21,4 @@ public class Radiance extends Enchantment {
         return 3;
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level){
-
-        float chance = user.getRandom().nextFloat();
-        //Spawn Regen Cloud @ 20% chance
-        if (target instanceof LivingEntity) {
-            if (chance <= 0.2) {
-                AOECloudHelper.spawnRegenCloud(
-                        user,
-                        level - 1);
-            }
-        }
-    }
 }

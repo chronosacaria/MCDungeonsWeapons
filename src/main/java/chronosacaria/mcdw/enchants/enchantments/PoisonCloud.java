@@ -31,18 +31,4 @@ public class PoisonCloud extends AOEEnchantment {
         return config.enableAOEMixing || !(other instanceof AOEEnchantment);
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level){
-
-        float chance = user.getRandom().nextFloat();
-        //Spawn Poison Cloud @ 30% chance
-        if (target instanceof LivingEntity) {
-            if (chance <= 0.3) {
-                AOECloudHelper.spawnPoisonCloud(
-                        user,
-                        (LivingEntity) target,
-                        level - 1);
-            }
-        }
-    }
 }

@@ -30,26 +30,6 @@ public class Thundering extends AOEEnchantment {
     protected boolean canAccept (Enchantment other){
         return config.enableAOEMixing || !(other instanceof AOEEnchantment);
     }
-
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level){
-
-        //Spawn Lightning @ 10%/20%/30% chance respective of level
-        if (!(target instanceof LivingEntity)) return;
-        float chance = user.getRandom().nextFloat();
-        if (chance <= 0.1F * level) {
-            AOEHelper.electrocuteNearbyEnemies(
-                    user,
-                    target,
-                    5,
-                    10,
-                    Integer.MAX_VALUE);
-            /*AOECloudHelper.spawnLightning(
-                    user,
-                    (LivingEntity) target);*/
-            //user.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 1, 0));
-        }
-    }
 }
 
 

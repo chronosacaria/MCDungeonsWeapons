@@ -39,30 +39,5 @@ public class CriticalHit extends DamageBoostEnchantment {
     protected boolean canAccept (Enchantment other){
         return config.enableAOEMixing || !(other instanceof Leeching);
     }
-
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level){
-
-        float criticalHitChance;
-        criticalHitChance = 0.5f + level * 0.05F;
-        float criticalHitRand = user.getRandom().nextFloat();
-        float attackDamage = (float)user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-        float extraDamageMultiplier = 1.5F;
-        float getExtraDamage = (attackDamage * (extraDamageMultiplier));
-
-        if (criticalHitRand <= criticalHitChance){
-           ((LivingEntity)target).damage(DamageSource.player((PlayerEntity)user),
-                    getExtraDamage);
-            target.world.playSound(
-                    (PlayerEntity)null,
-                    target.getX(),
-                    target.getY(),
-                    target.getZ(),
-                    SoundEvents.ENTITY_PLAYER_ATTACK_CRIT,
-                    SoundCategory.PLAYERS,
-                    64.0F,
-                    1.0F);
-        }
-    }
 }
 

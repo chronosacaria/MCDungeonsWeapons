@@ -31,17 +31,4 @@ public class Gravity extends AOEEnchantment {
         return config.enableAOEMixing || !(other instanceof AOEEnchantment);
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level){
-
-
-        if (!(target instanceof LivingEntity)) return;
-        float chance = user.getRandom().nextFloat();
-        if (chance <= 0.3) {
-            AOEHelper.pullInNearbyEntities(
-                    user,
-                    target,
-                    level * 3);
-        }
-    }
 }
