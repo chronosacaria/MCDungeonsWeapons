@@ -37,32 +37,5 @@ public class Committed extends DamageBoostEnchantment {
     protected boolean canAccept(Enchantment other) {
         return config.enableAOEMixing || !(other instanceof Leeching);
     }
-
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-
-        float getTargetHealth = ((LivingEntity) target).getHealth();
-        float getTargetMaxHealth = ((LivingEntity) target).getMaxHealth();
-        float getTargetRemainingHealth = getTargetHealth / getTargetMaxHealth;
-        float getOriginalDamage = getTargetMaxHealth - getTargetRemainingHealth;
-        float extraDamageMultiplier = 0.1F + level * 0.1F;
-        float getExtraDamage = (getOriginalDamage * (1 - getTargetRemainingHealth) * extraDamageMultiplier);
-
-        float chance = user.getRandom().nextFloat();
-        if (chance <= 0.2) {
-            if ((Math.abs(getTargetHealth)) < (Math.abs(getTargetMaxHealth))) {
-                ((LivingEntity) target).damage(DamageSource.player((PlayerEntity) user),
-                        getExtraDamage);
-                target.world.playSound(
-                        (PlayerEntity) null,
-                        target.getX(),
-                        target.getY(),
-                        target.getZ(),
-                        SoundEvents.ENTITY_GENERIC_EXPLODE,
-                        SoundCategory.PLAYERS,
-                        1.0F,
-                        1.0F);
-            }
-        }
-    }
+    
 }

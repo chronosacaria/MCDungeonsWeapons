@@ -24,14 +24,6 @@
     },
     "result": {
         "item": "mcdw:hammer_gravity",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "mcdw:gravity",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }

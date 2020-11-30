@@ -50,44 +50,26 @@ public class AOEHelper {
         }
     }
 
-    public static void electrocute(LivingEntity user, LivingEntity target, float damageAmount){
+    /*public static void electrocute(LivingEntity user, LivingEntity target, float damageAmount){
         createVisualLightningBoltOnEntity(user, target);
         ElectricShockDamageSource lightning =
                 (ElectricShockDamageSource) new ElectricShockDamageSource(user).setUsesMagic();
         target.damage(lightning, damageAmount);
-    }
+    }*/
 
     public static void electrocuteNearbyEnemies(LivingEntity user, Entity target, int distance,
-                                                float damageAmount,
-                                                int limit){
+                                                float damageAmount){
+        createVisualLightningBoltOnEntity(user, target);
         World world = user.getEntityWorld();
+        DamageSource explosion = DamageSource.explosion(user);
 
-        List<LivingEntity> nearbyEntities = world.getNonSpectatingEntities(LivingEntity.class,
-                new Box(target.getBlockPos()).expand(distance)
-        );
+        List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
+                new Box(target.getBlockPos()).expand(distance),
+                (nearbyEntity) -> AbilityHelper
+                        .canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
-        if (limit > nearbyEntities.size()) limit = nearbyEntities.size();
-        user.world.playSound(
-                (PlayerEntity)null,
-                user.getX(),
-                user.getY(),
-                user.getZ(),
-                SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER,
-                SoundCategory.WEATHER,
-                64.0F,
-                1.0F);
-        user.world.playSound(
-                (PlayerEntity)null,
-                user.getX(),
-                user.getY(),
-                user.getZ(),
-                SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT,
-                SoundCategory.WEATHER,
-                64.0F,
-                1.0F);
-        for (int i = 0; i < limit; i++){
-            LivingEntity nearbyEntity = nearbyEntities.get(i);
-            electrocute(user, nearbyEntity, damageAmount);
+        for (LivingEntity nearbyEntity : nearbyEntities){
+            nearbyEntity.damage(explosion, damageAmount);
         }
     } //THUNDERING END
 
@@ -99,7 +81,7 @@ public class AOEHelper {
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper
-                        .canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+                        .canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities){
             nearbyEntity.damage(explosion, damageAmount);
@@ -112,7 +94,7 @@ public class AOEHelper {
 
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
 
         if (nearbyEntities.isEmpty()) return;
         StatusEffectInstance chained = new StatusEffectInstance(StatusEffects.SLOWNESS, 20 * timeMultiplier, 5);
@@ -164,10 +146,10 @@ public class AOEHelper {
     }
     public static void causeSwirlingAttack(PlayerEntity user, LivingEntity target, float damageAmound, float distance){
         World world = target.getEntityWorld();
-        DamageSource swirling = DamageSource.mob((PlayerEntity)user);
+        DamageSource swirling = DamageSource.mob(user);
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities){
             nearbyEntity.damage(swirling, damageAmound);
@@ -176,10 +158,10 @@ public class AOEHelper {
 
     public static void causeShockwaveAttack(PlayerEntity user, LivingEntity target, float damageAmound, float distance){
         World world = target.getEntityWorld();
-        DamageSource shockwave = DamageSource.explosion((PlayerEntity)user);
+        DamageSource shockwave = DamageSource.explosion(user);
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities){
             nearbyEntity.damage(shockwave, damageAmound);

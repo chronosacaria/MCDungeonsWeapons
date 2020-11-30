@@ -117,4 +117,27 @@ public class AOECloudHelper {
         user.world.spawnEntity(areaEffectCloudEntity);
 
     }
+
+    //Poison Cloud
+    public static void spawnWeakeningCloud(
+            LivingEntity user,
+            LivingEntity target,
+            int amplifier) {
+        AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(
+                target.world,
+                target.getX(),
+                target.getY(),
+                target.getZ());
+        areaEffectCloudEntity.setOwner(user);
+        areaEffectCloudEntity.setRadius(5.0F);
+        areaEffectCloudEntity.setRadiusOnUse(-0.5F);
+        areaEffectCloudEntity.setWaitTime(10);
+        areaEffectCloudEntity.setDuration(60);
+        StatusEffectInstance weakening = new StatusEffectInstance(
+                StatusEffects.WEAKNESS,
+                60,
+                amplifier);
+        areaEffectCloudEntity.addEffect(weakening);
+        target.world.spawnEntity(areaEffectCloudEntity);
+    }
 }

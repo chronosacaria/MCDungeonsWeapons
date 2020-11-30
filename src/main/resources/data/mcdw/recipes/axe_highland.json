@@ -21,14 +21,6 @@
     },
     "result": {
         "item": "mcdw:axe_highland",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "mcdw:stunning",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }

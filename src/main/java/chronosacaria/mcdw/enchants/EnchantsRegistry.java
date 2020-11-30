@@ -2,6 +2,7 @@ package chronosacaria.mcdw.enchants;
 
 import chronosacaria.mcdw.enchants.enchantments.*;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 
@@ -14,6 +15,7 @@ public class EnchantsRegistry {
     public static Enchantment EXPLODING;
     public static Enchantment FREEZING;
     public static Enchantment GRAVITY;
+    public static Enchantment JUNGLE_POISON;
     public static Enchantment LEECHING;
     public static Enchantment POISON_CLOUD;
     public static Enchantment RADIANCE;
@@ -44,6 +46,8 @@ public class EnchantsRegistry {
         FREEZING = new Freezing(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         GRAVITY = new Gravity(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        JUNGLE_POISON = new JunglePoison(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         LEECHING = new Leeching(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

@@ -21,14 +21,6 @@
     },
     "result": {
         "item": "mcdw:axe_whirlwind",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "mcdw:shockwave",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }

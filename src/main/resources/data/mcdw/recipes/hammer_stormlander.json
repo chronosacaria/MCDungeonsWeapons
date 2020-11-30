@@ -24,14 +24,6 @@
     },
     "result": {
         "item": "mcdw:hammer_stormlander",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "mcdw:thundering",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }

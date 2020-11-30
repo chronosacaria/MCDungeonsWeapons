@@ -21,14 +21,6 @@
     },
     "result": {
         "item": "mcdw:spear_whispering_spear",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "mcdw:echo",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }

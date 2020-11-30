@@ -24,14 +24,6 @@
     },
     "result": {
         "item": "mcdw:sword_freezing_foil",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "mcdw:freezing",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }

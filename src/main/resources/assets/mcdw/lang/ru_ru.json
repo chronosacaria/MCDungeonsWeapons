@@ -95,7 +95,7 @@
   "item.mcdw.sword_sinister_sword": "Зловещий Меч",
 
   "item.mcdw.whip_whip": "Кнут",
-  "item.mcdw.whip_vine_whip": "Кнут Лозы́",
+  "item.mcdw.whip_vine_whip": "Кнут Лозы",
 
   "item.mcdw.item_bee_stinger": "Bee Stinger",
   "item.mcdw.item_bee_stinger.tooltip": "The business end of the bee.",
@@ -103,6 +103,7 @@
   "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
 
 
+  "enchantment.mcdw.anima_conduit": "Проводник Души",
   "enchantment.mcdw.chained": "Цепи",
   "enchantment.mcdw.committed": "Целеустремлённость",
   "enchantment.mcdw.critical_hit": "Критический Удар",
@@ -110,15 +111,18 @@
   "enchantment.mcdw.exploding": "Взрыв",
   "enchantment.mcdw.freezing": "Паралич",
   "enchantment.mcdw.gravity": "Притяжение",
+  "enchantment.mcdw.jungle_poison": "Яд Джунглей",
   "enchantment.mcdw.leeching": "Вампиризм",
   "enchantment.mcdw.poison_cloud": "Отравленное Облако",
   "enchantment.mcdw.radiance": "Лучезарный Выстрел",
+  "enchantment.mcdw.rampaging": "Rampaging",
+  "enchantment.mcdw.ricochet": "Ricochet",
   "enchantment.mcdw.shockwave": "Ударная Волна",
+  "enchantment.mcdw.soul_siphon": "Перекачка Душ",
   "enchantment.mcdw.stunning": "Оглушение",
   "enchantment.mcdw.swirling": "Вихрь",
   "enchantment.mcdw.thundering": "Гроза",
   "enchantment.mcdw.weakening": "Ослабление",
-
 
   "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing"
 }

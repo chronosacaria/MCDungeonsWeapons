@@ -18,14 +18,6 @@
     },
     "result": {
         "item": "mcdw:hammer_suns_grace",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "mcdw:radiance",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }

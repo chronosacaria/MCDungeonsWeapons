@@ -18,14 +18,6 @@
     },
     "result": {
         "item": "mcdw:spear_venom_glaive",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "mcdw:poison_cloud",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }
