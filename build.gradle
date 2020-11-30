@@ -15,6 +15,18 @@ repositories {
     maven {
         url "https://maven.jamieswhiteshirt.com/libs-release/"
     }
+    maven {
+        name = "Ladysnake Libs"
+        url = 'https://dl.bintray.com/ladysnake/libs'
+    }
+    maven {
+        name = "Siphalor's Maven"
+        url = "https://maven.siphalor.de"
+    }
+    repositories {
+        jcenter()
+    }
+
 }
 dependencies {
     //to change the versions see the gradle.properties file
@@ -28,6 +40,16 @@ dependencies {
     // Jamie White Shirt Reach
     modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
     include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
+
+    //AutoConfig
+    modApi("me.sargunvohra.mcmods:autoconfig1u:${autoconfig1u_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+        include "me.sargunvohra.mcmods:autoconfig1u:${autoconfig1u_version}"
+    }
+
+    //NBT Crafting
+    modImplementation "de.siphalor:nbtcrafting-1.16:2+"
+
 }
 
 processResources {

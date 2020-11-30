@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "AccessorItemTags",
-    "MixinEntity"
+    "MixinEntity",
+    "LivingEntityMixin"
   ],
   "client": [
   ],

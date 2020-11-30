@@ -27,7 +27,7 @@ public class McdwBow extends BowItem {
 
     private final ToolMaterial material;
     private final float maxDrawTime;
-    private final float maxBowRange;
+    public static float maxBowRange;
     private final ParticleEffect type;
 
     public McdwBow(ToolMaterial material, Settings settings, float maxDrawTime, float maxBowRange, String id) {

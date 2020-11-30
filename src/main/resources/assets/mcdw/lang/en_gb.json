@@ -1,6 +1,7 @@
 {
   "itemGroup.mcdw.weapons": "MC Dungeons Weapons (Melee)",
   "itemGroup.mcdw.weapons/bows": "MC Dungeons Weapons (Ranged)",
+  "itemGroup.mcdw.enchants": "MC Dungeons Weapons (Enchantments)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Reach",
   "attribute.name.generic.reach-entity-attributes.attack_range": "Attack Reach",
@@ -94,5 +95,33 @@
   "item.mcdw.sword_sinister_sword": "Sinister Sword",
 
   "item.mcdw.whip_whip": "Whip",
-  "item.mcdw.whip_vine_whip": "Vine Whip"
+  "item.mcdw.whip_vine_whip": "Vine Whip",
+
+  "item.mcdw.item_bee_stinger": "Bee Stinger",
+  "item.mcdw.item_bee_stinger.tooltip": "The business end of the bee.",
+  "item.mcdw.moreinfo.tooltip": "Hold [SHIFT] for more info",
+  "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
+
+  "enchantment.mcdw.anima_conduit": "Anima Conduit",
+  "enchantment.mcdw.chained": "Chains",
+  "enchantment.mcdw.committed": "Committed",
+  "enchantment.mcdw.critical_hit": "Critical Hit",
+  "enchantment.mcdw.echo": "Echo",
+  "enchantment.mcdw.exploding": "Exploding",
+  "enchantment.mcdw.freezing": "Freezing",
+  "enchantment.mcdw.gravity": "Gravity",
+  "enchantment.mcdw.jungle_poison": "Jungle's Poison",
+  "enchantment.mcdw.leeching": "Leeching",
+  "enchantment.mcdw.poison_cloud": "Poison Cloud",
+  "enchantment.mcdw.radiance": "Radiance",
+  "enchantment.mcdw.rampaging": "Rampaging",
+  "enchantment.mcdw.ricochet": "Ricochet",
+  "enchantment.mcdw.shockwave": "Shockwave",
+  "enchantment.mcdw.soul_siphon": "Soul Siphon",
+  "enchantment.mcdw.stunning": "Stunning",
+  "enchantment.mcdw.swirling": "Swirling",
+  "enchantment.mcdw.thundering": "Thundering",
+  "enchantment.mcdw.weakening": "Weakening",
+
+  "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing"
 }

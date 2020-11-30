@@ -15,6 +15,14 @@
     },
     "result": {
         "item": "mcdw:sword_dark_katana",
+        "data": {
+            "Enchantments": [
+                {
+                    "id": "minecraft:smite",
+                    "lvl": 1
+                }
+            ]
+        },
         "count": 1
     }
 }
