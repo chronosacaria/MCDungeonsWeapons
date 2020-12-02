@@ -788,7 +788,7 @@ public abstract class LivingEntityMixin extends Entity {
                 boolean uniqueWeaponFlag =
                         false;
                 if (mainHandStack != null) {
-                    uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_SHEER_DAGGER.asItem();
+                    uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_SHEAR_DAGGER.asItem();
                 }
 
                 if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SWIRLING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
