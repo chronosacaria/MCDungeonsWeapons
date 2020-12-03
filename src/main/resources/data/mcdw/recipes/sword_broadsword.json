@@ -15,14 +15,6 @@
     },
     "result": {
         "item": "mcdw:sword_broadsword",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "mcdw:sharpness",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }

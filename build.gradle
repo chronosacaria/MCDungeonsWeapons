@@ -47,9 +47,6 @@ dependencies {
         include "me.sargunvohra.mcmods:autoconfig1u:${autoconfig1u_version}"
     }
 
-    //NBT Crafting
-    modImplementation "de.siphalor:nbtcrafting-1.16:2+"
-
 }
 
 processResources {

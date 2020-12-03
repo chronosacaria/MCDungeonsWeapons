@@ -18,14 +18,6 @@
     },
     "result": {
         "item": "mcdw:spear_fortune",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "minecraft:looting",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }

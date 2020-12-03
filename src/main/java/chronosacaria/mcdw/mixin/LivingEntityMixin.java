@@ -10,7 +10,9 @@ import chronosacaria.mcdw.enchants.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.weapons.*;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -395,7 +397,10 @@ public abstract class LivingEntityMixin extends Entity {
                 if (mainHandStack != null) {
                     uniqueWeaponFlag = mainHandStack.getItem() == Axes.AXE_FIREBRAND.asItem();
                 }
-                if (user != null && mainHandStack != null && uniqueWeaponFlag) {
+                if (user != null
+                        && mainHandStack != null
+                        && uniqueWeaponFlag
+                        && !(EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, mainHandStack) >= 1)){
                     boolean burning = false;
                     float chance = user.getRandom().nextFloat();
                     if (chance <= 0.1) {
@@ -675,6 +680,45 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
+    /* * * * * * * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- SHARPNESS (CUSTOM) *****|
+    | * * * * * * * * * * * * * * * * * * * * * * */
+
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applySharpnessCustom(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Claymores.SWORD_BROADSWORD.asItem();
+                }
+                if (user != null
+                        && mainHandStack != null
+                        && uniqueWeaponFlag
+                        && !(EnchantmentHelper.getLevel(Enchantments.SHARPNESS, mainHandStack) >= 1)){
+                    boolean burning = false;
+                    float chance = user.getRandom().nextFloat();
+                    if (chance <= 0.1) {
+                        if (target instanceof LivingEntity) {
+                            if (!target.isOnFire()) {
+                                burning = true;
+                                target.setOnFireFor(4);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     /* * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- SHOCKWAVE *****|
     |* * * * * * * * * * * * * * * * * * */
@@ -754,7 +798,7 @@ public abstract class LivingEntityMixin extends Entity {
                     uniqueWeaponFlag = mainHandStack.getItem() == Glaives.SPEAR_GRAVE_BANE.asItem();
                 }
 
-                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack) >= 1 || uniqueWeaponFlag && !(EnchantmentHelper.getLevel(Enchantments.SMITE, mainHandStack) >= 1))) {
                     int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack);
 
                     float SMITING_DAMAGE_MULTIPLIER = 1.25F;
@@ -876,7 +920,8 @@ public abstract class LivingEntityMixin extends Entity {
                 boolean uniqueWeaponFlag =
                         false;
                 if (mainHandStack != null) {
-                    uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_SHEAR_DAGGER.asItem();
+                    uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_SHEAR_DAGGER.asItem()
+                            || mainHandStack.getItem() == Claymores.SWORD_BROADSWORD.asItem();
                 }
 
                 if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SWIRLING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
