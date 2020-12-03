@@ -24,14 +24,6 @@
     },
     "result": {
         "item": "mcdw:axe_firebrand",
-        "data": {
-            "Enchantments": [
-                {
-                    "id": "minecraft:fire_aspect",
-                    "lvl": 1
-                }
-            ]
-        },
         "count": 1
     }
 }

@@ -21,6 +21,7 @@ public class EnchantsRegistry {
     public static Enchantment RADIANCE;
     public static Enchantment RAMPAGING;
     public static Enchantment SHOCKWAVE;
+    public static Enchantment SMITING;
     public static Enchantment SOUL_SIPHON;
     public static Enchantment STUNNING;
     public static Enchantment SWIRLING;
@@ -58,6 +59,8 @@ public class EnchantsRegistry {
         RAMPAGING = new Rampaging(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         SHOCKWAVE = new Shockwave(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        SMITING = new Smiting(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         SOUL_SIPHON = new SoulSiphon(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

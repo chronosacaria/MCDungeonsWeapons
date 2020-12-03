@@ -167,4 +167,16 @@ public class AOEHelper {
             nearbyEntity.damage(shockwave, damageAmound);
         }
     }
+
+    public static void causeSmitingAttack(PlayerEntity user, LivingEntity target, float damageAmount, float distance){
+        World world = target.getEntityWorld();
+        DamageSource smiting = DamageSource.explosion(user);
+        List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
+                new Box(target.getBlockPos()).expand(distance),
+                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+        if (nearbyEntities.isEmpty()) return;
+        for (LivingEntity nearbyEntity : nearbyEntities){
+            nearbyEntity.damage(smiting, damageAmount);
+        }
+    }
 }

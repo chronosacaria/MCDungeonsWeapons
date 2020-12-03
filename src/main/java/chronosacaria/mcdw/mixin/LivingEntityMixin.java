@@ -5,6 +5,8 @@ import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.util.AOECloudHelper;
 import chronosacaria.mcdw.enchants.util.AOEHelper;
+import chronosacaria.mcdw.enchants.util.AbilityHelper;
+import chronosacaria.mcdw.enchants.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.weapons.*;
@@ -373,6 +375,43 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- FIRE ASPECT (CUSTOM) *****|
+    | * * * * * * * * * * * * * * * * * * * * * * * */
+
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyFireAspectCustom(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Axes.AXE_FIREBRAND.asItem();
+                }
+                if (user != null && mainHandStack != null && uniqueWeaponFlag) {
+                    boolean burning = false;
+                    float chance = user.getRandom().nextFloat();
+                    if (chance <= 0.1) {
+                        if (target instanceof LivingEntity) {
+                            if (!target.isOnFire()) {
+                                burning = true;
+                                target.setOnFireFor(4);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
     /* * * * * * * * * * * * * * * * * * |
     |***** ENCHANTMENTS -- FREEZING *****|
     | * * * * * * * * * * * * * * * * * */
@@ -693,6 +732,65 @@ public abstract class LivingEntityMixin extends Entity {
             }
         }
     }
+
+    /* * * * * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- SMITE (CUSTOM) *****|
+    | * * * * * * * * * * * * * * * * * * * * */
+
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applySmitingDamage(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Glaives.SPEAR_GRAVE_BANE.asItem();
+                }
+
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack);
+
+                    float SMITING_DAMAGE_MULTIPLIER = 1.25F;
+
+
+                    float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                    //float cooledAttackStrength = 0.5F;
+                    //attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
+
+                    float smitingDamage = attackDamage * SMITING_DAMAGE_MULTIPLIER;
+                    smitingDamage *= (level + 1) / 2.0F;
+
+
+                    float chance = user.getRandom().nextFloat();
+                    if (chance <= 1 && target.isUndead()) {
+                        AOEHelper.causeSmitingAttack(
+                                (PlayerEntity) user,
+                                target,
+                                smitingDamage,
+                                3.0f);
+
+                        target.world.playSound(
+                                null,
+                                target.getX(),
+                                target.getY(),
+                                target.getZ(),
+                                SoundEvents.BLOCK_BELL_USE,
+                                SoundCategory.PLAYERS,
+                                1.0F,
+                                0.1F);
+                    }
+                }
+            }
+        }
+    }
+
 
     /* * * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- SOUL SIPHON *****|
