@@ -775,16 +775,6 @@ public abstract class LivingEntityMixin extends Entity {
                                 target,
                                 smitingDamage,
                                 3.0f);
-
-                        target.world.playSound(
-                                null,
-                                target.getX(),
-                                target.getY(),
-                                target.getZ(),
-                                SoundEvents.BLOCK_BELL_USE,
-                                SoundCategory.PLAYERS,
-                                1.0F,
-                                0.1F);
                     }
                 }
             }
