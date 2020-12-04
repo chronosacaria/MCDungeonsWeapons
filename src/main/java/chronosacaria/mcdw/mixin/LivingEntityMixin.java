@@ -680,45 +680,6 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
-    /* * * * * * * * * * * * * * * * * * * * * * * |
-    |***** ENCHANTMENTS -- SHARPNESS (CUSTOM) *****|
-    | * * * * * * * * * * * * * * * * * * * * * * */
-
-    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applySharpnessCustom(DamageSource source, float amount, CallbackInfo info) {
-        LivingEntity user = (LivingEntity) source.getAttacker();
-        LivingEntity target = (LivingEntity) (Object) this;
-
-        if (source.getSource() instanceof LivingEntity) {
-            if (amount != 0.0F) {
-                ItemStack mainHandStack = null;
-                if (user != null) {
-                    mainHandStack = user.getMainHandStack();
-                }
-                boolean uniqueWeaponFlag =
-                        false;
-                if (mainHandStack != null) {
-                    uniqueWeaponFlag = mainHandStack.getItem() == Claymores.SWORD_BROADSWORD.asItem();
-                }
-                if (user != null
-                        && mainHandStack != null
-                        && uniqueWeaponFlag
-                        && !(EnchantmentHelper.getLevel(Enchantments.SHARPNESS, mainHandStack) >= 1)){
-                    boolean burning = false;
-                    float chance = user.getRandom().nextFloat();
-                    if (chance <= 0.1) {
-                        if (target instanceof LivingEntity) {
-                            if (!target.isOnFire()) {
-                                burning = true;
-                                target.setOnFireFor(4);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     /* * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- SHOCKWAVE *****|
     |* * * * * * * * * * * * * * * * * * */
@@ -795,7 +756,8 @@ public abstract class LivingEntityMixin extends Entity {
                 boolean uniqueWeaponFlag =
                         false;
                 if (mainHandStack != null) {
-                    uniqueWeaponFlag = mainHandStack.getItem() == Glaives.SPEAR_GRAVE_BANE.asItem();
+                    uniqueWeaponFlag = mainHandStack.getItem() == Glaives.SPEAR_GRAVE_BANE.asItem()
+                            || mainHandStack.getItem() == Katanas.SWORD_DARK_KATANA.asItem();
                 }
 
                 if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack) >= 1 || uniqueWeaponFlag && !(EnchantmentHelper.getLevel(Enchantments.SMITE, mainHandStack) >= 1))) {
