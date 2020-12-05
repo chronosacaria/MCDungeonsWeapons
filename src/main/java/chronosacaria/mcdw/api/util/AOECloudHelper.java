@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.enchants.util;
+package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.weapons.Glaives;

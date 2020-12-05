@@ -3,18 +3,12 @@ package chronosacaria.mcdw.enchants.enchantments;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
-import chronosacaria.mcdw.enchants.util.ProjectileEffectHelper;
-import chronosacaria.mcdw.sounds.McdwSoundEvents;
-import net.minecraft.enchantment.Enchantment;
+import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.registry.Registry;
 
 public class Ricochet extends RangedEnchantment {

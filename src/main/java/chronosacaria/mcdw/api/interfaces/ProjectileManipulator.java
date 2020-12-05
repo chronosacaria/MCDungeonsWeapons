@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.api;
+package chronosacaria.mcdw.api.interfaces;
 
 import net.minecraft.item.ItemStack;
 

@@ -1,7 +1,7 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.bases.McdwBow;
-import chronosacaria.mcdw.api.ProjectileManipulator;
+import chronosacaria.mcdw.api.interfaces.ProjectileManipulator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;

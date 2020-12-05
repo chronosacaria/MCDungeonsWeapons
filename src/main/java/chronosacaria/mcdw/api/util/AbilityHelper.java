@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.enchants.util;
+package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
 import net.minecraft.entity.LivingEntity;

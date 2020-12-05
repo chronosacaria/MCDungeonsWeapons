@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.enchants.util;
+package chronosacaria.mcdw.api.util;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;

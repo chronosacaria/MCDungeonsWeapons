@@ -11,9 +11,9 @@ public class Claymores {
     public static McdwSword SWORD_GREAT_AXEBLADE;
 
     public static void init() {
-        SWORD_CLAYMORE = new McdwSword(ToolMaterials.IRON, 6, -3.0F, "sword_claymore");
-        SWORD_BROADSWORD = new McdwSword(ToolMaterials.IRON, 5, -3.0F, "sword_broadsword");
+        SWORD_CLAYMORE = new McdwSword(ToolMaterials.IRON, 5, -3.0F, "sword_claymore");
+        SWORD_BROADSWORD = new McdwSword(ToolMaterials.IRON, 4, -3.0F, "sword_broadsword");
         SWORD_HEARTSTEALER = new McdwSword(ToolMaterials.DIAMOND, 4, -3.0F, "sword_heartstealer");
-        SWORD_GREAT_AXEBLADE = new McdwSword(ToolMaterials.DIAMOND, 6, -3.0F, "sword_great_axeblade");
+        SWORD_GREAT_AXEBLADE = new McdwSword(ToolMaterials.IRON, 6, -3.0F, "sword_great_axeblade");
         }
 }
