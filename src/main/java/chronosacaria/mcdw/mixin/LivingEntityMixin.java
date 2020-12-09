@@ -336,6 +336,58 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
+    /* * * * * * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- ENIGMA RESONATOR *****|
+    | * * * * * * * * * * * * * * * * * * * * * */
+
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyEnigmaResonatorDamage(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (config.mixinEnigma){
+                    if (mainHandStack != null) {
+                        uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_MOON.asItem();
+                    }
+
+                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, mainHandStack);
+
+                        int numSouls = Math.min((getCurrentExperience((PlayerEntity) user)), 50);
+                        float soulsCriticalBoostChanceCap;
+                        soulsCriticalBoostChanceCap = 0.1F + 0.05F * level;
+
+                        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                        float extraDamageMultiplier = attackDamage == attackDamage ? 1.5F : 3.0F;
+                        float getExtraDamage = (attackDamage * (extraDamageMultiplier));
+
+                        float chance = user.getRandom().nextFloat();
+                        if (chance <= Math.min((numSouls/50.0), soulsCriticalBoostChanceCap)) {
+                            target.damage(DamageSource.player((PlayerEntity) user),
+                                    getExtraDamage);
+                            target.world.playSound(
+                                    null,
+                                    target.getX(),
+                                    target.getY(),
+                                    target.getZ(),
+                                    SoundEvents.BLOCK_ENDER_CHEST_OPEN,
+                                    SoundCategory.PLAYERS,
+                                    64.0F,
+                                    1.0F);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     /* * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- EXPLODING *****|

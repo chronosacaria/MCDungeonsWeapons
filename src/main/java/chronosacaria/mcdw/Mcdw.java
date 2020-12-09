@@ -6,6 +6,7 @@ import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.loottables.McdwLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -55,6 +56,9 @@ public class Mcdw implements ModInitializer {
                 itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.ECHO,1)));
                 itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.ECHO,2)));
                 itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.ECHO,3)));
+                itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.ENIGMA_RESONATOR,1)));
+                itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.ENIGMA_RESONATOR,2)));
+                itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.ENIGMA_RESONATOR,3)));
                 itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.EXPLODING,1)));
                 itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.EXPLODING,2)));
                 itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.EXPLODING,3)));
@@ -103,10 +107,12 @@ public class Mcdw implements ModInitializer {
             })
             .build();
 
+
     @Override
     public void onInitialize() {
         // Config
         AutoConfig.register(McdwConfig.class, JanksonConfigSerializer::new);
+
 
         // Melee Weapons
         Claymores.init();

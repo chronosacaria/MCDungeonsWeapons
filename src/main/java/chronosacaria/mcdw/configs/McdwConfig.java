@@ -24,6 +24,8 @@ public class McdwConfig implements ConfigData {
     public boolean mixinCritical = true;
     @Comment("Enable Enchantment - Echo?")
     public boolean mixinEcho = true;
+    @Comment("Enable Enchantment - Enigma Resonator?")
+    public boolean mixinEnigma = true;
     @Comment("Enable Enchantment - Exploding?")
     public boolean mixinExploding = true;
     @Comment("Enable Enchantment - Custom Fire Aspect?")

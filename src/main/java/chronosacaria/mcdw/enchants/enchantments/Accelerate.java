@@ -22,4 +22,3 @@ public class Accelerate extends RangedEnchantment {
     }
 
 }
-

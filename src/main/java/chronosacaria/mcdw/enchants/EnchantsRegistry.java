@@ -12,6 +12,7 @@ public class EnchantsRegistry {
     public static Enchantment COMMITTED;
     public static Enchantment CRITICAL_HIT;
     public static Enchantment ECHO;
+    public static Enchantment ENIGMA_RESONATOR;
     public static Enchantment EXPLODING;
     public static Enchantment FREEZING;
     public static Enchantment GRAVITY;
@@ -41,6 +42,8 @@ public class EnchantsRegistry {
         COMMITTED = new Committed(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         ECHO = new Echo(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        ENIGMA_RESONATOR = new EnigmaResonator(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         EXPLODING = new Exploding(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
@@ -77,8 +80,5 @@ public class EnchantsRegistry {
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RICOCHET = new Ricochet(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-
-
     }
-
 }

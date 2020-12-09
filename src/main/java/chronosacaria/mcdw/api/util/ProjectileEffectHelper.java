@@ -16,7 +16,7 @@ import java.util.Random;
 public class ProjectileEffectHelper {
 
     public static void riochetArrowTowardsOtherEntity (LivingEntity user, int distance,
-                                                        double bonusShotDamageMultiplier, float arrowVelocity){
+                                                       double bonusShotDamageMultiplier, float arrowVelocity){
         World world = user.getEntityWorld();
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(user.getBlockPos()).expand(distance),
