@@ -5,6 +5,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -170,5 +171,28 @@ public class AOEHelper {
         for (LivingEntity nearbyEntity : nearbyEntities){
             nearbyEntity.damage(smiting, damageAmount);
         }
+    }
+
+    public static void causeExplosionAttackAtPos(LivingEntity user, boolean arrow, BlockPos blockPos,
+                                                 float damageAmount, float distance){
+        int inGroundMitigator = arrow ? 1:0;
+        World world = user. getEntityWorld();
+        DamageSource explosion;
+        explosion = DamageSource.explosion(user);
+        List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
+                new Box(
+                        blockPos.getX() - distance,
+                        blockPos.getY() + inGroundMitigator - distance,
+                        blockPos.getZ() - distance,
+                        blockPos.getX() + distance,
+                        blockPos.getY() + inGroundMitigator + distance,
+                        blockPos.getZ() + distance),
+                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, nearbyEntity));
+        if (nearbyEntities.isEmpty()) return;
+        for (LivingEntity nearbyEntity : nearbyEntities){
+            nearbyEntity.damage(explosion, damageAmount);
+        }
+
+
     }
 }

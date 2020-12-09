@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.events;
+package chronosacaria.mcdw.api.interfaces;
 
 
 import net.fabricmc.fabric.api.event.Event;

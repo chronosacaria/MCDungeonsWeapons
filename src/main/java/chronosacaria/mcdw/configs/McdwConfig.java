@@ -56,6 +56,8 @@ public class McdwConfig implements ConfigData {
     public boolean mixinStunning = true;
     @Comment("Enable Enchantment - Swirling?")
     public boolean mixinSwirling = true;
+    @Comment("Enable Enchantment - Tempo Theft?")
+    public boolean mixinTempoTheft = true;
     @Comment("Enable Enchantment - Thundering?")
     public boolean mixinThundering = true;
     @Comment("Enable Enchantment - Weakening?")

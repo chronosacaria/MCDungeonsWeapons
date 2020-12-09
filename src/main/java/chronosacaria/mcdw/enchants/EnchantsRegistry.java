@@ -31,6 +31,7 @@ public class EnchantsRegistry {
 
     public static Enchantment ACCELERATE;
     public static Enchantment RICOCHET;
+    public static Enchantment TEMPO_THEFT;
 
     public static void init() {
         ANIMA_CONDUIT = new AnimaConduit(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
@@ -79,6 +80,8 @@ public class EnchantsRegistry {
         ACCELERATE = new Accelerate(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RICOCHET = new Ricochet(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        TEMPO_THEFT = new TempoTheft(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 }

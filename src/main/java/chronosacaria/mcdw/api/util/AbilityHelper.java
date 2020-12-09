@@ -3,14 +3,25 @@ package chronosacaria.mcdw.api.util;
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.HorseBaseEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.stat.Stat;
 import net.minecraft.world.World;
 
 public class AbilityHelper {
+
+    public static void stealSpeedFromTarget(LivingEntity user, LivingEntity target, int amplifier){
+        StatusEffectInstance speed = new StatusEffectInstance(StatusEffects.SPEED, 80, amplifier);
+        StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 80, amplifier);
+        user.addStatusEffect(speed);
+        target.addStatusEffect(slowness);
+    }
+
     public static boolean isPetOfUser(LivingEntity possibleOwner, LivingEntity possiblePet){
         if (possiblePet instanceof TameableEntity){
             TameableEntity pet = (TameableEntity) possiblePet;

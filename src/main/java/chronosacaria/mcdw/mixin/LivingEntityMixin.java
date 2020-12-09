@@ -1,5 +1,6 @@
 package chronosacaria.mcdw.mixin;
 
+import chronosacaria.mcdw.api.util.AbilityHelper;
 import chronosacaria.mcdw.configs.McdwConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
@@ -34,6 +35,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
@@ -93,19 +95,19 @@ public abstract class LivingEntityMixin extends Entity {
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
-        if (config.mixinAnima){
-                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack) >= 1)) {
-                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack);
-                    float healthRegained;
+        if (config.mixinAnima) {
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack) >= 1)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack);
+                float healthRegained;
 
-                    //ANIMA CONDUIT AS PER KILL
-                    if (user.getHealth() < user.getMaxHealth()) {
-                        healthRegained = (float) (getCurrentExperience((PlayerEntity) user) * (0.2 * level));
-                        user.heal(healthRegained);
-                        ((PlayerEntity) user).addExperienceLevels(-999999999);
-                        //this.world.sendEntityStatus(this,(byte)35);
-                    }
+                //ANIMA CONDUIT AS PER KILL
+                if (user.getHealth() < user.getMaxHealth()) {
+                    healthRegained = (float) (getCurrentExperience((PlayerEntity) user) * (0.2 * level));
+                    user.heal(healthRegained);
+                    ((PlayerEntity) user).addExperienceLevels(-999999999);
+                    //this.world.sendEntityStatus(this,(byte)35);
                 }
+            }
         }
     }
 
@@ -157,7 +159,7 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (config.mixinChains){
+                if (config.mixinChains) {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == Hammers.HAMMER_FLAIL.asItem()
                                 || mainHandStack.getItem() == Scythes.SICKLE_JAILORS_SCYTHE.asItem();
@@ -197,9 +199,9 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (config.mixinCommitted){
+                if (config.mixinCommitted) {
                     if (mainHandStack != null) {
-                        uniqueWeaponFlag = mainHandStack.getItem() ==  SoulDaggers.SWORD_TRUTHSEEKER.asItem()
+                        uniqueWeaponFlag = mainHandStack.getItem() == SoulDaggers.SWORD_TRUTHSEEKER.asItem()
                                 || mainHandStack.getItem() == Staves.STAFF_GROWING_STAFF.asItem();
                     }
 
@@ -306,7 +308,7 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (config.mixinEcho){
+                if (config.mixinEcho) {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == Spears.SPEAR_WHISPERING_SPEAR.asItem();
                     }
@@ -353,7 +355,7 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (config.mixinEnigma){
+                if (config.mixinEnigma) {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_MOON.asItem();
                     }
@@ -370,7 +372,7 @@ public abstract class LivingEntityMixin extends Entity {
                         float getExtraDamage = (attackDamage * (extraDamageMultiplier));
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= Math.min((numSouls/50.0), soulsCriticalBoostChanceCap)) {
+                        if (chance <= Math.min((numSouls / 50.0), soulsCriticalBoostChanceCap)) {
                             target.damage(DamageSource.player((PlayerEntity) user),
                                     getExtraDamage);
                             target.world.playSound(
@@ -404,7 +406,7 @@ public abstract class LivingEntityMixin extends Entity {
         }
         boolean uniqueWeaponFlag =
                 false;
-        if (config.mixinExploding){
+        if (config.mixinExploding) {
             if (mainHandStack != null) {
                 uniqueWeaponFlag = mainHandStack.getItem() == DoubleAxes.AXE_CURSED.asItem()
                         || mainHandStack.getItem() == Staves.STAFF_BATTLESTAFF_OF_TERROR.asItem();
@@ -450,14 +452,14 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (config.mixinCustomFireAspect){
+                if (config.mixinCustomFireAspect) {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == Axes.AXE_FIREBRAND.asItem();
                     }
                     if (user != null
                             && mainHandStack != null
                             && uniqueWeaponFlag
-                            && !(EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, mainHandStack) >= 1)){
+                            && !(EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, mainHandStack) >= 1)) {
                         boolean burning = false;
                         float chance = user.getRandom().nextFloat();
                         if (chance <= 1) {
@@ -492,7 +494,7 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (config.mixinFreezing){
+                if (config.mixinFreezing) {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_FANGS_OF_FROST.asItem()
                                 || mainHandStack.getItem() == Scythes.SICKLE_FROST_SCYTHE.asItem()
@@ -533,7 +535,7 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (config.mixinGravity){
+                if (config.mixinGravity) {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == Hammers.HAMMER_GRAVITY.asItem();
                     }
@@ -607,7 +609,7 @@ public abstract class LivingEntityMixin extends Entity {
         }
         boolean uniqueWeaponFlag =
                 false;
-        if (config.mixinLeeching){
+        if (config.mixinLeeching) {
             if (mainHandStack != null) {
                 uniqueWeaponFlag = mainHandStack.getItem() == Claymores.SWORD_HEARTSTEALER.asItem();
             }
@@ -644,7 +646,7 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (config.mixinPoison){
+                if (config.mixinPoison) {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == Sickles.SICKLE_NIGHTMARES_BITE.asItem()
                                 || mainHandStack.getItem() == Glaives.SPEAR_VENOM_GLAIVE.asItem();
@@ -763,7 +765,7 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (config.mixinShockwave){
+                if (config.mixinShockwave) {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == DoubleAxes.AXE_WHIRLWIND.asItem();
                     }
@@ -823,7 +825,7 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (config.mixinSmiting){
+                if (config.mixinSmiting) {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == Glaives.SPEAR_GRAVE_BANE.asItem()
                                 || mainHandStack.getItem() == Katanas.SWORD_DARK_KATANA.asItem();
@@ -865,7 +867,7 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
     private void onSoulSiphonKill(DamageSource source, CallbackInfo ci) {
-        LivingEntity user = (LivingEntity)source.getAttacker();
+        LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;
         if (user != null) {
