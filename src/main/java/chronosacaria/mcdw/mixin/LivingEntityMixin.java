@@ -29,6 +29,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
@@ -204,7 +205,8 @@ public abstract class LivingEntityMixin extends Entity {
                 if (config.mixinCommitted) {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == SoulDaggers.SWORD_TRUTHSEEKER.asItem()
-                                || mainHandStack.getItem() == Staves.STAFF_GROWING_STAFF.asItem();
+                                || mainHandStack.getItem() == Staves.STAFF_GROWING_STAFF.asItem()
+                                || mainHandStack.getItem() == TempestKnives.DAGGER_RESOLUTE_TEMPEST_KNIFE.asItem();
                     }
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.COMMITTED, mainHandStack) >= 1 || uniqueWeaponFlag)) {
@@ -359,7 +361,8 @@ public abstract class LivingEntityMixin extends Entity {
                         false;
                 if (config.mixinEnigma) {
                     if (mainHandStack != null) {
-                        uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_MOON.asItem();
+                        uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_MOON.asItem()
+                                || mainHandStack.getItem() == Gauntlets.GAUNTLET_SOUL_FISTS.asItem();
                     }
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, mainHandStack) >= 1 || uniqueWeaponFlag)) {
@@ -500,7 +503,8 @@ public abstract class LivingEntityMixin extends Entity {
                     if (mainHandStack != null) {
                         uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_FANGS_OF_FROST.asItem()
                                 || mainHandStack.getItem() == Scythes.SICKLE_FROST_SCYTHE.asItem()
-                                || mainHandStack.getItem() == Rapiers.SWORD_FREEZING_FOIL.asItem();
+                                || mainHandStack.getItem() == Rapiers.SWORD_FREEZING_FOIL.asItem()
+                                || mainHandStack.getItem() == TempestKnives.DAGGER_CHILL_GALE_KNIFE.asItem();
                     }
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
@@ -594,6 +598,49 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
+    /* * * * * * * * * * * * * * * * * * * * * * * |
+    |***** ENCHANTMENTS -- KNOCKBACK (CUSTOM) *****|
+    | * * * * * * * * * * * * * * * * * * * * * * */
+
+    /*@Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyKnockbackCustom(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (config.mixinCustomFireAspect) {
+                    if (mainHandStack != null) {
+                        //uniqueWeaponFlag = mainHandStack.getItem() == Staves.STAFF_BATTLESTAFF.asItem();
+                    }
+                    if (user != null
+                            && mainHandStack != null
+                            //&& uniqueWeaponFlag
+                            && !(EnchantmentHelper.getLevel(Enchantments.KNOCKBACK, mainHandStack) >= 1)) {
+                        float chance = user.getRandom().nextFloat();
+                        if (chance <= 1) {
+                            if (target instanceof LivingEntity) {
+                                double motionX = target.getX() - (user.getX());
+                                double motionY = target.getY() - (user.getY());
+                                double motionZ = target.getZ() - (user.getZ());
+                                Vec3d vec3d = new Vec3d(motionX, motionY, motionZ);
+
+                                target.setVelocity(vec3d);
+                            }
+                        }
+                    }
+                }
+                }
+            }
+        }
+    }*/
+
 
     /* * * * * * * * * * * * * * * * * * |
     |***** ENCHANTMENTS -- LEECHING *****|
@@ -626,6 +673,37 @@ public abstract class LivingEntityMixin extends Entity {
                     healthRegained = (0.2F + 0.2F * level) * targetMaxHealth;
                     if (uniqueWeaponFlag) healthRegained += 0.04F * targetMaxHealth;
                     user.heal(healthRegained);
+                }
+            }
+        }
+    }
+
+    /* * * * * * * * * * * * * * * * * * * * * |
+    |**** ENCHANTMENTS -- LOOTING (CUSTOM) ****|
+    | * * * * * * * * * * * * * * * * * * * * */
+
+    @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
+
+    public void onCustomLootingKill(DamageSource source, CallbackInfo ci) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        ItemStack mainHandStack = null;
+        if (user != null) {
+            mainHandStack = user.getMainHandStack();
+        }
+        boolean uniqueWeaponFlag =
+                false;
+        if (config.mixinCustomLooting) {
+            if (mainHandStack != null) {
+                uniqueWeaponFlag = mainHandStack.getItem() == Spears.SPEAR_FORTUNE.asItem();
+            }
+            if (user != null
+                    && mainHandStack != null
+                    && uniqueWeaponFlag
+                    && !(EnchantmentHelper.getLevel(Enchantments.LOOTING, mainHandStack) >= 1)) {
+                if (target instanceof LivingEntity) {
+                        EnchantmentHelper.getLooting(user);
                 }
             }
         }
@@ -729,7 +807,8 @@ public abstract class LivingEntityMixin extends Entity {
                 false;
         if (config.mixinRampaging) {
             if (mainHandStack != null) {
-                uniqueWeaponFlag = mainHandStack.getItem() == Curves.SWORD_DANCERS_SWORD.asItem();
+                uniqueWeaponFlag = mainHandStack.getItem() == Curves.SWORD_DANCERS_SWORD.asItem()
+                        || mainHandStack.getItem() == Gauntlets.GAUNTLET_MAULERS.asItem();
             }
 
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RAMPAGING, mainHandStack) >= 1)) {

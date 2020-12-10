@@ -44,6 +44,7 @@
   "item.mcdw.dagger_moon": "Moon Dagger",
   "item.mcdw.dagger_soul_knife": "Soul Knife",
   "item.mcdw.dagger_eternal_knife": "Eternal Knife",
+  "item.mcdw.dagger_tempest_knife": "Tempest Knife",
   "item.mcdw.dagger_chill_gale_knife": "Chill Gale Knife",
   "item.mcdw.dagger_resolute_tempest_knife": "Resolute Tempest Knife",
   "item.mcdw.dagger_shear_dagger": "Shear Dagger",
@@ -101,6 +102,10 @@
 
   "item.mcdw.whip_whip": "Whip",
   "item.mcdw.whip_vine_whip": "Vine Whip",
+
+  "item.mcdw.gauntlet_gauntlet": "Gauntlet",
+  "item.mcdw.gauntlet_maulers": "Mauler",
+  "item.mcdw.gauntlet_soul_fists": "Soul Fist",
 
   "item.mcdw.item_bee_stinger": "Bee Stinger",
   "item.mcdw.item_bee_stinger.tooltip": "The business end of the bee.",

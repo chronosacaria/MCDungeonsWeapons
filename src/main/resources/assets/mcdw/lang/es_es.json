@@ -97,6 +97,10 @@
   "item.mcdw.whip_whip": "Fusta",
   "item.mcdw.whip_vine_whip": "Fusta de Enredadera",
 
+  "item.mcdw.gauntlet_gauntlet": "Gauntlet",
+  "item.mcdw.gauntlet_maulers": "Mauler",
+  "item.mcdw.gauntlet_soul_fists": "Soul Fist",
+
   "item.mcdw.item_bee_stinger": "Bee Stinger",
   "item.mcdw.item_bee_stinger.tooltip": "The business end of the bee.",
   "item.mcdw.moreinfo.tooltip": "Hold [SHIFT] for more info",

@@ -121,6 +121,7 @@ public class Mcdw implements ModInitializer {
         Claymores.init();
         Curves.init();
         Daggers.init();
+        Gauntlets.init();
         Glaives.init();
         Katanas.init();
         Sickles.init();
@@ -134,6 +135,7 @@ public class Mcdw implements ModInitializer {
         Axes.init();
         DoubleAxes.init();
         Hammers.init();
+        TempestKnives.init();
 
         // Tools
         Picks.init();

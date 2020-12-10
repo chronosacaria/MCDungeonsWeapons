@@ -38,6 +38,8 @@ public class McdwConfig implements ConfigData {
     public boolean mixinJPoison = true;
     @Comment("Enable Enchantment - Leeching?")
     public boolean mixinLeeching = true;
+    @Comment("Enable Enchantment - Custom Looting?")
+    public boolean mixinCustomLooting = true;
     @Comment("Enable Enchantment - Poison Cloud?")
     public boolean mixinPoison = true;
     @Comment("Enable Enchantment - Radiance?")

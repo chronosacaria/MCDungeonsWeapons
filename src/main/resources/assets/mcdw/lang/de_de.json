@@ -1,6 +1,6 @@
 {
   "itemGroup.mcdw.weapons": "MC Dungeons Waffen (Nahkampf)",
-  "itemGroup.mcdw.weapons/bows": "MC Dungeons Waffen (Abstandkampf)",
+  "itemGroup.mcdw.weapons/bows": "MC Dungeons Waffen (Fernkampf)",
   "itemGroup.mcdw.enchants": "MC Dungeons Waffen (Verzauberungen)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Reichweite",
@@ -44,9 +44,10 @@
   "item.mcdw.dagger_moon": "Monddolch",
   "item.mcdw.dagger_soul_knife": "Seelenmesser",
   "item.mcdw.dagger_eternal_knife": "Ewiges Messer",
+  "item.mcdw.dagger_tempest_knife": "Sturmdolch",
   "item.mcdw.dagger_chill_gale_knife": "Kalte Böe",
   "item.mcdw.dagger_resolute_tempest_knife": "Entschlossen Sturmdolch",
-  "item.mcdw.dagger_shear_dagger": "Scherendolch",
+  "item.mcdw.dagger_shear_dagger": "Schurdolche",
 
   "item.mcdw.hammer_flail": "Dreschflegel",
   "item.mcdw.hammer_gravity": "Hammer der Schwerkraft",
@@ -96,6 +97,10 @@
 
   "item.mcdw.whip_whip": "Peitsche",
   "item.mcdw.whip_vine_whip": "Rankenpeitsche",
+
+  "item.mcdw.gauntlet_gauntlet": "Panzerhandschuhe",
+  "item.mcdw.gauntlet_maulers": "Zermalmer",
+  "item.mcdw.gauntlet_soul_fists": "Seelenfäustlinge",
 
   "item.mcdw.item_bee_stinger": "Bee Stinger",
   "item.mcdw.item_bee_stinger.tooltip": "The business end of the bee.",

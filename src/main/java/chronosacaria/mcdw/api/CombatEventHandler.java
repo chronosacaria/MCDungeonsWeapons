@@ -1,10 +1,12 @@
-/*package chronosacaria.mcdw.api;
+package chronosacaria.mcdw.api;
 
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
@@ -32,7 +34,7 @@ public class CombatEventHandler {
                     EntityHitResult entityHitResult = (EntityHitResult)hitResult;
                     Entity entityHit = entityHitResult.getEntity();
                     if (entityHit != player && entityHit != player.getVehicle()){
-                        //TODO PACKET HANDLER GOES HERE?
+
                     }
                 }
             }
@@ -78,6 +80,6 @@ public class CombatEventHandler {
                         , new BlockPos(attackVec));
             }
         }
-        return (HitResult) result;
+        return result;
     }
-}*/
+}

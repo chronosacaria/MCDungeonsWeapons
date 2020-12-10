@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "mcdw:item/dagger_resolute_tempest_knife"
+		"layer0": "mcdw:item/dagger_tempest_knife"
 	},
 	"gui_light": "front",
 	"display": {
@@ -31,7 +31,7 @@
 			"scale": [1, 1, 0.5]
 		},
 		"gui": {
-			"translation": [-1.1, -0.85, 0],
+			"translation": [-0.35, -0.1, 0],
 			"scale": [1.6, 1.6, 1]
 		},
 		"head": {

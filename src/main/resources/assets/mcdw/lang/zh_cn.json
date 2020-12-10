@@ -44,6 +44,7 @@
   "item.mcdw.dagger_moon": "月之匕首",
   "item.mcdw.dagger_soul_knife": "灵魂之刃",
   "item.mcdw.dagger_eternal_knife": "永恒之刃",
+  "item.mcdw.dagger_tempest_knife": "暴风雨刀",
   "item.mcdw.dagger_chill_gale_knife": "冷大风之刃",
   "item.mcdw.dagger_resolute_tempest_knife": "坚毅的暴风雨刀",
   "item.mcdw.dagger_shear_dagger": "剪刀匕首",
@@ -101,6 +102,10 @@
 
   "item.mcdw.whip_whip": "鞭子",
   "item.mcdw.whip_vine_whip": "藤蔓长鞭",
+
+  "item.mcdw.gauntlet_gauntlet": "护手",
+  "item.mcdw.gauntlet_maulers": "撕裂者",
+  "item.mcdw.gauntlet_soul_fists": "灵魂拳套",
 
   "enchantment.mcdw.anima_conduit": "灵魂输导",
   "enchantment.mcdw.chained": "链锁",
