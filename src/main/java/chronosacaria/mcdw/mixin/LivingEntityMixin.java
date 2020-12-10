@@ -15,6 +15,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -23,6 +24,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -151,7 +153,7 @@ public abstract class LivingEntityMixin extends Entity {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
-        if (source.getSource() instanceof LivingEntity) {
+        if (source.getSource() instanceof LivingEntity && !source.isProjectile()) {
             if (amount != 0.0F) {
                 ItemStack mainHandStack = null;
                 if (user != null) {
@@ -205,8 +207,8 @@ public abstract class LivingEntityMixin extends Entity {
                                 || mainHandStack.getItem() == Staves.STAFF_GROWING_STAFF.asItem();
                     }
 
-                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, mainHandStack) >= 1 || uniqueWeaponFlag)) {
-                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, mainHandStack);
+                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.COMMITTED, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.COMMITTED, mainHandStack);
 
 
                         float getTargetHealth = target.getHealth();
@@ -217,9 +219,9 @@ public abstract class LivingEntityMixin extends Entity {
                         float getExtraDamage = (getOriginalDamage * (1 - getTargetRemainingHealth) * extraDamageMultiplier);
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.2) {
+                        if (chance <= 1.0/*0.2*/) {
                             if ((Math.abs(getTargetHealth)) < (Math.abs(getTargetMaxHealth))) {
-                                target.damage(DamageSource.player((PlayerEntity) user),
+                                target.damage(DamageSource.mob( user),
                                         getExtraDamage);
                                 target.world.playSound(
                                         null,
@@ -272,7 +274,7 @@ public abstract class LivingEntityMixin extends Entity {
                         float getExtraDamage = (attackDamage * (extraDamageMultiplier));
 
                         if (criticalHitRand <= criticalHitChance) {
-                            target.damage(DamageSource.player((PlayerEntity) user),
+                            target.damage(DamageSource.mob( user),
                                     getExtraDamage);
                             target.world.playSound(
                                     null,
@@ -373,7 +375,7 @@ public abstract class LivingEntityMixin extends Entity {
 
                         float chance = user.getRandom().nextFloat();
                         if (chance <= Math.min((numSouls / 50.0), soulsCriticalBoostChanceCap)) {
-                            target.damage(DamageSource.player((PlayerEntity) user),
+                            target.damage(DamageSource.mob( user),
                                     getExtraDamage);
                             target.world.playSound(
                                     null,
@@ -527,7 +529,7 @@ public abstract class LivingEntityMixin extends Entity {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
-        if (source.getSource() instanceof LivingEntity) {
+        if (source.getSource() instanceof LivingEntity && !source.isProjectile()) {
             if (amount != 0.0F) {
                 ItemStack mainHandStack = null;
                 if (user != null) {
@@ -540,8 +542,8 @@ public abstract class LivingEntityMixin extends Entity {
                         uniqueWeaponFlag = mainHandStack.getItem() == Hammers.HAMMER_GRAVITY.asItem();
                     }
 
-                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack) >= 1 || uniqueWeaponFlag)) {
-                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack);
+                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, mainHandStack);
 
                         float chance = user.getRandom().nextFloat();
                         if (chance <= 0.3) {
@@ -747,6 +749,47 @@ public abstract class LivingEntityMixin extends Entity {
             }
         }
     }
+
+    /* * * * * * * * * * * * * * * * * * * *|
+    |*****  ENCHANTMENTS -- REPLENISH  *****|
+    |* * * * * * * * * * * * * * * * * * * */
+
+    /*@Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyReplenishDamage(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        //LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.isProjectile()) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (mainHandStack != null) {
+                    uniqueWeaponFlag = mainHandStack.getItem() == Bows.BOW_HUNTERS_PROMISE.asItem();
+                }
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, mainHandStack);
+                    if (user instanceof LivingEntity) {
+                        if (level >= 1) {
+                            float replenishRand = user.getRandom().nextFloat();
+                            float replenishChance = 0;
+                            if (level == 1) replenishChance = 0.10f;
+                            if (level == 2) replenishChance = 0.17f;
+                            if (level == 3) replenishChance = 0.24f;
+                            if (replenishRand <= replenishChance) {
+                                ItemEntity arrowDrop = new ItemEntity(user.world, user.getX(), user.getY(), user.getZ(),
+                                        new ItemStack(Items.ARROW));
+                                user.world.spawnEntity(arrowDrop);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }*/
 
     /* * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- SHOCKWAVE *****|
@@ -991,6 +1034,38 @@ public abstract class LivingEntityMixin extends Entity {
                                     SoundCategory.PLAYERS,
                                     64.0F,
                                     1.0F);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* * * * * * * * * * * * * * * * * * * *|
+    |***** ENCHANTMENTS -- TEMPO THEFT *****|
+    |* * * * * * * * * * * * * * * * * * * */
+
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyTempoTheftDamage(DamageSource source, float amount, CallbackInfo info) {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if (source.isProjectile()) {
+            if (amount != 0.0F) {
+                ItemStack mainHandStack = null;
+                if (user != null) {
+                    mainHandStack = user.getMainHandStack();
+                }
+                boolean uniqueWeaponFlag =
+                        false;
+                if (config.mixinTempoTheft) {
+                    if (mainHandStack != null) {
+                        uniqueWeaponFlag = mainHandStack.getItem() == Bows.BOW_NOCTURNAL_BOW.asItem();
+                    }
+                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, mainHandStack);
+                        if (target instanceof LivingEntity) {
+                            AbilityHelper.stealSpeedFromTarget(user, (LivingEntity) target, level);
                         }
                     }
                 }

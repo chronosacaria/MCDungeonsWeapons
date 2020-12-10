@@ -5,6 +5,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.HorseBaseEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.TameableEntity;
@@ -99,6 +100,7 @@ public class AbilityHelper {
                 && !isAlly(attacker, nearbyEntity)
                 && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
     }
+
 
 
 }

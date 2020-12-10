@@ -29,7 +29,8 @@ public class EnchantsRegistry {
     public static Enchantment THUNDERING;
     public static Enchantment WEAKENING;
 
-    public static Enchantment ACCELERATE;
+    //public static Enchantment ACCELERATE;
+    public static Enchantment REPLENISH;
     public static Enchantment RICOCHET;
     public static Enchantment TEMPO_THEFT;
 
@@ -77,7 +78,9 @@ public class EnchantsRegistry {
         WEAKENING = new Weakening(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
 
-        ACCELERATE = new Accelerate(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+        //ACCELERATE = new Accelerate(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        REPLENISH = new Replenish(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RICOCHET = new Ricochet(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

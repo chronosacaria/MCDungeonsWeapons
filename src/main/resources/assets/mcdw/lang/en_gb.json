@@ -77,20 +77,25 @@
 
   "item.mcdw.sword_iron_sword_var": "Sword",
   "item.mcdw.sword_diamond_sword_var": "Diamond Sword",
+  "item.mcdw.sword_hawkbrand": "Hawkbrand",
+
   "item.mcdw.sword_rapier": "Rapier",
   "item.mcdw.sword_beestinger": "Bee Stinger",
   "item.mcdw.sword_freezing_foil": "Freezing Foil",
-  "item.mcdw.sword_hawkbrand": "Hawkbrand",
+
   "item.mcdw.sword_broadsword": "Broadsword",
   "item.mcdw.sword_claymore": "Claymore",
   "item.mcdw.sword_heartstealer": "Heartstealer",
   "item.mcdw.sword_great_axeblade": "Great Axeblade",
+
   "item.mcdw.sword_cutlass": "Cutlass",
   "item.mcdw.sword_dancers_sword": "Dancer's Sword",
   "item.mcdw.sword_nameless_blade": "Nameless Blade",
+
   "item.mcdw.sword_katana": "Katana",
   "item.mcdw.sword_masters_katana": "Master's Katana",
   "item.mcdw.sword_dark_katana": "Dark Katana",
+
   "item.mcdw.sword_truthseeker": "Truthseeker",
   "item.mcdw.sword_sinister_sword": "Sinister Sword",
 
@@ -107,6 +112,7 @@
   "enchantment.mcdw.committed": "Committed",
   "enchantment.mcdw.critical_hit": "Critical Hit",
   "enchantment.mcdw.echo": "Echo",
+  "enchantment.mcdw.enigma_resonator": "Enigma Resonator",
   "enchantment.mcdw.exploding": "Exploding",
   "enchantment.mcdw.freezing": "Freezing",
   "enchantment.mcdw.gravity": "Gravity",
@@ -115,11 +121,14 @@
   "enchantment.mcdw.poison_cloud": "Poison Cloud",
   "enchantment.mcdw.radiance": "Radiance",
   "enchantment.mcdw.rampaging": "Rampaging",
+  "enchantment.mcdw.replenish": "Replenish",
   "enchantment.mcdw.ricochet": "Ricochet",
   "enchantment.mcdw.shockwave": "Shockwave",
+  "enchantment.mcdw.smiting": "Smiting",
   "enchantment.mcdw.soul_siphon": "Soul Siphon",
   "enchantment.mcdw.stunning": "Stunning",
   "enchantment.mcdw.swirling": "Swirling",
+  "enchantment.mcdw.tempo_theft": "Tempo Theft",
   "enchantment.mcdw.thundering": "Thundering",
   "enchantment.mcdw.weakening": "Weakening",
 
