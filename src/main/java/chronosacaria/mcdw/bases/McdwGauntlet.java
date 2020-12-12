@@ -3,17 +3,21 @@ package chronosacaria.mcdw.bases;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.CombatEventHandler;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
+import chronosacaria.mcdw.weapons.Gauntlets;
+import chronosacaria.mcdw.weapons.SoulDaggers;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.TypedActionResult;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.*;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class McdwGauntlet extends SwordItem implements IOffhandAttack {
     public McdwGauntlet(ToolMaterial material,
@@ -38,6 +42,28 @@ public class McdwGauntlet extends SwordItem implements IOffhandAttack {
             return new TypedActionResult<>(ActionResult.PASS, playerIn.getStackInHand(handIn));
         }
 
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        if (stack.getItem() == Gauntlets.GAUNTLET_GAUNTLET) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gauntlets_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gauntlets_2").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Gauntlets.GAUNTLET_MAULERS) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.maulers_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.maulers_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.maulers_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.maulers_4").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.maulers_1").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() == Gauntlets.GAUNTLET_SOUL_FISTS) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_fists_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_fists_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_fists_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_fists_4").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.soul_fists_1").formatted(Formatting.GREEN));
+        }
     }
 
 

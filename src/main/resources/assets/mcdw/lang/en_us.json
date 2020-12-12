@@ -150,7 +150,7 @@
   "tooltip_info_item.mcdw.firebrand_3"        : "and enchanted with fiery",
   "tooltip_info_item.mcdw.firebrand_4"        : "powers.",
   "tooltip_info_item.mcdw.firebrand_5"        : " ",
-  "tooltip_ench_item.mcdw.firebrand_1"        : "Fire Aspect",
+  "tooltip_ench_item.mcdw.firebrand_1"        : "Fire Aspect I",
 
   "tooltip_info_item.mcdw.highland_axe_1"     : "Expertly crafted and a",
   "tooltip_info_item.mcdw.highland_axe_2"     : "polished weapon of war,the",
@@ -209,7 +209,7 @@
   "tooltip_info_item.mcdw.masters_katana_2"   : "throughout the ages, appearing ",
   "tooltip_info_item.mcdw.masters_katana_3"   : "to heroes at the right moment.",
   "tooltip_info_item.mcdw.masters_katana_4"   : " ",
-  "tooltip_ench_item.mcdw.masters_katana_1"   : "Critical Hit",
+  "tooltip_ench_item.mcdw.masters_katana_1"   : "Critical Hit I",
 
   "tooltip_info_item.mcdw.dark_katana_1"      : "A blade that will not rest until",
   "tooltip_info_item.mcdw.dark_katana_2"      : "the battle has been won.",
@@ -264,5 +264,191 @@
   "tooltip_info_item.mcdw.whirlwind_2"        : "windstorm, is a double-bladed",
   "tooltip_info_item.mcdw.whirlwind_3"        : "axe that levitates slightly.",
   "tooltip_info_item.mcdw.whirlwind_4"        : " ",
-  "tooltip_ench_item.mcdw.whirlwind_1"        : "Shockwave I"
+  "tooltip_ench_item.mcdw.whirlwind_1"        : "Shockwave I",
+
+  "tooltip_info_item.mcdw.gauntlets_1"        : "Gauntlets call back to an",
+  "tooltip_info_item.mcdw.gauntlets_2"        : "ancient style of hand to hand combat.",
+
+  "tooltip_info_item.mcdw.maulers_1"          : "These claw-like weapons,",
+  "tooltip_info_item.mcdw.maulers_2"          : "wielded by ancient Illager soldiers,",
+  "tooltip_info_item.mcdw.maulers_3"          : "are savage in battle.",
+  "tooltip_info_item.mcdw.maulers_4"          : " ",
+  "tooltip_ench_item.mcdw.maulers_1"          : "Rampaging I",
+
+  "tooltip_info_item.mcdw.soul_fists_1"       : "Soul Fists are gauntlets clad",
+  "tooltip_info_item.mcdw.soul_fists_2"       : "with great gemstones, each",
+  "tooltip_info_item.mcdw.soul_fists_3"       : "containing a powerful soul.",
+  "tooltip_info_item.mcdw.soul_fists_4"       : " ",
+  "tooltip_ench_item.mcdw.soul_fists_1"       : "Enigma Resonator I",
+
+  "tooltip_info_item.mcdw.dagger_1"           : "Daggers are the weapon of",
+  "tooltip_info_item.mcdw.dagger_2"           : "cravens - or so folk say.",
+
+  "tooltip_info_item.mcdw.fangs_of_frost_1"   : "These lauded twin daggers",
+  "tooltip_info_item.mcdw.fangs_of_frost_2"   : "of the northern mountains",
+  "tooltip_info_item.mcdw.fangs_of_frost_3"   : "are known to freeze their",
+  "tooltip_info_item.mcdw.fangs_of_frost_4"   : "foes to solid ice.",
+  "tooltip_info_item.mcdw.fangs_of_frost_5"   : " ",
+  "tooltip_ench_item.mcdw.fangs_of_frost_1"   : "Freezing I",
+
+  "tooltip_info_item.mcdw.moon_daggers_1"     : "These curved blades shine",
+  "tooltip_info_item.mcdw.moon_daggers_2"     : "like the crescent moon on",
+  "tooltip_info_item.mcdw.moon_daggers_3"     : "a dark night.",
+  "tooltip_info_item.mcdw.moon_daggers_4"     : " ",
+  "tooltip_ench_item.mcdw.moon_daggers_1"     : "Enigma Resonator I",
+
+  "tooltip_info_item.mcdw.shear_daggers_1"    : "Even the simplest of farmers",
+  "tooltip_info_item.mcdw.shear_daggers_2"    : "can wield these Shear Daggers",
+  "tooltip_info_item.mcdw.shear_daggers_3"    : "with savage results",
+  "tooltip_info_item.mcdw.shear_daggers_4"    : " ",
+  "tooltip_ench_item.mcdw.shear_daggers_1"    : "Swirling I",
+
+  "tooltip_info_item.mcdw.soul_knife_1"       : "A ceremonial knife that uses",
+  "tooltip_info_item.mcdw.soul_knife_2"       : "magical energy to hold the wrath",
+  "tooltip_info_item.mcdw.soul_knife_3"       : "of souls inside its blade.",
+
+  "tooltip_info_item.mcdw.eternal_knife_1"    : "A disturbing aura surrounds this",
+  "tooltip_info_item.mcdw.eternal_knife_2"    : "knife, as if it has existed for",
+  "tooltip_info_item.mcdw.eternal_knife_3"    : "all time and will outlive us all.",
+  "tooltip_info_item.mcdw.eternal_knife_4"    : " ",
+  "tooltip_ench_item.mcdw.eternal_knife_1"    : "Soul Siphon I",
+
+  "tooltip_info_item.mcdw.glaive_1"           : "The glaive, wielded by the servants",
+  "tooltip_info_item.mcdw.glaive_2"           : "of the Nameless One, is a weapon with",
+  "tooltip_info_item.mcdw.glaive_3"           : "style and power.",
+
+  "tooltip_info_item.mcdw.venom_glaive_1"     : "A toxic cloud seems to follow the",
+  "tooltip_info_item.mcdw.venom_glaive_2"     : "Venom Glaive wherever it goes...",
+  "tooltip_info_item.mcdw.venom_glaive_3"     : " ",
+  "tooltip_ench_item.mcdw.venom_glaive_1"     : "Poison Cloud I",
+
+  "tooltip_info_item.mcdw.grave_bane_1"       : "A relic from ages of darkness;",
+  "tooltip_info_item.mcdw.grave_bane_2"       : "this glaive radiates potent magical",
+  "tooltip_info_item.mcdw.grave_bane_3"       : "energy to ward off the undead.",
+  "tooltip_info_item.mcdw.grave_bane_4"       : " ",
+  "tooltip_ench_item.mcdw.grave_bane_1"       : "Smiting I",
+
+  "tooltip_info_item.mcdw.spear_1"            : "The spear, with its long reach",
+  "tooltip_info_item.mcdw.spear_2"            : "and powerful range, is a solid",
+  "tooltip_info_item.mcdw.spear_3"            : "choice of weapon.",
+
+  "tooltip_info_item.mcdw.fortune_spear_1"    : "A spear that is watched over by",
+  "tooltip_info_item.mcdw.fortune_spear_2"    : "lucky souls, bringing luck to any",
+  "tooltip_info_item.mcdw.fortune_spear_3"    : "who wield it.",
+  "tooltip_info_item.mcdw.fortune_spear_4"    : " ",
+  "tooltip_ench_item.mcdw.fortune_spear_1"    : "Looting I",
+
+  "tooltip_info_item.mcdw.whispering_spear_1" : "Legend says that this cursed spear",
+  "tooltip_info_item.mcdw.whispering_spear_2" : "is plagued by a soul that controls",
+  "tooltip_info_item.mcdw.whispering_spear_3" : "the mind of any who wield it.",
+  "tooltip_info_item.mcdw.whispering_spear_4" : " ",
+  "tooltip_ench_item.mcdw.whispering_spear_1" : "Echo I",
+
+  "tooltip_info_item.mcdw.flail_1"            : "This ancient weapon inflicts",
+  "tooltip_info_item.mcdw.flail_2"            : "grave blunt damage to those who ",
+  "tooltip_info_item.mcdw.flail_3"            : "cannot evade the deadly metal ball.",
+  "tooltip_info_item.mcdw.flail_4"            : " ",
+  "tooltip_ench_item.mcdw.flail_1"            : "Chains I",
+
+  "tooltip_info_item.mcdw.suns_grace_1"       : "This mace, engraved with secret healing",
+  "tooltip_info_item.mcdw.suns_grace_2"       : "runes, grants powerful restorative powers.",
+  "tooltip_info_item.mcdw.suns_grace_3"       : " ",
+  "tooltip_ench_item.mcdw.suns_grace_1"       : "Radiance I",
+
+  "tooltip_info_item.mcdw.great_hammer_1"     : "Blacksmiths and soldiers alike use",
+  "tooltip_info_item.mcdw.great_hammer_2"     : "the Great Hammer for its strength",
+  "tooltip_info_item.mcdw.great_hammer_3"     : "in forging and in battle.",
+
+  "tooltip_info_item.mcdw.gravity_hammer_1"   : "A hammer, embedded with a crystal that",
+  "tooltip_info_item.mcdw.gravity_hammer_2"   : "harnesses the power of gravity, that",
+  "tooltip_info_item.mcdw.gravity_hammer_3"   : "is incredibly powerful",
+  "tooltip_info_item.mcdw.gravity_hammer_4"   : " ",
+  "tooltip_ench_item.mcdw.gravity_hammer_1"   : "Gravity I",
+
+  "tooltip_info_item.mcdw.stormlander_1"      : "The Stormlander, enchanted with the power",
+  "tooltip_info_item.mcdw.stormlander_2"      : "of the raging storm, is a treasure of",
+  "tooltip_info_item.mcdw.stormlander_3"      : "the Illagers.",
+  "tooltip_info_item.mcdw.stormlander_4"      : " ",
+  "tooltip_ench_item.mcdw.stormlander_1"      : "Thundering I",
+
+  "tooltip_info_item.mcdw.diamond_pick_1"     : "Diamond is one of the most durable",
+  "tooltip_info_item.mcdw.diamond_pick_2"     : "materials making it an excellent",
+  "tooltip_info_item.mcdw.diamond_pick_3"     : "choice for a pickaxe.",
+
+  "tooltip_info_item.mcdw.soul_scythe_1"      : "A cruel reaper of souls, the Soul",
+  "tooltip_info_item.mcdw.soul_scythe_2"      : "Scythe is unsentimental in its",
+  "tooltip_info_item.mcdw.soul_scythe_3"      : "work.",
+
+  "tooltip_info_item.mcdw.frost_scythe_1"     : "The Frost Scythe is a (near)",
+  "tooltip_info_item.mcdw.frost_scythe_2"     : "indestructible blade that is",
+  "tooltip_info_item.mcdw.frost_scythe_3"     : "freezing to the touch and never",
+  "tooltip_info_item.mcdw.frost_scythe_4"     : "seems to melt",
+  "tooltip_info_item.mcdw.frost_scythe_5"     : " ",
+  "tooltip_ench_item.mcdw.frost_scythe_1"     : "Freezing I",
+
+  "tooltip_info_item.mcdw.jailors_scythe_1"   : "This scythe belonged to the terror",
+  "tooltip_info_item.mcdw.jailors_scythe_2"   : "of Highblock Keep, the Jailor.",
+  "tooltip_info_item.mcdw.jailors_scythe_3"   : " ",
+  "tooltip_ench_item.mcdw.jailors_scythe_1"   : "Chains I",
+
+  "tooltip_info_item.mcdw.sickle_1"           : "A ceremonial weapon that hails",
+  "tooltip_info_item.mcdw.sickle_2"           : "from the same region as the",
+  "tooltip_info_item.mcdw.sickle_3"           : "Desert Temple.",
+
+  "tooltip_info_item.mcdw.last_laugh_1"       : "Strange, distorted laughter",
+  "tooltip_info_item.mcdw.last_laugh_2"       : "seems to whisper from these",
+  "tooltip_info_item.mcdw.last_laugh_3"       : "menacing looking sickles.",
+  "tooltip_info_item.mcdw.last_laugh_4"       : " ",
+  "tooltip_ench_item.mcdw.last_laugh_1"       : "Prospector I",
+
+  "tooltip_info_item.mcdw.nightmares_bite_1"  : "The twin blades of Nightmare's",
+  "tooltip_info_item.mcdw.nightmares_bite_2"  : "Bite drip with deadly venom,",
+  "tooltip_info_item.mcdw.nightmares_bite_3"  : "still potent after all these years.",
+  "tooltip_info_item.mcdw.nightmares_bite_4"  : " ",
+  "tooltip_ench_item.mcdw.nightmares_bite_1"  : "Poison Cloud I",
+
+  "tooltip_info_item.mcdw.battlestaff_1"      : "The battlestaff is a perfectly",
+  "tooltip_info_item.mcdw.battlestaff_2"      : "balanced staff that is ready",
+  "tooltip_info_item.mcdw.battlestaff_3"      : "for any battle.",
+
+  "tooltip_info_item.mcdw.battlestaff_of_terror_1": "This staff overwhelms its",
+  "tooltip_info_item.mcdw.battlestaff_of_terror_2": "target in battle to",
+  "tooltip_info_item.mcdw.battlestaff_of_terror_3": "explosive effect.",
+  "tooltip_info_item.mcdw.battlestaff_of_terror_4": " ",
+  "tooltip_ench_item.mcdw.battlestaff_of_terror_1": "Exploding I",
+
+  "tooltip_info_item.mcdw.growing_staff_1"    : "A staff that grows and shifts",
+  "tooltip_info_item.mcdw.growing_staff_2"    : "as it attacks, the Growing Staff",
+  "tooltip_info_item.mcdw.growing_staff_3"    : "is unpredictable and powerful.",
+  "tooltip_info_item.mcdw.growing_staff_4"    : " ",
+  "tooltip_ench_item.mcdw.growing_staff_1"    : "Committed I",
+
+  "tooltip_info_item.mcdw.whip_1"             : "A whip made of sturdy rope,",
+  "tooltip_info_item.mcdw.whip_2"             : "very dangerous in the right",
+  "tooltip_info_item.mcdw.whip_3"             : "hands.",
+
+  "tooltip_info_item.mcdw.vine_whip_1"        : "A sturdy whip made from thick,",
+  "tooltip_info_item.mcdw.vine_whip_2"        : "thorn-laden vines capable of",
+  "tooltip_info_item.mcdw.vine_whip_3"        : "poisoning anything it touches.",
+  "tooltip_info_item.mcdw.vine_whip_4"        : "Be careful not to scratch",
+  "tooltip_info_item.mcdw.vine_whip_5"        : "yourself.",
+  "tooltip_info_item.mcdw.vine_whip_6"        : " ",
+  "tooltip_ench_item.mcdw.vine_whip_1"        : "Jungle's Poison I",
+
+  "tooltip_info_item.mcdw.tempest_knife_1"    : "This knife slices through",
+  "tooltip_info_item.mcdw.tempest_knife_2"    : "enemies like winds that cut",
+  "tooltip_info_item.mcdw.tempest_knife_3"    : "between the mountaintops.",
+
+  "tooltip_info_item.mcdw.resolute_tempest_knife_1" : "Passed down by nomads who roam",
+  "tooltip_info_item.mcdw.resolute_tempest_knife_2" : "the mountain peaks, this knife",
+  "tooltip_info_item.mcdw.resolute_tempest_knife_3" : "has been used in countless battles.",
+  "tooltip_info_item.mcdw.resolute_tempest_knife_4" : " ",
+  "tooltip_ench_item.mcdw.resolute_tempest_knife_1" : "Committed I",
+
+  "tooltip_info_item.mcdw.chill_gale_knife_1" : "Created from the never-melting ice",
+  "tooltip_info_item.mcdw.chill_gale_knife_2" : "atop the mountain peaks, this",
+  "tooltip_info_item.mcdw.chill_gale_knife_3" : "knife is forever icy to the touch.",
+  "tooltip_info_item.mcdw.chill_gale_knife_4" : " ",
+  "tooltip_ench_item.mcdw.chill_gale_knife_1" : "Freezing I"
+
 }

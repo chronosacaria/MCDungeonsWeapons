@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.bases;
 
 //import chronosacaria.mcdw.entity.SpearEntity;
+import chronosacaria.mcdw.weapons.Spears;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -8,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -17,6 +19,9 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.tag.BlockTags;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
@@ -24,6 +29,7 @@ import net.minecraft.util.registry.Registry;
 import chronosacaria.mcdw.Mcdw;
 import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.function.Supplier;
 //TODO Make sure that Spears cannot strip logs (lol)
 public class McdwSpear extends AxeItem {
@@ -117,5 +123,28 @@ public class McdwSpear extends AxeItem {
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot equipmentSlot){
         return equipmentSlot == EquipmentSlot.MAINHAND ? attributeModifiers :
                 super.getAttributeModifiers(equipmentSlot);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        if (stack.getItem() == Spears.SPEAR_SPEAR) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Spears.SPEAR_FORTUNE) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_4").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.fortune_spear_1").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() == Spears.SPEAR_WHISPERING_SPEAR) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_4").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.whispering_spear_1").formatted(Formatting.GREEN));
+        }
     }
 }

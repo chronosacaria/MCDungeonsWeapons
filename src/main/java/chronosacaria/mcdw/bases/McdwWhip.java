@@ -1,6 +1,8 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.weapons.Sickles;
+import chronosacaria.mcdw.weapons.Whips;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -8,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -18,10 +21,16 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.tag.BlockTags;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+
+import java.util.List;
+
 //TODO Make sure that they cannot strip logs
 public class McdwWhip extends AxeItem {
 
@@ -114,5 +123,23 @@ public class McdwWhip extends AxeItem {
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot equipmentSlot){
         return equipmentSlot == EquipmentSlot.MAINHAND ? attributeModifiers :
                 super.getAttributeModifiers(equipmentSlot);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        if (stack.getItem() == Whips.WHIP_WHIP) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whip_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whip_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whip_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Whips.WHIP_VINE_WHIP) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_4").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_5").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_6").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.vine_whip_1").formatted(Formatting.GREEN));
+        }
     }
 }

@@ -2,6 +2,9 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 //import chronosacaria.mcdw.entity.SpearEntity;
+import chronosacaria.mcdw.weapons.Gauntlets;
+import chronosacaria.mcdw.weapons.Glaives;
+import chronosacaria.mcdw.weapons.Spears;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -9,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -21,11 +25,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.tag.BlockTags;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 
@@ -120,5 +128,28 @@ public class McdwGlaive extends SwordItem {
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot equipmentSlot){
         return equipmentSlot == EquipmentSlot.MAINHAND ? attributeModifiers :
                 super.getAttributeModifiers(equipmentSlot);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        if (stack.getItem() == Glaives.SPEAR_GLAIVE) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.glaive_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.glaive_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.glaive_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Glaives.SPEAR_VENOM_GLAIVE) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.venom_glaive_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.venom_glaive_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.venom_glaive_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.venom_glaive_1").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() == Glaives.SPEAR_GRAVE_BANE) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.grave_bane_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.grave_bane_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.grave_bane_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.grave_bane_4").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.grave_bane_1").formatted(Formatting.GREEN));
+        }
+
     }
 }
