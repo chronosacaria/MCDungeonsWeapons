@@ -21,6 +21,7 @@ import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 
@@ -34,7 +35,7 @@ public class Mcdw implements ModInitializer {
 
     public static final String MOD_ID = "mcdw";
 
-    public static final Identifier OFFHAND_ATTACK = new Identifier(MOD_ID, "diamond");
+    public static final Identifier OFFHAND_ATTACK = new Identifier(MOD_ID, "offhand_attack");
 
 
     public static final ItemGroup WEAPONS = FabricItemGroupBuilder.build(
@@ -128,12 +129,12 @@ public class Mcdw implements ModInitializer {
 
         ServerSidePacketRegistry.INSTANCE.register(OFFHAND_ATTACK, ((packetContext, attachedData) -> {
             int entityID = attachedData.readVarInt();
-            PlayerAttackHelper pah =
+
 
             packetContext.getTaskQueue().execute(() -> {
                 if (packetContext.getPlayer().isUsingItem()){
-                    packetContext.getPlayer().world.getEntityById(entityID);
-                    packetContext.getPlayer() ...
+                    PlayerAttackHelper.swingArm(((ServerPlayerEntity) packetContext.getPlayer()),
+                            packetContext.getPlayer().world.getEntityById(entityID));
 
                 }
             });

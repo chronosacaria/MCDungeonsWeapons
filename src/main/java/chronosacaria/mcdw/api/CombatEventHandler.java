@@ -20,13 +20,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.registry.Registry;
+
+import java.util.UUID;
 
 public class CombatEventHandler {
 
     public static void checkForOffHandAttack(){
-        MinecraftClient client = MinecraftClient.getInstance();
-        PlayerEntity player = client.player;
-        HitResult hitResult = client.crosshairTarget;
+        MinecraftClient mc = MinecraftClient.getInstance();
+        PlayerEntity player = mc.player;
+        HitResult hitResult = mc.crosshairTarget;
         if (MinecraftClient.getInstance().world != null
                 && MinecraftClient.getInstance().currentScreen == null
                 && !MinecraftClient.getInstance().isPaused()
@@ -37,16 +40,21 @@ public class CombatEventHandler {
                 //float reach = (float) 3.0D;
 
                 if (hitResult instanceof EntityHitResult){
-                    EntityHitResult entityHitResult = (EntityHitResult)hitResult;
+                    if (mc.crosshairTarget != null && mc.interactionManager != null) {
+                            mc.interactionManager.attackEntity(player,
+                                    ((EntityHitResult)mc.crosshairTarget).getEntity());
+                        }
+                    }
+                    /*EntityHitResult entityHitResult = (EntityHitResult)hitResult;
                     Entity entityHit = entityHitResult.getEntity();
+                    UUID uuid = player.getUuid();
                     if (entityHit != player && entityHit != player.getVehicle()){
                         PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
-                        passedData.writeBlockPos(entityHitResult.getEntity().getBlockPos());
+                        passedData.writeVarInt(entityHit.getEntityId());
 
                         ClientSidePacketRegistry.INSTANCE.sendToServer(Mcdw.OFFHAND_ATTACK, passedData);
-                    }
+                    }*/
                 }
             }
         }
     }
-}
