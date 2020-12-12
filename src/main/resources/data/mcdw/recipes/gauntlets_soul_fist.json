@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "OOO",
+        "GDO",
+        "OOO"
+    ],
+    "key": {
+        "O": {
+            "item": "minecraft:gold_ingot"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "G": {
+            "item": "mcdw:gauntlet_gauntlet"
+        }
+    },
+    "result": {
+        "item": "mcdw:gauntlet_soul_fists",
+        "count": 1
+    }
+}

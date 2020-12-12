@@ -1,35 +1,23 @@
 package chronosacaria.mcdw;
 
-import chronosacaria.mcdw.api.util.PlayerAttackHelper;
 import chronosacaria.mcdw.configs.McdwConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.loottables.McdwLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
-import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-
-import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
-import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 
 import chronosacaria.mcdw.weapons.*;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
-
-import java.util.UUID;
 
 public class Mcdw implements ModInitializer {
 
@@ -126,28 +114,6 @@ public class Mcdw implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
-        ServerSidePacketRegistry.INSTANCE.register(OFFHAND_ATTACK, ((packetContext, attachedData) -> {
-            int entityID = attachedData.readVarInt();
-
-
-            packetContext.getTaskQueue().execute(() -> {
-                if (packetContext.getPlayer().isUsingItem()){
-                    PlayerAttackHelper.swingArm(((ServerPlayerEntity) packetContext.getPlayer()),
-                            packetContext.getPlayer().world.getEntityById(entityID));
-
-                }
-            });
-
-            /*BlockPos pos = attachedData.readBlockPos();
-
-            packetContext.getTaskQueue().execute(() -> {
-                if (packetContext.getPlayer().world.canSetBlock(pos)){
-                    packetContext.getPlayer().world.setBlockState(pos, Blocks.DIAMOND_BLOCK.getDefaultState());
-                }
-            });*/
-        }));
-
 
         // Config
         AutoConfig.register(McdwConfig.class, JanksonConfigSerializer::new);

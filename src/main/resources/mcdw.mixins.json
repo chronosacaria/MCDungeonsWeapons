@@ -5,8 +5,7 @@
   "mixins": [
     "AccessorItemTags",
     "MixinEntity",
-    "LivingEntityMixin",
-    "GameRendererMixin"
+    "LivingEntityMixin"
   ],
   "client": [
   ],

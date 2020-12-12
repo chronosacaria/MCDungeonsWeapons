@@ -1,28 +1,11 @@
-package chronosacaria.mcdw.api;
+package chronosacaria.mcdw.api.util;
 
-import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
-import io.netty.buffer.Unpooled;
-import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.registry.Registry;
-
-import java.util.UUID;
 
 public class CombatEventHandler {
 
@@ -45,15 +28,6 @@ public class CombatEventHandler {
                                     ((EntityHitResult)mc.crosshairTarget).getEntity());
                         }
                     }
-                    /*EntityHitResult entityHitResult = (EntityHitResult)hitResult;
-                    Entity entityHit = entityHitResult.getEntity();
-                    UUID uuid = player.getUuid();
-                    if (entityHit != player && entityHit != player.getVehicle()){
-                        PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
-                        passedData.writeVarInt(entityHit.getEntityId());
-
-                        ClientSidePacketRegistry.INSTANCE.sendToServer(Mcdw.OFFHAND_ATTACK, passedData);
-                    }*/
                 }
             }
         }

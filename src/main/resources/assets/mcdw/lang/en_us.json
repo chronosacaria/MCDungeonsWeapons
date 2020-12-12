@@ -137,5 +137,132 @@
   "enchantment.mcdw.thundering": "Thundering",
   "enchantment.mcdw.weakening": "Weakening",
 
-  "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing"
+  "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing",
+
+  "tooltip_info_item.mcdw.axe_1"              : "The axe is an effective",
+  "tooltip_info_item.mcdw.axe_2"              : "weapon, favored by the",
+  "tooltip_info_item.mcdw.axe_3"              : "relentless Vindicators",
+  "tooltip_info_item.mcdw.axe_4"              : "of the Arch-Illager's",
+  "tooltip_info_item.mcdw.axe_5"              : "army.",
+
+  "tooltip_info_item.mcdw.firebrand_1"        : "Crafted in the blackest",
+  "tooltip_info_item.mcdw.firebrand_2"        : "depths of the Fiery Forge",
+  "tooltip_info_item.mcdw.firebrand_3"        : "and enchanted with fiery",
+  "tooltip_info_item.mcdw.firebrand_4"        : "powers.",
+  "tooltip_info_item.mcdw.firebrand_5"        : " ",
+  "tooltip_ench_item.mcdw.firebrand_1"        : "Fire Aspect",
+
+  "tooltip_info_item.mcdw.highland_axe_1"     : "Expertly crafted and a",
+  "tooltip_info_item.mcdw.highland_axe_2"     : "polished weapon of war,the",
+  "tooltip_info_item.mcdw.highland_axe_3"     : "Highland Axe also makes a",
+  "tooltip_info_item.mcdw.highland_axe_4"     : "daring backscratcher.",
+  "tooltip_info_item.mcdw.highland_axe_5"     : " ",
+  "tooltip_ench_item.mcdw.highland_axe_1"     : "Stunning I",
+
+  "tooltip_info_item.mcdw.claymore_1"         : "A massive sword that seems",
+  "tooltip_info_item.mcdw.claymore_2"         : "impossibly heavy yet rests",
+  "tooltip_info_item.mcdw.claymore_3"         : "easily in a just warrior's",
+  "tooltip_info_item.mcdw.claymore_4"         : "hands.",
+
+  "tooltip_info_item.mcdw.broadsword_1"       : "Only those with the strength",
+  "tooltip_info_item.mcdw.broadsword_2"       : "of a champion and the heart",
+  "tooltip_info_item.mcdw.broadsword_3"       : "of a hero can carry this",
+  "tooltip_info_item.mcdw.broadsword_4"       : "massive blade.",
+  "tooltip_info_item.mcdw.broadsword_5"       : " ",
+  "tooltip_ench_item.mcdw.broadsword_1"       : "Swirling I",
+
+  "tooltip_info_item.mcdw.great_axeblade_1"   : "A lucky blacksmith turned a",
+  "tooltip_info_item.mcdw.great_axeblade_2"   : "workshop blunder into a",
+  "tooltip_info_item.mcdw.great_axeblade_3"   : "battlefield wonder, fusing ",
+  "tooltip_info_item.mcdw.great_axeblade_4"   : "two weapons into something",
+  "tooltip_info_item.mcdw.great_axeblade_5"   : "new.",
+  "tooltip_info_item.mcdw.great_axeblade_6"   : " ",
+  "tooltip_ench_item.mcdw.great_axeblade_1"   : "Dynamo I",
+
+  "tooltip_info_item.mcdw.heartstealer_1"     : "Gifted to one of the Arch-Illager's ",
+  "tooltip_info_item.mcdw.heartstealer_2"     : "most distinguished generals upon",
+  "tooltip_info_item.mcdw.heartstealer_3"     : "their conquest of the Squid Coast -",
+  "tooltip_info_item.mcdw.heartstealer_4"     : "this runeblade is infused with",
+  "tooltip_info_item.mcdw.heartstealer_5"     : "dark witchcraft.",
+  "tooltip_info_item.mcdw.heartstealer_6"     : " ",
+  "tooltip_ench_item.mcdw.heartstealer_1"     : "Leeching I",
+
+  "tooltip_info_item.mcdw.cutlass_1"          : "This curved blade, wielded by the",
+  "tooltip_info_item.mcdw.cutlass_2"          : "warriors of the Squid Coast, ",
+  "tooltip_info_item.mcdw.cutlass_3"          : "requires a steady hand in battle.",
+
+  "tooltip_info_item.mcdw.dancers_sword_1"    : "Warriors who view battle as a dance",
+  "tooltip_info_item.mcdw.dancers_sword_2"    : "with death prefer double-bladed swords.",
+  "tooltip_info_item.mcdw.dancers_sword_3"    : " ",
+  "tooltip_ench_item.mcdw.dancers_sword_1"    : "Rampaging I",
+
+  "tooltip_info_item.mcdw.nameless_blade_1"   : "This deadly blade's story was ",
+  "tooltip_info_item.mcdw.nameless_blade_2"   : "lost to the endless sands of time.",
+  "tooltip_info_item.mcdw.nameless_blade_3"   : " ",
+  "tooltip_ench_item.mcdw.nameless_blade_1"   : "Weakening I",
+
+  "tooltip_info_item.mcdw.katana_1"           : "A blade fit for expert warriors ",
+  "tooltip_info_item.mcdw.katana_2"           : "and fighters, its blade is ",
+  "tooltip_info_item.mcdw.katana_3"           : "crafted to inflict precision damage.",
+
+  "tooltip_info_item.mcdw.masters_katana_1"   : "The Master's Katana has existed ",
+  "tooltip_info_item.mcdw.masters_katana_2"   : "throughout the ages, appearing ",
+  "tooltip_info_item.mcdw.masters_katana_3"   : "to heroes at the right moment.",
+  "tooltip_info_item.mcdw.masters_katana_4"   : " ",
+  "tooltip_ench_item.mcdw.masters_katana_1"   : "Critical Hit",
+
+  "tooltip_info_item.mcdw.dark_katana_1"      : "A blade that will not rest until",
+  "tooltip_info_item.mcdw.dark_katana_2"      : "the battle has been won.",
+  "tooltip_info_item.mcdw.dark_katana_3"      : " ",
+  "tooltip_ench_item.mcdw.dark_katana_1"      : "Smiting I",
+
+  "tooltip_info_item.mcdw.rapier_1"           : "The rapier, a nimble and narrow ",
+  "tooltip_info_item.mcdw.rapier_2"           : "blade, strikes with quick ferocity.",
+
+  "tooltip_info_item.mcdw.beestinger_1"       : "The Beestinger, a swift blade ",
+  "tooltip_info_item.mcdw.beestinger_2"       : "inspired by a bee's barb, can ",
+  "tooltip_info_item.mcdw.beestinger_3"       : "draw friendly bees into the ",
+  "tooltip_info_item.mcdw.beestinger_4"       : "fray to fight alongside you.",
+  "tooltip_info_item.mcdw.beestinger_5"       : " ",
+  "tooltip_ench_item.mcdw.beestinger_1"       : "Busy Bee",
+
+  "tooltip_info_item.mcdw.freezing_foil_1"    : "This needle-like blade is",
+  "tooltip_info_item.mcdw.freezing_foil_2"    : "cold to the touch and ",
+  "tooltip_info_item.mcdw.freezing_foil_3"    : "makes quick work of any cut.",
+  "tooltip_info_item.mcdw.freezing_foil_4"    : " ",
+  "tooltip_ench_item.mcdw.freezing_foil_1"    : "Freezing I",
+
+  "tooltip_info_item.mcdw.truthseeker_1"      : "The warden of Highblock Keep",
+  "tooltip_info_item.mcdw.truthseeker_2"      : "kept this unpleasant blade by",
+  "tooltip_info_item.mcdw.truthseeker_3"      : "their side during interrogations.",
+  "tooltip_info_item.mcdw.truthseeker_4"      : " ",
+  "tooltip_ench_item.mcdw.truthseeker_1"      : "Committed I",
+
+  "tooltip_info_item.mcdw.diamond_sword_1"    : "The Diamond Sword is the true ",
+  "tooltip_info_item.mcdw.diamond_sword_2"    : "mark of a hero and an ",
+  "tooltip_info_item.mcdw.diamond_sword_3"    : "accomplished adventurer.",
+
+  "tooltip_info_item.mcdw.iron_sword_var_1"   : "A sturdy and reliable blade.",
+
+  "tooltip_info_item.mcdw.hawkbrand_1"        : "The Hawkbrand is the ",
+  "tooltip_info_item.mcdw.hawkbrand_2"        : "legendary sword of proven ",
+  "tooltip_info_item.mcdw.hawkbrand_3"        : "warriors.",
+  "tooltip_info_item.mcdw.hawkbrand_4"        : " ",
+  "tooltip_ench_item.mcdw.hawkbrand_1"        : "Critical Hit",
+
+  "tooltip_info_item.mcdw.double_axe_1"       : "A devastating weapon fit for ",
+  "tooltip_info_item.mcdw.double_axe_2"       : "barbaric fighters.",
+
+  "tooltip_info_item.mcdw.cursed_axe_1"       : "This cursed, poisonous axe",
+  "tooltip_info_item.mcdw.cursed_axe_2"       : "leaves their victims sick",
+  "tooltip_info_item.mcdw.cursed_axe_3"       : "for years with just a single",
+  "tooltip_info_item.mcdw.cursed_axe_4"       : "scratch.",
+  "tooltip_info_item.mcdw.cursed_axe_5"       : " ",
+  "tooltip_ench_item.mcdw.cursed_axe_1"       : "Exploding I",
+
+  "tooltip_info_item.mcdw.whirlwind_1"        : "Whirlwind, forged during an epic",
+  "tooltip_info_item.mcdw.whirlwind_2"        : "windstorm, is a double-bladed",
+  "tooltip_info_item.mcdw.whirlwind_3"        : "axe that levitates slightly.",
+  "tooltip_info_item.mcdw.whirlwind_4"        : " ",
+  "tooltip_ench_item.mcdw.whirlwind_1"        : "Shockwave I"
 }

@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "LLB",
+        "GLB",
+        "LLB"
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:leather"
+        },
+        "B": {
+            "item": "minecraft:bone"
+        },
+        "G": {
+            "item": "mcdw:gauntlet_gauntlet"
+        }
+    },
+    "result": {
+        "item": "mcdw:gauntlet_maulers",
+        "count": 1
+    }
+}

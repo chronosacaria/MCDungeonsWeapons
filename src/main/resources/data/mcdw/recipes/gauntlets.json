@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "LLL",
+        "  L",
+        "LLL"
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:leather"
+        }
+    },
+    "result": {
+        "item": "mcdw:gauntlet_gauntlet",
+        "count": 1
+    }
+}
