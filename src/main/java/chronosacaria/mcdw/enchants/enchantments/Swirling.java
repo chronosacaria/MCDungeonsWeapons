@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class Swirling extends AOEEnchantment {
-    McdwConfig config = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
+    McdwConfig.McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwConfig.McdwEnchantsConfig.class).getConfig();
 
     public static final float SWIRLING_DAMAGE_MULTIPLIER = 0.5F;
 

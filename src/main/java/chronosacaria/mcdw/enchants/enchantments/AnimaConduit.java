@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import java.lang.reflect.Method;
 
 public class AnimaConduit extends AOEEnchantment {
-    McdwConfig config = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
+    McdwConfig.McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwConfig.McdwEnchantsConfig.class).getConfig();
 
     public AnimaConduit(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);

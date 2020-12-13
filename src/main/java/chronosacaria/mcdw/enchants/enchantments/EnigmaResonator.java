@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class EnigmaResonator extends DamageBoostEnchantment {
-    McdwConfig config = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
+    McdwConfig.McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwConfig.McdwEnchantsConfig.class).getConfig();
 
     public EnigmaResonator(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);

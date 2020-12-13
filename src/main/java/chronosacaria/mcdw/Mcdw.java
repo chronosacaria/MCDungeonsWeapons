@@ -7,6 +7,7 @@ import chronosacaria.mcdw.loottables.McdwLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
+import me.sargunvohra.mcmods.autoconfig1u.serializer.PartitioningSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -115,8 +116,11 @@ public class Mcdw implements ModInitializer {
     @Override
     public void onInitialize() {
 
+
         // Config
-        AutoConfig.register(McdwConfig.class, JanksonConfigSerializer::new);
+        //AutoConfig.register(McdwConfig.class, PartitioningSerializer.wrap(JanksonConfigSerializer::new));
+
+
 
 
         // Melee Weapons

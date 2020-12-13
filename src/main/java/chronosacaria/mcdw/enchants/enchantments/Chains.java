@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class Chains extends AOEEnchantment {
-    McdwConfig config = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
+    McdwConfig.McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwConfig.McdwEnchantsConfig.class).getConfig();
 
     public Chains(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);

@@ -42,7 +42,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
-    McdwConfig config = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
+    McdwConfig.McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwConfig.McdwEnchantsConfig.class).getConfig();
 
     @Shadow
     @Final
