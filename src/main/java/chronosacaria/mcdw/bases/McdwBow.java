@@ -2,6 +2,8 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.weapons.Bows;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -12,21 +14,21 @@ import net.minecraft.particle.ParticleEffect;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.UseAction;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.*;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.function.Predicate;
 
 public class McdwBow extends BowItem {
 
     public static float chargeTime = 30.0f;
 
-    private final ToolMaterial material;
-    private final float maxDrawTime;
+    public final ToolMaterial material;
+    public final float maxDrawTime;
     public static float maxBowRange;
     private final ParticleEffect type;
 
@@ -40,7 +42,7 @@ public class McdwBow extends BowItem {
     }
 
     public McdwBow(ToolMaterial material, Settings settings, float maxDrawTime, float maxBowRange,
-                   ParticleEffect particles){
+                   ParticleEffect particles) {
         super(settings);
         this.material = material;
         this.maxDrawTime = maxDrawTime;
@@ -48,22 +50,24 @@ public class McdwBow extends BowItem {
         type = particles;
     }
 
-    public float getMaxDrawTime(ItemStack bow){
+    public float getMaxDrawTime(ItemStack bow) {
         return (float) Math.max(0, maxDrawTime);
     }
 
-    public float getMaxBowRange(ItemStack bow) {return (float) Math.max(0, maxBowRange); }
+    public float getMaxBowRange(ItemStack bow) {
+        return (float) Math.max(0, maxBowRange);
+    }
 
-    public ParticleEffect getArrowParticles(){
+    public ParticleEffect getArrowParticles() {
         return type;
     }
 
     @Override
-    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks){
-        if (user instanceof PlayerEntity){
+    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
+        if (user instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity) user;
             boolean bl = playerEntity.abilities.creativeMode
-                    || EnchantmentHelper.getLevel(Enchantments.INFINITY,stack) > 0;
+                    || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemStack = playerEntity.getArrowType(stack);
             if (!itemStack.isEmpty() || bl) {
                 if (itemStack.isEmpty()) {
@@ -83,12 +87,12 @@ public class McdwBow extends BowItem {
 
                         persistentProjectileEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw,
                                 0.0F, f * maxBowRange, 1.0F);
-                        if (f == 1.0F){
+                        if (f == 1.0F) {
                             persistentProjectileEntity.setCritical(true);
                         }
 
                         // POWER ENCHANTMENT
-                        int j = EnchantmentHelper.getLevel(Enchantments.POWER,stack);
+                        int j = EnchantmentHelper.getLevel(Enchantments.POWER, stack);
                         if (j > 0) {
                             persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + (double) j * 0.5D + 0.5D);
                         }
@@ -133,7 +137,7 @@ public class McdwBow extends BowItem {
         }
     }
 
-    public static float getPullProgress (int useTicks) {
+    public static float getPullProgress(int useTicks) {
         float f = (float) useTicks / chargeTime;
         ;
         f = (f * f + f * 2.0F) / 3.0F;
@@ -184,5 +188,150 @@ public class McdwBow extends BowItem {
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return this.material.getRepairIngredient().test(ingredient) || super.canRepair(stack, ingredient);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        if (stack.getItem() == Bows.BOW_ANCIENT_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.ancient_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.ancient_bow_2").formatted(Formatting.ITALIC));
+
+        }
+        if (stack.getItem() == Bows.BOW_BONEBOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bonebow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bonebow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bonebow_3").formatted(Formatting.ITALIC));
+
+        }
+        if (stack.getItem() == Bows.BOW_LOST_SOULS) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lost_souls_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lost_souls_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lost_souls_3").formatted(Formatting.ITALIC));
+
+        }
+        if (stack.getItem() == Bows.BOW_ELITE_POWER_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.elite_power_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.elite_power_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.elite_power_3").formatted(Formatting.ITALIC));
+
+        }
+        if (stack.getItem() == Bows.BOW_GUARDIAN_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
+
+        }
+        if (stack.getItem() == Bows.BOW_HAUNTED_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.haunted_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.haunted_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.haunted_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Bows.BOW_HUNTERS_PROMISE) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hunters_promise_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hunters_promise_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hunters_promise_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Bows.BOW_HUNTING_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hunting_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hunting_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hunting_bow_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Bows.BOW_LONGBOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.longbow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.longbow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.longbow_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() == Bows.BOW_LOVE_SPELL_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.love_spell_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.love_spell_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.love_spell_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() == Bows.BOW_MASTERS_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.masters_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.masters_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.masters_bow_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Bows.BOW_MECHANICAL_SHORTBOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mechanical_shortbow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mechanical_shortbow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mechanical_shortbow_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() == Bows.BOW_NOCTURNAL_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nocturnal_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nocturnal_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nocturnal_bow_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.tempo_theft").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() == Bows.BOW_POWER_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.power_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.power_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.power_bow_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Bows.BOW_PURPLE_STORM) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.purple_storm_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.purple_storm_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.purple_storm_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() == Bows.BOW_RED_SNAKE) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.red_snake_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.red_snake_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.red_snake_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() == Bows.BOW_SABREWING) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sabrewing_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sabrewing_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sabrewing_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Bows.BOW_SHORTBOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() == Bows.BOW_SNOW_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.snow_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.snow_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.snow_bow_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Bows.BOW_SOUL_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_bow_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Bows.BOW_GREEN_MENACE) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.green_menace_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.green_menace_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.green_menace_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Bows.BOW_PINK_SCOUNDREL) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.pink_scoundrel_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.pink_scoundrel_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.pink_scoundrel_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == Bows.BOW_TRICKBOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.trickbow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.trickbow_2").formatted(Formatting.ITALIC));
+        }
+
+        if (stack.getItem() == Bows.BOW_WINTERS_TOUCH) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.winters_touch_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.winters_touch_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.winters_touch_3").formatted(Formatting.ITALIC));
+        }
+
     }
 }

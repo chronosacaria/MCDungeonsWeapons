@@ -34,20 +34,20 @@ public class GoalUtils {
                 if (ironGolemEntity.isPlayerCreated() && getOwner(ironGolemEntity) == owner) {
                     return false;
                 }
-            }
+            }*/
             if (target instanceof LlamaEntity) {
                 LlamaEntity llamaEntity = (LlamaEntity)target;
                 if (llamaEntity.isTame() && getOwner(llamaEntity) == owner) {
                     return false;
                 }
             }
-            if (target instanceof BatEntity) {
+            /*if (target instanceof BatEntity) {
                 BatEntity llamaEntity = (BatEntity)target;
                 if (getOwner(llamaEntity) == owner) {
                     return false;
                 }
-            }
-            if (target instanceof BeeEntity) {
+            }*/
+            /*if (target instanceof BeeEntity) {
                 BeeEntity llamaEntity = (BeeEntity)target;
                 if (getOwner(llamaEntity) == owner) {
                     return false;

@@ -49,6 +49,8 @@ public class McdwGauntlet extends SwordItem implements IOffhandAttack {
         if (stack.getItem() == Gauntlets.GAUNTLET_GAUNTLET) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gauntlets_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gauntlets_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == Gauntlets.GAUNTLET_MAULERS) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.maulers_1").formatted(Formatting.ITALIC));
@@ -56,6 +58,8 @@ public class McdwGauntlet extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.maulers_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.maulers_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.maulers_1").formatted(Formatting.GREEN));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == Gauntlets.GAUNTLET_SOUL_FISTS) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_fists_1").formatted(Formatting.ITALIC));
@@ -63,6 +67,8 @@ public class McdwGauntlet extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_fists_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_fists_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.soul_fists_1").formatted(Formatting.GREEN));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
     }
 

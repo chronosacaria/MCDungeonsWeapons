@@ -1,17 +1,18 @@
 package chronosacaria.mcdw.weapons;
 
 import chronosacaria.mcdw.bases.McdwDagger;
+import chronosacaria.mcdw.bases.McdwSoulDagger;
 import net.minecraft.item.ToolMaterials;
 
 public class SoulDaggers {
-    public static McdwDagger DAGGER_ETERNAL_KNIFE;
-    public static McdwDagger DAGGER_SOUL_KNIFE;
-    public static McdwDagger SWORD_TRUTHSEEKER;
+    public static McdwSoulDagger DAGGER_ETERNAL_KNIFE;
+    public static McdwSoulDagger DAGGER_SOUL_KNIFE;
+    public static McdwSoulDagger SWORD_TRUTHSEEKER;
 
     public static void init() {
-        DAGGER_SOUL_KNIFE = new McdwDagger(ToolMaterials.IRON, 1, -1.1F, "dagger_soul_knife");
-        DAGGER_ETERNAL_KNIFE = new McdwDagger(ToolMaterials.DIAMOND, 0, -0.9F, "dagger_eternal_knife");
-        SWORD_TRUTHSEEKER = new McdwDagger(ToolMaterials.IRON, 3, -1.5F, "sword_truthseeker");
+        DAGGER_SOUL_KNIFE = new McdwSoulDagger(ToolMaterials.IRON, 1, -1.1F, "dagger_soul_knife");
+        DAGGER_ETERNAL_KNIFE = new McdwSoulDagger(ToolMaterials.DIAMOND, 0, -0.9F, "dagger_eternal_knife");
+        SWORD_TRUTHSEEKER = new McdwSoulDagger(ToolMaterials.IRON, 3, -1.5F, "sword_truthseeker");
 
     }
 }

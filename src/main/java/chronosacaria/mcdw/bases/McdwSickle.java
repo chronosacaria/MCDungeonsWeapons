@@ -46,6 +46,8 @@ public class McdwSickle extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sickle_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sickle_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sickle_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == Sickles.SICKLE_LAST_LAUGH_GOLD || stack.getItem() == Sickles.SICKLE_LAST_LAUGH_SILVER) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.last_laugh_1").formatted(Formatting.ITALIC));
@@ -53,6 +55,8 @@ public class McdwSickle extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.last_laugh_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.last_laugh_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.last_laugh_1").formatted(Formatting.GREEN).formatted(Formatting.OBFUSCATED));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == Sickles.SICKLE_NIGHTMARES_BITE) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nightmares_bite_1").formatted(Formatting.ITALIC));
@@ -60,6 +64,8 @@ public class McdwSickle extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nightmares_bite_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nightmares_bite_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.nightmares_bite_1").formatted(Formatting.GREEN));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
     }
 
