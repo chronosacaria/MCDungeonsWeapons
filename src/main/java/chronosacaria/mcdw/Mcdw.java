@@ -1,13 +1,14 @@
 package chronosacaria.mcdw;
 
-import chronosacaria.mcdw.configs.McdwConfig;
+import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.configs.McdwStatsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.loottables.McdwLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import me.sargunvohra.mcmods.autoconfig1u.ConfigHolder;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
-import me.sargunvohra.mcmods.autoconfig1u.serializer.PartitioningSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -113,14 +114,14 @@ public class Mcdw implements ModInitializer {
             .build();
 
 
+
     @Override
     public void onInitialize() {
 
 
         // Config
-        //AutoConfig.register(McdwConfig.class, PartitioningSerializer.wrap(JanksonConfigSerializer::new));
-
-
+        AutoConfig.register(McdwEnchantsConfig.class, JanksonConfigSerializer::new);
+        AutoConfig.register(McdwStatsConfig.class, JanksonConfigSerializer::new);
 
 
         // Melee Weapons
@@ -160,6 +161,7 @@ public class Mcdw implements ModInitializer {
 
         // Sounds
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);
+
     }
 
 
