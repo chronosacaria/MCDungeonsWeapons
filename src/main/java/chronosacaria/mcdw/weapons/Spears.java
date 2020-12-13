@@ -2,6 +2,7 @@ package chronosacaria.mcdw.weapons;
 
 import chronosacaria.mcdw.bases.McdwSpear;
 //import chronosacaria.mcdw.entity.McdwEntities;
+import chronosacaria.mcdw.configs.McdwStatsConfig;
 import net.minecraft.item.ToolMaterials;
 
 public class Spears {
@@ -13,21 +14,21 @@ public class Spears {
         SPEAR_SPEAR =
                 new McdwSpear(
                         ToolMaterials.IRON,
-                        3,
+                        McdwStatsConfig.config.getSpearDamage(),
                         -2.5F,
                         //() -> McdwEntities.SPEAR_SPEAR,
                         "spear_spear");
         SPEAR_WHISPERING_SPEAR =
                 new McdwSpear(
                         ToolMaterials.IRON,
-                        5,
+                        McdwStatsConfig.config.getWhisperingSpearDamage(),
                         -2.5F,
                         //() -> McdwEntities.SPEAR_WHISPERING_SPEAR,
                         "spear_whispering_spear");
         SPEAR_FORTUNE =
                 new McdwSpear(
                         ToolMaterials.GOLD,
-                        4,
+                        McdwStatsConfig.config.getFortuneSpearDamage(),
                         -2.15F,
                         //() -> McdwEntities.SPEAR_FORTUNE,
                         "spear_fortune");

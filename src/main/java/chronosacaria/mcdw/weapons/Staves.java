@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.weapons;
 
 import chronosacaria.mcdw.bases.McdwStaff;
+import chronosacaria.mcdw.configs.McdwStatsConfig;
 import net.minecraft.item.ToolMaterials;
 
 public class Staves {
@@ -12,21 +13,21 @@ public class Staves {
         STAFF_BATTLESTAFF =
                 new McdwStaff(
                         ToolMaterials.WOOD,
-                        0,
+                        McdwStatsConfig.config.getBattlestaffDamage(),
                         -0.1F,
                         //() -> McdwEntities.STAFF_BATTLESTAFF,
                         "staff_battlestaff");
         STAFF_GROWING_STAFF =
                 new McdwStaff(
                         ToolMaterials.IRON,
-                        1,
+                        McdwStatsConfig.config.getGrowingStaffDamage(),
                         -0.1F,
                         //() -> McdwEntities.STAFF_GROWING_STAFF,
                         "staff_growing_staff");
         STAFF_BATTLESTAFF_OF_TERROR =
                 new McdwStaff(
                         ToolMaterials.IRON,
-                        0,
+                        McdwStatsConfig.config.getBattlestaffOfTerrorDamage(),
                         -0.1F,
                         //() -> McdwEntities.STAFF_BATTLESTAFF_OF_TERROR,
                         "staff_battlestaff_of_terror");
