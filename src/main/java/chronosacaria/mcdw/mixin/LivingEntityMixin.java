@@ -21,6 +21,8 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -85,17 +87,20 @@ public abstract class LivingEntityMixin extends Entity {
     |**** ENCHANTMENTS -- ANIMA CONDUIT ****|
     |* * * * * * * * * * * * * * * * * * * */
 
+    @Shadow public abstract boolean isMobOrPlayer();
+
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
     private void onAnimaConduitKill(DamageSource source, CallbackInfo ci) {
         LivingEntity user = (LivingEntity) source.getAttacker();
+        PiglinEntity piglinEntity = null;
 
         ItemStack mainHandStack = null;
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
         if (config.mixinAnima) {
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack) >= 1)) {
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack) >= 1) && user != piglinEntity) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack);
                 float healthRegained;
 
