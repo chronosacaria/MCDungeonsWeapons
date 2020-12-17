@@ -222,7 +222,7 @@ public abstract class LivingEntityMixin extends Entity {
                         float getExtraDamage = (getOriginalDamage * (1 - getTargetRemainingHealth) * extraDamageMultiplier);
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 1.0/*0.2*/) {
+                        if (chance <= 0.2) {
                             if ((Math.abs(getTargetHealth)) < (Math.abs(getTargetMaxHealth))) {
                                 target.damage(DamageSource.mob( user),
                                         getExtraDamage);
