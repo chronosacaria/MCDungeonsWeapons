@@ -233,7 +233,7 @@ public abstract class LivingEntityMixin extends Entity {
                                         target.getZ(),
                                         SoundEvents.ENTITY_GENERIC_EXPLODE,
                                         SoundCategory.PLAYERS,
-                                        1.0F,
+                                        0.5F,
                                         1.0F);
                             }
                         }
@@ -286,7 +286,7 @@ public abstract class LivingEntityMixin extends Entity {
                                     target.getZ(),
                                     SoundEvents.ENTITY_PLAYER_ATTACK_CRIT,
                                     SoundCategory.PLAYERS,
-                                    64.0F,
+                                    0.5F,
                                     1.0F);
                         }
                     }
@@ -388,7 +388,7 @@ public abstract class LivingEntityMixin extends Entity {
                                     target.getZ(),
                                     SoundEvents.BLOCK_ENDER_CHEST_OPEN,
                                     SoundCategory.PLAYERS,
-                                    64.0F,
+                                    0.5F,
                                     1.0F);
                         }
                     }
@@ -432,7 +432,7 @@ public abstract class LivingEntityMixin extends Entity {
                             target.getZ(),
                             SoundEvents.ENTITY_GENERIC_EXPLODE,
                             SoundCategory.PLAYERS,
-                            1.0F,
+                            0.5F,
                             1.0F);
                     AOECloudHelper.spawnExplosionCloud(user, target, 3.0F);
                     AOEHelper.causeExplosionAttack(user, target, explodingDamage, 3.0F);
@@ -922,7 +922,7 @@ public abstract class LivingEntityMixin extends Entity {
                                     target.getZ(),
                                     SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT,
                                     SoundCategory.PLAYERS,
-                                    1.0F,
+                                    0.5F,
                                     1.0F);
                         }
                     }
@@ -1112,7 +1112,7 @@ public abstract class LivingEntityMixin extends Entity {
                                     target.getZ(),
                                     SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP,
                                     SoundCategory.PLAYERS,
-                                    64.0F,
+                                    0.5F,
                                     1.0F);
                         }
                     }
