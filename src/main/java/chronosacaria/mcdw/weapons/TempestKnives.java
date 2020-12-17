@@ -10,12 +10,19 @@ public class TempestKnives {
     public static McdwDagger DAGGER_RESOLUTE_TEMPEST_KNIFE;
 
     public static void init() {
-        DAGGER_TEMPEST_KNIFE = new McdwDagger(ToolMaterials.IRON, McdwStatsConfig.config.getTempestKnifeDamage(), -1.3F,
+        DAGGER_TEMPEST_KNIFE = new McdwDagger(ToolMaterials.IRON,
+                McdwStatsConfig.config.getTempestKnifeDamage(),
+                McdwStatsConfig.config.getTempestKnifeSpeed(),
                 "dagger_tempest_knife");
-        DAGGER_CHILL_GALE_KNIFE = new McdwDagger(ToolMaterials.IRON, McdwStatsConfig.config.getChillGaleKnifeDamage(), -1.3F,
-                "dagger_chill_gale_knife");
-        DAGGER_RESOLUTE_TEMPEST_KNIFE = new McdwDagger(ToolMaterials.IRON, McdwStatsConfig.config.getResoluteTempestKnifeDamage(), -1.3F,
+        DAGGER_RESOLUTE_TEMPEST_KNIFE = new McdwDagger(ToolMaterials.IRON,
+                McdwStatsConfig.config.getResoluteTempestKnifeDamage(),
+                McdwStatsConfig.config.getResoluteTempestKnifeSpeed(),
                 "dagger_resolute_tempest_knife");
+        DAGGER_CHILL_GALE_KNIFE = new McdwDagger(ToolMaterials.IRON,
+                McdwStatsConfig.config.getChillGaleKnifeDamage(),
+                McdwStatsConfig.config.getChillGaleKnifeSpeed(),
+                "dagger_chill_gale_knife");
+
     }
 }
 

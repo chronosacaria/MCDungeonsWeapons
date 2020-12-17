@@ -14,19 +14,19 @@ public class Claymores {
     public static void init() {
         SWORD_CLAYMORE = new McdwSword(ToolMaterials.IRON,
                 McdwStatsConfig.config.getClaymoreDamage(),
-                -3.0F,
+                McdwStatsConfig.config.getClaymoreSpeed(),
                 "sword_claymore");
         SWORD_BROADSWORD = new McdwSword(ToolMaterials.IRON,
                 McdwStatsConfig.config.getBroadswordDamage(),
-                -3.0F,
+                McdwStatsConfig.config.getBroadswordSpeed(),
                 "sword_broadsword");
         SWORD_HEARTSTEALER = new McdwSword(ToolMaterials.DIAMOND,
                 McdwStatsConfig.config.getHeartstealerDamage(),
-                -3.0F,
+                McdwStatsConfig.config.getHeartstealerSpeed(),
                 "sword_heartstealer");
         SWORD_GREAT_AXEBLADE = new McdwSword(ToolMaterials.IRON,
                 McdwStatsConfig.config.getGreatAxebladeDamage(),
-                -3.0F,
+                McdwStatsConfig.config.getGreatAxebladeSpeed(),
                 "sword_great_axeblade");
         }
 }

@@ -6,8 +6,8 @@ import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 
 @Config(name="mcdw_enchants")
 public class McdwEnchantsConfig implements ConfigData {
-    @Comment("Allow mixing of AOE Enchantments?")
-    public boolean enableAOEMixing = false;
+    @Comment("Allow mixing for OP Enchantment Combinations?")
+    public boolean enableOPMixing = false;
     @Comment("Can DamageBoost Enchantments combine with Leeching?")
     public boolean extraLeeching = false;
     @Comment("Can Soul Siphon and Anima Conduit be combined?")

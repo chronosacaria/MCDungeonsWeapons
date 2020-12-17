@@ -13,19 +13,19 @@ public class Daggers {
     public static void init() {
         DAGGER_DAGGER = new McdwDagger(ToolMaterials.IRON,
                 McdwStatsConfig.config.getDaggerDamage(),
-                -1.3F,
+                McdwStatsConfig.config.getDaggerSpeed(),
                 "dagger_dagger");
         DAGGER_FANGS_OF_FROST = new McdwDagger(ToolMaterials.IRON,
                 McdwStatsConfig.config.getFangsOfFrostDamage(),
-                -1.0F,
+                McdwStatsConfig.config.getFangsOfFrostSpeed(),
                 "dagger_fangs_of_frost");
         DAGGER_MOON = new McdwDagger(ToolMaterials.IRON,
                 McdwStatsConfig.config.getMoonDaggerDamage(),
-                -1.0F,
+                McdwStatsConfig.config.getMoonDaggerSpeed(),
                 "dagger_moon");
         DAGGER_SHEAR_DAGGER = new McdwDagger(ToolMaterials.IRON,
                 McdwStatsConfig.config.getSheerDaggerDamage(),
-                -1.3F,
+                McdwStatsConfig.config.getSheerDaggerSpeed(),
                 "dagger_shear_dagger");
     }
 }

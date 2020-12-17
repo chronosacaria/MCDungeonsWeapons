@@ -2,6 +2,7 @@ package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.enchantment.Enchantment;
@@ -26,6 +27,6 @@ public class EnigmaResonator extends DamageBoostEnchantment {
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return config.enableAOEMixing || !(other instanceof Leeching);
+        return config.enableOPMixing || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
 }

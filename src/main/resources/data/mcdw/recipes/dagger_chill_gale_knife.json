@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  D",
+        "GDD",
+        "/G "
+    ],
+    "key": {
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "G": {
+            "item": "minecraft:gold_ingot"
+        },
+        "/": {
+            "item": "mcdw:dagger_resolute_tempest_knife"
+        }
+    },
+    "result": {
+        "item": "mcdw:dagger_chill_gale_knife",
+        "count": 1
+    }
+}

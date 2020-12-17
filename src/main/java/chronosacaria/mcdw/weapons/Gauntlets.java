@@ -14,15 +14,15 @@ public class Gauntlets {
     public static void init() {
         GAUNTLET_GAUNTLET = new McdwGauntlet(ToolMaterials.IRON,
                 McdwStatsConfig.config.getGauntletsDamage(),
-                -1.4F,
+                McdwStatsConfig.config.getGauntletsSpeed(),
                 "gauntlet_gauntlet");
         GAUNTLET_MAULERS = new McdwGauntlet(ToolMaterials.DIAMOND,
                 McdwStatsConfig.config.getMaulersDamage(),
-                -1.4F,
+                McdwStatsConfig.config.getMaulersSpeed(),
                 "gauntlet_maulers");
         GAUNTLET_SOUL_FISTS = new McdwGauntlet(ToolMaterials.NETHERITE,
                 McdwStatsConfig.config.getSoulFistsDamage(),
-                -1.4F,
+                McdwStatsConfig.config.getSoulFistsSpeed(),
                 "gauntlet_soul_fists");
 
         }

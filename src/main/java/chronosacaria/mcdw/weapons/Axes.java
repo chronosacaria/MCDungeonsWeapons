@@ -17,17 +17,17 @@ public class Axes {
         AXE = new McdwAxe(
                 ToolMaterials.IRON,
                 McdwStatsConfig.config.getAxeDamage(),
-                -3.1F,
+                McdwStatsConfig.config.getAxeSpeed(),
                 "axe");
         AXE_FIREBRAND = new McdwAxe(
                 ToolMaterials.DIAMOND,
                 McdwStatsConfig.config.getFirebrandDamage(),
-                -3.0F,
+                McdwStatsConfig.config.getFirebrandSpeed(),
                 "axe_firebrand");
         AXE_HIGHLAND = new McdwAxe(
                 ToolMaterials.IRON,
                 McdwStatsConfig.config.getHighlandAxeDamage(),
-                -3.1F,
+                McdwStatsConfig.config.getHighlandAxeSpeed(),
                 "axe_highland");
     }
 }

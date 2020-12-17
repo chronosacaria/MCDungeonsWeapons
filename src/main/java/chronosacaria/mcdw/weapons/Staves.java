@@ -14,21 +14,21 @@ public class Staves {
                 new McdwStaff(
                         ToolMaterials.WOOD,
                         McdwStatsConfig.config.getBattlestaffDamage(),
-                        -0.1F,
+                        McdwStatsConfig.config.getBattlestaffSpeed(),
                         //() -> McdwEntities.STAFF_BATTLESTAFF,
                         "staff_battlestaff");
         STAFF_GROWING_STAFF =
                 new McdwStaff(
                         ToolMaterials.IRON,
                         McdwStatsConfig.config.getGrowingStaffDamage(),
-                        -0.1F,
+                        McdwStatsConfig.config.getGrowingStaffSpeed(),
                         //() -> McdwEntities.STAFF_GROWING_STAFF,
                         "staff_growing_staff");
         STAFF_BATTLESTAFF_OF_TERROR =
                 new McdwStaff(
                         ToolMaterials.IRON,
                         McdwStatsConfig.config.getBattlestaffOfTerrorDamage(),
-                        -0.1F,
+                        McdwStatsConfig.config.getBattlestaffOfTerrorSpeed(),
                         //() -> McdwEntities.STAFF_BATTLESTAFF_OF_TERROR,
                         "staff_battlestaff_of_terror");
     }

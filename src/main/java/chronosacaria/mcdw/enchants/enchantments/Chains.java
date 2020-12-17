@@ -3,6 +3,7 @@ package chronosacaria.mcdw.enchants.enchantments;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
+import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
@@ -25,7 +26,7 @@ public class Chains extends AOEEnchantment {
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return config.enableAOEMixing || !(other instanceof AOEEnchantment);
+        return config.enableOPMixing || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
 
 }

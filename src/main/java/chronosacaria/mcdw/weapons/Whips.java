@@ -13,13 +13,13 @@ public class Whips {
                 new McdwWhip(
                         ToolMaterials.IRON,
                         McdwStatsConfig.config.getWhipDamage(),
-                        -3.1F,
+                        McdwStatsConfig.config.getWhipSpeed(),
                         "whip_whip");
         WHIP_VINE_WHIP =
                 new McdwWhip(
                         ToolMaterials.IRON,
                         McdwStatsConfig.config.getVineWhipDamage(),
-                        -3.1F,
+                        McdwStatsConfig.config.getVineWhipSpeed(),
                         "whip_vine_whip");
     }
 }

@@ -11,11 +11,14 @@ public class SoulDaggers {
     public static McdwSoulDagger SWORD_TRUTHSEEKER;
 
     public static void init() {
-        DAGGER_SOUL_KNIFE = new McdwSoulDagger(ToolMaterials.IRON, McdwStatsConfig.config.getSoulKnifeDamage(), -1.1F,
+        DAGGER_SOUL_KNIFE = new McdwSoulDagger(ToolMaterials.IRON, McdwStatsConfig.config.getSoulKnifeDamage(),
+                McdwStatsConfig.config.getSoulKnifeSpeed(),
                 "dagger_soul_knife");
-        DAGGER_ETERNAL_KNIFE = new McdwSoulDagger(ToolMaterials.DIAMOND, McdwStatsConfig.config.getEternalKnifeDamage(), -0.9F,
+        DAGGER_ETERNAL_KNIFE = new McdwSoulDagger(ToolMaterials.DIAMOND,
+                McdwStatsConfig.config.getEternalKnifeDamage(), McdwStatsConfig.config.getEternalKnifeSpeed(),
                 "dagger_eternal_knife");
-        SWORD_TRUTHSEEKER = new McdwSoulDagger(ToolMaterials.IRON, McdwStatsConfig.config.getTruthseekerDamage(), -1.5F,
+        SWORD_TRUTHSEEKER = new McdwSoulDagger(ToolMaterials.IRON, McdwStatsConfig.config.getTruthseekerDamage(),
+                McdwStatsConfig.config.getTruthseekerSpeed(),
                 "sword_truthseeker");
 
     }

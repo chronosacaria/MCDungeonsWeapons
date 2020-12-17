@@ -13,15 +13,15 @@ public class DoubleAxes {
     public static void init() {
         AXE_DOUBLE = new McdwDoubleAxe(ToolMaterials.IRON,
                 McdwStatsConfig.config.getDoubleAxeDamage(),
-                -3.1F,
+                McdwStatsConfig.config.getDoubleAxeSpeed(),
                 "axe_double");
         AXE_WHIRLWIND = new McdwDoubleAxe(ToolMaterials.IRON,
                 McdwStatsConfig.config.getWhirlwindDamage(),
-                -2.9F,
+                McdwStatsConfig.config.getWhirlwindSpeed(),
                 "axe_whirlwind");
         AXE_CURSED = new McdwDoubleAxe(ToolMaterials.IRON,
                 McdwStatsConfig.config.getCursedAxeDamage(),
-                -3.1F,
+                McdwStatsConfig.config.getCursedAxeSpeed(),
                 "axe_cursed");
     }
 }

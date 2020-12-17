@@ -13,10 +13,13 @@ public class Katanas {
 
 
     public static void init() {
-        SWORD_KATANA = new McdwSword(ToolMaterials.IRON, McdwStatsConfig.config.getKatanaDamage(), -1.5F, "sword_katana");
-        SWORD_MASTERS_KATANA = new McdwSword(ToolMaterials.DIAMOND, McdwStatsConfig.config.getMastersKatanaDamage(), -1.1F,
+        SWORD_KATANA = new McdwSword(ToolMaterials.IRON, McdwStatsConfig.config.getKatanaDamage(),
+                McdwStatsConfig.config.getKatanaSpeed(), "sword_katana");
+        SWORD_MASTERS_KATANA = new McdwSword(ToolMaterials.DIAMOND, McdwStatsConfig.config.getMastersKatanaDamage(),
+                McdwStatsConfig.config.getMastersKatanaSpeed(),
                 "sword_masters_katana");
-        SWORD_DARK_KATANA = new McdwSword(ToolMaterials.NETHERITE, McdwStatsConfig.config.getDarkKatanaDamage(), -1.15F,
+        SWORD_DARK_KATANA = new McdwSword(ToolMaterials.NETHERITE, McdwStatsConfig.config.getDarkKatanaDamage(),
+                McdwStatsConfig.config.getDarkKatanaSpeed(),
                 "sword_dark_katana");
         }
 }

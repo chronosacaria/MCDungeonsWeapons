@@ -28,4 +28,5 @@ public class AnimaConduit extends AOEEnchantment {
         return config.extraXpHealing || !(other instanceof SoulSiphon);
     }
 
+
 }

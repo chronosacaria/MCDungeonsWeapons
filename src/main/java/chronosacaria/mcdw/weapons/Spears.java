@@ -15,21 +15,21 @@ public class Spears {
                 new McdwSpear(
                         ToolMaterials.IRON,
                         McdwStatsConfig.config.getSpearDamage(),
-                        -2.5F,
+                        McdwStatsConfig.config.getSpearSpeed(),
                         //() -> McdwEntities.SPEAR_SPEAR,
                         "spear_spear");
         SPEAR_WHISPERING_SPEAR =
                 new McdwSpear(
                         ToolMaterials.IRON,
                         McdwStatsConfig.config.getWhisperingSpearDamage(),
-                        -2.5F,
+                        McdwStatsConfig.config.getWhisperingSpearSpeed(),
                         //() -> McdwEntities.SPEAR_WHISPERING_SPEAR,
                         "spear_whispering_spear");
         SPEAR_FORTUNE =
                 new McdwSpear(
                         ToolMaterials.GOLD,
                         McdwStatsConfig.config.getFortuneSpearDamage(),
-                        -2.15F,
+                        McdwStatsConfig.config.getFortuneSpearSpeed(),
                         //() -> McdwEntities.SPEAR_FORTUNE,
                         "spear_fortune");
 

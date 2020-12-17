@@ -14,17 +14,17 @@ public class Curves {
         SWORD_CUTLASS = new McdwSword(
                 ToolMaterials.IRON,
                 McdwStatsConfig.config.getCutlassDamage(),
-                -2.1F,
+                McdwStatsConfig.config.getCutlassSpeed(),
                 "sword_cutlass");
         SWORD_NAMELESS_BLADE = new McdwSword(
                 ToolMaterials.DIAMOND,
                 McdwStatsConfig.config.getNamelessBladeDamage(),
-                -1.7F,
+                McdwStatsConfig.config.getNamelessBladeSpeed(),
                 "sword_nameless_blade");
         SWORD_DANCERS_SWORD = new McdwSword(
                 ToolMaterials.IRON,
                 McdwStatsConfig.config.getDancersSwordDamage(),
-                -1F,
+                McdwStatsConfig.config.getDancersSwordSpeed(),
                 "sword_dancers_sword");
 
         }

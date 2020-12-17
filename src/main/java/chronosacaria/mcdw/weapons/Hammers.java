@@ -13,13 +13,18 @@ public class Hammers {
     public static McdwHammer HAMMER_SUNS_GRACE;
 
     public static void init() {
-        HAMMER_GREAT = new McdwHammer(ToolMaterials.IRON, McdwStatsConfig.config.getGreatHammerDamage(), -3.0F, "hammer_great");
-        HAMMER_STORMLANDER = new McdwHammer(ToolMaterials.DIAMOND, McdwStatsConfig.config.getStormlanderDamage(), -3.0F,
+        HAMMER_GREAT = new McdwHammer(ToolMaterials.IRON, McdwStatsConfig.config.getGreatHammerDamage(),
+                McdwStatsConfig.config.getGreatHammerSpeed(), "hammer_great");
+        HAMMER_STORMLANDER = new McdwHammer(ToolMaterials.DIAMOND, McdwStatsConfig.config.getStormlanderDamage(),
+                McdwStatsConfig.config.getStormlanderSpeed(),
                 "hammer_stormlander");
-        HAMMER_GRAVITY = new McdwHammer(ToolMaterials.DIAMOND, McdwStatsConfig.config.getHammerOfGravityDamage(), -3.0F, "hammer_gravity");
-        //HAMMER_MACE = new McdwHammer(ToolMaterials.IRON,McdwStatsConfig.config.getMaceDamage,-2.9,"hammer_mace");
-        HAMMER_FLAIL = new McdwHammer(ToolMaterials.IRON, McdwStatsConfig.config.getFlailDamage(), -2.9F, "hammer_flail");
-        HAMMER_SUNS_GRACE = new McdwHammer(ToolMaterials.DIAMOND, McdwStatsConfig.config.getSunsGraceDamage(), -2.5F,
+        HAMMER_GRAVITY = new McdwHammer(ToolMaterials.DIAMOND, McdwStatsConfig.config.getHammerOfGravityDamage(),
+                McdwStatsConfig.config.getHammerOfGravitySpeed(), "hammer_gravity");
+        //HAMMER_MACE = new McdwHammer(ToolMaterials.IRON,McdwStatsConfig.config.getMaceDamage(),McdwStatsConfig.config.getMaceSpeed(),"hammer_mace");
+        HAMMER_FLAIL = new McdwHammer(ToolMaterials.IRON, McdwStatsConfig.config.getFlailDamage(),
+                McdwStatsConfig.config.getFlailSpeed(), "hammer_flail");
+        HAMMER_SUNS_GRACE = new McdwHammer(ToolMaterials.DIAMOND, McdwStatsConfig.config.getSunsGraceDamage(),
+                McdwStatsConfig.config.getSunsGraceSpeed(),
                 "hammer_suns_grace");
     }
 }

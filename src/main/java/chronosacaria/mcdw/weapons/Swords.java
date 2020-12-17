@@ -11,11 +11,18 @@ public class Swords {
     public static McdwSword SWORD_IRON_SWORD_VAR;
 
     public static void init() {
-        SWORD_IRON_SWORD_VAR = new McdwSword(ToolMaterials.IRON, McdwStatsConfig.config.getIronSwordVarDamage(), -2.4F,
+        SWORD_IRON_SWORD_VAR = new McdwSword(ToolMaterials.IRON,
+                McdwStatsConfig.config.getIronSwordVarDamage(),
+                McdwStatsConfig.config.IronSwordVarSpeed,
                 "sword_iron_sword_var");
-        SWORD_DIAMOND_SWORD = new McdwSword(ToolMaterials.DIAMOND, McdwStatsConfig.config.getDiamondSwordVarDamage(), -2.4F,
+        SWORD_DIAMOND_SWORD = new McdwSword(ToolMaterials.DIAMOND,
+                McdwStatsConfig.config.getDiamondSwordVarDamage(),
+                McdwStatsConfig.config.getDiamondSwordVarSpeed(),
                 "sword_diamond_sword_var");
-        SWORD_HAWKBRAND = new McdwSword(ToolMaterials.IRON, McdwStatsConfig.config.getHawkbrandDamage(), -2.0F, "sword_hawkbrand");
+        SWORD_HAWKBRAND = new McdwSword(ToolMaterials.IRON,
+                McdwStatsConfig.config.getHawkbrandDamage(),
+                McdwStatsConfig.config.getHawkbrandSpeed(),
+                "sword_hawkbrand");
 
         }
 }

@@ -14,21 +14,21 @@ public class Glaives {
                 new McdwGlaive(
                         ToolMaterials.IRON,
                         McdwStatsConfig.config.getGlaiveDamage(),
-                        -2.7F,
+                        McdwStatsConfig.config.getGlaiveSpeed(),
                         //() -> McdwEntities.SPEAR_GLAIVE,
                         "spear_glaive");
         SPEAR_GRAVE_BANE =
                 new McdwGlaive(
                         ToolMaterials.IRON,
                         McdwStatsConfig.config.getGraveBaneDamage(),
-                        -2.4F,
+                        McdwStatsConfig.config.getGraveBaneSpeed(),
                         //() -> McdwEntities.SPEAR_GRAVE_BANE,
                         "spear_grave_bane");
         SPEAR_VENOM_GLAIVE =
                 new McdwGlaive(
                         ToolMaterials.IRON,
                         McdwStatsConfig.config.getVenomGlaiveDamage(),
-                        -2.5F,
+                        McdwStatsConfig.config.getVenomGlaiveSpeed(),
                         //() -> McdwEntities.SPEAR_VENOM_GLAIVE,
                         "spear_venom_glaive");
     }
