@@ -525,6 +525,52 @@ public abstract class LivingEntityMixin extends Entity {
     }
 
 
+    /* * * * * * * * * * * * * * * * * * *|
+    |***** ENCHANTMENTS -- FUSE SHOT *****|
+    |* * * * * * * * * * * * * * * * * * */
+
+    @Inject(at = @At("HEAD"), method = "applyDamage", cancellable = true)
+
+    private void applyFuseShot(DamageSource source, float amount, CallbackInfo info)  {
+        LivingEntity user = (LivingEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+        ItemStack mainHandStack = null;
+        if (user != null) {
+            mainHandStack = user.getMainHandStack();
+        }
+        boolean uniqueWeaponFlag =
+                false;
+        if (config.mixinFuseShot) {
+            //if (mainHandStack != null) {
+            //    uniqueWeaponFlag = mainHandStack.getItem() == DoubleAxes.AXE_CURSED.asItem()
+            //            || mainHandStack.getItem() == Staves.STAFF_BATTLESTAFF_OF_TERROR.asItem();
+            //}
+
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack) >= 1
+        /*|| uniqueWeaponFlag*/)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack);
+                float explodingDamage;
+                explodingDamage = target.getMaxHealth() * 0.2f * level;
+                float chance = user.getRandom().nextFloat();
+                    if (chance <= (0.22 * (level/2.0))) {
+                        //if (uniqueWeaponFlag) explodingDamage += (target.getMaxHealth() * 0.2F);
+                        target.world.playSound(
+                                null,
+                                target.getX(),
+                                target.getY(),
+                                target.getZ(),
+                                SoundEvents.ENTITY_GENERIC_EXPLODE,
+                                SoundCategory.PLAYERS,
+                                0.5F,
+                                1.0F);
+                        AOECloudHelper.spawnExplosionCloud(user, target, 3.0F);
+                        AOEHelper.causeExplosionAttack(user, target, explodingDamage, 3.0F);
+                    }
+                }
+            }
+        }
+
+
     /* * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- GRAVITY *****|
     |* * * * * * * * * * * * * * * * * */

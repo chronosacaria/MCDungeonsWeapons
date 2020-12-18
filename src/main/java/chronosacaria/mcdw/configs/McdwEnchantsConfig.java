@@ -32,6 +32,8 @@ public class McdwEnchantsConfig implements ConfigData {
     public boolean mixinCustomFireAspect = true;
     @Comment("Enable Enchantment - Freezing?")
     public boolean mixinFreezing = true;
+    @Comment("Enable Enchantment - Fuse Shot?")
+    public boolean mixinFuseShot = true;
     @Comment("Enable Enchantment - Gravity?")
     public boolean mixinGravity = true;
     @Comment("Enable Enchantment - Jungle's Poison?")
