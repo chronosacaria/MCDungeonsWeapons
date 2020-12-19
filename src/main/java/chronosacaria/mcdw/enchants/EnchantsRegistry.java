@@ -81,10 +81,10 @@ public class EnchantsRegistry {
 
         //ACCELERATE = new Accelerate(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        FUSE_SHOT = new FuseShot(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        REPLENISH = new Replenish(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        //FUSE_SHOT = new FuseShot(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        //REPLENISH = new Replenish(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RICOCHET = new Ricochet(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         TEMPO_THEFT = new TempoTheft(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
