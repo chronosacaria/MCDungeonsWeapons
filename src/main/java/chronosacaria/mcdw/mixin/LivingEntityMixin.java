@@ -21,7 +21,6 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -541,13 +540,7 @@ public abstract class LivingEntityMixin extends Entity {
         boolean uniqueWeaponFlag =
                 false;
         if (config.mixinFuseShot) {
-            //if (mainHandStack != null) {
-            //    uniqueWeaponFlag = mainHandStack.getItem() == DoubleAxes.AXE_CURSED.asItem()
-            //            || mainHandStack.getItem() == Staves.STAFF_BATTLESTAFF_OF_TERROR.asItem();
-            //}
-
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack) >= 1
-        /*|| uniqueWeaponFlag*/)) {
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack);
                 float explodingDamage;
                 explodingDamage = target.getMaxHealth() * 0.2f * level;
