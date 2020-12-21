@@ -51,9 +51,14 @@ public class McdwCrossbow extends CrossbowItem {
 
     @Override
     public boolean isUsedOnRelease(ItemStack stack){
-        return
-                stack.getItem() == Crossbows.CROSSBOW_BUTTERFLY_CROSSBOW
-                        || stack.getItem() == Crossbows.CROSSBOW_RAPID_CROSSBOW;
+        return stack.getItem() == Crossbows.CROSSBOW_AUTO_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_AZURE_SEEKER
+                || stack.getItem() == Crossbows.CROSSBOW_BABY_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_BURST_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_BUTTERFLY_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_CORRUPTED_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_RAPID_CROSSBOW;
+
     }
 
 }

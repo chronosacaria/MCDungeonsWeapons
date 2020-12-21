@@ -73,7 +73,12 @@ public class McdwClient implements ClientModInitializer {
         //registerBowPredicates(Bows.BOW_SNOW_BOW);
         //registerBowPredicates(Bows.BOW_WINTERS_TOUCH);
 
+        registerCrossbowPredicates(Crossbows.CROSSBOW_AUTO_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_AZURE_SEEKER);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_BABY_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_BURST_CROSSBOW);
         registerCrossbowPredicates(Crossbows.CROSSBOW_BUTTERFLY_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_CORRUPTED_CROSSBOW);
         registerCrossbowPredicates(Crossbows.CROSSBOW_RAPID_CROSSBOW);
     }
     public static void registerBowPredicates(McdwBow bow) {

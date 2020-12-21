@@ -2,7 +2,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "mcdw:item/crossbows/rapid_crossbow",
-		"particle": "mcdw:item//crossbows/rapid_crossbow"
+		"particle": "mcdw:item/crossbows/rapid_crossbow"
 	},
 	"elements": [
 		{
@@ -500,34 +500,34 @@
 			"predicate": {
 				"pulling": 1
 			},
-			"model": "mcdw:item/rapid_crossbow_pulling_0"
+			"model": "mcdw:item/crossbow_rapid_crossbow_pulling_0"
 		},
 		{
 			"predicate": {
 				"pulling": 1,
 				"pull": 0.58
 			},
-			"model": "mcdw:item/rapid_crossbow_pulling_1"
+			"model": "mcdw:item/crossbow_rapid_crossbow_pulling_1"
 		},
 		{
 			"predicate": {
 				"pulling": 1,
 				"pull": 1.0
 			},
-			"model": "mcdw:item/rapid_crossbow_pulling_2"
+			"model": "mcdw:item/crossbow_rapid_crossbow_pulling_2"
 		},
 		{
 			"predicate": {
 				"charged": 1
 			},
-			"model": "mcdw:item/rapid_crossbow_arrow"
+			"model": "mcdw:item/crossbow_rapid_crossbow_arrow"
 		},
 		{
 			"predicate": {
 				"charged": 1,
 				"firework": 1
 			},
-			"model": "mcdw:item/rapid_crossbow_pulling_firework"
+			"model": "mcdw:item/crossbow_rapid_crossbow_firework"
 		}
 	]
 }
