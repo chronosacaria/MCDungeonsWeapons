@@ -57,7 +57,24 @@ public class McdwCrossbow extends CrossbowItem {
                 || stack.getItem() == Crossbows.CROSSBOW_BURST_CROSSBOW
                 || stack.getItem() == Crossbows.CROSSBOW_BUTTERFLY_CROSSBOW
                 || stack.getItem() == Crossbows.CROSSBOW_CORRUPTED_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_RAPID_CROSSBOW;
+                || stack.getItem() == Crossbows.CROSSBOW_DOOM_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_DUAL_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_EXPLODING_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_FERAL_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_FIREBOLT_THROWER
+                || stack.getItem() == Crossbows.CROSSBOW_HARP_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_HEAVY_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_IMPLODING_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_LIGHTNING_HARP_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_RAPID_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_SCATTER_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_SLAYER_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_THE_SLICER_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_SOUL_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_SOUL_HUNTER_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_SPELLBOUND_CROSSBOW
+                || stack.getItem() == Crossbows.CROSSBOW_VOID_CALLER_CROSSBOW
+        ;
 
     }
 

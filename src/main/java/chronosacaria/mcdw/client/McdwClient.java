@@ -79,7 +79,25 @@ public class McdwClient implements ClientModInitializer {
         registerCrossbowPredicates(Crossbows.CROSSBOW_BURST_CROSSBOW);
         registerCrossbowPredicates(Crossbows.CROSSBOW_BUTTERFLY_CROSSBOW);
         registerCrossbowPredicates(Crossbows.CROSSBOW_CORRUPTED_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_DOOM_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_DUAL_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_EXPLODING_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_FERAL_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_FIREBOLT_THROWER);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_HARP_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_HEAVY_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_IMPLODING_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_LIGHTNING_HARP_CROSSBOW);
         registerCrossbowPredicates(Crossbows.CROSSBOW_RAPID_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_SCATTER_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_SLAYER_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_THE_SLICER_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_SOUL_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_SOUL_HUNTER_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_SPELLBOUND_CROSSBOW);
+        registerCrossbowPredicates(Crossbows.CROSSBOW_VOID_CALLER_CROSSBOW);
+
+
     }
     public static void registerBowPredicates(McdwBow bow) {
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
