@@ -21,12 +21,16 @@ import net.minecraft.util.Identifier;
 import chronosacaria.mcdw.weapons.*;
 import net.minecraft.util.registry.Registry;
 
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
+
 public class Mcdw implements ModInitializer {
 
     public static final String MOD_ID = "mcdw";
 
     public static final Identifier OFFHAND_ATTACK = new Identifier(MOD_ID, "offhand_attack");
 
+    public static final Logger LOGGER = LogManager.getLogManager().getLogger("logger");
 
     public static final ItemGroup WEAPONS = FabricItemGroupBuilder.build(
             new Identifier(MOD_ID, "weapons"),
@@ -149,6 +153,7 @@ public class Mcdw implements ModInitializer {
 
         // Ranged
         Bows.init();
+        Crossbows.init();
 
         // Enchants
         EnchantsRegistry.init();
@@ -163,6 +168,7 @@ public class Mcdw implements ModInitializer {
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);
 
     }
+
 
 
     /*public static void registerServerboundPackets(){
