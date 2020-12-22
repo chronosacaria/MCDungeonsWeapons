@@ -94,6 +94,9 @@ public class IceCloudEntity extends Entity {
 
     }
 
+    //TODO Tick, Explosion Cloud, onLivingFall, damage, canBeAttacked, canTriggerWalking, canCollide, NBT, and Packet
+    // Information
+
     @Override
     protected void initDataTracker() {
 

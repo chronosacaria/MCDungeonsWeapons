@@ -170,8 +170,8 @@ public class Mcdw implements ModInitializer {
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);
 
         // Entities
-        Registry.register(Registry.ENTITY_TYPE, new Identifier(Mcdw.MOD_ID, "ice_cloud"),
-                McdwEntityTypes.ICE_CLOUD);
+        //Registry.register(Registry.ENTITY_TYPE, new Identifier(Mcdw.MOD_ID, "ice_cloud"),
+                //McdwEntityTypes.ICE_CLOUD);
 
 
     }

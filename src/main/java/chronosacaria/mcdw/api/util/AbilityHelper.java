@@ -11,6 +11,8 @@ import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stat;
 import net.minecraft.world.World;
 
@@ -21,6 +23,30 @@ public class AbilityHelper {
         StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 80, amplifier);
         user.addStatusEffect(speed);
         target.addStatusEffect(slowness);
+
+    }
+
+    public static void causeFreesing(LivingEntity target, int amplifier){
+        StatusEffectInstance freezing = new StatusEffectInstance(StatusEffects.SLOWNESS, 60, amplifier);
+        StatusEffectInstance miningFatigue = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, amplifier);
+        target.addStatusEffect(freezing);
+        target.addStatusEffect(miningFatigue);
+    }
+
+    public static void causeFuseShot(LivingEntity user, LivingEntity target, int level){
+        float explodingDamage;
+        explodingDamage = target.getMaxHealth() * 0.2f * level;
+        target.world.playSound(
+                null,
+                target.getX(),
+                target.getY(),
+                target.getZ(),
+                SoundEvents.ENTITY_GENERIC_EXPLODE,
+                SoundCategory.PLAYERS,
+                0.5F,
+                1.0F);
+        AOECloudHelper.spawnExplosionCloud(user, target, 3.0F);
+        AOEHelper.causeExplosionAttack(user, target, explodingDamage, 3.0F);
     }
 
     public static boolean isPetOfUser(LivingEntity possibleOwner, LivingEntity possiblePet){

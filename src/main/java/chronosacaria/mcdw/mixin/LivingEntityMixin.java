@@ -511,11 +511,8 @@ public abstract class LivingEntityMixin extends Entity {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, mainHandStack);
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.3) {
-                            StatusEffectInstance freezing = new StatusEffectInstance(StatusEffects.SLOWNESS, 60, level - 1);
-                            StatusEffectInstance miningFatigue = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, level - 1);
-                            target.addStatusEffect(freezing);
-                            target.addStatusEffect(miningFatigue);
+                        if (chance <= 0.3 + (level * 0.1)) {
+                            AbilityHelper.causeFreesing(target, 100);
                         }
                     }
                 }
@@ -540,24 +537,16 @@ public abstract class LivingEntityMixin extends Entity {
         boolean uniqueWeaponFlag =
                 false;
         if (config.mixinFuseShot) {
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack) >= 1)) {
+            if (mainHandStack != null) {
+                uniqueWeaponFlag = mainHandStack.getItem() == Crossbows.CROSSBOW_EXPLODING_CROSSBOW.asItem();
+            }
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack) >= 1 || uniqueWeaponFlag)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack);
                 float explodingDamage;
                 explodingDamage = target.getMaxHealth() * 0.2f * level;
                 float chance = user.getRandom().nextFloat();
                     if (chance <= (0.22 * (level/2.0))) {
-                        //if (uniqueWeaponFlag) explodingDamage += (target.getMaxHealth() * 0.2F);
-                        target.world.playSound(
-                                null,
-                                target.getX(),
-                                target.getY(),
-                                target.getZ(),
-                                SoundEvents.ENTITY_GENERIC_EXPLODE,
-                                SoundCategory.PLAYERS,
-                                0.5F,
-                                1.0F);
-                        AOECloudHelper.spawnExplosionCloud(user, target, 3.0F);
-                        AOEHelper.causeExplosionAttack(user, target, explodingDamage, 3.0F);
+                        AbilityHelper.causeFuseShot(user, target, level);
                     }
                 }
             }
