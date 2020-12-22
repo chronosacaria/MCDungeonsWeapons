@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "mcdw:item/crossbows/harp_crossbow"
+    "layer0": "mcdw:item/crossbows/slayer_crossbow"
   },
   "display": {
     "thirdperson_righthand": {
@@ -46,34 +46,34 @@
       "predicate": {
         "pulling": 1
       },
-      "model": "mcdw:item/crossbow_harp_crossbow_pulling_0"
+      "model": "mcdw:item/crossbow_slayer_crossbow_pulling_0"
     },
     {
       "predicate": {
         "pulling": 1,
         "pull": 0.58
       },
-      "model": "mcdw:item/crossbow_harp_crossbow_pulling_1"
+      "model": "mcdw:item/crossbow_slayer_crossbow_pulling_1"
     },
     {
       "predicate": {
         "pulling": 1,
         "pull": 1.0
       },
-      "model": "mcdw:item/crossbow_harp_crossbow_pulling_2"
+      "model": "mcdw:item/crossbow_slayer_crossbow_pulling_2"
     },
     {
       "predicate": {
         "charged": 1
       },
-      "model": "mcdw:item/crossbow_harp_crossbow_arrow"
+      "model": "mcdw:item/crossbow_slayer_crossbow_arrow"
     },
     {
       "predicate": {
         "charged": 1,
         "firework": 1
       },
-      "model": "mcdw:item/crossbow_harp_crossbow_firework"
+      "model": "mcdw:item/crossbow_slayer_crossbow_firework"
     }
   ]
 }

@@ -35,38 +35,52 @@ public class Crossbows {
     public static McdwCrossbow CROSSBOW_VOID_CALLER_CROSSBOW;
 
     public static void init() {
-        CROSSBOW_AUTO_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_auto_crossbow");
+        CROSSBOW_THE_SLICER_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_the_slicer");
         CROSSBOW_AZURE_SEEKER = new McdwCrossbow(
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_azure_seeker");
+        CROSSBOW_EXPLODING_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_exploding_crossbow");
+        CROSSBOW_IMPLODING_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_imploding_crossbow");
+        CROSSBOW_FIREBOLT_THROWER = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_firebolt_thrower");
+        CROSSBOW_HEAVY_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_heavy_crossbow");
+        CROSSBOW_DOOM_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_doom_crossbow");
+        CROSSBOW_SLAYER_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_slayer_crossbow");
+        CROSSBOW_RAPID_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_rapid_crossbow");
+        CROSSBOW_BUTTERFLY_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_butterfly_crossbow");
+        CROSSBOW_AUTO_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_auto_crossbow");
+        CROSSBOW_SCATTER_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_scatter_crossbow");
+        CROSSBOW_HARP_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_harp_crossbow");
+        CROSSBOW_LIGHTNING_HARP_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_lightning_harp_crossbow");
+        CROSSBOW_SOUL_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_soul_crossbow");
+        CROSSBOW_FERAL_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_feral_soul_crossbow");
+        CROSSBOW_VOID_CALLER_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_voidcaller_crossbow");
+        CROSSBOW_DUAL_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_dual_crossbow");
+        CROSSBOW_SPELLBOUND_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_spellbound_crossbow");
         CROSSBOW_BABY_CROSSBOW = new McdwCrossbow(
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_baby_crossbow");
         CROSSBOW_BURST_CROSSBOW = new McdwCrossbow(
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_burst_crossbow");
-        CROSSBOW_BUTTERFLY_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_butterfly_crossbow");
+        CROSSBOW_SOUL_HUNTER_CROSSBOW = new McdwCrossbow(
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_soul_hunter_crossbow");
         CROSSBOW_CORRUPTED_CROSSBOW = new McdwCrossbow(
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_corrupted_crossbow");
-        CROSSBOW_DOOM_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_doom_crossbow");
-        CROSSBOW_DUAL_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_dual_crossbow");
-        CROSSBOW_EXPLODING_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_exploding_crossbow");
-        CROSSBOW_FERAL_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_feral_soul_crossbow");
-        CROSSBOW_FIREBOLT_THROWER = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_firebolt_thrower");
-        CROSSBOW_HARP_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_harp_crossbow");
-        CROSSBOW_HEAVY_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_heavy_crossbow");
-        CROSSBOW_IMPLODING_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_imploding_crossbow");
-        CROSSBOW_LIGHTNING_HARP_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_lightning_harp_crossbow");
-        CROSSBOW_RAPID_CROSSBOW = new McdwCrossbow(
-                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), "crossbow_rapid_crossbow");
     }
 }
 
