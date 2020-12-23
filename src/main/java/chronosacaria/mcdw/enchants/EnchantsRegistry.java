@@ -29,7 +29,7 @@ public class EnchantsRegistry {
     public static Enchantment THUNDERING;
     public static Enchantment WEAKENING;
 
-    //public static Enchantment ACCELERATE;
+    public static Enchantment ACCELERATE;
     public static Enchantment FUSE_SHOT;
     public static Enchantment REPLENISH;
     public static Enchantment RICOCHET;
@@ -81,8 +81,8 @@ public class EnchantsRegistry {
 
         //ACCELERATE = new Accelerate(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        FUSE_SHOT = new FuseShot(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        //FUSE_SHOT = new FuseShot(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         //REPLENISH = new Replenish(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RICOCHET = new Ricochet(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
