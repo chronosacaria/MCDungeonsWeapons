@@ -1,7 +1,8 @@
 {
+	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": 		"mcdw:item/crossbows/butterfly_crossbow_pulling_0",
+		"0": "mcdw:item/crossbows/butterfly_crossbow_pulling_0",
 		"particle": "mcdw:item/crossbows/butterfly_crossbow_pulling_0"
 	},
 	"elements": [
@@ -605,12 +606,12 @@
 		},
 		"firstperson_righthand": {
 			"rotation": [0, 35, -90],
-			"translation": [1.65, 0, -2.5],
+			"translation": [13.4, -9, -15.25],
 			"scale": [0.9, 0.9, 0.9]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-180, -125, -90],
-			"translation": [1.7, 0, -2.5],
+			"rotation": [0, -45, 90],
+			"translation": [13.4, -9, -15.25],
 			"scale": [0.9, 0.9, 0.9]
 		},
 		"ground": {
