@@ -8,6 +8,7 @@ import net.minecraft.item.ToolMaterials;
 
 public class Gauntlets {
     public static McdwGauntlet GAUNTLET_GAUNTLET;
+    public static McdwGauntlet GAUNTLET_FIGHTERS_BINDINGS;
     public static McdwGauntlet GAUNTLET_MAULERS;
     public static McdwGauntlet GAUNTLET_SOUL_FISTS;
 
@@ -16,6 +17,11 @@ public class Gauntlets {
                 McdwStatsConfig.config.getGauntletsDamage(),
                 McdwStatsConfig.config.getGauntletsSpeed(),
                 "gauntlet_gauntlet");
+        /*GAUNTLET_FIGHTERS_BINDINGS = new McdwGauntlet(ToolMaterials.IRON,
+                McdwStatsConfig.config.getFightersBindingDamage(),
+                McdwStatsConfig.config.getFightersBindingSpeed(),
+                "gauntlet_fighters_bindings");
+        */
         GAUNTLET_MAULERS = new McdwGauntlet(ToolMaterials.DIAMOND,
                 McdwStatsConfig.config.getMaulersDamage(),
                 McdwStatsConfig.config.getMaulersSpeed(),

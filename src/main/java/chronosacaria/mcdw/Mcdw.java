@@ -3,8 +3,6 @@ package chronosacaria.mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.configs.McdwStatsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.entity.IceCloudEntity;
-import chronosacaria.mcdw.entity.McdwEntityTypes;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.loottables.McdwLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
@@ -168,17 +166,5 @@ public class Mcdw implements ModInitializer {
 
         // Sounds
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);
-
-        // Entities
-        //Registry.register(Registry.ENTITY_TYPE, new Identifier(Mcdw.MOD_ID, "ice_cloud"),
-                //McdwEntityTypes.ICE_CLOUD);
-
-
     }
-
-
-
-    /*public static void registerServerboundPackets(){
-        ServerSidePacketRegistry.INSTANCE.register(C2SRotateHeldItem.ID, C2SRotateHeldItem::onPacket);
-    }*/
 }

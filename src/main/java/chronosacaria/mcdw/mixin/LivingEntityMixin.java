@@ -504,7 +504,8 @@ public abstract class LivingEntityMixin extends Entity {
                         uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_FANGS_OF_FROST.asItem()
                                 || mainHandStack.getItem() == Scythes.SICKLE_FROST_SCYTHE.asItem()
                                 || mainHandStack.getItem() == Rapiers.SWORD_FREEZING_FOIL.asItem()
-                                || mainHandStack.getItem() == TempestKnives.DAGGER_CHILL_GALE_KNIFE.asItem();
+                                || mainHandStack.getItem() == TempestKnives.DAGGER_CHILL_GALE_KNIFE.asItem()
+                                || mainHandStack.getItem() == Claymores.SWORD_FROST_SLAYER.asItem();
                     }
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, mainHandStack) >= 1 || uniqueWeaponFlag)) {

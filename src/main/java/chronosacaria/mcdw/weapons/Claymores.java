@@ -8,6 +8,7 @@ import net.minecraft.item.ToolMaterials;
 public class Claymores {
     public static McdwSword SWORD_BROADSWORD;
     public static McdwSword SWORD_CLAYMORE;
+    public static McdwSword SWORD_FROST_SLAYER;
     public static McdwSword SWORD_HEARTSTEALER;
     public static McdwSword SWORD_GREAT_AXEBLADE;
 
@@ -20,6 +21,11 @@ public class Claymores {
                 McdwStatsConfig.config.getBroadswordDamage(),
                 McdwStatsConfig.config.getBroadswordSpeed(),
                 "sword_broadsword");
+        /*SWORD_FROST_SLAYER = new McdwSword(ToolMaterials.IRON,
+                McdwStatsConfig.config.getFrostSlayerDamage(),
+                McdwStatsConfig.config.getFrostSlayerSpeed(),
+                "sword_frost_slayer");
+        */
         SWORD_HEARTSTEALER = new McdwSword(ToolMaterials.DIAMOND,
                 McdwStatsConfig.config.getHeartstealerDamage(),
                 McdwStatsConfig.config.getHeartstealerSpeed(),

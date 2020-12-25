@@ -28,12 +28,14 @@ public class McdwStatsConfig implements ConfigData {
     @Comment("Claymore Damage")
     public int ClaymoreDamage = 5;
     public int BroadswordDamage = 4;
+    public int FrostSlayerDamage = 5;
     public int HeartstealerDamage = 4;
     public int GreatAxebladeDamage = 6;
 
     @Comment("Claymore Speed")
     public float ClaymoreSpeed = -3.0F;
     public float BroadswordSpeed = -3.0F;
+    public float FrostSlayerSpeed = -3.0F;
     public float HeartstealerSpeed = -3.0F;
     public float GreatAxebladeSpeed = -3.0F;
 
@@ -71,11 +73,13 @@ public class McdwStatsConfig implements ConfigData {
 
     @Comment("Gauntlets Damage")
     public int GauntletsDamage = 0;
+    public int FightersBindingDamage = 0;
     public int MaulersDamage = 0;
     public int SoulFistsDamage = 0;
 
     @Comment("Gauntlets Speed")
     public float GauntletsSpeed = -1.4f;
+    public float FightersBindingSpeed = -1.4f;
     public float MaulersSpeed = -1.4f;
     public float SoulFistsSpeed = -1.4f;
 
@@ -224,6 +228,7 @@ public class McdwStatsConfig implements ConfigData {
     public int getBroadswordDamage() {
         return BroadswordDamage;
     }
+    public int getFrostSlayerDamage() {return FrostSlayerDamage; }
     public int getHeartstealerDamage() {
         return HeartstealerDamage;
     }
@@ -263,6 +268,7 @@ public class McdwStatsConfig implements ConfigData {
     public int getGauntletsDamage() {
         return GauntletsDamage;
     }
+    public int getFightersBindingDamage() {return FightersBindingDamage;}
     public int getMaulersDamage() {
         return MaulersDamage;
     }
@@ -399,8 +405,8 @@ public class McdwStatsConfig implements ConfigData {
     public float getClaymoreSpeed() {
         return ClaymoreSpeed;
     }
-    public float getBroadswordSpeed() {
-        return BroadswordSpeed;}
+    public float getBroadswordSpeed() {return BroadswordSpeed;}
+    public float getFrostSlayerSpeed() {return FrostSlayerSpeed;}
     public float getHeartstealerSpeed() {
         return HeartstealerSpeed;
     }
@@ -440,6 +446,7 @@ public class McdwStatsConfig implements ConfigData {
     public float getGauntletsSpeed() {
         return GauntletsSpeed;
     }
+    public float getFightersBindingSpeed() {return FightersBindingSpeed;}
     public float getMaulersSpeed() {
         return MaulersSpeed;
     }
