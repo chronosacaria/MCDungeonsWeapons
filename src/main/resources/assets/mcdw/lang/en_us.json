@@ -136,6 +136,7 @@
   "item.mcdw.moreinfo.tooltip": "Hold [SHIFT] for more info",
   "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
 
+  "enchantment.mcdw.accelerate": "Accelerate",
   "enchantment.mcdw.anima_conduit": "Anima Conduit",
   "enchantment.mcdw.chained": "Chains",
   "enchantment.mcdw.committed": "Committed",
@@ -144,6 +145,7 @@
   "enchantment.mcdw.enigma_resonator": "Enigma Resonator",
   "enchantment.mcdw.exploding": "Exploding",
   "enchantment.mcdw.freezing": "Freezing",
+  "enchantment.mcdw.fuse_shot": "Fuse Shot",
   "enchantment.mcdw.gravity": "Gravity",
   "enchantment.mcdw.jungle_poison": "Jungle's Poison",
   "enchantment.mcdw.leeching": "Leeching",

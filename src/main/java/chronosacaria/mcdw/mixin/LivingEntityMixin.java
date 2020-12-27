@@ -157,6 +157,10 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyChains(DamageSource source, float amount, CallbackInfo info) {
+
+        if (source.getSource() instanceof ArrowEntity) return;
+        if (!(source.getAttacker() instanceof LivingEntity)) return;
+
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -178,7 +182,7 @@ public abstract class LivingEntityMixin extends Entity {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack);
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.2) {
+                        if (chance <= 1 /*0.2*/) {
                             AOEHelper.chainNearbyEntities(
                                     user,
                                     target,
@@ -551,7 +555,7 @@ public abstract class LivingEntityMixin extends Entity {
                 float explodingDamage;
                 explodingDamage = target.getMaxHealth() * 0.2f * level;
                 float chance = user.getRandom().nextFloat();
-                    if (chance <= 1/*(0.22 * (level/2.0))*/) {
+                    if (chance <= (0.22 * (level/2.0))) {
                         AbilityHelper.causeFuseShot(user, target, level);
                     }
                 }
