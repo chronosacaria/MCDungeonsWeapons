@@ -182,7 +182,7 @@ public abstract class LivingEntityMixin extends Entity {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack);
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 1 /*0.2*/) {
+                        if (chance <= 0.2) {
                             AOEHelper.chainNearbyEntities(
                                     user,
                                     target,
@@ -946,7 +946,7 @@ public abstract class LivingEntityMixin extends Entity {
 
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.1 * level) {
+                        if (chance <= (0.1 * level)) {
                             AOEHelper.causeShockwaveAttack(
                                     (PlayerEntity) user,
                                     target,
