@@ -1,12 +1,11 @@
 package chronosacaria.mcdw.mixin;
 
-import chronosacaria.mcdw.api.util.AbilityHelper;
+import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enchants.lists.RangedEnchantmentList;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
-import chronosacaria.mcdw.api.util.AOECloudHelper;
-import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.weapons.*;
@@ -15,14 +14,18 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.ProjectileDamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -36,6 +39,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
@@ -87,6 +91,8 @@ public abstract class LivingEntityMixin extends Entity {
     |* * * * * * * * * * * * * * * * * * * */
 
     @Shadow public abstract boolean isMobOrPlayer();
+
+    @Shadow @Nullable public abstract DamageSource getRecentDamageSource();
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
@@ -504,8 +510,7 @@ public abstract class LivingEntityMixin extends Entity {
                         uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_FANGS_OF_FROST.asItem()
                                 || mainHandStack.getItem() == Scythes.SICKLE_FROST_SCYTHE.asItem()
                                 || mainHandStack.getItem() == Rapiers.SWORD_FREEZING_FOIL.asItem()
-                                || mainHandStack.getItem() == TempestKnives.DAGGER_CHILL_GALE_KNIFE.asItem()
-                                || mainHandStack.getItem() == Claymores.SWORD_FROST_SLAYER.asItem();
+                                || mainHandStack.getItem() == TempestKnives.DAGGER_CHILL_GALE_KNIFE.asItem();
                     }
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
@@ -546,7 +551,7 @@ public abstract class LivingEntityMixin extends Entity {
                 float explodingDamage;
                 explodingDamage = target.getMaxHealth() * 0.2f * level;
                 float chance = user.getRandom().nextFloat();
-                    if (chance <= (0.22 * (level/2.0))) {
+                    if (chance <= 1/*(0.22 * (level/2.0))*/) {
                         AbilityHelper.causeFuseShot(user, target, level);
                     }
                 }

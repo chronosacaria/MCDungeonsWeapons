@@ -22,7 +22,7 @@ public class Ricochet extends RangedEnchantment {
         return 3;
     }
 
-    @Override
+/*    @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level){
 
         float damageMultiplier;
@@ -32,5 +32,5 @@ public class Ricochet extends RangedEnchantment {
             ProjectileEffectHelper.riochetArrowTowardsOtherEntity((LivingEntity)target, 10, damageMultiplier,
                     arrowVelocity);
         }
-    }
+    }*/
 }
