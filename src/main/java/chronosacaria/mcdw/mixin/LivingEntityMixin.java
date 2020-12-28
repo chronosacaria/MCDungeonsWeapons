@@ -915,10 +915,13 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyShockwaveDamage(DamageSource source, float amount, CallbackInfo info) {
-        LivingEntity user = (LivingEntity) source.getAttacker();
+
+        if (!(source.getAttacker() instanceof PlayerEntity)) return;
+
+        PlayerEntity user = (PlayerEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
-        if (source.getSource() instanceof LivingEntity) {
+        if (source.getSource() instanceof PlayerEntity) {
             if (amount != 0.0F) {
                 ItemStack mainHandStack = null;
                 if (user != null) {
@@ -948,7 +951,7 @@ public abstract class LivingEntityMixin extends Entity {
                         float chance = user.getRandom().nextFloat();
                         if (chance <= (0.1 * level)) {
                             AOEHelper.causeShockwaveAttack(
-                                    (PlayerEntity) user,
+                                    user,
                                     target,
                                     shockwaveDamage,
                                     3.0f);
