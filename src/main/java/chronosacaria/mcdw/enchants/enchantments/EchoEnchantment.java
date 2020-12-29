@@ -11,16 +11,16 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Thundering extends AOEEnchantment {
+public class EchoEnchantment extends AOEEnchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public Thundering(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public EchoEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "thundering"),this);
+        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "echo"), this);
     }
 
     @Override
-    public int getMaxLevel(){
+    public int getMaxLevel() {
         return 3;
     }
 
@@ -29,5 +29,3 @@ public class Thundering extends AOEEnchantment {
         return config.enableOPMixing || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
 }
-
-

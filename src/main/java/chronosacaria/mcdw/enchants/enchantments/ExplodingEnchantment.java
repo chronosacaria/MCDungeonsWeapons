@@ -11,10 +11,10 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Exploding extends AOEEnchantment {
+public class ExplodingEnchantment extends AOEEnchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public Exploding (Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public ExplodingEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
         Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "exploding"),this);
     }

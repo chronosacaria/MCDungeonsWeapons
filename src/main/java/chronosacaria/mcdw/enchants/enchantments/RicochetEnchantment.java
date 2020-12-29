@@ -11,8 +11,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Ricochet extends RangedEnchantment {
-    public Ricochet(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+public class RicochetEnchantment extends RangedEnchantment {
+    public RicochetEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
         Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "ricochet"),this);
     }

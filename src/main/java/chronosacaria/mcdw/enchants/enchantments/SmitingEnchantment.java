@@ -11,12 +11,12 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Weakening extends AOEEnchantment {
+public class SmitingEnchantment extends AOEEnchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public Weakening(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public SmitingEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "weakening"), this);
+        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "smiting"), this);
     }
 
     @Override
@@ -29,5 +29,5 @@ public class Weakening extends AOEEnchantment {
         return config.enableOPMixing || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
 
-
 }
+

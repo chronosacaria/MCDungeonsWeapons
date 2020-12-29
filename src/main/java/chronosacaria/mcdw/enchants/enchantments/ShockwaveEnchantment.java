@@ -11,16 +11,16 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Chains extends AOEEnchantment {
+public class ShockwaveEnchantment extends AOEEnchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public Chains(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public ShockwaveEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "chained"),this);
+        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "shockwave"), this);
     }
 
     @Override
-    public int getMaxLevel(){
+    public int getMaxLevel() {
         return 3;
     }
 
@@ -30,3 +30,4 @@ public class Chains extends AOEEnchantment {
     }
 
 }
+

@@ -21,8 +21,8 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 
-public class Replenish extends RangedEnchantment {
-    public Replenish(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+public class ReplenishEnchantment extends RangedEnchantment {
+    public ReplenishEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
         Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "replenish"),this);
     }

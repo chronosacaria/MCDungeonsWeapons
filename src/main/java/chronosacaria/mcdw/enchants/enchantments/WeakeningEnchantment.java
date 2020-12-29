@@ -11,14 +11,12 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Swirling extends AOEEnchantment {
+public class WeakeningEnchantment extends AOEEnchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public static final float SWIRLING_DAMAGE_MULTIPLIER = 0.5F;
-
-    public Swirling(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public WeakeningEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "swirling"), this);
+        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "weakening"), this);
     }
 
     @Override
@@ -31,5 +29,5 @@ public class Swirling extends AOEEnchantment {
         return config.enableOPMixing || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
 
-}
 
+}

@@ -2,7 +2,6 @@ package chronosacaria.mcdw.enchants;
 
 import chronosacaria.mcdw.enchants.enchantments.*;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 
@@ -36,59 +35,59 @@ public class EnchantsRegistry {
     public static Enchantment TEMPO_THEFT;
 
     public static void init() {
-        ANIMA_CONDUIT = new AnimaConduit(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        ANIMA_CONDUIT = new AnimaConduitEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        CRITICAL_HIT = new CriticalHit(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        CRITICAL_HIT = new CriticalHitEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        CHAINS = new Chains(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        CHAINS = new ChainsEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        COMMITTED = new Committed(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        COMMITTED = new CommittedEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        ECHO = new Echo(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        ECHO = new EchoEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        ENIGMA_RESONATOR = new EnigmaResonator(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        ENIGMA_RESONATOR = new EnigmaResonatorEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        EXPLODING = new Exploding(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        EXPLODING = new ExplodingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        FREEZING = new Freezing(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        FREEZING = new FreezingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        GRAVITY = new Gravity(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        GRAVITY = new GravityEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        JUNGLE_POISON = new JunglePoison(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        JUNGLE_POISON = new JunglePoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        LEECHING = new Leeching(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        LEECHING = new LeechingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        POISON_CLOUD = new PoisonCloud(Enchantment.Rarity.COMMON, EnchantmentTarget.WEAPON,
+        POISON_CLOUD = new PoisonCloudEnchantment(Enchantment.Rarity.COMMON, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        RADIANCE = new Radiance(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        RADIANCE = new RadianceEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        RAMPAGING = new Rampaging(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        RAMPAGING = new RampagingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SHOCKWAVE = new Shockwave(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        SHOCKWAVE = new ShockwaveEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SMITING = new Smiting(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        SMITING = new SmitingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SOUL_SIPHON = new SoulSiphon(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        SOUL_SIPHON = new SoulSiphonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        STUNNING = new Stunning(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        STUNNING = new StunningEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        SWIRLING = new Swirling(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        SWIRLING = new SwirlingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        THUNDERING = new Thundering(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        THUNDERING = new ThunderingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        WEAKENING = new Weakening(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+        WEAKENING = new WeakeningEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
 
         //ACCELERATE = new Accelerate(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
 
-        FUSE_SHOT = new FuseShot(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+        FUSE_SHOT = new FuseShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        REPLENISH = new Replenish(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+        REPLENISH = new ReplenishEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        RICOCHET = new Ricochet(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+        RICOCHET = new RicochetEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        TEMPO_THEFT = new TempoTheft(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+        TEMPO_THEFT = new TempoTheftEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 }

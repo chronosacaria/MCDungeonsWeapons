@@ -11,11 +11,11 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class JunglePoison extends Enchantment{
+public class FreezingEnchantment extends Enchantment{
 
-    public JunglePoison(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public FreezingEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "jungle_poison"),this);
+        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "freezing"),this);
     }
 
     public int getMaxLevel() {

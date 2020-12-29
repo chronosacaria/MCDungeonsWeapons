@@ -3,7 +3,6 @@ package chronosacaria.mcdw.mixin;
 import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.enchants.lists.RangedEnchantmentList;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
@@ -14,18 +13,15 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.ProjectileDamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -39,7 +35,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
@@ -96,7 +91,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
-    private void onAnimaConduitKill(DamageSource source, CallbackInfo ci) {
+    private void onAnimaConduitEnchantmentKill(DamageSource source, CallbackInfo ci) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         PiglinEntity piglinEntity = null;
 
@@ -141,9 +136,11 @@ public abstract class LivingEntityMixin extends Entity {
         if (config.mixinBee) {
             if (mainHandStack.getItem() == Rapiers.SWORD_BEESTINGER && offHandStack.getItem() == ItemRegistry.BEE_STINGER_ITEM) {
                 SummonedBeeEntity summonedBeeEntity_1 = s_bee.create(world);
-                summonedBeeEntity_1.setSummoner(this);
-                summonedBeeEntity_1.refreshPositionAndAngles(this.getX(), this.getY() + 1, this.getZ(), 0, 0);
-                world.spawnEntity(summonedBeeEntity_1);
+                if (summonedBeeEntity_1 != null) {
+                    summonedBeeEntity_1.setSummoner(this);
+                    summonedBeeEntity_1.refreshPositionAndAngles(this.getX(), this.getY() + 1, this.getZ(), 0, 0);
+                    world.spawnEntity(summonedBeeEntity_1);
+                }
             }
             if ((offHandStack.getItem() == ItemRegistry.BEE_STINGER_ITEM && (mainHandStack.getItem() == Rapiers.SWORD_BEESTINGER))) {
                 offHandStack.decrement(1);
@@ -156,7 +153,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyChains(DamageSource source, float amount, CallbackInfo info) {
+    public void applyChainsEnchantment(DamageSource source, float amount, CallbackInfo info) {
 
         if (source.getSource() instanceof ArrowEntity) return;
         if (!(source.getAttacker() instanceof LivingEntity)) return;
@@ -200,7 +197,7 @@ public abstract class LivingEntityMixin extends Entity {
     |* * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyCommittedDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applyCommittedEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -257,7 +254,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyCriticalHitDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applyCriticalHitEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -310,7 +307,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyEchoDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applyEchoEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -334,7 +331,7 @@ public abstract class LivingEntityMixin extends Entity {
                         float cooledAttackStrength = 0.5F;
                         attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.1 * level) {
+                        if (chance <= 0.1 + level * 0.15) {
                             AOEHelper.causeEchoAttack(user, target, attackDamage, 3.0f, level);
                             user.world.playSound(
                                     null,
@@ -357,7 +354,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyEnigmaResonatorDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applyEnigmaResonatorEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -412,7 +409,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
-    private void onExplodingKill(DamageSource source, CallbackInfo ci) {
+    private void onExplodingEnchantmentKill(DamageSource source, CallbackInfo ci) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;
@@ -455,7 +452,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyFireAspectCustom(DamageSource source, float amount, CallbackInfo info) {
+    public void applyFireAspectEnchantmentCustom(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -497,7 +494,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyFreezing(DamageSource source, float amount, CallbackInfo info) {
+    public void applyFreezingEnchantment(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -537,7 +534,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "applyDamage", cancellable = true)
 
-    private void applyFuseShot(DamageSource source, float amount, CallbackInfo info)  {
+    private void applyFuseShotEnchantment(DamageSource source, float amount, CallbackInfo info)  {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;
@@ -555,7 +552,7 @@ public abstract class LivingEntityMixin extends Entity {
                 float explodingDamage;
                 explodingDamage = target.getMaxHealth() * 0.2f * level;
                 float chance = user.getRandom().nextFloat();
-                    if (chance <= (0.22 * (level/2.0))) {
+                    if (chance <= (0.2 + level * 0.15)) {
                         AbilityHelper.causeFuseShot(user, target, level);
                     }
                 }
@@ -568,7 +565,7 @@ public abstract class LivingEntityMixin extends Entity {
     |* * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyGravity(DamageSource source, float amount, CallbackInfo info) {
+    public void applyGravityEnchantment(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -606,7 +603,7 @@ public abstract class LivingEntityMixin extends Entity {
     |* * * * * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyJunglesPoison(DamageSource source, float amount, CallbackInfo info) {
+    public void applyJunglesPoisonEnchantment(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -642,7 +639,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * * * * * * * */
 
     /*@Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyKnockbackCustom(DamageSource source, float amount, CallbackInfo info) {
+    public void applyKnockbackEnchantmentCustom(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -687,7 +684,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
-    private void onLeechingKill(DamageSource source, CallbackInfo ci) {
+    private void onLeechingEnchantmentKill(DamageSource source, CallbackInfo ci) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -723,7 +720,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
-    public void onCustomLootingKill(DamageSource source, CallbackInfo ci) {
+    public void onCustomLootingEnchantmentKill(DamageSource source, CallbackInfo ci) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -753,7 +750,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyPoisonCloud(DamageSource source, float amount, CallbackInfo info) {
+    public void applyPoisonCloudEnchantment(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -795,7 +792,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyRadianceCloud(DamageSource source, float amount, CallbackInfo info) {
+    public void applyRadianceEnchantmentCloud(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -835,7 +832,7 @@ public abstract class LivingEntityMixin extends Entity {
     |* * * * * * * * * * * * * * * * * * */
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
-    private void onRampagingKill(DamageSource source, CallbackInfo ci) {
+    private void onRampagingEnchantmentKill(DamageSource source, CallbackInfo ci) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;
@@ -873,7 +870,7 @@ public abstract class LivingEntityMixin extends Entity {
     |* * * * * * * * * * * * * * * * * * * */
 
     /*@Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyReplenishDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applyReplenishEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         //LivingEntity target = (LivingEntity) (Object) this;
 
@@ -914,7 +911,7 @@ public abstract class LivingEntityMixin extends Entity {
     |* * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyShockwaveDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applyShockwaveEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
 
         if (!(source.getAttacker() instanceof PlayerEntity)) return;
 
@@ -949,7 +946,7 @@ public abstract class LivingEntityMixin extends Entity {
 
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= (0.1 * level)) {
+                        if (chance <= 0.1 + level * 0.15) {
                             AOEHelper.causeShockwaveAttack(
                                     user,
                                     target,
@@ -977,7 +974,7 @@ public abstract class LivingEntityMixin extends Entity {
     |* * * * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applySmitingDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applySmitingEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -1030,7 +1027,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
-    private void onSoulSiphonKill(DamageSource source, CallbackInfo ci) {
+    private void onSoulSiphonEnchantmentKill(DamageSource source, CallbackInfo ci) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;
@@ -1069,7 +1066,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyStunningDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applyStunningEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -1090,7 +1087,7 @@ public abstract class LivingEntityMixin extends Entity {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHandStack);
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.2 * level) {
+                        if (chance <= 0.2 + level * 0.15) {
                             target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 10));
                             target.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 60, 1));
                             //this.world.sendEntityStatus(this,(byte)35);
@@ -1106,7 +1103,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applySwirlingDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applySwirlingEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -1139,7 +1136,7 @@ public abstract class LivingEntityMixin extends Entity {
 
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.1 * level) {
+                        if (chance <= 0.1 + level * 0.15) {
                             AOEHelper.causeSwirlingAttack(
                                     (PlayerEntity) user,
                                     target,
@@ -1167,7 +1164,7 @@ public abstract class LivingEntityMixin extends Entity {
     |* * * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyTempoTheftDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applyTempoTheftEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -1199,7 +1196,7 @@ public abstract class LivingEntityMixin extends Entity {
     | * * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyThunderingDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applyThunderingEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
@@ -1238,7 +1235,7 @@ public abstract class LivingEntityMixin extends Entity {
     |* * * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyWeakeningDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void applyWeakeningEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 

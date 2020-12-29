@@ -11,16 +11,16 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Smiting extends AOEEnchantment {
+public class CriticalHitEnchantment extends DamageBoostEnchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public Smiting(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public CriticalHitEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "smiting"), this);
+        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "critical_hit"),this);
     }
 
     @Override
-    public int getMaxLevel() {
+    public int getMaxLevel(){
         return 3;
     }
 
@@ -28,6 +28,5 @@ public class Smiting extends AOEEnchantment {
     protected boolean canAccept (Enchantment other){
         return config.enableOPMixing || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
-
 }
 

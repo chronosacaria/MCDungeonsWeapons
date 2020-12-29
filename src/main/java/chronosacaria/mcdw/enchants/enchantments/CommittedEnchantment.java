@@ -11,22 +11,22 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Gravity extends AOEEnchantment {
+public class CommittedEnchantment extends DamageBoostEnchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public Gravity (Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public CommittedEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "gravity"),this);
+        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "committed"), this);
     }
 
     @Override
-    public int getMaxLevel(){
+    public int getMaxLevel() {
         return 3;
     }
 
     @Override
-    protected boolean canAccept (Enchantment other){
+    protected boolean canAccept(Enchantment other) {
         return config.enableOPMixing || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
-
+    
 }

@@ -11,12 +11,14 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Shockwave extends AOEEnchantment {
+public class SwirlingEnchantment extends AOEEnchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public Shockwave(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public static final float SWIRLING_DAMAGE_MULTIPLIER = 0.5F;
+
+    public SwirlingEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "shockwave"), this);
+        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "swirling"), this);
     }
 
     @Override

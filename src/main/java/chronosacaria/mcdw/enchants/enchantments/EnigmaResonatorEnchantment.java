@@ -11,12 +11,13 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class PoisonCloud extends AOEEnchantment {
+public class EnigmaResonatorEnchantment extends DamageBoostEnchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public PoisonCloud(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "poison_cloud"),this);
+    public EnigmaResonatorEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
+        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "enigma_resonator"), this);
+
     }
 
     @Override
@@ -28,5 +29,4 @@ public class PoisonCloud extends AOEEnchantment {
     protected boolean canAccept (Enchantment other){
         return config.enableOPMixing || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
-
 }

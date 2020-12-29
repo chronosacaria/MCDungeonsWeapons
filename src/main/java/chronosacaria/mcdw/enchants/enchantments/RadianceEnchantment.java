@@ -11,10 +11,10 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Radiance extends Enchantment {
+public class RadianceEnchantment extends Enchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public Radiance(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public RadianceEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
         Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "radiance"),this);
     }

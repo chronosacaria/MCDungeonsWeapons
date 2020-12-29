@@ -11,12 +11,12 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class CriticalHit extends DamageBoostEnchantment {
+public class ThunderingEnchantment extends AOEEnchantment {
     McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
-    public CriticalHit(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public ThunderingEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "critical_hit"),this);
+        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "thundering"),this);
     }
 
     @Override
@@ -29,4 +29,5 @@ public class CriticalHit extends DamageBoostEnchantment {
         return config.enableOPMixing || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
 }
+
 

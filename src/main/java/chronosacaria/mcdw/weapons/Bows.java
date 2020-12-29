@@ -38,6 +38,7 @@ public class Bows {
     public static McdwBow BOW_SOUL_BOW;
     public static McdwBow BOW_NOCTURNAL_BOW;
     public static McdwBow BOW_LOST_SOULS;
+    public static McdwBow BOW_SHIVERING_BOW;
 
     //public static McdwBow BOW_WIND_BOW;
     //public static McdwBow BOW_ECHO_OF_THE_VALLEY;
@@ -99,14 +100,16 @@ public class Bows {
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, 3.2F, "bow_nocturnal_bow");
         BOW_LOST_SOULS = new McdwBow(ToolMaterials.WOOD,
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, 3.2F, "bow_lost_souls");
+        /*BOW_SHIVERING_BOW = new McdwBow(ToolMaterials.WOOD,
+                new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, 3.2F, "bow_shivering_bow");
 
-        /*BOW_WIND_BOW = new McdwBow(ToolMaterials.WOOD,
+        BOW_WIND_BOW = new McdwBow(ToolMaterials.WOOD,
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, 3.2F, "bow_wind_bow");
         BOW_ECHO_OF_THE_VALLEY = new McdwBow(ToolMaterials.WOOD,
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, 3.2F,
-                "bow_echo_of_the_valley");*/
+                "bow_echo_of_the_valley");
 
-        /*BOW_SNOW_BOW = new McdwBow(ToolMaterials.WOOD,
+        BOW_SNOW_BOW = new McdwBow(ToolMaterials.WOOD,
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, 3.2F, "bow_snow_bow");
         BOW_WINTERS_TOUCH = new McdwBow(ToolMaterials.WOOD,
                 new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350) ,15.0F, 3.2F, "bow_winters_touch");*/
