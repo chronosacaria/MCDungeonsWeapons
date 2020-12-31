@@ -48,6 +48,8 @@ public class McdwEnchantsConfig implements ConfigData {
     public boolean mixinRadiance = true;
     @Comment("Enable Enchantment - Rampaging?")
     public boolean mixinRampaging = true;
+    @Comment("Enable Enchantment - Replenish?")
+    public boolean mixinReplenish = true;
     @Comment("Enable Enchantment - Ricochet?")
     public boolean mixinRicochet = true;
     @Comment("Enable Enchantment - Shockwave?")

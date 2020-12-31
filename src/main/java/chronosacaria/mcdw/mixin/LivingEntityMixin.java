@@ -13,6 +13,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -23,6 +24,7 @@ import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -869,7 +871,7 @@ public abstract class LivingEntityMixin extends Entity {
     |*****  ENCHANTMENTS -- REPLENISH  *****|
     |* * * * * * * * * * * * * * * * * * * */
 
-    /*@Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyReplenishEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         //LivingEntity target = (LivingEntity) (Object) this;
@@ -882,29 +884,31 @@ public abstract class LivingEntityMixin extends Entity {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (mainHandStack != null) {
-                    uniqueWeaponFlag = mainHandStack.getItem() == Bows.BOW_HUNTERS_PROMISE.asItem();
-                }
-                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, mainHandStack) >= 1 || uniqueWeaponFlag)) {
-                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, mainHandStack);
-                    if (user instanceof LivingEntity) {
-                        if (level >= 1) {
-                            float replenishRand = user.getRandom().nextFloat();
-                            float replenishChance = 0;
-                            if (level == 1) replenishChance = 0.10f;
-                            if (level == 2) replenishChance = 0.17f;
-                            if (level == 3) replenishChance = 0.24f;
-                            if (replenishRand <= replenishChance) {
-                                ItemEntity arrowDrop = new ItemEntity(user.world, user.getX(), user.getY(), user.getZ(),
-                                        new ItemStack(Items.ARROW));
-                                user.world.spawnEntity(arrowDrop);
+                if (config.mixinReplenish) {
+                    if (mainHandStack != null) {
+                        uniqueWeaponFlag = mainHandStack.getItem() == Bows.BOW_HUNTERS_PROMISE.asItem();
+                    }
+                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, mainHandStack);
+                        if (user instanceof PlayerEntity) {
+                            if (level >= 1) {
+                                float replenishRand = user.getRandom().nextFloat();
+                                float replenishChance = 0;
+                                if (level == 1) replenishChance = 0.10f;
+                                if (level == 2) replenishChance = 0.17f;
+                                if (level == 3) replenishChance = 0.24f;
+                                if (replenishRand <= replenishChance) {
+                                    ItemEntity arrowDrop = new ItemEntity(user.world, user.getX(), user.getY(), user.getZ(),
+                                            new ItemStack(Items.ARROW));
+                                    user.world.spawnEntity(arrowDrop);
+                                }
                             }
                         }
                     }
                 }
             }
         }
-    }*/
+    }
 
     /* * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- SHOCKWAVE *****|
