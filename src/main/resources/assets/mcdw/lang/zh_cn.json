@@ -131,6 +131,8 @@
   "item.mcdw.gauntlet_maulers": "撕裂者",
   "item.mcdw.gauntlet_soul_fists": "灵魂拳套",
 
+
+  "enchantment.mcdw.accelerate": "加速",
   "enchantment.mcdw.anima_conduit": "灵魂输导",
   "enchantment.mcdw.chained": "链锁",
   "enchantment.mcdw.committed": "进伤",
@@ -139,6 +141,7 @@
   "enchantment.mcdw.enigma_resonator": "灵魂共振",
   "enchantment.mcdw.exploding": "爆炸",
   "enchantment.mcdw.freezing": "霜冻",
+  "enchantment.mcdw.fuse_shot": "导火索",
   "enchantment.mcdw.gravity": "引力",
   "enchantment.mcdw.jungle_poison": "丛林毒药",
   "enchantment.mcdw.leeching": "吸血",

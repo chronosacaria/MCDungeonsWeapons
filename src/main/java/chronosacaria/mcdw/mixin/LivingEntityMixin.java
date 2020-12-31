@@ -871,7 +871,7 @@ public abstract class LivingEntityMixin extends Entity {
     |*****  ENCHANTMENTS -- REPLENISH  *****|
     |* * * * * * * * * * * * * * * * * * * */
 
-    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    /*@Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyReplenishEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         LivingEntity user = (LivingEntity) source.getAttacker();
         //LivingEntity target = (LivingEntity) (Object) this;
@@ -908,7 +908,7 @@ public abstract class LivingEntityMixin extends Entity {
                 }
             }
         }
-    }
+    }*/
 
     /* * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- SHOCKWAVE *****|
