@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IRangedWeapon;
 import chronosacaria.mcdw.weapons.Bows;
 import chronosacaria.mcdw.weapons.Crossbows;
 import com.google.common.collect.Lists;
@@ -43,11 +44,29 @@ import java.util.function.Predicate;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
-public class McdwCrossbow extends CrossbowItem {
+public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
 
     public McdwCrossbow(Settings settings, String id) {
         super(settings);
         Registry.register(Registry.ITEM, new Identifier(Mcdw.MOD_ID, id), this);
+    }
+
+    public float getProjectileVelocity(ItemStack stack){
+        boolean fastProjectiles = shootsFasterArrows(stack);
+        if (hasProjectile(stack, Items.FIREWORK_ROCKET)){
+            if (fastProjectiles){
+                return 3.2F;
+            }
+            else {
+                return 1.6F;
+            }
+        }
+        else if (fastProjectiles){
+            return 4.8F;
+        }
+        else {
+            return 3.2f;
+        }
     }
 
     @Override
@@ -166,6 +185,8 @@ public class McdwCrossbow extends CrossbowItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lightning_harp_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lightning_harp_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lightning_harp_crossbow_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap"));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.ricochet").formatted(Formatting.GREEN));
 
         }
         if (stack.getItem() == Crossbows.CROSSBOW_RAPID_CROSSBOW) {
@@ -183,6 +204,8 @@ public class McdwCrossbow extends CrossbowItem {
         if (stack.getItem() == Crossbows.CROSSBOW_SLAYER_CROSSBOW) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.slayer_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.slayer_crossbow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap"));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.ricochet").formatted(Formatting.GREEN));
 
         }
         if (stack.getItem() == Crossbows.CROSSBOW_THE_SLICER_CROSSBOW) {

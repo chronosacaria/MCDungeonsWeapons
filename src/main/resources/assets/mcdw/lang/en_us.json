@@ -701,6 +701,7 @@
   "tooltip_note_item.mcdw.longbow": "Longbow",
   "tooltip_note_item.mcdw.shortbow": "Shortbow",
   "tooltip_ench_item.mcdw.tempo_theft": "Tempo Theft I",
-  "tooltip_ench_item.mcdw.freezing": "Freezing I"
+  "tooltip_ench_item.mcdw.freezing": "Freezing I",
+  "tooltip_ench_item.mcdw.ricochet": "Ricochet I"
 
 }

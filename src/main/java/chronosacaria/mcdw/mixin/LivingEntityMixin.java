@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.api.util.*;
+import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
@@ -116,7 +117,6 @@ public abstract class LivingEntityMixin extends Entity {
             }
         }
     }
-
 
     /* * * * * * * * * * * * * * * * * |
     |**** ENCHANTMENTS -- BUSY BEE ****|
@@ -912,6 +912,53 @@ public abstract class LivingEntityMixin extends Entity {
             }
         }
     }*/
+
+    /* * * * * * * * * * * * * * * * * * * |
+    |*****  ENCHANTMENTS -- RICOCHET  *****|
+    | * * * * * * * * * * * * * * * * * * */
+
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyRicochet(DamageSource source, float amount, CallbackInfo info) {
+        if (!(source.getAttacker() instanceof PlayerEntity)) return;
+
+        PlayerEntity user = (PlayerEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+        ItemStack mainHandStack = null;
+
+        if (user != null) {
+            mainHandStack = user.getMainHandStack();
+        }
+        boolean uniqueWeaponFlag =
+                false;
+        if (config.mixinRicochet)  {
+            if (mainHandStack != null) {
+                uniqueWeaponFlag = mainHandStack.getItem() == Crossbows.CROSSBOW_LIGHTNING_HARP_CROSSBOW.asItem()
+                        || mainHandStack.getItem() == Crossbows.CROSSBOW_SLAYER_CROSSBOW.asItem()
+                        || mainHandStack.getItem() == Bows.BOW_ECHO_OF_THE_VALLEY.asItem();
+            }
+
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, mainHandStack) >= 1)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, mainHandStack);
+                float damageMultiplier;
+                damageMultiplier = 0.1F + (level - 1 * 0.07F);
+                float arrowVelocity = McdwBow.maxBowRange;
+                if (arrowVelocity > 0.1F) {
+                    ProjectileEffectHelper.riochetArrowTowardsOtherEntity(target, 10, damageMultiplier,
+                            arrowVelocity);
+                }
+            }
+            if (uniqueWeaponFlag) {
+                float damageMultiplier;
+                damageMultiplier = 0.1F + 0.07F;
+                float arrowVelocity = McdwBow.maxBowRange;
+                if (arrowVelocity > 0.1F) {
+                    ProjectileEffectHelper.riochetArrowTowardsOtherEntity(target, 10, damageMultiplier,
+                            arrowVelocity);
+                }
+            }
+        }
+    }
+
 
     /* * * * * * * * * * * * * * * * * * * * *|
     |*****  ENCHANTMENTS -- ROLL CHARGE  *****|

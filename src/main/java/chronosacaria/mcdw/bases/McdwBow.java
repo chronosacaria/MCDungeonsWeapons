@@ -139,7 +139,6 @@ public class McdwBow extends BowItem {
 
     public static float getPullProgress(int useTicks) {
         float f = (float) useTicks / chargeTime;
-        ;
         f = (f * f + f * 2.0F) / 3.0F;
         if (f > 1.0F) {
             f = 1.0F;
@@ -351,6 +350,8 @@ public class McdwBow extends BowItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.echo_of_the_valley_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.echo_of_the_valley_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.echo_of_the_valley_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap"));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.ricochet").formatted(Formatting.GREEN));
         }
 
         if (stack.getItem() == Bows.BOW_BURST_GALE_BOW) {
