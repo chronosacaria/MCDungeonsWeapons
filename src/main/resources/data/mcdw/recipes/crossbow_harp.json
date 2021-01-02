@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "OOO",
+        "OCO",
+        "SSS"
+    ],
+    "key": {
+        "C": {
+            "item": "mcdw:crossbow_scatter_crossbow"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "O": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_harp_crossbow",
+        "count": 1
+    }
+}

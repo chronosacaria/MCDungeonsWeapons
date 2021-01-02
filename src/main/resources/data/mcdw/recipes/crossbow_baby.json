@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PPP",
+        " C ",
+        " P "
+    ],
+    "key": {
+        "C": {
+            "item": "mcdw:crossbow_dual_crossbow"
+        },
+        "P": {
+            "item": "minecraft:magenta_dye"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_baby_crossbow",
+        "count": 1
+    }
+}

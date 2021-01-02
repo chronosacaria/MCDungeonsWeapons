@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "BBB",
+        " C ",
+        " P "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:blue_dye"
+        },
+        "C": {
+            "item": "mcdw:crossbow_dual_crossbow"
+        },
+        "P": {
+            "item": "minecraft:magenta_dye"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_spellbound_crossbow",
+        "count": 1
+    }
+}

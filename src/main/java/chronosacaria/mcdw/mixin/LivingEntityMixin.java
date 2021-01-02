@@ -917,7 +917,7 @@ public abstract class LivingEntityMixin extends Entity {
     |*****  ENCHANTMENTS -- ROLL CHARGE  *****|
     |* * * * * * * * * * * * * * * * * * * * */
 
-    /*@Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyCharge(DamageSource source, float amount, CallbackInfo info) {
         if (!(source.getAttacker() instanceof PlayerEntity)) return;
 
@@ -930,7 +930,7 @@ public abstract class LivingEntityMixin extends Entity {
         }
         boolean uniqueWeaponFlag =
                 false;
-        if (config.mixinCharge) {
+        //if (config.mixinCharge) {
             if (mainHandStack != null) {
                 uniqueWeaponFlag = mainHandStack.getItem() == Bows.BOW_BURST_GALE_BOW.asItem();
             }
@@ -951,7 +951,7 @@ public abstract class LivingEntityMixin extends Entity {
                 }
             }
         }
-    }*/
+    //}
 
 
     /* * * * * * * * * * * * * * * * * * *|

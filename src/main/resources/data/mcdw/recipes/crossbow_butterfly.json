@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "I I",
+        "cCc",
+        "SIS"
+    ],
+    "key": {
+        "C": {
+            "item": "mcdw:crossbow_rapid_crossbow"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "c": {
+            "item": "minecraft:cyan_dye"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_butterfly_crossbow",
+        "count": 1
+    }
+}

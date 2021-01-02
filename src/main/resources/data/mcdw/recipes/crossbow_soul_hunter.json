@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "IDI",
+        "DCD",
+        "SIS"
+    ],
+    "key": {
+        "C": {
+            "item": "mcdw:crossbow_burst_crossbow"
+        },
+        "S": {
+            "item": "minecraft:soul_soil"
+        },
+        "I": {
+            "item": "minecraft:magenta_dye"
+        },
+        "D": {
+            "item": "minecraft:soul_sand"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_soul_hunter_crossbow",
+        "count": 1
+    }
+}
