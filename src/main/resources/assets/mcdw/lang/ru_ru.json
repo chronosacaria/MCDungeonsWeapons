@@ -69,6 +69,7 @@
   "item.mcdw.dagger_soul_knife": "Духовный Нож",
   "item.mcdw.dagger_eternal_knife": "Вечный Нож",
   "item.mcdw.dagger_chill_gale_knife": "Кинжал Холодной Нож",
+  "item.mcdw.dagger_tempest_knife": "Штормовой Нож",
   "item.mcdw.dagger_resolute_tempest_knife": "Штормовой Кинжал Нож",
   "item.mcdw.dagger_shear_dagger": "Ножниц Нож",
 
@@ -668,6 +669,7 @@
   "tooltip_note_item.mcdw.dualwield": "Dual Wield",
   "tooltip_note_item.mcdw.longbow": "Longbow",
   "tooltip_note_item.mcdw.shortbow": "Shortbow",
-  "tooltip_ench_item.mcdw.tempo_theft": "Tempo Theft I"
+  "tooltip_ench_item.mcdw.tempo_theft": "Tempo Theft I",
+
 
 }

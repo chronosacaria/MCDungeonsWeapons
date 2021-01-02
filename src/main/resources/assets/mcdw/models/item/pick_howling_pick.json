@@ -1,0 +1,8 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "mcdw:item/pick_howling_pick",
+		"particle": "mcdw:item/pick_howling_pick"
+	},
+	"gui_light": "front"
+}

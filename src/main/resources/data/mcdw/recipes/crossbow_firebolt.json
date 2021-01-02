@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " F ",
+        "RCR",
+        "SYS"
+    ],
+    "key": {
+        "C": {
+            "item": "mcdw:crossbow_exploding_crossbow"
+        },
+        "F": {
+            "item": "minecraft:fire_charge"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "R": {
+            "item": "minecraft:red_dye"
+        },
+        "Y": {
+            "item": "minecraft:yellow_dye"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_firebolt_thrower",
+        "count": 1
+    }
+}

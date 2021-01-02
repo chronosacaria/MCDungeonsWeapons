@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "SSS",
+        "sHs",
+        "   "
+    ],
+    "key": {
+        "H": {
+            "item": "minecraft:tripwire_hook"
+        },
+        "S": {
+            "item": "minecraft:stick"
+        },
+        "s": {
+            "item": "minecraft:string"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_dual_crossbow",
+        "count": 1
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "I I",
+        "OCO",
+        "SOS"
+    ],
+    "key": {
+        "C": {
+            "item": "mcdw:crossbow_exploding_crossbow"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "O": {
+            "item": "minecraft:purple_dye"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_imploding_crossbow",
+        "count": 1
+    }
+}

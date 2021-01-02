@@ -333,5 +333,31 @@ public class McdwBow extends BowItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.winters_touch_3").formatted(Formatting.ITALIC));
         }
 
+        if (stack.getItem() == Bows.BOW_SHIVERING_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shivering_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shivering_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shivering_bow_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.tempo_theft").formatted(Formatting.GREEN));
+        }
+
+        if (stack.getItem() == Bows.BOW_WIND_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.wind_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.wind_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.wind_bow_3").formatted(Formatting.ITALIC));
+        }
+
+        if (stack.getItem() == Bows.BOW_ECHO_OF_THE_VALLEY) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.echo_of_the_valley_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.echo_of_the_valley_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.echo_of_the_valley_3").formatted(Formatting.ITALIC));
+        }
+
+        if (stack.getItem() == Bows.BOW_BURST_GALE_BOW) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.burst_gale_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.burst_gale_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.burst_gale_bow_3").formatted(Formatting.ITALIC));
+        }
+
     }
 }

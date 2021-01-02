@@ -203,7 +203,9 @@ public abstract class LivingEntityMixin extends Entity {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
-        if (source.getSource() instanceof LivingEntity) {
+        if (!(source.getAttacker() instanceof PlayerEntity)) return;
+
+        if (source.getSource() instanceof PlayerEntity) {
             if (amount != 0.0F) {
                 ItemStack mainHandStack = null;
                 if (user != null) {
@@ -513,7 +515,8 @@ public abstract class LivingEntityMixin extends Entity {
                         uniqueWeaponFlag = mainHandStack.getItem() == Daggers.DAGGER_FANGS_OF_FROST.asItem()
                                 || mainHandStack.getItem() == Scythes.SICKLE_FROST_SCYTHE.asItem()
                                 || mainHandStack.getItem() == Rapiers.SWORD_FREEZING_FOIL.asItem()
-                                || mainHandStack.getItem() == TempestKnives.DAGGER_CHILL_GALE_KNIFE.asItem();
+                                || mainHandStack.getItem() == TempestKnives.DAGGER_CHILL_GALE_KNIFE.asItem()
+                                || mainHandStack.getItem() == Claymores.SWORD_FROST_SLAYER.asItem();
                     }
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
@@ -910,6 +913,47 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }*/
 
+    /* * * * * * * * * * * * * * * * * * * * *|
+    |*****  ENCHANTMENTS -- ROLL CHARGE  *****|
+    |* * * * * * * * * * * * * * * * * * * * */
+
+    /*@Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void applyCharge(DamageSource source, float amount, CallbackInfo info) {
+        if (!(source.getAttacker() instanceof PlayerEntity)) return;
+
+        PlayerEntity user = (PlayerEntity) source.getAttacker();
+        LivingEntity target = (LivingEntity) (Object) this;
+        ItemStack mainHandStack = null;
+
+        if (user != null) {
+            mainHandStack = user.getMainHandStack();
+        }
+        boolean uniqueWeaponFlag =
+                false;
+        if (config.mixinCharge) {
+            if (mainHandStack != null) {
+                uniqueWeaponFlag = mainHandStack.getItem() == Bows.BOW_BURST_GALE_BOW.asItem();
+            }
+
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CHARGE, mainHandStack) >= 1)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHARGE, mainHandStack);
+                float chargeRand = user.getRandom().nextFloat();
+                if (chargeRand <= 0.1F) {
+                    StatusEffectInstance charge = new StatusEffectInstance(StatusEffects.SPEED, level * 20, 4);
+                    user.addStatusEffect(charge);
+                }
+            }
+            if (uniqueWeaponFlag) {
+                float chargeRand = user.getRandom().nextFloat();
+                if (chargeRand <= 0.1F) {
+                    StatusEffectInstance charge = new StatusEffectInstance(StatusEffects.SPEED, 20, 4);
+                    user.addStatusEffect(charge);
+                }
+            }
+        }
+    }*/
+
+
     /* * * * * * * * * * * * * * * * * * *|
     |***** ENCHANTMENTS -- SHOCKWAVE *****|
     |* * * * * * * * * * * * * * * * * * */
@@ -1182,7 +1226,8 @@ public abstract class LivingEntityMixin extends Entity {
                         false;
                 if (config.mixinTempoTheft) {
                     if (mainHandStack != null) {
-                        uniqueWeaponFlag = mainHandStack.getItem() == Bows.BOW_NOCTURNAL_BOW.asItem();
+                        uniqueWeaponFlag = mainHandStack.getItem() == Bows.BOW_NOCTURNAL_BOW.asItem()
+                                || mainHandStack.getItem() == Bows.BOW_SHIVERING_BOW.asItem();
                     }
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, mainHandStack) >= 1 || uniqueWeaponFlag)) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, mainHandStack);

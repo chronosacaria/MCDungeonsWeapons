@@ -1,7 +1,7 @@
 {
     "parent": "item/bow",
     "textures": {
-        "layer0": "mcdw:item/bows/echo_of_the_valley_pulling_1"
+        "layer0": "mcdw:item/bows/burst_gale_bow_pulling_1"
     },
     "display": {
         "thirdperson_righthand": {

@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "DDD",
+        "SCS",
+        "DDD"
+    ],
+    "key": {
+        "C": {
+            "item": "minecraft:crossbow"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "D": {
+            "item": "minecraft:blue_dye"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_azure_seeker",
+        "count": 1
+    }
+}

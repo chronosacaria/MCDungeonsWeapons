@@ -21,11 +21,10 @@ public class Claymores {
                 McdwStatsConfig.config.getBroadswordDamage(),
                 McdwStatsConfig.config.getBroadswordSpeed(),
                 "sword_broadsword");
-        /*SWORD_FROST_SLAYER = new McdwSword(ToolMaterials.IRON,
+        SWORD_FROST_SLAYER = new McdwSword(ToolMaterials.DIAMOND,
                 McdwStatsConfig.config.getFrostSlayerDamage(),
                 McdwStatsConfig.config.getFrostSlayerSpeed(),
                 "sword_frost_slayer");
-        */
         SWORD_HEARTSTEALER = new McdwSword(ToolMaterials.DIAMOND,
                 McdwStatsConfig.config.getHeartstealerDamage(),
                 McdwStatsConfig.config.getHeartstealerSpeed(),

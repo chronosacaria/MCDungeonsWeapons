@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "OTO",
+        "GCG",
+        "SSS"
+    ],
+    "key": {
+        "C": {
+            "item": "minecraft:crossbow"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "O": {
+            "item": "minecraft:orange_dye"
+        },
+        "G": {
+            "item": "minecraft:green_dye"
+        },
+        "T": {
+            "item": "minecraft:tnt"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_exploding_crossbow",
+        "count": 1
+    }
+}

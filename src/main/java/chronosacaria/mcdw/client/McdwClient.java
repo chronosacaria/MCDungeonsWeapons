@@ -67,9 +67,9 @@ public class McdwClient implements ClientModInitializer {
         registerBowPredicates(Bows.BOW_LOST_SOULS);
         registerBowPredicates(Bows.BOW_SHIVERING_BOW);
 
-
-        //registerBowPredicates(Bows.BOW_WIND_BOW);
-        //registerBowPredicates(Bows.BOW_ECHO_OF_THE_VALLEY);
+        registerBowPredicates(Bows.BOW_WIND_BOW);
+        registerBowPredicates(Bows.BOW_ECHO_OF_THE_VALLEY);
+        registerBowPredicates(Bows.BOW_BURST_GALE_BOW);
 
         //registerBowPredicates(Bows.BOW_SNOW_BOW);
         //registerBowPredicates(Bows.BOW_WINTERS_TOUCH);

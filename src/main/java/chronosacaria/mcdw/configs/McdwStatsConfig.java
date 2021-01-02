@@ -121,9 +121,15 @@ public class McdwStatsConfig implements ConfigData {
 
     @Comment("Picks Damage")
     public int DiamondPickDamage = 1;
+    public int MountaineerPickDamage = 1;
+    public int HowlingPickDamage = 1;
+    public int HailingPinnacleDamage = 1;
 
     @Comment("Picks Speed")
     public float DiamondPickSpeed = -2.8f;
+    public float MountaineerPickSpeed =  -2.8f;
+    public float HowlingPickSpeed =  -2.8f;
+    public float HailingPinnacleSpeed =  -2.8f;
 
     @Comment("Rapiers Damage")
     public int RapierDamage = 0;
@@ -314,6 +320,15 @@ public class McdwStatsConfig implements ConfigData {
     public int getDiamondPickDamage() {
         return DiamondPickDamage;
     }
+    public int getMountaineerPickDamage() {
+        return MountaineerPickDamage;
+    }
+    public int getHowlingPickDamage() {
+        return HowlingPickDamage;
+    }
+    public int getHailingPinnacleDamage() {
+        return HailingPinnacleDamage;
+    }
     public int getRapierDamage() {
         return RapierDamage;
     }
@@ -487,6 +502,15 @@ public class McdwStatsConfig implements ConfigData {
     }
     public float getDiamondPickSpeed() {
         return DiamondPickSpeed;
+    }
+    public float getMountaineerPickSpeed() {
+        return MountaineerPickSpeed;
+    }
+    public float getHowlingPickSpeed() {
+        return HowlingPickSpeed;
+    }
+    public float getHailingPinnacleSpeed() {
+        return HailingPinnacleSpeed;
     }
     public float getRapierSpeed() {
         return RapierSpeed;

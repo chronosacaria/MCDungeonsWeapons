@@ -45,6 +45,14 @@ public class McdwSword extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.broadsword_5").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.broadsword_1").formatted(Formatting.GREEN));
         }
+       if (stack.getItem() == Claymores.SWORD_FROST_SLAYER) {
+           tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_slayer_1").formatted(Formatting.ITALIC));
+           tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_slayer_2").formatted(Formatting.ITALIC));
+           tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_slayer_3").formatted(Formatting.ITALIC));
+           tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_slayer_4").formatted(Formatting.ITALIC));
+           tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+           tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.freezing").formatted(Formatting.GREEN));
+       }
         if (stack.getItem() == Claymores.SWORD_GREAT_AXEBLADE){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_axeblade_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_axeblade_2").formatted(Formatting.ITALIC));
