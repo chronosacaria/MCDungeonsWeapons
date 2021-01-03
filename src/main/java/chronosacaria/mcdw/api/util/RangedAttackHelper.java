@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
 import static net.minecraft.item.CrossbowItem.hasProjectile;
-import static chronosacaria.mcdw.bases.McdwBow.getPullProgress;
+import static chronosacaria.mcdw.bases.McdwBow.getBowArrowVelocity;
 
 public class RangedAttackHelper {
 
@@ -90,9 +90,19 @@ public class RangedAttackHelper {
         return arrowVelocity;
     }
 
-    public static float getVanillaOrModdedBowArrowVelocity(ItemStack stack, int charge){
+    /*public static float getVanillaOrModdedBowArrowVelocity(ItemStack stack, int charge){
         float arrowVelocity;
         arrowVelocity = getVanillaArrowVelocity(stack, charge);
+        return arrowVelocity;
+    }*/
+
+    public static float getVanillaOrModdedBowArrowVelocity(ItemStack stack, int charge){
+        float arrowVelocity;
+        if (stack.getItem() instanceof McdwBow){
+            arrowVelocity = ((McdwBow)stack.getItem()).getBowArrowVelocity(stack, charge);
+        } else {
+            arrowVelocity = getVanillaArrowVelocity(stack, charge);
+        }
         return arrowVelocity;
     }
 }

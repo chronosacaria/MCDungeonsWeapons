@@ -2,6 +2,7 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IRangedWeapon;
 import chronosacaria.mcdw.weapons.Bows;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -23,7 +24,9 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class McdwBow extends BowItem {
+import static chronosacaria.mcdw.api.util.RangedAttackHelper.getVanillaBowChargeTime;
+
+public class McdwBow extends BowItem implements IRangedWeapon {
 
     public static float chargeTime = 30.0f;
 
@@ -137,7 +140,7 @@ public class McdwBow extends BowItem {
         }
     }
 
-    public static float getPullProgress(int useTicks) {
+    /*public static float getPullProgress(int useTicks) {
         float f = (float) useTicks / chargeTime;
         f = (f * f + f * 2.0F) / 3.0F;
         if (f > 1.0F) {
@@ -145,6 +148,21 @@ public class McdwBow extends BowItem {
         }
 
         return f;
+    }*/
+
+    public static float getBowArrowVelocity(ItemStack stack, int charge) {
+        float bowChargeTime = getVanillaBowChargeTime(stack);
+        if (bowChargeTime <= 0){
+            bowChargeTime = 1;
+        }
+
+        float arrowVelocity = (float) charge / chargeTime;
+        arrowVelocity = (arrowVelocity * arrowVelocity + arrowVelocity * 2.0F) / 3.0F;
+        if (arrowVelocity > 1.0F) {
+            arrowVelocity = 1.0F;
+        }
+
+        return arrowVelocity;
     }
 
     @Override
