@@ -1,8 +1,6 @@
 package chronosacaria.mcdw.bases;
 
-import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.weapons.Sickles;
-import chronosacaria.mcdw.weapons.Whips;
+import chronosacaria.mcdw.items.ItemRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -24,9 +22,7 @@ import net.minecraft.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -38,15 +34,9 @@ public class McdwWhip extends AxeItem {
 
     private final ToolMaterial material;
     private final float attackDamage;
-    //private final Supplier<EntityType<SpearEntity>> typeSupplier;
-    //private EntityType<SpearEntity> cachedType = null;
 
-    public McdwWhip(ToolMaterial material,
-                    float attackDamage,
-                    float attackSpeed,
-                    //Supplier<EntityType<SpearEntity>> typeSupplier,
-                    String id) {
-        super(material, attackDamage, attackSpeed, new Settings().group(Mcdw.WEAPONS));
+    public McdwWhip(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+        super(material, attackDamage, attackSpeed, settings);
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
         //this.typeSupplier = typeSupplier;
@@ -55,21 +45,12 @@ public class McdwWhip extends AxeItem {
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool" +
                 " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        //builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Reach", 1.5,
-                //EntityAttributeModifier.Operation.ADDITION));
         builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range", 1.5,
                 EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
-        Registry.register(Registry.ITEM, new Identifier(Mcdw.MOD_ID, id), this);
     }
 
-    /*public EntityType<SpearEntity> getType(){
-        if (cachedType == null){
-            cachedType = typeSupplier.get();
-        }
-        return cachedType;
-    }*/
-
+    @Override
     public ToolMaterial getMaterial() {
         return this.material;
     }
@@ -84,6 +65,7 @@ public class McdwWhip extends AxeItem {
         return this.material.getRepairIngredient().test(ingredient) || super.canRepair(stack, ingredient);
     }
 
+    @Override
     public float getAttackDamage(){
         return this.attackDamage;
     }
@@ -127,12 +109,12 @@ public class McdwWhip extends AxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == Whips.WHIP_WHIP) {
+        if (stack.getItem() == ItemRegistry.getItem("whip_whip")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whip_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whip_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whip_3").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == Whips.WHIP_VINE_WHIP) {
+        if (stack.getItem() == ItemRegistry.getItem("whip_vine_whip")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_3").formatted(Formatting.ITALIC));

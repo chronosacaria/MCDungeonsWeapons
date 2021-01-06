@@ -15,7 +15,7 @@ public class JunglePoisonEnchantment extends Enchantment{
 
     public JunglePoisonEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "jungle_poison"),this);
+        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("jungle_poison"),this);
     }
 
     public int getMaxLevel() {

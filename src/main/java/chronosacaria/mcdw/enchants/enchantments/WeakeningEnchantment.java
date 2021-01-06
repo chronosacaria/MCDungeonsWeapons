@@ -4,7 +4,6 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -12,11 +11,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class WeakeningEnchantment extends AOEEnchantment {
-    McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
     public WeakeningEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "weakening"), this);
+        Registry.register(Registry.ENCHANTMENT, Mcdw.ID("weakening"), this);
     }
 
     @Override
@@ -26,7 +24,7 @@ public class WeakeningEnchantment extends AOEEnchantment {
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return config.enableOPMixing || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
+        return McdwEnchantsConfig.getValue("enable_op_mixing") || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
 
 

@@ -10,7 +10,7 @@ import net.minecraft.util.registry.Registry;
 public class TempoTheftEnchantment extends Enchantment {
     public TempoTheftEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "tempo_theft"), this);
+        Registry.register(Registry.ENCHANTMENT, Mcdw.ID("tempo_theft"), this);
     }
 
     @Override

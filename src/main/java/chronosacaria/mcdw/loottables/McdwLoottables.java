@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.loottables;
 
 import chronosacaria.mcdw.items.ItemRegistry;
-import chronosacaria.mcdw.weapons.Crossbows;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.loot.BinomialLootTableRange;
@@ -29,7 +28,7 @@ public class McdwLoottables {
             if ("minecraft:entities/bee".equals(id.toString())) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootTableRange.create(1, 1.0F))
-                        .with(ItemEntry.builder(ItemRegistry.BEE_STINGER_ITEM));
+                        .with(ItemEntry.builder(ItemRegistry.getItem("item_bee_stinger")));
 
                 supplier.pool(poolBuilder);
             }
@@ -37,13 +36,13 @@ public class McdwLoottables {
             if (pillagerTowerLootTables(id)){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(new BinomialLootTableRange(1, 0.01F))
-                        .with(ItemEntry.builder(Crossbows.CROSSBOW_DOOM_CROSSBOW))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_doom_crossbow")))
 
                         .rolls(new BinomialLootTableRange(1, 0.01F))
-                        .with(ItemEntry.builder(Crossbows.CROSSBOW_VOID_CALLER_CROSSBOW))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_voidcaller_crossbow")))
 
                         .rolls(new BinomialLootTableRange(1, 0.05F))
-                        .with(ItemEntry.builder(Crossbows.CROSSBOW_CORRUPTED_CROSSBOW));
+                        .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_corrupted_crossbow")));
                 supplier.pool(poolBuilder);
             }
         }));

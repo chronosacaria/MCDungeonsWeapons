@@ -41,12 +41,6 @@ dependencies {
     modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
     include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
 
-    //AutoConfig
-    modApi("me.sargunvohra.mcmods:autoconfig1u:${autoconfig1u_version}") {
-        exclude(group: "net.fabricmc.fabric-api")
-        include "me.sargunvohra.mcmods:autoconfig1u:${autoconfig1u_version}"
-    }
-
 }
 
 processResources {

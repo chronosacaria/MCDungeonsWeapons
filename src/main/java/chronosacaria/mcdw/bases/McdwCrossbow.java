@@ -1,54 +1,22 @@
 package chronosacaria.mcdw.bases;
 
-import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IRangedWeapon;
-import chronosacaria.mcdw.weapons.Bows;
-import chronosacaria.mcdw.weapons.Crossbows;
-import com.google.common.collect.Lists;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.advancement.criterion.Criteria;
+import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.util.math.Vector3f;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.CrossbowUser;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.FireworkRocketEntity;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.*;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
-import net.minecraft.text.LiteralText;
+import net.minecraft.item.CrossbowItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.*;
-import net.minecraft.util.math.Quaternion;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-import sun.font.DelegatingShape;
 
 import java.util.List;
-import java.util.Random;
-import java.util.function.Predicate;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
 
-    public McdwCrossbow(Settings settings, String id) {
+    public McdwCrossbow(Settings settings) {
         super(settings);
-        Registry.register(Registry.ITEM, new Identifier(Mcdw.MOD_ID, id), this);
     }
 
     public float getProjectileVelocity(ItemStack stack){
@@ -71,117 +39,117 @@ public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
 
     @Override
     public boolean isUsedOnRelease(ItemStack stack){
-        return stack.getItem() == Crossbows.CROSSBOW_AUTO_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_AZURE_SEEKER
-                || stack.getItem() == Crossbows.CROSSBOW_BABY_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_BURST_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_BUTTERFLY_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_CORRUPTED_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_DOOM_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_DUAL_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_EXPLODING_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_FERAL_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_FIREBOLT_THROWER
-                || stack.getItem() == Crossbows.CROSSBOW_HARP_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_HEAVY_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_IMPLODING_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_LIGHTNING_HARP_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_RAPID_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_SCATTER_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_SLAYER_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_THE_SLICER_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_SOUL_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_SOUL_HUNTER_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_SPELLBOUND_CROSSBOW
-                || stack.getItem() == Crossbows.CROSSBOW_VOID_CALLER_CROSSBOW;
+        return stack.getItem() == ItemRegistry.getItem("crossbow_auto_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_azure_seeker")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_baby_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_burst_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_butterfly_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_corrupted_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_doom_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_dual_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_exploding_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_feral_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_firebolt_thrower")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_harp_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_heavy_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_imploding_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_lightning_harp_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_rapid_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_scatter_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_slayer_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_the_slicer_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_soul_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_soul_hunter_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_spellbound_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_void_caller_crossbow");
     }
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == Crossbows.CROSSBOW_AUTO_CROSSBOW) {
+        if (stack.getItem() == ItemRegistry.getItem("crossbow_auto_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.auto_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.auto_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.auto_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_AZURE_SEEKER) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_azure_seeker")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.azure_seeker_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.azure_seeker_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.azure_seeker_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_BABY_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_burst_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.baby_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.baby_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.baby_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_BURST_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_burst_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.burst_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.burst_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.burst_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_BUTTERFLY_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_butterfly_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.butterfly_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.butterfly_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.butterfly_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_CORRUPTED_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_corrupted_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.corrupted_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.corrupted_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.corrupted_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_DOOM_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_doom_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.doom_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.doom_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.doom_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_DUAL_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_dual_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dual_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dual_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dual_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_EXPLODING_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_exploding_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.exploding_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.exploding_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.exploding_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_FERAL_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_feral_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.feral_soul_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.feral_soul_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.feral_soul_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_FIREBOLT_THROWER) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_firebolt_thrower")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebolt_thrower_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebolt_thrower_2").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_HARP_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_harp_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.harp_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.harp_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.harp_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_HEAVY_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_heavy_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heavy_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heavy_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heavy_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_IMPLODING_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_imploding_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.imploding_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.imploding_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.imploding_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_LIGHTNING_HARP_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_lightning_harp_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lightning_harp_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lightning_harp_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lightning_harp_crossbow_3").formatted(Formatting.ITALIC));
@@ -189,26 +157,26 @@ public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
             tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.ricochet").formatted(Formatting.GREEN));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_RAPID_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_rapid_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.rapid_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.rapid_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.rapid_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_SCATTER_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_scatter_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.scatter_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.scatter_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.scatter_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_SLAYER_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_slayer_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.slayer_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.slayer_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap"));
             tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.ricochet").formatted(Formatting.GREEN));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_THE_SLICER_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_the_slicer_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_slicer_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_slicer_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_slicer_3").formatted(Formatting.ITALIC));
@@ -216,24 +184,24 @@ public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_slicer_5").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_SOUL_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_soul_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_SOUL_HUNTER_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_soul_hunter_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_hunter_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_hunter_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_hunter_crossbow_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_SPELLBOUND_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_spellbound_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spellbound_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spellbound_crossbow_2").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == Crossbows.CROSSBOW_VOID_CALLER_CROSSBOW) {
+        else if (stack.getItem() == ItemRegistry.getItem("crossbow_void_caller_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.void_caller_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.void_caller_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.void_caller_crossbow_3").formatted(Formatting.ITALIC));

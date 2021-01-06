@@ -2,19 +2,14 @@ package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwCrossbow;
-import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.weapons.Bows;
-import chronosacaria.mcdw.weapons.Crossbows;
+import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.item.BowItem;
-import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
 import static net.minecraft.item.CrossbowItem.hasProjectile;
-import static chronosacaria.mcdw.bases.McdwBow.getBowArrowVelocity;
 
 public class RangedAttackHelper {
 
@@ -46,38 +41,38 @@ public class RangedAttackHelper {
     }
 
     public static void addWeaponTags(ArrowEntity arrowEntity, ItemStack stack){
-        if (stack.getItem() == Bows.BOW_ANCIENT_BOW.asItem()) arrowEntity.addScoreboardTag("AncientBow");
-        if (stack.getItem() == Bows.BOW_BONEBOW.asItem()) arrowEntity.addScoreboardTag("Bonebow");
-        if (stack.getItem() == Bows.BOW_ELITE_POWER_BOW.asItem()) arrowEntity.addScoreboardTag("ElitePowerBow");
-        if (stack.getItem() == Bows.BOW_GUARDIAN_BOW.asItem()) arrowEntity.addScoreboardTag("GuardianBow");
-        if (stack.getItem() == Bows.BOW_HUNTERS_PROMISE.asItem()) arrowEntity.addScoreboardTag("HuntersPromise");
-        if (stack.getItem() == Bows.BOW_MASTERS_BOW.asItem()) arrowEntity.addScoreboardTag("MastersBow");
-        if (stack.getItem() == Bows.BOW_NOCTURNAL_BOW.asItem()) arrowEntity.addScoreboardTag("NocturnalBow");
-        if (stack.getItem() == Bows.BOW_RED_SNAKE.asItem()) arrowEntity.addScoreboardTag("RedSnake");
-        if (stack.getItem() == Bows.BOW_SABREWING.asItem()) arrowEntity.addScoreboardTag("Sabrewing");
-        if (stack.getItem() == Bows.BOW_GREEN_MENACE.asItem()) arrowEntity.addScoreboardTag("GreenMenace");
-        if (stack.getItem() == Bows.BOW_PINK_SCOUNDREL.asItem()) arrowEntity.addScoreboardTag("PinkScoundrel");
+        if (stack.getItem() == ItemRegistry.getItem("bow_ancient_bow").asItem()) arrowEntity.addScoreboardTag("AncientBow");
+        if (stack.getItem() == ItemRegistry.getItem("bow_bonebow").asItem()) arrowEntity.addScoreboardTag("Bonebow");
+        if (stack.getItem() == ItemRegistry.getItem("bow_elite_power_bow").asItem()) arrowEntity.addScoreboardTag("ElitePowerBow");
+        if (stack.getItem() == ItemRegistry.getItem("bow_guardian_bow").asItem()) arrowEntity.addScoreboardTag("GuardianBow");
+        if (stack.getItem() == ItemRegistry.getItem("bow_hunters_promise").asItem()) arrowEntity.addScoreboardTag("HuntersPromise");
+        if (stack.getItem() == ItemRegistry.getItem("bow_masters_bow").asItem()) arrowEntity.addScoreboardTag("MastersBow");
+        if (stack.getItem() == ItemRegistry.getItem("bow_nocturnal_bow").asItem()) arrowEntity.addScoreboardTag("NocturnalBow");
+        if (stack.getItem() == ItemRegistry.getItem("bow_red_snake").asItem()) arrowEntity.addScoreboardTag("RedSnake");
+        if (stack.getItem() == ItemRegistry.getItem("bow_sabrewing").asItem()) arrowEntity.addScoreboardTag("Sabrewing");
+        if (stack.getItem() == ItemRegistry.getItem("bow_green_menace").asItem()) arrowEntity.addScoreboardTag("GreenMenace");
+        if (stack.getItem() == ItemRegistry.getItem("bow_pink_scoundrel").asItem()) arrowEntity.addScoreboardTag("PinkScoundrel");
 
         // CROSSBOWS
         //if(stack.getItem() == DeferredItemInit.AUTO_CROSSBOW.get()) arrowEntity.addTag("AutoCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_AZURE_SEEKER.asItem()) arrowEntity.addScoreboardTag("AzureSeeker");
-        if(stack.getItem() == Crossbows.CROSSBOW_BUTTERFLY_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("ButterflyCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_DOOM_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("DoomCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_FERAL_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("FeralSoulCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_FIREBOLT_THROWER.asItem()) arrowEntity.addScoreboardTag("FireboltThrower");
-        if(stack.getItem() == Crossbows.CROSSBOW_HARP_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("HarpCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_LIGHTNING_HARP_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("LightningHarpCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_SLAYER_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("SlayerCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_THE_SLICER_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("TheSlicer");
-        if(stack.getItem() == Crossbows.CROSSBOW_VOID_CALLER_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("Voidcaller");
-        if(stack.getItem() == Crossbows.CROSSBOW_DUAL_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("DualCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_BABY_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("BabyCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_EXPLODING_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("ExplodingCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_HEAVY_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("HeavyCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_RAPID_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("RapidCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_SCATTER_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("ScatterCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_SOUL_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("SoulCrossbow");
-        if(stack.getItem() == Crossbows.CROSSBOW_IMPLODING_CROSSBOW.asItem()) arrowEntity.addScoreboardTag("ImplodingCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_azure_seeker").asItem()) arrowEntity.addScoreboardTag("AzureSeeker");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_butterfly_crossbow").asItem()) arrowEntity.addScoreboardTag("ButterflyCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_doom_crossbow").asItem()) arrowEntity.addScoreboardTag("DoomCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_feral_crossbow").asItem()) arrowEntity.addScoreboardTag("FeralSoulCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_firebolt_thrower").asItem()) arrowEntity.addScoreboardTag("FireboltThrower");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_harp_crossbow").asItem()) arrowEntity.addScoreboardTag("HarpCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_lightning_harp_crossbow").asItem()) arrowEntity.addScoreboardTag("LightningHarpCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_slayer_crossbow").asItem()) arrowEntity.addScoreboardTag("SlayerCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_the_slicer_crossbow").asItem()) arrowEntity.addScoreboardTag("TheSlicer");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_void_caller_crossbow").asItem()) arrowEntity.addScoreboardTag("Voidcaller");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_dual_crossbow").asItem()) arrowEntity.addScoreboardTag("DualCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_baby_crossbow").asItem()) arrowEntity.addScoreboardTag("BabyCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_exploding_crossbow").asItem()) arrowEntity.addScoreboardTag("ExplodingCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_heavy_crossbow").asItem()) arrowEntity.addScoreboardTag("HeavyCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_rapid_crossbow").asItem()) arrowEntity.addScoreboardTag("RapidCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_scatter_crossbow").asItem()) arrowEntity.addScoreboardTag("ScatterCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_soul_crossbow").asItem()) arrowEntity.addScoreboardTag("SoulCrossbow");
+        if(stack.getItem() == ItemRegistry.getItem("crossbow_imploding_crossbow").asItem()) arrowEntity.addScoreboardTag("ImplodingCrossbow");
     }
 
     public static float getVanillaOrModdedCrossbowArrowVelocity(ItemStack stack){

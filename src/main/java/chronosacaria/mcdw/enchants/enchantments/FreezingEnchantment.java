@@ -15,7 +15,7 @@ public class FreezingEnchantment extends Enchantment{
 
     public FreezingEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "freezing"),this);
+        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("freezing"),this);
     }
 
     public int getMaxLevel() {

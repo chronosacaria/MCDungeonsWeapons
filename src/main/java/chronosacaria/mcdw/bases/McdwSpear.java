@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.bases;
 
-//import chronosacaria.mcdw.entity.SpearEntity;
-import chronosacaria.mcdw.weapons.Spears;
+import chronosacaria.mcdw.items.ItemRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -10,27 +9,24 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
-
-import chronosacaria.mcdw.Mcdw;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.function.Supplier;
+
 //TODO Make sure that Spears cannot strip logs (lol)
 public class McdwSpear extends AxeItem {
 
@@ -38,38 +34,22 @@ public class McdwSpear extends AxeItem {
 
     private final ToolMaterial material;
     private final float attackDamage;
-    //private final Supplier<EntityType<SpearEntity>> typeSupplier;
-    //private EntityType<SpearEntity> cachedType = null;
 
-    public McdwSpear(ToolMaterial material,
-                    int attackDamage,
-                    float attackSpeed,
-                    //Supplier<EntityType<SpearEntity>> typeSupplier,
-                    String id) {
-        super(material, attackDamage, attackSpeed, new Item.Settings().group(Mcdw.WEAPONS));
+    public McdwSpear(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
+        super(material, attackDamage, attackSpeed, settings);
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
-        //this.typeSupplier = typeSupplier;
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID,
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool" +
                 " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        //builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Reach", 1.5,
-                //EntityAttributeModifier.Operation.ADDITION));
         builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range", 1.0,
                 EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
-        Registry.register(Registry.ITEM, new Identifier(Mcdw.MOD_ID, id), this);
     }
 
-    /*public EntityType<SpearEntity> getType(){
-        if (cachedType == null){
-            cachedType = typeSupplier.get();
-        }
-        return cachedType;
-    }*/
-
+    @Override
     public ToolMaterial getMaterial() {
         return this.material;
     }
@@ -84,6 +64,7 @@ public class McdwSpear extends AxeItem {
         return this.material.getRepairIngredient().test(ingredient) || super.canRepair(stack, ingredient);
     }
 
+    @Override
     public float getAttackDamage(){
         return this.attackDamage;
     }
@@ -127,19 +108,19 @@ public class McdwSpear extends AxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == Spears.SPEAR_SPEAR) {
+        if (stack.getItem() == ItemRegistry.getItem("spear_spear")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_3").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == Spears.SPEAR_FORTUNE) {
+        else if (stack.getItem() == ItemRegistry.getItem("spear_fortune")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.fortune_spear_1").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == Spears.SPEAR_WHISPERING_SPEAR) {
+        else if (stack.getItem() == ItemRegistry.getItem("spear_whispering_spear")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_3").formatted(Formatting.ITALIC));

@@ -3,7 +3,6 @@ package chronosacaria.mcdw.enchants.enchantments;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -11,11 +10,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class AnimaConduitEnchantment extends AOEEnchantment {
-    McdwEnchantsConfig config = AutoConfig.getConfigHolder(McdwEnchantsConfig.class).getConfig();
 
     public AnimaConduitEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "anima_conduit"),this);
+        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("anima_conduit"),this);
     }
 
     @Override
@@ -25,7 +23,7 @@ public class AnimaConduitEnchantment extends AOEEnchantment {
 
     @Override
     protected boolean canAccept(Enchantment other) {
-        return config.extraXpHealing || !(other instanceof SoulSiphonEnchantment);
+        return McdwEnchantsConfig.getValue("extra_xp_healing") || !(other instanceof SoulSiphonEnchantment);
     }
 
 
