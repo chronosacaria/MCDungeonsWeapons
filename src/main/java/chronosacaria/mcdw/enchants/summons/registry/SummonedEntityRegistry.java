@@ -36,7 +36,7 @@ public class SummonedEntityRegistry {
     }
 
     public static void registerEntity(String name, EntityType<? extends LivingEntity> entity){
-        Registry.register(Registry.ENTITY_TYPE, new Identifier(Mcdw.MOD_ID, name), entity);
+        Registry.register(Registry.ENTITY_TYPE, Mcdw.ID(name), entity);
         ATTRIBUTES.put(entity, MobEntity.createMobAttributes().build());
     }
 

@@ -1,71 +1,76 @@
 package chronosacaria.mcdw.configs;
 
-import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
-import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
-@Config(name="mcdw_enchants")
-public class McdwEnchantsConfig implements ConfigData {
-    @Comment("Allow mixing for OP Enchantment Combinations?")
-    public boolean enableOPMixing = false;
-    @Comment("Can DamageBoost Enchantments combine with Leeching?")
-    public boolean extraLeeching = false;
-    @Comment("Can Soul Siphon and Anima Conduit be combined?")
-    public boolean extraXpHealing = false;
-    @Comment("Enable Enchantment - Anima Conduit?")
-    public boolean mixinAnima = true;
-    @Comment("Enable Enchantment - Busy Bee?")
-    public boolean mixinBee = true;
-    @Comment("Enable Enchantment - Chains?")
-    public boolean mixinChains = true;
-    @Comment("Enable Enchantment - Committed?")
-    public boolean mixinCommitted = true;
-    @Comment("Enable Enchantment - Critical Hit?")
-    public boolean mixinCritical = true;
-    @Comment("Enable Enchantment - Echo?")
-    public boolean mixinEcho = true;
-    @Comment("Enable Enchantment - Enigma Resonator?")
-    public boolean mixinEnigma = true;
-    @Comment("Enable Enchantment - Exploding?")
-    public boolean mixinExploding = true;
-    @Comment("Enable Enchantment - Custom Fire Aspect?")
-    public boolean mixinCustomFireAspect = true;
-    @Comment("Enable Enchantment - Freezing?")
-    public boolean mixinFreezing = true;
-    @Comment("Enable Enchantment - Fuse Shot?")
-    public boolean mixinFuseShot = true;
-    @Comment("Enable Enchantment - Gravity?")
-    public boolean mixinGravity = true;
-    @Comment("Enable Enchantment - Jungle's Poison?")
-    public boolean mixinJPoison = true;
-    @Comment("Enable Enchantment - Leeching?")
-    public boolean mixinLeeching = true;
-    @Comment("Enable Enchantment - Custom Looting?")
-    public boolean mixinCustomLooting = true;
-    @Comment("Enable Enchantment - Poison Cloud?")
-    public boolean mixinPoison = true;
-    @Comment("Enable Enchantment - Radiance?")
-    public boolean mixinRadiance = true;
-    @Comment("Enable Enchantment - Rampaging?")
-    public boolean mixinRampaging = true;
-    @Comment("Enable Enchantment - Replenish?")
-    public boolean mixinReplenish = true;
-    @Comment("Enable Enchantment - Ricochet?")
-    public boolean mixinRicochet = true;
-    @Comment("Enable Enchantment - Shockwave?")
-    public boolean mixinShockwave = true;
-    @Comment("Enable Enchantment - Smiting?")
-    public boolean mixinSmiting = true;
-    @Comment("Enable Enchantment - Soul Siphon?")
-    public boolean mixinSiphon = true;
-    @Comment("Enable Enchantment - Stunning?")
-    public boolean mixinStunning = true;
-    @Comment("Enable Enchantment - Swirling?")
-    public boolean mixinSwirling = true;
-    @Comment("Enable Enchantment - Tempo Theft?")
-    public boolean mixinTempoTheft = true;
-    @Comment("Enable Enchantment - Thundering?")
-    public boolean mixinThundering = true;
-    @Comment("Enable Enchantment - Weakening?")
-    public boolean mixinWeakening = true;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+public class McdwEnchantsConfig {
+
+    private static final HashMap<String, Boolean> SETTINGS = new HashMap<>();
+
+    public static boolean getValue(String key) {
+        if (!SETTINGS.containsKey(key)) {
+            System.out.println(key);
+        }
+        return SETTINGS.getOrDefault(key, null);
+    }
+
+    public static void init() {
+        SETTINGS.put("enable_op_mixing", false);
+        SETTINGS.put("extra_leeching", false);
+        SETTINGS.put("extra_xp_healing", false);
+        SETTINGS.put("mixin_anima", true);
+        SETTINGS.put("mixin_bee", true);
+        SETTINGS.put("mixin_chains", true);
+        SETTINGS.put("mixin_committed", true);
+        SETTINGS.put("mixin_critical", true);
+        SETTINGS.put("mixin_echo", true);
+        SETTINGS.put("mixin_enigma", true);
+        SETTINGS.put("mixin_exploding", true);
+        SETTINGS.put("mixin_custom_fire_aspect", true);
+        SETTINGS.put("mixin_freezing", true);
+        SETTINGS.put("mixin_fuse_shot", true);
+        SETTINGS.put("mixin_gravity", true);
+        SETTINGS.put("mixin_jungle_poison", true);
+        SETTINGS.put("mixin_leeching", true);
+        SETTINGS.put("mixin_custom_looting", true);
+        SETTINGS.put("mixin_poison", true);
+        SETTINGS.put("mixin_radiance", true);
+        SETTINGS.put("mixin_rampaging", true);
+        SETTINGS.put("mixin_replenish", true);
+        SETTINGS.put("mixin_ricochet", true);
+        SETTINGS.put("mixin_shockwave", true);
+        SETTINGS.put("mixin_smiting", true);
+        SETTINGS.put("mixin_siphon", true);
+        SETTINGS.put("mixin_stunning", true);
+        SETTINGS.put("mixin_swirling", true);
+        SETTINGS.put("mixin_tempo_theft", true);
+        SETTINGS.put("mixin_thundering", true);
+        SETTINGS.put("mixin_weakening", true);
+    }
+
+    public static void loadConfig() {
+        JsonObject json = McdwBaseConfig.getJsonObject(McdwBaseConfig.readFile(new File("config/minecraft_dungeon_weapons/enchants_config.json5")));
+        for (Map.Entry<String, JsonElement> entry : json.entrySet()) {
+            SETTINGS.put(entry.getKey(), entry.getValue().getAsBoolean());
+        }
+    }
+
+    public static void generateConfigs(boolean overwrite) {
+        StringBuilder config = new StringBuilder("{\n");
+        int i = 0;
+        for (String key : SETTINGS.keySet()) {
+            config.append("  \"").append(key).append("\": ").append(SETTINGS.get(key));
+            ++i;
+            if (i < SETTINGS.size()) {
+                config.append(",");
+            }
+            config.append("\n");
+        }
+        config.append("}");
+        McdwBaseConfig.createFile("config/minecraft_dungeon_weapons/enchants_config.json5", config.toString(), overwrite);
+    }
 }

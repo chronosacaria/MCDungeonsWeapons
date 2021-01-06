@@ -15,7 +15,7 @@ public class StunningEnchantment extends Enchantment{
 
     public StunningEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "stunning"),this);
+        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("stunning"),this);
     }
 
     public int getMaxLevel() {

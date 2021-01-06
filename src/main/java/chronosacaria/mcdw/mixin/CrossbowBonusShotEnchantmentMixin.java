@@ -4,9 +4,8 @@ import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.enchants.lists.RangedEnchantmentList;
-import chronosacaria.mcdw.weapons.Crossbows;
+import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
@@ -28,12 +27,14 @@ public class CrossbowBonusShotEnchantmentMixin {
         ItemStack stack = user.getMainHandStack();
         if (stack.getItem() instanceof CrossbowItem){
             if (CrossbowItem.isCharged(stack)){
-                boolean uniqueWeaponFlag = stack.getItem() == Crossbows.CROSSBOW_BUTTERFLY_CROSSBOW.asItem();
+                boolean uniqueWeaponFlag = stack.getItem() == ItemRegistry.getItem("crossbow_butterfly_crossbow").asItem();
                 if (McdwEnchantmentHelper.hasEnchantment(stack, RangedEnchantmentList.BONUS_SHOT) || uniqueWeaponFlag) {
                     int bonusShotLevel = EnchantmentHelper.getLevel(RangedEnchantmentList.BONUS_SHOT, stack);
                     float damageMultiplier;
                     damageMultiplier = 0.1F + (bonusShotLevel - 1 * 0.07F);
-                    if (uniqueWeaponFlag) damageMultiplier += 0.1F;
+                    if (uniqueWeaponFlag) {
+                        damageMultiplier += 0.1F;
+                    }
                     float arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(stack);
                     ProjectileEffectHelper.fireBonusShotTowardsOtherEntity(user, 10, damageMultiplier,
                             arrowVelocity);

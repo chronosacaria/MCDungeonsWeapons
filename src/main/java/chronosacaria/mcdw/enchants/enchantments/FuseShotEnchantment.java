@@ -14,7 +14,7 @@ import net.minecraft.world.explosion.Explosion;
 public class FuseShotEnchantment extends RangedEnchantment {
     public FuseShotEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,new Identifier(Mcdw.MOD_ID, "fuse_shot"),this);
+        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("fuse_shot"),this);
     }
 
     @Override

@@ -1,593 +1,534 @@
 package chronosacaria.mcdw.configs;
 
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
-import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
-import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
-import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 
-@Config(name="mcdw_stats")
-public class McdwStatsConfig implements ConfigData {
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
-    static {
-        AutoConfig.register(McdwStatsConfig.class, JanksonConfigSerializer::new);
-    }
-    public static final McdwStatsConfig config = AutoConfig.getConfigHolder(McdwStatsConfig.class).getConfig();
+public class McdwStatsConfig {
 
+    private static final HashMap<String, Float> DAMAGE = new HashMap<>();
+    private static final HashMap<String, Float> SPEED = new HashMap<>();
+    private static final HashMap<String, Float> RANGE = new HashMap<>();
+    private static final HashMap<String, Float> DRAW_SPEED = new HashMap<>();
+    private static final HashMap<String, ToolMaterial> MATERIAL = new HashMap<>();
 
-    @Comment("Axes Damage")
-    public float AxeDamage = 6;
-    public float FirebrandDamage = 5;
-    public float HighlandAxeDamage = 6;
-
-    @Comment("Axes Speed")
-    public float AxeSpeed = -3.1F;
-    public float FirebrandSpeed = -3.1F;
-    public float HighlandAxeSpeed = -3.1F;
-
-    @Comment("Claymore Damage")
-    public int ClaymoreDamage = 5;
-    public int BroadswordDamage = 4;
-    public int FrostSlayerDamage = 5;
-    public int HeartstealerDamage = 4;
-    public int GreatAxebladeDamage = 6;
-
-    @Comment("Claymore Speed")
-    public float ClaymoreSpeed = -3.0F;
-    public float BroadswordSpeed = -3.0F;
-    public float FrostSlayerSpeed = -3.0F;
-    public float HeartstealerSpeed = -3.0F;
-    public float GreatAxebladeSpeed = -3.0F;
-
-    @Comment("Curves Damage")
-    public int CutlassDamage = 3;
-    public int NamelessBladeDamage = 1;
-    public int DancersSwordDamage = 1;
-
-    @Comment("Curves Speed")
-    public float CutlassSpeed = -2.1f;
-    public float NamelessBladeSpeed = -1.7f;
-    public float DancersSwordSpeed = -1.0f;
-
-    @Comment("Daggers Damage")
-    public int DaggerDamage = 1;
-    public int FangsOfFrostDamage = 1;
-    public int MoonDaggerDamage = 1;
-    public int SheerDaggerDamage = 1;
-
-    @Comment("Daggers Speed")
-    public float DaggerSpeed = -1.3f;
-    public float FangsOfFrostSpeed = -1.0f;
-    public float MoonDaggerSpeed = -1.0f;
-    public float SheerDaggerSpeed = -1.3f;
-
-    @Comment("Double Axes Damage")
-    public float DoubleAxeDamage = 6;
-    public float WhirlwindDamage = 6;
-    public float CursedAxeDamage = 7;
-
-    @Comment("Double Axes Speed")
-    public float DoubleAxeSpeed = -3.1f;
-    public float WhirlwindSpeed = -2.9f;
-    public float CursedAxeSpeed = -3.1f;
-
-    @Comment("Gauntlets Damage")
-    public int GauntletsDamage = 0;
-    public int FightersBindingDamage = 0;
-    public int MaulersDamage = 0;
-    public int SoulFistsDamage = 0;
-
-    @Comment("Gauntlets Speed")
-    public float GauntletsSpeed = -1.4f;
-    public float FightersBindingSpeed = -1.4f;
-    public float MaulersSpeed = -1.4f;
-    public float SoulFistsSpeed = -1.4f;
-
-    @Comment("Glaives Damage")
-    public int GlaiveDamage = 3;
-    public int GraveBaneDamage = 5;
-    public int VenomGlaiveDamage = 5;
-
-    @Comment("Glaives Speed")
-    public float GlaiveSpeed = -2.7f;
-    public float GraveBaneSpeed = -2.4f;
-    public float VenomGlaiveSpeed = -2.5f;
-
-    @Comment("Hammers Damage")
-    public int GreatHammerDamage = 4;
-    public int StormlanderDamage = 5;
-    public int HammerOfGravityDamage = 5;
-    public int MaceDamage = 4;
-    public int FlailDamage = 5;
-    public int SunsGraceDamage = 4;
-
-    @Comment("Hammers Speed")
-    public float GreatHammerSpeed = -3.0f;
-    public float StormlanderSpeed = -3.0f;
-    public float HammerOfGravitySpeed = -3.0f;
-    public float MaceSpeed = -2.9f;
-    public float FlailSpeed = -2.9f;
-    public float SunsGraceSpeed = -2.5f;
-
-    @Comment("Katanas Damage")
-    public int KatanaDamage = 1;
-    public int MastersKatanaDamage = 0;
-    public int DarkKatanaDamage = 0;
-
-    @Comment("Katanas Speed")
-    public float KatanaSpeed = -1.5f;
-    public float MastersKatanaSpeed = -1.1f;
-    public float DarkKatanaSpeed = -1.15f;
-
-    @Comment("Picks Damage")
-    public int DiamondPickDamage = 1;
-    public int MountaineerPickDamage = 1;
-    public int HowlingPickDamage = 1;
-    public int HailingPinnacleDamage = 1;
-
-    @Comment("Picks Speed")
-    public float DiamondPickSpeed = -2.8f;
-    public float MountaineerPickSpeed =  -2.8f;
-    public float HowlingPickSpeed =  -2.8f;
-    public float HailingPinnacleSpeed =  -2.8f;
-
-    @Comment("Rapiers Damage")
-    public int RapierDamage = 0;
-    public int BeestingerDamage = 0;
-    public int FreezingFoilDamage = 0;
-
-    @Comment("Rapiers Speed")
-    public float RapierSpeed = -0.9f;
-    public float BeestingerSpeed = -0.9f;
-    public float FreezingFoilSpeed = -0.9f;
-
-    @Comment("Scythes Damage")
-    public int JailorsScytheDamage = 4;
-    public int SoulScytheDamage = 3;
-    public int FrostScytheDamage = 4;
-
-    @Comment("Scythes Speed")
-    public float JailorsScytheSpeed = -2.25f;
-    public float SoulScytheSpeed = -2.25f;
-    public float FrostScytheSpeed = -2.5f;
-
-    @Comment("Sickles Damage")
-    public int SickleDamage = 1;
-    public int NightmaresBiteDamage = 3;
-    public int LastLaughDamage = 4;
-   
-    @Comment("Sickles Speed")
-    public float SickleSpeed = -1.9f;
-    public float NightmaresBiteSpeed = -1.9f;
-    public float LastLaughSpeed = -1.9f;
-
-    @Comment("Soul Daggers Damage")
-    public int SoulKnifeDamage = 1;
-    public int EternalKnifeDamage = 0;
-    public int TruthseekerDamage = 3;
-
-    @Comment("Soul Daggers Speed")
-    public float SoulKnifeSpeed = -1.1f;
-    public float EternalKnifeSpeed = -0.9f;
-    public float TruthseekerSpeed = -1.5f;
-    
-    @Comment("Spears Damage")
-    public int SpearDamage = 3;
-    public int WhisperingSpearDamage = 5;
-    public int FortuneSpearDamage = 4;
-
-    @Comment("Spears Speed")
-    public float SpearSpeed = -2.5f;
-    public float WhisperingSpearSpeed = -2.5f;
-    public float FortuneSpearSpeed = -2.15f;
-
-    @Comment("Staves Damage")
-    public int BattlestaffDamage = 0;
-    public int GrowingStaffDamage = 1;
-    public int BattlestaffOfTerrorDamage = 0;
-
-    @Comment("Staves Speed")
-    public float BattlestaffSpeed = -0.1f;
-    public float GrowingStaffSpeed = -0.1f;
-    public float BattlestaffOfTerrorSpeed = -0.1f;
-
-    @Comment("Swords Damage")
-    public int IronSwordVarDamage = 3;
-    public int DiamondSwordVarDamage = 3;
-    public int HawkbrandDamage = 5;
-
-    @Comment("Swords Speed")
-    public float IronSwordVarSpeed = -2.4f;
-    public float DiamondSwordVarSpeed = -2.4f;
-    public float HawkbrandSpeed = -2.0f;
-
-    @Comment("Tempest Knives Damage")
-    public int TempestKnifeDamage = 2;
-    public int ResoluteTempestKnifeDamage = 3;
-    public int ChillGaleKnifeDamage = 4;
-
-    @Comment("Tempest Knives Speed")
-    public float TempestKnifeSpeed = -1.3f;
-    public float ResoluteTempestKnifeSpeed = -1.3f;
-    public float ChillGaleKnifeSpeed = -1.3f;
-
-    @Comment("Whips Damage")
-    public int WhipDamage = 2;
-    public int VineWhipDamage = 5;
-
-    @Comment("Whips Speed")
-    public float WhipSpeed = -3.1f;
-    public float VineWhipSpeed = -3.1f;
-
-    public float getAxeDamage() {
-        return AxeDamage;
+    public static float getDamage(String item) {
+        return DAMAGE.getOrDefault(item, 0f);
     }
-    public float getFirebrandDamage() {
-        return FirebrandDamage;
+    public static float getSpeed(String item) {
+        if (!SPEED.containsKey(item)) {
+            System.out.println(item);
+        }
+        return SPEED.getOrDefault(item, 0f);
     }
-    public float getHighlandAxeDamage() {
-        return HighlandAxeDamage;
+    public static ToolMaterial getMaterial(String item) {
+        return MATERIAL.getOrDefault(item, ToolMaterials.IRON);
     }
-    public int getClaymoreDamage() {
-        return ClaymoreDamage;
+    public static float getMaxRange(String item) {
+        return RANGE.getOrDefault(item, 0f);
     }
-    public int getBroadswordDamage() {
-        return BroadswordDamage;
-    }
-    public int getFrostSlayerDamage() {return FrostSlayerDamage; }
-    public int getHeartstealerDamage() {
-        return HeartstealerDamage;
-    }
-    public int getGreatAxebladeDamage() {
-        return GreatAxebladeDamage;
-    }
-    public int getCutlassDamage() {
-        return CutlassDamage;
-    }
-    public int getNamelessBladeDamage() {
-        return NamelessBladeDamage;
-    }
-    public int getDancersSwordDamage() {
-        return DancersSwordDamage;
-    }
-    public int getDaggerDamage() {
-        return DaggerDamage;
-    }
-    public int getFangsOfFrostDamage() {
-        return FangsOfFrostDamage;
-    }
-    public int getMoonDaggerDamage() {
-        return MoonDaggerDamage;
-    }
-    public int getSheerDaggerDamage() {
-        return SheerDaggerDamage;
-    }
-    public float getDoubleAxeDamage() {
-        return DoubleAxeDamage;
-    }
-    public float getWhirlwindDamage() {
-        return WhirlwindDamage;
-    }
-    public float getCursedAxeDamage() {
-        return CursedAxeDamage;
-    }
-    public int getGauntletsDamage() {
-        return GauntletsDamage;
-    }
-    public int getFightersBindingDamage() {return FightersBindingDamage;}
-    public int getMaulersDamage() {
-        return MaulersDamage;
-    }
-    public int getSoulFistsDamage() {
-        return SoulFistsDamage;
-    }
-    public int getGlaiveDamage() {
-        return GlaiveDamage;
-    }
-    public int getGraveBaneDamage() {
-        return GraveBaneDamage;
-    }
-    public int getVenomGlaiveDamage() {
-        return VenomGlaiveDamage;
-    }
-    public int getGreatHammerDamage() {
-        return GreatHammerDamage;
-    }
-    public int getStormlanderDamage() {
-        return StormlanderDamage;
-    }
-    public int getHammerOfGravityDamage() {
-        return HammerOfGravityDamage;
-    }
-    public int getMaceDamage() {
-        return MaceDamage;
-    }
-    public int getFlailDamage() {
-        return FlailDamage;
-    }
-    public int getSunsGraceDamage() {
-        return SunsGraceDamage;
-    }
-    public int getKatanaDamage() {
-        return KatanaDamage;
-    }
-    public int getMastersKatanaDamage() {
-        return MastersKatanaDamage;
-    }
-    public int getDarkKatanaDamage() {
-        return DarkKatanaDamage;
-    }
-    public int getDiamondPickDamage() {
-        return DiamondPickDamage;
-    }
-    public int getMountaineerPickDamage() {
-        return MountaineerPickDamage;
-    }
-    public int getHowlingPickDamage() {
-        return HowlingPickDamage;
-    }
-    public int getHailingPinnacleDamage() {
-        return HailingPinnacleDamage;
-    }
-    public int getRapierDamage() {
-        return RapierDamage;
-    }
-    public int getBeestingerDamage() {
-        return BeestingerDamage;
-    }
-    public int getFreezingFoilDamage() {
-        return FreezingFoilDamage;
-    }
-    public int getJailorsScytheDamage() {
-        return JailorsScytheDamage;
-    }
-    public int getSoulScytheDamage() {
-        return SoulScytheDamage;
-    }
-    public int getFrostScytheDamage() {
-        return FrostScytheDamage;
-    }
-    public int getSickleDamage() {
-        return SickleDamage;
-    }
-    public int getNightmaresBiteDamage() {
-        return NightmaresBiteDamage;
-    }
-    public int getLastLaughDamage() {
-        return LastLaughDamage;
-    }
-    public int getSoulKnifeDamage() {
-        return SoulKnifeDamage;
-    }
-    public int getEternalKnifeDamage() {
-        return EternalKnifeDamage;
-    }
-    public int getTruthseekerDamage() {
-        return TruthseekerDamage;
-    }
-    public int getSpearDamage() {
-        return SpearDamage;
-    }
-    public int getWhisperingSpearDamage() {
-        return WhisperingSpearDamage;
-    }
-    public int getFortuneSpearDamage() {
-        return FortuneSpearDamage;
-    }
-    public int getBattlestaffDamage() {
-        return BattlestaffDamage;
-    }
-    public int getGrowingStaffDamage() {
-        return GrowingStaffDamage;
-    }
-    public int getBattlestaffOfTerrorDamage() {
-        return BattlestaffOfTerrorDamage;
-    }
-    public int getIronSwordVarDamage() {
-        return IronSwordVarDamage;
-    }
-    public int getDiamondSwordVarDamage() {
-        return DiamondSwordVarDamage;
-    }
-    public int getHawkbrandDamage() {
-        return HawkbrandDamage;
-    }
-    public int getTempestKnifeDamage() {
-        return TempestKnifeDamage;
-    }
-    public int getChillGaleKnifeDamage() {
-        return ChillGaleKnifeDamage;
-    }
-    public int getResoluteTempestKnifeDamage() {
-        return ResoluteTempestKnifeDamage;
-    }
-    public int getWhipDamage() {
-        return WhipDamage;
-    }
-    public int getVineWhipDamage() {
-        return VineWhipDamage;
+    public static float getDrawTime(String item) {
+        return DRAW_SPEED.getOrDefault(item, 0f);
     }
 
-    public float getAxeSpeed() {
-        return AxeSpeed;
+    public static void initAll() {
+        initMaterial();
+        initDamage();
+        initSpeed();
+        initDrawSpeed();
+        initRange();
     }
-    public float getFirebrandSpeed() {
-        return FirebrandSpeed;
+
+    public static void initDrawSpeed() {
+        DRAW_SPEED.put("bow_ancient_bow", 15f);
+        DRAW_SPEED.put("bow_bonebow", 15f);
+        DRAW_SPEED.put("bow_burst_gale_bow", 15f);
+        DRAW_SPEED.put("bow_echo_of_the_valley", 15f);
+        DRAW_SPEED.put("bow_elite_power_bow", 20f);
+        DRAW_SPEED.put("bow_green_menace", 15f);
+        DRAW_SPEED.put("bow_guardian_bow", 30f);
+        DRAW_SPEED.put("bow_haunted_bow", 15f);
+        DRAW_SPEED.put("bow_hunters_promise", 15f);
+        DRAW_SPEED.put("bow_hunting_bow", 15f);
+        DRAW_SPEED.put("bow_longbow", 20f);
+        DRAW_SPEED.put("bow_lost_souls", 15f);
+        DRAW_SPEED.put("bow_love_spell_bow", 8f);
+        DRAW_SPEED.put("bow_masters_bow", 15f);
+        DRAW_SPEED.put("bow_mechanical_shortbow", 8f);
+        DRAW_SPEED.put("bow_nocturnal_bow", 15f);
+        DRAW_SPEED.put("bow_pink_scoundrel", 15f);
+        DRAW_SPEED.put("bow_power_bow", 20f);
+        DRAW_SPEED.put("bow_purple_storm", 8f);
+        DRAW_SPEED.put("bow_red_snake", 30f);
+        DRAW_SPEED.put("bow_sabrewing", 15f);
+        DRAW_SPEED.put("bow_shivering_bow", 15f);
+        DRAW_SPEED.put("bow_shortbow", 8f);
+        DRAW_SPEED.put("bow_soul_bow", 15f);
+        DRAW_SPEED.put("bow_trickbow", 15f);
+        DRAW_SPEED.put("bow_wind_bow", 15f);
+        DRAW_SPEED.put("bow_snow_bow", 15f);
+        DRAW_SPEED.put("bow_winters_touch", 15f);
     }
-    public float getHighlandAxeSpeed() {
-        return HighlandAxeSpeed;
+
+    public static void initRange() {
+        RANGE.put("bow_ancient_bow", 3.2f);
+        RANGE.put("bow_bonebow", 3.2f);
+        RANGE.put("bow_burst_gale_bow", 3.2f);
+        RANGE.put("bow_echo_of_the_valley", 3.2f);
+        RANGE.put("bow_elite_power_bow", 6.4f);
+        RANGE.put("bow_green_menace", 3.2f);
+        RANGE.put("bow_guardian_bow", 6.4f);
+        RANGE.put("bow_haunted_bow", 3.2f);
+        RANGE.put("bow_hunters_promise", 3.2f);
+        RANGE.put("bow_hunting_bow", 3.2f);
+        RANGE.put("bow_longbow", 6.4f);
+        RANGE.put("bow_lost_souls", 3.2f);
+        RANGE.put("bow_love_spell_bow", 2f);
+        RANGE.put("bow_masters_bow", 3.2f);
+        RANGE.put("bow_mechanical_shortbow", 2f);
+        RANGE.put("bow_nocturnal_bow", 3.2f);
+        RANGE.put("bow_pink_scoundrel", 3.2f);
+        RANGE.put("bow_power_bow", 6.4f);
+        RANGE.put("bow_purple_storm", 2f);
+        RANGE.put("bow_red_snake", 6.4f);
+        RANGE.put("bow_sabrewing", 3.2f);
+        RANGE.put("bow_shivering_bow", 3.2f);
+        RANGE.put("bow_shortbow", 2f);
+        RANGE.put("bow_soul_bow", 3.2f);
+        RANGE.put("bow_trickbow", 3.2f);
+        RANGE.put("bow_wind_bow", 3.2f);
+        RANGE.put("bow_snow_bow", 3.2f);
+        RANGE.put("bow_winters_touch", 3.2f);
     }
-    public float getClaymoreSpeed() {
-        return ClaymoreSpeed;
+
+    public static void initMaterial() {
+        MATERIAL.put("sword_claymore", ToolMaterials.IRON);
+        MATERIAL.put("sword_broadsword", ToolMaterials.IRON);
+        MATERIAL.put("sword_frost_slayer", ToolMaterials.DIAMOND);
+        MATERIAL.put("sword_heartstealer", ToolMaterials.DIAMOND);
+        MATERIAL.put("sword_great_axeblade", ToolMaterials.IRON);
+
+        MATERIAL.put("sword_rapier", ToolMaterials.IRON);
+        MATERIAL.put("sword_beestinger", ToolMaterials.DIAMOND);
+        MATERIAL.put("sword_freezing_foil", ToolMaterials.DIAMOND);
+
+        MATERIAL.put("sword_cutlass", ToolMaterials.IRON);
+        MATERIAL.put("sword_nameless_blade", ToolMaterials.DIAMOND);
+        MATERIAL.put("sword_dancers_sword", ToolMaterials.IRON);
+
+        MATERIAL.put("sword_katana", ToolMaterials.IRON);
+        MATERIAL.put("sword_masters_katana", ToolMaterials.DIAMOND);
+        MATERIAL.put("sword_dark_katana", ToolMaterials.NETHERITE);
+
+        MATERIAL.put("sword_iron_sword_var", ToolMaterials.IRON);
+        MATERIAL.put("sword_diamond_sword_var", ToolMaterials.DIAMOND);
+        MATERIAL.put("sword_hawkbrand", ToolMaterials.IRON);
+
+        MATERIAL.put("axe", ToolMaterials.IRON);
+        MATERIAL.put("axe_firebrand", ToolMaterials.DIAMOND);
+        MATERIAL.put("axe_highland", ToolMaterials.IRON);
+
+        MATERIAL.put("axe_cursed", ToolMaterials.IRON);
+        MATERIAL.put("axe_double", ToolMaterials.IRON);
+        MATERIAL.put("axe_whirlwind", ToolMaterials.IRON);
+
+        MATERIAL.put("dagger_dagger", ToolMaterials.IRON);
+        MATERIAL.put("dagger_fangs_of_frost", ToolMaterials.IRON);
+        MATERIAL.put("dagger_moon", ToolMaterials.IRON);
+        MATERIAL.put("dagger_shear_dagger", ToolMaterials.IRON);
+
+        MATERIAL.put("dagger_soul_knife", ToolMaterials.IRON);
+        MATERIAL.put("dagger_eternal_knife", ToolMaterials.DIAMOND);
+        MATERIAL.put("sword_truthseeker", ToolMaterials.IRON);
+
+        MATERIAL.put("hammer_great", ToolMaterials.IRON);
+        MATERIAL.put("hammer_stormlander", ToolMaterials.DIAMOND);
+        MATERIAL.put("hammer_gravity", ToolMaterials.DIAMOND);
+        MATERIAL.put("hammer_mace", ToolMaterials.IRON);
+        MATERIAL.put("hammer_flail", ToolMaterials.IRON);
+        MATERIAL.put("hammer_suns_grace", ToolMaterials.DIAMOND);
+
+        MATERIAL.put("dagger_tempest_knife", ToolMaterials.IRON);
+        MATERIAL.put("dagger_resolute_tempest_knife", ToolMaterials.IRON);
+        MATERIAL.put("dagger_chill_gale_knife", ToolMaterials.IRON);
+
+        MATERIAL.put("gauntlet_gauntlet", ToolMaterials.IRON);
+        MATERIAL.put("gauntlet_fighters_bindings", ToolMaterials.IRON);
+        MATERIAL.put("gauntlet_maulers", ToolMaterials.DIAMOND);
+        MATERIAL.put("gauntlet_soul_fists", ToolMaterials.NETHERITE);
+
+        MATERIAL.put("sickle_sickle", ToolMaterials.IRON);
+        MATERIAL.put("sickle_nightmares_bite", ToolMaterials.IRON);
+        MATERIAL.put("sickle_last_laugh_gold", ToolMaterials.GOLD);
+        MATERIAL.put("sickle_last_laugh_silver", ToolMaterials.GOLD);
+
+        MATERIAL.put("sickle_jailors_scythe", ToolMaterials.IRON);
+        MATERIAL.put("sickle_soul_scythe", ToolMaterials.DIAMOND);
+        MATERIAL.put("sickle_frost_scythe", ToolMaterials.IRON);
+
+        MATERIAL.put("pick_diamond_pickaxe_var", ToolMaterials.DIAMOND);
+        MATERIAL.put("pick_mountaineer_pick", ToolMaterials.IRON);
+        MATERIAL.put("pick_howling_pick", ToolMaterials.IRON);
+        MATERIAL.put("pick_hailing_pinnacle", ToolMaterials.DIAMOND);
+
+        MATERIAL.put("spear_glaive", ToolMaterials.IRON);
+        MATERIAL.put("spear_grave_bane", ToolMaterials.IRON);
+        MATERIAL.put("spear_venom_glaive", ToolMaterials.IRON);
+
+        MATERIAL.put("spear_spear", ToolMaterials.IRON);
+        MATERIAL.put("spear_whispering_spear", ToolMaterials.IRON);
+        MATERIAL.put("spear_fortune", ToolMaterials.GOLD);
+
+        MATERIAL.put("staff_battlestaff", ToolMaterials.WOOD);
+        MATERIAL.put("staff_growing_staff", ToolMaterials.IRON);
+        MATERIAL.put("staff_battlestaff_of_terror", ToolMaterials.IRON);
+
+        MATERIAL.put("whip_whip", ToolMaterials.IRON);
+        MATERIAL.put("whip_vine_whip", ToolMaterials.IRON);
+
+        MATERIAL.put("bow_ancient_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_bonebow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_burst_gale_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_echo_of_the_valley", ToolMaterials.WOOD);
+        MATERIAL.put("bow_elite_power_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_green_menace", ToolMaterials.WOOD);
+        MATERIAL.put("bow_guardian_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_haunted_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_hunters_promise", ToolMaterials.WOOD);
+        MATERIAL.put("bow_hunting_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_longbow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_lost_souls", ToolMaterials.WOOD);
+        MATERIAL.put("bow_love_spell_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_masters_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_mechanical_shortbow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_nocturnal_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_pink_scoundrel", ToolMaterials.WOOD);
+        MATERIAL.put("bow_power_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_purple_storm", ToolMaterials.WOOD);
+        MATERIAL.put("bow_red_snake", ToolMaterials.WOOD);
+        MATERIAL.put("bow_sabrewing", ToolMaterials.WOOD);
+        MATERIAL.put("bow_shivering_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_shortbow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_soul_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_trickbow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_wind_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_snow_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_winters_touch", ToolMaterials.WOOD);
     }
-    public float getBroadswordSpeed() {return BroadswordSpeed;}
-    public float getFrostSlayerSpeed() {return FrostSlayerSpeed;}
-    public float getHeartstealerSpeed() {
-        return HeartstealerSpeed;
+
+    public static void initDamage() {
+        //Claymores
+        DAMAGE.put("sword_claymore", 5f);
+        DAMAGE.put("sword_broadsword", 4f);
+        DAMAGE.put("sword_frost_slayer", 5f);
+        DAMAGE.put("sword_heartstealer", 4f);
+        DAMAGE.put("sword_great_axeblade", 6f);
+
+        //Rapiers
+        DAMAGE.put("sword_rapier", 0f);
+        DAMAGE.put("sword_beestinger", 0f);
+        DAMAGE.put("sword_freezing_foil", 0f);
+
+        //Curves
+        DAMAGE.put("sword_cutlass", 3f);
+        DAMAGE.put("sword_nameless_blade", 1f);
+        DAMAGE.put("sword_dancers_sword", 1f);
+
+        //Katanas
+        DAMAGE.put("sword_katana", 1f);
+        DAMAGE.put("sword_masters_katana", 0f);
+        DAMAGE.put("sword_dark_katana", 0f);
+
+        //Swords
+        DAMAGE.put("sword_iron_sword_var", 3f);
+        DAMAGE.put("sword_diamond_sword_var", 3f);
+        DAMAGE.put("sword_hawkbrand", 5f);
+
+        //Axes
+        DAMAGE.put("axe", 6f);
+        DAMAGE.put("axe_firebrand", 5f);
+        DAMAGE.put("axe_highland", 6f);
+
+        DAMAGE.put("axe_double", 6f);
+        DAMAGE.put("axe_cursed", 7f);
+        DAMAGE.put("axe_whirlwind", 6f);
+
+        DAMAGE.put("dagger_dagger", 1f);
+        DAMAGE.put("dagger_fangs_of_frost", 1f);
+        DAMAGE.put("dagger_moon", 1f);
+        DAMAGE.put("dagger_shear_dagger", 1f);
+
+        DAMAGE.put("dagger_soul_knife", 1f);
+        DAMAGE.put("dagger_eternal_knife", 0f);
+        DAMAGE.put("sword_truthseeker", 3f);
+
+        DAMAGE.put("hammer_great", 4f);
+        DAMAGE.put("hammer_stormlander", 5f);
+        DAMAGE.put("hammer_gravity", 5f);
+        DAMAGE.put("hammer_mace", 4f);
+        DAMAGE.put("hammer_flail", 5f);
+        DAMAGE.put("hammer_suns_grace", 4f);
+
+        DAMAGE.put("dagger_tempest_knife", 2f);
+        DAMAGE.put("dagger_resolute_tempest_knife", 3f);
+        DAMAGE.put("dagger_chill_gale_knife", 4f);
+
+        DAMAGE.put("gauntlet_gauntlet", 0f);
+        DAMAGE.put("gauntlet_fighters_bindings", 0f);
+        DAMAGE.put("gauntlet_maulers", 0f);
+        DAMAGE.put("gauntlet_soul_fists", 0f);
+
+        DAMAGE.put("sickle_sickle", 1f);
+        DAMAGE.put("sickle_nightmares_bite", 3f);
+        DAMAGE.put("sickle_last_laugh_gold", 4f);
+        DAMAGE.put("sickle_last_laugh_silver", 4f);
+
+        DAMAGE.put("sickle_jailors_scythe", 4f);
+        DAMAGE.put("sickle_soul_scythe", 3f);
+        DAMAGE.put("sickle_frost_scythe", 4f);
+
+        DAMAGE.put("pick_diamond_pickaxe_var", 1f);
+        DAMAGE.put("pick_mountaineer_pick", 1f);
+        DAMAGE.put("pick_howling_pick", 1f);
+        DAMAGE.put("pick_hailing_pinnacle", 1f);
+
+        DAMAGE.put("spear_glaive", 3f);
+        DAMAGE.put("spear_grave_bane", 5f);
+        DAMAGE.put("spear_venom_glaive", 5f);
+
+        DAMAGE.put("spear_spear", 3f);
+        DAMAGE.put("spear_whispering_spear", 5f);
+        DAMAGE.put("spear_fortune", 4f);
+
+        DAMAGE.put("staff_battlestaff", 0f);
+        DAMAGE.put("staff_growing_staff", 1f);
+        DAMAGE.put("staff_battlestaff_of_terror", 0f);
+        DAMAGE.put("whip_whip", 2f);
+        DAMAGE.put("whip_vine_whip", 5f);
     }
-    public float getGreatAxebladeSpeed() {
-        return GreatAxebladeSpeed;
+
+    public static void initSpeed() {
+        SPEED.put("sword_claymore", -3f);
+        SPEED.put("sword_broadsword", -3f);
+        SPEED.put("sword_frost_slayer", -3f);
+        SPEED.put("sword_heartstealer", -3f);
+        SPEED.put("sword_great_axeblade", -3f);
+
+        SPEED.put("sword_rapier", -0.9f);
+        SPEED.put("sword_beestinger", -0.9f);
+        SPEED.put("sword_freezing_foil", -0.9f);
+
+        SPEED.put("sword_cutlass", -2.7f);
+        SPEED.put("sword_nameless_blade", -1.7f);
+        SPEED.put("sword_dancers_sword", -1.0f);
+
+        SPEED.put("sword_katana", -1.5f);
+        SPEED.put("sword_masters_katana", -1.1f);
+        SPEED.put("sword_dark_katana", -1.15f);
+
+        SPEED.put("sword_iron_sword_var", -2.4f);
+        SPEED.put("sword_diamond_sword_var", -2.4f);
+        SPEED.put("sword_hawkbrand", -2.0f);
+
+        SPEED.put("axe", -3.1f);
+        SPEED.put("axe_firebrand", -3.1f);
+        SPEED.put("axe_highland", -3.1f);
+
+        SPEED.put("axe", -3.1f);
+        SPEED.put("axe_firebrand", -2.9f);
+        SPEED.put("axe_highland", -3.1f);
+
+        SPEED.put("dagger_dagger", -1.3f);
+        SPEED.put("dagger_fangs_of_frost", -1.0f);
+        SPEED.put("dagger_moon", -1.0f);
+        SPEED.put("dagger_shear_dagger", -1.3f);
+
+        SPEED.put("axe_double", -3.1f);
+        SPEED.put("axe_cursed", -3.1f);
+        SPEED.put("axe_whirlwind", -2.9f);
+
+        SPEED.put("dagger_soul_knife", -1.1f);
+        SPEED.put("dagger_eternal_knife", -0.9f);
+        SPEED.put("sword_truthseeker", -1.5f);
+
+        SPEED.put("hammer_great", -3.0f);
+        SPEED.put("hammer_stormlander", -3.0f);
+        SPEED.put("hammer_gravity", -3.0f);
+        SPEED.put("hammer_mace", -2.9f);
+        SPEED.put("hammer_flail", -2.9f);
+        SPEED.put("hammer_suns_grace", -2.5f);
+
+        SPEED.put("dagger_tempest_knife", -1.3f);
+        SPEED.put("dagger_resolute_tempest_knife", -1.3f);
+        SPEED.put("dagger_chill_gale_knife", -1.3f);
+
+        SPEED.put("gauntlet_gauntlet", -1.4f);
+        SPEED.put("gauntlet_fighters_bindings", -1.4f);
+        SPEED.put("gauntlet_maulers", -1.4f);
+        SPEED.put("gauntlet_soul_fists", -1.4f);
+
+        SPEED.put("sickle_sickle", -1.9f);
+        SPEED.put("sickle_nightmares_bite", -1.9f);
+        SPEED.put("sickle_last_laugh_gold", -1.9f);
+        SPEED.put("sickle_last_laugh_silver", -1.9f);
+
+        SPEED.put("sickle_jailors_scythe", -2.25f);
+        SPEED.put("sickle_soul_scythe", -2.25f);
+        SPEED.put("sickle_frost_scythe", -2.5f);
+
+        SPEED.put("pick_diamond_pickaxe_var", -2.8f);
+        SPEED.put("pick_mountaineer_pick", -2.8f);
+        SPEED.put("pick_howling_pick", -2.8f);
+        SPEED.put("pick_hailing_pinnacle", -2.8f);
+
+        SPEED.put("spear_glaive", -2.7f);
+        SPEED.put("spear_grave_bane", -2.4f);
+        SPEED.put("spear_venom_glaive", -2.5f);
+
+        SPEED.put("spear_spear", -2.5f);
+        SPEED.put("spear_whispering_spear", -2.5f);
+        SPEED.put("spear_fortune", -2.15f);
+
+        SPEED.put("staff_battlestaff", -0.1f);
+        SPEED.put("staff_growing_staff", -0.1f);
+        SPEED.put("staff_battlestaff_of_terror", -0.1f);
+        SPEED.put("whip_whip", -3.1f);
+        SPEED.put("whip_vine_whip", -3.1f);
     }
-    public float getCutlassSpeed() {
-        return CutlassSpeed;
+
+    public static void generateConfigs(boolean overwrite) {
+        StringBuilder config = new StringBuilder("{\n");
+        int i = 0;
+        for (String item : DAMAGE.keySet()) {
+            config.append("  \"").append(item).append("\": ").append(DAMAGE.get(item));
+            ++i;
+            if (i < DAMAGE.size()) {
+                config.append(",");
+            }
+            config.append("\n");
+        }
+        config.append("}");
+        McdwBaseConfig.createFile("config/minecraft_dungeon_weapons/damage_config.json5", config.toString(), overwrite);
+
+        config = new StringBuilder("{\n");
+        i = 0;
+        for (String item : SPEED.keySet()) {
+            config.append("  \"").append(item).append("\": ").append(SPEED.get(item));
+            ++i;
+            if (i < SPEED.size()) {
+                config.append(",");
+            }
+            config.append("\n");
+        }
+        config.append("}");
+        McdwBaseConfig.createFile("config/minecraft_dungeon_weapons/attack_speed_config.json5", config.toString(), overwrite);
+
+        config = new StringBuilder("{\n");
+        i = 0;
+        for (String item : MATERIAL.keySet()) {
+            config.append("  \"").append(item).append("\": ").append(materialToString(MATERIAL.get(item)));
+            ++i;
+            if (i < MATERIAL.size()) {
+                config.append(",");
+            }
+            config.append("\n");
+        }
+        config.append("}");
+        McdwBaseConfig.createFile("config/minecraft_dungeon_weapons/materials_config.json5", config.toString(), overwrite);
+
+        config = new StringBuilder("{\n");
+        i = 0;
+        for (String item : DRAW_SPEED.keySet()) {
+            config.append("  \"").append(item).append("\": ").append(DRAW_SPEED.get(item));
+            ++i;
+            if (i < DRAW_SPEED.size()) {
+                config.append(",");
+            }
+            config.append("\n");
+        }
+        config.append("}");
+        McdwBaseConfig.createFile("config/minecraft_dungeon_weapons/draw_speed_config.json5", config.toString(), overwrite);
+
+        config = new StringBuilder("{\n");
+        i = 0;
+        for (String item : RANGE.keySet()) {
+            config.append("  \"").append(item).append("\": ").append(RANGE.get(item));
+            ++i;
+            if (i < RANGE.size()) {
+                config.append(",");
+            }
+            config.append("\n");
+        }
+        config.append("}");
+        McdwBaseConfig.createFile("config/minecraft_dungeon_weapons/range_config.json5", config.toString(), overwrite);
     }
-    public float getNamelessBladeSpeed() {
-        return NamelessBladeSpeed;
+
+    private static ToolMaterial stringToMaterial(String material) {
+        switch (material) {
+            case "wood":
+                return ToolMaterials.WOOD;
+            case "stone":
+                return ToolMaterials.STONE;
+            case "gold":
+                return ToolMaterials.GOLD;
+            case "diamond":
+                return ToolMaterials.DIAMOND;
+            case "netherite":
+                return ToolMaterials.NETHERITE;
+            default:
+                return ToolMaterials.IRON;
+        }
     }
-    public float getDancersSwordSpeed() {
-        return DancersSwordSpeed;
+
+    private static String materialToString(ToolMaterial toolMaterial) {
+        if (toolMaterial == ToolMaterials.WOOD) {
+            return "wood";
+        } else if (toolMaterial == ToolMaterials.STONE) {
+            return "stone";
+        } else if (toolMaterial == ToolMaterials.GOLD) {
+            return "gold";
+        } else if (toolMaterial == ToolMaterials.IRON) {
+            return "iron";
+        } else if (toolMaterial == ToolMaterials.DIAMOND) {
+            return "diamond";
+        } else if (toolMaterial == ToolMaterials.NETHERITE) {
+            return "netherite";
+        } else {
+            return "none";
+        }
     }
-    public float getDaggerSpeed() {
-        return DaggerSpeed;
+
+    public static void loadConfig() {
+        JsonObject json;
+        json = McdwBaseConfig.getJsonObject(McdwBaseConfig.readFile(new File("config/minecraft_dungeon_weapons/damage_config.json5")));
+        for (Map.Entry<String, JsonElement> entry : json.entrySet()) {
+            DAMAGE.put(entry.getKey(), entry.getValue().getAsFloat());
+        }
+
+        json = McdwBaseConfig.getJsonObject(McdwBaseConfig.readFile(new File("config/minecraft_dungeon_weapons/attack_speed_config.json5")));
+        for (Map.Entry<String, JsonElement> entry : json.entrySet()) {
+            SPEED.put(entry.getKey(), entry.getValue().getAsFloat());
+        }
+
+        json = McdwBaseConfig.getJsonObject(McdwBaseConfig.readFile(new File("config/minecraft_dungeon_weapons/materials_config.json5")));
+        for (Map.Entry<String, JsonElement> entry : json.entrySet()) {
+            MATERIAL.put(entry.getKey(), stringToMaterial(entry.getValue().getAsString()));
+        }
+
+        json = McdwBaseConfig.getJsonObject(McdwBaseConfig.readFile(new File("config/minecraft_dungeon_weapons/draw_speed_config.json5")));
+        for (Map.Entry<String, JsonElement> entry : json.entrySet()) {
+            DRAW_SPEED.put(entry.getKey(), entry.getValue().getAsFloat());
+        }
+
+        json = McdwBaseConfig.getJsonObject(McdwBaseConfig.readFile(new File("config/minecraft_dungeon_weapons/range_config.json5")));
+        for (Map.Entry<String, JsonElement> entry : json.entrySet()) {
+            RANGE.put(entry.getKey(), entry.getValue().getAsFloat());
+        }
     }
-    public float getFangsOfFrostSpeed() {
-        return FangsOfFrostSpeed;
-    }
-    public float getMoonDaggerSpeed() {
-        return MoonDaggerSpeed;
-    }
-    public float getSheerDaggerSpeed() {
-        return SheerDaggerSpeed;
-    }
-    public float getDoubleAxeSpeed() {
-        return DoubleAxeSpeed;
-    }
-    public float getWhirlwindSpeed() {
-        return WhirlwindSpeed;
-    }
-    public float getCursedAxeSpeed() {
-        return CursedAxeSpeed;
-    }
-    public float getGauntletsSpeed() {
-        return GauntletsSpeed;
-    }
-    public float getFightersBindingSpeed() {return FightersBindingSpeed;}
-    public float getMaulersSpeed() {
-        return MaulersSpeed;
-    }
-    public float getSoulFistsSpeed() {
-        return SoulFistsSpeed;
-    }
-    public float getGlaiveSpeed() {
-        return GlaiveSpeed;
-    }
-    public float getGraveBaneSpeed() {
-        return GraveBaneSpeed;
-    }
-    public float getVenomGlaiveSpeed() {
-        return VenomGlaiveSpeed;
-    }
-    public float getGreatHammerSpeed() {return GreatHammerSpeed;}
-    public float getStormlanderSpeed() {return StormlanderSpeed;}
-    public float getHammerOfGravitySpeed() {
-        return HammerOfGravitySpeed;
-    }
-    public float getMaceSpeed() {
-        return MaceSpeed;
-    }
-    public float getFlailSpeed() {
-        return FlailSpeed;
-    }
-    public float getSunsGraceSpeed() {
-        return SunsGraceSpeed;
-    }
-    public float getKatanaSpeed() {
-        return KatanaSpeed;
-    }
-    public float getMastersKatanaSpeed() {
-        return MastersKatanaSpeed;
-    }
-    public float getDarkKatanaSpeed() {
-        return DarkKatanaSpeed;
-    }
-    public float getDiamondPickSpeed() {
-        return DiamondPickSpeed;
-    }
-    public float getMountaineerPickSpeed() {
-        return MountaineerPickSpeed;
-    }
-    public float getHowlingPickSpeed() {
-        return HowlingPickSpeed;
-    }
-    public float getHailingPinnacleSpeed() {
-        return HailingPinnacleSpeed;
-    }
-    public float getRapierSpeed() {
-        return RapierSpeed;
-    }
-    public float getBeestingerSpeed() {
-        return BeestingerSpeed;
-    }
-    public float getFreezingFoilSpeed() {
-        return FreezingFoilSpeed;
-    }
-    public float getJailorsScytheSpeed() {
-        return JailorsScytheSpeed;
-    }
-    public float getSoulScytheSpeed() {
-        return SoulScytheSpeed;
-    }
-    public float getFrostScytheSpeed() {
-        return FrostScytheSpeed;
-    }
-    public float getSickleSpeed() {
-        return SickleSpeed;
-    }
-    public float getNightmaresBiteSpeed() {
-        return NightmaresBiteSpeed;
-    }
-    public float getLastLaughSpeed() {
-        return LastLaughSpeed;
-    }
-    public float getSoulKnifeSpeed() {
-        return SoulKnifeSpeed;
-    }
-    public float getEternalKnifeSpeed() {
-        return EternalKnifeSpeed;
-    }
-    public float getTruthseekerSpeed() {
-        return TruthseekerSpeed;
-    }
-    public float getSpearSpeed() {
-        return SpearSpeed;
-    }
-    public float getWhisperingSpearSpeed() {
-        return WhisperingSpearSpeed;
-    }
-    public float getFortuneSpearSpeed() {
-        return FortuneSpearSpeed;
-    }
-    public float getBattlestaffSpeed() {
-        return BattlestaffSpeed;
-    }
-    public float getGrowingStaffSpeed() {
-        return GrowingStaffSpeed;
-    }
-    public float getBattlestaffOfTerrorSpeed() {
-        return BattlestaffOfTerrorSpeed;
-    }
-    public float getIronSwordVarSpeed() {
-        return IronSwordVarSpeed;
-    }
-    public float getDiamondSwordVarSpeed() {
-        return DiamondSwordVarSpeed;
-    }
-    public float getHawkbrandSpeed() {
-        return HawkbrandSpeed;
-    }
-    public float getTempestKnifeSpeed() {
-        return TempestKnifeSpeed;
-    }
-    public float getChillGaleKnifeSpeed() {
-        return ChillGaleKnifeSpeed;
-    }
-    public float getResoluteTempestKnifeSpeed() {
-        return ResoluteTempestKnifeSpeed;
-    }
-    public float getWhipSpeed() {
-        return WhipSpeed;
-    }
-    public float getVineWhipSpeed() {
-        return VineWhipSpeed;
-    }
+
 }

@@ -49,7 +49,7 @@ public class SpearEntityRenderer extends EntityRenderer<SpearEntity> {
 
     public static Identifier getTexture(EntityType<?> type){
         if(!TEXTURES.containsKey(type)) {
-            TEXTURES.put(type, new Identifier(Mcdw.MOD_ID,
+            TEXTURES.put(type, Mcdw.ID(,
                     "textures/item" + Registry.ENTITY_TYPE.getId(type).getPath() + ".png"));
         }
         return TEXTURES.get(type);

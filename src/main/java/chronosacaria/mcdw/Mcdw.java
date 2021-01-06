@@ -1,14 +1,13 @@
 package chronosacaria.mcdw;
 
+import chronosacaria.mcdw.configs.McdwBaseConfig;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.configs.McdwStatsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.loottables.McdwLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
-import me.sargunvohra.mcmods.autoconfig1u.ConfigHolder;
-import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
+import com.google.gson.JsonObject;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -17,29 +16,26 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
-
-import chronosacaria.mcdw.weapons.*;
 import net.minecraft.util.registry.Registry;
 
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
+import java.io.File;
 
 public class Mcdw implements ModInitializer {
 
     public static final String MOD_ID = "mcdw";
 
-    public static final Identifier OFFHAND_ATTACK = new Identifier(MOD_ID, "offhand_attack");
-
-    public static final Logger LOGGER = LogManager.getLogManager().getLogger("logger");
+    public static Identifier ID(String path) {
+        return new Identifier(MOD_ID, path);
+    }
 
     public static final ItemGroup WEAPONS = FabricItemGroupBuilder.build(
-            new Identifier(MOD_ID, "weapons"),
-            () -> new ItemStack(Claymores.SWORD_HEARTSTEALER));
+            Mcdw.ID("weapons"),
+            () -> new ItemStack(ItemRegistry.getItem("sword_hearstealer")));
     public static final ItemGroup RANGED = FabricItemGroupBuilder.build(
-            new Identifier(MOD_ID, "weapons/bows"),
-            () -> new ItemStack(Bows.BOW_LONGBOW));
+            Mcdw.ID("weapons/bows"),
+            () -> new ItemStack(ItemRegistry.getItem("bow_longbow")));
     public static final ItemGroup ENCHANTMENTS = FabricItemGroupBuilder.create(
-            new Identifier(MOD_ID, "enchants"))
+            Mcdw.ID("enchants"))
             .icon(() -> new ItemStack(Items.ENCHANTED_BOOK))
             .appendItems(itemStacks -> {
                 //itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(RangedEnchantsRegistry
@@ -124,45 +120,30 @@ public class Mcdw implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
-
         // Config
-        AutoConfig.register(McdwEnchantsConfig.class, JanksonConfigSerializer::new);
-        AutoConfig.register(McdwStatsConfig.class, JanksonConfigSerializer::new);
+        McdwStatsConfig.initAll();
+        McdwEnchantsConfig.init();
 
+        String defaultConfig =
+            "{\n" +
+            "  \"regenerate_stat_configs\": false,\n" +
+            "  \"regenerate_enchants_configs\": false\n" +
+            "}";
+        File configFile = McdwBaseConfig.createFile("config/minecraft_dungeon_weapons/config.json", defaultConfig, false);
+        JsonObject json = McdwBaseConfig.getJsonObject(McdwBaseConfig.readFile(configFile));
 
-        // Melee Weapons
-        Claymores.init();
-        Curves.init();
-        Daggers.init();
-        Gauntlets.init();
-        Glaives.init();
-        Katanas.init();
-        Sickles.init();
-        SoulDaggers.init();
-        Scythes.init();
-        Spears.init();
-        Swords.init();
-        Whips.init();
-        Staves.init();
-        Rapiers.init();
-        Axes.init();
-        DoubleAxes.init();
-        Hammers.init();
-        TempestKnives.init();
+        McdwStatsConfig.generateConfigs(json == null || !json.has("regenerate_stat_configs") || json.get("regenerate_stat_configs").getAsBoolean());
+        McdwStatsConfig.loadConfig();
 
-        // Tools
-        Picks.init();
-
-        // Ranged
-        Bows.init();
-        Crossbows.init();
+        McdwEnchantsConfig.generateConfigs(json == null || !json.has("regenerate_enchants_configs") || json.get("regenerate_enchants_configs").getAsBoolean());
+        McdwEnchantsConfig.loadConfig();
 
         // Enchants
         EnchantsRegistry.init();
 
         // Items
-        ItemRegistry.init();
+        ItemRegistry.addItems();
+        ItemRegistry.registerItems();
 
         // Loot
         McdwLoottables.init();
