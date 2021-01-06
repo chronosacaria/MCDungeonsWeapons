@@ -1,6 +1,5 @@
 {
-  "credit": "Made by SeaOfPixels",
-  "parent": "item/generated",
+  "parent": "mcdw:item/model_axe",
   "textures": {
 	  "layer0": "mcdw:item/axe_firebrand"
   },

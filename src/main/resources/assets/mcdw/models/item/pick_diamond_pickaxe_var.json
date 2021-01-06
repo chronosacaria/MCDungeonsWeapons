@@ -1,5 +1,5 @@
 {
-	"parent": "item/handheld",
+	"parent": "mcdw:item/model_pick",
 	"textures": {
 		"layer0": "mcdw:item/pick_diamond_pickaxe_var",
 		"particle": "mcdw:item/pick_diamond_pickaxe_var"

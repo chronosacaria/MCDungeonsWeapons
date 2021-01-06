@@ -8,10 +8,12 @@ import chronosacaria.mcdw.weapons.Crossbows;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,9 +22,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(CrossbowItem.class)
-public class CrossbowBonusShotEnchantmentMixin {
+public class CrossbowEnchantmentsMixin {
+
+    // Bonus Shot
     @Inject(method = "createArrow", at = @At(value = "RETURN"), locals = LocalCapture.CAPTURE_FAILSOFT)
-    private static void createArrow(World world, LivingEntity user, ItemStack crossbow, ItemStack arrow,
+    private static void createBonusShotArrow(World world, LivingEntity user, ItemStack crossbow, ItemStack arrow,
                                     CallbackInfoReturnable<PersistentProjectileEntity> cir, ArrowItem arrowItem,
                                     PersistentProjectileEntity persistentProjectileEntity){
         ItemStack stack = user.getMainHandStack();

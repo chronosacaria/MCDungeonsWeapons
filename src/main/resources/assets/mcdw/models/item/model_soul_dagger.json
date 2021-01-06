@@ -1,0 +1,4 @@
+{
+	"parent": "item/handheld",
+	"gui_light": "front"
+}

@@ -4,7 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "AccessorItemTags",
-    "CrossbowBonusShotEnchantmentMixin",
+    "CrossbowEnchantmentsMixin",
     "MixinEntity",
     "LivingEntityMixin"
   ],

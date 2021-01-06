@@ -1,31 +1,10 @@
 {
-	"credit": "Made by SeaOfPixels",
-	"parent": "item/generated",
+	"parent": "mcdw:item/model_axe",
 	"textures": {
 		"layer0": "mcdw:item/axe_whirlwind"
 	},
 	"gui_light": "front",
 	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, -90, 55],
-			"translation": [0, 4.0, 0.5],
-			"scale": [1.95, 1.95, 1.10]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [0, 90, -55],
-			"translation": [0, 4.0, 0.5],
-			"scale": [1.95, 1.95, 1.10]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, -90, 25],
-			"translation": [1.13, 3.2, 1.13],
-			"scale": [1.61, 1.61, 0.93]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 90, -25],
-			"translation": [1.13, 3.2, 1.13],
-			"scale": [1.61, 1.61, 0.93]
-		},
 		"ground": {
 			"translation": [0, 2, 0],
 			"scale": [1.25, 1.25, 0.75]
@@ -36,7 +15,6 @@
 		},
 		"fixed": {
 			"rotation": [0, 180, 0],
-			"translation": [2.25, 2.25, 1.25],
 			"scale": [2.25, 2.25, 1.25]
 		}
 	}

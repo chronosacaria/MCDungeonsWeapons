@@ -1,5 +1,5 @@
 {
-	"parent": "item/handheld",
+	"parent": "mcdw:item/model_pick",
 	"textures": {
 		"layer0": "mcdw:item/pick_mountaineer_pick",
 		"particle": "mcdw:item/pick_mountaineer_pick"

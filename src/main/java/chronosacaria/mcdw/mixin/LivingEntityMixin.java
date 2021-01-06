@@ -4,6 +4,7 @@ import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enchants.lists.RangedEnchantmentList;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
@@ -14,18 +15,18 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.ProjectileDamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -64,7 +65,7 @@ public abstract class LivingEntityMixin extends Entity {
     public abstract void onDeath(DamageSource source);
 
     @Shadow
-    private @Nullable LivingEntity attacker;
+    private LivingEntity attacker;
     @Shadow
     protected float lastDamageTaken;
     @Shadow
@@ -88,9 +89,12 @@ public abstract class LivingEntityMixin extends Entity {
     |**** ENCHANTMENTS -- ANIMA CONDUIT ****|
     |* * * * * * * * * * * * * * * * * * * */
 
-    @Shadow public abstract boolean isMobOrPlayer();
+    @Shadow
+    public abstract boolean isMobOrPlayer();
 
-    @Shadow @Nullable public abstract DamageSource getRecentDamageSource();
+    @Shadow
+    @Nullable
+    public abstract DamageSource getRecentDamageSource();
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
@@ -150,12 +154,13 @@ public abstract class LivingEntityMixin extends Entity {
         }
     } //END BUSY BEE ENCHANTMENT
 
+
     /* * * * * * * * * * * * * * * * * |
     |***** ENCHANTMENTS -- CHAINS *****|
     | * * * * * * * * * * * * * * * * */
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applyChainsEnchantment(DamageSource source, float amount, CallbackInfo info) {
+    public void applyChainsEnchantment (DamageSource source,float amount, CallbackInfo info){
 
         if (source.getSource() instanceof ArrowEntity) return;
         if (!(source.getAttacker() instanceof LivingEntity)) return;

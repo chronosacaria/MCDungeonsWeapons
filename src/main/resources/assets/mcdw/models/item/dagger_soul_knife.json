@@ -1,7 +1,6 @@
 {
-	"parent": "item/handheld",
+	"parent": "mcdw:item/model_soul_dagger",
 	"textures": {
 		"layer0": "mcdw:item/dagger_soul_knife"
-	},
-	"gui_light": "front"
+	}
 }

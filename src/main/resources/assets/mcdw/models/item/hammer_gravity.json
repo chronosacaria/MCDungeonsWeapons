@@ -1,5 +1,6 @@
 {
 	"credit": "Made by SeaOfPixels",
+	"parent": "mcdw:item/model_hammer",
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "mcdw:item/hammer_gravity",

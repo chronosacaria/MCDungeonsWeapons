@@ -1,0 +1,64 @@
+{
+	"credit": "Made by SeaOfPixels",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "mcdw:item/hammer_suns_grace",
+		"particle": "mcdw:item/hammer_suns_grace"
+	},
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-45, 0, 0],
+			"translation": [0, 4.25, 2]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-45, 0, 0],
+			"translation": [0, 4.25, 2]
+		},
+		"firstperson_righthand": {
+			"rotation": [-20, 0, 0],
+			"translation": [6, 1.5, -2.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-20, 0, 0],
+			"translation": [6, 1.5, -2.5]
+		},
+		"ground": {
+			"translation": [0, 3.25, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [0, 90, 0]
+		},
+		"head": {
+			"rotation": [0, 90, 0],
+			"translation": [-9.75, 2.75, 0]
+		},
+		"fixed": {
+			"rotation": [0, -90, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "sun's_grace",
+			"origin": [8, 8, 8],
+			"children": [
+				{
+					"name": "thorns",
+					"origin": [8, 8, 8],
+					"children": [0, 1, 2, 3, 4, 5]
+				},
+				{
+					"name": "stick",
+					"origin": [8, 8, 8],
+					"children": [6, 7, 8, 9, 10, 11, 12, 13]
+				},
+				{
+					"name": "head",
+					"origin": [9, 15, 16],
+					"children": [14]
+				}
+			]
+		}
+	]
+}

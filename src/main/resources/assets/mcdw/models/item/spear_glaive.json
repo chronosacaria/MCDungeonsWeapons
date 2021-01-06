@@ -1,24 +1,15 @@
 {
-  "credit": "Made by SeaOfPixels",
-  "parent": "item/generated",
+  "parent": "mcdw:item/model_glaive",
   "textures": {
 	  "layer0": "mcdw:item/spear_glaive"
   },
   "gui_light": "front",
   "display": {
     "gui": {
-      "rotation": [ 0, 0, 0 ],
-      "translation": [ 0, 0, 0 ],
       "scale":[ 1.05, 1.05, 1 ]
     },
     "ground": {
-      "translation": [ 0, 2, 0 ],
       "scale": [ 1, 1, 0.5 ]
-    },
-    "head": {
-      "rotation": [ 0, 0, 0 ],
-      "translation": [ 0, 0, 0],
-      "scale":[ 5, 5, 5 ]
     },
     "thirdperson_righthand": {
       "rotation": [ 0, -90, 55 ],

@@ -30,6 +30,7 @@ public class EnchantsRegistry {
 
     public static Enchantment ACCELERATE;
     public static Enchantment BONUS_SHOT;
+    public static Enchantment CHAIN_REACTION;
     public static Enchantment CHARGE;
     public static Enchantment FUSE_SHOT;
     public static Enchantment REPLENISH;
@@ -84,6 +85,8 @@ public class EnchantsRegistry {
                 //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         BONUS_SHOT = new BonusShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        //CHAIN_REACTION = new ChainReactionEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         CHARGE = new ChargeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         FUSE_SHOT = new FuseShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,

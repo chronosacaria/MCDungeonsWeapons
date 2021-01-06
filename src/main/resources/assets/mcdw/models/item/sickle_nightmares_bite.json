@@ -1,7 +1,6 @@
 {
-	"parent": "item/handheld",
+	"parent": "mcdw:item/model_sickle",
 	"textures": {
 		"layer0": "mcdw:item/sickle_nightmares_bite"
-	},
-	"gui_light": "front"
+	}
 }

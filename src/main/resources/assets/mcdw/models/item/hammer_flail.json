@@ -385,10 +385,6 @@
 			"translation": [-2.5, 0, 0],
 			"scale": [0.83, 0.83, 0.83]
 		},
-		"head": {
-			"rotation": [0, 90, 0],
-			"translation": [-8.25, 5.75, 0]
-		},
 		"fixed": {
 			"rotation": [0, -90, 0],
 			"translation": [2.9, 0, 0],

@@ -7,7 +7,7 @@ import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwCrossbow;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRenderRegistry;
-import chronosacaria.mcdw.network.S2CEntitySpawnPacket;
+//import chronosacaria.mcdw.network.S2CEntitySpawnPacket;
 import chronosacaria.mcdw.weapons.Bows;
 import chronosacaria.mcdw.weapons.Crossbows;
 import net.fabricmc.api.ClientModInitializer;
@@ -28,7 +28,7 @@ public class McdwClient implements ClientModInitializer {
         SummonedEntityRenderRegistry.register();
 
         //registerEntityRenderers();
-        registerClientboundPackets();
+        //registerClientboundPackets();
 
 
         /*private static void registerEntityRenderers(){
@@ -157,14 +157,4 @@ public class McdwClient implements ClientModInitializer {
             }
         });
     }
-
-    private static void registerClientboundPackets() {
-        ClientSidePacketRegistry.INSTANCE.register(S2CEntitySpawnPacket.ID, S2CEntitySpawnPacket::onPacket);
-    }
-
-
-
-
-
-
 }

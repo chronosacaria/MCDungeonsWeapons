@@ -1,5 +1,6 @@
 {
 	"credit": "Made by SeaOfPixels",
+	"parent": "mcdw:item/model_mace",
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "mcdw:item/hammer_suns_grace",
@@ -202,39 +203,6 @@
 			}
 		}
 	],
-	"gui_light": "front",
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [-45, 0, 0],
-			"translation": [0, 4.25, 2]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [-45, 0, 0],
-			"translation": [0, 4.25, 2]
-		},
-		"firstperson_righthand": {
-			"rotation": [-20, 0, 0],
-			"translation": [6, 1.5, -2.5]
-		},
-		"firstperson_lefthand": {
-			"rotation": [-20, 0, 0],
-			"translation": [6, 1.5, -2.5]
-		},
-		"ground": {
-			"translation": [0, 3.25, 0],
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"gui": {
-			"rotation": [0, 90, 0]
-		},
-		"head": {
-			"rotation": [0, 90, 0],
-			"translation": [-9.75, 2.75, 0]
-		},
-		"fixed": {
-			"rotation": [0, -90, 0]
-		}
-	},
 	"groups": [
 		{
 			"name": "sun's_grace",
