@@ -336,10 +336,6 @@ public class McdwStatsConfig {
         SPEED.put("sword_hawkbrand", -2.0f);
 
         SPEED.put("axe", -3.1f);
-        SPEED.put("axe_firebrand", -3.1f);
-        SPEED.put("axe_highland", -3.1f);
-
-        SPEED.put("axe", -3.1f);
         SPEED.put("axe_firebrand", -2.9f);
         SPEED.put("axe_highland", -3.1f);
 

@@ -30,7 +30,7 @@ public class Mcdw implements ModInitializer {
 
     public static final ItemGroup WEAPONS = FabricItemGroupBuilder.build(
             Mcdw.ID("weapons"),
-            () -> new ItemStack(ItemRegistry.getItem("sword_hearstealer")));
+            () -> new ItemStack(ItemRegistry.getItem("sword_heartstealer")));
     public static final ItemGroup RANGED = FabricItemGroupBuilder.build(
             Mcdw.ID("weapons/bows"),
             () -> new ItemStack(ItemRegistry.getItem("bow_longbow")));
