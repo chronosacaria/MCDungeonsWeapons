@@ -191,6 +191,8 @@ public abstract class LivingEntityMixin extends Entity {
         if (!(source.getAttacker() instanceof PlayerEntity)) {
             return;
         }
+        if (source.isProjectile()) return;
+        if (source.getSource() instanceof ArrowEntity) return;
 
         if (source.getSource() instanceof PlayerEntity) {
             if (amount != 0.0F) {
