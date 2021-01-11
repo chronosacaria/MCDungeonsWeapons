@@ -2,6 +2,7 @@ package chronosacaria.mcdw;
 
 import chronosacaria.mcdw.configs.McdwBaseConfig;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.configs.McdwEnchantsGiverConfig;
 import chronosacaria.mcdw.configs.McdwStatsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
@@ -150,5 +151,8 @@ public class Mcdw implements ModInitializer {
 
         // Sounds
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);
+
+        // EnchantGiver
+        McdwEnchantsGiverConfig.createConfig();
     }
 }

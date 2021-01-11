@@ -42,6 +42,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("mixin_rampaging", true);
         SETTINGS.put("mixin_replenish", true);
         SETTINGS.put("mixin_ricochet", true);
+        SETTINGS.put("mixin_charge", true);
         SETTINGS.put("mixin_shockwave", true);
         SETTINGS.put("mixin_smiting", true);
         SETTINGS.put("mixin_siphon", true);

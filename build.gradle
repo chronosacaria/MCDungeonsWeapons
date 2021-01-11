@@ -23,6 +23,12 @@ repositories {
         name = "Siphalor's Maven"
         url = "https://maven.siphalor.de"
     }
+    maven {
+        url "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
     repositories {
         jcenter()
     }
@@ -41,6 +47,12 @@ dependencies {
     modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
     include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
 
+    // EnchantGiver
+    //modImplementation "curse.maven:enchanthelper-434579:3164342"
+    //include "curse.maven:enchanthelper-434579:3164342"
+
+    modApi("wraith.enchantgiver:wraith-enchant_giver:${project.enchantgiver_version}") {
+        exclude(group: "net.fabricmc.fabric-api")}
 }
 
 processResources {

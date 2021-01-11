@@ -15,7 +15,7 @@ import java.util.HashSet;
 
 public class ItemRegistry {
 
-    private static final HashMap<String, Item> ITEMS = new HashMap<>();
+    public static final HashMap<String, Item> ITEMS = new HashMap<>();
 
     private static final HashSet<String> SWORDS = new HashSet<String>() {{
         add("sword_claymore");
