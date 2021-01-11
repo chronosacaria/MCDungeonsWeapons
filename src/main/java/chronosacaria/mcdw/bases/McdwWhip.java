@@ -120,8 +120,6 @@ public class McdwWhip extends AxeItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_5").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_6").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.vine_whip_1").formatted(Formatting.GREEN));
         }
     }
 }

@@ -113,15 +113,11 @@ public class McdwGlaive extends SwordItem {
         if (stack.getItem() == ItemRegistry.getItem("spear_venom_glaive")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.venom_glaive_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.venom_glaive_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.venom_glaive_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.venom_glaive_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("spear_grave_bane")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.grave_bane_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.grave_bane_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.grave_bane_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.grave_bane_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.grave_bane_1").formatted(Formatting.GREEN));
         }
 
     }

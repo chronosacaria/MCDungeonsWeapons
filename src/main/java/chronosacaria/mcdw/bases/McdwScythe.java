@@ -28,14 +28,10 @@ public class McdwScythe extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_scythe_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_scythe_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_scythe_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_scythe_5").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.frost_scythe_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("sickle_jailors_scythe")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.jailors_scythe_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.jailors_scythe_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.jailors_scythe_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.jailors_scythe_1").formatted(Formatting.GREEN));
         }
     }
 }

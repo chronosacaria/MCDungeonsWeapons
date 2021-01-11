@@ -31,16 +31,12 @@ public class McdwAxe extends AxeItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_5").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.firebrand_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("axe_highland")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_5").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.highland_axe_1").formatted(Formatting.GREEN));
         }
     }
 }

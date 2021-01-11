@@ -31,16 +31,12 @@ public class McdwSword extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.broadsword_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.broadsword_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.broadsword_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.broadsword_5").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.broadsword_1").formatted(Formatting.GREEN));
         }
        if (stack.getItem() == ItemRegistry.getItem("sword_frost_slayer")) {
            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_slayer_1").formatted(Formatting.ITALIC));
            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_slayer_2").formatted(Formatting.ITALIC));
            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_slayer_3").formatted(Formatting.ITALIC));
            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_slayer_4").formatted(Formatting.ITALIC));
-           tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-           tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.freezing").formatted(Formatting.GREEN));
        }
         if (stack.getItem() == ItemRegistry.getItem("sword_great_axeblade")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_axeblade_1").formatted(Formatting.ITALIC));
@@ -48,17 +44,13 @@ public class McdwSword extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_axeblade_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_axeblade_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_axeblade_5").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_axeblade_6").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.great_axeblade_1").formatted(Formatting.GREEN).formatted(Formatting.OBFUSCATED));
         }
-        if (stack.getItem() == ItemRegistry.getItem("sword_hearstealer")){
+        if (stack.getItem() == ItemRegistry.getItem("sword_heartstealer")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heartstealer_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heartstealer_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heartstealer_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heartstealer_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heartstealer_5").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heartstealer_6").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.heartstealer_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("sword_cutlass")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cutlass_1").formatted(Formatting.ITALIC));
@@ -68,14 +60,10 @@ public class McdwSword extends SwordItem {
         if (stack.getItem() == ItemRegistry.getItem("sword_dancers_sword")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dancers_sword_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dancers_sword_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dancers_sword_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.dancers_sword_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("sword_nameless_blade")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nameless_blade_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nameless_blade_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nameless_blade_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.nameless_blade_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("sword_katana")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.katana_1").formatted(Formatting.ITALIC));
@@ -86,14 +74,10 @@ public class McdwSword extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.masters_katana_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.masters_katana_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.masters_katana_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.masters_katana_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.masters_katana_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("sword_dark_katana")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dark_katana_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dark_katana_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dark_katana_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.dark_katana_1").formatted(Formatting.GREEN));
 
         }
         if (stack.getItem() == ItemRegistry.getItem("sword_rapier")) {
@@ -105,15 +89,12 @@ public class McdwSword extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.beestinger_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.beestinger_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.beestinger_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.beestinger_5").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.beestinger_1").formatted(Formatting.GREEN));
+            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.beestinger_1").formatted(Formatting.GRAY));
         }
         if (stack.getItem() == ItemRegistry.getItem("sword_freezing_foil")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.freezing_foil_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.freezing_foil_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.freezing_foil_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.freezing_foil_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.freezing_foil_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("sword_diamond_sword_var")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.diamond_sword_1").formatted(Formatting.ITALIC));
@@ -127,8 +108,6 @@ public class McdwSword extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hawkbrand_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hawkbrand_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hawkbrand_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hawkbrand_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.hawkbrand_1").formatted(Formatting.GREEN));
         }
 
     }

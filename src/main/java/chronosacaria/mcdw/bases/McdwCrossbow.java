@@ -153,8 +153,6 @@ public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lightning_harp_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lightning_harp_crossbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lightning_harp_crossbow_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap"));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.ricochet").formatted(Formatting.GREEN));
 
         }
         else if (stack.getItem() == ItemRegistry.getItem("crossbow_rapid_crossbow")) {
@@ -172,8 +170,6 @@ public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
         else if (stack.getItem() == ItemRegistry.getItem("crossbow_slayer_crossbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.slayer_crossbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.slayer_crossbow_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap"));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.ricochet").formatted(Formatting.GREEN));
 
         }
         else if (stack.getItem() == ItemRegistry.getItem("crossbow_the_slicer_crossbow")) {

@@ -29,15 +29,11 @@ public class McdwDoubleAxe extends AxeItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_5").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.cursed_axe_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("axe_whirlwind")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whirlwind_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whirlwind_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whirlwind_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whirlwind_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.whirlwind_1").formatted(Formatting.GREEN));
         }
     }
 }

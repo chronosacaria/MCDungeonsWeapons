@@ -24,14 +24,10 @@ public class McdwHammer extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.flail_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.flail_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.flail_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.flail_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.flail_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("hammer_suns_grace")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.suns_grace_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.suns_grace_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.suns_grace_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.suns_grace_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("hammer_great")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_hammer_1").formatted(Formatting.ITALIC));
@@ -42,15 +38,11 @@ public class McdwHammer extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gravity_hammer_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gravity_hammer_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gravity_hammer_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gravity_hammer_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.gravity_hammer_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("hammer_stormlander")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.stormlander_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.stormlander_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.stormlander_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.stormlander_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.stormlander_1").formatted(Formatting.GREEN));
         }
 
     }

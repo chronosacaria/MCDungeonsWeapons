@@ -116,15 +116,11 @@ public class McdwStaff extends AxeItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.battlestaff_of_terror_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.battlestaff_of_terror_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.battlestaff_of_terror_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.battlestaff_of_terror_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.battlestaff_of_terror_1").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("staff_growing_staff")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.growing_staff_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.growing_staff_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.growing_staff_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.growing_staff_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.growing_staff_1").formatted(Formatting.GREEN));
         }
     }
 }

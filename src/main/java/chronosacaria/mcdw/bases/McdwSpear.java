@@ -117,15 +117,11 @@ public class McdwSpear extends AxeItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.fortune_spear_1").formatted(Formatting.GREEN));
         }
         else if (stack.getItem() == ItemRegistry.getItem("spear_whispering_spear")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.whispering_spear_1").formatted(Formatting.GREEN));
         }
     }
 }
