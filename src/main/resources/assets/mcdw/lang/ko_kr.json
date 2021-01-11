@@ -138,7 +138,9 @@
 
   "enchantment.mcdw.accelerate": "Accelerate",
   "enchantment.mcdw.anima_conduit": "정신 도관",
+  "enchantment.mcdw.bonus_shot": "Bonus Shot",
   "enchantment.mcdw.chained": "사슬",
+  "enchantment.mcdw.charge": "Charge",
   "enchantment.mcdw.committed": "추가 사격",
   "enchantment.mcdw.critical_hit": "치명타",
   "enchantment.mcdw.echo": "메아리",
@@ -147,10 +149,12 @@
   "enchantment.mcdw.freezing": "빙결",
   "enchantment.mcdw.fuse_shot": "Fuse Shot",
   "enchantment.mcdw.gravity": "중력",
+  "enchantment.mcdw.growing": "Growing",
   "enchantment.mcdw.jungle_poison": "정글의 독",
   "enchantment.mcdw.leeching": "흡혈",
   "enchantment.mcdw.poison_cloud": "독구름",
   "enchantment.mcdw.radiance": "광휘",
+  "enchantment.mcdw.radiance_shot": "Radiance Shot",
   "enchantment.mcdw.rampaging": "광란",
   "enchantment.mcdw.replenish": "보충",
   "enchantment.mcdw.ricochet": "도탄",
@@ -162,9 +166,6 @@
   "enchantment.mcdw.tempo_theft": "템포 훔치기",
   "enchantment.mcdw.thundering": "천둥",
   "enchantment.mcdw.weakening": "약화",
-
-
-
 
   "subtitles.mcdw.echo_sound": "메아리 소리는 날카롭다",
 

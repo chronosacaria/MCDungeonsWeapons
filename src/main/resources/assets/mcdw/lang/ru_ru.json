@@ -134,21 +134,25 @@
 
   "enchantment.mcdw.accelerate": "Accelerate",
   "enchantment.mcdw.anima_conduit": "Проводник Души",
+  "enchantment.mcdw.bonus_shot": "Bonus Shot",
   "enchantment.mcdw.chained": "Цепи",
+  "enchantment.mcdw.charge": "Charge",
   "enchantment.mcdw.committed": "Целеустремлённость",
   "enchantment.mcdw.critical_hit": "Критический Удар",
   "enchantment.mcdw.echo": "Эхо",
   "enchantment.mcdw.enigma_resonator": "Таинственный Резонатор",
   "enchantment.mcdw.exploding": "Взрыв",
   "enchantment.mcdw.freezing": "Паралич",
-  "enchantment.mcdw.fuse_shot": "Fuse Shot",
+  "enchantment.mcdw.fuse_shot": "Замедленный выстрел",
   "enchantment.mcdw.gravity": "Притяжение",
+  "enchantment.mcdw.growing": "Увеличение",
   "enchantment.mcdw.jungle_poison": "Яд Джунглей",
   "enchantment.mcdw.leeching": "Вампиризм",
   "enchantment.mcdw.poison_cloud": "Отравленное Облако",
-  "enchantment.mcdw.radiance": "Лучезарный Выстрел",
+  "enchantment.mcdw.radiance": "Лучезарный",
+  "enchantment.mcdw.radiance_shot": "Лучезарный выстрел",
   "enchantment.mcdw.rampaging": "Буйство",
-  "enchantment.mcdw.replenish": "Replenish",
+  "enchantment.mcdw.replenish": "Пополнять",
   "enchantment.mcdw.ricochet": "Рикошет",
   "enchantment.mcdw.shockwave": "Ударная Волна",
   "enchantment.mcdw.smiting": "Кара",
@@ -668,8 +672,7 @@
   "tooltip_info_item.mcdw.gap": " ",
   "tooltip_note_item.mcdw.dualwield": "Dual Wield",
   "tooltip_note_item.mcdw.longbow": "Longbow",
-  "tooltip_note_item.mcdw.shortbow": "Shortbow",
-  "tooltip_ench_item.mcdw.tempo_theft": "Tempo Theft I",
+  "tooltip_note_item.mcdw.shortbow": "Shortbow"
 
 
 }

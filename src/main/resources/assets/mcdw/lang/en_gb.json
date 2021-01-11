@@ -146,7 +146,9 @@
 
   "enchantment.mcdw.accelerate": "Accelerate",
   "enchantment.mcdw.anima_conduit": "Anima Conduit",
+  "enchantment.mcdw.bonus_shot": "Bonus Shot",
   "enchantment.mcdw.chained": "Chains",
+  "enchantment.mcdw.charge": "Charge",
   "enchantment.mcdw.committed": "Committed",
   "enchantment.mcdw.critical_hit": "Critical Hit",
   "enchantment.mcdw.echo": "Echo",
@@ -155,10 +157,12 @@
   "enchantment.mcdw.freezing": "Freezing",
   "enchantment.mcdw.fuse_shot": "Fuse Shot",
   "enchantment.mcdw.gravity": "Gravity",
+  "enchantment.mcdw.growing": "Growing",
   "enchantment.mcdw.jungle_poison": "Jungle's Poison",
   "enchantment.mcdw.leeching": "Leeching",
   "enchantment.mcdw.poison_cloud": "Poison Cloud",
   "enchantment.mcdw.radiance": "Radiance",
+  "enchantment.mcdw.radiance_shot": "Radiance Shot",
   "enchantment.mcdw.rampaging": "Rampaging",
   "enchantment.mcdw.replenish": "Replenish",
   "enchantment.mcdw.ricochet": "Ricochet",
@@ -170,6 +174,7 @@
   "enchantment.mcdw.tempo_theft": "Tempo Theft",
   "enchantment.mcdw.thundering": "Thundering",
   "enchantment.mcdw.weakening": "Weakening",
+
 
   "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing",
 
@@ -627,7 +632,7 @@
   "tooltip_info_item.mcdw.gap": " ",
   "tooltip_note_item.mcdw.dualwield": "Dual Wield",
   "tooltip_note_item.mcdw.longbow": "Longbow",
-    "tooltip_note_item.mcdw.shortbow": "Shortbow"
+  "tooltip_note_item.mcdw.shortbow": "Shortbow"
 
 
 

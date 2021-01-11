@@ -33,6 +33,8 @@ public class EnchantsRegistry {
     public static Enchantment CHAIN_REACTION;
     public static Enchantment CHARGE;
     public static Enchantment FUSE_SHOT;
+    public static Enchantment GROWING;
+    public static Enchantment RADIANCE_SHOT;
     public static Enchantment REPLENISH;
     public static Enchantment RICOCHET;
     public static Enchantment TEMPO_THEFT;
@@ -91,8 +93,12 @@ public class EnchantsRegistry {
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         FUSE_SHOT = new FuseShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        //REPLENISH = new ReplenishEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                //new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        GROWING = new GrowingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        RADIANCE_SHOT = new RadianceShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        REPLENISH = new ReplenishEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RICOCHET = new RicochetEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         TEMPO_THEFT = new TempoTheftEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,

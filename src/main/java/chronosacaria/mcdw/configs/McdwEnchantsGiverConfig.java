@@ -98,6 +98,14 @@ public class McdwEnchantsGiverConfig {
                 put(new Identifier("mcdw:gravity"), 1);
             }});
 
+            // GROWING ENCHANTMENT
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_bonebow")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:growing"), 1);
+            }});
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_baby_crossbow")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:growing"), 1);
+            }});
+
             // JUNGLE'S POISON ENCHANTMENT
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("whip_vine_whip")), new HashMap<Identifier, Integer>(){{
                         put(new Identifier("mcdw:jungle_poison"), 1);
@@ -124,6 +132,14 @@ public class McdwEnchantsGiverConfig {
             // RADIANCE ENCHANTMENT
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("hammer_suns_grace")), new HashMap<Identifier, Integer>(){{
                 put(new Identifier("mcdw:radiance"), 1);
+            }});
+
+            // RADIANCE SHOT ENCHANTMENT
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_sabrewing")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:radiance_shot"), 1);
+            }});
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_love_spell_bow")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:radiance_shot"), 1);
             }});
 
             // RAMPAGING ENCHANTMENT
