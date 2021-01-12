@@ -8,6 +8,7 @@
     "enchantments.AnimaConduitEnchantmentMixin",
     "enchantments.BonusShotEnchantmentMixin",
     "enchantments.BusyBeeEnchantmentMixin",
+    "enchantments.ChainReactionEnchantmentMixin",
     "enchantments.ChainsEnchantmentMixin",
     "enchantments.ChargeEnchantmentMixin",
     "enchantments.CommittedEnchantmentsMixin",

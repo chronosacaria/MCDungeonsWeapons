@@ -144,7 +144,7 @@ public class ProjectileEffectHelper {
                     fireChainReactionProjectileFromVictim(world, attacker,  victim, currentProjectile, v, v1, -45.0F, originalArrow);
                 } else if (i == 2) {
                     fireChainReactionProjectileFromVictim(world, attacker,  victim, currentProjectile, v, v1, 135.0F, originalArrow);
-                } else if (i == 3) {
+                } else {
                     fireChainReactionProjectileFromVictim(world, attacker,  victim, currentProjectile, v, v1, -135.0F, originalArrow);
                 }
             }
@@ -177,9 +177,7 @@ public class ProjectileEffectHelper {
             float soulsCriticalBoostChanceCap;
             soulsCriticalBoostChanceCap = 0.1F + 0.05F * enigmaResonatorLevel;
             float soulsCriticalBoostRand = attacker.getRandom().nextFloat();
-            if(soulsCriticalBoostRand <= Math.min(numSouls/50.0, soulsCriticalBoostChanceCap)){
-                return true;
-            }
+            return soulsCriticalBoostRand <= Math.min(numSouls / 50.0, soulsCriticalBoostChanceCap);
         }
         //if(uniqueWeaponFlag){
         //    float soulsCriticalBoostRand = attacker.getRandom().nextFloat();

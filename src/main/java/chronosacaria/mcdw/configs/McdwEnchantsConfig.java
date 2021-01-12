@@ -24,7 +24,9 @@ public class McdwEnchantsConfig {
         SETTINGS.put("extra_xp_healing", false);
         SETTINGS.put("mixin_anima", true);
         SETTINGS.put("mixin_bee", true);
+        SETTINGS.put("mixin_chain_reaction", true);
         SETTINGS.put("mixin_chains", true);
+        SETTINGS.put("mixin_charge", true);
         SETTINGS.put("mixin_committed", true);
         SETTINGS.put("mixin_critical", true);
         SETTINGS.put("mixin_echo", true);
@@ -34,15 +36,16 @@ public class McdwEnchantsConfig {
         SETTINGS.put("mixin_freezing", true);
         SETTINGS.put("mixin_fuse_shot", true);
         SETTINGS.put("mixin_gravity", true);
+        SETTINGS.put("mixin_growing", true);
         SETTINGS.put("mixin_jungle_poison", true);
         SETTINGS.put("mixin_leeching", true);
         SETTINGS.put("mixin_custom_looting", true);
         SETTINGS.put("mixin_poison", true);
         SETTINGS.put("mixin_radiance", true);
+        SETTINGS.put("mixin_radiance_shot", true);
         SETTINGS.put("mixin_rampaging", true);
         SETTINGS.put("mixin_replenish", true);
         SETTINGS.put("mixin_ricochet", true);
-        SETTINGS.put("mixin_charge", true);
         SETTINGS.put("mixin_shockwave", true);
         SETTINGS.put("mixin_smiting", true);
         SETTINGS.put("mixin_siphon", true);

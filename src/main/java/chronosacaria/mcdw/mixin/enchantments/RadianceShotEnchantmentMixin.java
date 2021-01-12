@@ -2,6 +2,7 @@ package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.api.util.AOECloudHelper;
 import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
+import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.lists.RangedEnchantmentList;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -34,15 +35,16 @@ public abstract class RadianceShotEnchantmentMixin extends Entity {
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
         }
-        if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE_SHOT, mainHandStack) >= 1)) {
-            int level = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE_SHOT, mainHandStack);
-            float radianceShotRand = shooter.getRandom().nextFloat();
-            if (radianceShotRand <= 0.2F){
-                if (target instanceof LivingEntity){
-                    AOECloudHelper.spawnRegenCloudAtPos(shooter, true, target.getBlockPos(), level - 1);
+        if (McdwEnchantsConfig.getValue("mixin_radiance_shot")) {
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE_SHOT, mainHandStack) >= 1)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE_SHOT, mainHandStack);
+                float radianceShotRand = shooter.getRandom().nextFloat();
+                if (radianceShotRand <= 0.2F) {
+                    if (target instanceof LivingEntity) {
+                        AOECloudHelper.spawnRegenCloudAtPos(shooter, true, target.getBlockPos(), level - 1);
+                    }
                 }
             }
         }
-
     }
 }
