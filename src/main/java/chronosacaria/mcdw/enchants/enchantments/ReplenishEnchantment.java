@@ -4,7 +4,6 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ReplenishEnchantment extends RangedEnchantment {

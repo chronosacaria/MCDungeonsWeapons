@@ -7,7 +7,6 @@ import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class RadianceEnchantment extends Enchantment {

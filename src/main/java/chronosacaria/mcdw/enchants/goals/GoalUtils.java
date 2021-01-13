@@ -54,7 +54,7 @@ public class GoalUtils {
                 }
             }*/
 
-            if (target instanceof PlayerEntity && owner instanceof PlayerEntity && !((PlayerEntity)owner).tryAttack((PlayerEntity)target)){
+            if (target instanceof PlayerEntity && owner instanceof PlayerEntity && !owner.tryAttack(target)){
                 return false;
             } else if (target instanceof  HorseBaseEntity && ((HorseBaseEntity)target).isTame()){
                 return false;

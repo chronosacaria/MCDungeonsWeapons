@@ -14,7 +14,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import chronosacaria.mcdw.Mcdw;
