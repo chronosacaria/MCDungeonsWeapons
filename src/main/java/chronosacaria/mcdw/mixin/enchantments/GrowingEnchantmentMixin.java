@@ -19,14 +19,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PersistentProjectileEntity.class)
 public abstract class GrowingEnchantmentMixin extends Entity {
-    ArrowEntity arrowEntity = (ArrowEntity) (Object) this;
-
     public GrowingEnchantmentMixin(EntityType<?> type, World world) {
         super(type, world);
     }
 
     @Inject(method = "onEntityHit", at = @At("TAIL"))
     private void onEntityHit(EntityHitResult entityHitResult, CallbackInfo ci){
+        if (!(entityHitResult.getEntity() instanceof LivingEntity)) {
+            return;
+        }
+        ArrowEntity arrowEntity = (ArrowEntity) (Object) this;
         Entity target = entityHitResult.getEntity();
         LivingEntity shooter = (LivingEntity) arrowEntity.getOwner();
         ItemStack mainHandStack = null;
