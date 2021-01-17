@@ -24,13 +24,13 @@ public abstract class GrowingEnchantmentMixin extends Entity {
     }
 
     @Inject(method = "onEntityHit", at = @At("TAIL"))
-    private void onEntityHit(EntityHitResult entityHitResult, CallbackInfo ci){
+    private void onGrowingEnchantmentEntityHit(EntityHitResult entityHitResult, CallbackInfo ci){
         if (!(entityHitResult.getEntity() instanceof LivingEntity)) {
             return;
         }
-        ArrowEntity arrowEntity = (ArrowEntity) (Object) this;
+        PersistentProjectileEntity persistentProjectileEntity = (PersistentProjectileEntity) (Object) this;
         Entity target = entityHitResult.getEntity();
-        LivingEntity shooter = (LivingEntity) arrowEntity.getOwner();
+        LivingEntity shooter = (LivingEntity) persistentProjectileEntity.getOwner();
         ItemStack mainHandStack = null;
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
@@ -38,7 +38,7 @@ public abstract class GrowingEnchantmentMixin extends Entity {
         if (McdwEnchantsConfig.getValue("mixin_growing")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, mainHandStack);
-                double originalDamage = arrowEntity.getDamage();
+                double originalDamage = persistentProjectileEntity.getDamage();
                 double damageModifier = 0;
                 if (level == 1) damageModifier = 1.25D;
                 if (level == 2) damageModifier = 1.5D;
@@ -46,7 +46,7 @@ public abstract class GrowingEnchantmentMixin extends Entity {
                 double squareDistanceTo = shooter.distanceTo(target);
                 double distance = Math.sqrt(squareDistanceTo);
                 double distanceTraveledModifier = distance * 0.1;
-                arrowEntity.setDamage(originalDamage * Math.min(distanceTraveledModifier, damageModifier));
+                persistentProjectileEntity.setDamage(originalDamage * Math.min(distanceTraveledModifier, damageModifier));
             }
         }
     }

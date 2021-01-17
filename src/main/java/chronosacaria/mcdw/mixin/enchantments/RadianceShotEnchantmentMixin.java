@@ -27,13 +27,13 @@ public abstract class RadianceShotEnchantmentMixin extends Entity {
     }
 
     @Inject(method = "onEntityHit", at = @At("TAIL"))
-    private void onBlockHit(EntityHitResult entityHitResult, CallbackInfo ci){
+    private void onRadianceShotEnchantmentBlockHit(EntityHitResult entityHitResult, CallbackInfo ci){
         if (!(entityHitResult.getEntity() instanceof LivingEntity)) {
             return;
         }
-        ArrowEntity arrowEntity = (ArrowEntity) (Object) this;
+        PersistentProjectileEntity persistentProjectileEntity = (PersistentProjectileEntity) (Object) this;
         Entity target = entityHitResult.getEntity();
-        LivingEntity shooter = (LivingEntity) arrowEntity.getOwner();
+        LivingEntity shooter = (LivingEntity) persistentProjectileEntity.getOwner();
         ItemStack mainHandStack = null;
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
