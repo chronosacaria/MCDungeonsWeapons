@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " D#",
+        "R/D",
+        "rR "
+    ],
+    "key": {
+        "r": {
+            "item": "minecraft:snowball"
+        },
+        "R": {
+            "item": "minecraft:packed_ice"
+        },
+        "#": {
+            "item": "minecraft:iron_block"
+        },
+        "/": {
+            "item": "mcdw:sword_claymore"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "mcdw:sword_frost_slayer",
+        "count": 1
+    }
+}

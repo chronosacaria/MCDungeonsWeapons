@@ -18,6 +18,7 @@ public class EnchantsRegistry {
     public static Enchantment JUNGLE_POISON;
     public static Enchantment LEECHING;
     public static Enchantment POISON_CLOUD;
+    public static Enchantment PROSPECTOR;
     public static Enchantment RADIANCE;
     public static Enchantment RAMPAGING;
     public static Enchantment SHOCKWAVE;
@@ -63,6 +64,8 @@ public class EnchantsRegistry {
         LEECHING = new LeechingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         POISON_CLOUD = new PoisonCloudEnchantment(Enchantment.Rarity.COMMON, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        PROSPECTOR = new ProspectorEnchantment(Enchantment.Rarity.COMMON, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RADIANCE = new RadianceEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

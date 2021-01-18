@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " B ",
+        "YPY",
+        " B "
+    ],
+    "key": {
+        "P": {
+            "item": "mcdw:pick_mountaineer_pick"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "Y": {
+            "item": "minecraft:yellow_dye"
+        },
+        "B": {
+            "item": "minecraft:black_dye"
+        }
+    },
+    "result": {
+        "item": "mcdw:pick_howling_pick",
+        "count": 1
+    }
+}

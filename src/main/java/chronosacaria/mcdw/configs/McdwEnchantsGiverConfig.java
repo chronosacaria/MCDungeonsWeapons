@@ -51,12 +51,14 @@ public class McdwEnchantsGiverConfig {
                     }});
 
             // ENIGMA RESONATOR ENCHANTMENT
+            /*
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_moon")), new HashMap<Identifier, Integer>(){{
                         put(new Identifier("mcdw:enigma_resonator"), 1);
                     }});
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("gauntlet_soul_fists")), new HashMap<Identifier, Integer>(){{
                         put(new Identifier("mcdw:enigma_resonator"), 1);
                     }});
+            */
 
             // EXPLODING ENCHANTMENT
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("axe_cursed")), new HashMap<Identifier, Integer>(){{
@@ -92,6 +94,9 @@ public class McdwEnchantsGiverConfig {
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_exploding_crossbow")), new HashMap<Identifier, Integer>(){{
                 put(new Identifier("mcdw:fuse_shot"), 1);
             }});
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_red_snake")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:fuse_shot"), 1);
+            }});
 
             // GRAVITY ENCHANTMENT
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("hammer_gravity")), new HashMap<Identifier, Integer>(){{
@@ -121,12 +126,43 @@ public class McdwEnchantsGiverConfig {
                 put(new Identifier("minecraft:looting"), 1);
             }});
 
+            // MULTISHOT ENCHANTMENT
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_lost_souls")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("minecraft:multishot"), 1);
+            }});
+
+            // PIERCING ENCHANTMENT
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_the_slicer")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("minecraft:piercing"), 1);
+            }});
+
             // POISON CLOUD ENCHANTMENT
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sickle_nightmares_bite")), new HashMap<Identifier, Integer>(){{
                 put(new Identifier("mcdw:poison_cloud"), 1);
             }});
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("spear_venom_glaive")), new HashMap<Identifier, Integer>(){{
                 put(new Identifier("mcdw:poison_cloud"), 1);
+            }});
+
+            // POWER ENCHANTMENT
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_masters_bow")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("minecraft:power"), 1);
+            }});
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_elite_power_bow")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("minecraft:power"), 1);
+            }});
+
+            // PROSPECTOR ENCHANTMENT
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sickle_last_laugh_gold")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:prospector"), 1);
+            }});
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sickle_last_laugh_silver")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:prospector"), 1);
+            }});
+
+            // PUNCH ENCHANTMENT
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_doom_crossbow")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("minecraft:punch"), 1);
             }});
 
             // RADIANCE ENCHANTMENT

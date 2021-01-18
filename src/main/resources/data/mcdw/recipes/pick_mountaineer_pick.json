@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "DD ",
+        " /D",
+        " / "
+    ],
+    "key": {
+        "D": {
+            "item": "minecraft:iron_ingot"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mcdw:pick_mountaineer_pick",
+        "count": 1
+    }
+}
