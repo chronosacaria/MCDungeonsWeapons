@@ -23,6 +23,7 @@
     "enchantments.JunglesPoisonEnchantmentMixin",
     "enchantments.LeechingEnchantmentMixin",
     "enchantments.PoisonCloudEnchantmentMixin",
+    "enchantments.ProspectorEnchantmentMixin",
     "enchantments.RadianceEnchantmentMixin",
     "enchantments.RadianceShotEnchantmentMixin",
     "enchantments.RampagingEnchantmentMixin",
