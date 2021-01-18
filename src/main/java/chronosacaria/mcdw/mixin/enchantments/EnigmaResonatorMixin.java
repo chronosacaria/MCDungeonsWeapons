@@ -1,3 +1,4 @@
+/*
 package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
@@ -68,3 +69,4 @@ public abstract class EnigmaResonatorMixin {
         }
     }
 }
+*/
