@@ -9,6 +9,7 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.Monster;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
@@ -24,6 +25,7 @@ public class ProspectorEnchantmentMixin {
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
     private void onProspectorEnchantmentKill(DamageSource source, CallbackInfo ci) {
+        if(!(source.getAttacker() instanceof PlayerEntity)) return;
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;

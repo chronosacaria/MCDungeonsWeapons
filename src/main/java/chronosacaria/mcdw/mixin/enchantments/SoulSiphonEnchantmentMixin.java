@@ -24,6 +24,7 @@ public class SoulSiphonEnchantmentMixin {
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
     private void onSoulSiphonEnchantmentKill(DamageSource source, CallbackInfo ci) {
+        if(!(source.getAttacker() instanceof PlayerEntity)) return;
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;

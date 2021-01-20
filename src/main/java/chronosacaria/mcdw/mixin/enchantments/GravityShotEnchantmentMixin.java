@@ -1,15 +1,13 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.api.util.AOECloudHelper;
-import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
+import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.enchants.lists.RangedEnchantmentList;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.EntityHitResult;
@@ -20,14 +18,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PersistentProjectileEntity.class)
-public abstract class RadianceShotEnchantmentMixin extends Entity {
+public abstract class GravityShotEnchantmentMixin extends Entity {
 
-    public RadianceShotEnchantmentMixin(EntityType<?> type, World world) {
+    public GravityShotEnchantmentMixin(EntityType<?> type, World world) {
         super(type, world);
     }
 
     @Inject(method = "onEntityHit", at = @At("TAIL"))
-    private void onRadianceShotEnchantmentEntityHit(EntityHitResult entityHitResult, CallbackInfo ci){
+    private void onGravityShotEnchantmentEntityHit(EntityHitResult entityHitResult, CallbackInfo ci){
         if (!(entityHitResult.getEntity() instanceof LivingEntity)) {
             return;
         }
@@ -38,13 +36,16 @@ public abstract class RadianceShotEnchantmentMixin extends Entity {
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("mixin_radiance_shot")) {
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE_SHOT, mainHandStack) >= 1)) {
-                int level = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE_SHOT, mainHandStack);
-                float radianceShotRand = shooter.getRandom().nextFloat();
-                if (radianceShotRand <= 0.2F) {
+        if (McdwEnchantsConfig.getValue("mixin_gravity")) {
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, mainHandStack) >= 1)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, mainHandStack);
+                float gravityShotRand = shooter.getRandom().nextFloat();
+                if (gravityShotRand <= 0.2F) {
                     if (target instanceof LivingEntity) {
-                        AOECloudHelper.spawnRegenCloudAtPos(shooter, true, target.getBlockPos(), level - 1);
+                        AOEHelper.pullInNearbyEntities(
+                                shooter,
+                                target,
+                                (level + 1) * 3);
                     }
                 }
             }

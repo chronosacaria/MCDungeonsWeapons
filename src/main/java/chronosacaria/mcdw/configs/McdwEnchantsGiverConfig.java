@@ -102,6 +102,12 @@ public class McdwEnchantsGiverConfig {
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("hammer_gravity")), new HashMap<Identifier, Integer>(){{
                 put(new Identifier("mcdw:gravity"), 1);
             }});
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_imploding_crossbow")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:gravity"), 1);
+            }});
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_voidcaller_crossbow")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:gravity"), 1);
+            }});
 
             // GROWING ENCHANTMENT
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_bonebow")), new HashMap<Identifier, Integer>(){{
@@ -141,6 +147,9 @@ public class McdwEnchantsGiverConfig {
                 put(new Identifier("mcdw:poison_cloud"), 1);
             }});
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("spear_venom_glaive")), new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:poison_cloud"), 1);
+            }});
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_green_menace")), new HashMap<Identifier, Integer>(){{
                 put(new Identifier("mcdw:poison_cloud"), 1);
             }});
 

@@ -8,6 +8,7 @@ import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -22,6 +23,8 @@ public class ExplodingEnchantmentMixin {
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
     private void onExplodingEnchantmentKill(DamageSource source, CallbackInfo ci) {
+        if(!(source.getAttacker() instanceof PlayerEntity)) return;
+
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;
