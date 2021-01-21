@@ -29,30 +29,30 @@ public class GoalUtils {
                     return false;
                 }
             }
-            /*if (target instanceof IronGolemEntity){
-                IronGolemEntity ironGolemEntity = (IronGolemEntity)target;
-                if (ironGolemEntity.isPlayerCreated() && getOwner(ironGolemEntity) == owner) {
-                    return false;
-                }
-            }*/
+            //if (target instanceof IronGolemEntity){
+            //    IronGolemEntity ironGolemEntity = (IronGolemEntity)target;
+            //    if (ironGolemEntity.isPlayerCreated() && getOwner(ironGolemEntity) == owner) {
+            //        return false;
+            //    }
+            //}
             if (target instanceof LlamaEntity) {
                 LlamaEntity llamaEntity = (LlamaEntity)target;
                 if (llamaEntity.isTame() && getOwner(llamaEntity) == owner) {
                     return false;
                 }
             }
-            /*if (target instanceof BatEntity) {
-                BatEntity llamaEntity = (BatEntity)target;
-                if (getOwner(llamaEntity) == owner) {
-                    return false;
-                }
-            }*/
-            /*if (target instanceof BeeEntity) {
-                BeeEntity llamaEntity = (BeeEntity)target;
-                if (getOwner(llamaEntity) == owner) {
-                    return false;
-                }
-            }*/
+            //if (target instanceof BatEntity) {
+            //    BatEntity batEntity = (BatEntity)target;
+            //    if (getOwner(batEntity) == owner) {
+            //        return false;
+            //    }
+            //}
+            //if (target instanceof BeeEntity) {
+            //    BeeEntity beeEntity = (BeeEntity)target;
+            //    if (getOwner(beeEntity) == owner) {
+            //        return false;
+            //    }
+            //}
 
             if (target instanceof PlayerEntity && owner instanceof PlayerEntity && !owner.tryAttack(target)){
                 return false;

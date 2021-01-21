@@ -1,24 +1,13 @@
 package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
-import chronosacaria.mcdw.enchants.lists.RangedEnchantmentList;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.ProjectileDamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.HorseBaseEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.passive.VillagerEntity;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stat;
-import net.minecraft.world.World;
 
 public class AbilityHelper {
 
@@ -62,22 +51,22 @@ public class AbilityHelper {
             HorseBaseEntity horseBaseEntity = (HorseBaseEntity) possiblePet;
             return GoalUtils.getOwner(horseBaseEntity) == possibleOwner;
         }
-        /*if(possiblePet instanceof IronGolemEntity){
-            IronGolemEntity ironGolem = (IronGolemEntity) possiblePet;
-            return GoalUtils.getOwner(ironGolem) == possibleOwner;
-        }
-        if(possiblePet instanceof BatEntity){
-            BatEntity batEntity = (BatEntity) possiblePet;
-            return GoalUtils.getOwner(batEntity) == possibleOwner;
-        }
-        if(possiblePet instanceof BeeEntity){
-            BeeEntity beeEntity = (BeeEntity) possiblePet;
-            return GoalUtils.getOwner(beeEntity) == possibleOwner;
-        }
-        if(possiblePet instanceof SheepEntity){
-            SheepEntity sheepEntity = (SheepEntity) possiblePet;
-            return GoalUtils.getOwner(sheepEntity) == possibleOwner;
-        }*/
+        //if(possiblePet instanceof IronGolemEntity){
+        //    IronGolemEntity ironGolem = (IronGolemEntity) possiblePet;
+        //    return GoalUtils.getOwner(ironGolem) == possibleOwner;
+        //}
+        //if(possiblePet instanceof BatEntity){
+        //    BatEntity batEntity = (BatEntity) possiblePet;
+        //    return GoalUtils.getOwner(batEntity) == possibleOwner;
+        //}
+        //if(possiblePet instanceof BeeEntity){
+        //    BeeEntity beeEntity = (BeeEntity) possiblePet;
+        //    return GoalUtils.getOwner(beeEntity) == possibleOwner;
+        //}
+        //if(possiblePet instanceof SheepEntity){
+        //    SheepEntity sheepEntity = (SheepEntity) possiblePet;
+        //    return GoalUtils.getOwner(sheepEntity) == possibleOwner;
+        //}
 
         return false;
     }
@@ -130,6 +119,11 @@ public class AbilityHelper {
                 && !isAlly(attacker, nearbyEntity)
                 && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
     }
+
+    // Have to figure out how to access targetSelector or figure out a different way to do this...
+    //public static void sendIntoWildRage(MobEntity mobEntity){
+    //    mobEntity.targetSelector.add(0, new WildRageAttackGoal(mobEntity));
+    //}
 
 
 
