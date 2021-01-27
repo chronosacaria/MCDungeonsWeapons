@@ -1,4 +1,4 @@
-/*
+
 package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
@@ -49,10 +49,13 @@ public abstract class EnigmaResonatorMixin {
                         float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                         float extraDamageMultiplier = attackDamage == attackDamage ? 1.5F : 3.0F;
                         float getExtraDamage = (attackDamage * (extraDamageMultiplier));
+                        float h = target.getHealth();
 
                         float chance = user.getRandom().nextFloat();
                         if (chance <= Math.min((numSouls / 50.0), soulsCriticalBoostChanceCap)) {
-                            target.damage(DamageSource.mob( user), getExtraDamage);
+                            target.setHealth(h - (amount * extraDamageMultiplier));
+
+                            //target.damage(DamageSource.mob( user), getExtraDamage);
                             target.world.playSound(
                                     null,
                                     target.getX(),
@@ -69,4 +72,3 @@ public abstract class EnigmaResonatorMixin {
         }
     }
 }
-*/

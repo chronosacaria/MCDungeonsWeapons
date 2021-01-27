@@ -51,8 +51,7 @@ public class CommittedEnchantmentsMixin {
                         float chance = user.getRandom().nextFloat();
                         if (chance <= 0.2) {
                             if ((Math.abs(getTargetHealth)) < (Math.abs(getTargetMaxHealth))) {
-                                target.damage(DamageSource.mob( user),
-                                        getExtraDamage);
+                                target.setHealth(getTargetHealth - (amount * getExtraDamage));
                                 target.world.playSound(
                                         null,
                                         target.getX(),

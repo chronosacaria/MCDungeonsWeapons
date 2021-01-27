@@ -57,14 +57,12 @@ public class McdwEnchantsGiverConfig {
                     }});
 
             // ENIGMA RESONATOR ENCHANTMENT
-            /*
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_moon")), new HashMap<Identifier, Integer>(){{
                         put(new Identifier("mcdw:enigma_resonator"), 1);
                     }});
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("gauntlet_soul_fists")), new HashMap<Identifier, Integer>(){{
                         put(new Identifier("mcdw:enigma_resonator"), 1);
                     }});
-            */
 
             // EXPLODING ENCHANTMENT
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("axe_cursed")), new HashMap<Identifier, Integer>(){{

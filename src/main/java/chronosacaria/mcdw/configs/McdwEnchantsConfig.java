@@ -30,7 +30,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("mixin_committed", true);
         SETTINGS.put("mixin_critical", true);
         SETTINGS.put("mixin_echo", true);
-        SETTINGS.put("mixin_enigma", false);
+        SETTINGS.put("mixin_enigma", true);
         SETTINGS.put("mixin_exploding", true);
         SETTINGS.put("mixin_custom_fire_aspect", true);
         SETTINGS.put("mixin_freezing", true);

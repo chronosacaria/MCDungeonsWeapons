@@ -44,10 +44,10 @@ public class CriticalHitEnchantmentMixin {
                         float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                         float extraDamageMultiplier = 1.5F;
                         float getExtraDamage = (attackDamage * (extraDamageMultiplier));
+                        float h = target.getHealth();
 
                         if (criticalHitRand <= criticalHitChance) {
-                            target.damage(DamageSource.mob( user),
-                                    getExtraDamage);
+                            target.setHealth(h - (amount * extraDamageMultiplier));
                             target.world.playSound(
                                     null,
                                     target.getX(),
