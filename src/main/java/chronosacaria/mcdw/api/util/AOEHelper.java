@@ -90,7 +90,7 @@ public class AOEHelper {
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
 
         if (nearbyEntities.isEmpty()) return;
-        StatusEffectInstance chained = new StatusEffectInstance(StatusEffects.SLOWNESS, 20 * timeMultiplier, 5);
+        StatusEffectInstance chained = new StatusEffectInstance(StatusEffects.SLOWNESS, 100 * timeMultiplier, 100);
         target.addStatusEffect(chained);
         for (LivingEntity nearbyEntity : nearbyEntities) {
             double motionX = target.getX() - (nearbyEntity.getX());

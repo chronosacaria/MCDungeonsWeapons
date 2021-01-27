@@ -45,11 +45,11 @@ public abstract class ChainsEnchantmentMixin {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack);
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.2) {
+                        if (chance <= 0.2f) {
                             AOEHelper.chainNearbyEntities(
                                     user,
                                     target,
-                                    1.5F,
+                                    1.5F * level,
                                     level);
                         }
                     }

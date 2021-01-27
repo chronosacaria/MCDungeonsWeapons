@@ -21,6 +21,12 @@ public class McdwEnchantsGiverConfig {
                 put(new Identifier("mcdw:chained"), 1);
             }});
 
+            // CHAIN REACTION ENCHANTMENT
+            put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_firebolt_thrower")),
+                    new HashMap<Identifier, Integer>(){{
+                put(new Identifier("mcdw:chain_reaction"), 1);
+            }});
+
             // CHARGE ENCHANTMENT
             put(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_burst_gale_bow")), new HashMap<Identifier, Integer>(){{
                 put(new Identifier("mcdw:charge"), 1);
