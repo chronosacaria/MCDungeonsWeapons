@@ -1,6 +1,7 @@
 {
   "itemGroup.mcdw.weapons":       "Armas de MC Dungeons (a Corpo)",
   "itemGroup.mcdw.weapons/bows":  "Armas de MC Dungeons (de Alcance)",
+  "itemGroup.mcdw.weapons/shields": "Armas de MC Dungeons (Escudos)",
   "itemGroup.mcdw.enchants":      "Armas de MC Dungeons (Encantamentos)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Alcance",
@@ -125,6 +126,9 @@
   "item.mcdw.gauntlet_gauntlet": "Gauntlet",
   "item.mcdw.gauntlet_maulers": "Mauler",
   "item.mcdw.gauntlet_soul_fists": "Soul Fist",
+
+  "item.mcdw.shield_royal_guard": "Royal Guard Shield",
+  "item.mcdw.shield_vanguard": "Vanguard Shield",
 
   "item.mcdw.item_bee_stinger": "Bee Stinger",
   "item.mcdw.item_bee_stinger.tooltip": "The business end of the bee.",

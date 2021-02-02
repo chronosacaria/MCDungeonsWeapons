@@ -6,10 +6,12 @@ import chronosacaria.mcdw.bases.McdwCrossbow;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRenderRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
+import me.crimsondawn45.fabricshieldlib.lib.object.FabricShield;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.Enchantment;
@@ -88,5 +90,7 @@ public class McdwClient implements ClientModInitializer {
                         Items.FIREWORK_ROCKET) ? 1.0F : 0.0F;
             }
         });
+
+
     }
 }

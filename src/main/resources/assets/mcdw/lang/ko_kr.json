@@ -1,6 +1,7 @@
 {
   "itemGroup.mcdw.weapons": "마크 던전스 무기 (근접)",
   "itemGroup.mcdw.weapons/bows": "마크 던전스 무기 (원거리)",
+  "itemGroup.mcdw.weapons/shields": "마크 던전스 무기 (방패)",
   "itemGroup.mcdw.enchants": "마크 던전스 무기 (마법 부여)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "범위",
@@ -139,6 +140,9 @@
   "item.mcdw.gauntlet_gauntlet": "건틀릿",
   "item.mcdw.gauntlet_maulers": "주먹",
   "item.mcdw.gauntlet_soul_fists": "영혼의 주먹",
+
+  "item.mcdw.shield_royal_guard": "로얄 가드 방패",
+  "item.mcdw.shield_vanguard": "선봉대 방패",
 
   "item.mcdw.item_bee_stinger": "꿀벌 침",
   "item.mcdw.item_bee_stinger.tooltip": "꿀벌의 끝부분입니다.",

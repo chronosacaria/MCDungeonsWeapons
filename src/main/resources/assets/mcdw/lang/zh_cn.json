@@ -1,7 +1,9 @@
 {
   "itemGroup.mcdw.weapons": "MC Dungeons的武器 (近戰)",
   "itemGroup.mcdw.weapons/bows": "MC Dungeons的武器 (距离戰)",
+  "itemGroup.mcdw.weapons/shields": "MC Dungeons的武器 (盾)",
   "itemGroup.mcdw.enchants": "MC Dungeons的武器 (魔咒)",
+
 
   "attribute.name.generic.reach-entity-attributes.reach": "范围",
   "attribute.name.generic.reach-entity-attributes.attack_range": "击范围",
@@ -130,6 +132,9 @@
   "item.mcdw.gauntlet_gauntlet": "护手",
   "item.mcdw.gauntlet_maulers": "撕裂者",
   "item.mcdw.gauntlet_soul_fists": "灵魂拳套",
+
+  "item.mcdw.shield_royal_guard": "皇家卫队盾",
+  "item.mcdw.shield_vanguard": "先锋盾",
 
 
   "enchantment.mcdw.accelerate": "加速",

@@ -29,6 +29,9 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        url 'https://jitpack.io'
+    }
     repositories {
         jcenter()
     }
@@ -48,11 +51,16 @@ dependencies {
     include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
 
     // EnchantGiver
-    //modImplementation "curse.maven:enchanthelper-434579:3164342"
-    //include "curse.maven:enchanthelper-434579:3164342"
+    //modImplementation "curse.maven:enchanthelper-434579:3190202"
+    //include "curse.maven:enchanthelper-434579:3190202"
 
     modImplementation "wraith.enchantgiver:wraith-enchant_giver:${project.enchantgiver_version}"
     include "wraith.enchantgiver:wraith-enchant_giver:${project.enchantgiver_version}"
+
+    // FabricShieldLib
+    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:${project.fabric_shield_lib_version}-${project.minecraft_version}"
+    include "com.github.CrimsonDawn45:Fabric-Shield-Lib:${project.fabric_shield_lib_version}-${project.minecraft_version}"
+
 }
 
 processResources {
