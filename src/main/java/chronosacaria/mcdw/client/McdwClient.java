@@ -3,6 +3,7 @@ package chronosacaria.mcdw.client;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwCrossbow;
+import chronosacaria.mcdw.bases.McdwShield;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRenderRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
@@ -42,6 +43,10 @@ public class McdwClient implements ClientModInitializer {
 
         for (String itemID : ItemRegistry.CROSSBOWS) {
             registerCrossbowPredicates((McdwCrossbow) ItemRegistry.getItem(itemID));
+        }
+
+        for (String itemID : ItemRegistry.SHIELDS){
+            registerShieldPredicates((McdwShield) ItemRegistry.getItem(itemID));
         }
     }
     public static void registerBowPredicates(McdwBow bow) {
@@ -90,7 +95,10 @@ public class McdwClient implements ClientModInitializer {
                         Items.FIREWORK_ROCKET) ? 1.0F : 0.0F;
             }
         });
+    }
 
-
+    public static void registerShieldPredicates(McdwShield shield){
+        FabricModelPredicateProviderRegistry.register(shield, new Identifier("blocking"), (itemStack, clientWorld,
+                livingEntity) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F );
     }
 }

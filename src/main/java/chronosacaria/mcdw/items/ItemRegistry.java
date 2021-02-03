@@ -6,6 +6,7 @@ import chronosacaria.mcdw.configs.McdwStatsConfig;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
@@ -242,8 +243,8 @@ public class ItemRegistry {
         }
         //SHIELDS
         for (String itemID : SHIELDS) {
-            ITEMS.put(itemID, new McdwShield(new Item.Settings().group(Mcdw.SHIELDS).maxCount(1), 100, 377,
-                    Items.NETHER_BRICK));
+            ITEMS.put(itemID, new McdwShield(McdwStatsConfig.getMaterial(itemID),
+                    new Item.Settings().group(Mcdw.SHIELDS).maxCount(1).maxDamage(336)));
         }
 
     }

@@ -1,7 +1,6 @@
 {
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "mcdw:item/shields/shield_royal_guard",
 		"particle": "mcdw:item/shields/shield_royal_guard"
 	},
 	"elements": [

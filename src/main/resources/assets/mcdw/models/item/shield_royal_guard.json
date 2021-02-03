@@ -68,6 +68,14 @@
 			"scale": [0.6, 0.6, 0.6]
 		}
 	},
+	"overrides": [
+		{
+			"predicate": {
+				"blocking": 1
+			},
+			"model": "mcdw:shield_royal_guard_blocking"
+		}
+	],
 	"groups": [
 		{
 			"name": "royal_guard_shield",
