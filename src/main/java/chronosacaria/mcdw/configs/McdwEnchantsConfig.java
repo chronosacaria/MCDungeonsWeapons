@@ -41,6 +41,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("mixin_leeching", true);
         SETTINGS.put("mixin_custom_looting", true);
         SETTINGS.put("mixin_poison", true);
+        SETTINGS.put("mixin_prospector", true);
         SETTINGS.put("mixin_radiance", true);
         SETTINGS.put("mixin_radiance_shot", true);
         SETTINGS.put("mixin_rampaging", true);
