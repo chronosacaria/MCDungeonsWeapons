@@ -29,9 +29,9 @@ public class McdwClient implements ClientModInitializer {
             registerCrossbowPredicates((McdwCrossbow) ItemRegistry.getItem(itemID));
         }
 
-        //for (String itemID : ItemRegistry.SHIELDS){
-        //    registerShieldPredicates((McdwShield) ItemRegistry.getItem(itemID));
-        //}
+        for (String itemID : ItemRegistry.SHIELDS){
+            registerShieldPredicates((McdwShield) ItemRegistry.getItem(itemID));
+        }
     }
     public static void registerBowPredicates(McdwBow bow) {
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld, livingEntity) -> {
@@ -81,9 +81,9 @@ public class McdwClient implements ClientModInitializer {
         });
     }
 
-    //public static void registerShieldPredicates(McdwShield shield){
-    //    FabricModelPredicateProviderRegistry.register(shield, new Identifier("blocking"), (itemStack, clientWorld,
-    //            livingEntity) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem()
-    //            == itemStack ? 1.0F : 0.0F );
-    //}
+    public static void registerShieldPredicates(McdwShield shield){
+        FabricModelPredicateProviderRegistry.register(shield, new Identifier("blocking"), (itemStack, clientWorld,
+                livingEntity) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem()
+                == itemStack ? 1.0F : 0.0F );
+    }
 }

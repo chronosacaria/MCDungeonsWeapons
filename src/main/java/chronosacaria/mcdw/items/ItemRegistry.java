@@ -164,10 +164,10 @@ public class ItemRegistry {
         add("crossbow_soul_hunter_crossbow");
         add("crossbow_corrupted_crossbow");
     }};
-    //public static final HashSet<String> SHIELDS = new HashSet<String>(){{
-    //    add("shield_royal_guard");
-    //    add("shield_vanguard");
-    //}};
+    public static final HashSet<String> SHIELDS = new HashSet<String>(){{
+        add("shield_royal_guard");
+        add("shield_vanguard");
+    }};
 
     public static Item getItem(String id) {
         return ITEMS.getOrDefault(id, Items.AIR);
@@ -242,10 +242,10 @@ public class ItemRegistry {
             ITEMS.put(itemID, new McdwCrossbow(new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350)));
         }
         //SHIELDS
-        //for (String itemID : SHIELDS) {
-        //    ITEMS.put(itemID, new McdwShield(McdwStatsConfig.getMaterial(itemID),
-        //            new Item.Settings().group(Mcdw.SHIELDS).maxCount(1).maxDamage(336)));
-        //}
+        for (String itemID : SHIELDS) {
+            ITEMS.put(itemID, new McdwShield(McdwStatsConfig.getMaterial(itemID),
+                    new Item.Settings().group(Mcdw.SHIELDS).maxCount(1).maxDamage(336)));
+        }
 
     }
 

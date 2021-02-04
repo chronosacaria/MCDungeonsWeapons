@@ -8,7 +8,6 @@ import wraith.enchant_giver.EnchantsList;
 public class McdwEnchantsGiverConfig {
     public static void appendEnchants(){
         // CHAINS ENCHANTMENT
-       
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("hammer_flail")),
                 new Identifier("mcdw:chained"), 1, true);
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sickle_jailors_scythe")),
