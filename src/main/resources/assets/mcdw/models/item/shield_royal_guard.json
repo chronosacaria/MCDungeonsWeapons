@@ -91,7 +91,7 @@
 			"predicate": {
 				"blocking": 1
 			},
-			"model": "mcdw:shield_royal_guard_blocking"
+			"model": "mcdw:item/shield_royal_guard_blocking"
 		}
 	]
 }

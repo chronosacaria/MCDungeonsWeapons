@@ -244,7 +244,7 @@ public class ItemRegistry {
         //SHIELDS
         for (String itemID : SHIELDS) {
             ITEMS.put(itemID, new McdwShield(McdwStatsConfig.getMaterial(itemID),
-                    new Item.Settings().group(Mcdw.SHIELDS).maxCount(1).maxDamage(336)));
+                    new Item.Settings().group(Mcdw.SHIELDS).maxCount(1).maxDamage(500)));
         }
 
     }

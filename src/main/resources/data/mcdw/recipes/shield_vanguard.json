@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PGP",
+        "GIG",
+        "PGP"
+    ],
+    "key": {
+        "P": {
+            "tag": "minecraft:planks"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "G": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:shield_vanguard",
+        "count": 1
+    }
+}

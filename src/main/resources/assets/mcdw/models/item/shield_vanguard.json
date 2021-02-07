@@ -138,7 +138,7 @@
 			"predicate": {
 				"blocking": 1
 			},
-			"model": "mcdw:shield_vanguard_blocking"
+			"model": "mcdw:item/shield_vanguard_blocking"
 		}
 	],
 	"groups": [
