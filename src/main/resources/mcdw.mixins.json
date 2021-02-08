@@ -34,7 +34,6 @@
     "enchantments.ReplenishEnchantmentMixin",
     "enchantments.RicochetEnchantmentMixin",
     "enchantments.ShockwaveEnchantmentMixin",
-    "enchantments.SmitingEnchantmentMixin",
     "enchantments.SoulSiphonEnchantmentMixin",
     "enchantments.StunningEnchantmentMixin",
     "enchantments.SwirlingEnchantmentMixin",

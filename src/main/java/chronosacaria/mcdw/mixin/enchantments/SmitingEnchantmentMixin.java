@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin.enchantments;
+/*package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
@@ -47,7 +47,9 @@ public class SmitingEnchantmentMixin {
                         //attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
 
                         float smitingDamage = attackDamage * SMITING_DAMAGE_MULTIPLIER;
-                        smitingDamage *= (level + 1) / 2.0F;
+                        float h = target.getHealth();
+                        smitingDamage *= (h - (level + 1)) / 2.0F;
+
 
 
                         float chance = user.getRandom().nextFloat();
@@ -64,3 +66,4 @@ public class SmitingEnchantmentMixin {
         }
     }
 }
+*/

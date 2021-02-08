@@ -163,11 +163,11 @@ public class McdwEnchantsGiverConfig {
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("axe_whirlwind")),
                 new Identifier("mcdw:shockwave"), 1, true);
         
-        // SMITING ENCHANTMENT
+        // SMITE ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("spear_grave_bane")),
-                new Identifier("mcdw:smiting"), 1, true);
+                new Identifier("minecraft:smite"), 1, true);
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_dark_katana")),
-                new Identifier("mcdw:smiting"), 1, true);
+                new Identifier("minecraft:smite"), 1, true);
         
         // SOUL SIPHON ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_eternal_knife")),
