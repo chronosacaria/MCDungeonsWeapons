@@ -37,12 +37,12 @@ public class EchoEnchantmentMixin {
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ECHO, mainHandStack) >= 1)) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.ECHO, mainHandStack);
 
-                        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-                        float cooledAttackStrength = 0.5F;
-                        attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
                         float chance = user.getRandom().nextFloat();
                         if (chance <= 0.1 + level * 0.15) {
-                            AOEHelper.causeEchoAttack(user, target, attackDamage, 3.0f, level);
+                            AOEHelper.causeEchoAttack(user,
+                                    target,
+                                    3.0f,
+                                    level);
                             user.world.playSound(
                                     null,
                                     user.getX(),

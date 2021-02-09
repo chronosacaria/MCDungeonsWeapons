@@ -47,14 +47,15 @@ public class AbilityHelper {
             TameableEntity pet = (TameableEntity) possiblePet;
             return pet.getOwner() == possibleOwner;
         }
-        if(possiblePet instanceof HorseBaseEntity){
-            HorseBaseEntity horseBaseEntity = (HorseBaseEntity) possiblePet;
-            return GoalUtils.getOwner(horseBaseEntity) == possibleOwner;
-        }
         //if(possiblePet instanceof IronGolemEntity){
         //    IronGolemEntity ironGolem = (IronGolemEntity) possiblePet;
         //    return GoalUtils.getOwner(ironGolem) == possibleOwner;
         //}
+        if(possiblePet instanceof HorseBaseEntity){
+            HorseBaseEntity horseBaseEntity = (HorseBaseEntity) possiblePet;
+            return GoalUtils.getOwner(horseBaseEntity) == possibleOwner;
+        }
+
         //if(possiblePet instanceof BatEntity){
         //    BatEntity batEntity = (BatEntity) possiblePet;
         //    return GoalUtils.getOwner(batEntity) == possibleOwner;

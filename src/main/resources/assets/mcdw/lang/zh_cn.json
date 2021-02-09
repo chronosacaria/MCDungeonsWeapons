@@ -172,11 +172,11 @@
 
   "subtitles.mcdw.echo_sound": "回击的削减",
 
-  "tooltip_info_item.mcdw.axe_1"              : "The axe is an effective",
-  "tooltip_info_item.mcdw.axe_2"              : "weapon, favored by the",
-  "tooltip_info_item.mcdw.axe_3"              : "relentless Vindicators",
-  "tooltip_info_item.mcdw.axe_4"              : "of the Arch-Illager's",
-  "tooltip_info_item.mcdw.axe_5"              : "army.",
+  "tooltip_info_item.mcdw.axe_1"              : "斧是一把十分",
+  "tooltip_info_item.mcdw.axe_2"              : "有效的武器，",
+  "tooltip_info_item.mcdw.axe_3"              : "受到奇厄大",
+  "tooltip_info_item.mcdw.axe_4"              : "军中无情卫",
+  "tooltip_info_item.mcdw.axe_5"              : "道士的青睐。",
 
   "tooltip_info_item.mcdw.firebrand_1"        : "Crafted in the blackest",
   "tooltip_info_item.mcdw.firebrand_2"        : "depths of the Fiery Forge",
@@ -602,5 +602,4 @@
   "tooltip_note_item.mcdw.dualwield": "双持",
   "tooltip_note_item.mcdw.longbow": "長弓",
   "tooltip_note_item.mcdw.shortbow": "短弓"
-
-}
+  }

@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.api.util;
 
 import net.minecraft.entity.*;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -119,57 +120,57 @@ public class AOEHelper {
         }
     }
 
-    public static void causeEchoAttack(LivingEntity user, Entity target, float damageAmount, float distance
-            , int echoLevel){
+    public static void causeEchoAttack(LivingEntity user, LivingEntity target, float distance, int echoLevel){
         World world = target.getEntityWorld();
-        DamageSource echo = DamageSource.mob(user);
-        if (user instanceof PlayerEntity){
-            echo = DamageSource.player((PlayerEntity)user);
-        }
+        float h = target.getHealth();
+        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities){
             if (nearbyEntity == null) return;
-            nearbyEntity.damage(echo, damageAmount);
+            nearbyEntity.setHealth(h - attackDamage);
             echoLevel--;
             if (echoLevel <=0) return;
         }
     }
-    public static void causeSwirlingAttack(PlayerEntity user, LivingEntity target, float damageAmound, float distance){
+    public static void causeSwirlingAttack(PlayerEntity user, LivingEntity target, float distance){
         World world = target.getEntityWorld();
-        DamageSource swirling = DamageSource.mob(user);
+        float h = target.getHealth();
+        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities){
-            nearbyEntity.damage(swirling, damageAmound);
+            nearbyEntity.setHealth(h - (attackDamage * 0.5F));
         }
     }
 
-    public static void causeShockwaveAttack(PlayerEntity user, LivingEntity target, float damageAmound, float distance){
+    public static void causeShockwaveAttack(PlayerEntity user, LivingEntity target, float distance){
         World world = target.getEntityWorld();
-        DamageSource shockwave = DamageSource.explosion(user);
+        float h = target.getHealth();
+        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities){
-            nearbyEntity.damage(shockwave, damageAmound);
+            nearbyEntity.setHealth(h - (attackDamage * 0.25F));
         }
     }
 
-    public static void causeSmitingAttack(PlayerEntity user, LivingEntity target, float damageAmount, float distance){
+    public static void causeSmitingAttack(PlayerEntity user, LivingEntity target, float distance){
         World world = target.getEntityWorld();
-        DamageSource smiting = DamageSource.explosion(user);
+        float h = target.getHealth();
+        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities){
-            nearbyEntity.damage(smiting, damageAmount);
+            nearbyEntity.setHealth(h - (attackDamage * 1.25F));
         }
     }
 

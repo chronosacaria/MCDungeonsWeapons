@@ -41,23 +41,11 @@ public class ShockwaveEnchantmentMixin {
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SHOCKWAVE, mainHandStack) >= 1)) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.SHOCKWAVE, mainHandStack);
 
-                        float SHOCKWAVE_DAMAGE_MULTIPLIER = 0.25F;
-
-
-                        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-                        float cooledAttackStrength = 0.5F;
-                        attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
-
-                        float shockwaveDamage = attackDamage * SHOCKWAVE_DAMAGE_MULTIPLIER;
-                        shockwaveDamage *= (level + 1) / 2.0F;
-
-
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.1 + level * 0.15) {
+                        if (chance <= 0.1 + (level * 0.15)) {
                             AOEHelper.causeShockwaveAttack(
                                     user,
                                     target,
-                                    shockwaveDamage,
                                     3.0f);
 
                             target.world.playSound(
@@ -66,7 +54,7 @@ public class ShockwaveEnchantmentMixin {
                                     target.getY(),
                                     target.getZ(),
                                     SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT,
-                                    SoundCategory.PLAYERS,
+                                    SoundCategory.WEATHER,
                                     0.5F,
                                     1.0F);
                         }

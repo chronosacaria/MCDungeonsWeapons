@@ -32,34 +32,16 @@ public class SwirlingEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                boolean uniqueWeaponFlag =
-                        false;
                 if (McdwEnchantsConfig.getValue("mixin_swirling")) {
-                    if (mainHandStack != null) {
-                        uniqueWeaponFlag = mainHandStack.getItem() == ItemRegistry.getItem("dagger_shear_dagger").asItem()
-                                || mainHandStack.getItem() == ItemRegistry.getItem("sword_broadsword").asItem();
-                    }
 
-                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SWIRLING, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SWIRLING, mainHandStack) >= 1)) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.SWIRLING, mainHandStack);
-
-                        float SWIRLING_DAMAGE_MULTIPLIER = 0.5F;
-
-
-                        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-                        float cooledAttackStrength = 0.5F;
-                        attackDamage *= 0.2F + cooledAttackStrength * cooledAttackStrength * 0.8F;
-
-                        float swirlingDamage = attackDamage * SWIRLING_DAMAGE_MULTIPLIER;
-                        swirlingDamage *= (level + 1) / 2.0F;
-
 
                         float chance = user.getRandom().nextFloat();
                         if (chance <= 0.1 + level * 0.15) {
                             AOEHelper.causeSwirlingAttack(
                                     (PlayerEntity) user,
                                     target,
-                                    swirlingDamage,
                                     1.5f);
 
                             target.world.playSound(
