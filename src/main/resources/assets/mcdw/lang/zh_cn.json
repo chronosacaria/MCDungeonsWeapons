@@ -40,6 +40,10 @@
   "item.mcdw.bow_ancient_bow": "古代弓",
   "item.mcdw.bow_snow_bow": "雪弓",
   "item.mcdw.bow_winters_touch": "冬天的触摸",
+  "item.mcdw.bow_shivering_bow": "寒颤弓",
+  "item.mcdw.bow_wind_bow": "狂风之弓",
+  "item.mcdw.bow_echo_of_the_valley": "空谷回声",
+  "item.mcdw.bow_burst_gale_bow": "爆裂风弓",
 
   "item.mcdw.crossbow_auto_crossbow" : "自动弩",
   "item.mcdw.crossbow_azure_seeker" : "蔚蓝探索者",
@@ -82,6 +86,10 @@
   "item.mcdw.hammer_suns_grace": "日之恩惠",
 
   "item.mcdw.pick_diamond_pickaxe_var": "钻石剑",
+  "item.mcdw.pick_mountaineer_pick": "登山镐",
+  "item.mcdw.pick_howling_pick": "Howling Pick",
+  "item.mcdw.pick_hailing_pinnacle": "Hailing Pinnacle",
+
 
   "item.mcdw.sickle_sickle": "镰刀",
   "item.mcdw.sickle_nightmares_bite": "梦魇之噬",
@@ -110,6 +118,7 @@
   "item.mcdw.sword_hawkbrand": "鹰身大剑",
   "item.mcdw.sword_broadsword": "大剑",
   "item.mcdw.sword_claymore": "阔剑",
+  "item.mcdw.sword_frost_slayer": "冰霜杀手",
   "item.mcdw.sword_heartstealer": "窃心者",
   "item.mcdw.sword_great_axeblade": "大斧头剑",
   "item.mcdw.sword_cutlass": "弯刀",
@@ -178,10 +187,10 @@
   "tooltip_info_item.mcdw.axe_4"              : "军中无情卫",
   "tooltip_info_item.mcdw.axe_5"              : "道士的青睐。",
 
-  "tooltip_info_item.mcdw.firebrand_1"        : "Crafted in the blackest",
-  "tooltip_info_item.mcdw.firebrand_2"        : "depths of the Fiery Forge",
-  "tooltip_info_item.mcdw.firebrand_3"        : "and enchanted with fiery",
-  "tooltip_info_item.mcdw.firebrand_4"        : "powers.",
+  "tooltip_info_item.mcdw.firebrand_1"        : "铸造于烈焰",
+  "tooltip_info_item.mcdw.firebrand_2"        : "锻造厂的最黑",
+  "tooltip_info_item.mcdw.firebrand_3"        : "深处，拥有",
+  "tooltip_info_item.mcdw.firebrand_4"        : "烈焰的力量。",
 
   "tooltip_info_item.mcdw.highland_axe_1"     : "Expertly crafted and a",
   "tooltip_info_item.mcdw.highland_axe_2"     : "polished weapon of war,the",
@@ -192,6 +201,11 @@
   "tooltip_info_item.mcdw.claymore_2"         : "impossibly heavy yet rests",
   "tooltip_info_item.mcdw.claymore_3"         : "easily in a just warrior's",
   "tooltip_info_item.mcdw.claymore_4"         : "hands.",
+
+  "tooltip_info_item.mcdw.frost_slayer_1"     : "The legendary Frost Slayer",
+  "tooltip_info_item.mcdw.frost_slayer_2"     : "returns to the battlefield only",
+  "tooltip_info_item.mcdw.frost_slayer_3"     : "in the darkest and coldest",
+  "tooltip_info_item.mcdw.frost_slayer_4"     : "days of winter.",
 
   "tooltip_info_item.mcdw.broadsword_1"       : "Only those with the strength",
   "tooltip_info_item.mcdw.broadsword_2"       : "of a champion and the heart",
@@ -455,56 +469,72 @@
   "tooltip_info_item.mcdw.mechanical_shortbow_2" : "quick firing technology, this",
   "tooltip_info_item.mcdw.mechanical_shortbow_3" : "bow packs a swift punch.",
 
-  "tooltip_info_item.mcdw.nocturnal_bow_1"    : "The souls bound to the bow guide",
-  "tooltip_info_item.mcdw.nocturnal_bow_2"    : "the arrows to their targets and",
-  "tooltip_info_item.mcdw.nocturnal_bow_3"    : "cause it to glow slightly.",
+  "tooltip_info_item.mcdw.nocturnal_bow_1"      : "The souls bound to the bow guide",
+  "tooltip_info_item.mcdw.nocturnal_bow_2"      : "the arrows to their targets and",
+  "tooltip_info_item.mcdw.nocturnal_bow_3"      : "cause it to glow slightly.",
 
-  "tooltip_info_item.mcdw.power_bow_1"        : "The question of what makes the",
-  "tooltip_info_item.mcdw.power_bow_2"        : "Power Bow so powerful has puzzled",
-  "tooltip_info_item.mcdw.power_bow_3"        : "the minds of learned folk for ages.",
+  "tooltip_info_item.mcdw.power_bow_1"          : "The question of what makes the",
+  "tooltip_info_item.mcdw.power_bow_2"          : "Power Bow so powerful has puzzled",
+  "tooltip_info_item.mcdw.power_bow_3"          : "the minds of learned folk for ages.",
 
-  "tooltip_info_item.mcdw.purple_storm_1"     : "Named the Purple Storm after",
-  "tooltip_info_item.mcdw.purple_storm_2"     : "its lovely hue, this legendary",
-  "tooltip_info_item.mcdw.purple_storm_3"     : "bow packs a powerful punch.",
+  "tooltip_info_item.mcdw.purple_storm_1"       : "Named the Purple Storm after",
+  "tooltip_info_item.mcdw.purple_storm_2"       : "its lovely hue, this legendary",
+  "tooltip_info_item.mcdw.purple_storm_3"       : "bow packs a powerful punch.",
 
-  "tooltip_info_item.mcdw.red_snake_1"        : "The Red Snake radiates and",
-  "tooltip_info_item.mcdw.red_snake_2"        : "explosive heat, making it a deadly",
-  "tooltip_info_item.mcdw.red_snake_3"        : "fire risk in the dry, desert lands.",
+  "tooltip_info_item.mcdw.red_snake_1"          : "The Red Snake radiates and",
+  "tooltip_info_item.mcdw.red_snake_2"          : "explosive heat, making it a deadly",
+  "tooltip_info_item.mcdw.red_snake_3"          : "fire risk in the dry, desert lands.",
 
-  "tooltip_info_item.mcdw.sabrewing_1"        : "This bow, built for a long-lost",
-  "tooltip_info_item.mcdw.sabrewing_2"        : "champion, feels right in the hands",
-  "tooltip_info_item.mcdw.sabrewing_3"        : "of those who seek justice.",
+  "tooltip_info_item.mcdw.sabrewing_1"          : "This bow, built for a long-lost",
+  "tooltip_info_item.mcdw.sabrewing_2"          : "champion, feels right in the hands",
+  "tooltip_info_item.mcdw.sabrewing_3"          : "of those who seek justice.",
 
-  "tooltip_info_item.mcdw.shortbow_1"         : "The preferred weapon of thieves",
-  "tooltip_info_item.mcdw.shortbow_2"         : "and rogues, the Shortbow is nimble",
-  "tooltip_info_item.mcdw.shortbow_3"         : "and lethal at short range.",
+  "tooltip_info_item.mcdw.shortbow_1"           : "The preferred weapon of thieves",
+  "tooltip_info_item.mcdw.shortbow_2"           : "and rogues, the Shortbow is nimble",
+  "tooltip_info_item.mcdw.shortbow_3"           : "and lethal at short range.",
 
-  "tooltip_info_item.mcdw.snow_bow_1"         : "Those who face the Snow Bow in",
-  "tooltip_info_item.mcdw.snow_bow_2"         : "battle must also prepare to face",
-  "tooltip_info_item.mcdw.snow_bow_3"         : "the chill of freezing wintry winds.",
+  "tooltip_info_item.mcdw.snow_bow_1"           : "Those who face the Snow Bow in",
+  "tooltip_info_item.mcdw.snow_bow_2"           : "battle must also prepare to face",
+  "tooltip_info_item.mcdw.snow_bow_3"           : "the chill of freezing wintry winds.",
 
-  "tooltip_info_item.mcdw.soul_bow_1"         : "The Soul Bow simmers with all",
-  "tooltip_info_item.mcdw.soul_bow_2"         : "of the beauty and fury",
-  "tooltip_info_item.mcdw.soul_bow_3"         : "of an attacking Vex.",
+  "tooltip_info_item.mcdw.soul_bow_1"           : "The Soul Bow simmers with all",
+  "tooltip_info_item.mcdw.soul_bow_2"           : "of the beauty and fury",
+  "tooltip_info_item.mcdw.soul_bow_3"           : "of an attacking Vex.",
 
-  "tooltip_info_item.mcdw.green_menace_1"     : "The arrows fired from the Green",
-  "tooltip_info_item.mcdw.green_menace_2"     : "Menace always hit their intended",
-  "tooltip_info_item.mcdw.green_menace_3"     : "target, even in the thickest fog.",
+  "tooltip_info_item.mcdw.green_menace_1"       : "The arrows fired from the Green",
+  "tooltip_info_item.mcdw.green_menace_2"       : "Menace always hit their intended",
+  "tooltip_info_item.mcdw.green_menace_3"       : "target, even in the thickest fog.",
 
-  "tooltip_info_item.mcdw.pink_scoundrel_1"   : "It would be a deadly mistake to",
-  "tooltip_info_item.mcdw.pink_scoundrel_2"   : "underestimate the power of the",
-  "tooltip_info_item.mcdw.pink_scoundrel_3"   : "Pink Scoundrel.",
+  "tooltip_info_item.mcdw.pink_scoundrel_1"     : "It would be a deadly mistake to",
+  "tooltip_info_item.mcdw.pink_scoundrel_2"     : "underestimate the power of the",
+  "tooltip_info_item.mcdw.pink_scoundrel_3"     : "Pink Scoundrel.",
 
-  "tooltip_info_item.mcdw.trickbow_1"         : "A sleek bow that seems to",
-  "tooltip_info_item.mcdw.trickbow_2"         : "never miss its target.",
+  "tooltip_info_item.mcdw.trickbow_1"           : "A sleek bow that seems to",
+  "tooltip_info_item.mcdw.trickbow_2"           : "never miss its target.",
 
-  "tooltip_info_item.mcdw.twinbow_1"          : "The Twin Bow is the champion",
-  "tooltip_info_item.mcdw.twinbow_2"          : "of the hero who finds themselves",
-  "tooltip_info_item.mcdw.twinbow_3"          : "outnumbered and alone.",
+  "tooltip_info_item.mcdw.twinbow_1"            : "The Twin Bow is the champion",
+  "tooltip_info_item.mcdw.twinbow_2"            : "of the hero who finds themselves",
+  "tooltip_info_item.mcdw.twinbow_3"            : "outnumbered and alone.",
 
-  "tooltip_info_item.mcdw.winters_touch_1"    : "Arrows fired from this legendary",
-  "tooltip_info_item.mcdw.winters_touch_2"    : "bow are said to be carried by the",
-  "tooltip_info_item.mcdw.winters_touch_3"    : "winter winds themselves.",
+  "tooltip_info_item.mcdw.winters_touch_1"      : "Arrows fired from this legendary",
+  "tooltip_info_item.mcdw.winters_touch_2"      : "bow are said to be carried by the",
+  "tooltip_info_item.mcdw.winters_touch_3"      : "winter winds themselves.",
+
+  "tooltip_info_item.mcdw.shivering_bow_1"      : "The Shivering Bow pierces even",
+  "tooltip_info_item.mcdw.shivering_bow_2"      : "the most ancient ice and strikes a",
+  "tooltip_info_item.mcdw.shivering_bow_3"      : "chill into the heart of any enemy.",
+
+  "tooltip_info_item.mcdw.wind_bow_1"           : "A mesmerizing bow that captures",
+  "tooltip_info_item.mcdw.wind_bow_2"           : "the power of the wind to fire",
+  "tooltip_info_item.mcdw.wind_bow_3"           : "mighty Gale Arrows.",
+
+  "tooltip_info_item.mcdw.echo_of_the_valley_1" : "This bow calls upon the twisting",
+  "tooltip_info_item.mcdw.echo_of_the_valley_2" : "winds of the hidden valley where",
+  "tooltip_info_item.mcdw.echo_of_the_valley_3" : "it was first strung.",
+
+  "tooltip_info_item.mcdw.burst_gale_bow_1"     : "A bow infused with the force",
+  "tooltip_info_item.mcdw.burst_gale_bow_2"     : "of a rolling wind which can",
+  "tooltip_info_item.mcdw.burst_gale_bow_3"     : "flare up in an instant.",
 
   "tooltip_info_item.mcdw.auto_crossbow_1"          : "The Arch-Illager said the design",
   "tooltip_info_item.mcdw.auto_crossbow_2"          : "for this powerful crossbow came",
@@ -601,5 +631,7 @@
   "tooltip_info_item.mcdw.gap": " ",
   "tooltip_note_item.mcdw.dualwield": "双持",
   "tooltip_note_item.mcdw.longbow": "長弓",
-  "tooltip_note_item.mcdw.shortbow": "短弓"
+  "tooltip_note_item.mcdw.shortbow": "短弓",
+  "tooltip_ench_item.mcdw.beestinger_1": "忙碌蜜蜂"
+
   }
