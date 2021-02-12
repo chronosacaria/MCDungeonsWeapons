@@ -22,7 +22,6 @@ public class ChargeEnchantmentMixin {
         if (!(source.getAttacker() instanceof PlayerEntity)) return;
 
         PlayerEntity user = (PlayerEntity) source.getAttacker();
-        LivingEntity target = (LivingEntity) (Object) this;
         ItemStack mainHandStack = null;
 
         if (user != null) {

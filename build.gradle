@@ -51,9 +51,6 @@ dependencies {
     modImplementation "curse.maven:enchanthelper-434579:3190202"
     include "curse.maven:enchanthelper-434579:3190202"
 
-    //modImplementation "wraith.enchantgiver:wraith-enchant_giver:${project.enchantgiver_version}"
-    //include "wraith.enchantgiver:wraith-enchant_giver:${project.enchantgiver_version}"
-
 }
 
 processResources {

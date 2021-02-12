@@ -31,17 +31,6 @@ public class AOECloudHelper {
         target.world.spawnEntity(areaEffectCloudEntity);
     }
 
-    //Thundering
-    public static void spawnLightning(
-            //World world,
-            LivingEntity user,
-            LivingEntity target
-            //int amplifier
-    ) {
-        Entity lightningEntity = new LightningEntity(EntityType.LIGHTNING_BOLT, target.world);
-        lightningEntity.teleport(target.getX(), target.getY(), target.getZ());
-        target.world.spawnEntity(lightningEntity);
-    }
 
     //Exploding
     public static void spawnExplosionCloud(LivingEntity user, LivingEntity target, float radius) {
@@ -50,22 +39,6 @@ public class AOECloudHelper {
                 target.getX(),
                 target.getY(),
                 target.getZ());
-        areaEffectCloudEntity.setOwner(user);
-        areaEffectCloudEntity.setParticleType(ParticleTypes.EXPLOSION);
-        areaEffectCloudEntity.setRadius(radius);
-        areaEffectCloudEntity.setDuration(0);
-        user.world.spawnEntity(areaEffectCloudEntity);
-    }
-
-    //Exploding Arrow
-    public static void spawnExplosionCloudAtPos(LivingEntity user, boolean arrow, BlockPos blockPos, float radius) {
-        int inGroundMitigator = arrow ? 1 : 0;
-        AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(
-                user.world,
-                blockPos.getX(),
-                blockPos.getY() + inGroundMitigator,
-                blockPos.getZ()
-        );
         areaEffectCloudEntity.setOwner(user);
         areaEffectCloudEntity.setParticleType(ParticleTypes.EXPLOSION);
         areaEffectCloudEntity.setRadius(radius);

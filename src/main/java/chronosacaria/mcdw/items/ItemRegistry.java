@@ -113,6 +113,7 @@ public class ItemRegistry {
         add("bow_ancient_bow");
         add("bow_bonebow");
         add("bow_burst_gale_bow");
+        //add("bow_crimson_bow");
         add("bow_echo_of_the_valley");
         add("bow_elite_power_bow");
         add("bow_green_menace");
@@ -137,6 +138,7 @@ public class ItemRegistry {
         add("bow_trickbow");
         add("bow_wind_bow");
         add("bow_snow_bow");
+        //add("bow_warped_bow");
         add("bow_winters_touch");
     }};
     public static final HashSet<String> CROSSBOWS = new HashSet<String>(){{

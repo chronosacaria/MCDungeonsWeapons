@@ -43,6 +43,8 @@
   "item.mcdw.bow_wind_bow": "Wind Bow",
   "item.mcdw.bow_echo_of_the_valley": "Echo of the Valley",
   "item.mcdw.bow_burst_gale_bow": "Burst Gale Bow",
+  "item.mcdw.bow_crimson_bow": "Crimson Bow",
+  "item.mcdw.bow_warped_bow": "Warped Bow",
 
   "item.mcdw.crossbow_the_slicer" : "The Slicer",
   "item.mcdw.crossbow_azure_seeker" : "Azure Seeker",
@@ -89,6 +91,7 @@
   "item.mcdw.pick_howling_pick": "Howling Pick",
   "item.mcdw.pick_hailing_pinnacle": "Hailing Pinnacle",
 
+
   "item.mcdw.sickle_sickle": "Sickle",
   "item.mcdw.sickle_nightmares_bite": "Nightmare's Bite",
   "item.mcdw.sickle_last_laugh_gold": "The Last Laugh",
@@ -118,9 +121,9 @@
 
   "item.mcdw.sword_broadsword": "Broadsword",
   "item.mcdw.sword_claymore": "Claymore",
-  "item.mcdw.sword_frost_slayer": "Frost Slayer",
   "item.mcdw.sword_heartstealer": "Heartstealer",
   "item.mcdw.sword_great_axeblade": "Great Axeblade",
+  "item.mcdw.sword_frost_slayer": "Frost Slayer",
 
   "item.mcdw.sword_cutlass": "Cutlass",
   "item.mcdw.sword_dancers_sword": "Dancer's Sword",
@@ -181,7 +184,6 @@
   "enchantment.mcdw.thundering": "Thundering",
   "enchantment.mcdw.weakening": "Weakening",
 
-
   "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing",
 
   "tooltip_info_item.mcdw.axe_1"              : "The axe is an effective",
@@ -205,15 +207,15 @@
   "tooltip_info_item.mcdw.claymore_3"         : "easily in a just warrior's",
   "tooltip_info_item.mcdw.claymore_4"         : "hands.",
 
-  "tooltip_info_item.mcdw.broadsword_1"       : "Only those with the strength",
-  "tooltip_info_item.mcdw.broadsword_2"       : "of a champion and the heart",
-  "tooltip_info_item.mcdw.broadsword_3"       : "of a hero can carry this",
-  "tooltip_info_item.mcdw.broadsword_4"       : "massive blade.",
-
   "tooltip_info_item.mcdw.frost_slayer_1"     : "The legendary Frost Slayer",
   "tooltip_info_item.mcdw.frost_slayer_2"     : "returns to the battlefield only",
   "tooltip_info_item.mcdw.frost_slayer_3"     : "in the darkest and coldest",
   "tooltip_info_item.mcdw.frost_slayer_4"     : "days of winter.",
+
+  "tooltip_info_item.mcdw.broadsword_1"       : "Only those with the strength",
+  "tooltip_info_item.mcdw.broadsword_2"       : "of a champion and the heart",
+  "tooltip_info_item.mcdw.broadsword_3"       : "of a hero can carry this",
+  "tooltip_info_item.mcdw.broadsword_4"       : "massive blade.",
 
   "tooltip_info_item.mcdw.great_axeblade_1"   : "A lucky blacksmith turned a",
   "tooltip_info_item.mcdw.great_axeblade_2"   : "workshop blunder into a",
@@ -344,6 +346,7 @@
   "tooltip_info_item.mcdw.whispering_spear_1" : "Legend says that this cursed spear",
   "tooltip_info_item.mcdw.whispering_spear_2" : "is plagued by a soul that controls",
   "tooltip_info_item.mcdw.whispering_spear_3" : "the mind of any who wield it.",
+
   "tooltip_info_item.mcdw.flail_1"            : "This ancient weapon inflicts",
   "tooltip_info_item.mcdw.flail_2"            : "grave blunt damage to those who ",
   "tooltip_info_item.mcdw.flail_3"            : "cannot evade the deadly metal ball.",
@@ -376,6 +379,7 @@
   "tooltip_info_item.mcdw.frost_scythe_3"     : "freezing to the touch and never",
   "tooltip_info_item.mcdw.frost_scythe_4"     : "seems to melt",
 
+
   "tooltip_info_item.mcdw.jailors_scythe_1"   : "This scythe belonged to the terror",
   "tooltip_info_item.mcdw.jailors_scythe_2"   : "of Highblock Keep, the Jailor.",
 
@@ -386,8 +390,6 @@
   "tooltip_info_item.mcdw.last_laugh_1"       : "Strange, distorted laughter",
   "tooltip_info_item.mcdw.last_laugh_2"       : "seems to whisper from these",
   "tooltip_info_item.mcdw.last_laugh_3"       : "menacing looking sickles.",
-  "tooltip_info_item.mcdw.last_laugh_4"       : " ",
-  "tooltip_ench_item.mcdw.last_laugh_1"       : "Prospector I",
 
   "tooltip_info_item.mcdw.nightmares_bite_1"  : "The twin blades of Nightmare's",
   "tooltip_info_item.mcdw.nightmares_bite_2"  : "Bite drip with deadly venom,",
@@ -426,7 +428,6 @@
   "tooltip_info_item.mcdw.chill_gale_knife_1" : "Created from the never-melting ice",
   "tooltip_info_item.mcdw.chill_gale_knife_2" : "atop the mountain peaks, this",
   "tooltip_info_item.mcdw.chill_gale_knife_3" : "knife is forever icy to the touch.",
-
   "tooltip_info_item.mcdw.ancient_bow_1"      : "The Ancient Bow is still as sprightly",
   "tooltip_info_item.mcdw.ancient_bow_2"      : "as the day it was first strung.",
 
@@ -462,7 +463,6 @@
   "tooltip_info_item.mcdw.longbow_2"          : "rather than battle, is still",
   "tooltip_info_item.mcdw.longbow_3"          : "useful in a fight.",
 
-
   "tooltip_info_item.mcdw.love_spell_1"       : "Love can be magical, but when it ",
   "tooltip_info_item.mcdw.love_spell_2"       : "becomes too powerful, it can turn",
   "tooltip_info_item.mcdw.love_spell_3"       : "into a frenzy.",
@@ -475,72 +475,72 @@
   "tooltip_info_item.mcdw.mechanical_shortbow_2" : "quick firing technology, this",
   "tooltip_info_item.mcdw.mechanical_shortbow_3" : "bow packs a swift punch.",
 
-  "tooltip_info_item.mcdw.nocturnal_bow_1"          : "The souls bound to the bow guide",
-  "tooltip_info_item.mcdw.nocturnal_bow_2"          : "the arrows to their targets and",
-  "tooltip_info_item.mcdw.nocturnal_bow_3"          : "cause it to glow slightly.",
+  "tooltip_info_item.mcdw.nocturnal_bow_1"    : "The souls bound to the bow guide",
+  "tooltip_info_item.mcdw.nocturnal_bow_2"    : "the arrows to their targets and",
+  "tooltip_info_item.mcdw.nocturnal_bow_3"    : "cause it to glow slightly.",
 
-  "tooltip_info_item.mcdw.power_bow_1"              : "The question of what makes the",
-  "tooltip_info_item.mcdw.power_bow_2"              : "Power Bow so powerful has puzzled",
-  "tooltip_info_item.mcdw.power_bow_3"              : "the minds of learned folk for ages.",
+  "tooltip_info_item.mcdw.power_bow_1"        : "The question of what makes the",
+  "tooltip_info_item.mcdw.power_bow_2"        : "Power Bow so powerful has puzzled",
+  "tooltip_info_item.mcdw.power_bow_3"        : "the minds of learned folk for ages.",
 
-  "tooltip_info_item.mcdw.purple_storm_1"           : "Named the Purple Storm after",
-  "tooltip_info_item.mcdw.purple_storm_2"           : "its lovely hue, this legendary",
-  "tooltip_info_item.mcdw.purple_storm_3"           : "bow packs a powerful punch.",
+  "tooltip_info_item.mcdw.purple_storm_1"     : "Named the Purple Storm after",
+  "tooltip_info_item.mcdw.purple_storm_2"     : "its lovely hue, this legendary",
+  "tooltip_info_item.mcdw.purple_storm_3"     : "bow packs a powerful punch.",
 
-  "tooltip_info_item.mcdw.red_snake_1"              : "The Red Snake radiates and",
-  "tooltip_info_item.mcdw.red_snake_2"              : "explosive heat, making it a deadly",
-  "tooltip_info_item.mcdw.red_snake_3"              : "fire risk in the dry, desert lands.",
+  "tooltip_info_item.mcdw.red_snake_1"        : "The Red Snake radiates and",
+  "tooltip_info_item.mcdw.red_snake_2"        : "explosive heat, making it a deadly",
+  "tooltip_info_item.mcdw.red_snake_3"        : "fire risk in the dry, desert lands.",
 
-  "tooltip_info_item.mcdw.sabrewing_1"              : "This bow, built for a long-lost",
-  "tooltip_info_item.mcdw.sabrewing_2"              : "champion, feels right in the hands",
-  "tooltip_info_item.mcdw.sabrewing_3"              : "of those who seek justice.",
+  "tooltip_info_item.mcdw.sabrewing_1"        : "This bow, built for a long-lost",
+  "tooltip_info_item.mcdw.sabrewing_2"        : "champion, feels right in the hands",
+  "tooltip_info_item.mcdw.sabrewing_3"        : "of those who seek justice.",
 
-  "tooltip_info_item.mcdw.shortbow_1"               : "The preferred weapon of thieves",
-  "tooltip_info_item.mcdw.shortbow_2"               : "and rogues, the Shortbow is nimble",
-  "tooltip_info_item.mcdw.shortbow_3"               : "and lethal at short range.",
+  "tooltip_info_item.mcdw.shortbow_1"         : "The preferred weapon of thieves",
+  "tooltip_info_item.mcdw.shortbow_2"         : "and rogues, the Shortbow is nimble",
+  "tooltip_info_item.mcdw.shortbow_3"         : "and lethal at short range.",
 
-  "tooltip_info_item.mcdw.snow_bow_1"               : "Those who face the Snow Bow in",
-  "tooltip_info_item.mcdw.snow_bow_2"               : "battle must also prepare to face",
-  "tooltip_info_item.mcdw.snow_bow_3"               : "the chill of freezing wintry winds.",
+  "tooltip_info_item.mcdw.snow_bow_1"         : "Those who face the Snow Bow in",
+  "tooltip_info_item.mcdw.snow_bow_2"         : "battle must also prepare to face",
+  "tooltip_info_item.mcdw.snow_bow_3"         : "the chill of freezing wintry winds.",
 
-  "tooltip_info_item.mcdw.soul_bow_1"               : "The Soul Bow simmers with all",
-  "tooltip_info_item.mcdw.soul_bow_2"               : "of the beauty and fury",
-  "tooltip_info_item.mcdw.soul_bow_3"               : "of an attacking Vex.",
+  "tooltip_info_item.mcdw.soul_bow_1"         : "The Soul Bow simmers with all",
+  "tooltip_info_item.mcdw.soul_bow_2"         : "of the beauty and fury",
+  "tooltip_info_item.mcdw.soul_bow_3"         : "of an attacking Vex.",
 
-  "tooltip_info_item.mcdw.green_menace_1"           : "The arrows fired from the Green",
-  "tooltip_info_item.mcdw.green_menace_2"           : "Menace always hit their intended",
-  "tooltip_info_item.mcdw.green_menace_3"           : "target, even in the thickest fog.",
+  "tooltip_info_item.mcdw.green_menace_1"     : "The arrows fired from the Green",
+  "tooltip_info_item.mcdw.green_menace_2"     : "Menace always hit their intended",
+  "tooltip_info_item.mcdw.green_menace_3"     : "target, even in the thickest fog.",
 
-  "tooltip_info_item.mcdw.pink_scoundrel_1"         : "It would be a deadly mistake to",
-  "tooltip_info_item.mcdw.pink_scoundrel_2"         : "underestimate the power of the",
-  "tooltip_info_item.mcdw.pink_scoundrel_3"         : "Pink Scoundrel.",
+  "tooltip_info_item.mcdw.pink_scoundrel_1"   : "It would be a deadly mistake to",
+  "tooltip_info_item.mcdw.pink_scoundrel_2"   : "underestimate the power of the",
+  "tooltip_info_item.mcdw.pink_scoundrel_3"   : "Pink Scoundrel.",
 
-  "tooltip_info_item.mcdw.trickbow_1"               : "A sleek bow that seems to",
-  "tooltip_info_item.mcdw.trickbow_2"               : "never miss its target.",
+  "tooltip_info_item.mcdw.trickbow_1"         : "A sleek bow that seems to",
+  "tooltip_info_item.mcdw.trickbow_2"         : "never miss its target.",
 
-  "tooltip_info_item.mcdw.twinbow_1"                : "The Twin Bow is the champion",
-  "tooltip_info_item.mcdw.twinbow_2"                : "of the hero who finds themselves",
-  "tooltip_info_item.mcdw.twinbow_3"                : "outnumbered and alone.",
+  "tooltip_info_item.mcdw.twinbow_1"          : "The Twin Bow is the champion",
+  "tooltip_info_item.mcdw.twinbow_2"          : "of the hero who finds themselves",
+  "tooltip_info_item.mcdw.twinbow_3"          : "outnumbered and alone.",
 
-  "tooltip_info_item.mcdw.winters_touch_1"          : "Arrows fired from this legendary",
-  "tooltip_info_item.mcdw.winters_touch_2"          : "bow are said to be carried by the",
-  "tooltip_info_item.mcdw.winters_touch_3"          : "winter winds themselves.",
+  "tooltip_info_item.mcdw.winters_touch_1"      : "Arrows fired from this legendary",
+  "tooltip_info_item.mcdw.winters_touch_2"      : "bow are said to be carried by the",
+  "tooltip_info_item.mcdw.winters_touch_3"      : "winter winds themselves.",
 
-  "tooltip_info_item.mcdw.shivering_bow_1"          : "The Shivering Bow pierces even",
-  "tooltip_info_item.mcdw.shivering_bow_2"          : "the most ancient ice and strikes a",
-  "tooltip_info_item.mcdw.shivering_bow_3"          : "chill into the heart of any enemy.",
+  "tooltip_info_item.mcdw.shivering_bow_1"      : "The Shivering Bow pierces even",
+  "tooltip_info_item.mcdw.shivering_bow_2"      : "the most ancient ice and strikes a",
+  "tooltip_info_item.mcdw.shivering_bow_3"      : "chill into the heart of any enemy.",
 
-  "tooltip_info_item.mcdw.wind_bow_1"               : "A mesmerizing bow that captures",
-  "tooltip_info_item.mcdw.wind_bow_2"               : "the power of the wind to fire",
-  "tooltip_info_item.mcdw.wind_bow_3"               : "mighty Gale Arrows.",
+  "tooltip_info_item.mcdw.wind_bow_1"           : "A mesmerizing bow that captures",
+  "tooltip_info_item.mcdw.wind_bow_2"           : "the power of the wind to fire",
+  "tooltip_info_item.mcdw.wind_bow_3"           : "mighty Gale Arrows.",
 
-  "tooltip_info_item.mcdw.echo_of_the_valley_1"     : "This bow calls upon the twisting",
-  "tooltip_info_item.mcdw.echo_of_the_valley_2"     : "winds of the hidden valley where",
-  "tooltip_info_item.mcdw.echo_of_the_valley_3"     : "it was first strung.",
+  "tooltip_info_item.mcdw.echo_of_the_valley_1" : "This bow calls upon the twisting",
+  "tooltip_info_item.mcdw.echo_of_the_valley_2" : "winds of the hidden valley where",
+  "tooltip_info_item.mcdw.echo_of_the_valley_3" : "it was first strung.",
 
-  "tooltip_info_item.mcdw.burst_gale_bow_1"         : "A bow infused with the force",
-  "tooltip_info_item.mcdw.burst_gale_bow_2"         : "of a rolling wind which can",
-  "tooltip_info_item.mcdw.burst_gale_bow_3"         : "flare up in an instant.",
+  "tooltip_info_item.mcdw.burst_gale_bow_1"     : "A bow infused with the force",
+  "tooltip_info_item.mcdw.burst_gale_bow_2"     : "of a rolling wind which can",
+  "tooltip_info_item.mcdw.burst_gale_bow_3"     : "flare up in an instant.",
 
   "tooltip_info_item.mcdw.auto_crossbow_1"          : "The Arch-Illager said the design",
   "tooltip_info_item.mcdw.auto_crossbow_2"          : "for this powerful crossbow came",
@@ -618,7 +618,6 @@
   "tooltip_info_item.mcdw.the_slicer_4"             : "pierce through even the thickest",
   "tooltip_info_item.mcdw.the_slicer_5"             : "of armor.",
 
-
   "tooltip_info_item.mcdw.soul_crossbow_1"          : "The Soul Crossbow was crafted by the",
   "tooltip_info_item.mcdw.soul_crossbow_2"          : "mysterious Evokers and Enchanters of",
   "tooltip_info_item.mcdw.soul_crossbow_3"          : "the Woodland Mansions.",
@@ -634,12 +633,9 @@
   "tooltip_info_item.mcdw.void_caller_crossbow_2"   : "are trapped between this world and",
   "tooltip_info_item.mcdw.void_caller_crossbow_3"   : "the next.",
 
-
   "tooltip_info_item.mcdw.gap": " ",
   "tooltip_note_item.mcdw.dualwield": "Dual Wield",
   "tooltip_note_item.mcdw.longbow": "Longbow",
   "tooltip_note_item.mcdw.shortbow": "Shortbow"
-
-
 
 }

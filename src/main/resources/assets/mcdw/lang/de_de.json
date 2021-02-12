@@ -39,6 +39,8 @@
   "item.mcdw.bow_ancient_bow": "Antiker Bogen",
   "item.mcdw.bow_snow_bow": "Schnee Bogen",
   "item.mcdw.bow_winters_touch": "Berührung des Winters",
+  "item.mcdw.bow_crimson_bow": "Karmesinbogen",
+  "item.mcdw.bow_warped_bow": "Wirrbogen",
 
   "item.mcdw.crossbow_the_slicer" : "The Slicer",
   "item.mcdw.crossbow_azure_seeker" : "Azure Seeker",
@@ -602,6 +604,33 @@
   "tooltip_info_item.mcdw.gap": " ",
   "tooltip_note_item.mcdw.dualwield": "Dual Wield",
   "tooltip_note_item.mcdw.longbow": "Longbow",
-  "tooltip_note_item.mcdw.shortbow": "Shortbow"
+  "tooltip_note_item.mcdw.shortbow": "Shortbow",
+
+  "item.mcdw.bow_shivering_bow": "Shivering Bow",
+  "item.mcdw.bow_wind_bow": "Wind Bow",
+  "item.mcdw.bow_echo_of_the_valley": "Echo of the Valley",
+  "item.mcdw.bow_burst_gale_bow": "Burst Gale Bow",
+  "item.mcdw.pick_mountaineer_pick": "Mountaineer Pick",
+  "item.mcdw.pick_howling_pick": "Howling Pick",
+  "item.mcdw.pick_hailing_pinnacle": "Hailing Pinnacle",
+  "item.mcdw.sword_frost_slayer": "Frost Slayer",
+
+  "tooltip_info_item.mcdw.frost_slayer_1": "The legendary Frost Slayer",
+  "tooltip_info_item.mcdw.frost_slayer_2": "returns to the battlefield only",
+  "tooltip_info_item.mcdw.frost_slayer_3": "in the darkest and coldest",
+  "tooltip_info_item.mcdw.frost_slayer_4": "days of winter.",
+  "tooltip_ench_item.mcdw.beestinger_1": "Busy Bee",
+  "tooltip_info_item.mcdw.shivering_bow_1": "The Shivering Bow pierces even",
+  "tooltip_info_item.mcdw.shivering_bow_2": "the most ancient ice and strikes a",
+  "tooltip_info_item.mcdw.shivering_bow_3": "chill into the heart of any enemy.",
+  "tooltip_info_item.mcdw.wind_bow_1": "A mesmerizing bow that captures",
+  "tooltip_info_item.mcdw.wind_bow_2": "the power of the wind to fire",
+  "tooltip_info_item.mcdw.wind_bow_3": "mighty Gale Arrows.",
+  "tooltip_info_item.mcdw.echo_of_the_valley_1": "This bow calls upon the twisting",
+  "tooltip_info_item.mcdw.echo_of_the_valley_2": "winds of the hidden valley where",
+  "tooltip_info_item.mcdw.echo_of_the_valley_3": "it was first strung.",
+  "tooltip_info_item.mcdw.burst_gale_bow_1": "A bow infused with the force",
+  "tooltip_info_item.mcdw.burst_gale_bow_2": "of a rolling wind which can",
+  "tooltip_info_item.mcdw.burst_gale_bow_3": "flare up in an instant."
 
 }

@@ -37,12 +37,11 @@ public class ThunderingEnchantmentMixin {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, mainHandStack);
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.2) {
+                        if (chance <= 0.2F) {
                             AOEHelper.electrocuteNearbyEnemies(
                                     user,
                                     target,
-                                    5 * level,
-                                    10);
+                                    5 * level);
                         }
                     }
                 }

@@ -43,6 +43,8 @@
   "item.mcdw.bow_wind_bow": "바람의 활",
   "item.mcdw.bow_echo_of_the_valley": "계곡의 메아리",
   "item.mcdw.bow_burst_gale_bow": "버스트 게일 활",
+  "item.mcdw.bow_crimson_bow": "크림슨 활",
+  "item.mcdw.bow_warped_bow": "이상한 활",
 
   "item.mcdw.crossbow_the_slicer" : "슬라이서",
   "item.mcdw.crossbow_azure_seeker" : "푸른 수색자",
@@ -388,8 +390,6 @@
   "tooltip_info_item.mcdw.last_laugh_1"       : "이 위협적인 낫에서",
   "tooltip_info_item.mcdw.last_laugh_2"       : "이상하고 비틀린 웃음 소리가",
   "tooltip_info_item.mcdw.last_laugh_3"       : "조용히 들려오는 것 같습니다.",
-  "tooltip_info_item.mcdw.last_laugh_4"       : " ",
-  "tooltip_ench_item.mcdw.last_laugh_1"       : "Prospector I",
 
   "tooltip_info_item.mcdw.nightmares_bite_1"  : "악몽의 이빨에 있는",
   "tooltip_info_item.mcdw.nightmares_bite_2"  : "두 개의 날은 위험한 독이 발려",
