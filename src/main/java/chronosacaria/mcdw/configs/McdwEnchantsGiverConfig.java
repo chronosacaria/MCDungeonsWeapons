@@ -7,6 +7,11 @@ import wraith.enchant_giver.EnchantsList;
 
 public class McdwEnchantsGiverConfig {
     public static void appendEnchants(){
+        // BONUS SHOT ENCHANTMENT
+        EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_auto_crossbow")),
+                new Identifier("mcdw:bonus_shot"), 1, true);
+        EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_butterfly_crossbow")),
+                new Identifier("mcdw:bonus_shot"), 1, true);
         // CHAINS ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("hammer_flail")),
                 new Identifier("mcdw:chained"), 1, true);

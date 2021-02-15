@@ -31,7 +31,9 @@ public class BonusShotEnchantmentMixin {
         ItemStack stack = user.getMainHandStack();
         if (stack.getItem() instanceof CrossbowItem){
             if (CrossbowItem.isCharged(stack)){
-                boolean uniqueWeaponFlag = stack.getItem() == ItemRegistry.getItem("crossbow_butterfly_crossbow").asItem();
+                boolean uniqueWeaponFlag =
+                        stack.getItem() == ItemRegistry.getItem("crossbow_butterfly_crossbow").asItem()
+                                || stack.getItem() == ItemRegistry.getItem("crossbow_auto_crossbow").asItem();
                 if (McdwEnchantmentHelper.hasEnchantment(stack, RangedEnchantmentList.BONUS_SHOT) || uniqueWeaponFlag) {
                     int bonusShotLevel = EnchantmentHelper.getLevel(RangedEnchantmentList.BONUS_SHOT, stack);
                     float damageMultiplier;
