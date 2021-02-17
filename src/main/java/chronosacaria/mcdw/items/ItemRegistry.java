@@ -36,6 +36,8 @@ public class ItemRegistry {
         add("sword_iron_sword_var");
         add("sword_diamond_sword_var");
         add("sword_hawkbrand");
+        //add("sword_broken_sawblade");
+        //add("sword_mechanized_sawblade");
     }};
     private static final HashSet<String> AXES = new HashSet<String>() {{
         add("axe");
@@ -67,6 +69,8 @@ public class ItemRegistry {
         add("hammer_gravity");
         add("hammer_flail");
         add("hammer_suns_grace");
+        //add("hammer_boneclub");
+        //add("hammer_bone_cudgel");
     }};
     private static final HashSet<String> GAUNTLETS = new HashSet<String>(){{
         add("gauntlet_gauntlet");
@@ -113,7 +117,7 @@ public class ItemRegistry {
         add("bow_ancient_bow");
         add("bow_bonebow");
         add("bow_burst_gale_bow");
-        //add("bow_crimson_bow");
+        //add("bow_weeping_vine_bow");
         add("bow_echo_of_the_valley");
         add("bow_elite_power_bow");
         add("bow_green_menace");
@@ -138,7 +142,7 @@ public class ItemRegistry {
         add("bow_trickbow");
         add("bow_wind_bow");
         add("bow_snow_bow");
-        //add("bow_warped_bow");
+        //add("bow_twisting_vine_bow");
         add("bow_winters_touch");
     }};
     public static final HashSet<String> CROSSBOWS = new HashSet<String>(){{
@@ -165,6 +169,8 @@ public class ItemRegistry {
         add("crossbow_burst_crossbow");
         add("crossbow_soul_hunter_crossbow");
         add("crossbow_corrupted_crossbow");
+        //add("crossbow_cog_crossbow");
+        //add("crossbow_pride_of_the_piglins");
     }};
     public static final HashSet<String> SHIELDS = new HashSet<String>(){{
         add("shield_royal_guard");
