@@ -34,7 +34,8 @@ public class RampagingEnchantmentMixin {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.RAMPAGING, mainHandStack);
                 float rampagingRand = user.getRandom().nextFloat();
                 if (rampagingRand <= 0.1F) {
-                    StatusEffectInstance rampage = new StatusEffectInstance(StatusEffects.HASTE, level * 100, 4);
+                    StatusEffectInstance rampage = new StatusEffectInstance(StatusEffects.HASTE, level * 100, 2,
+                            false, false);
                     user.addStatusEffect(rampage);
                 }
             }
