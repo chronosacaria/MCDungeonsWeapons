@@ -1,5 +1,6 @@
 package chronosacaria.mcdw.api.util;
 
+import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -84,10 +85,8 @@ public class AbilityHelper {
     private static boolean isNotPlayerOrCanApplyToPlayers(LivingEntity nearbyEntity){
         if (!(nearbyEntity instanceof PlayerEntity)){
             return true;
-        }
-        else {
-            return true;
-            //return McdwConfig.ENABLE_AREA_OF_EFFECT_ON_PLAYERS.get();
+        } else {
+            return McdwEnchantsConfig.getValue("aoe_dont_affect_players");
         }
     }
 

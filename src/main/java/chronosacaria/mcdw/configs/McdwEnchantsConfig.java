@@ -55,6 +55,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("mixin_tempo_theft", true);
         SETTINGS.put("mixin_thundering", true);
         SETTINGS.put("mixin_weakening", true);
+        SETTINGS.put("aoe_dont_affect_players", true);
     }
 
     public static void loadConfig() {
