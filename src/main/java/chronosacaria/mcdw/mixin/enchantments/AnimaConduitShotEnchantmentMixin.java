@@ -39,7 +39,7 @@ public abstract class AnimaConduitShotEnchantmentMixin extends Entity {
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("mixin_anima")) {
+        if (McdwEnchantsConfig.getValue("anima")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack);
                 float healthRegained;

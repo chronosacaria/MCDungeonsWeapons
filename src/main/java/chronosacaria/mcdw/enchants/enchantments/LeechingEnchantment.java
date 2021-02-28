@@ -12,7 +12,9 @@ public class LeechingEnchantment extends Enchantment{
 
     public LeechingEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("leeching"),this);
+        if (McdwEnchantsConfig.getValue("leeching")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("leeching"), this);
+        }
     }
 
     @Override

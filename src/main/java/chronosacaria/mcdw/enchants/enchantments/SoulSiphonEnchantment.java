@@ -12,7 +12,9 @@ public class SoulSiphonEnchantment extends AOEEnchantment {
 
     public SoulSiphonEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("soul_siphon"),this);
+        if (McdwEnchantsConfig.getValue("soul_siphon")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("soul_siphon"), this);
+        }
     }
 
     @Override

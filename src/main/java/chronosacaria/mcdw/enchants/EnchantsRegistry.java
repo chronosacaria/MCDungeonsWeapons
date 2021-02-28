@@ -15,6 +15,7 @@ public class EnchantsRegistry {
     public static Enchantment EXPLODING;
     public static Enchantment FREEZING;
     public static Enchantment GRAVITY;
+    public static Enchantment ILLAGERS_BANE;
     public static Enchantment JUNGLE_POISON;
     public static Enchantment LEECHING;
     public static Enchantment POISON_CLOUD;
@@ -58,6 +59,8 @@ public class EnchantsRegistry {
         FREEZING = new FreezingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         GRAVITY = new GravityEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        ILLAGERS_BANE = new IllagersBaneEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         JUNGLE_POISON = new JunglePoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

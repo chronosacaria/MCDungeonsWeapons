@@ -12,8 +12,11 @@ public class AnimaConduitEnchantment extends AOEEnchantment {
 
     public AnimaConduitEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("anima_conduit"),this);
+        if (McdwEnchantsConfig.getValue("anima")){
+            Registry.register(Registry.ENCHANTMENT,Mcdw.ID("anima_conduit"),this);
+        }
     }
+
 
     @Override
     public int getMaxLevel() {

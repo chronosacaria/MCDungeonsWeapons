@@ -32,7 +32,7 @@ public class ExplodingEnchantmentMixin {
             mainHandStack = user.getMainHandStack();
         }
         boolean uniqueWeaponFlag = false;
-        if (McdwEnchantsConfig.getValue("mixin_exploding")) {
+        if (McdwEnchantsConfig.getValue("exploding")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, mainHandStack) >= 1 )) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, mainHandStack);
                 float explodingDamage;

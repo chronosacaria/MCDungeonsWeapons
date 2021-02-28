@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -11,7 +12,9 @@ public class ChainReactionEnchantment extends Enchantment {
 
     public ChainReactionEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, new Identifier(Mcdw.MOD_ID, "chain_reaction"), this);
+        if (McdwEnchantsConfig.getValue("chain_reaction")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("chain_reaction"), this);
+        }
     }
 
     public int getMaxLevel() {

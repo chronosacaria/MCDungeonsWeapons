@@ -13,7 +13,9 @@ public class WeakeningEnchantment extends AOEEnchantment {
 
     public WeakeningEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, Mcdw.ID("weakening"), this);
+        if (McdwEnchantsConfig.getValue("weakening")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("weakening"), this);
+        }
     }
 
     @Override

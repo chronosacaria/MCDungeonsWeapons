@@ -30,7 +30,7 @@ public class TempoTheftEnchantmentMixin {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (McdwEnchantsConfig.getValue("mixin_tempo_theft")) {
+                if (McdwEnchantsConfig.getValue("tempo_theft")) {
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, mainHandStack) >= 1 || uniqueWeaponFlag)) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, mainHandStack);
                         if (target instanceof LivingEntity) {

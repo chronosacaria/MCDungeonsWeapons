@@ -13,7 +13,9 @@ public class PoisonCloudEnchantment extends AOEEnchantment {
 
     public PoisonCloudEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("poison_cloud"),this);
+        if (McdwEnchantsConfig.getValue("poison_cloud")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("poison_cloud"), this);
+        }
     }
 
     @Override

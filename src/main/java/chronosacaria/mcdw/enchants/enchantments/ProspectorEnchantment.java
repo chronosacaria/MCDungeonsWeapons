@@ -13,7 +13,9 @@ public class ProspectorEnchantment extends DamageBoostEnchantment {
 
     public ProspectorEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("prospector"),this);
+        if (McdwEnchantsConfig.getValue("prospector")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("prospector"), this);
+        }
     }
 
     @Override

@@ -13,7 +13,9 @@ public class ShockwaveEnchantment extends AOEEnchantment {
 
     public ShockwaveEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, Mcdw.ID("shockwave"), this);
+        if (McdwEnchantsConfig.getValue("shockwave")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("shockwave"), this);
+        }
     }
 
     @Override

@@ -36,7 +36,7 @@ public class ShockwaveEnchantmentMixin {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (McdwEnchantsConfig.getValue("mixin_shockwave")) {
+                if (McdwEnchantsConfig.getValue("shockwave")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SHOCKWAVE, mainHandStack) >= 1)) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.SHOCKWAVE, mainHandStack);

@@ -33,7 +33,7 @@ public class ProspectorEnchantmentMixin {
             mainHandStack = user.getMainHandStack();
         }
         boolean uniqueWeaponFlag = false;
-        if (McdwEnchantsConfig.getValue("mixin_prospector")) {
+        if (McdwEnchantsConfig.getValue("prospector")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.PROSPECTOR, mainHandStack) >= 1 )) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.PROSPECTOR, mainHandStack);
                 float prospectorChance = 0.25F * level;

@@ -31,7 +31,7 @@ public class PoisonCloudEnchantmentMixin {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (McdwEnchantsConfig.getValue("mixin_poison")) {
+                if (McdwEnchantsConfig.getValue("poison")) {
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHandStack) >= 1 )) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHandStack);
 

@@ -31,7 +31,7 @@ public class WeakeningEnchantmentMixin {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (McdwEnchantsConfig.getValue("mixin_weakening")) {
+                if (McdwEnchantsConfig.getValue("weakening")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.WEAKENING, mainHandStack) >= 1)) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.WEAKENING, mainHandStack);

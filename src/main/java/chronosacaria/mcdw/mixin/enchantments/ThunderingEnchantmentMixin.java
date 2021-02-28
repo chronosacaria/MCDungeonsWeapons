@@ -31,7 +31,7 @@ public class ThunderingEnchantmentMixin {
                 }
                 boolean uniqueWeaponFlag =
                         false;
-                if (McdwEnchantsConfig.getValue("mixin_thundering")) {
+                if (McdwEnchantsConfig.getValue("thundering")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, mainHandStack) >= 1 )) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, mainHandStack);

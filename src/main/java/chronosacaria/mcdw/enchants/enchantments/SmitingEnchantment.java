@@ -13,7 +13,9 @@ public class SmitingEnchantment extends AOEEnchantment {
 
     public SmitingEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, Mcdw.ID("smiting"), this);
+        if (McdwEnchantsConfig.getValue("smiting")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("smiting"), this);
+        }
     }
 
     @Override

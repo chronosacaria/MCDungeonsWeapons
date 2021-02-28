@@ -30,7 +30,7 @@ public class FreezingEnchantmentMixin {
                     mainHandStack = user.getMainHandStack();
                 }
                 boolean uniqueWeaponFlag = false;
-                if (McdwEnchantsConfig.getValue("mixin_freezing")) {
+                if (McdwEnchantsConfig.getValue("freezing")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, mainHandStack) >= 1)) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, mainHandStack);

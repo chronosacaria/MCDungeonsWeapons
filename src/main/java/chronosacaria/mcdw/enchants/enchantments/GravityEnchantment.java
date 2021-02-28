@@ -13,7 +13,9 @@ public class GravityEnchantment extends AOEEnchantment {
 
     public GravityEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("gravity"),this);
+        if (McdwEnchantsConfig.getValue("gravity")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("gravity"), this);
+        }
     }
 
     @Override

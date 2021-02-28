@@ -39,7 +39,7 @@ public abstract class ChainReactionEnchantmentMixin extends Entity {
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("mixin_chain_reaction")) {
+        if (McdwEnchantsConfig.getValue("chain_reaction")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, mainHandStack);
                 if (target == null) return;

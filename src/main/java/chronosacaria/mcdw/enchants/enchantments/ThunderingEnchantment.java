@@ -13,7 +13,9 @@ public class ThunderingEnchantment extends AOEEnchantment {
 
     public ThunderingEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("thundering"),this);
+        if (McdwEnchantsConfig.getValue("thundering")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("thundering"), this);
+        }
     }
 
     @Override

@@ -13,7 +13,9 @@ public class ExplodingEnchantment extends AOEEnchantment {
 
     public ExplodingEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("exploding"),this);
+        if (McdwEnchantsConfig.getValue("exploding")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("exploding"), this);
+        }
     }
 
     @Override

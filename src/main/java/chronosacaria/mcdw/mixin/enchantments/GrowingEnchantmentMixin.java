@@ -35,7 +35,7 @@ public abstract class GrowingEnchantmentMixin extends Entity {
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("mixin_growing")) {
+        if (McdwEnchantsConfig.getValue("growing")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, mainHandStack);
                 double originalDamage = persistentProjectileEntity.getDamage();

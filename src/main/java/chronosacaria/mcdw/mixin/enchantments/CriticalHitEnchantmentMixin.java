@@ -33,7 +33,7 @@ public class CriticalHitEnchantmentMixin {
                     mainHandStack = user.getMainHandStack();
                 }
                 boolean uniqueWeaponFlag = false;
-                if (McdwEnchantsConfig.getValue("mixin_critical")) {
+                if (McdwEnchantsConfig.getValue("critical_hit")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, mainHandStack) >= 1 )) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, mainHandStack);

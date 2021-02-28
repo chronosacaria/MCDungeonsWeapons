@@ -28,7 +28,7 @@ public class LeechingEnchantmentMixin {
         }
         boolean uniqueWeaponFlag =
                 false;
-        if (McdwEnchantsConfig.getValue("mixin_leeching")) {
+        if (McdwEnchantsConfig.getValue("leeching")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.LEECHING, mainHandStack) >= 1 )) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.LEECHING, mainHandStack);
                 float healthRegained;

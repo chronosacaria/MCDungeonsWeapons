@@ -39,7 +39,7 @@ public abstract class ChainsEnchantmentMixin {
                     mainHandStack = user.getMainHandStack();
                 }
                 boolean uniqueWeaponFlag = false;
-                if (McdwEnchantsConfig.getValue("mixin_chains")) {
+                if (McdwEnchantsConfig.getValue("chains")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack) >= 1 )) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack);

@@ -13,7 +13,9 @@ public class CriticalHitEnchantment extends DamageBoostEnchantment {
 
     public CriticalHitEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("critical_hit"),this);
+        if (McdwEnchantsConfig.getValue("critical_hit")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("critical_hit"), this);
+        }
     }
 
     @Override

@@ -29,7 +29,7 @@ public class ChargeEnchantmentMixin {
         }
         boolean uniqueWeaponFlag =
                 false;
-        if (McdwEnchantsConfig.getValue("mixin_charge")) {
+        if (McdwEnchantsConfig.getValue("charge")) {
 
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CHARGE, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHARGE, mainHandStack);

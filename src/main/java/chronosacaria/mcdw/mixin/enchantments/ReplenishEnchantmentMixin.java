@@ -30,7 +30,7 @@ public class ReplenishEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                if (McdwEnchantsConfig.getValue("mixin_replenish")) {
+                if (McdwEnchantsConfig.getValue("replenish")) {
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH,
                             mainHandStack) >= 1 )) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, mainHandStack);

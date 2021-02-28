@@ -29,7 +29,7 @@ public class RicochetEnchantmentMixin {
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("mixin_ricochet"))  {
+        if (McdwEnchantsConfig.getValue("ricochet"))  {
 
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, mainHandStack);

@@ -28,7 +28,7 @@ public class RampagingEnchantmentMixin {
         }
         boolean uniqueWeaponFlag =
                 false;
-        if (McdwEnchantsConfig.getValue("mixin_rampaging")) {
+        if (McdwEnchantsConfig.getValue("rampaging")) {
 
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RAMPAGING, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.RAMPAGING, mainHandStack);

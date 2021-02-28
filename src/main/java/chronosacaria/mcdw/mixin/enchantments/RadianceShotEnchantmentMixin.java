@@ -38,7 +38,7 @@ public abstract class RadianceShotEnchantmentMixin extends Entity {
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("mixin_radiance_shot")) {
+        if (McdwEnchantsConfig.getValue("radiance_shot")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE_SHOT, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE_SHOT, mainHandStack);
                 float radianceShotRand = shooter.getRandom().nextFloat();

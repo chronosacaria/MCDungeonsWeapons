@@ -30,7 +30,7 @@ public class RadianceEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                if (McdwEnchantsConfig.getValue("mixin_radiance")) {
+                if (McdwEnchantsConfig.getValue("radiance")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, mainHandStack) >= 1)) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, mainHandStack);

@@ -13,7 +13,9 @@ public class SwirlingEnchantment extends AOEEnchantment {
 
     public SwirlingEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, Mcdw.ID("swirling"), this);
+        if (McdwEnchantsConfig.getValue("swirling")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("swirling"), this);
+        }
     }
 
     @Override

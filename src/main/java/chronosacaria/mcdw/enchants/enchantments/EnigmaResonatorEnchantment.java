@@ -13,8 +13,9 @@ public class EnigmaResonatorEnchantment extends DamageBoostEnchantment {
 
     public EnigmaResonatorEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
-        Registry.register(Registry.ENCHANTMENT, Mcdw.ID("enigma_resonator"), this);
-
+        if (McdwEnchantsConfig.getValue("enigma_resonator")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("enigma_resonator"), this);
+        }
     }
 
     @Override

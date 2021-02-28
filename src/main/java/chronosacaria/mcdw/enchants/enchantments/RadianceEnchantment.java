@@ -13,7 +13,9 @@ public class RadianceEnchantment extends Enchantment {
 
     public RadianceEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("radiance"),this);
+        if (McdwEnchantsConfig.getValue("radiance")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("radiance"), this);
+        }
     }
 
     @Override

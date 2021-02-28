@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -10,7 +11,9 @@ public class ChargeEnchantment extends Enchantment {
 
     public ChargeEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT,Mcdw.ID("charge"),this);
+        if (McdwEnchantsConfig.getValue("charge")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("charge"), this);
+        }
     }
 
     @Override

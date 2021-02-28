@@ -32,7 +32,7 @@ public abstract class SmitingEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                if (McdwEnchantsConfig.getValue("mixin_smiting")) {
+                if (McdwEnchantsConfig.getValue("smiting")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack) >= 1 && !(EnchantmentHelper.getLevel(Enchantments.SMITE, mainHandStack) >= 1))) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack);

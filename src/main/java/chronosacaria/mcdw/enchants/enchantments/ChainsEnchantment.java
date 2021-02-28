@@ -13,7 +13,9 @@ public class ChainsEnchantment extends AOEEnchantment {
 
     public ChainsEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, Mcdw.ID("chained"),this);
+        if (McdwEnchantsConfig.getValue("chains")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("chains"), this);
+        }
     }
 
     @Override

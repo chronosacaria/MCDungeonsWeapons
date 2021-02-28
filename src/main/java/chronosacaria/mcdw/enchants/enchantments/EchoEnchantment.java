@@ -13,7 +13,9 @@ public class EchoEnchantment extends AOEEnchantment {
 
     public EchoEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, Mcdw.ID("echo"), this);
+        if (McdwEnchantsConfig.getValue("echo")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("echo"), this);
+        }
     }
 
     @Override

@@ -32,7 +32,7 @@ public class JunglesPoisonEnchantmentMixin {
                     mainHandStack = user.getMainHandStack();
                 }
                 boolean uniqueWeaponFlag = false;
-                if (McdwEnchantsConfig.getValue("mixin_jungle_poison")) {
+                if (McdwEnchantsConfig.getValue("jungle_poison")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.JUNGLE_POISON, mainHandStack) >= 1 )) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.JUNGLE_POISON, mainHandStack);

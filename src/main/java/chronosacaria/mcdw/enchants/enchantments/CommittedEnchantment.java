@@ -13,7 +13,9 @@ public class CommittedEnchantment extends DamageBoostEnchantment {
 
     public CommittedEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        Registry.register(Registry.ENCHANTMENT, Mcdw.ID("committed"), this);
+        if (McdwEnchantsConfig.getValue("committed")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("committed"), this);
+        }
     }
 
     @Override

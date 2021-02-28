@@ -30,7 +30,7 @@ public class FuseShotEnchantmentMixin {
         }
         boolean uniqueWeaponFlag =
                 false;
-        if (McdwEnchantsConfig.getValue("mixin_fuse_shot")) {
+        if (McdwEnchantsConfig.getValue("fuse_shot")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack);
                 float chance = user.getRandom().nextFloat();

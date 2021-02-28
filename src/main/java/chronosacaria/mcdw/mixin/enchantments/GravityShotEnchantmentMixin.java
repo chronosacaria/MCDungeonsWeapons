@@ -36,7 +36,7 @@ public abstract class GravityShotEnchantmentMixin extends Entity {
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("mixin_gravity")) {
+        if (McdwEnchantsConfig.getValue("gravity")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, mainHandStack);
                 float gravityShotRand = shooter.getRandom().nextFloat();
