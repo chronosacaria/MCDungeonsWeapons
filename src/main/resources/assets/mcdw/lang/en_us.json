@@ -69,6 +69,8 @@
   "item.mcdw.crossbow_burst_crossbow" : "Burst Crossbow",
   "item.mcdw.crossbow_soul_hunter_crossbow" : "Soul Hunter Crossbow",
   "item.mcdw.crossbow_corrupted_crossbow" : "Corrupted Crossbow",
+  "item.mcdw.crossbow_cog_crossbow": "Cog Crossbow",
+  "item.mcdw.crossbow_pride_of_the_piglins": "Pride of the Piglins",
 
   "item.mcdw.dagger_dagger": "Dagger",
   "item.mcdw.dagger_fangs_of_frost": "Fangs of Frost",
@@ -85,12 +87,13 @@
   "item.mcdw.hammer_great": "Great Hammer",
   "item.mcdw.hammer_stormlander": "Stormlander",
   "item.mcdw.hammer_suns_grace": "Sun's Grace",
+  "item.mcdw.hammer_boneclub": "Boneclub",
+  "item.mcdw.hammer_bone_cudgel": "Bone Cudgel",
 
   "item.mcdw.pick_diamond_pickaxe_var": "Diamond Pickaxe",
   "item.mcdw.pick_mountaineer_pick": "Mountaineer Pick",
   "item.mcdw.pick_howling_pick": "Howling Pick",
   "item.mcdw.pick_hailing_pinnacle": "Hailing Pinnacle",
-
 
   "item.mcdw.sickle_sickle": "Sickle",
   "item.mcdw.sickle_nightmares_bite": "Nightmare's Bite",
@@ -133,6 +136,9 @@
   "item.mcdw.sword_masters_katana": "Master's Katana",
   "item.mcdw.sword_dark_katana": "Dark Katana",
 
+  "item.mcdw.sword_broken_sawblade": "Broken Sawblade",
+  "item.mcdw.sword_mechanized_sawblade": "Mechanized Sawblade",
+
   "item.mcdw.sword_truthseeker": "Truthseeker",
   "item.mcdw.sword_sinister_sword": "Sinister Sword",
 
@@ -166,6 +172,7 @@
   "enchantment.mcdw.fuse_shot": "Fuse Shot",
   "enchantment.mcdw.gravity": "Gravity",
   "enchantment.mcdw.growing": "Growing",
+  "enchantment.mcdw.illagers_bane": "Illager's Bane",
   "enchantment.mcdw.jungle_poison": "Jungle's Poison",
   "enchantment.mcdw.leeching": "Leeching",
   "enchantment.mcdw.poison_cloud": "Poison Cloud",
@@ -175,6 +182,7 @@
   "enchantment.mcdw.rampaging": "Rampaging",
   "enchantment.mcdw.replenish": "Replenish",
   "enchantment.mcdw.ricochet": "Ricochet",
+  "enchantment.mcdw.rushdown": "Rushdown",
   "enchantment.mcdw.shockwave": "Shockwave",
   "enchantment.mcdw.smiting": "Smiting",
   "enchantment.mcdw.soul_siphon": "Soul Siphon",
@@ -277,6 +285,14 @@
   "tooltip_info_item.mcdw.hawkbrand_2"        : "legendary sword of proven ",
   "tooltip_info_item.mcdw.hawkbrand_3"        : "warriors.",
 
+  "tooltip_info_item.mcdw.broken_sawblade_1"      : "The Broken Sawblade has been",
+  "tooltip_info_item.mcdw.broken_sawblade_2"      : "ravaged by time, but it still",
+  "tooltip_info_item.mcdw.broken_sawblade_3"      : "does considerable damage.",
+
+  "tooltip_info_item.mcdw.mechanized_sawblade_1"  : "The Mechanized Sawblade still",
+  "tooltip_info_item.mcdw.mechanized_sawblade_2"  : "glows from the fires of the",
+  "tooltip_info_item.mcdw.mechanized_sawblade_3"  : "Nether, where it was forged.",
+
   "tooltip_info_item.mcdw.double_axe_1"       : "A devastating weapon fit for ",
   "tooltip_info_item.mcdw.double_axe_2"       : "barbaric fighters.",
 
@@ -366,6 +382,13 @@
   "tooltip_info_item.mcdw.stormlander_2"      : "of the raging storm, is a treasure of",
   "tooltip_info_item.mcdw.stormlander_3"      : "the Illagers.",
 
+  "tooltip_info_item.mcdw.boneclub_1"      : "Those who wield a Boneclub prefer a less",
+  "tooltip_info_item.mcdw.boneclub_2"      : "subtle approach to problem-solving.",
+
+  "tooltip_info_item.mcdw.bone_cudgel_1"      : "The Bone Cudgel is old enough to be",
+  "tooltip_info_item.mcdw.bone_cudgel_2"      : "considered an ancient treasure, but",
+  "tooltip_info_item.mcdw.bone_cudgel_3"      : "still menacing even by modern standards.",
+
   "tooltip_info_item.mcdw.diamond_pick_1"     : "Diamond is one of the most durable",
   "tooltip_info_item.mcdw.diamond_pick_2"     : "materials making it an excellent",
   "tooltip_info_item.mcdw.diamond_pick_3"     : "choice for a pickaxe.",
@@ -378,7 +401,6 @@
   "tooltip_info_item.mcdw.frost_scythe_2"     : "indestructible blade that is",
   "tooltip_info_item.mcdw.frost_scythe_3"     : "freezing to the touch and never",
   "tooltip_info_item.mcdw.frost_scythe_4"     : "seems to melt",
-
 
   "tooltip_info_item.mcdw.jailors_scythe_1"   : "This scythe belonged to the terror",
   "tooltip_info_item.mcdw.jailors_scythe_2"   : "of Highblock Keep, the Jailor.",
@@ -428,6 +450,7 @@
   "tooltip_info_item.mcdw.chill_gale_knife_1" : "Created from the never-melting ice",
   "tooltip_info_item.mcdw.chill_gale_knife_2" : "atop the mountain peaks, this",
   "tooltip_info_item.mcdw.chill_gale_knife_3" : "knife is forever icy to the touch.",
+
   "tooltip_info_item.mcdw.ancient_bow_1"      : "The Ancient Bow is still as sprightly",
   "tooltip_info_item.mcdw.ancient_bow_2"      : "as the day it was first strung.",
 

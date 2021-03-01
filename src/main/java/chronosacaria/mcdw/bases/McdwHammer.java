@@ -44,6 +44,15 @@ public class McdwHammer extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.stormlander_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.stormlander_3").formatted(Formatting.ITALIC));
         }
+        if (stack.getItem() == ItemRegistry.getItem("hammer_boneclub")) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.boneclub_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.boneclub_2").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == ItemRegistry.getItem("hammer_bone_cudgel")) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bone_cudgel_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bone_cudgel_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bone_cudgel_3").formatted(Formatting.ITALIC));
+        }
 
     }
 }

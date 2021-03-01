@@ -79,7 +79,6 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.chill_gale_knife_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.chill_gale_knife_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.chill_gale_knife_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.chill_gale_knife_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
 

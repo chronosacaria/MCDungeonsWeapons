@@ -1,0 +1,6 @@
+{
+  "parent": "item/crossbow",
+  "textures": {
+    "layer0": "mcdw:item/crossbows/cog_crossbow_firework"
+  }
+}

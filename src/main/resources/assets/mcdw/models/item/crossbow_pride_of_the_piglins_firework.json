@@ -1,0 +1,6 @@
+{
+  "parent": "item/crossbow",
+  "textures": {
+    "layer0": "mcdw:item/crossbows/pride_of_the_piglins_firework"
+  }
+}

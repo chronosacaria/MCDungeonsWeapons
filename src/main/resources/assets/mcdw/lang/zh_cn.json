@@ -86,12 +86,13 @@
   "item.mcdw.hammer_great": "大锤",
   "item.mcdw.hammer_stormlander": "雷霆之锤",
   "item.mcdw.hammer_suns_grace": "日之恩惠",
+  "item.mcdw.hammer_boneclub": "骨棒子",
+  "item.mcdw.hammer_bone_cudgel": "骨棍棒",
 
   "item.mcdw.pick_diamond_pickaxe_var": "钻石剑",
   "item.mcdw.pick_mountaineer_pick": "登山镐",
   "item.mcdw.pick_howling_pick": "Howling Pick",
   "item.mcdw.pick_hailing_pinnacle": "Hailing Pinnacle",
-
 
   "item.mcdw.sickle_sickle": "镰刀",
   "item.mcdw.sickle_nightmares_bite": "梦魇之噬",
@@ -131,6 +132,8 @@
   "item.mcdw.sword_dark_katana": "暗黑武士刀",
   "item.mcdw.sword_truthseeker": "求真者",
   "item.mcdw.sword_sinister_sword": "邪恶之剑",
+  "item.mcdw.sword_broken_sawblade": "断锯剑",
+  "item.mcdw.sword_mechanized_sawblade": "机械锯剑",
 
   "item.mcdw.item_bee_stinger": "蜜蜂毒刺",
   "item.mcdw.item_bee_stinger.tooltip": "武器选择的蜜蜂。",
@@ -163,6 +166,7 @@
   "enchantment.mcdw.fuse_shot": "导火索",
   "enchantment.mcdw.gravity": "引力",
   "enchantment.mcdw.growing": "变大",
+  "enchantment.mcdw.illagers_bane": "灾厄村民杀手",
   "enchantment.mcdw.jungle_poison": "丛林毒药",
   "enchantment.mcdw.leeching": "吸血",
   "enchantment.mcdw.poison_cloud": "毒雾",
@@ -172,6 +176,7 @@
   "enchantment.mcdw.rampaging": "狂怒",
   "enchantment.mcdw.replenish": "箭补充",
   "enchantment.mcdw.ricochet": "反弹",
+  "enchantment.mcdw.rushdown": "追逐",
   "enchantment.mcdw.shockwave": "冲击波",
   "enchantment.mcdw.smiting": "亡灵杀手",
   "enchantment.mcdw.soul_siphon": "灵魂虹吸",
@@ -272,6 +277,14 @@
   "tooltip_info_item.mcdw.hawkbrand_2"        : "legendary sword of proven ",
   "tooltip_info_item.mcdw.hawkbrand_3"        : "warriors.",
 
+  "tooltip_info_item.mcdw.broken_sawblade_1"      : "The Broken Sawblade has been",
+  "tooltip_info_item.mcdw.broken_sawblade_2"      : "ravaged by time, but it still",
+  "tooltip_info_item.mcdw.broken_sawblade_3"      : "does considerable damage.",
+
+  "tooltip_info_item.mcdw.mechanized_sawblade_1"  : "The Mechanized Sawblade still",
+  "tooltip_info_item.mcdw.mechanized_sawblade_2"  : "glows from the fires of the",
+  "tooltip_info_item.mcdw.mechanized_sawblade_3"  : "Nether, where it was forged.",
+
   "tooltip_info_item.mcdw.double_axe_1"       : "A devastating weapon fit for ",
   "tooltip_info_item.mcdw.double_axe_2"       : "barbaric fighters.",
 
@@ -360,6 +373,13 @@
   "tooltip_info_item.mcdw.stormlander_1"      : "The Stormlander, enchanted with the power",
   "tooltip_info_item.mcdw.stormlander_2"      : "of the raging storm, is a treasure of",
   "tooltip_info_item.mcdw.stormlander_3"      : "the Illagers.",
+
+  "tooltip_info_item.mcdw.boneclub_1"      : "Those who wield a Boneclub prefer a less",
+  "tooltip_info_item.mcdw.boneclub_2"      : "subtle approach to problem-solving.",
+
+  "tooltip_info_item.mcdw.bone_cudgel_1"      : "The Bone Cudgel is old enough to be",
+  "tooltip_info_item.mcdw.bone_cudgel_2"      : "considered an ancient treasure, but",
+  "tooltip_info_item.mcdw.bone_cudgel_3"      : "still menacing even by modern standards.",
 
   "tooltip_info_item.mcdw.diamond_pick_1"     : "Diamond is one of the most durable",
   "tooltip_info_item.mcdw.diamond_pick_2"     : "materials making it an excellent",

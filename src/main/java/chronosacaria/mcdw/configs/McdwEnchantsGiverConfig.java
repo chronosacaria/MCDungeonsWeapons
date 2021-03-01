@@ -31,8 +31,6 @@ public class McdwEnchantsGiverConfig {
                 new Identifier("mcdw:committed"), 1, true);
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("staff_growing_staff")),
                 new Identifier("mcdw:committed"), 1, true);
-        EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_resolute_tempest_knife")),
-                new Identifier("mcdw:committed"), 1, true);
 
         // CRITICAL HIT ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_hawkbrand")),
@@ -92,6 +90,10 @@ public class McdwEnchantsGiverConfig {
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_baby_crossbow")),
                 new Identifier("mcdw:growing"), 1, true);
 
+        // ILLAGER'S BANE ENCHANTMENT
+        EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("hammer_bone_cudgel")),
+                new Identifier("mcdw:illagers_bane"), 1, true);
+
         // JUNGLE'S POISON ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("whip_vine_whip")),
                 new Identifier("mcdw:jungle_poison"), 1, true);
@@ -111,6 +113,8 @@ public class McdwEnchantsGiverConfig {
         // PIERCING ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_the_slicer")),
                 new Identifier("minecraft:piercing"), 1, true);
+        EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_pride_of_the_piglins")),
+                new Identifier("minecraft:piercing"), 1, true);
 
         // POISON CLOUD ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sickle_nightmares_bite")),
@@ -118,6 +122,10 @@ public class McdwEnchantsGiverConfig {
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("spear_venom_glaive")),
                 new Identifier("mcdw:poison_cloud"), 1, true);
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_green_menace")),
+                new Identifier("mcdw:poison_cloud"), 1, true);
+        EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_twisting_vine_bow")),
+                new Identifier("mcdw:poison_cloud"), 1, true);
+        EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_weeping_vine_bow")),
                 new Identifier("mcdw:poison_cloud"), 1, true);
 
         // POWER ENCHANTMENT
@@ -163,7 +171,11 @@ public class McdwEnchantsGiverConfig {
                 new Identifier("mcdw:ricochet"), 1, true);
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_echo_of_the_valley")),
                 new Identifier("mcdw:ricochet"), 1, true);
-        
+
+        // RUSHDOWN ENCHANTMENT
+        EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_resolute_tempest_knife")),
+                new Identifier("mcdw:rushdown"), 1, true);
+
         // SHOCKWAVE ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("axe_whirlwind")),
                 new Identifier("mcdw:shockwave"), 1, true);

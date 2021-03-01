@@ -104,6 +104,8 @@ public class McdwStatsConfig {
         RANGE.put("bow_wind_bow", 3.2f);
         RANGE.put("bow_snow_bow", 3.2f);
         RANGE.put("bow_winters_touch", 3.2f);
+        RANGE.put("bow_twisting_vine_bow", 3.2f);
+        RANGE.put("bow_weeping_vine_bow", 3.2f);
     }
 
     public static void initMaterial() {
@@ -129,6 +131,9 @@ public class McdwStatsConfig {
         MATERIAL.put("sword_diamond_sword_var", ToolMaterials.DIAMOND);
         MATERIAL.put("sword_hawkbrand", ToolMaterials.IRON);
 
+        MATERIAL.put("sword_broken_sawblade", ToolMaterials.IRON);
+        MATERIAL.put("sword_mechanized_sawblade", ToolMaterials.DIAMOND);
+
         MATERIAL.put("axe", ToolMaterials.IRON);
         MATERIAL.put("axe_firebrand", ToolMaterials.DIAMOND);
         MATERIAL.put("axe_highland", ToolMaterials.IRON);
@@ -152,6 +157,8 @@ public class McdwStatsConfig {
         MATERIAL.put("hammer_mace", ToolMaterials.IRON);
         MATERIAL.put("hammer_flail", ToolMaterials.IRON);
         MATERIAL.put("hammer_suns_grace", ToolMaterials.DIAMOND);
+        MATERIAL.put("hammer_boneclub", ToolMaterials.IRON);
+        MATERIAL.put("hammer_bone_cudgel", ToolMaterials.DIAMOND);
 
         MATERIAL.put("dagger_tempest_knife", ToolMaterials.IRON);
         MATERIAL.put("dagger_resolute_tempest_knife", ToolMaterials.IRON);
@@ -219,6 +226,8 @@ public class McdwStatsConfig {
         MATERIAL.put("bow_wind_bow", ToolMaterials.WOOD);
         MATERIAL.put("bow_snow_bow", ToolMaterials.WOOD);
         MATERIAL.put("bow_winters_touch", ToolMaterials.WOOD);
+        MATERIAL.put("bow_twisting_vine_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_weeping_vine_bow", ToolMaterials.WOOD);
     }
 
     public static void initDamage() {
@@ -249,6 +258,10 @@ public class McdwStatsConfig {
         DAMAGE.put("sword_diamond_sword_var", 3f);
         DAMAGE.put("sword_hawkbrand", 5f);
 
+        //Sawblades
+        DAMAGE.put("sword_broken_sawblade", 3f);
+        DAMAGE.put("sword_mechanized_sawblade", 3f);
+
         //Axes
         DAMAGE.put("axe", 6f);
         DAMAGE.put("axe_firebrand", 5f);
@@ -258,6 +271,7 @@ public class McdwStatsConfig {
         DAMAGE.put("axe_cursed", 7f);
         DAMAGE.put("axe_whirlwind", 6f);
 
+        //Daggers & Soul Daggers
         DAMAGE.put("dagger_dagger", 1f);
         DAMAGE.put("dagger_fangs_of_frost", 1f);
         DAMAGE.put("dagger_moon", 1f);
@@ -267,47 +281,60 @@ public class McdwStatsConfig {
         DAMAGE.put("dagger_eternal_knife", 0f);
         DAMAGE.put("sword_truthseeker", 3f);
 
+        //Hammers
         DAMAGE.put("hammer_great", 4f);
         DAMAGE.put("hammer_stormlander", 5f);
         DAMAGE.put("hammer_gravity", 5f);
         DAMAGE.put("hammer_mace", 4f);
         DAMAGE.put("hammer_flail", 5f);
         DAMAGE.put("hammer_suns_grace", 4f);
+        DAMAGE.put("hammer_boneclub", 5f);
+        DAMAGE.put("hammer_bone_cudgel", 6f);
 
+        //Tempest Knives
         DAMAGE.put("dagger_tempest_knife", 2f);
         DAMAGE.put("dagger_resolute_tempest_knife", 3f);
         DAMAGE.put("dagger_chill_gale_knife", 4f);
 
+        //Gauntlets
         DAMAGE.put("gauntlet_gauntlet", 0f);
         DAMAGE.put("gauntlet_fighters_bindings", 0f);
         DAMAGE.put("gauntlet_maulers", 0f);
         DAMAGE.put("gauntlet_soul_fists", 0f);
 
+        //Sickles
         DAMAGE.put("sickle_sickle", 1f);
         DAMAGE.put("sickle_nightmares_bite", 3f);
         DAMAGE.put("sickle_last_laugh_gold", 4f);
         DAMAGE.put("sickle_last_laugh_silver", 4f);
 
+        //Scythes
         DAMAGE.put("sickle_jailors_scythe", 4f);
         DAMAGE.put("sickle_soul_scythe", 3f);
         DAMAGE.put("sickle_frost_scythe", 4f);
 
+        //Pickaxes
         DAMAGE.put("pick_diamond_pickaxe_var", 1f);
         DAMAGE.put("pick_mountaineer_pick", 1f);
         DAMAGE.put("pick_howling_pick", 1f);
         DAMAGE.put("pick_hailing_pinnacle", 1f);
 
+        //Glaives
         DAMAGE.put("spear_glaive", 3f);
         DAMAGE.put("spear_grave_bane", 5f);
         DAMAGE.put("spear_venom_glaive", 5f);
 
+        //Spears
         DAMAGE.put("spear_spear", 3f);
         DAMAGE.put("spear_whispering_spear", 5f);
         DAMAGE.put("spear_fortune", 4f);
 
+        //Staves
         DAMAGE.put("staff_battlestaff", 0f);
         DAMAGE.put("staff_growing_staff", 1f);
         DAMAGE.put("staff_battlestaff_of_terror", 0f);
+
+        //Whips
         DAMAGE.put("whip_whip", 2f);
         DAMAGE.put("whip_vine_whip", 5f);
     }
@@ -335,6 +362,9 @@ public class McdwStatsConfig {
         SPEED.put("sword_diamond_sword_var", -2.4f);
         SPEED.put("sword_hawkbrand", -2.0f);
 
+        SPEED.put("sword_broken_sawblade", -2.4f);
+        SPEED.put("sword_mechanized_sawblade", -2.0f);
+
         SPEED.put("axe", -3.1f);
         SPEED.put("axe_firebrand", -2.9f);
         SPEED.put("axe_highland", -3.1f);
@@ -358,6 +388,8 @@ public class McdwStatsConfig {
         SPEED.put("hammer_mace", -2.9f);
         SPEED.put("hammer_flail", -2.9f);
         SPEED.put("hammer_suns_grace", -2.5f);
+        SPEED.put("hammer_boneclub", -3.1f);
+        SPEED.put("hammer_bone_cudgel", -3.1f);
 
         SPEED.put("dagger_tempest_knife", -1.3f);
         SPEED.put("dagger_resolute_tempest_knife", -1.3f);
@@ -393,6 +425,7 @@ public class McdwStatsConfig {
         SPEED.put("staff_battlestaff", -0.1f);
         SPEED.put("staff_growing_staff", -0.1f);
         SPEED.put("staff_battlestaff_of_terror", -0.1f);
+
         SPEED.put("whip_whip", -3.1f);
         SPEED.put("whip_vine_whip", -3.1f);
     }
