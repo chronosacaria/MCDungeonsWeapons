@@ -54,24 +54,24 @@ public class McdwLoottables {
                         .rolls(new BinomialLootTableRange(1, 0.01F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_voidcaller_crossbow")))
 
-                        .rolls(new BinomialLootTableRange(1, 0.05F))
+                        .rolls(new BinomialLootTableRange(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_corrupted_crossbow")));
                 supplier.pool(poolBuilder);
             }
 
             if (piglinBastionTreasureChestLootTables(id)){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(new BinomialLootTableRange(1, 0.15F))
+                        .rolls(new BinomialLootTableRange(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("sword_broken_sawblade")))
 
-                        .rolls(new BinomialLootTableRange(1, 0.15F))
+                        .rolls(new BinomialLootTableRange(3, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_cog_crossbow")))
-                        .rolls(new BinomialLootTableRange(1, 0.05F))
+                        .rolls(new BinomialLootTableRange(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_pride_of_the_piglins")))
 
-                        .rolls(new BinomialLootTableRange(1, 0.15F))
+                        .rolls(new BinomialLootTableRange(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("hammer_boneclub")))
-                        .rolls(new BinomialLootTableRange(1, 0.05F))
+                        .rolls(new BinomialLootTableRange(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("hammer_bone_cudgel")));
 
                 supplier.pool(poolBuilder);
