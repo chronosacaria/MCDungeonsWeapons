@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "mcdw:sword_broken_sawblade"
+    },
+    "addition": {
+        "item": "minecraft:blaze_rod"
+    },
+    "result": {
+        "item": "mcdw:sword_mechanized_sawblade"
+    }
+}

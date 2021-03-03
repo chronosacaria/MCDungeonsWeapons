@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "AccessorItemTags",
+    "ItemStackMixin",
     "LivingEntityMixin",
     "MixinEntity",
     "ShieldPlayerEntityMixin",

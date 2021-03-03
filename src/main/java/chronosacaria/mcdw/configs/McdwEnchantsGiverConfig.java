@@ -123,10 +123,6 @@ public class McdwEnchantsGiverConfig {
                 new Identifier("mcdw:poison_cloud"), 1, true);
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_green_menace")),
                 new Identifier("mcdw:poison_cloud"), 1, true);
-        EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_twisting_vine_bow")),
-                new Identifier("mcdw:poison_cloud"), 1, true);
-        EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_weeping_vine_bow")),
-                new Identifier("mcdw:poison_cloud"), 1, true);
 
         // POWER ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_masters_bow")),

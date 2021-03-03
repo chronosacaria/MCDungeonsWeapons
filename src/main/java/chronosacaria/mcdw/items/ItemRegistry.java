@@ -142,8 +142,8 @@ public class ItemRegistry {
         add("bow_trickbow");
         add("bow_wind_bow");
         add("bow_snow_bow");
-        add("bow_twisting_vine_bow");
-        add("bow_weeping_vine_bow");
+        //add("bow_twisting_vine_bow");
+        //add("bow_weeping_vine_bow");
         add("bow_winters_touch");
     }};
     public static final HashSet<String> CROSSBOWS = new HashSet<String>(){{
