@@ -9,6 +9,7 @@
     "MixinEntity",
     "ShieldPlayerEntityMixin",
     "enchantments.AnimaConduitEnchantmentMixin",
+    "enchantments.BonusShotBowEnchantmentMixin",
     "enchantments.BonusShotEnchantmentMixin",
     "enchantments.BusyBeeEnchantmentMixin",
     "enchantments.ChainReactionEnchantmentMixin",

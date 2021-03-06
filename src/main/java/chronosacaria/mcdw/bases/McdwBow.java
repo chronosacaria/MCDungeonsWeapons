@@ -308,7 +308,7 @@ public class McdwBow extends BowItem implements IRangedWeapon {
         if (stack.getItem() == ItemRegistry.getItem("bow_shortbow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
         }

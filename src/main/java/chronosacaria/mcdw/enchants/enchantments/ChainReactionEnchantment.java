@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
+import net.minecraft.enchantment.InfinityEnchantment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -21,4 +22,8 @@ public class ChainReactionEnchantment extends Enchantment {
         return 3;
     }
 
+    @Override
+    protected boolean canAccept (Enchantment other){
+        return McdwEnchantsConfig.getValue("enable_op_mixing") || !(other instanceof InfinityEnchantment);
+    }
 }
