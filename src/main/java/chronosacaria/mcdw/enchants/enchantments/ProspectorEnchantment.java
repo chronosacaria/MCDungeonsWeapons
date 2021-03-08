@@ -9,7 +9,7 @@ import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.registry.Registry;
 
-public class ProspectorEnchantment extends DamageBoostEnchantment {
+public class ProspectorEnchantment extends Enchantment {
 
     public ProspectorEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);

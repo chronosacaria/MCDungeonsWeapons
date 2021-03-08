@@ -662,7 +662,7 @@
   "tooltip_note_item.mcdw.shortbow": "Shortbow",
 
   "enchantment.mcdw.anima_conduit.desc": "Each XP orb grants a small amount of health.",
-  "enchantment.mcdw.chain_reaction": "A chance to fire extra projectiles from target hit with an arrow.",
+  "enchantment.mcdw.chain_reaction.desc": "A chance to fire extra projectiles from target hit with an arrow.",
   "enchantment.mcdw.chains.desc": "A chance to pull mobs together and slow them down.",
   "enchantment.mcdw.committed.desc": "A chance to deal damage relative to target's health.",
   "enchantment.mcdw.critical_hit.desc": "A chance to deal critical hit without jumping.",
@@ -673,7 +673,7 @@
   "enchantment.mcdw.fuse_shot.desc": "A chance that arrow explodes on impact.",
   "enchantment.mcdw.gravity.desc": "A chance to pull in and toss targets. Distance thrown is relative to level.",
   "enchantment.mcdw.growing.desc": "Deal extra damage the farther you are from the target.",
-  "enchantment.mcdw.illagers_bane": "Deal extra damage to Illagers.",
+  "enchantment.mcdw.illagers_bane.desc": "Deal extra damage to Illagers.",
   "enchantment.mcdw.jungles_poison.desc": "A chance to apply poison to target.",
   "enchantment.mcdw.leeching.desc": "Heal relative to the max health of the target upon its death.",
   "enchantment.mcdw.poison_cloud.desc": "A chance to spawn a poison cloud around a target.",
