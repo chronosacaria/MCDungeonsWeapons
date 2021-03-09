@@ -75,8 +75,8 @@ public class ItemRegistry {
     private static final HashSet<String> GAUNTLETS = new HashSet<String>(){{
         add("gauntlet_gauntlet");
         add("gauntlet_maulers");
-        add("gauntlet_maulers");
         add("gauntlet_soul_fists");
+        //add("gauntlet_fighters_bindings");
     }};
     private static final HashSet<String> SICKLES = new HashSet<String>(){{
         add("sickle_sickle");

@@ -2,8 +2,6 @@ package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
-import chronosacaria.mcdw.enchants.types.AOEEnchantment;
-import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;

@@ -26,6 +26,8 @@ public abstract class SmitingEnchantmentMixin {
         LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
+        if(target instanceof PlayerEntity) return;
+
         if (source.getSource() instanceof LivingEntity) {
             if (amount != 0.0F) {
                 ItemStack mainHandStack = null;

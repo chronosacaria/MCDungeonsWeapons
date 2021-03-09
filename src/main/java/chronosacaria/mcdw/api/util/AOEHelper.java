@@ -23,6 +23,8 @@ public class AOEHelper {
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
         for (LivingEntity nearbyEntity : nearbyEntities) {
+            if (nearbyEntity == null) return;
+            if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
             double motionX = target.getX() - (nearbyEntity.getX());
             double motionY = target.getX() - (nearbyEntity.getY());
             double motionZ = target.getX() - (nearbyEntity.getZ());
@@ -54,6 +56,8 @@ public class AOEHelper {
                         .canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
+            if (nearbyEntity == null) return;
+            if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
             nearbyEntity.setHealth(h - (10));
         }
     } //THUNDERING END
@@ -69,6 +73,8 @@ public class AOEHelper {
                         .canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
+            if (nearbyEntity == null) return;
+            if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
             nearbyEntity.damage(explosion, damageAmount);
         }
     }//EXPLODING END
@@ -85,6 +91,8 @@ public class AOEHelper {
         StatusEffectInstance chained = new StatusEffectInstance(StatusEffects.SLOWNESS, 100 * timeMultiplier, 100);
         target.addStatusEffect(chained);
         for (LivingEntity nearbyEntity : nearbyEntities) {
+            if (nearbyEntity == null) return;
+            if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
             double motionX = target.getX() - (nearbyEntity.getX());
             double motionY = target.getX() - (nearbyEntity.getY());
             double motionZ = target.getX() - (nearbyEntity.getZ());
@@ -106,6 +114,7 @@ public class AOEHelper {
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
+            if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
             nearbyEntity.setHealth(h - attackDamage);
             echoLevel--;
             if (echoLevel <= 0) return;
@@ -121,6 +130,8 @@ public class AOEHelper {
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
+            if (nearbyEntity == null) return;
+            if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
             nearbyEntity.setHealth(h - (attackDamage * 0.5F));
         }
     }
@@ -134,6 +145,8 @@ public class AOEHelper {
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
+            if (nearbyEntity == null) return;
+            if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
             nearbyEntity.setHealth(h - (attackDamage * 0.25F));
         }
     }
@@ -147,7 +160,9 @@ public class AOEHelper {
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
-            nearbyEntity.setHealth(h - (attackDamage * 1.25F));
+            if (nearbyEntity.isUndead()) {
+                nearbyEntity.setHealth(h - (attackDamage * 1.25F));
+            }
         }
     }
 }

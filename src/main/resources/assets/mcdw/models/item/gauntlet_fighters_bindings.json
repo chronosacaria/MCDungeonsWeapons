@@ -1,4 +1,5 @@
 {
+	"parent": "mcdw:item/model_gauntlet",
 	"textures": {
 		"0": "mcdw:item/gauntlet_fighters_bindings",
 		"particle": "mcdw:item/gauntlet_fighters_bindings"
@@ -20,37 +21,18 @@
 	],
 	"gui_light": "front",
 	"display": {
-		"thirdperson_righthand": {
-			"rotation": [-90, 0, 0],
-			"translation": [0, -2, -0.1],
-			"scale": [1.15, 1.15, 1.15]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [-90, -180, 0],
-			"translation": [0, -2, -0.1],
-			"scale": [1.15, 1.15, 1.15]
-		},
 		"firstperson_righthand": {
-			"rotation": [-30, -160, 0],
+			"rotation": [-30, -48, 0],
 			"translation": [0, 4, -2]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-30, 20, 0],
+			"rotation": [-30, 128, 0],
 			"translation": [0, 4, -2]
-		},
-		"ground": {
-			"translation": [0, 3.25, 0],
-			"scale": [0.75, 0.75, 0.75]
 		},
 		"gui": {
 			"rotation": [0, -45, 0],
 			"translation": [-0.25, 6.5, 0],
 			"scale": [1.5, 1.5, 1.5]
-		},
-		"head": {
-			"rotation": [-90, -90, 0],
-			"translation": [0, 8.71, -4.35],
-			"scale": [1.15, 1.15, 1.15]
 		},
 		"fixed": {
 			"rotation": [0, 90, 0],
