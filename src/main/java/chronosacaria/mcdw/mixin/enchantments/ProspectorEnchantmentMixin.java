@@ -1,7 +1,5 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
-import chronosacaria.mcdw.api.util.AOECloudHelper;
-import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -12,8 +10,6 @@ import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -32,17 +28,16 @@ public class ProspectorEnchantmentMixin {
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
-        boolean uniqueWeaponFlag = false;
         if (McdwEnchantsConfig.getValue("prospector")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.PROSPECTOR, mainHandStack) >= 1 )) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.PROSPECTOR, mainHandStack);
-                float prospectorChance = 0.25F * level;
+                float prospectorChance = 0.05F * level;
                 float prospectorRand = user.getRandom().nextFloat();
                 if (prospectorRand <= prospectorChance) {
                     if (target instanceof Monster){
                         ItemEntity emeraldDrop = new ItemEntity(target.world, target.getX(), target.getY(),
                                 target.getZ(),
-                                new ItemStack(Items.EMERALD, (1 * level)));
+                                new ItemStack(Items.EMERALD, 1));
                         user.world.spawnEntity(emeraldDrop);
                     }
                 }
