@@ -2,6 +2,7 @@ package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwCrossbow;
+import chronosacaria.mcdw.bases.McdwShortBow;
 import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -30,8 +31,22 @@ public class RangedAttackHelper {
         int quickChargeLevel = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
         //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
 
-        float bowChargeTime = McdwBow.chargeTime * (Math.max(20.0F -5 * quickChargeLevel, 0));
+        float bowChargeTime = McdwBow.chargeTime * (Math.max(20.0F - 5 * quickChargeLevel, 0));
         long lastFiredtime = (long)(McdwBow.getPullProgress(22) * (Math.max(20.0F -5 * quickChargeLevel, 0)));
+
+        if (/*accelerateLevel > 0 &&*/ lastFiredtime > 0){
+            return Math.max(bowChargeTime - 5 * quickChargeLevel, 0);
+        } else {
+            return Math.max(20.0F - 5 * quickChargeLevel, 0);
+        }
+    }
+
+    public static float getShortBowChargeTime(ItemStack stack){
+        int quickChargeLevel = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
+        //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
+
+        float bowChargeTime = McdwShortBow.chargeTime * (Math.max(20.0F - 5 * quickChargeLevel, 0));
+        long lastFiredtime = (long)(McdwShortBow.getPullProgress(22) * (Math.max(20.0F -5 * quickChargeLevel, 0)));
 
         if (/*accelerateLevel > 0 &&*/ lastFiredtime > 0){
             return Math.max(bowChargeTime - 5 * quickChargeLevel, 0);

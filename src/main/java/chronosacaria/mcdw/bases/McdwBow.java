@@ -207,7 +207,6 @@ public class McdwBow extends BowItem implements IRangedWeapon {
         if (stack.getItem() == ItemRegistry.getItem("bow_ancient_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.ancient_bow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.ancient_bow_2").formatted(Formatting.ITALIC));
-
         }
         if (stack.getItem() == ItemRegistry.getItem("bow_bonebow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bonebow_1").formatted(Formatting.ITALIC));
@@ -227,14 +226,6 @@ public class McdwBow extends BowItem implements IRangedWeapon {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.elite_power_3").formatted(Formatting.ITALIC));
 
         }
-        if (stack.getItem() == ItemRegistry.getItem("bow_guardian_bow")) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
-
-        }
         if (stack.getItem() == ItemRegistry.getItem("bow_haunted_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.haunted_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.haunted_2").formatted(Formatting.ITALIC));
@@ -250,31 +241,10 @@ public class McdwBow extends BowItem implements IRangedWeapon {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hunting_bow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hunting_bow_3").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("bow_longbow")) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.longbow_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.longbow_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.longbow_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
-        }
-        if (stack.getItem() == ItemRegistry.getItem("bow_love_spell_bow")) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.love_spell_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.love_spell_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.love_spell_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
-        }
         if (stack.getItem() == ItemRegistry.getItem("bow_masters_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.masters_bow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.masters_bow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.masters_bow_3").formatted(Formatting.ITALIC));
-        }
-        if (stack.getItem() == ItemRegistry.getItem("bow_mechanical_shortbow")) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mechanical_shortbow_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mechanical_shortbow_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mechanical_shortbow_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("bow_nocturnal_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nocturnal_bow_1").formatted(Formatting.ITALIC));
@@ -286,31 +256,10 @@ public class McdwBow extends BowItem implements IRangedWeapon {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.power_bow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.power_bow_3").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("bow_purple_storm")) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.purple_storm_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.purple_storm_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.purple_storm_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
-        }
-        if (stack.getItem() == ItemRegistry.getItem("bow_red_snake")) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.red_snake_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.red_snake_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.red_snake_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
-        }
         if (stack.getItem() == ItemRegistry.getItem("bow_sabrewing")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sabrewing_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sabrewing_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sabrewing_3").formatted(Formatting.ITALIC));
-        }
-        if (stack.getItem() == ItemRegistry.getItem("bow_shortbow")) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
         }
         if (stack.getItem() == ItemRegistry.getItem("bow_snow_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.snow_bow_1").formatted(Formatting.ITALIC));
@@ -336,31 +285,26 @@ public class McdwBow extends BowItem implements IRangedWeapon {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.trickbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.trickbow_2").formatted(Formatting.ITALIC));
         }
-
         if (stack.getItem() == ItemRegistry.getItem("bow_winters_touch")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.winters_touch_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.winters_touch_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.winters_touch_3").formatted(Formatting.ITALIC));
         }
-
         if (stack.getItem() == ItemRegistry.getItem("bow_shivering_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shivering_bow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shivering_bow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shivering_bow_3").formatted(Formatting.ITALIC));
         }
-
         if (stack.getItem() == ItemRegistry.getItem("bow_wind_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.wind_bow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.wind_bow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.wind_bow_3").formatted(Formatting.ITALIC));
         }
-
         if (stack.getItem() == ItemRegistry.getItem("bow_echo_of_the_valley")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.echo_of_the_valley_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.echo_of_the_valley_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.echo_of_the_valley_3").formatted(Formatting.ITALIC));
         }
-
         if (stack.getItem() == ItemRegistry.getItem("bow_burst_gale_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.burst_gale_bow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.burst_gale_bow_2").formatted(Formatting.ITALIC));

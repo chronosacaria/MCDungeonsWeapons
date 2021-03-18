@@ -127,17 +127,13 @@ public class ItemRegistry {
         add("bow_hunting_bow");
         add("bow_longbow");
         add("bow_lost_souls");
-        add("bow_love_spell_bow");
         add("bow_masters_bow");
-        add("bow_mechanical_shortbow");
         add("bow_nocturnal_bow");
         add("bow_pink_scoundrel");
         add("bow_power_bow");
-        add("bow_purple_storm");
-        add("bow_red_snake");
         add("bow_sabrewing");
         add("bow_shivering_bow");
-        add("bow_shortbow");
+
         add("bow_soul_bow");
         add("bow_trickbow");
         add("bow_wind_bow");
@@ -145,6 +141,15 @@ public class ItemRegistry {
         //add("bow_twisting_vine_bow");
         //add("bow_weeping_vine_bow");
         add("bow_winters_touch");
+    }};
+    public static final HashSet<String> SHORTBOWS = new HashSet<String>(){{
+        add("bow_love_spell_bow");
+        add("bow_shortbow");
+        add("bow_mechanical_shortbow");
+        add("bow_purple_storm");
+    }};
+    public static final HashSet<String> LONGBOWS = new HashSet<String>(){{
+        add("bow_red_snake");
     }};
     public static final HashSet<String> CROSSBOWS = new HashSet<String>(){{
         add("crossbow_the_slicer");
@@ -245,6 +250,15 @@ public class ItemRegistry {
         //BOWS
         for (String itemID : BOWS) {
             ITEMS.put(itemID, new McdwBow(McdwStatsConfig.getMaterial(itemID), new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), McdwStatsConfig.getDrawTime(itemID), McdwStatsConfig.getMaxRange(itemID)));
+        }
+        //SHORTBOWS
+        for (String itemID : SHORTBOWS) {
+            ITEMS.put(itemID, new McdwShortBow(McdwStatsConfig.getMaterial(itemID), new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), McdwStatsConfig.getDrawTime(itemID), McdwStatsConfig.getMaxRange(itemID)));
+        }
+        //LONGBOWS
+        for (String itemID : LONGBOWS) {
+            ITEMS.put(itemID, new McdwLongBow(McdwStatsConfig.getMaterial(itemID),
+                    new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), McdwStatsConfig.getDrawTime(itemID), McdwStatsConfig.getMaxRange(itemID)));
         }
         //CROSSBOWS
         for (String itemID : CROSSBOWS) {

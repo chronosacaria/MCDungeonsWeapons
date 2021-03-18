@@ -1,8 +1,6 @@
 package chronosacaria.mcdw.client;
 
-import chronosacaria.mcdw.bases.McdwBow;
-import chronosacaria.mcdw.bases.McdwCrossbow;
-import chronosacaria.mcdw.bases.McdwShield;
+import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRenderRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
@@ -25,6 +23,14 @@ public class McdwClient implements ClientModInitializer {
             registerBowPredicates((McdwBow) ItemRegistry.getItem(itemID));
         }
 
+        for (String itemID : ItemRegistry.SHORTBOWS) {
+            registerShortBowPredicates((McdwShortBow) ItemRegistry.getItem(itemID));
+        }
+
+        for (String itemID : ItemRegistry.LONGBOWS) {
+            registerLongBowPredicates((McdwLongBow) ItemRegistry.getItem(itemID));
+        }
+
         for (String itemID : ItemRegistry.CROSSBOWS) {
             registerCrossbowPredicates((McdwCrossbow) ItemRegistry.getItem(itemID));
         }
@@ -34,6 +40,30 @@ public class McdwClient implements ClientModInitializer {
         }
     }
     public static void registerBowPredicates(McdwBow bow) {
+        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld, livingEntity) -> {
+            if (livingEntity == null) {
+                return 0.0F;
+            } else {
+                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getMaxDrawTime();
+            }
+        });
+
+        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld, livingEntity) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
+    }
+
+    public static void registerShortBowPredicates(McdwShortBow bow) {
+        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld, livingEntity) -> {
+            if (livingEntity == null) {
+                return 0.0F;
+            } else {
+                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getMaxDrawTime();
+            }
+        });
+
+        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld, livingEntity) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
+    }
+
+    public static void registerLongBowPredicates(McdwLongBow bow) {
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld, livingEntity) -> {
             if (livingEntity == null) {
                 return 0.0F;
