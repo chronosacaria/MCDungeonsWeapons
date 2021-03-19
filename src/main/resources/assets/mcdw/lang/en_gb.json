@@ -544,6 +544,15 @@
   "tooltip_info_item.mcdw.burst_gale_bow_2"     : "of a rolling wind which can",
   "tooltip_info_item.mcdw.burst_gale_bow_3"     : "flare up in an instant.",
 
+  "tooltip_info_item.mcdw.twisting_vine_bow_1"  : "This bow writhes within your",
+  "tooltip_info_item.mcdw.twisting_vine_bow_2"  : "grasp as if trying to wrap its",
+  "tooltip_info_item.mcdw.twisting_vine_bow_3"  : "tendrils around everything",
+  "tooltip_info_item.mcdw.twisting_vine_bow_4"  : "in its path.",
+
+  "tooltip_info_item.mcdw.weeping_vine_bow_1"  : "The Weeping Vine Bow's toxic",
+  "tooltip_info_item.mcdw.weeping_vine_bow_2"  : "vines create a poisonous haze",
+  "tooltip_info_item.mcdw.weeping_vine_bow_3"  : "on the battlefield.",
+
   "tooltip_info_item.mcdw.auto_crossbow_1"          : "The Arch-Illager said the design",
   "tooltip_info_item.mcdw.auto_crossbow_2"          : "for this powerful crossbow came",
   "tooltip_info_item.mcdw.auto_crossbow_3"          : "to him in a vision.",

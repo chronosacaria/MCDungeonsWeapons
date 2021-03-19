@@ -310,6 +310,17 @@ public class McdwBow extends BowItem implements IRangedWeapon {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.burst_gale_bow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.burst_gale_bow_3").formatted(Formatting.ITALIC));
         }
+        if (stack.getItem() == ItemRegistry.getItem("bow_twisting_vines_bow")) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.twisting_vine_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.twisting_vine_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.twisting_vine_bow_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.twisting_vine_bow_4").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == ItemRegistry.getItem("bow_weeping_vines_bow")) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.weeping_vine_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.weeping_vine_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.weeping_vine_bow_3").formatted(Formatting.ITALIC));
+        }
 
     }
 }
