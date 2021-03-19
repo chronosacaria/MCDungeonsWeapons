@@ -573,7 +573,12 @@
 
   "tooltip_info_item.mcdw.butterfly_crossbow_1"     : "이 석궁은 퍼덕거리는 날개보다",
   "tooltip_info_item.mcdw.butterfly_crossbow_2"     : "더 빠르게 움직여 화살이 눈에",
-  "tooltip_info_item.mcdw.butterfly_crossbow_3"     : "띄기도 전에 적을 쓰러뜨립니다.", 
+  "tooltip_info_item.mcdw.butterfly_crossbow_3"     : "띄기도 전에 적을 쓰러뜨립니다.",
+
+  "tooltip_info_item.mcdw.cog_crossbow_1"           : "The gears of this ancient Cog",
+  "tooltip_info_item.mcdw.cog_crossbow_2"           : "Crossbow still turn up smoothly,",
+  "tooltip_info_item.mcdw.cog_crossbow_3"           : "making it a reliable weapon choice",
+  "tooltip_info_item.mcdw.cog_crossbow_4"           : "to this day.",
 
   "tooltip_info_item.mcdw.corrupted_crossbow_1"     : "이 석궁에는 미묘하지만 ",
   "tooltip_info_item.mcdw.corrupted_crossbow_2"     : "타락한 힘이 있어 도둑과",
@@ -612,7 +617,11 @@
 
   "tooltip_info_item.mcdw.lightning_harp_crossbow_1": "석궁에 전기 에너지를",
   "tooltip_info_item.mcdw.lightning_harp_crossbow_2": "더하자 발사음이",
-  "tooltip_info_item.mcdw.lightning_harp_crossbow_3": "완전히 바뀌었습니다.", 
+  "tooltip_info_item.mcdw.lightning_harp_crossbow_3": "완전히 바뀌었습니다.",
+
+  "tooltip_info_item.mcdw.pride_of_the_piglins_1"   : "Found in the farthest reaches",
+  "tooltip_info_item.mcdw.pride_of_the_piglins_2"   : "of the Nether, the Pride of the",
+  "tooltip_info_item.mcdw.pride_of_the_piglins_3"   : "Piglins is both vintage and vicious.",
 
   "tooltip_info_item.mcdw.rapid_crossbow_1"         : "새로운 장전 기술 덕분에",
   "tooltip_info_item.mcdw.rapid_crossbow_2"         : "이 석궁은 이전보다 더 빠르게",

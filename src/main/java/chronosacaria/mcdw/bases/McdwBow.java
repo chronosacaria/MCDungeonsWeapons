@@ -212,19 +212,16 @@ public class McdwBow extends BowItem implements IRangedWeapon {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bonebow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bonebow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bonebow_3").formatted(Formatting.ITALIC));
-
         }
         if (stack.getItem() == ItemRegistry.getItem("bow_lost_souls")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lost_souls_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lost_souls_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.lost_souls_3").formatted(Formatting.ITALIC));
-
         }
         if (stack.getItem() == ItemRegistry.getItem("bow_elite_power_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.elite_power_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.elite_power_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.elite_power_3").formatted(Formatting.ITALIC));
-
         }
         if (stack.getItem() == ItemRegistry.getItem("bow_haunted_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.haunted_1").formatted(Formatting.ITALIC));

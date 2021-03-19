@@ -6,7 +6,6 @@ import chronosacaria.mcdw.configs.McdwStatsConfig;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;

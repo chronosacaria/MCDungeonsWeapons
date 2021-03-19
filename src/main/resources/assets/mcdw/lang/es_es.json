@@ -532,6 +532,11 @@
   "tooltip_info_item.mcdw.butterfly_crossbow_2"     : "wings in flight and strikes down",
   "tooltip_info_item.mcdw.butterfly_crossbow_3"     : "enemies before they see the bolt.",
 
+  "tooltip_info_item.mcdw.cog_crossbow_1"           : "The gears of this ancient Cog",
+  "tooltip_info_item.mcdw.cog_crossbow_2"           : "Crossbow still turn up smoothly,",
+  "tooltip_info_item.mcdw.cog_crossbow_3"           : "making it a reliable weapon choice",
+  "tooltip_info_item.mcdw.cog_crossbow_4"           : "to this day.",
+
   "tooltip_info_item.mcdw.corrupted_crossbow_1"     : "This crossbow has a subtle yet",
   "tooltip_info_item.mcdw.corrupted_crossbow_2"     : "corrupting power that is suitable",
   "tooltip_info_item.mcdw.corrupted_crossbow_3"     : "for thieves and nimble warriors alike.",
@@ -570,6 +575,10 @@
   "tooltip_info_item.mcdw.lightning_harp_crossbow_1": "Adding electrical energy to this",
   "tooltip_info_item.mcdw.lightning_harp_crossbow_2": "crossbow changed the firing",
   "tooltip_info_item.mcdw.lightning_harp_crossbow_3": "sound dramatically.",
+
+  "tooltip_info_item.mcdw.pride_of_the_piglins_1"   : "Found in the farthest reaches",
+  "tooltip_info_item.mcdw.pride_of_the_piglins_2"   : "of the Nether, the Pride of the",
+  "tooltip_info_item.mcdw.pride_of_the_piglins_3"   : "Piglins is both vintage and vicious.",
 
   "tooltip_info_item.mcdw.rapid_crossbow_1"         : "New reloading technology helps this",
   "tooltip_info_item.mcdw.rapid_crossbow_2"         : "crossbow fire more rapidly than those",

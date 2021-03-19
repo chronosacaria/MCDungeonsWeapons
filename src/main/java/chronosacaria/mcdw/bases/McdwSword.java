@@ -78,7 +78,6 @@ public class McdwSword extends SwordItem {
         if (stack.getItem() == ItemRegistry.getItem("sword_dark_katana")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dark_katana_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dark_katana_2").formatted(Formatting.ITALIC));
-
         }
         if (stack.getItem() == ItemRegistry.getItem("sword_rapier")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.rapier_1").formatted(Formatting.ITALIC));

@@ -34,7 +34,6 @@ public class McdwSoulDagger extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.eternal_knife_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.eternal_knife_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.eternal_knife_3").formatted(Formatting.ITALIC));
-
         }
     }
 }

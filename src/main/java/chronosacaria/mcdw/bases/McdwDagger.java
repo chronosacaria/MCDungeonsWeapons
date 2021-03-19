@@ -34,7 +34,6 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dagger_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
-
         }
         if (stack.getItem() == ItemRegistry.getItem("dagger_fangs_of_frost")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fangs_of_frost_1").formatted(Formatting.ITALIC));
@@ -43,7 +42,6 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fangs_of_frost_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
-
         }
         if (stack.getItem() == ItemRegistry.getItem("dagger_moon")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.moon_daggers_1").formatted(Formatting.ITALIC));
@@ -51,7 +49,6 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.moon_daggers_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
-
         }
         if (stack.getItem() == ItemRegistry.getItem("dagger_shear_dagger")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shear_daggers_1").formatted(Formatting.ITALIC));
@@ -59,7 +56,6 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shear_daggers_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
-
         }
 
         if (stack.getItem() == ItemRegistry.getItem("dagger_tempest_knife")) {
@@ -73,7 +69,6 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.resolute_tempest_knife_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
-
         }
         if (stack.getItem() == ItemRegistry.getItem("dagger_chill_gale_knife")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.chill_gale_knife_1").formatted(Formatting.ITALIC));
@@ -81,7 +76,6 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.chill_gale_knife_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
-
         }
     }
 }
