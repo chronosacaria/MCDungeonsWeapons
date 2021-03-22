@@ -132,7 +132,6 @@ public class ItemRegistry {
         add("bow_power_bow");
         add("bow_sabrewing");
         add("bow_shivering_bow");
-
         add("bow_soul_bow");
         add("bow_trickbow");
         add("bow_wind_bow");
