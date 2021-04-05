@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "mcdw:axe",
+    "mcdw:axe_firebrand",
+    "mcdw:axe_highland",
+
+    "mcdw:axe_cursed",
+    "mcdw:axe_double",
+    "mcdw:axe_whirlwind",
+
+    "mcdw:spear_spear",
+    "mcdw:spear_whispering_spear",
+    "mcdw:spear_fortune",
+
+    "mcdw:staff_battlestaff",
+    "mcdw:staff_growing_staff",
+    "mcdw:staff_battlestaff_of_terror",
+
+    "mcdw:whip_whip",
+    "mcdw:whip_vine_whip"
+  ]
+}

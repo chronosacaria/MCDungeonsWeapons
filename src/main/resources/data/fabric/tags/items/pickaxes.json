@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "mcdw:pick_diamond_pickaxe_var",
+    "mcdw:pick_mountaineer_pick",
+    "mcdw:pick_howling_pick",
+    "mcdw:pick_hailing_pinnacle"
+  ]
+}

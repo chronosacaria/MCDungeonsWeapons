@@ -1,0 +1,61 @@
+{
+  "replace": false,
+  "values": [
+    "mcdw:sword_claymore",
+    "mcdw:sword_broadsword",
+    "mcdw:sword_frost_slayer",
+    "mcdw:sword_heartstealer",
+    "mcdw:sword_great_axeblade",
+    "mcdw:sword_rapier",
+    "mcdw:sword_beestinger",
+    "mcdw:sword_freezing_foil",
+    "mcdw:sword_cutlass",
+    "mcdw:sword_nameless_blade",
+    "mcdw:sword_dancers_sword",
+    "mcdw:sword_katana",
+    "mcdw:sword_masters_katana",
+    "mcdw:sword_dark_katana",
+    "mcdw:sword_iron_sword_var",
+    "mcdw:sword_diamond_sword_var",
+    "mcdw:sword_hawkbrand",
+    "mcdw:sword_broken_sawblade",
+    "mcdw:sword_mechanized_sawblade",
+
+    "mcdw:dagger_dagger",
+    "mcdw:dagger_fangs_of_frost",
+    "mcdw:dagger_moon",
+    "mcdw:dagger_shear_dagger",
+    "mcdw:dagger_tempest_knife",
+    "mcdw:dagger_resolute_tempest_knife",
+    "mcdw:dagger_chill_gale_knife",
+
+    "mcdw:dagger_soul_knife",
+    "mcdw:dagger_eternal_knife",
+    "mcdw:sword_truthseeker",
+
+    "mcdw:hammer_great",
+    "mcdw:hammer_stormlander",
+    "mcdw:hammer_gravity",
+    "mcdw:hammer_flail",
+    "mcdw:hammer_suns_grace",
+    "mcdw:hammer_boneclub",
+    "mcdw:hammer_bone_cudgel",
+
+    "mcdw:gauntlet_gauntlet",
+    "mcdw:gauntlet_maulers",
+    "mcdw:gauntlet_soul_fists",
+
+    "mcdw:sickle_sickle",
+    "mcdw:sickle_nightmares_bite",
+    "mcdw:sickle_last_laugh_gold",
+    "mcdw:sickle_last_laugh_silver",
+
+    "mcdw:sickle_jailors_scythe",
+    "mcdw:sickle_soul_scythe",
+    "mcdw:sickle_frost_scythe",
+
+    "mcdw:spear_glaive",
+    "mcdw:spear_grave_bane",
+    "mcdw:spear_venom_glaive"
+  ]
+}
