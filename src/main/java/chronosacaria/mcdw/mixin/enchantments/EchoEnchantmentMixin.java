@@ -3,11 +3,9 @@ package chronosacaria.mcdw.mixin.enchantments;
 import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -42,7 +40,8 @@ public class EchoEnchantmentMixin {
                             AOEHelper.causeEchoAttack(user,
                                     target,
                                     3.0f,
-                                    level);
+                                    level,
+                                    amount);
                             user.world.playSound(
                                     null,
                                     user.getX(),

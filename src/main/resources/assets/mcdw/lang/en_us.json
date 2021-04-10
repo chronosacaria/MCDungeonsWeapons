@@ -679,6 +679,8 @@
   "tooltip_note_item.mcdw.longbow": "Longbow",
   "tooltip_note_item.mcdw.shortbow": "Shortbow",
 
+  "death.attack.electricShock": "%s was electrocuted to death.",
+
   "enchantment.mcdw.anima_conduit.desc": "Each XP orb grants a small amount of health.",
   "enchantment.mcdw.chain_reaction.desc": "A chance to fire extra projectiles from target hit with an arrow.",
   "enchantment.mcdw.chains.desc": "A chance to pull mobs together and slow them down.",

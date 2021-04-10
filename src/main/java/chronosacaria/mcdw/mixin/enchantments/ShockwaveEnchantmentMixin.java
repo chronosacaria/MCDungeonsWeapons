@@ -46,7 +46,8 @@ public class ShockwaveEnchantmentMixin {
                             AOEHelper.causeShockwaveAttack(
                                     user,
                                     target,
-                                    3.0f);
+                                    3.0f,
+                                    amount);
 
                             target.world.playSound(
                                     null,

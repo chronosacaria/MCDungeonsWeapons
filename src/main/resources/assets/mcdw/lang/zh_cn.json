@@ -673,6 +673,8 @@
   "tooltip_note_item.mcdw.shortbow": "短弓",
   "tooltip_ench_item.mcdw.beestinger_1": "忙碌蜜蜂",
 
+  "death.attack.electricShock": "%s被电死了。",
+
   "enchantment.mcdw.anima_conduit.desc": "Each XP orb grants a small amount of health.",
   "enchantment.mcdw.chain_reaction.desc": "A chance to fire extra projectiles from target hit with an arrow.",
   "enchantment.mcdw.chains.desc": "A chance to pull mobs together and slow them down.",

@@ -616,5 +616,7 @@
   "tooltip_info_item.mcdw.gap": " ",
   "tooltip_note_item.mcdw.dualwield": "Dual Wield",
   "tooltip_note_item.mcdw.longbow": "Longbow",
-  "tooltip_note_item.mcdw.shortbow": "Shortbow"
+  "tooltip_note_item.mcdw.shortbow": "Shortbow",
+
+  "death.attack.electricShock": "%s was electrocuted to death."
 }

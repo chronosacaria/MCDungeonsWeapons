@@ -42,7 +42,8 @@ public class SwirlingEnchantmentMixin {
                             AOEHelper.causeSwirlingAttack(
                                     (PlayerEntity) user,
                                     target,
-                                    1.5f);
+                                    1.5f,
+                                    amount);
 
                             target.world.playSound(
                                     null,

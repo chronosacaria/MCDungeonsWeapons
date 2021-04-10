@@ -141,7 +141,7 @@
   "enchantment.mcdw.anima_conduit": "Anima Conduit",
   "enchantment.mcdw.bonus_shot": "Bonus Shot",
   "enchantment.mcdw.chain_reaction": "Chain Reaction",
-  "enchantment.mcdw.chained": "Chains",
+  "enchantment.mcdw.chains": "Chains",
   "enchantment.mcdw.charge": "Charge",
   "enchantment.mcdw.committed": "Committed",
   "enchantment.mcdw.critical_hit": "Critical Hit",
@@ -617,6 +617,8 @@
   "tooltip_note_item.mcdw.longbow": "Longbow",
   "tooltip_note_item.mcdw.shortbow": "Shortbow",
 
+  "death.attack.electricShock": "%s was electrocuted to death.",
+
   "item.mcdw.bow_shivering_bow": "Shivering Bow",
   "item.mcdw.bow_wind_bow": "Wind Bow",
   "item.mcdw.bow_echo_of_the_valley": "Echo of the Valley",
@@ -652,4 +654,5 @@
   "tooltip_info_item.mcdw.weeping_vine_bow_1"  : "The Weeping Vine Bow's toxic",
   "tooltip_info_item.mcdw.weeping_vine_bow_2"  : "vines create a poisonous haze",
   "tooltip_info_item.mcdw.weeping_vine_bow_3"  : "on the battlefield."
+
 }

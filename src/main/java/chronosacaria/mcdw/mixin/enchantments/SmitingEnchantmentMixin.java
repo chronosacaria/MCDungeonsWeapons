@@ -42,7 +42,8 @@ public abstract class SmitingEnchantmentMixin {
                             AOEHelper.causeSmitingAttack(
                                     (PlayerEntity) user,
                                     target,
-                                    3.0f * level);
+                                    3.0f * level,
+                                    amount);
                         }
                     }
                 }

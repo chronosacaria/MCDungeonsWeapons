@@ -53,9 +53,9 @@ public abstract class EnigmaResonatorMixin {
 
                         float chance = user.getRandom().nextFloat();
                         if (chance <= Math.min((numSouls / 50.0), soulsCriticalBoostChanceCap)) {
-                            target.setHealth(h - (amount * extraDamageMultiplier));
+                            //target.setHealth(h - (amount * extraDamageMultiplier));
 
-                            //target.damage(DamageSource.mob( user), getExtraDamage);
+                            target.damage(DamageSource.GENERIC, getExtraDamage);
                             target.world.playSound(
                                     null,
                                     target.getX(),

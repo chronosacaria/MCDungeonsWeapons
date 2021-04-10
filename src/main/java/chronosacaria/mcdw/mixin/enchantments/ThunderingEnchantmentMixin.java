@@ -29,8 +29,6 @@ public class ThunderingEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                boolean uniqueWeaponFlag =
-                        false;
                 if (McdwEnchantsConfig.getValue("thundering")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, mainHandStack) >= 1 )) {
@@ -40,8 +38,9 @@ public class ThunderingEnchantmentMixin {
                         if (chance <= 0.2F) {
                             AOEHelper.electrocuteNearbyEnemies(
                                     user,
-                                    target,
-                                    5 * level);
+                                    5 * level,
+                                    amount,
+                                    Integer.MAX_VALUE);
                         }
                     }
                 }

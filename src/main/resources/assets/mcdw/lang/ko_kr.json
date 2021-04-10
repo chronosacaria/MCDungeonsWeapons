@@ -658,6 +658,7 @@
   "tooltip_info_item.mcdw.gap": " ",
   "tooltip_note_item.mcdw.dualwield": "쌍수",
   "tooltip_note_item.mcdw.longbow": "장궁",
-  "tooltip_note_item.mcdw.shortbow": "단궁"
+  "tooltip_note_item.mcdw.shortbow": "단궁",
 
+  "death.attack.electricShock": "%s was electrocuted to death."
 }
