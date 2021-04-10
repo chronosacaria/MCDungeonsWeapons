@@ -62,6 +62,7 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
 
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
+        super.onStoppedUsing(stack, world, user, remainingUseTicks);
         if (user instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity) user;
             boolean bl = playerEntity.abilities.creativeMode
@@ -105,45 +106,12 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
                         if (EnchantmentHelper.getLevel(Enchantments.FLAME, stack) > 0) {
                             persistentProjectileEntity.setOnFireFor(100);
                         }
-
-                        // DAMAGE TOOL
-                        stack.damage(1, playerEntity, (p) -> p.sendToolBreakStatus(playerEntity.getActiveHand()));
-
-                        if (bl2 || playerEntity.abilities.creativeMode && (itemStack.getItem() == Items.SPECTRAL_ARROW
-                                || itemStack.getItem() == Items.TIPPED_ARROW)) {
-                            persistentProjectileEntity.pickupType =
-                                    PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
-                        }
-
-                        world.spawnEntity(persistentProjectileEntity);
                     }
-
-                    world.playSound((PlayerEntity) null, playerEntity.getX(), playerEntity.getY(),
-                            playerEntity.getZ(),
-                            SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F,
-                            1.0F / (RANDOM.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    if (!bl2 && !playerEntity.abilities.creativeMode) {
-                        itemStack.decrement(1);
-                        if (itemStack.isEmpty()) {
-                            playerEntity.inventory.removeOne(itemStack);
-                        }
-                    }
-
-                    playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
                 }
             }
         }
     }
 
-    /*public static float getPullProgress(int useTicks) {
-        float f = (float) useTicks / chargeTime;
-        f = (f * f + f * 2.0F) / 3.0F;
-        if (f > 1.0F) {
-            f = 1.0F;
-        }
-
-        return f;
-    }*/
 
     public static float getBowArrowVelocity(ItemStack stack, int charge) {
         float bowChargeTime = getVanillaBowChargeTime(stack);
@@ -168,18 +136,6 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
     @Override
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.BOW;
-    }
-
-    @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        boolean bl = !user.getArrowType(itemStack).isEmpty();
-        if (!user.abilities.creativeMode && !bl) {
-            return TypedActionResult.fail(itemStack);
-        } else {
-            user.setCurrentHand(hand);
-            return TypedActionResult.consume(itemStack);
-        }
     }
 
     @Override
