@@ -25,7 +25,7 @@ public class BonusShotBowEnchantmentMixin {
         if (McdwEnchantsConfig.getValue("bonus_shot")){
             if (McdwEnchantmentHelper.hasEnchantment(stack, RangedEnchantmentList.BONUS_SHOT) || uniqueWeaponFlag){
                 int bonusShotLevel = EnchantmentHelper.getLevel(RangedEnchantmentList.BONUS_SHOT, stack);
-                float damageMultiplier = 0.1F + (bonusShotLevel - 1 * 0.07F);
+                float damageMultiplier = 0.1F + ((bonusShotLevel - 1) * 0.07F);
                 float arrowVelocity = RangedAttackHelper.getVanillaOrModdedBowArrowVelocity(stack, remainingUseTicks);
                 if (arrowVelocity >= 0.1F){
                     ProjectileEffectHelper.fireBonusShotTowardsOtherEntity(user, 10, damageMultiplier, arrowVelocity);

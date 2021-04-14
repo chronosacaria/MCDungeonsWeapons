@@ -4,12 +4,11 @@ import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,23 +21,16 @@ public class RicochetEnchantmentMixin {
     public void applyRicochet(DamageSource source, float amount, CallbackInfo info) {
         if (!(source.getAttacker() instanceof PlayerEntity)) return;
 
-        PlayerEntity user = (PlayerEntity) source.getAttacker();
+        PlayerEntity attacker = (PlayerEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
-        ItemStack mainHandStack = null;
 
-        if (user != null) {
-            mainHandStack = user.getMainHandStack();
-        }
         if (McdwEnchantsConfig.getValue("ricochet"))  {
-
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, mainHandStack) >= 1)) {
-                int level = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, mainHandStack);
-                float damageMultiplier;
-                damageMultiplier = 0.1F + (level - 1 * 0.07F);
+            int level = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, attacker.getMainHandStack());
+            if (level >= 1) {
+                float damageMultiplier = 0.1F + ((level - 1) * 0.07F);
                 float arrowVelocity = McdwBow.maxBowRange;
                 if (arrowVelocity > 0.1F) {
-                    ProjectileEffectHelper.riochetArrowTowardsOtherEntity(target, 10, damageMultiplier,
-                            arrowVelocity);
+                    ProjectileEffectHelper.riochetArrowTowardsOtherEntity(target, 10, damageMultiplier, arrowVelocity);
                 }
             }
         }
