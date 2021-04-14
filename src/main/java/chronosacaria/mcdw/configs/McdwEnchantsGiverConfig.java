@@ -14,9 +14,9 @@ public class McdwEnchantsGiverConfig {
                 new Identifier("mcdw:bonus_shot"), 1, true);
         // CHAINS ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("hammer_flail")),
-                new Identifier("mcdw:chained"), 1, true);
+                new Identifier("mcdw:chains"), 1, true);
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sickle_jailors_scythe")),
-                new Identifier("mcdw:chained"), 1, true);
+                new Identifier("mcdw:chains"), 1, true);
 
         // CHAIN REACTION ENCHANTMENT
         EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_firebolt_thrower")),
