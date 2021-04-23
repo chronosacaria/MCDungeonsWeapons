@@ -2,7 +2,6 @@ package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.damagesource.ElectricShockDamageSource;
 import net.minecraft.entity.*;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -21,6 +20,9 @@ public class AOEHelper {
     //GRAVITY BEGIN
     public static void pullInNearbyEntities(LivingEntity user, Entity target, int distance) {
         World world = target.getEntityWorld();
+        if (!(target instanceof LivingEntity)){
+            return;
+        }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
@@ -78,7 +80,9 @@ public class AOEHelper {
     public static void causeExplosionAttack(LivingEntity user, LivingEntity target, float damageAmount, float distance) {
         World world = target.getEntityWorld();
         DamageSource explosion = DamageSource.explosion(user);
-
+        if (!(target instanceof LivingEntity)){
+            return;
+        }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper
@@ -94,7 +98,9 @@ public class AOEHelper {
     //CHAINING BEGIN
     public static void chainNearbyEntities(LivingEntity user, LivingEntity target, float distance, int timeMultiplier) {
         World world = user.getEntityWorld();
-
+        if (!(target instanceof LivingEntity)){
+            return;
+        }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
@@ -119,8 +125,9 @@ public class AOEHelper {
     public static void causeEchoAttack(LivingEntity user, LivingEntity target, float distance, int echoLevel,
                                        float amount) {
         World world = target.getEntityWorld();
-        float h = target.getHealth();
-        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+        if (!(target instanceof LivingEntity)){
+            return;
+        }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
@@ -136,7 +143,9 @@ public class AOEHelper {
 
     public static void causeSwirlingAttack(PlayerEntity user, LivingEntity target, float distance, float amount) {
         World world = target.getEntityWorld();
-        float h = target.getHealth();
+        if (!(target instanceof LivingEntity)){
+            return;
+        }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
@@ -150,7 +159,9 @@ public class AOEHelper {
 
     public static void causeShockwaveAttack(PlayerEntity user, LivingEntity target, float distance, float amount) {
         World world = target.getEntityWorld();
-        float h = target.getHealth();
+        if (!(target instanceof LivingEntity)){
+            return;
+        }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
@@ -164,8 +175,9 @@ public class AOEHelper {
 
     public static void causeSmitingAttack(PlayerEntity user, LivingEntity target, float distance, float amount) {
         World world = target.getEntityWorld();
-        float h = target.getHealth();
-        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+        if (!(target instanceof LivingEntity)){
+            return;
+        }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
