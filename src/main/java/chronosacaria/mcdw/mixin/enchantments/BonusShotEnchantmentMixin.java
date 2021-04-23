@@ -38,8 +38,7 @@ public class BonusShotEnchantmentMixin {
                                     || stack.getItem() == ItemRegistry.getItem("crossbow_auto_crossbow").asItem();
                     if (McdwEnchantmentHelper.hasEnchantment(stack, RangedEnchantmentList.BONUS_SHOT) || uniqueWeaponFlag) {
                         int bonusShotLevel = EnchantmentHelper.getLevel(RangedEnchantmentList.BONUS_SHOT, stack);
-                        float damageMultiplier;
-                        damageMultiplier = 0.1F + (bonusShotLevel - 1 * 0.07F);
+                        float damageMultiplier = 0.1F + ((bonusShotLevel - 1) * 0.07F);
                         if (uniqueWeaponFlag) {
                             damageMultiplier += 0.1F;
                         }
