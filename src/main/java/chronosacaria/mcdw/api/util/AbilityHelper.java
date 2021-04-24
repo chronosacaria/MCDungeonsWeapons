@@ -20,7 +20,7 @@ public class AbilityHelper {
 
     }
 
-    public static void causeFreesing(LivingEntity target, int amplifier){
+    public static void causeFreezing(LivingEntity target, int amplifier){
         StatusEffectInstance freezing = new StatusEffectInstance(StatusEffects.SLOWNESS, 60, amplifier);
         StatusEffectInstance miningFatigue = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, amplifier);
         target.addStatusEffect(freezing);
