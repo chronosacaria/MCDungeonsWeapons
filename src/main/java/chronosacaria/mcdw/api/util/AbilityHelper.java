@@ -94,10 +94,7 @@ public class AbilityHelper {
     }
 
     public static boolean canApplyToEnemy(LivingEntity user, LivingEntity target, LivingEntity nearbyEntity) {
-        return nearbyEntity != target && nearbyEntity != user
-                && isAliveAndCanBeSeen(nearbyEntity, user)
-                && !isAllyOf(user, nearbyEntity)
-                && !isUnaffectedByAoe(nearbyEntity);
+        return nearbyEntity != target && canApplyToEnemy(user, nearbyEntity);
     }
 
     public static boolean canApplyToEnemy(LivingEntity attacker, LivingEntity nearbyEntity) {
