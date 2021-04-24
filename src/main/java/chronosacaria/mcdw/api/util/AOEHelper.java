@@ -111,9 +111,7 @@ public class AOEHelper {
 
     public static void causeSwirlingAttack(PlayerEntity user, LivingEntity target, float distance, float amount) {
         for (LivingEntity nearbyEntity : getAoeTargets(user, user, distance)) {
-            if (nearbyEntity != user) {
-                nearbyEntity.damage(DamageSource.GENERIC, amount * 0.5F);
-            }
+            nearbyEntity.damage(DamageSource.GENERIC, amount * 0.5F);
         }
     }
 
