@@ -27,6 +27,7 @@
     "enchantments.GrowingEnchantmentMixin",
     "enchantments.JunglesPoisonEnchantmentMixin",
     "enchantments.LeechingEnchantmentMixin",
+    "enchantments.MultiShotEnchantmentMixin",
     "enchantments.PoisonCloudEnchantmentMixin",
     "enchantments.PoisonCloudShotEnchantmentMixin",
     "enchantments.ProspectorEnchantmentMixin",
