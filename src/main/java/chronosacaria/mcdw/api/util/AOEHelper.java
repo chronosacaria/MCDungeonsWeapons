@@ -25,17 +25,21 @@ public class AOEHelper {
         );
     }
 
+    public static void pullTowards(Entity self, Entity target) {
+        if (self instanceof PlayerEntity && ((PlayerEntity) self).abilities.creativeMode) return;
+        double motionX = target.getX() - self.getX();
+        double motionY = target.getX() - self.getY();
+        double motionZ = target.getX() - self.getZ();
+        Vec3d vec3d = new Vec3d(motionX, motionY, motionZ);
+
+        self.setVelocity(vec3d);
+    }
+
     //GRAVITY BEGIN
     public static void pullInNearbyEntities(LivingEntity user, LivingEntity target, float distance) {
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
             if (nearbyEntity != target) {
-                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) continue;
-                double motionX = target.getX() - (nearbyEntity.getX());
-                double motionY = target.getX() - (nearbyEntity.getY());
-                double motionZ = target.getX() - (nearbyEntity.getZ());
-                Vec3d vec3d = new Vec3d(motionX, motionY, motionZ);
-
-                nearbyEntity.setVelocity(vec3d);
+                pullTowards(nearbyEntity, target);
             }
         }
     } //GRAVITY END
@@ -92,14 +96,7 @@ public class AOEHelper {
         target.addStatusEffect(chained);
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
             if (nearbyEntity != target) {
-                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) continue;
-                double motionX = target.getX() - (nearbyEntity.getX());
-                double motionY = target.getX() - (nearbyEntity.getY());
-                double motionZ = target.getX() - (nearbyEntity.getZ());
-                Vec3d vec3d = new Vec3d(motionX, motionY, motionZ);
-
-                nearbyEntity.setVelocity(vec3d);
-
+                pullTowards(nearbyEntity, target);
                 nearbyEntity.addStatusEffect(chained);
             }
         }//END CHAINING
