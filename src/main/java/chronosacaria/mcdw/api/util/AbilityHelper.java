@@ -79,8 +79,9 @@ public class AbilityHelper {
 
     public static boolean canHealEntity(LivingEntity healer, LivingEntity nearbyEntity){
         return nearbyEntity != healer
-                && isAllyOf(healer, nearbyEntity)
-                && isAliveAndCanBeSeen(nearbyEntity, healer);
+            && isAllyOf(healer, nearbyEntity)
+            && nearbyEntity.isAlive()
+            && healer.canSee(nearbyEntity);
     }
 
     private static boolean isAllyOf(LivingEntity self, LivingEntity other) {
@@ -89,15 +90,12 @@ public class AbilityHelper {
             || isVillagerOrIronGolem(other);
     }
 
-    private static boolean isAliveAndCanBeSeen (LivingEntity nearbyEntity, LivingEntity user){
-        return nearbyEntity.isAlive() && user.canSee(nearbyEntity);
-    }
-
     public static boolean canApplyToEnemy(LivingEntity attacker, LivingEntity nearbyEntity) {
         return nearbyEntity != attacker
-                && isAliveAndCanBeSeen(nearbyEntity, attacker)
-                && !isAllyOf(attacker, nearbyEntity)
-                && !isUnaffectedByAoe(nearbyEntity);
+            && nearbyEntity.isAlive()
+            && attacker.canSee(nearbyEntity)
+            && !isAllyOf(attacker, nearbyEntity)
+            && !isUnaffectedByAoe(nearbyEntity);
     }
 
     private static boolean isUnaffectedByAoe(LivingEntity entity) {
