@@ -77,11 +77,6 @@ public class AbilityHelper {
         return (nearbyEntity instanceof VillagerEntity) || (nearbyEntity instanceof IronGolemEntity);
     }
 
-    private static boolean isNotTargetOrAttacker(LivingEntity user, LivingEntity target, LivingEntity nearbyEntity){
-        return nearbyEntity != target
-                && nearbyEntity != user;
-    }
-
     public static boolean canHealEntity(LivingEntity healer, LivingEntity nearbyEntity){
         return nearbyEntity != healer
                 && isAllyOf(healer, nearbyEntity)
@@ -99,7 +94,7 @@ public class AbilityHelper {
     }
 
     public static boolean canApplyToEnemy(LivingEntity user, LivingEntity target, LivingEntity nearbyEntity) {
-        return isNotTargetOrAttacker(user, target, nearbyEntity)
+        return nearbyEntity != target && nearbyEntity != user
                 && isAliveAndCanBeSeen(nearbyEntity, user)
                 && !isAllyOf(user, nearbyEntity)
                 && !isUnaffectedByAoe(nearbyEntity);
