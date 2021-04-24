@@ -27,6 +27,7 @@ public class AOEHelper {
 
     public static void pullTowards(Entity self, Entity target) {
         if (self instanceof PlayerEntity && ((PlayerEntity) self).abilities.creativeMode) return;
+
         double motionX = target.getX() - self.getX();
         double motionY = target.getX() - self.getY();
         double motionZ = target.getX() - self.getZ();
@@ -48,7 +49,8 @@ public class AOEHelper {
     public static void createVisualLightningBoltOnEntity(Entity target) {
         World world = target.getEntityWorld();
         LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);
-        if (lightningEntity != null){
+
+        if (lightningEntity != null) {
             lightningEntity.refreshPositionAfterTeleport(target.getX(), target.getY(), target.getZ());
             lightningEntity.setCosmetic(true);
             world.spawnEntity(lightningEntity);
@@ -63,12 +65,13 @@ public class AOEHelper {
 
     public static void electrocuteNearbyEnemies(LivingEntity user, float distance, float damageAmount, int limit) {
         user.world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER,
-                SoundCategory.WEATHER, 1.0F, 1.0F);
+            SoundCategory.WEATHER, 1.0F, 1.0F);
         user.world.playSound(null, user.getX(), user.getY(), user.getZ(),SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT,
-                SoundCategory.WEATHER, 1.0F, 1.0F);
+            SoundCategory.WEATHER, 1.0F, 1.0F);
 
         for (LivingEntity nearbyEntity : getAoeTargets(user, user, distance)) {
             electrocute(user, nearbyEntity, damageAmount);
+
             limit--;
             if (limit <= 0) break;
         }
@@ -76,32 +79,30 @@ public class AOEHelper {
 
     //EXPLODING BEGIN
     public static void causeExplosionAttack(LivingEntity user, LivingEntity target, float damageAmount, float distance) {
-        DamageSource explosion = DamageSource.explosion(user);
-        if (!(target instanceof LivingEntity)){
-            return;
-        }
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
-            nearbyEntity.damage(explosion, damageAmount);
+            nearbyEntity.damage(DamageSource.explosion(user), damageAmount);
         }
-    }//EXPLODING END
+    } //EXPLODING END
 
     //CHAINING BEGIN
     public static void chainNearbyEntities(LivingEntity user, LivingEntity target, float distance, int timeMultiplier) {
         StatusEffectInstance chained = new StatusEffectInstance(StatusEffects.SLOWNESS, 100 * timeMultiplier, 100);
+
         target.addStatusEffect(chained);
+
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
             if (nearbyEntity != target) {
                 pullTowards(nearbyEntity, target);
                 nearbyEntity.addStatusEffect(chained);
             }
-        }//END CHAINING
-    }
+        }
+    } //END CHAINING
 
-    public static void causeEchoAttack(LivingEntity user, LivingEntity target, float distance, int echoLevel,
-                                       float amount) {
+    public static void causeEchoAttack(LivingEntity user, LivingEntity target, float distance, int echoLevel, float amount) {
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
             if (nearbyEntity != target) {
                 nearbyEntity.damage(DamageSource.GENERIC, amount);
+
                 echoLevel--;
                 if (echoLevel <= 0) break;
             }
