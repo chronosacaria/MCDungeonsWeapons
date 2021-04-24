@@ -28,7 +28,7 @@ public class ProjectileEffectHelper {
         World world = user.getEntityWorld();
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(user.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, nearbyEntity));
+                (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, user, user));
         if(nearbyEntities.size() < 2) return;
         nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(user)));
         LivingEntity target = nearbyEntities.get(0);
@@ -56,7 +56,7 @@ public class ProjectileEffectHelper {
         //boolean nullListFlag = arrowEntity.hitEntities == null;
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(attacker.getX() - distance, attacker.getY() - distance, attacker.getZ() - distance,
-                attacker.getX() + distance, attacker.getY() + distance, attacker.getZ() + distance), (nearbyEntity) -> AbilityHelper.canApplyToEnemy(attacker, nearbyEntity));
+                attacker.getX() + distance, attacker.getY() + distance, attacker.getZ() + distance), (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, attacker, attacker));
         if(nearbyEntities.size() < 2) return;
         nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(attacker)));
         LivingEntity target =  nearbyEntities.get(0);
@@ -82,7 +82,7 @@ public class ProjectileEffectHelper {
         World world = attacker.getEntityWorld();
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(attacker.getX() - distance, attacker.getY() - distance, attacker.getZ() - distance,
-                attacker.getX() + distance, attacker.getY() + distance, attacker.getZ() + distance), (nearbyEntity) -> AbilityHelper.canApplyToEnemy(attacker, nearbyEntity));
+                attacker.getX() + distance, attacker.getY() + distance, attacker.getZ() + distance), (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, attacker, attacker));
         if(nearbyEntities.size() < 2) return;
         nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(attacker)));
         LivingEntity target =  nearbyEntities.get(0);

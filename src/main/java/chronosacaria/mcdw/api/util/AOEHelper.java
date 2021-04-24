@@ -18,14 +18,14 @@ import java.util.List;
 public class AOEHelper {
 
     //GRAVITY BEGIN
-    public static void pullInNearbyEntities(LivingEntity user, Entity target, int distance) {
+    public static void pullInNearbyEntities(LivingEntity user, LivingEntity target, int distance) {
         World world = target.getEntityWorld();
         if (!(target instanceof LivingEntity)){
             return;
         }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.isAoeTarget(nearbyEntity, user, target));
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
             if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
@@ -61,7 +61,7 @@ public class AOEHelper {
 
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(user.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, nearbyEntity));
+                (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, user, user));
         if (nearbyEntities.isEmpty()) return;
         if (limit > nearbyEntities.size()) limit = nearbyEntities.size();
         user.world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER,
@@ -85,8 +85,7 @@ public class AOEHelper {
         }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper
-                        .canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.isAoeTarget(nearbyEntity, user, target));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
@@ -103,7 +102,7 @@ public class AOEHelper {
         }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.isAoeTarget(nearbyEntity, user, target));
 
         if (nearbyEntities.isEmpty()) return;
         StatusEffectInstance chained = new StatusEffectInstance(StatusEffects.SLOWNESS, 100 * timeMultiplier, 100);
@@ -130,7 +129,7 @@ public class AOEHelper {
         }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.isAoeTarget(nearbyEntity, user, target));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
@@ -147,8 +146,8 @@ public class AOEHelper {
             return;
         }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
-                new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+                new Box(user.getBlockPos()).expand(distance),
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.isAoeTarget(nearbyEntity, user, user));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
@@ -164,7 +163,7 @@ public class AOEHelper {
         }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.isAoeTarget(nearbyEntity, user, target));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
@@ -180,7 +179,7 @@ public class AOEHelper {
         }
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.isAoeTarget(nearbyEntity, user, target));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity.isUndead()) {
