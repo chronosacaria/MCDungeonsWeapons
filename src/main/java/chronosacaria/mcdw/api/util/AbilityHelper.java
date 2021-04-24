@@ -43,31 +43,31 @@ public class AbilityHelper {
         AOEHelper.causeExplosionAttack(user, target, explodingDamage, 3.0F);
     }
 
-    public static boolean isPetOfUser(LivingEntity possibleOwner, LivingEntity possiblePet){
-        if (possiblePet instanceof TameableEntity){
-            TameableEntity pet = (TameableEntity) possiblePet;
-            return pet.getOwner() == possibleOwner;
+    public static boolean isPetOf(LivingEntity self, LivingEntity owner){
+        if (self instanceof TameableEntity){
+            TameableEntity pet = (TameableEntity) self;
+            return pet.getOwner() == owner;
         }
-        //if(possiblePet instanceof IronGolemEntity){
-        //    IronGolemEntity ironGolem = (IronGolemEntity) possiblePet;
-        //    return GoalUtils.getOwner(ironGolem) == possibleOwner;
+        //if(self instanceof IronGolemEntity){
+        //    IronGolemEntity ironGolem = (IronGolemEntity) self;
+        //    return GoalUtils.getOwner(ironGolem) == owner;
         //}
-        if(possiblePet instanceof HorseBaseEntity){
-            HorseBaseEntity horseBaseEntity = (HorseBaseEntity) possiblePet;
-            return GoalUtils.getOwner(horseBaseEntity) == possibleOwner;
+        if(self instanceof HorseBaseEntity){
+            HorseBaseEntity horseBaseEntity = (HorseBaseEntity) self;
+            return GoalUtils.getOwner(horseBaseEntity) == owner;
         }
 
-        //if(possiblePet instanceof BatEntity){
-        //    BatEntity batEntity = (BatEntity) possiblePet;
-        //    return GoalUtils.getOwner(batEntity) == possibleOwner;
+        //if(self instanceof BatEntity){
+        //    BatEntity batEntity = (BatEntity) self;
+        //    return GoalUtils.getOwner(batEntity) == owner;
         //}
-        //if(possiblePet instanceof BeeEntity){
-        //    BeeEntity beeEntity = (BeeEntity) possiblePet;
-        //    return GoalUtils.getOwner(beeEntity) == possibleOwner;
+        //if(self instanceof BeeEntity){
+        //    BeeEntity beeEntity = (BeeEntity) self;
+        //    return GoalUtils.getOwner(beeEntity) == owner;
         //}
-        //if(possiblePet instanceof SheepEntity){
-        //    SheepEntity sheepEntity = (SheepEntity) possiblePet;
-        //    return GoalUtils.getOwner(sheepEntity) == possibleOwner;
+        //if(self instanceof SheepEntity){
+        //    SheepEntity sheepEntity = (SheepEntity) self;
+        //    return GoalUtils.getOwner(sheepEntity) == owner;
         //}
 
         return false;
@@ -97,7 +97,7 @@ public class AbilityHelper {
     }
 
     private static boolean isAlly (LivingEntity healer, LivingEntity nearbyEntity){
-        return isPetOfUser(healer, nearbyEntity)
+        return isPetOf(nearbyEntity, healer)
                 || isVillagerOrIronGolem(nearbyEntity)
                 || healer.isTeammate(nearbyEntity);
     }
