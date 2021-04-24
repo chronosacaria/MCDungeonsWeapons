@@ -90,12 +90,12 @@ public class AbilityHelper {
             || isVillagerOrIronGolem(other);
     }
 
-    public static boolean isAoeTarget(LivingEntity self, LivingEntity attacker) {
+    public static boolean isAoeTarget(LivingEntity self, LivingEntity attacker, LivingEntity center) {
         return self != attacker
             && self.isAlive()
-            && attacker.canSee(self)
             && !isAllyOf(attacker, self)
-            && !isUnaffectedByAoe(self);
+            && !isUnaffectedByAoe(self)
+            && center.canSee(self);
     }
 
     private static boolean isUnaffectedByAoe(LivingEntity entity) {

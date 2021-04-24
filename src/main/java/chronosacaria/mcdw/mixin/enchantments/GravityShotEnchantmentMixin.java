@@ -30,7 +30,7 @@ public abstract class GravityShotEnchantmentMixin extends Entity {
             return;
         }
         PersistentProjectileEntity persistentProjectileEntity = (PersistentProjectileEntity) (Object) this;
-        Entity target = entityHitResult.getEntity();
+        LivingEntity target = (LivingEntity) entityHitResult.getEntity();
         LivingEntity shooter = (LivingEntity) persistentProjectileEntity.getOwner();
         ItemStack mainHandStack = null;
         if (shooter != null) {
@@ -41,12 +41,10 @@ public abstract class GravityShotEnchantmentMixin extends Entity {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, mainHandStack);
                 float gravityShotRand = shooter.getRandom().nextFloat();
                 if (gravityShotRand <= 0.2F) {
-                    if (target instanceof LivingEntity) {
-                        AOEHelper.pullInNearbyEntities(
-                                shooter,
-                                target,
-                                (level + 1) * 3);
-                    }
+                    AOEHelper.pullInNearbyEntities(
+                            shooter,
+                            target,
+                            (level + 1) * 3);
                 }
             }
         }
