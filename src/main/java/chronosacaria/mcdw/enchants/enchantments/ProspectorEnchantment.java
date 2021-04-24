@@ -20,5 +20,10 @@ public class ProspectorEnchantment extends Enchantment {
     public int getMaxLevel(){
         return 3;
     }
+
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("prospector");
+    }
 }
 

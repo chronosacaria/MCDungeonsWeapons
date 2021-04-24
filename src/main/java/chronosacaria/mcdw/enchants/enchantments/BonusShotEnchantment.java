@@ -20,4 +20,9 @@ public class BonusShotEnchantment extends RangedEnchantment {
         return 3;
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("bonus_shot");
+    }
+
 }

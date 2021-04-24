@@ -42,4 +42,9 @@ public class LeechingEnchantment extends Enchantment{
             }
         }
     }*/
+
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("leeching");
+    }
 }

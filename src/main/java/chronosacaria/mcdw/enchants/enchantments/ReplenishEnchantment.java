@@ -29,4 +29,9 @@ public class ReplenishEnchantment extends RangedEnchantment {
         return McdwEnchantsConfig.getValue("enable_op_mixing") || !(other instanceof InfinityEnchantment);
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("replenish");
+    }
+
 }

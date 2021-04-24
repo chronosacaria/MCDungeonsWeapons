@@ -29,4 +29,9 @@ public class IllagersBaneEnchantment extends Enchantment {
             return 0f;
         }
     }
+
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("illagers_bane");
+    }
 }

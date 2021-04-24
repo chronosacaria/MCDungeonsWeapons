@@ -20,5 +20,10 @@ public class JunglePoisonEnchantment extends Enchantment{
         return 3;
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("jungle_poison");
+    }
+
 
 }

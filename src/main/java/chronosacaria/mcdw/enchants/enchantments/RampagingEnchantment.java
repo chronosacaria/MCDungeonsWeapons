@@ -20,4 +20,9 @@ public class RampagingEnchantment extends Enchantment {
         return 3;
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("rampaging");
+    }
+
 }

@@ -20,5 +20,10 @@ public class FreezingEnchantment extends Enchantment{
         return 3;
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("freezing");
+    }
+
 
 }

@@ -20,4 +20,9 @@ public class FuseShotEnchantment extends RangedEnchantment {
         return 3;
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("fuse_shot");
+    }
+
 }

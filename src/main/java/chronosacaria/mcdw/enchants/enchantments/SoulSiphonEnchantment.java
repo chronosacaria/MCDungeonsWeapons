@@ -26,5 +26,10 @@ public class SoulSiphonEnchantment extends AOEEnchantment {
     protected boolean canAccept(Enchantment other) {
         return McdwEnchantsConfig.getValue("extra_xp_healing") || !(other instanceof AnimaConduitEnchantment);
     }
+
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("soul_siphon");
+    }
     
 }

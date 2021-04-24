@@ -26,4 +26,9 @@ public class ChainReactionEnchantment extends Enchantment {
     protected boolean canAccept (Enchantment other){
         return McdwEnchantsConfig.getValue("enable_op_mixing") || !(other instanceof InfinityEnchantment);
     }
+
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("chain_reaction");
+    }
 }
