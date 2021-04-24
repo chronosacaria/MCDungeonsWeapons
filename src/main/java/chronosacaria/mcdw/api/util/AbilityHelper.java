@@ -82,14 +82,6 @@ public class AbilityHelper {
                 && nearbyEntity != user;
     }
 
-    private static boolean isNotPlayerOrCanApplyToPlayers(LivingEntity nearbyEntity){
-        if (!(nearbyEntity instanceof PlayerEntity)){
-            return true;
-        } else {
-            return McdwEnchantsConfig.getValue("aoe_dont_affect_players");
-        }
-    }
-
     public static boolean canHealEntity(LivingEntity healer, LivingEntity nearbyEntity){
         return nearbyEntity != healer
                 && isAllyOf(healer, nearbyEntity)
@@ -110,14 +102,24 @@ public class AbilityHelper {
         return isNotTargetOrAttacker(user, target, nearbyEntity)
                 && isAliveAndCanBeSeen(nearbyEntity, user)
                 && !isAllyOf(user, nearbyEntity)
-                && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
+                && !isUnaffectedByAoe(nearbyEntity);
     }
 
     public static boolean canApplyToEnemy(LivingEntity attacker, LivingEntity nearbyEntity) {
         return nearbyEntity != attacker
                 && isAliveAndCanBeSeen(nearbyEntity, attacker)
                 && !isAllyOf(attacker, nearbyEntity)
-                && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
+                && !isUnaffectedByAoe(nearbyEntity);
+    }
+
+    private static boolean isUnaffectedByAoe(LivingEntity entity) {
+        if (entity instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) entity;
+            if (player.isCreative()) return true;
+            return McdwEnchantsConfig.getValue("aoe_dont_affect_players");
+        }
+
+        return false;
     }
 
     // Have to figure out how to access targetSelector or figure out a different way to do this...
