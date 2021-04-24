@@ -92,14 +92,14 @@ public class AbilityHelper {
 
     public static boolean canHealEntity(LivingEntity healer, LivingEntity nearbyEntity){
         return nearbyEntity != healer
-                && isAlly(healer, nearbyEntity)
+                && isAllyOf(healer, nearbyEntity)
                 && isAliveAndCanBeSeen(nearbyEntity, healer);
     }
 
-    private static boolean isAlly (LivingEntity healer, LivingEntity nearbyEntity){
-        return isPetOf(nearbyEntity, healer)
-                || isVillagerOrIronGolem(nearbyEntity)
-                || healer.isTeammate(nearbyEntity);
+    private static boolean isAllyOf(LivingEntity self, LivingEntity other) {
+        return self.isTeammate(other)
+            || isPetOf(self, other)
+            || isVillagerOrIronGolem(other);
     }
 
     private static boolean isAliveAndCanBeSeen (LivingEntity nearbyEntity, LivingEntity user){
@@ -109,14 +109,14 @@ public class AbilityHelper {
     public static boolean canApplyToEnemy(LivingEntity user, LivingEntity target, LivingEntity nearbyEntity) {
         return isNotTargetOrAttacker(user, target, nearbyEntity)
                 && isAliveAndCanBeSeen(nearbyEntity, user)
-                && !isAlly(user, nearbyEntity)
+                && !isAllyOf(user, nearbyEntity)
                 && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
     }
 
     public static boolean canApplyToEnemy(LivingEntity attacker, LivingEntity nearbyEntity) {
         return nearbyEntity != attacker
                 && isAliveAndCanBeSeen(nearbyEntity, attacker)
-                && !isAlly(attacker, nearbyEntity)
+                && !isAllyOf(attacker, nearbyEntity)
                 && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
     }
 
