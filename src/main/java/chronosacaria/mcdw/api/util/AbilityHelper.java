@@ -93,10 +93,6 @@ public class AbilityHelper {
         return nearbyEntity.isAlive() && user.canSee(nearbyEntity);
     }
 
-    public static boolean canApplyToEnemy(LivingEntity user, LivingEntity target, LivingEntity nearbyEntity) {
-        return nearbyEntity != target && canApplyToEnemy(user, nearbyEntity);
-    }
-
     public static boolean canApplyToEnemy(LivingEntity attacker, LivingEntity nearbyEntity) {
         return nearbyEntity != attacker
                 && isAliveAndCanBeSeen(nearbyEntity, attacker)

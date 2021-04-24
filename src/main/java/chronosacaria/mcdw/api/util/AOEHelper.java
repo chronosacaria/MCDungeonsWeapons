@@ -23,7 +23,7 @@ public class AOEHelper {
         World world = target.getEntityWorld();
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, (LivingEntity) target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.canApplyToEnemy(user, nearbyEntity));
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
             if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
@@ -81,8 +81,7 @@ public class AOEHelper {
 
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper
-                        .canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.canApplyToEnemy(user, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
@@ -97,7 +96,7 @@ public class AOEHelper {
 
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.canApplyToEnemy(user, nearbyEntity));
 
         if (nearbyEntities.isEmpty()) return;
         StatusEffectInstance chained = new StatusEffectInstance(StatusEffects.SLOWNESS, 100 * timeMultiplier, 100);
@@ -123,7 +122,7 @@ public class AOEHelper {
         float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.canApplyToEnemy(user, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
@@ -139,7 +138,7 @@ public class AOEHelper {
         float h = target.getHealth();
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.canApplyToEnemy(user, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
@@ -153,7 +152,7 @@ public class AOEHelper {
         float h = target.getHealth();
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.canApplyToEnemy(user, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity == null) return;
@@ -168,7 +167,7 @@ public class AOEHelper {
         float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(target.getBlockPos()).expand(distance),
-                (nearbyEntity) -> AbilityHelper.canApplyToEnemy(user, target, nearbyEntity));
+            (nearbyEntity) -> nearbyEntity != target && AbilityHelper.canApplyToEnemy(user, nearbyEntity));
         if (nearbyEntities.isEmpty()) return;
         for (LivingEntity nearbyEntity : nearbyEntities) {
             if (nearbyEntity.isUndead()) {
