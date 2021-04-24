@@ -29,7 +29,7 @@ public class AOEHelper {
     public static void pullInNearbyEntities(LivingEntity user, LivingEntity target, float distance) {
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
             if (nearbyEntity != target) {
-                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
+                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) continue;
                 double motionX = target.getX() - (nearbyEntity.getX());
                 double motionY = target.getX() - (nearbyEntity.getY());
                 double motionZ = target.getX() - (nearbyEntity.getZ());
@@ -81,7 +81,7 @@ public class AOEHelper {
             return;
         }
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
-            if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
+            if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) continue;
             nearbyEntity.damage(explosion, damageAmount);
         }
     }//EXPLODING END
@@ -92,7 +92,7 @@ public class AOEHelper {
         target.addStatusEffect(chained);
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
             if (nearbyEntity != target) {
-                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
+                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) continue;
                 double motionX = target.getX() - (nearbyEntity.getX());
                 double motionY = target.getX() - (nearbyEntity.getY());
                 double motionZ = target.getX() - (nearbyEntity.getZ());
@@ -109,10 +109,10 @@ public class AOEHelper {
                                        float amount) {
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
             if (nearbyEntity != target) {
-                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
+                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) continue;
                 nearbyEntity.damage(DamageSource.GENERIC, amount);
                 echoLevel--;
-                if (echoLevel <= 0) return;
+                if (echoLevel <= 0) break;
             }
         }
     }
@@ -120,7 +120,7 @@ public class AOEHelper {
     public static void causeSwirlingAttack(PlayerEntity user, LivingEntity target, float distance, float amount) {
         for (LivingEntity nearbyEntity : getAoeTargets(user, user, distance)) {
             if (nearbyEntity != user) {
-                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
+                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) continue;
                 nearbyEntity.damage(DamageSource.GENERIC, amount * 0.5F);
             }
         }
@@ -129,7 +129,7 @@ public class AOEHelper {
     public static void causeShockwaveAttack(PlayerEntity user, LivingEntity target, float distance, float amount) {
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
             if (nearbyEntity != target) {
-                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) return;
+                if (nearbyEntity instanceof PlayerEntity && ((PlayerEntity) nearbyEntity).abilities.creativeMode) continue;
                 nearbyEntity.damage(DamageSource.GENERIC, amount * 0.25f);
             }
         }
