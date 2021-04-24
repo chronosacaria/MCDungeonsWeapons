@@ -57,24 +57,20 @@ public class AOEHelper {
 
     public static void electrocute(LivingEntity attacker, LivingEntity victim, float damageAmount){
         createVisualLightningBoltOnEntity(victim);
-        ElectricShockDamageSource electricShockDamageSource =
-                (ElectricShockDamageSource) new ElectricShockDamageSource(attacker).setUsesMagic();
+        DamageSource electricShockDamageSource = new ElectricShockDamageSource(attacker).setUsesMagic();
         victim.damage(electricShockDamageSource, damageAmount);
     }
 
-    public static void electrocuteNearbyEnemies(LivingEntity user, float distance, float damageAmount, int limit){
-        List<LivingEntity> nearbyEntities = getAoeTargets(user, user, distance);
-        if (nearbyEntities.isEmpty()) return;
-        if (limit > nearbyEntities.size()) limit = nearbyEntities.size();
+    public static void electrocuteNearbyEnemies(LivingEntity user, float distance, float damageAmount, int limit) {
         user.world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER,
                 SoundCategory.WEATHER, 1.0F, 1.0F);
         user.world.playSound(null, user.getX(), user.getY(), user.getZ(),SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT,
                 SoundCategory.WEATHER, 1.0F, 1.0F);
-        for (int i = 0; i < limit; i++){
-            if (nearbyEntities.size() >= i + 1){
-                LivingEntity nearbyEntity = nearbyEntities.get(i);
-                electrocute(user, nearbyEntity, damageAmount);
-            }
+
+        for (LivingEntity nearbyEntity : getAoeTargets(user, user, distance)) {
+            electrocute(user, nearbyEntity, damageAmount);
+            limit--;
+            if (limit <= 0) break;
         }
     } //THUNDERING END
 
