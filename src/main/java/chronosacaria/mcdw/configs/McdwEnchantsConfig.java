@@ -60,6 +60,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("thundering", true);
         SETTINGS.put("weakening", true);
         SETTINGS.put("aoe_dont_affect_players", true);
+        SETTINGS.put("enable_innate_enchants", true);
     }
 
     public static void loadConfig() {
