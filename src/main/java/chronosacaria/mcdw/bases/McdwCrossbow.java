@@ -1,11 +1,11 @@
 package chronosacaria.mcdw.bases;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IRangedWeapon;
+import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.item.CrossbowItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -14,28 +14,44 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
+    public final ToolMaterial material;
+    public final float drawSpeed;
+    public final float range;
 
-    public McdwCrossbow(Settings settings) {
-        super(settings);
+    public McdwCrossbow(ToolMaterial material, float drawSpeed, float range) {
+        super(new Item.Settings().group(Mcdw.RANGED)
+                .maxCount(1)
+                .maxDamage(100 + material.getDurability())
+                .rarity(RarityHelper.fromToolMaterial(material))
+        );
+        this.material = material;
+        this.drawSpeed = drawSpeed;
+        this.range = range;
     }
 
     public float getProjectileVelocity(ItemStack stack){
         boolean fastProjectiles = shootsFasterArrows(stack);
         if (hasProjectile(stack, Items.FIREWORK_ROCKET)){
-            if (fastProjectiles){
-                return 3.2F;
-            }
-            else {
-                return 1.6F;
-            }
+            if (fastProjectiles) return 3.2F;
+            else return 1.6F;
         }
-        else if (fastProjectiles){
-            return 4.8F;
-        }
-        else {
-            return 3.2f;
-        }
+        else if (fastProjectiles) return 4.8F;
+        else return 3.2f;
     }
+
+    @Override
+    public int getRange() { return (int)range; }
+
+    @Override
+    public int getEnchantability() {
+        return material.getEnchantability();
+    }
+
+    @Override
+    public int getMaxUseTime(ItemStack stack) {
+        return getPullTime(stack) + 3 - (28 - (int)(drawSpeed));
+    }
+
 
     @Override
     public boolean isUsedOnRelease(ItemStack stack){
