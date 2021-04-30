@@ -20,4 +20,9 @@ public class RicochetEnchantment extends RangedEnchantment {
         return 3;
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("ricochet");
+    }
+
 }

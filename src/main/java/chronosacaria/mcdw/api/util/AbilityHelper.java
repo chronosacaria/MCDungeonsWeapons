@@ -20,7 +20,7 @@ public class AbilityHelper {
 
     }
 
-    public static void causeFreesing(LivingEntity target, int amplifier){
+    public static void causeFreezing(LivingEntity target, int amplifier){
         StatusEffectInstance freezing = new StatusEffectInstance(StatusEffects.SLOWNESS, 60, amplifier);
         StatusEffectInstance miningFatigue = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, amplifier);
         target.addStatusEffect(freezing);
@@ -43,31 +43,31 @@ public class AbilityHelper {
         AOEHelper.causeExplosionAttack(user, target, explodingDamage, 3.0F);
     }
 
-    public static boolean isPetOfUser(LivingEntity possibleOwner, LivingEntity possiblePet){
-        if (possiblePet instanceof TameableEntity){
-            TameableEntity pet = (TameableEntity) possiblePet;
-            return pet.getOwner() == possibleOwner;
+    public static boolean isPetOf(LivingEntity self, LivingEntity owner){
+        if (self instanceof TameableEntity){
+            TameableEntity pet = (TameableEntity) self;
+            return pet.getOwner() == owner;
         }
-        //if(possiblePet instanceof IronGolemEntity){
-        //    IronGolemEntity ironGolem = (IronGolemEntity) possiblePet;
-        //    return GoalUtils.getOwner(ironGolem) == possibleOwner;
+        //if(self instanceof IronGolemEntity){
+        //    IronGolemEntity ironGolem = (IronGolemEntity) self;
+        //    return GoalUtils.getOwner(ironGolem) == owner;
         //}
-        if(possiblePet instanceof HorseBaseEntity){
-            HorseBaseEntity horseBaseEntity = (HorseBaseEntity) possiblePet;
-            return GoalUtils.getOwner(horseBaseEntity) == possibleOwner;
+        if(self instanceof HorseBaseEntity){
+            HorseBaseEntity horseBaseEntity = (HorseBaseEntity) self;
+            return GoalUtils.getOwner(horseBaseEntity) == owner;
         }
 
-        //if(possiblePet instanceof BatEntity){
-        //    BatEntity batEntity = (BatEntity) possiblePet;
-        //    return GoalUtils.getOwner(batEntity) == possibleOwner;
+        //if(self instanceof BatEntity){
+        //    BatEntity batEntity = (BatEntity) self;
+        //    return GoalUtils.getOwner(batEntity) == owner;
         //}
-        //if(possiblePet instanceof BeeEntity){
-        //    BeeEntity beeEntity = (BeeEntity) possiblePet;
-        //    return GoalUtils.getOwner(beeEntity) == possibleOwner;
+        //if(self instanceof BeeEntity){
+        //    BeeEntity beeEntity = (BeeEntity) self;
+        //    return GoalUtils.getOwner(beeEntity) == owner;
         //}
-        //if(possiblePet instanceof SheepEntity){
-        //    SheepEntity sheepEntity = (SheepEntity) possiblePet;
-        //    return GoalUtils.getOwner(sheepEntity) == possibleOwner;
+        //if(self instanceof SheepEntity){
+        //    SheepEntity sheepEntity = (SheepEntity) self;
+        //    return GoalUtils.getOwner(sheepEntity) == owner;
         //}
 
         return false;
@@ -77,47 +77,35 @@ public class AbilityHelper {
         return (nearbyEntity instanceof VillagerEntity) || (nearbyEntity instanceof IronGolemEntity);
     }
 
-    private static boolean isNotTargetOrAttacker(LivingEntity user, LivingEntity target, LivingEntity nearbyEntity){
-        return nearbyEntity != target
-                && nearbyEntity != user;
-    }
-
-    private static boolean isNotPlayerOrCanApplyToPlayers(LivingEntity nearbyEntity){
-        if (!(nearbyEntity instanceof PlayerEntity)){
-            return true;
-        } else {
-            return McdwEnchantsConfig.getValue("aoe_dont_affect_players");
-        }
-    }
-
     public static boolean canHealEntity(LivingEntity healer, LivingEntity nearbyEntity){
         return nearbyEntity != healer
-                && isAlly(healer, nearbyEntity)
-                && isAliveAndCanBeSeen(nearbyEntity, healer);
+            && isAllyOf(healer, nearbyEntity)
+            && nearbyEntity.isAlive()
+            && healer.canSee(nearbyEntity);
     }
 
-    private static boolean isAlly (LivingEntity healer, LivingEntity nearbyEntity){
-        return isPetOfUser(healer, nearbyEntity)
-                || isVillagerOrIronGolem(nearbyEntity)
-                || healer.isTeammate(nearbyEntity);
+    private static boolean isAllyOf(LivingEntity self, LivingEntity other) {
+        return self.isTeammate(other)
+            || isPetOf(self, other)
+            || isVillagerOrIronGolem(other);
     }
 
-    private static boolean isAliveAndCanBeSeen (LivingEntity nearbyEntity, LivingEntity user){
-        return nearbyEntity.isAlive() && user.canSee(nearbyEntity);
+    public static boolean isAoeTarget(LivingEntity self, LivingEntity attacker, LivingEntity center) {
+        return self != attacker
+            && self.isAlive()
+            && !isAllyOf(attacker, self)
+            && !isUnaffectedByAoe(self)
+            && center.canSee(self);
     }
 
-    public static boolean canApplyToEnemy(LivingEntity user, LivingEntity target, LivingEntity nearbyEntity) {
-        return isNotTargetOrAttacker(user, target, nearbyEntity)
-                && isAliveAndCanBeSeen(nearbyEntity, user)
-                && !isAlly(user, nearbyEntity)
-                && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
-    }
+    private static boolean isUnaffectedByAoe(LivingEntity entity) {
+        if (entity instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) entity;
+            if (player.isCreative()) return true;
+            return McdwEnchantsConfig.getValue("aoe_dont_affect_players");
+        }
 
-    public static boolean canApplyToEnemy(LivingEntity attacker, LivingEntity nearbyEntity) {
-        return nearbyEntity != attacker
-                && isAliveAndCanBeSeen(nearbyEntity, attacker)
-                && !isAlly(attacker, nearbyEntity)
-                && isNotPlayerOrCanApplyToPlayers(nearbyEntity);
+        return false;
     }
 
     // Have to figure out how to access targetSelector or figure out a different way to do this...

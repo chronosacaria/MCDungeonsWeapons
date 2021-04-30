@@ -42,6 +42,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("jungle_poison", true);
         SETTINGS.put("leeching", true);
         SETTINGS.put("custom_looting", true);
+        SETTINGS.put("multi_shot", true);
         SETTINGS.put("poison_cloud", true);
         SETTINGS.put("prospector", true);
         SETTINGS.put("radiance", true);

@@ -20,4 +20,9 @@ public class GrowingEnchantment extends RangedEnchantment {
         return 3;
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("growing");
+    }
+
 }

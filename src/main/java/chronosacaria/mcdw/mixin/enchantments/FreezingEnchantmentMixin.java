@@ -3,7 +3,6 @@ package chronosacaria.mcdw.mixin.enchantments;
 import chronosacaria.mcdw.api.util.AbilityHelper;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -37,7 +36,7 @@ public class FreezingEnchantmentMixin {
 
                         float chance = user.getRandom().nextFloat();
                         if (chance <= 0.3 + (level * 0.1)) {
-                            AbilityHelper.causeFreesing(target, 100);
+                            AbilityHelper.causeFreezing(target, 100);
                         }
                     }
                 }

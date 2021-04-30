@@ -27,4 +27,9 @@ public class EnigmaResonatorEnchantment extends DamageBoostEnchantment {
     protected boolean canAccept (Enchantment other){
         return McdwEnchantsConfig.getValue("enable_op_mixing") || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
+
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("enigma_resonator");
+    }
 }

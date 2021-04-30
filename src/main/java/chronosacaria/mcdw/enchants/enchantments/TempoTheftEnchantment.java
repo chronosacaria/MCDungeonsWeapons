@@ -20,4 +20,9 @@ public class TempoTheftEnchantment extends Enchantment {
         return 3;
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("tempo_theft");
+    }
+
 }

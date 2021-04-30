@@ -28,5 +28,9 @@ public class AnimaConduitEnchantment extends AOEEnchantment {
         return McdwEnchantsConfig.getValue("extra_xp_healing") || !(other instanceof SoulSiphonEnchantment);
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("anima");
+    }
 
 }

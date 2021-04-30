@@ -29,4 +29,9 @@ public class RadianceShotEnchantment extends RangedEnchantment {
         }
     }*/
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("radiance_shot");
+    }
+
 }

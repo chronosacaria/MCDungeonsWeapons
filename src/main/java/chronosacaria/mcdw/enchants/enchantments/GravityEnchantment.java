@@ -28,4 +28,9 @@ public class GravityEnchantment extends AOEEnchantment {
         return McdwEnchantsConfig.getValue("enable_op_mixing") || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
 
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return McdwEnchantsConfig.getValue("gravity");
+    }
+
 }
