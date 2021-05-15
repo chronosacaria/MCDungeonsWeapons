@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "BBS",
+        "BbS",
+        "BBS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "B": {
+            "item": "minecraft:blue_ice"
+        },
+        "b":{
+            "item": "mcdw:bow_snow_bow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_winters_touch",
+        "count": 1
+    }
+}

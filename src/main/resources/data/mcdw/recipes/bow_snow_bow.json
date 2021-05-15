@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "sBS",
+        "sbS",
+        "sBS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "s": {
+            "item": "minecraft:snow_block"
+        },
+        "B": {
+            "item": "minecraft:blue_dye"
+        },
+        "b":{
+            "item": "minecraft:bow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_snow_bow",
+        "count": 1
+    }
+}

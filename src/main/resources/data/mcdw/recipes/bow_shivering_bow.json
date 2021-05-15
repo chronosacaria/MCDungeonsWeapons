@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "BBB",
+        "BbB",
+        "BBB"
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:blue_ice"
+        },
+        "b": {
+            "item": "mcdw:bow_nocturnal_bow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_shivering_bow",
+        "count": 1
+    }
+}

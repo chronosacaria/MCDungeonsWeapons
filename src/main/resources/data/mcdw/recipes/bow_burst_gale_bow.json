@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GGS",
+        "GTS",
+        "GGS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "G": {
+            "item": "minecraft:gold_ingot"
+        },
+        "T": {
+            "item": "mcdw:bow_wind_bow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_burst_gale_bow",
+        "count": 1
+    }
+}

@@ -12,12 +12,23 @@ public class McdwLoottables {
 
     public static final Identifier[] PILLAGER_TOWER_LOOT_TABLES =
             new Identifier[]{LootTables.PILLAGER_OUTPOST_CHEST};
+    public static final Identifier[] NETHER_FORTRESS_LOOT_TABLES =
+            new Identifier[]{LootTables.NETHER_BRIDGE_CHEST};
     public static final Identifier[] PIGLIN_BASTION_LOOT_TABLES =
             new Identifier[]{LootTables.BASTION_TREASURE_CHEST, LootTables.BASTION_BRIDGE_CHEST,
                     LootTables.BASTION_OTHER_CHEST, LootTables.BASTION_HOGLIN_STABLE_CHEST};
 
     private static boolean pillagerTowerLootTables(Identifier lootTable){
         for (Identifier id : PILLAGER_TOWER_LOOT_TABLES){
+            if (id.equals(lootTable)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean netherFortressLootTables(Identifier lootTable){
+        for (Identifier id : NETHER_FORTRESS_LOOT_TABLES){
             if (id.equals(lootTable)){
                 return true;
             }
@@ -56,6 +67,13 @@ public class McdwLoottables {
 
                         .rolls(new BinomialLootTableRange(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_corrupted_crossbow")));
+                supplier.pool(poolBuilder);
+            }
+
+            if (netherFortressLootTables(id)){
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(new BinomialLootTableRange(1, 0.01F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("bow_ancient_bow")));
                 supplier.pool(poolBuilder);
             }
 
