@@ -40,10 +40,10 @@ public abstract class EnigmaResonatorMixin {
                         int numSouls = ((PlayerEntity) source.getAttacker()).experienceLevel;
 
                         float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-                        float extraDamageMultiplier = (((float)numSouls * level)/30);
+                        float extraDamageMultiplier = (float) (Math.log(numSouls * level))/1.75F;
                         float getExtraDamage = (attackDamage * (extraDamageMultiplier));
 
-                        if (numSouls >= 0 && numSouls <= 100){
+                        if (numSouls >= 1){
 
                             target.damage(DamageSource.GENERIC, getExtraDamage);
                             target.world.playSound(
