@@ -3,6 +3,7 @@ package chronosacaria.mcdw.api.util;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.*;
@@ -25,22 +26,6 @@ public class AbilityHelper {
         StatusEffectInstance miningFatigue = new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, amplifier);
         target.addStatusEffect(freezing);
         target.addStatusEffect(miningFatigue);
-    }
-
-    public static void causeFuseShot(LivingEntity user, LivingEntity target, int level){
-        float explodingDamage;
-        explodingDamage = target.getMaxHealth() * 0.2f * level;
-        target.world.playSound(
-                null,
-                target.getX(),
-                target.getY(),
-                target.getZ(),
-                SoundEvents.ENTITY_GENERIC_EXPLODE,
-                SoundCategory.PLAYERS,
-                0.5F,
-                1.0F);
-        AOECloudHelper.spawnExplosionCloud(user, target, 3.0F);
-        AOEHelper.causeExplosionAttack(user, target, explodingDamage, 3.0F);
     }
 
     public static boolean isPetOf(LivingEntity self, LivingEntity owner){
