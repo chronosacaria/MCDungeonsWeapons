@@ -1,5 +1,7 @@
 package chronosacaria.mcdw.bases;
 
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -16,6 +18,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.tag.BlockTags;
@@ -34,8 +37,8 @@ public class McdwStaff extends AxeItem {
     private final ToolMaterial material;
     private final float attackDamage;
 
-    public McdwStaff(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+    public McdwStaff(ToolMaterial material, int attackDamage, float attackSpeed) {
+        super(material, attackDamage, attackSpeed, new Item.Settings().group(Mcdw.WEAPONS).rarity(RarityHelper.fromToolMaterial(material)));
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();

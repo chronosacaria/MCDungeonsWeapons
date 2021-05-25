@@ -44,7 +44,7 @@ public class McdwClient implements ClientModInitializer {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
-                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getMaxDrawTime();
+                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getDrawSpeed();
             }
         });
 
@@ -56,7 +56,7 @@ public class McdwClient implements ClientModInitializer {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
-                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getMaxDrawTime();
+                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getDrawSpeed();
             }
         });
 
@@ -68,7 +68,7 @@ public class McdwClient implements ClientModInitializer {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
-                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getMaxDrawTime();
+                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getDrawSpeed();
             }
         });
 
