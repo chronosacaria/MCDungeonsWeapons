@@ -221,6 +221,17 @@ public class McdwBow extends BowItem implements IRangedWeapon {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.weeping_vine_bow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.weeping_vine_bow_3").formatted(Formatting.ITALIC));
         }
+        if (stack.getItem() == ItemRegistry.getItem("bow_bubble_bow")) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bubble_bow_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bubble_bow_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bubble_bow_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bubble_bow_4").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == ItemRegistry.getItem("bow_bubble_burster")) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bubble_burster_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bubble_burster_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.bubble_burster_3").formatted(Formatting.ITALIC));
+        }
         if (stack.getItem() == ItemRegistry.getItem("bow_guardian_bow")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_2").formatted(Formatting.ITALIC));

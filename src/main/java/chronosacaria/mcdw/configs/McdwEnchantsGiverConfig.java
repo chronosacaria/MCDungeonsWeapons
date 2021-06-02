@@ -48,6 +48,8 @@ public class McdwEnchantsGiverConfig {
                     new Identifier("mcdw:enigma_resonator"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("gauntlet_soul_fists")),
                     new Identifier("mcdw:enigma_resonator"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_sponge_striker")),
+                    new Identifier("mcdw:enigma_resonator"), 1, true);
 
             // EXPLODING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("axe_cursed")),
@@ -84,6 +86,8 @@ public class McdwEnchantsGiverConfig {
                     new Identifier("mcdw:gravity"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_voidcaller_crossbow")),
                     new Identifier("mcdw:gravity"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("axe_encrusted_anchor")),
+                    new Identifier("mcdw:gravity"), 1, true);
 
             // GROWING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_bonebow")),
@@ -98,6 +102,8 @@ public class McdwEnchantsGiverConfig {
             // JUNGLE'S POISON ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("whip_vine_whip")),
                     new Identifier("mcdw:jungle_poison"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("axe_encrusted_anchor")),
+                    new Identifier("mcdw:jungle_poison"), 1, false);
 
             // LEECHING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_heartstealer")),
@@ -115,6 +121,8 @@ public class McdwEnchantsGiverConfig {
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_the_slicer")),
                     new Identifier("minecraft:piercing"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_pride_of_the_piglins")),
+                    new Identifier("minecraft:piercing"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_nautical_crossbow")),
                     new Identifier("minecraft:piercing"), 1, true);
 
             // POISON CLOUD ENCHANTMENT
@@ -167,6 +175,8 @@ public class McdwEnchantsGiverConfig {
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_slayer_crossbow")),
                     new Identifier("mcdw:ricochet"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_echo_of_the_valley")),
+                    new Identifier("mcdw:ricochet"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_bubble_burster")),
                     new Identifier("mcdw:ricochet"), 1, true);
 
             // RUSHDOWN ENCHANTMENT

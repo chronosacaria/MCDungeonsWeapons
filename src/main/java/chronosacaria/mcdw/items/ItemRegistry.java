@@ -37,11 +37,15 @@ public class ItemRegistry {
         add("sword_hawkbrand");
         add("sword_broken_sawblade");
         add("sword_mechanized_sawblade");
+        add("sword_coral_blade");
+        add("sword_sponge_striker");
     }};
     private static final HashSet<String> AXES = new HashSet<String>() {{
         add("axe");
         add("axe_firebrand");
         add("axe_highland");
+        add("axe_anchor");
+        add("axe_encrusted_anchor");
     }};
     private static final HashSet<String> DOUBLE_AXES = new HashSet<String>() {{
         add("axe_cursed");
@@ -139,6 +143,8 @@ public class ItemRegistry {
         //add("bow_twisting_vine_bow");
         //add("bow_weeping_vine_bow");
         add("bow_winters_touch");
+        add("bow_bubble_bow");
+        add("bow_bubble_burster");
     }};
     public static final HashSet<String> SHORTBOWS = new HashSet<String>(){{
         add("bow_love_spell_bow");
@@ -175,6 +181,8 @@ public class ItemRegistry {
         add("crossbow_corrupted_crossbow");
         add("crossbow_cog_crossbow");
         add("crossbow_pride_of_the_piglins");
+        add("crossbow_harpoon_crossbow");
+        add("crossbow_nautical_crossbow");
     }};
     public static final HashSet<String> SHIELDS = new HashSet<String>(){{
         add("shield_royal_guard");

@@ -17,6 +17,9 @@ public class McdwLoottables {
     public static final Identifier[] PIGLIN_BASTION_LOOT_TABLES =
             new Identifier[]{LootTables.BASTION_TREASURE_CHEST, LootTables.BASTION_BRIDGE_CHEST,
                     LootTables.BASTION_OTHER_CHEST, LootTables.BASTION_HOGLIN_STABLE_CHEST};
+    public static final Identifier[] UNDER_WATER_LOOT_TABLES =
+            new Identifier[]{LootTables.UNDERWATER_RUIN_BIG_CHEST, LootTables.UNDERWATER_RUIN_SMALL_CHEST,
+                    LootTables.SHIPWRECK_TREASURE_CHEST};
 
     private static boolean pillagerTowerLootTables(Identifier lootTable){
         for (Identifier id : PILLAGER_TOWER_LOOT_TABLES){
@@ -38,6 +41,15 @@ public class McdwLoottables {
 
     private static boolean piglinBastionTreasureChestLootTables(Identifier lootTable){
         for (Identifier id : PIGLIN_BASTION_LOOT_TABLES){
+            if (id.equals(lootTable)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean underWaterLootTables(Identifier lootTable){
+        for (Identifier id : UNDER_WATER_LOOT_TABLES){
             if (id.equals(lootTable)){
                 return true;
             }
@@ -91,6 +103,31 @@ public class McdwLoottables {
                         .with(ItemEntry.builder(ItemRegistry.getItem("hammer_boneclub")))
                         .rolls(new BinomialLootTableRange(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("hammer_bone_cudgel")));
+
+                supplier.pool(poolBuilder);
+            }
+
+            if (underWaterLootTables(id)){
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(new BinomialLootTableRange(1, 0.30F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("sword_coral_blade")))
+                        .rolls(new BinomialLootTableRange(1, 0.10F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("sword_sponge_striker")))
+
+                        .rolls(new BinomialLootTableRange(1, 0.30F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("axe_anchor")))
+                        .rolls(new BinomialLootTableRange(1, 0.10F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("axe_encrusted_anchor")))
+
+                        //.rolls(new BinomialLootTableRange(3, 0.30F))
+                        //.with(ItemEntry.builder(ItemRegistry.getItem("bow_bubble_bow")))
+                        //.rolls(new BinomialLootTableRange(1, 0.10F))
+                        //.with(ItemEntry.builder(ItemRegistry.getItem("bow_bubble_burster")))
+
+                        .rolls(new BinomialLootTableRange(1, 0.30F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_harpoon_crossbow")))
+                        .rolls(new BinomialLootTableRange(1, 0.10F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_nautical_crossbow")));
 
                 supplier.pool(poolBuilder);
             }

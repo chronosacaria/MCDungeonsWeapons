@@ -134,6 +134,9 @@ public class McdwStatsConfig {
         MATERIAL.put("sword_broken_sawblade", ToolMaterials.IRON);
         MATERIAL.put("sword_mechanized_sawblade", ToolMaterials.DIAMOND);
 
+        MATERIAL.put("sword_coral_blade", ToolMaterials.IRON);
+        MATERIAL.put("sword_sponge_striker", ToolMaterials.DIAMOND);
+
         MATERIAL.put("axe", ToolMaterials.IRON);
         MATERIAL.put("axe_firebrand", ToolMaterials.DIAMOND);
         MATERIAL.put("axe_highland", ToolMaterials.IRON);
@@ -141,6 +144,9 @@ public class McdwStatsConfig {
         MATERIAL.put("axe_cursed", ToolMaterials.IRON);
         MATERIAL.put("axe_double", ToolMaterials.IRON);
         MATERIAL.put("axe_whirlwind", ToolMaterials.IRON);
+
+        MATERIAL.put("axe_anchor", ToolMaterials.IRON);
+        MATERIAL.put("axe_encrusted_anchor", ToolMaterials.DIAMOND);
 
         MATERIAL.put("dagger_dagger", ToolMaterials.IRON);
         MATERIAL.put("dagger_fangs_of_frost", ToolMaterials.IRON);
@@ -262,6 +268,10 @@ public class McdwStatsConfig {
         DAMAGE.put("sword_broken_sawblade", 3f);
         DAMAGE.put("sword_mechanized_sawblade", 3f);
 
+        //Coral Swords
+        DAMAGE.put("sword_coral_blade", 3f);
+        DAMAGE.put("sword_sponge_striker", 3f);
+
         //Axes
         DAMAGE.put("axe", 6f);
         DAMAGE.put("axe_firebrand", 5f);
@@ -270,6 +280,9 @@ public class McdwStatsConfig {
         DAMAGE.put("axe_double", 6f);
         DAMAGE.put("axe_cursed", 7f);
         DAMAGE.put("axe_whirlwind", 6f);
+
+        DAMAGE.put("axe_anchor", 6f);
+        DAMAGE.put("axe_encrusted_anchor", 5f);
 
         //Daggers & Soul Daggers
         DAMAGE.put("dagger_dagger", 1f);
@@ -365,18 +378,24 @@ public class McdwStatsConfig {
         SPEED.put("sword_broken_sawblade", -2.4f);
         SPEED.put("sword_mechanized_sawblade", -2.0f);
 
+        SPEED.put("sword_coral_blade", -2.4f);
+        SPEED.put("sword_sponge_striker", -2.4f);
+
         SPEED.put("axe", -3.1f);
         SPEED.put("axe_firebrand", -2.9f);
         SPEED.put("axe_highland", -3.1f);
+
+        SPEED.put("axe_double", -3.1f);
+        SPEED.put("axe_cursed", -3.1f);
+        SPEED.put("axe_whirlwind", -2.9f);
+
+        SPEED.put("axe_anchor", -3.1f);
+        SPEED.put("axe_encrusted_anchor", -3.1f);
 
         SPEED.put("dagger_dagger", -1.3f);
         SPEED.put("dagger_fangs_of_frost", -1.0f);
         SPEED.put("dagger_moon", -1.0f);
         SPEED.put("dagger_shear_dagger", -1.3f);
-
-        SPEED.put("axe_double", -3.1f);
-        SPEED.put("axe_cursed", -3.1f);
-        SPEED.put("axe_whirlwind", -2.9f);
 
         SPEED.put("dagger_soul_knife", -1.1f);
         SPEED.put("dagger_eternal_knife", -0.9f);

@@ -38,5 +38,11 @@ public class McdwAxe extends AxeItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_4").formatted(Formatting.ITALIC));
         }
+        if (stack.getItem() == ItemRegistry.getItem("axe_anchor")){
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_3").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_4").formatted(Formatting.ITALIC));
+        }
     }
 }

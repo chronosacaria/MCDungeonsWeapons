@@ -1,0 +1,6 @@
+{
+  "parent": "mcdw:item/model_sword",
+  "textures": {
+	  "layer0": "mcdw:item/sword_sponge_striker"
+  }
+}
