@@ -19,6 +19,7 @@
     "enchantments.CriticalHitEnchantmentMixin",
     "enchantments.EchoEnchantmentMixin",
     "enchantments.EnigmaResonatorMixin",
+    "enchantments.EnigmaResonatorShotEnchantmentMixin",
     "enchantments.ExplodingEnchantmentMixin",
     "enchantments.FreezingEnchantmentMixin",
     "enchantments.FuseShotEnchantmentMixin",

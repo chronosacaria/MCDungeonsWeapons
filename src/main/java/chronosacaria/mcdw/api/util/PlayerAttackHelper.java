@@ -112,13 +112,14 @@ public class PlayerAttackHelper {
                 if (bl6) {
                     if (j > 0) {
                         if (target instanceof LivingEntity) {
-                            ((LivingEntity)target).takeKnockback((float)j * 0.5F, (double) MathHelper.sin(player.yaw * 0.017453292F),
-                                    (double)(-MathHelper.cos(player.yaw * 0.017453292F)));
+                            ((LivingEntity)target).takeKnockback((float)j * 0.5F,
+                                    (double) MathHelper.sin(player.getYaw() * 0.017453292F),
+                                    (double)(-MathHelper.cos(player.getYaw() * 0.017453292F)));
                         } else {
                             target.addVelocity(
-                                    (double)(-MathHelper.sin(player.yaw * 0.017453292F) * (float)j * 0.5F),
+                                    (double)(-MathHelper.sin(player.getYaw() * 0.017453292F) * (float)j * 0.5F),
                                     0.1D,
-                                    (double)(MathHelper.cos(player.yaw * 0.017453292F) * (float)j * 0.5F));
+                                    (double)(MathHelper.cos(player.getYaw() * 0.017453292F) * (float)j * 0.5F));
                         }
 
                         player.setVelocity(player.getVelocity().multiply(0.6D, 1.0D, 0.6D));
@@ -166,9 +167,9 @@ public class PlayerAttackHelper {
                                 livingEntity.takeKnockback(
                                         0.4F,
                                         (double)MathHelper.sin(
-                                                player.yaw * 0.017453292F),
+                                                player.getYaw() * 0.017453292F),
                                         (double)(-MathHelper.cos(
-                                                player.yaw * 0.017453292F)));
+                                                player.getYaw() * 0.017453292F)));
                                 livingEntity.damage(DamageSource.player(player), m);
                             }
                         }

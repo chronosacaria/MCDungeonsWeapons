@@ -26,7 +26,7 @@ public class AOEHelper {
     }
 
     public static void pullTowards(Entity self, Entity target) {
-        if (self instanceof PlayerEntity && ((PlayerEntity) self).abilities.creativeMode) return;
+        if (self instanceof PlayerEntity && ((PlayerEntity) self).getAbilities().creativeMode) return;
 
         double motionX = target.getX() - self.getX();
         double motionY = target.getX() - self.getY();

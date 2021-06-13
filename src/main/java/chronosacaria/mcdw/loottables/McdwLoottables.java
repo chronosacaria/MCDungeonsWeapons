@@ -3,9 +3,9 @@ package chronosacaria.mcdw.loottables;
 import chronosacaria.mcdw.items.ItemRegistry;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
-import net.minecraft.loot.BinomialLootTableRange;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
 import net.minecraft.util.Identifier;
 
 public class McdwLoottables {
@@ -63,7 +63,7 @@ public class McdwLoottables {
         LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, id, supplier, setter) -> {
             if ("minecraft:entities/bee".equals(id.toString())) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(BinomialLootTableRange.create(1, 1.0F))
+                        .rolls(BinomialLootNumberProvider.create(1, 1.0F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("item_bee_stinger")));
 
                 supplier.pool(poolBuilder);
@@ -71,37 +71,37 @@ public class McdwLoottables {
 
             if (pillagerTowerLootTables(id)){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(new BinomialLootTableRange(1, 0.01F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.01F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_doom_crossbow")))
 
-                        .rolls(new BinomialLootTableRange(1, 0.01F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.01F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_voidcaller_crossbow")))
 
-                        .rolls(new BinomialLootTableRange(1, 0.10F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_corrupted_crossbow")));
                 supplier.pool(poolBuilder);
             }
 
             if (netherFortressLootTables(id)){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(new BinomialLootTableRange(1, 0.01F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.01F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("bow_ancient_bow")));
                 supplier.pool(poolBuilder);
             }
 
             if (piglinBastionTreasureChestLootTables(id)){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(new BinomialLootTableRange(1, 0.30F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("sword_broken_sawblade")))
 
-                        .rolls(new BinomialLootTableRange(3, 0.30F))
+                        .rolls(BinomialLootNumberProvider.create(3, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_cog_crossbow")))
-                        .rolls(new BinomialLootTableRange(1, 0.10F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_pride_of_the_piglins")))
 
-                        .rolls(new BinomialLootTableRange(1, 0.30F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("hammer_boneclub")))
-                        .rolls(new BinomialLootTableRange(1, 0.10F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("hammer_bone_cudgel")));
 
                 supplier.pool(poolBuilder);
@@ -109,24 +109,24 @@ public class McdwLoottables {
 
             if (underWaterLootTables(id)){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(new BinomialLootTableRange(1, 0.30F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("sword_coral_blade")))
-                        .rolls(new BinomialLootTableRange(1, 0.10F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("sword_sponge_striker")))
 
-                        .rolls(new BinomialLootTableRange(1, 0.30F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("axe_anchor")))
-                        .rolls(new BinomialLootTableRange(1, 0.10F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("axe_encrusted_anchor")))
 
-                        //.rolls(new BinomialLootTableRange(3, 0.30F))
+                        //.rolls(BinomialLootNumberProvider.create(3, 0.30F))
                         //.with(ItemEntry.builder(ItemRegistry.getItem("bow_bubble_bow")))
-                        //.rolls(new BinomialLootTableRange(1, 0.10F))
+                        //.rolls(BinomialLootNumberProvider.create(1, 0.10F))
                         //.with(ItemEntry.builder(ItemRegistry.getItem("bow_bubble_burster")))
 
-                        .rolls(new BinomialLootTableRange(1, 0.30F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_harpoon_crossbow")))
-                        .rolls(new BinomialLootTableRange(1, 0.10F))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_nautical_crossbow")));
 
                 supplier.pool(poolBuilder);

@@ -65,7 +65,7 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
         super.onStoppedUsing(stack, world, user, remainingUseTicks);
         if (user instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity) user;
-            boolean bl = playerEntity.abilities.creativeMode
+            boolean bl = playerEntity.getAbilities().creativeMode
                     || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemStack = playerEntity.getArrowType(stack);
             if (!itemStack.isEmpty() || bl) {
@@ -84,7 +84,7 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
                         PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world,
                                 itemStack, playerEntity);
 
-                        persistentProjectileEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw,
+                        persistentProjectileEntity.setProperties(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(),
                                 0.0F, f * maxBowRange, 1.0F);
                         if (f == 1.0F) {
                             persistentProjectileEntity.setCritical(true);

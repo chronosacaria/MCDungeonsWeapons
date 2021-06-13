@@ -82,7 +82,7 @@ public class McdwWhip extends AxeItem {
             return 15.0F;
         } else {
             Material material = state.getMaterial();
-            return material != Material.PLANT && material != Material.REPLACEABLE_PLANT && material != Material.UNUSED_PLANT && !state.isIn(BlockTags.LEAVES) && material != Material.GOURD ? 1.0F : 1.5F;
+            return material != Material.PLANT && material != Material.REPLACEABLE_PLANT && material != Material.UNDERWATER_PLANT && !state.isIn(BlockTags.LEAVES) && material != Material.GOURD ? 1.0F : 1.5F;
         }
     }
     // Damage to tool upon usage

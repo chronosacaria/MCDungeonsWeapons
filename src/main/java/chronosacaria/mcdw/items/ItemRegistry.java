@@ -143,8 +143,8 @@ public class ItemRegistry {
         //add("bow_twisting_vine_bow");
         //add("bow_weeping_vine_bow");
         add("bow_winters_touch");
-        add("bow_bubble_bow");
-        add("bow_bubble_burster");
+        //add("bow_bubble_bow");
+        //add("bow_bubble_burster");
     }};
     public static final HashSet<String> SHORTBOWS = new HashSet<String>(){{
         add("bow_love_spell_bow");

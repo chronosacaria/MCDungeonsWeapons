@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.enchants.summons.registry;
+/*package chronosacaria.mcdw.enchants.summons.registry;
 
 import chronosacaria.mcdw.enchants.summons.render.SummonedBeeRenderer;
 import net.fabricmc.api.EnvType;
@@ -40,3 +40,4 @@ public class SummonedEntityRenderRegistry {
         }));
     }
 }
+*/

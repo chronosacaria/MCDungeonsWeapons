@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LivingEntity.class)
 public abstract class AnimaConduitEnchantmentMixin {
 
-    @Shadow
     protected abstract int getCurrentExperience(PlayerEntity player);
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)

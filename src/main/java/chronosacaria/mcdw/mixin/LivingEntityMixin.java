@@ -47,7 +47,6 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow
     public abstract boolean damage(DamageSource source, float amount);
 
-
     @Shadow
     public abstract boolean removeStatusEffect(StatusEffect type);
 

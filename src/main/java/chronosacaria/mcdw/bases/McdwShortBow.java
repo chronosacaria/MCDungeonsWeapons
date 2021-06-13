@@ -65,7 +65,7 @@ public class McdwShortBow extends BowItem implements IRangedWeapon {
         super.onStoppedUsing(stack, world, user, remainingUseTicks);
         if (user instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity) user;
-            boolean bl = playerEntity.abilities.creativeMode
+            boolean bl = playerEntity.getAbilities().creativeMode
                     || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
             ItemStack itemStack = playerEntity.getArrowType(stack);
             if (!itemStack.isEmpty() || bl) {
@@ -84,7 +84,7 @@ public class McdwShortBow extends BowItem implements IRangedWeapon {
                         PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world,
                                 itemStack, playerEntity);
 
-                        persistentProjectileEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw,
+                        persistentProjectileEntity.setProperties(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(),
                                 0.0F, f * maxBowRange, 1.0F);
                         if (f >= 0.4F) {
                             persistentProjectileEntity.setCritical(true);
@@ -141,7 +141,7 @@ public class McdwShortBow extends BowItem implements IRangedWeapon {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         boolean bl = !user.getArrowType(itemStack).isEmpty();
-        if (!user.abilities.creativeMode && !bl) {
+        if (!user.getAbilities().creativeMode && !bl) {
             return TypedActionResult.fail(itemStack);
         } else {
             user.setCurrentHand(hand);

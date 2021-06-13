@@ -25,8 +25,6 @@ public class RushdownEnchantmentMixin {
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
-        boolean uniqueWeaponFlag =
-                false;
         if (McdwEnchantsConfig.getValue("rushdown")) {
 
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RUSHDOWN, mainHandStack) >= 1)) {
