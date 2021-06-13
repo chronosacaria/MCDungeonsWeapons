@@ -28,7 +28,7 @@ public class MultiShotEnchantmentMixin {
                     double d = target.getX() - user.getX();
                     double e = target.getBodyY(0.3333333333333333D) - persistentProjectileEntity.getY();
                     double f = target.getZ() - user.getZ();
-                    double g = MathHelper.sqrt(d * d + f * f);
+                    double g = MathHelper.sqrt((float) (d * d + f * f));
                     persistentProjectileEntity.setVelocity(d, e + g * 0.20000000298023224D, f, 1.6F, (float) (14 - user.world.getDifficulty().getId() * 4));
                     persistentProjectileEntity.pickupType =
                             PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;

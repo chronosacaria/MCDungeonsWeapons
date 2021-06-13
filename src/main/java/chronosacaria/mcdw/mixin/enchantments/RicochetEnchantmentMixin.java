@@ -9,6 +9,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,13 +25,18 @@ public class RicochetEnchantmentMixin {
         PlayerEntity attacker = (PlayerEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
+        ItemStack mainHandStack = attacker.getMainHandStack();
+
         if (McdwEnchantsConfig.getValue("ricochet"))  {
+            if (mainHandStack != ItemStack.EMPTY && (EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET,
+                    mainHandStack) >= 1)) {
             int level = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, attacker.getMainHandStack());
-            if (level >= 1) {
-                float damageMultiplier = 0.1F + ((level - 1) * 0.07F);
-                float arrowVelocity = McdwBow.maxBowRange;
-                if (arrowVelocity > 0.1F) {
-                    ProjectileEffectHelper.riochetArrowTowardsOtherEntity(target, 10, damageMultiplier, arrowVelocity);
+                if (level >= 1) {
+                    float damageMultiplier = 0.1F + ((level - 1) * 0.07F);
+                    float arrowVelocity = McdwBow.maxBowRange;
+                    if (arrowVelocity > 0.1F) {
+                        ProjectileEffectHelper.riochetArrowTowardsOtherEntity(target, 10, damageMultiplier, arrowVelocity);
+                    }
                 }
             }
         }
