@@ -6,7 +6,6 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -28,7 +27,7 @@ public abstract class EnigmaResonatorShotEnchantmentMixin extends Entity {
     }
 
     @Inject(method = "onEntityHit", at = @At("TAIL"))
-    private void onGravityShotEnchantmentEntityHit(EntityHitResult entityHitResult, CallbackInfo ci){
+    private void onEnigmaShotEnchantmentEntityHit(EntityHitResult entityHitResult, CallbackInfo ci){
         if (!(entityHitResult.getEntity() instanceof LivingEntity)) {
             return;
         }
@@ -45,12 +44,12 @@ public abstract class EnigmaResonatorShotEnchantmentMixin extends Entity {
 
                 int numSouls = ((PlayerEntity)shooter).experienceLevel;
 
-                double attackDamage = persistentProjectileEntity.getDamage();
-                double extraDamageMultiplier = (Math.log(numSouls * level))/1.75D;
-                double getExtraDamage = (attackDamage * extraDamageMultiplier);
+                double extraDamageMultiplier =
+                        (persistentProjectileEntity.getDamage()*(Math.log(numSouls * level)))*1.75D;
 
                 if (numSouls >= 1){
-                    persistentProjectileEntity.setDamage(getExtraDamage);
+                    target.damage(DamageSource.arrow(persistentProjectileEntity, shooter),
+                            (float) extraDamageMultiplier);
                     shooter.world.playSound(
                             null,
                             shooter.getX(),

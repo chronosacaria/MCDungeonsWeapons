@@ -50,6 +50,8 @@ public class McdwEnchantsGiverConfig {
                     new Identifier("mcdw:enigma_resonator"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_sponge_striker")),
                     new Identifier("mcdw:enigma_resonator"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_feral_soul_crossbow")),
+                    new Identifier("mcdw:enigma_resonator"), 1, true);
 
             // EXPLODING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("axe_cursed")),

@@ -48,7 +48,7 @@ public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
                 || stack.getItem() == ItemRegistry.getItem("crossbow_doom_crossbow")
                 || stack.getItem() == ItemRegistry.getItem("crossbow_dual_crossbow")
                 || stack.getItem() == ItemRegistry.getItem("crossbow_exploding_crossbow")
-                || stack.getItem() == ItemRegistry.getItem("crossbow_feral_crossbow")
+                || stack.getItem() == ItemRegistry.getItem("crossbow_feral_soul_crossbow")
                 || stack.getItem() == ItemRegistry.getItem("crossbow_firebolt_thrower")
                 || stack.getItem() == ItemRegistry.getItem("crossbow_harp_crossbow")
                 || stack.getItem() == ItemRegistry.getItem("crossbow_heavy_crossbow")
