@@ -15,9 +15,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -28,7 +26,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 //TODO Make sure that they cannot strip logs
-public class McdwWhip extends AxeItem {
+public class McdwWhip extends ToolItem implements Vanishable {
 
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
@@ -36,7 +34,7 @@ public class McdwWhip extends AxeItem {
     private final float attackDamage;
 
     public McdwWhip(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+        super(material, settings);
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
         //this.typeSupplier = typeSupplier;
@@ -65,7 +63,6 @@ public class McdwWhip extends AxeItem {
         return this.material.getRepairIngredient().test(ingredient) || super.canRepair(stack, ingredient);
     }
 
-    @Override
     public float getAttackDamage(){
         return this.attackDamage;
     }
