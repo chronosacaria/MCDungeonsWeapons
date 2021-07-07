@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PersistentProjectileEntity.class)
 public abstract class AnimaConduitShotEnchantmentMixin extends Entity {
 
-    protected abstract int getCurrentExperience(PlayerEntity player);
+    protected abstract int getXpToDrop(PlayerEntity player);
 
     public AnimaConduitShotEnchantmentMixin(EntityType<?> type, World world) {
         super(type, world);
@@ -31,7 +31,7 @@ public abstract class AnimaConduitShotEnchantmentMixin extends Entity {
             return;
         }
         PersistentProjectileEntity persistentProjectileEntity = (PersistentProjectileEntity) (Object) this;
-        Entity target = entityHitResult.getEntity();
+
         LivingEntity shooter = (LivingEntity) persistentProjectileEntity.getOwner();
         ItemStack mainHandStack = null;
         if (shooter != null) {
@@ -44,9 +44,9 @@ public abstract class AnimaConduitShotEnchantmentMixin extends Entity {
 
                 //ANIMA CONDUIT AS PER KILL
                 if (shooter.getHealth() < shooter.getMaxHealth()) {
-                    healthRegained = (float) (getCurrentExperience((PlayerEntity) shooter) * (0.2 * level));
+                    healthRegained = (float) (getXpToDrop((PlayerEntity) shooter) * (0.2 * level));
                     shooter.heal(healthRegained);
-                    ((PlayerEntity) shooter).addExperienceLevels(-999999999);
+                    ((PlayerEntity) shooter).addExperienceLevels((int) -healthRegained);
                     //this.world.sendEntityStatus(this,(byte)35);
                 }
             }

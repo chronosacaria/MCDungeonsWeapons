@@ -17,11 +17,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LivingEntity.class)
 public abstract class AnimaConduitEnchantmentMixin {
 
-    protected abstract int getCurrentExperience(PlayerEntity player);
+    @Shadow
+    protected abstract int getXpToDrop(PlayerEntity player);
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
-    private void onAnimaConduitEnchantmentKill(DamageSource source, CallbackInfo ci) {
+    protected void onAnimaConduitEnchantmentKill(DamageSource source, CallbackInfo ci) {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
         LivingEntity user = (LivingEntity) source.getAttacker();
         PiglinEntity piglinEntity = null;
@@ -37,9 +38,9 @@ public abstract class AnimaConduitEnchantmentMixin {
 
                 //ANIMA CONDUIT AS PER KILL
                 if (user.getHealth() < user.getMaxHealth()) {
-                    healthRegained = (float) (getCurrentExperience((PlayerEntity) user) * (0.2 * level));
+                    healthRegained = (float) (getXpToDrop((PlayerEntity) user) * (0.2 * level));
                     user.heal(healthRegained);
-                    ((PlayerEntity) user).addExperienceLevels(-999999999);
+                    ((PlayerEntity) user).addExperienceLevels((int) -healthRegained);
                     //this.world.sendEntityStatus(this,(byte)35);
                 }
             }
