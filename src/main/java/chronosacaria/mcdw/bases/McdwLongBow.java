@@ -1,7 +1,9 @@
 
 package chronosacaria.mcdw.bases;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IRangedWeapon;
+import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -11,14 +13,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.*;
 import net.minecraft.particle.ParticleEffect;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
@@ -32,28 +29,28 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
     public static float chargeTime = 60.0f;
 
     public final ToolMaterial material;
-    public final float maxDrawTime;
+    public final float drawSpeed;
     public static float maxBowRange;
     private final ParticleEffect type;
 
-    public McdwLongBow(ToolMaterial material, Settings settings, float maxDrawTime, float maxBowRangePar) {
-        super(settings);
-        this.material = material;
-        this.maxDrawTime = maxDrawTime;
-        maxBowRange = maxBowRangePar;
-        type = null;
+    public McdwLongBow(ToolMaterial material, float drawSpeed, float maxBowRangePar) {
+        this(material, drawSpeed, maxBowRangePar, null);
     }
 
-    public McdwLongBow(ToolMaterial material, Settings settings, float maxDrawTime, float maxBowRangePar, ParticleEffect particles) {
-        super(settings);
+    public McdwLongBow(ToolMaterial material, float drawSpeed, float maxBowRangePar, ParticleEffect particles) {
+        super(new Item.Settings().group(Mcdw.RANGED)
+                .maxCount(1)
+                .maxDamage(material.getDurability())
+                .rarity(RarityHelper.fromToolMaterial(material))
+        );
         this.material = material;
-        this.maxDrawTime = maxDrawTime;
+        this.drawSpeed = drawSpeed;
         maxBowRange = maxBowRangePar;
         type = particles;
     }
 
-    public float getMaxDrawTime() {
-        return Math.max(0, maxDrawTime);
+    public float getDrawSpeed() {
+        return Math.max(0, drawSpeed);
     }
 
     public ParticleEffect getArrowParticles() {
@@ -130,7 +127,7 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
 
     @Override
     public int getMaxUseTime(ItemStack stack) {
-        return 72000;
+        return 72000 - (int)(drawSpeed);
     }
 
     @Override
@@ -145,7 +142,7 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
 
     @Override
     public int getRange() {
-        return 15;
+        return (int) maxBowRange * 2 + 10;
     }
 
     @Override

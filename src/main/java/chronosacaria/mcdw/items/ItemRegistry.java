@@ -199,81 +199,79 @@ public class ItemRegistry {
 
         //Swords
         for (String itemID : SWORDS) {
-            ITEMS.put(itemID, new McdwSword(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwSword(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //AXES
         for (String itemID : AXES) {
-            ITEMS.put(itemID, new McdwAxe(McdwStatsConfig.getMaterial(itemID), McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwAxe(McdwStatsConfig.getMaterial(itemID), McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //DOUBLE AXES
         for (String itemID : DOUBLE_AXES) {
-            ITEMS.put(itemID, new McdwDoubleAxe(McdwStatsConfig.getMaterial(itemID), McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwDoubleAxe(McdwStatsConfig.getMaterial(itemID), McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //DAGGERS
         for (String itemID : DAGGERS) {
-            ITEMS.put(itemID, new McdwDagger(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwDagger(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //SOUL DAGGERS
         for (String itemID : SOUL_DAGGERS) {
-            ITEMS.put(itemID, new McdwSoulDagger(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwSoulDagger(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //HAMMERS
         for (String itemID : HAMMERS) {
-            ITEMS.put(itemID, new McdwHammer(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwHammer(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //GAUNTLETS
         for (String itemID : GAUNTLETS) {
-            ITEMS.put(itemID, new McdwGauntlet(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwGauntlet(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //SICKLES
         for (String itemID : SICKLES) {
-            ITEMS.put(itemID, new McdwSickle(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwSickle(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //SCYTHES
         for (String itemID : SCYTHES) {
-            ITEMS.put(itemID, new McdwScythe(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwScythe(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //PICKS
         for (String itemID : PICKS) {
-            ITEMS.put(itemID, new McdwPick(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwPick(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //GLAIVES
         for (String itemID : GLAIVES) {
-            ITEMS.put(itemID, new McdwGlaive(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwGlaive(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //SPEARS
         for (String itemID : SPEARS) {
-            ITEMS.put(itemID, new McdwSpear(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwSpear(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //STAVES
         for (String itemID : STAVES) {
-            ITEMS.put(itemID, new McdwStaff(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwStaff(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //WHIPS
         for (String itemID : WHIPS) {
-            ITEMS.put(itemID, new McdwWhip(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID), new Item.Settings().group(Mcdw.WEAPONS)));
+            ITEMS.put(itemID, new McdwWhip(McdwStatsConfig.getMaterial(itemID), (int) McdwStatsConfig.getDamage(itemID), McdwStatsConfig.getSpeed(itemID)));
         }
         //BOWS
         for (String itemID : BOWS) {
-            ITEMS.put(itemID, new McdwBow(McdwStatsConfig.getMaterial(itemID), new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), McdwStatsConfig.getDrawTime(itemID), McdwStatsConfig.getMaxRange(itemID)));
+            ITEMS.put(itemID, new McdwBow(McdwStatsConfig.getMaterial(itemID), McdwStatsConfig.getDrawSpeed(itemID), McdwStatsConfig.getMaxRange(itemID)));
         }
         //SHORTBOWS
         for (String itemID : SHORTBOWS) {
-            ITEMS.put(itemID, new McdwShortBow(McdwStatsConfig.getMaterial(itemID), new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), McdwStatsConfig.getDrawTime(itemID), McdwStatsConfig.getMaxRange(itemID)));
+            ITEMS.put(itemID, new McdwShortBow(McdwStatsConfig.getMaterial(itemID), McdwStatsConfig.getDrawSpeed(itemID), McdwStatsConfig.getMaxRange(itemID)));
         }
         //LONGBOWS
         for (String itemID : LONGBOWS) {
-            ITEMS.put(itemID, new McdwLongBow(McdwStatsConfig.getMaterial(itemID),
-                    new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350), McdwStatsConfig.getDrawTime(itemID), McdwStatsConfig.getMaxRange(itemID)));
+            ITEMS.put(itemID, new McdwLongBow(McdwStatsConfig.getMaterial(itemID),McdwStatsConfig.getDrawSpeed(itemID), McdwStatsConfig.getMaxRange(itemID)));
         }
         //CROSSBOWS
         for (String itemID : CROSSBOWS) {
-            ITEMS.put(itemID, new McdwCrossbow(new Item.Settings().group(Mcdw.RANGED).maxCount(1).maxDamage(350)));
+            ITEMS.put(itemID, new McdwCrossbow(McdwStatsConfig.getMaterial(itemID), McdwStatsConfig.getDrawSpeed(itemID), McdwStatsConfig.getMaxRange(itemID)));
         }
         //SHIELDS
         for (String itemID : SHIELDS) {
-            ITEMS.put(itemID, new McdwShield(McdwStatsConfig.getMaterial(itemID),
-                    new Item.Settings().group(Mcdw.SHIELDS).maxCount(1).maxDamage(500)));
+            ITEMS.put(itemID, new McdwShield(McdwStatsConfig.getMaterial(itemID)));
         }
 
     }

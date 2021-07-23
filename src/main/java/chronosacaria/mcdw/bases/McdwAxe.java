@@ -1,8 +1,11 @@
 package chronosacaria.mcdw.bases;
 
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.AxeItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
@@ -13,8 +16,9 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class McdwAxe extends AxeItem {
-    public McdwAxe(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings){
-        super(material, attackDamage, attackSpeed, settings);
+    public McdwAxe(ToolMaterial material, float attackDamage, float attackSpeed){
+        super(material, attackDamage, attackSpeed,
+                new Item.Settings().group(Mcdw.WEAPONS).rarity(RarityHelper.fromToolMaterial(material)));
     }
 
     @Override

@@ -32,7 +32,7 @@ public class McdwStatsConfig {
     public static float getMaxRange(String item) {
         return RANGE.getOrDefault(item, 0f);
     }
-    public static float getDrawTime(String item) {
+    public static float getDrawSpeed(String item) {
         return DRAW_SPEED.getOrDefault(item, 0f);
     }
 
@@ -45,18 +45,18 @@ public class McdwStatsConfig {
     }
 
     public static void initDrawSpeed() {
-        DRAW_SPEED.put("bow_ancient_bow", 15f);
-        DRAW_SPEED.put("bow_bonebow", 15f);
-        DRAW_SPEED.put("bow_burst_gale_bow", 15f);
-        DRAW_SPEED.put("bow_echo_of_the_valley", 15f);
+        DRAW_SPEED.put("bow_ancient_bow", 12f);
+        DRAW_SPEED.put("bow_bonebow", 16f);
+        DRAW_SPEED.put("bow_burst_gale_bow", 10f);
+        DRAW_SPEED.put("bow_echo_of_the_valley", 9f);
         DRAW_SPEED.put("bow_elite_power_bow", 20f);
-        DRAW_SPEED.put("bow_green_menace", 15f);
+        DRAW_SPEED.put("bow_green_menace", 16f);
         DRAW_SPEED.put("bow_guardian_bow", 30f);
-        DRAW_SPEED.put("bow_haunted_bow", 15f);
-        DRAW_SPEED.put("bow_hunters_promise", 15f);
-        DRAW_SPEED.put("bow_hunting_bow", 15f);
+        DRAW_SPEED.put("bow_haunted_bow", 28f);
+        DRAW_SPEED.put("bow_hunters_promise", 13f);
+        DRAW_SPEED.put("bow_hunting_bow", 14f);
         DRAW_SPEED.put("bow_longbow", 20f);
-        DRAW_SPEED.put("bow_lost_souls", 15f);
+        DRAW_SPEED.put("bow_lost_souls", 8f);
         DRAW_SPEED.put("bow_love_spell_bow", 8f);
         DRAW_SPEED.put("bow_masters_bow", 15f);
         DRAW_SPEED.put("bow_mechanical_shortbow", 8f);
@@ -65,47 +65,103 @@ public class McdwStatsConfig {
         DRAW_SPEED.put("bow_power_bow", 20f);
         DRAW_SPEED.put("bow_purple_storm", 8f);
         DRAW_SPEED.put("bow_red_snake", 30f);
-        DRAW_SPEED.put("bow_sabrewing", 15f);
-        DRAW_SPEED.put("bow_shivering_bow", 15f);
+        DRAW_SPEED.put("bow_sabrewing", 8f);
+        DRAW_SPEED.put("bow_shivering_bow", 12f);
         DRAW_SPEED.put("bow_shortbow", 8f);
-        DRAW_SPEED.put("bow_soul_bow", 15f);
-        DRAW_SPEED.put("bow_trickbow", 15f);
-        DRAW_SPEED.put("bow_wind_bow", 15f);
-        DRAW_SPEED.put("bow_snow_bow", 15f);
-        DRAW_SPEED.put("bow_winters_touch", 15f);
+        DRAW_SPEED.put("bow_soul_bow", 12f);
+        DRAW_SPEED.put("bow_trickbow", 10f);
+        DRAW_SPEED.put("bow_wind_bow", 9f);
+        DRAW_SPEED.put("bow_snow_bow", 14f);
+        DRAW_SPEED.put("bow_winters_touch", 13f);
+
+        DRAW_SPEED.put("crossbow_the_slicer", 28f);
+        DRAW_SPEED.put("crossbow_azure_seeker", 28f);
+        DRAW_SPEED.put("crossbow_exploding_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_imploding_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_firebolt_thrower", 28f);
+        DRAW_SPEED.put("crossbow_heavy_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_doom_crossbow", 26f);
+        DRAW_SPEED.put("crossbow_slayer_crossbow", 26f);
+        DRAW_SPEED.put("crossbow_rapid_crossbow", 20f);
+        DRAW_SPEED.put("crossbow_butterfly_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_auto_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_scatter_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_harp_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_lightning_harp_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_soul_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_feral_soul_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_voidcaller_crossbow", 26f);
+        DRAW_SPEED.put("crossbow_dual_crossbow", 24f);
+        DRAW_SPEED.put("crossbow_spellbound_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_baby_crossbow", 23f);
+        DRAW_SPEED.put("crossbow_burst_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_soul_hunter_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_corrupted_crossbow", 22f);
+        DRAW_SPEED.put("crossbow_cog_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_pride_of_the_piglins", 20f);
+        DRAW_SPEED.put("crossbow_harpoon_crossbow", 28f);
+        DRAW_SPEED.put("crossbow_nautical_crossbow", 24f);
     }
 
     public static void initRange() {
-        RANGE.put("bow_ancient_bow", 3.2f);
-        RANGE.put("bow_bonebow", 3.2f);
-        RANGE.put("bow_burst_gale_bow", 3.2f);
-        RANGE.put("bow_echo_of_the_valley", 3.2f);
+        RANGE.put("bow_ancient_bow", 7.6f);
+        RANGE.put("bow_bonebow", 3.4f);
+        RANGE.put("bow_burst_gale_bow", 7.2f);
+        RANGE.put("bow_echo_of_the_valley", 7.4f);
         RANGE.put("bow_elite_power_bow", 6.4f);
-        RANGE.put("bow_green_menace", 3.2f);
+        RANGE.put("bow_green_menace", 4.0f);
         RANGE.put("bow_guardian_bow", 6.4f);
-        RANGE.put("bow_haunted_bow", 3.2f);
-        RANGE.put("bow_hunters_promise", 3.2f);
-        RANGE.put("bow_hunting_bow", 3.2f);
-        RANGE.put("bow_longbow", 6.4f);
-        RANGE.put("bow_lost_souls", 3.2f);
+        RANGE.put("bow_haunted_bow", 7.0f);
+        RANGE.put("bow_hunters_promise", 5.0f);
+        RANGE.put("bow_hunting_bow", 4.6f);
+        RANGE.put("bow_longbow", 7.0f);
+        RANGE.put("bow_lost_souls", 7.4f);
         RANGE.put("bow_love_spell_bow", 2f);
-        RANGE.put("bow_masters_bow", 3.2f);
-        RANGE.put("bow_mechanical_shortbow", 2f);
-        RANGE.put("bow_nocturnal_bow", 3.2f);
-        RANGE.put("bow_pink_scoundrel", 3.2f);
+        RANGE.put("bow_masters_bow", 4.4f);
+        RANGE.put("bow_mechanical_shortbow", 2.6f);
+        RANGE.put("bow_nocturnal_bow", 6.0f);
+        RANGE.put("bow_pink_scoundrel", 5.6f);
         RANGE.put("bow_power_bow", 6.4f);
         RANGE.put("bow_purple_storm", 2f);
-        RANGE.put("bow_red_snake", 6.4f);
-        RANGE.put("bow_sabrewing", 3.2f);
-        RANGE.put("bow_shivering_bow", 3.2f);
+        RANGE.put("bow_red_snake", 8.4f);
+        RANGE.put("bow_sabrewing", 9.0f);
+        RANGE.put("bow_shivering_bow", 4.0f);
         RANGE.put("bow_shortbow", 2f);
-        RANGE.put("bow_soul_bow", 3.2f);
-        RANGE.put("bow_trickbow", 3.2f);
-        RANGE.put("bow_wind_bow", 3.2f);
-        RANGE.put("bow_snow_bow", 3.2f);
-        RANGE.put("bow_winters_touch", 3.2f);
-        RANGE.put("bow_twisting_vine_bow", 3.2f);
-        RANGE.put("bow_weeping_vine_bow", 3.2f);
+        RANGE.put("bow_soul_bow", 4.0f);
+        RANGE.put("bow_trickbow", 4.2f);
+        RANGE.put("bow_wind_bow", 6.8f);
+        RANGE.put("bow_snow_bow", 4.8f);
+        RANGE.put("bow_winters_touch", 5.2f);
+        RANGE.put("bow_twisting_vine_bow", 4.0f);
+        RANGE.put("bow_weeping_vine_bow", 4.0f);
+
+        RANGE.put("crossbow_the_slicer", 10.2f);
+        RANGE.put("crossbow_azure_seeker", 8.4f);
+        RANGE.put("crossbow_exploding_crossbow", 8.0f);
+        RANGE.put("crossbow_imploding_crossbow", 8.0f);
+        RANGE.put("crossbow_firebolt_thrower", 7.9f);
+        RANGE.put("crossbow_heavy_crossbow", 8.0f);
+        RANGE.put("crossbow_doom_crossbow", 8.0f);
+        RANGE.put("crossbow_slayer_crossbow", 8.8f);
+        RANGE.put("crossbow_rapid_crossbow", 8.2f);
+        RANGE.put("crossbow_butterfly_crossbow", 8.9f);
+        RANGE.put("crossbow_auto_crossbow", 8.0f);
+        RANGE.put("crossbow_scatter_crossbow", 8.0f);
+        RANGE.put("crossbow_harp_crossbow", 8.6f);
+        RANGE.put("crossbow_lightning_harp_crossbow", 14.2f);
+        RANGE.put("crossbow_soul_crossbow", 8.0f);
+        RANGE.put("crossbow_feral_soul_crossbow", 9.2f);
+        RANGE.put("crossbow_voidcaller_crossbow", 12.5f);
+        RANGE.put("crossbow_dual_crossbow", 7.0f);
+        RANGE.put("crossbow_spellbound_crossbow", 8.9f);
+        RANGE.put("crossbow_baby_crossbow", 7.2f);
+        RANGE.put("crossbow_burst_crossbow", 8.0f);
+        RANGE.put("crossbow_soul_hunter_crossbow", 11.0f);
+        RANGE.put("crossbow_corrupted_crossbow", 14.0f);
+        RANGE.put("crossbow_cog_crossbow", 8.4f);
+        RANGE.put("crossbow_pride_of_the_piglins", 13.0f);
+        RANGE.put("crossbow_harpoon_crossbow", 11.0f);
+        RANGE.put("crossbow_nautical_crossbow", 14.0f);
     }
 
     public static void initMaterial() {
@@ -132,7 +188,7 @@ public class McdwStatsConfig {
         MATERIAL.put("sword_hawkbrand", ToolMaterials.IRON);
 
         MATERIAL.put("sword_broken_sawblade", ToolMaterials.IRON);
-        MATERIAL.put("sword_mechanized_sawblade", ToolMaterials.DIAMOND);
+        MATERIAL.put("sword_mechanized_sawblade", ToolMaterials.NETHERITE);
 
         MATERIAL.put("sword_coral_blade", ToolMaterials.IRON);
         MATERIAL.put("sword_sponge_striker", ToolMaterials.DIAMOND);
@@ -154,8 +210,8 @@ public class McdwStatsConfig {
         MATERIAL.put("dagger_shear_dagger", ToolMaterials.IRON);
 
         MATERIAL.put("dagger_soul_knife", ToolMaterials.IRON);
-        MATERIAL.put("dagger_eternal_knife", ToolMaterials.DIAMOND);
-        MATERIAL.put("sword_truthseeker", ToolMaterials.IRON);
+        MATERIAL.put("dagger_eternal_knife", ToolMaterials.NETHERITE);
+        MATERIAL.put("sword_truthseeker", ToolMaterials.NETHERITE);
 
         MATERIAL.put("hammer_great", ToolMaterials.IRON);
         MATERIAL.put("hammer_stormlander", ToolMaterials.DIAMOND);
@@ -204,36 +260,69 @@ public class McdwStatsConfig {
         MATERIAL.put("whip_whip", ToolMaterials.IRON);
         MATERIAL.put("whip_vine_whip", ToolMaterials.IRON);
 
-        MATERIAL.put("bow_ancient_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_bonebow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_burst_gale_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_echo_of_the_valley", ToolMaterials.WOOD);
-        MATERIAL.put("bow_elite_power_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_green_menace", ToolMaterials.WOOD);
-        MATERIAL.put("bow_guardian_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_haunted_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_hunters_promise", ToolMaterials.WOOD);
+        MATERIAL.put("bow_ancient_bow", ToolMaterials.NETHERITE);
+        MATERIAL.put("bow_bonebow", ToolMaterials.STONE);
+        MATERIAL.put("bow_burst_gale_bow", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_echo_of_the_valley", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_elite_power_bow", ToolMaterials.IRON);
+        MATERIAL.put("bow_green_menace", ToolMaterials.IRON);
+        MATERIAL.put("bow_guardian_bow", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_haunted_bow", ToolMaterials.NETHERITE);
+        MATERIAL.put("bow_hunters_promise", ToolMaterials.STONE);
         MATERIAL.put("bow_hunting_bow", ToolMaterials.WOOD);
         MATERIAL.put("bow_longbow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_lost_souls", ToolMaterials.WOOD);
-        MATERIAL.put("bow_love_spell_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_lost_souls", ToolMaterials.NETHERITE);
+        MATERIAL.put("bow_love_spell_bow", ToolMaterials.GOLD);
         MATERIAL.put("bow_masters_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_mechanical_shortbow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_nocturnal_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_pink_scoundrel", ToolMaterials.WOOD);
-        MATERIAL.put("bow_power_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_purple_storm", ToolMaterials.WOOD);
-        MATERIAL.put("bow_red_snake", ToolMaterials.WOOD);
-        MATERIAL.put("bow_sabrewing", ToolMaterials.WOOD);
-        MATERIAL.put("bow_shivering_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_mechanical_shortbow", ToolMaterials.IRON);
+        MATERIAL.put("bow_nocturnal_bow", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_pink_scoundrel", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_power_bow", ToolMaterials.IRON);
+        MATERIAL.put("bow_purple_storm", ToolMaterials.IRON);
+        MATERIAL.put("bow_red_snake", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_sabrewing", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_shivering_bow", ToolMaterials.DIAMOND);
         MATERIAL.put("bow_shortbow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_soul_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_trickbow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_wind_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_snow_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_winters_touch", ToolMaterials.WOOD);
-        MATERIAL.put("bow_twisting_vine_bow", ToolMaterials.WOOD);
-        MATERIAL.put("bow_weeping_vine_bow", ToolMaterials.WOOD);
+        MATERIAL.put("bow_snow_bow", ToolMaterials.IRON);
+        MATERIAL.put("bow_soul_bow", ToolMaterials.IRON);
+        MATERIAL.put("bow_trickbow", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_wind_bow", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_winters_touch", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_twisting_vine_bow", ToolMaterials.IRON);
+        MATERIAL.put("bow_weeping_vine_bow", ToolMaterials.IRON);
+
+        // crossbows
+        MATERIAL.put("crossbow_the_slicer", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_azure_seeker", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_exploding_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_imploding_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_firebolt_thrower", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_heavy_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_doom_crossbow", ToolMaterials.NETHERITE);
+        MATERIAL.put("crossbow_slayer_crossbow", ToolMaterials.DIAMOND);
+        MATERIAL.put("crossbow_rapid_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_butterfly_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_auto_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_scatter_crossbow", ToolMaterials.WOOD);
+        MATERIAL.put("crossbow_harp_crossbow", ToolMaterials.GOLD);
+        MATERIAL.put("crossbow_lightning_harp_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_soul_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_feral_soul_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_voidcaller_crossbow", ToolMaterials.DIAMOND);
+        MATERIAL.put("crossbow_dual_crossbow", ToolMaterials.WOOD);
+        MATERIAL.put("crossbow_spellbound_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_baby_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_burst_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_soul_hunter_crossbow", ToolMaterials.DIAMOND);
+        MATERIAL.put("crossbow_corrupted_crossbow", ToolMaterials.NETHERITE);
+        MATERIAL.put("crossbow_cog_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_pride_of_the_piglins", ToolMaterials.NETHERITE);
+        MATERIAL.put("crossbow_harpoon_crossbow", ToolMaterials.IRON);
+        MATERIAL.put("crossbow_nautical_crossbow", ToolMaterials.DIAMOND);
+
+        // shields
+        MATERIAL.put("shield_royal_guard", ToolMaterials.DIAMOND);
+        MATERIAL.put("shield_vanguard", ToolMaterials.IRON);
     }
 
     public static void initDamage() {
@@ -291,7 +380,7 @@ public class McdwStatsConfig {
         DAMAGE.put("dagger_shear_dagger", 1f);
 
         DAMAGE.put("dagger_soul_knife", 1f);
-        DAMAGE.put("dagger_eternal_knife", 0f);
+        DAMAGE.put("dagger_eternal_knife", 4f);
         DAMAGE.put("sword_truthseeker", 3f);
 
         //Hammers

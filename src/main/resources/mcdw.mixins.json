@@ -26,6 +26,7 @@
     "enchantments.GravityEnchantmentMixin",
     "enchantments.GravityShotEnchantmentMixin",
     "enchantments.GrowingEnchantmentMixin",
+    "enchantments.GuardingStrikeEnchantmentMixin",
     "enchantments.JunglesPoisonEnchantmentMixin",
     "enchantments.LeechingEnchantmentMixin",
     "enchantments.MultiShotEnchantmentMixin",
