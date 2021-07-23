@@ -38,6 +38,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("fuse_shot", true);
         SETTINGS.put("gravity", true);
         SETTINGS.put("growing", true);
+        SETTINGS.put("guarding_strike", true);
         SETTINGS.put("illagers_bane", true);
         SETTINGS.put("jungle_poison", true);
         SETTINGS.put("leeching", true);

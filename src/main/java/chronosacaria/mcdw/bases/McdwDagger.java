@@ -1,9 +1,12 @@
 package chronosacaria.mcdw.bases;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
+import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
@@ -18,8 +21,9 @@ import java.util.List;
 
 public class McdwDagger extends SwordItem implements IOffhandAttack {
 
-    public McdwDagger(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+    public McdwDagger(ToolMaterial material, int attackDamage, float attackSpeed) {
+        super(material, attackDamage, attackSpeed,
+                new Item.Settings().group(Mcdw.WEAPONS).rarity(RarityHelper.fromToolMaterial(material)));
     }
 
     @Override

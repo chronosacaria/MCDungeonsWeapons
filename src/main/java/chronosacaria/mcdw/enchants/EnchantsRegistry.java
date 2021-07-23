@@ -15,6 +15,7 @@ public class EnchantsRegistry {
     public static Enchantment EXPLODING;
     public static Enchantment FREEZING;
     public static Enchantment GRAVITY;
+    public static Enchantment GUARDING_STRIKE;
     public static Enchantment ILLAGERS_BANE;
     public static Enchantment JUNGLE_POISON;
     public static Enchantment LEECHING;
@@ -61,15 +62,17 @@ public class EnchantsRegistry {
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         GRAVITY = new GravityEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        GUARDING_STRIKE = new GuardingStrikeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         ILLAGERS_BANE = new IllagersBaneEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         JUNGLE_POISON = new JunglePoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         LEECHING = new LeechingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        POISON_CLOUD = new PoisonCloudEnchantment(Enchantment.Rarity.COMMON, EnchantmentTarget.WEAPON,
+        POISON_CLOUD = new PoisonCloudEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        PROSPECTOR = new ProspectorEnchantment(Enchantment.Rarity.COMMON, EnchantmentTarget.WEAPON,
+        PROSPECTOR = new ProspectorEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RADIANCE = new RadianceEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

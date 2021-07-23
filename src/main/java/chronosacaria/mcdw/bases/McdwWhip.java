@@ -1,5 +1,7 @@
 package chronosacaria.mcdw.bases;
 
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.items.ItemRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -26,15 +28,16 @@ import net.minecraft.world.World;
 import java.util.List;
 
 //TODO Make sure that they cannot strip logs
-public class McdwWhip extends ToolItem implements Vanishable {
+public class McdwWhip extends McdwCustomWeaponBase implements Vanishable {
 
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     private final ToolMaterial material;
     private final float attackDamage;
 
-    public McdwWhip(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
-        super(material, settings);
+    public McdwWhip(ToolMaterial material, int attackDamage, float attackSpeed) {
+        super(material, attackDamage, attackSpeed,
+                new Item.Settings().group(Mcdw.WEAPONS).rarity(RarityHelper.fromToolMaterial(material)));
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
         //this.typeSupplier = typeSupplier;

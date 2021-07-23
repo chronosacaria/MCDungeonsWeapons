@@ -1,11 +1,10 @@
 package chronosacaria.mcdw.bases;
 
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.util.RarityHelper;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShieldItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -16,8 +15,12 @@ public class McdwShield extends ShieldItem {
 
     public final ToolMaterial material;
 
-    public McdwShield(ToolMaterial material, Settings settings) {
-        super(settings);
+    public McdwShield(ToolMaterial material) {
+        super(new Item.Settings().group(Mcdw.SHIELDS)
+                .maxCount(1)
+                .maxDamage(250 + material.getDurability())
+                .rarity(RarityHelper.fromToolMaterial(material))
+        );
         this.material = material;
 
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSER_BEHAVIOR);

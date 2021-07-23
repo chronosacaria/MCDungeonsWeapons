@@ -52,6 +52,8 @@ public class McdwEnchantsGiverConfig {
                     new Identifier("mcdw:enigma_resonator"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_feral_soul_crossbow")),
                     new Identifier("mcdw:enigma_resonator"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_soul_hunter_crossbow")),
+                    new Identifier("mcdw:enigma_resonator"), 1, true);
 
             // EXPLODING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("axe_cursed")),
@@ -118,6 +120,12 @@ public class McdwEnchantsGiverConfig {
             // MULTISHOT ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_lost_souls")),
                     new Identifier("minecraft:multishot"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_harp_crossbow")),
+                    new Identifier("minecraft:multishot"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_scatter_crossbow")),
+                    new Identifier("minecraft:multishot"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_lightning_harp_crossbow")),
+                    new Identifier("minecraft:multishot"), 1, true);
 
             // PIERCING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_the_slicer")),
@@ -173,7 +181,7 @@ public class McdwEnchantsGiverConfig {
 
             // RICOCHET ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_lightning_harp_crossbow")),
-                    new Identifier("mcdw:ricochet"), 1, true);
+                    new Identifier("mcdw:ricochet"), 1, false);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_slayer_crossbow")),
                     new Identifier("mcdw:ricochet"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_echo_of_the_valley")),
