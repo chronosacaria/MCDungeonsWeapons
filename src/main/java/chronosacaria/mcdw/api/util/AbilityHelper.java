@@ -2,11 +2,9 @@ package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
-import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 

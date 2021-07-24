@@ -2,7 +2,6 @@ package chronosacaria.mcdw.client;
 
 import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
-//import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRenderRegistry;
 import chronosacaria.mcdw.enchants.summons.render.SummonedBeeRenderer;
 import chronosacaria.mcdw.items.ItemRegistry;
 import net.fabricmc.api.ClientModInitializer;
