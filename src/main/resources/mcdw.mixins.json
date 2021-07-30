@@ -36,6 +36,8 @@
     "enchantments.RadianceEnchantmentMixin",
     "enchantments.RadianceShotEnchantmentMixin",
     "enchantments.RampagingEnchantmentMixin",
+    "enchantments.RefreshmentEnchantmentMixin",
+    "enchantments.RefreshmentShotEnchantmentMixin",
     "enchantments.ReplenishEnchantmentMixin",
     "enchantments.RicochetEnchantmentMixin",
     "enchantments.ShockwaveEnchantmentMixin",

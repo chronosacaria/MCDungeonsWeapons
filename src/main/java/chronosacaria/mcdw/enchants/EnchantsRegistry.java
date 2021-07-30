@@ -23,6 +23,7 @@ public class EnchantsRegistry {
     public static Enchantment PROSPECTOR;
     public static Enchantment RADIANCE;
     public static Enchantment RAMPAGING;
+    public static Enchantment REFRESHMENT;
     public static Enchantment RUSHDOWN;
     public static Enchantment SHOCKWAVE;
     public static Enchantment SMITING;
@@ -39,6 +40,7 @@ public class EnchantsRegistry {
     public static Enchantment FUSE_SHOT;
     public static Enchantment GROWING;
     public static Enchantment RADIANCE_SHOT;
+    public static Enchantment REFRESHMENT_SHOT;
     public static Enchantment REPLENISH;
     public static Enchantment RICOCHET;
     public static Enchantment TEMPO_THEFT;
@@ -78,6 +80,8 @@ public class EnchantsRegistry {
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RAMPAGING = new RampagingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        REFRESHMENT = new RefreshmentEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RUSHDOWN = new RushdownEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         SHOCKWAVE = new ShockwaveEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
@@ -108,6 +112,8 @@ public class EnchantsRegistry {
         GROWING = new GrowingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RADIANCE_SHOT = new RadianceShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        REFRESHMENT_SHOT = new RefreshmentShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         REPLENISH = new ReplenishEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

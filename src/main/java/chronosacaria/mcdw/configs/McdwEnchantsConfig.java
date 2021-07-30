@@ -50,6 +50,8 @@ public class McdwEnchantsConfig {
         SETTINGS.put("radiance_shot", true);
         SETTINGS.put("rampaging", true);
         SETTINGS.put("replenish", true);
+        SETTINGS.put("refreshment", true);
+        SETTINGS.put("refreshment_shot", true);
         SETTINGS.put("ricochet", true);
         SETTINGS.put("rushdown", true);
         SETTINGS.put("shockwave", true);
