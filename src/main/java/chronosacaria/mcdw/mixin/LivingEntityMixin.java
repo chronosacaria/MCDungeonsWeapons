@@ -22,9 +22,11 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.PiglinEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -37,6 +39,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.UUID;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
@@ -113,6 +117,39 @@ public abstract class LivingEntityMixin extends Entity {
             if (EnchantmentHelper.getLevel(EnchantsRegistry.WEAKENING, mainHand) >= 1
                     || mainHand.getItem() == ItemRegistry.getItem("sword_nameless_blade").asItem()) {
                 this.removeStatusEffect(StatusEffects.WEAKNESS);
+            }
+        }
+    }
+
+    /* * * * * * * * * * * * * * * * *|
+    |****HUNTER'S COMPANION EFFECT****|
+    |* * * * * * * * * * * * * * * * */
+
+    @Inject(method = "applyDamage", at = @At("HEAD"), cancellable = true)
+    public void onHuntersPromiseCompanionDamage(DamageSource source, float amount, CallbackInfo into){
+        LivingEntity target = (LivingEntity) (Object) this;
+        Entity petSource = source.getSource();
+
+        if (petSource == null) return;
+
+        if (petSource.world instanceof ServerWorld && petSource instanceof TameableEntity){
+            ServerWorld serverWorld = (ServerWorld) petSource.world;
+            PlayerEntity owner = (PlayerEntity) ((TameableEntity) petSource).getOwner();
+            if (owner != null){
+                UUID petOwnerUUID = owner.getUuid();
+                ItemStack mainHandStack = owner.getMainHandStack();
+
+                if (mainHandStack.getItem() == ItemRegistry.getItem("bow_hunters_promise").asItem()){
+                    if (petOwnerUUID != null){
+                        Entity petOwner = serverWorld.getEntity(petOwnerUUID);
+                        if (petOwner instanceof LivingEntity){
+                            float huntersPromiseCompanionFactor = 1.5f;
+                            float newDamage = amount * huntersPromiseCompanionFactor;
+                            float h = target.getHealth();
+                            target.setHealth(h - newDamage);
+                        }
+                    }
+                }
             }
         }
     }

@@ -408,8 +408,8 @@
   "tooltip_info_item.mcdw.stormlander_2"      : "of the raging storm, is a treasure of",
   "tooltip_info_item.mcdw.stormlander_3"      : "the Illagers.",
 
-  "tooltip_info_item.mcdw.boneclub_1"      : "Those who wield a Boneclub prefer a less",
-  "tooltip_info_item.mcdw.boneclub_2"      : "subtle approach to problem-solving.",
+  "tooltip_info_item.mcdw.boneclub_1"         : "Those who wield a Boneclub prefer a less",
+  "tooltip_info_item.mcdw.boneclub_2"         : "subtle approach to problem-solving.",
 
   "tooltip_info_item.mcdw.bone_cudgel_1"      : "The Bone Cudgel is old enough to be",
   "tooltip_info_item.mcdw.bone_cudgel_2"      : "considered an ancient treasure, but",
@@ -503,6 +503,7 @@
   "tooltip_info_item.mcdw.hunters_promise_1"  : "This enchanted bow deepens the",
   "tooltip_info_item.mcdw.hunters_promise_2"  : "bond between the hunter and.",
   "tooltip_info_item.mcdw.hunters_promise_3"  : "their trusted animal companion.",
+  "tooltip_ench_item.mcdw.hunters_promise_1"  : "Hunter's Companion",
 
   "tooltip_info_item.mcdw.hunting_bow_1"      : "This enchanted bow deepens the",
   "tooltip_info_item.mcdw.hunting_bow_2"      : "bond between the hunter and.",
