@@ -49,6 +49,8 @@
   "item.mcdw.bow_twisting_vine_bow": "Twisting Vine Bow",
   "item.mcdw.bow_bubble_bow": "Bubble Bow",
   "item.mcdw.bow_bubble_burster": "Bubble Burster",
+  "item.mcdw.bow_void_bow": "Void Bow",
+  "item.mcdw.bow_call_of_the_void": "Call of the Void",
 
   "item.mcdw.crossbow_the_slicer" : "The Slicer",
   "item.mcdw.crossbow_azure_seeker" : "Azure Seeker",
@@ -77,6 +79,8 @@
   "item.mcdw.crossbow_pride_of_the_piglins": "Pride of the Piglins",
   "item.mcdw.crossbow_harpoon_crossbow": "Harpoon Crossbow",
   "item.mcdw.crossbow_nautical_crossbow": "Nautical Crossbow",
+  "item.mcdw.crossbow_shadow_crossbow": "Shadow Crossbow",
+  "item.mcdw.crossbow_veiled_crossbow": "Veiled Crossbow",
 
   "item.mcdw.dagger_dagger": "Dagger",
   "item.mcdw.dagger_fangs_of_frost": "Fangs of Frost",
@@ -87,6 +91,11 @@
   "item.mcdw.dagger_chill_gale_knife": "Chill Gale Knife",
   "item.mcdw.dagger_resolute_tempest_knife": "Resolute Tempest Knife",
   "item.mcdw.dagger_shear_dagger": "Shear Dagger",
+  "item.mcdw.dagger_backstabber": "Backstabber",
+  "item.mcdw.dagger_swift_striker": "Swift Striker",
+  "item.mcdw.dagger_void_touched_blade": "Void Touched Blade",
+  "item.mcdw.dagger_the_beginning": "The Beginning",
+  "item.mcdw.dagger_the_end": "The End",
 
   "item.mcdw.hammer_flail": "Flail",
   "item.mcdw.hammer_gravity": "Hammer of Gravity",
@@ -133,6 +142,8 @@
   "item.mcdw.sword_heartstealer": "Heartstealer",
   "item.mcdw.sword_great_axeblade": "Great Axeblade",
   "item.mcdw.sword_frost_slayer": "Frost Slayer",
+  "item.mcdw.sword_obsidian_claymore": "Obsidian Claymore",
+  "item.mcdw.sword_the_starless_night": "The Starless Night",
 
   "item.mcdw.sword_cutlass": "Cutlass",
   "item.mcdw.sword_dancers_sword": "Dancer's Sword",
@@ -167,6 +178,7 @@
   "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
 
   "enchantment.mcdw.accelerate": "Accelerate",
+  "enchantment.mcdw.ambush": "Ambush",
   "enchantment.mcdw.anima_conduit": "Anima Conduit",
   "enchantment.mcdw.bonus_shot": "Bonus Shot",
   "enchantment.mcdw.chain_reaction": "Chain Reaction",
@@ -185,6 +197,7 @@
   "enchantment.mcdw.illagers_bane": "Illager's Bane",
   "enchantment.mcdw.jungle_poison": "Poisoning",
   "enchantment.mcdw.leeching": "Leeching",
+  "enchantment.mcdw.levitation_shot": "Levitation Shot",
   "enchantment.mcdw.poison_cloud": "Poison Cloud",
   "enchantment.mcdw.prospector": "Prospector",
   "enchantment.mcdw.radiance": "Radiance",
@@ -202,6 +215,8 @@
   "enchantment.mcdw.swirling": "Swirling",
   "enchantment.mcdw.tempo_theft": "Tempo Theft",
   "enchantment.mcdw.thundering": "Thundering",
+  "enchantment.mcdw.void_shot": "Void Shot",
+  "enchantment.mcdw.void_strike": "Void Strike",
   "enchantment.mcdw.weakening": "Weakening",
 
   "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing",
@@ -253,6 +268,14 @@
   "tooltip_info_item.mcdw.heartstealer_3"     : "their conquest of the Squid Coast -",
   "tooltip_info_item.mcdw.heartstealer_4"     : "this runeblade is infused with",
   "tooltip_info_item.mcdw.heartstealer_5"     : "dark witchcraft.",
+
+  "tooltip_info_item.mcdw.obsidian_claymore_1": "This massive blade cleaves even the",
+  "tooltip_info_item.mcdw.obsidian_claymore_2": "thickest shulker shells with style",
+  "tooltip_info_item.mcdw.obsidian_claymore_3": "and ease.",
+
+  "tooltip_info_item.mcdw.the_starless_night_1": "The Starless Night is haunted by",
+  "tooltip_info_item.mcdw.the_starless_night_2": "echoes of pain that linger within",
+  "tooltip_info_item.mcdw.the_starless_night_3": "the pitch-black blade.",
 
   "tooltip_info_item.mcdw.cutlass_1"          : "This curved blade, wielded by the",
   "tooltip_info_item.mcdw.cutlass_2"          : "warriors of the Squid Coast, ",
@@ -357,6 +380,26 @@
   "tooltip_info_item.mcdw.shear_daggers_1"    : "Even the simplest of farmers",
   "tooltip_info_item.mcdw.shear_daggers_2"    : "can wield these Shear Daggers",
   "tooltip_info_item.mcdw.shear_daggers_3"    : "with savage results",
+
+  "tooltip_info_item.mcdw.backstabber_1"      : "The preferred blade of thieves",
+  "tooltip_info_item.mcdw.backstabber_2"      : "and assassins, the Backstabber",
+  "tooltip_info_item.mcdw.backstabber_3"      : "is a must for any rogue's pack.",
+
+  "tooltip_info_item.mcdw.swift_striker_1"    : "A blade for those who know that",
+  "tooltip_info_item.mcdw.swift_striker_2"    : "the surest way to victory is to",
+  "tooltip_info_item.mcdw.swift_striker_3"    : "strike without being seen.",
+
+  "tooltip_info_item.mcdw.void_touched_blade_1"    : "This Blade is infused with a",
+  "tooltip_info_item.mcdw.void_touched_blade_2"    : "disturbing purpose after countless",
+  "tooltip_info_item.mcdw.void_touched_blade_3"    : "ages trapped in the End.",
+
+  "tooltip_info_item.mcdw.the_beginning_1"    : "Forged by the survivors of a doomed",
+  "tooltip_info_item.mcdw.the_beginning_2"    : "expedition to the End, this blade and",
+  "tooltip_info_item.mcdw.the_beginning_3"    : "its twin, the End, carry dark secrets.",
+
+  "tooltip_info_item.mcdw.the_end_1"    : "Forged by the survivors of a doomed",
+  "tooltip_info_item.mcdw.the_end_2"    : "expedition to the End, this blade and",
+  "tooltip_info_item.mcdw.the_end_3"    : "its twin, the Beginning, carry dark secrets.",
 
   "tooltip_info_item.mcdw.soul_knife_1"       : "A ceremonial knife that uses",
   "tooltip_info_item.mcdw.soul_knife_2"       : "magical energy to hold the wrath",
@@ -568,9 +611,9 @@
   "tooltip_info_item.mcdw.trickbow_1"         : "A sleek bow that seems to",
   "tooltip_info_item.mcdw.trickbow_2"         : "never miss its target.",
 
-  "tooltip_info_item.mcdw.twinbow_1"          : "The Twin Bow is the champion",
-  "tooltip_info_item.mcdw.twinbow_2"          : "of the hero who finds themselves",
-  "tooltip_info_item.mcdw.twinbow_3"          : "outnumbered and alone.",
+  "tooltip_info_item.mcdw.twin_bow_1"          : "The Twin Bow is the champion",
+  "tooltip_info_item.mcdw.twin_bow_2"          : "of the hero who finds themselves",
+  "tooltip_info_item.mcdw.twin_bow_3"          : "outnumbered and alone.",
 
   "tooltip_info_item.mcdw.winters_touch_1"      : "Arrows fired from this legendary",
   "tooltip_info_item.mcdw.winters_touch_2"      : "bow are said to be carried by the",
@@ -609,6 +652,15 @@
   "tooltip_info_item.mcdw.bubble_burster_1"    : "The Bubble Burster creates a",
   "tooltip_info_item.mcdw.bubble_burster_2"    : "chain effect of bubble trouble",
   "tooltip_info_item.mcdw.bubble_burster_3"    : "for your enemies.",
+
+  "tooltip_info_item.mcdw.void_bow_1"          : "When you pluck the string of the",
+  "tooltip_info_item.mcdw.void_bow_2"          : "Void Bow, an unsettling silence",
+  "tooltip_info_item.mcdw.void_bow_3"          : "reverberates across the battlefield.",
+
+  "tooltip_info_item.mcdw.call_of_the_void_1"  : "You can feel the Void whispering",
+  "tooltip_info_item.mcdw.call_of_the_void_2"  : "from deep within this bow, but",
+  "tooltip_info_item.mcdw.call_of_the_void_3"  : "behind that sound is another voice",
+  "tooltip_info_item.mcdw.call_of_the_void_4"  : "in the darkness.",
 
   "tooltip_info_item.mcdw.auto_crossbow_1"          : "The Arch-Illager said the design",
   "tooltip_info_item.mcdw.auto_crossbow_2"          : "for this powerful crossbow came",
@@ -693,6 +745,10 @@
   "tooltip_info_item.mcdw.scatter_crossbow_2"       : "multiple bolts, is also a half-decent",
   "tooltip_info_item.mcdw.scatter_crossbow_3"       : "musical instrument.",
 
+  "tooltip_info_item.mcdw.shadow_crossbow_1"        : "Those who wish to use the Shadow",
+  "tooltip_info_item.mcdw.shadow_crossbow_2"        : "Crossbow must train in total",
+  "tooltip_info_item.mcdw.shadow_crossbow_3"        : "darkness before wielding it.",
+
   "tooltip_info_item.mcdw.slayer_crossbow_1"        : "The Slayer Crossbow is the treasured",
   "tooltip_info_item.mcdw.slayer_crossbow_2"        : "heirloom of many legendary hunters.",
 
@@ -712,6 +768,10 @@
 
   "tooltip_info_item.mcdw.spellbound_crossbow_1"    : "Enchanted enemies are especially vulnerable",
   "tooltip_info_item.mcdw.spellbound_crossbow_2"    : "to the magic of this crossbow.",
+
+  "tooltip_info_item.mcdw.veiled_crossbow_1"        : "The Veiled Crossbow cloaks the wielder",
+  "tooltip_info_item.mcdw.veiled_crossbow_2"        : "in shadow, perfect for those who prefer",
+  "tooltip_info_item.mcdw.veiled_crossbow_3"        : "to go unnoticed (and undefeated).",
 
   "tooltip_info_item.mcdw.void_caller_crossbow_1"   : "This weapon calls out to souls that",
   "tooltip_info_item.mcdw.void_caller_crossbow_2"   : "are trapped between this world and",

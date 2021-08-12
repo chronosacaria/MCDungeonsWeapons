@@ -20,6 +20,8 @@ public class McdwLoottables {
     public static final Identifier[] UNDER_WATER_LOOT_TABLES =
             new Identifier[]{LootTables.UNDERWATER_RUIN_BIG_CHEST, LootTables.UNDERWATER_RUIN_SMALL_CHEST,
                     LootTables.SHIPWRECK_TREASURE_CHEST};
+    public static final Identifier[] END_LOOT_TABLES =
+            new Identifier[]{LootTables.END_CITY_TREASURE_CHEST};
 
     private static boolean pillagerTowerLootTables(Identifier lootTable){
         for (Identifier id : PILLAGER_TOWER_LOOT_TABLES){
@@ -50,6 +52,15 @@ public class McdwLoottables {
 
     private static boolean underWaterLootTables(Identifier lootTable){
         for (Identifier id : UNDER_WATER_LOOT_TABLES){
+            if (id.equals(lootTable)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean endLootTables(Identifier lootTable){
+        for (Identifier id : END_LOOT_TABLES){
             if (id.equals(lootTable)){
                 return true;
             }
@@ -119,15 +130,47 @@ public class McdwLoottables {
                         .rolls(BinomialLootNumberProvider.create(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("axe_encrusted_anchor")))
 
-                        //.rolls(BinomialLootNumberProvider.create(3, 0.30F))
-                        //.with(ItemEntry.builder(ItemRegistry.getItem("bow_bubble_bow")))
-                        //.rolls(BinomialLootNumberProvider.create(1, 0.10F))
-                        //.with(ItemEntry.builder(ItemRegistry.getItem("bow_bubble_burster")))
+                        .rolls(BinomialLootNumberProvider.create(3, 0.30F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("bow_bubble_bow")))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("bow_bubble_burster")))
 
                         .rolls(BinomialLootNumberProvider.create(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_harpoon_crossbow")))
                         .rolls(BinomialLootNumberProvider.create(1, 0.10F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_nautical_crossbow")));
+
+                supplier.pool(poolBuilder);
+            }
+
+            if (endLootTables(id)){
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(BinomialLootNumberProvider.create(1, 0.30F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("dagger_backstabber")))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("dagger_swift_striker")))
+
+                        .rolls(BinomialLootNumberProvider.create(1, 0.30F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("dagger_void_touched_blade")))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("dagger_the_beginning")))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("dagger_the_end")))
+
+                        .rolls(BinomialLootNumberProvider.create(1, 0.30F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("sword_obsidian_claymore")))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("sword_the_starless_night")))
+
+                        .rolls(BinomialLootNumberProvider.create(1, 0.30F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("bow_void_bow")))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("bow_call_of_the_void")))
+
+                        .rolls(BinomialLootNumberProvider.create(1, 0.30F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_shadow_crossbow")))
+                        .rolls(BinomialLootNumberProvider.create(1, 0.10F))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_veiled_crossbow")));
 
                 supplier.pool(poolBuilder);
             }

@@ -22,6 +22,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("enable_op_mixing", false);
         SETTINGS.put("extra_leeching", false);
         SETTINGS.put("extra_xp_healing", false);
+        SETTINGS.put("ambush", true);
         SETTINGS.put("anima", true);
         SETTINGS.put("bonus_shot", true);
         SETTINGS.put("mixin_bee", true);
@@ -30,6 +31,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("charge", true);
         SETTINGS.put("committed", true);
         SETTINGS.put("critical_hit", true);
+        SETTINGS.put("dipping_poison", true);
         SETTINGS.put("echo", true);
         SETTINGS.put("enigma_resonator", true);
         SETTINGS.put("exploding", true);
@@ -42,6 +44,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("illagers_bane", true);
         SETTINGS.put("jungle_poison", true);
         SETTINGS.put("leeching", true);
+        SETTINGS.put("levitation_shot", true);
         SETTINGS.put("custom_looting", true);
         SETTINGS.put("multi_shot", true);
         SETTINGS.put("poison_cloud", true);
@@ -61,6 +64,8 @@ public class McdwEnchantsConfig {
         SETTINGS.put("swirling", true);
         SETTINGS.put("tempo_theft", true);
         SETTINGS.put("thundering", true);
+        SETTINGS.put("void_shot", true);
+        SETTINGS.put("void_strike", true);
         SETTINGS.put("weakening", true);
         SETTINGS.put("aoe_dont_affect_players", true);
         SETTINGS.put("enable_innate_enchants", true);

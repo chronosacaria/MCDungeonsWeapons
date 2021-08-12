@@ -56,6 +56,16 @@ public class McdwSword extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heartstealer_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.heartstealer_5").formatted(Formatting.ITALIC));
         }
+        if (stack.getItem() == ItemRegistry.getItem("sword_obsidian_claymore")){
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.obsidian_claymore_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.obsidian_claymore_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.obsidian_claymore_3").formatted(Formatting.ITALIC));
+        }
+        if (stack.getItem() == ItemRegistry.getItem("sword_the_starless_night")){
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_starless_night_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_starless_night_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_starless_night_3").formatted(Formatting.ITALIC));
+        }
         if (stack.getItem() == ItemRegistry.getItem("sword_cutlass")){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cutlass_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cutlass_2").formatted(Formatting.ITALIC));

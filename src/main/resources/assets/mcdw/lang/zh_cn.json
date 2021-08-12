@@ -50,6 +50,8 @@
   "item.mcdw.bow_twisting_vine_bow":  "缠怨藤蔓弓",
   "item.mcdw.bow_bubble_bow": "气泡弓",
   "item.mcdw.bow_bubble_burster": "气泡爆裂弓",
+  "item.mcdw.bow_void_bow": "虚空之弓",
+  "item.mcdw.bow_call_of_the_void": "虚空召唤",
 
   "item.mcdw.crossbow_auto_crossbow" : "自动弩",
   "item.mcdw.crossbow_azure_seeker" : "蔚蓝探索者",
@@ -78,6 +80,8 @@
   "item.mcdw.crossbow_pride_of_the_piglins": "猪灵之傲",
   "item.mcdw.crossbow_harpoon_crossbow": "渔叉弩",
   "item.mcdw.crossbow_nautical_crossbow": "航海弩",
+  "item.mcdw.crossbow_shadow_crossbow": "暗影弩",
+  "item.mcdw.crossbow_veiled_crossbow": "隐翳弩",
 
   "item.mcdw.dagger_dagger": "匕首",
   "item.mcdw.dagger_fangs_of_frost": "寒霜獠牙",
@@ -88,6 +92,11 @@
   "item.mcdw.dagger_chill_gale_knife": "霜风之刃",
   "item.mcdw.dagger_resolute_tempest_knife": "坚挺暴风刃",
   "item.mcdw.dagger_shear_dagger": "剪刀匕首",
+  "item.mcdw.dagger_backstabber": "背刺利刃",
+  "item.mcdw.dagger_swift_striker": "迅捷利刃",
+  "item.mcdw.dagger_void_touched_blade": "虚空之蚀",
+  "item.mcdw.dagger_the_beginning": "始",
+  "item.mcdw.dagger_the_end": "末",
 
   "item.mcdw.hammer_flail": "链锤",
   "item.mcdw.hammer_gravity": "引力之锤",
@@ -142,6 +151,8 @@
   "item.mcdw.sword_sinister_sword": "邪恶之剑",
   "item.mcdw.sword_broken_sawblade": "破损锯剑",
   "item.mcdw.sword_mechanized_sawblade": "机械锯剑",
+  "item.mcdw.sword_obsidian_claymore": "黑曜石阔剑",
+  "item.mcdw.sword_the_starless_night": "无星之夜",
 
   "item.mcdw.sword_coral_blade": "珊瑚之刃",
   "item.mcdw.sword_sponge_striker": "海绵前锋",
@@ -162,6 +173,7 @@
   "item.mcdw.shield_vanguard": "先锋盾",
 
   "enchantment.mcdw.accelerate": "加速",
+  "enchantment.mcdw.ambush": "伏击",
   "enchantment.mcdw.anima_conduit": "灵魂输导",
   "enchantment.mcdw.bonus_shot": "奖励射击",
   "enchantment.mcdw.chain_reaction": "链锁反应",
@@ -180,6 +192,7 @@
   "enchantment.mcdw.illagers_bane": "灾厄村民杀手",
   "enchantment.mcdw.jungle_poison": "丛林毒药",
   "enchantment.mcdw.leeching": "吸血",
+  "enchantment.mcdw.levitation_shot": "漂浮射击",
   "enchantment.mcdw.poison_cloud": "毒雾",
   "enchantment.mcdw.prospector": "探矿者",
   "enchantment.mcdw.radiance": "治愈光辉",
@@ -197,6 +210,8 @@
   "enchantment.mcdw.swirling": "旋涡",
   "enchantment.mcdw.tempo_theft": "速度窃取",
   "enchantment.mcdw.thundering": "引雷",
+  "enchantment.mcdw.void_shot": "虚空射击",
+  "enchantment.mcdw.void_strike": "虚空强袭",
   "enchantment.mcdw.weakening": "虚弱",
 
   "subtitles.mcdw.echo_sound": "回击的削减",
@@ -471,6 +486,34 @@
   "tooltip_info_item.mcdw.chill_gale_knife_2" : "冰铸造而成，寒冷",
   "tooltip_info_item.mcdw.chill_gale_knife_3" : "刺骨之意经久不衰。",
 
+  "tooltip_info_item.mcdw.obsidian_claymore_1": "这把巨型大剑",
+  "tooltip_info_item.mcdw.obsidian_claymore_2": "可以轻松地劈开",
+  "tooltip_info_item.mcdw.obsidian_claymore_3": "最厚的潜影壳。",
+
+  "tooltip_info_item.mcdw.the_starless_night_1": "无星之夜被漆黑",
+  "tooltip_info_item.mcdw.the_starless_night_2": "的刀刃内徘徊的",
+  "tooltip_info_item.mcdw.the_starless_night_3": "痛苦回声所包裹。",
+
+  "tooltip_info_item.mcdw.backstabber_1": "作为盗贼和刺客的",
+  "tooltip_info_item.mcdw.backstabber_2": "首选，背刺利刃是所有",
+  "tooltip_info_item.mcdw.backstabber_3": "流氓的囊中必备。",
+
+  "tooltip_info_item.mcdw.swift_striker_1": "对于那些认识到隐蔽自身并",
+  "tooltip_info_item.mcdw.swift_striker_2": "乘机偷袭才是制胜之道的人",
+  "tooltip_info_item.mcdw.swift_striker_3": "来说，这是绝佳的选择。",
+
+  "tooltip_info_item.mcdw.void_touched_blade_1": "这把刀刃封印在末地中",
+  "tooltip_info_item.mcdw.void_touched_blade_2": "无数年后，被注入了一种",
+  "tooltip_info_item.mcdw.void_touched_blade_3": "令人不安的意念。",
+
+  "tooltip_info_item.mcdw.the_beginning_1": "这把刃由命中注定",
+  "tooltip_info_item.mcdw.the_beginning_2": "前往末地远征的生还者锻造，",
+  "tooltip_info_item.mcdw.the_beginning_3": "携带着黑暗的秘密。",
+
+  "tooltip_info_item.mcdw.the_end_1": "这把刃由命中注定",
+  "tooltip_info_item.mcdw.the_end_2": "前往末地远征的生还者锻造，",
+  "tooltip_info_item.mcdw.the_end_3": "携带着黑暗的秘密。",
+
   "tooltip_info_item.mcdw.ancient_bow_1"      : "这把弓仍像被铸起而成的",
   "tooltip_info_item.mcdw.ancient_bow_2"      : "那一天一样崭新。",
 
@@ -604,6 +647,15 @@
   "tooltip_info_item.mcdw.bubble_burster_2"    : "为你的敌人制造",
   "tooltip_info_item.mcdw.bubble_burster_3"    : "连锁泡泡阵效应。",
 
+  "tooltip_info_item.mcdw.void_bow_1"               : "当你拉拨虚空之弓的弦时，",
+  "tooltip_info_item.mcdw.void_bow_2"               : "一股坐立不安的寂静将充斥",
+  "tooltip_info_item.mcdw.void_bow_3"               : "整个战场。",
+
+  "tooltip_info_item.mcdw.call_of_the_void_1"       : "你能感受到这把弓深藏",
+  "tooltip_info_item.mcdw.call_of_the_void_2"       : "虚空的低语，但与此同时",
+  "tooltip_info_item.mcdw.call_of_the_void_3"       : "在它背后还存在着另一个",
+  "tooltip_info_item.mcdw.call_of_the_void_4"       : "黑暗中的声音。",
+
   "tooltip_info_item.mcdw.auto_crossbow_1"          : "奇厄教主说，这个强大",
   "tooltip_info_item.mcdw.auto_crossbow_2"          : "的弩的设计是他在",
   "tooltip_info_item.mcdw.auto_crossbow_3"          : "幻象中见到的。",
@@ -710,6 +762,14 @@
   "tooltip_info_item.mcdw.void_caller_crossbow_1"   : "这个武器在呼唤困",
   "tooltip_info_item.mcdw.void_caller_crossbow_2"   : "在本世界与下个世",
   "tooltip_info_item.mcdw.void_caller_crossbow_3"   : "界之间的灵魂。",
+
+  "tooltip_info_item.mcdw.shadow_crossbow_1"        : "想要挥舞暗影弩，",
+  "tooltip_info_item.mcdw.shadow_crossbow_2"        : "必先在完全的黑暗中",
+  "tooltip_info_item.mcdw.shadow_crossbow_3"        : "进行训练。",
+
+  "tooltip_info_item.mcdw.veiled_crossbow_1"        : "这把隐蔽的弩会把持有者笼罩在阴影",
+  "tooltip_info_item.mcdw.veiled_crossbow_2"        : "中，是偏好不被发现（和不被击败）",
+  "tooltip_info_item.mcdw.veiled_crossbow_3"        : "的人的最佳选择。",
 
   "tooltip_info_item.mcdw.gap": " ",
   "tooltip_note_item.mcdw.dualwield": "双持",

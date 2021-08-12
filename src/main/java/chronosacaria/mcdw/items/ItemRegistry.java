@@ -39,6 +39,8 @@ public class ItemRegistry {
         add("sword_mechanized_sawblade");
         add("sword_coral_blade");
         add("sword_sponge_striker");
+        add("sword_obsidian_claymore");
+        add("sword_the_starless_night");
     }};
     private static final HashSet<String> AXES = new HashSet<String>() {{
         add("axe");
@@ -60,6 +62,11 @@ public class ItemRegistry {
         add("dagger_tempest_knife");
         add("dagger_resolute_tempest_knife");
         add("dagger_chill_gale_knife");
+        add("dagger_backstabber");
+        add("dagger_swift_striker");
+        add("dagger_void_touched_blade");
+        add("dagger_the_beginning");
+        add("dagger_the_end");
     }};
     private static final HashSet<String> SOUL_DAGGERS = new HashSet<String>(){{
         add("dagger_soul_knife");
@@ -138,13 +145,16 @@ public class ItemRegistry {
         add("bow_shivering_bow");
         add("bow_soul_bow");
         add("bow_trickbow");
+        add("bow_twin_bow");
         add("bow_wind_bow");
         add("bow_snow_bow");
-        //add("bow_twisting_vine_bow");
-        //add("bow_weeping_vine_bow");
         add("bow_winters_touch");
-        //add("bow_bubble_bow");
-        //add("bow_bubble_burster");
+        add("bow_twisting_vine_bow");
+        add("bow_weeping_vine_bow");
+        add("bow_bubble_bow");
+        add("bow_bubble_burster");
+        add("bow_void_bow");
+        add("bow_call_of_the_void");
     }};
     public static final HashSet<String> SHORTBOWS = new HashSet<String>(){{
         add("bow_love_spell_bow");
@@ -183,6 +193,8 @@ public class ItemRegistry {
         add("crossbow_pride_of_the_piglins");
         add("crossbow_harpoon_crossbow");
         add("crossbow_nautical_crossbow");
+        add("crossbow_shadow_crossbow");
+        add("crossbow_veiled_crossbow");
     }};
     public static final HashSet<String> SHIELDS = new HashSet<String>(){{
         add("shield_royal_guard");

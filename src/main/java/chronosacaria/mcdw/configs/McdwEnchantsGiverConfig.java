@@ -8,11 +8,21 @@ import wraith.enchant_giver.EnchantsList;
 public class McdwEnchantsGiverConfig {
     public static void appendEnchants(){
         if (McdwEnchantsConfig.getValue("enable_innate_enchants")) {
+            // AMBUSH ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_backstabber")),
+                    new Identifier("mcdw:ambush"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_swift_striker")),
+                    new Identifier("mcdw:ambush"), 1, false);
+
             // BONUS SHOT ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_auto_crossbow")),
                     new Identifier("mcdw:bonus_shot"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_butterfly_crossbow")),
                     new Identifier("mcdw:bonus_shot"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_haunted_bow")),
+                    new Identifier("minecraft:bonus_shot"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_twin_bow")),
+                    new Identifier("minecraft:bonus_shot"), 1, true);
 
             // CHAINS ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("hammer_flail")),
@@ -33,6 +43,8 @@ public class McdwEnchantsGiverConfig {
                     new Identifier("mcdw:committed"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("staff_growing_staff")),
                     new Identifier("mcdw:committed"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_resolute_tempest_knife")),
+                    new Identifier("mcdw:committed"), 1, false);
 
             // CRITICAL HIT ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_hawkbrand")),
@@ -43,6 +55,8 @@ public class McdwEnchantsGiverConfig {
             // ECHO ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("spear_whispering_spear")),
                     new Identifier("mcdw:echo"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_swift_striker")),
+                    new Identifier("mcdw:echo"), 1, false);
 
             // ENIGMA RESONATOR ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_moon")),
@@ -83,6 +97,8 @@ public class McdwEnchantsGiverConfig {
                     new Identifier("mcdw:fuse_shot"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_red_snake")),
                     new Identifier("mcdw:fuse_shot"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_call_of_the_void")),
+                    new Identifier("mcdw:fuse_shot"), 1, false);
 
             // GRAVITY ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("hammer_gravity")),
@@ -112,6 +128,8 @@ public class McdwEnchantsGiverConfig {
 
             // LEECHING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_heartstealer")),
+                    new Identifier("mcdw:leeching"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_the_beginning")),
                     new Identifier("mcdw:leeching"), 1, true);
 
             // LOOTING ENCHANTMENT
@@ -192,7 +210,7 @@ public class McdwEnchantsGiverConfig {
 
             // RUSHDOWN ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_resolute_tempest_knife")),
-                    new Identifier("mcdw:rushdown"), 1, true);
+                    new Identifier("mcdw:rushdown"), 1, false);
 
             // SHOCKWAVE ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("axe_whirlwind")),
@@ -227,6 +245,18 @@ public class McdwEnchantsGiverConfig {
             // THUNDERING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("hammer_stormlander")),
                     new Identifier("mcdw:thundering"), 1, true);
+
+            // VOID SHOT ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_void_bow")),
+                    new Identifier("mcdw:ambush"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_call_of_the_void")),
+                    new Identifier("mcdw:void_shot"), 1, false);
+
+            // VOID STRIKE ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_void_touched_blade")),
+                    new Identifier("mcdw:void_strike"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_the_end")),
+                    new Identifier("mcdw:void_strike"), 1, true);
 
             // WEAKENING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_nameless_blade")),

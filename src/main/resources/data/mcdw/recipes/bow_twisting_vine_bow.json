@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " /S",
+        "/ S",
+        " /S"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:twisting_vines"
+        },
+        "/": {
+            "item": "minecraft:warped_planks"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_twisting_vine_bow",
+        "count": 1
+    }
+}

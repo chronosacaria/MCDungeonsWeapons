@@ -8,6 +8,7 @@
     "LivingEntityMixin",
     "MixinEntity",
     "ShieldPlayerEntityMixin",
+    "enchantments.AmbushEnchantmentMixin",
     "enchantments.AnimaConduitEnchantmentMixin",
     "enchantments.BonusShotBowEnchantmentMixin",
     "enchantments.BonusShotEnchantmentMixin",
@@ -29,6 +30,7 @@
     "enchantments.GuardingStrikeEnchantmentMixin",
     "enchantments.JunglesPoisonEnchantmentMixin",
     "enchantments.LeechingEnchantmentMixin",
+    "enchantments.LevitationShotEnchantmentMixin",
     "enchantments.MultiShotEnchantmentMixin",
     "enchantments.PoisonCloudEnchantmentMixin",
     "enchantments.PoisonCloudShotEnchantmentMixin",
@@ -47,6 +49,8 @@
     "enchantments.SwirlingEnchantmentMixin",
     "enchantments.TempoTheftEnchantmentMixin",
     "enchantments.ThunderingEnchantmentMixin",
+    "enchantments.VoidShotEnchantmentMixin",
+    "enchantments.VoidStrikeEnchantmentMixin",
     "enchantments.WeakeningEnchantmentMixin"
   ],
   "client": [

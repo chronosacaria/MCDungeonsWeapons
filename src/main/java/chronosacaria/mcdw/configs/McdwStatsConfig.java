@@ -70,9 +70,16 @@ public class McdwStatsConfig {
         DRAW_SPEED.put("bow_shortbow", 8f);
         DRAW_SPEED.put("bow_soul_bow", 12f);
         DRAW_SPEED.put("bow_trickbow", 10f);
+        DRAW_SPEED.put("bow_twin_bow", 10f);
         DRAW_SPEED.put("bow_wind_bow", 9f);
         DRAW_SPEED.put("bow_snow_bow", 14f);
         DRAW_SPEED.put("bow_winters_touch", 13f);
+        DRAW_SPEED.put("bow_twisting_vine_bow", 13f);
+        DRAW_SPEED.put("bow_weeping_vine_bow", 13f);
+        DRAW_SPEED.put("bow_bubble_bow", 13f);
+        DRAW_SPEED.put("bow_bubble_burster", 13f);
+        DRAW_SPEED.put("bow_void_bow", 13f);
+        DRAW_SPEED.put("bow_call_of_the_void_bow", 13f);
 
         DRAW_SPEED.put("crossbow_the_slicer", 28f);
         DRAW_SPEED.put("crossbow_azure_seeker", 28f);
@@ -101,6 +108,8 @@ public class McdwStatsConfig {
         DRAW_SPEED.put("crossbow_pride_of_the_piglins", 20f);
         DRAW_SPEED.put("crossbow_harpoon_crossbow", 28f);
         DRAW_SPEED.put("crossbow_nautical_crossbow", 24f);
+        DRAW_SPEED.put("crossbow_shadow_crossbow", 25f);
+        DRAW_SPEED.put("crossbow_veiled_crossbow", 22f);
     }
 
     public static void initRange() {
@@ -129,11 +138,16 @@ public class McdwStatsConfig {
         RANGE.put("bow_shortbow", 2f);
         RANGE.put("bow_soul_bow", 4.0f);
         RANGE.put("bow_trickbow", 4.2f);
+        RANGE.put("bow_twin_bow", 4.2f);
         RANGE.put("bow_wind_bow", 6.8f);
         RANGE.put("bow_snow_bow", 4.8f);
         RANGE.put("bow_winters_touch", 5.2f);
         RANGE.put("bow_twisting_vine_bow", 4.0f);
         RANGE.put("bow_weeping_vine_bow", 4.0f);
+        RANGE.put("bow_bubble_bow", 4.0f);
+        RANGE.put("bow_bubble_burster", 4.2f);
+        RANGE.put("bow_void_bow", 4.1f);
+        RANGE.put("bow_call_of_the_void_bow", 4.3f);
 
         RANGE.put("crossbow_the_slicer", 10.2f);
         RANGE.put("crossbow_azure_seeker", 8.4f);
@@ -162,6 +176,8 @@ public class McdwStatsConfig {
         RANGE.put("crossbow_pride_of_the_piglins", 13.0f);
         RANGE.put("crossbow_harpoon_crossbow", 11.0f);
         RANGE.put("crossbow_nautical_crossbow", 14.0f);
+        RANGE.put("crossbow_shadow_crossbow", 12.0f);
+        RANGE.put("crossbow_veiled_crossbow", 14.5f);
     }
 
     public static void initMaterial() {
@@ -286,10 +302,15 @@ public class McdwStatsConfig {
         MATERIAL.put("bow_snow_bow", ToolMaterials.IRON);
         MATERIAL.put("bow_soul_bow", ToolMaterials.IRON);
         MATERIAL.put("bow_trickbow", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_twin_bow", ToolMaterials.DIAMOND);
         MATERIAL.put("bow_wind_bow", ToolMaterials.DIAMOND);
         MATERIAL.put("bow_winters_touch", ToolMaterials.DIAMOND);
         MATERIAL.put("bow_twisting_vine_bow", ToolMaterials.IRON);
         MATERIAL.put("bow_weeping_vine_bow", ToolMaterials.IRON);
+        MATERIAL.put("bow_bubble_bow", ToolMaterials.IRON);
+        MATERIAL.put("bow_bubble_burster", ToolMaterials.IRON);
+        MATERIAL.put("bow_void_bow", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_call_of_the_void_bow", ToolMaterials.DIAMOND);
 
         // crossbows
         MATERIAL.put("crossbow_the_slicer", ToolMaterials.IRON);
@@ -319,6 +340,8 @@ public class McdwStatsConfig {
         MATERIAL.put("crossbow_pride_of_the_piglins", ToolMaterials.NETHERITE);
         MATERIAL.put("crossbow_harpoon_crossbow", ToolMaterials.IRON);
         MATERIAL.put("crossbow_nautical_crossbow", ToolMaterials.DIAMOND);
+        MATERIAL.put("crossbow_shadow_crossbow", ToolMaterials.DIAMOND);
+        MATERIAL.put("crossbow_veiled_crossbow", ToolMaterials.DIAMOND);
 
         // shields
         MATERIAL.put("shield_royal_guard", ToolMaterials.DIAMOND);
@@ -332,6 +355,8 @@ public class McdwStatsConfig {
         DAMAGE.put("sword_frost_slayer", 5f);
         DAMAGE.put("sword_heartstealer", 4f);
         DAMAGE.put("sword_great_axeblade", 6f);
+        DAMAGE.put("sword_obsidian_claymore", 8f);
+        DAMAGE.put("sword_the_starless_night", 10f);
 
         //Rapiers
         DAMAGE.put("sword_rapier", 0f);
@@ -378,6 +403,11 @@ public class McdwStatsConfig {
         DAMAGE.put("dagger_fangs_of_frost", 1f);
         DAMAGE.put("dagger_moon", 1f);
         DAMAGE.put("dagger_shear_dagger", 1f);
+        DAMAGE.put("dagger_backstabber", 3f);
+        DAMAGE.put("dagger_swift_striker", 4f);
+        DAMAGE.put("dagger_void_touched_blade", 4f);
+        DAMAGE.put("dagger_the_beginning", 4f);
+        DAMAGE.put("dagger_the_end", 4f);
 
         DAMAGE.put("dagger_soul_knife", 1f);
         DAMAGE.put("dagger_eternal_knife", 4f);
@@ -447,6 +477,8 @@ public class McdwStatsConfig {
         SPEED.put("sword_frost_slayer", -3f);
         SPEED.put("sword_heartstealer", -3f);
         SPEED.put("sword_great_axeblade", -3f);
+        SPEED.put("sword_obsidian_claymore", -3f);
+        SPEED.put("sword_the_starless_night", -3f);
 
         SPEED.put("sword_rapier", -0.9f);
         SPEED.put("sword_beestinger", -0.9f);
@@ -485,6 +517,11 @@ public class McdwStatsConfig {
         SPEED.put("dagger_fangs_of_frost", -1.0f);
         SPEED.put("dagger_moon", -1.0f);
         SPEED.put("dagger_shear_dagger", -1.3f);
+        SPEED.put("dagger_backstabber", -1.2f);
+        SPEED.put("dagger_swift_striker", -1.0f);
+        SPEED.put("dagger_void_touched_blade", -1.2f);
+        SPEED.put("dagger_the_beginning", -1.2f);
+        SPEED.put("dagger_the_end", -1.2f);
 
         SPEED.put("dagger_soul_knife", -1.1f);
         SPEED.put("dagger_eternal_knife", -0.9f);
