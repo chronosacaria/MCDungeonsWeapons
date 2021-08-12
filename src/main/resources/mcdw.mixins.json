@@ -42,6 +42,7 @@
     "enchantments.RefreshmentShotEnchantmentMixin",
     "enchantments.ReplenishEnchantmentMixin",
     "enchantments.RicochetEnchantmentMixin",
+    "enchantments.RushdownEnchantmentMixin",
     "enchantments.ShockwaveEnchantmentMixin",
     "enchantments.SmitingEnchantmentMixin",
     "enchantments.SoulSiphonEnchantmentMixin",
