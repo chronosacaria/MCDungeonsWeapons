@@ -75,7 +75,7 @@ public class McdwShortBow extends BowItem implements IRangedWeapon {
                 int i = this.getMaxUseTime(stack) - remainingUseTicks;
                 float f = getPullProgress(i);
                 if ((double) f >= 0.1D) {
-                    boolean bl2 = bl && itemStack.getItem() == Items.ARROW;
+                    boolean bl2 = bl && itemStack.isOf(Items.ARROW);
                     if (!world.isClient) {
                         ArrowItem arrowItem = ((ArrowItem) (itemStack.getItem() instanceof ArrowItem
                                 ? itemStack.getItem()
@@ -104,6 +104,10 @@ public class McdwShortBow extends BowItem implements IRangedWeapon {
                         // FLAME ENCHANTMENT
                         if (EnchantmentHelper.getLevel(Enchantments.FLAME, stack) > 0) {
                             persistentProjectileEntity.setOnFireFor(100);
+                        }
+
+                        if (bl2 || playerEntity.getAbilities().creativeMode && (itemStack.isOf(Items.SPECTRAL_ARROW) || itemStack.isOf(Items.TIPPED_ARROW))) {
+                            persistentProjectileEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
                         }
                     }
                 }

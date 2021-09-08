@@ -1,13 +1,11 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
-import chronosacaria.mcdw.api.util.AOECloudHelper;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.EntityHitResult;

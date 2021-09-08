@@ -2,7 +2,6 @@ package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -15,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(LivingEntity.class)
+@Mixin({LivingEntity.class, PlayerEntity.class})
 public class StunningEnchantmentMixin {
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyStunningEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
@@ -30,8 +29,6 @@ public class StunningEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                boolean uniqueWeaponFlag =
-                        false;
                 if (McdwEnchantsConfig.getValue("stunning")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHandStack) >= 1)) {
@@ -41,7 +38,6 @@ public class StunningEnchantmentMixin {
                         if (chance <= 0.2 + level * 0.15) {
                             target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 10));
                             target.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 60, 1));
-                            //this.world.sendEntityStatus(this,(byte)35);
                         }
                     }
                 }

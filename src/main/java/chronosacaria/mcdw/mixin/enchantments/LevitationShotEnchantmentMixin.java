@@ -10,8 +10,6 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;

@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(LivingEntity.class)
+@Mixin({LivingEntity.class, PlayerEntity.class})
 public class FreezingEnchantmentMixin {
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyFreezingEnchantment(DamageSource source, float amount, CallbackInfo info) {
@@ -28,7 +28,6 @@ public class FreezingEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                boolean uniqueWeaponFlag = false;
                 if (McdwEnchantsConfig.getValue("freezing")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, mainHandStack) >= 1)) {

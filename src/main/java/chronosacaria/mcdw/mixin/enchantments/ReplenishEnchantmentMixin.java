@@ -2,7 +2,6 @@ package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
@@ -15,14 +14,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(LivingEntity.class)
+@Mixin({LivingEntity.class, PlayerEntity.class})
 public class ReplenishEnchantmentMixin {
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyReplenishEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
 
         LivingEntity user = (LivingEntity) source.getAttacker();
-        //LivingEntity target = (LivingEntity) (Object) this;
 
         if (source.isProjectile()) {
             if (amount != 0.0F) {

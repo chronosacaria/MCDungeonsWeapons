@@ -5,7 +5,6 @@ import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,7 +24,6 @@ public abstract class AnimaConduitEnchantmentMixin {
     protected void onAnimaConduitEnchantmentKill(DamageSource source, CallbackInfo ci) {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
         LivingEntity user = (LivingEntity) source.getAttacker();
-        PiglinEntity piglinEntity = null;
 
         ItemStack mainHandStack = null;
         if (user != null) {

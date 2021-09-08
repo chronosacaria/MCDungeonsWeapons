@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.api.util.AOECloudHelper;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
