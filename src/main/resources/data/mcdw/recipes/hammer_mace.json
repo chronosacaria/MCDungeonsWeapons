@@ -1,23 +1,23 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "  #",
-        " C ",
-        "/  "
+        " N ",
+        "N#N",
+        "/N "
     ],
     "key": {
         "#": {
-            "item": "mcdw:hammer_mace"
+            "item": "minecraft:iron_block"
         },
-        "C": {
-            "item": "minecraft:chain"
+        "N": {
+            "item": "minecraft:iron_nugget"
         },
         "/": {
             "item": "minecraft:stick"
         }
     },
     "result": {
-        "item": "mcdw:hammer_flail",
+        "item": "mcdw:hammer_mace",
         "count": 1
     }
 }

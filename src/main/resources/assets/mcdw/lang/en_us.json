@@ -97,6 +97,7 @@
   "item.mcdw.dagger_the_beginning": "The Beginning",
   "item.mcdw.dagger_the_end": "The End",
 
+  "item.mcdw.hammer_mace": "Mace",
   "item.mcdw.hammer_flail": "Flail",
   "item.mcdw.hammer_gravity": "Hammer of Gravity",
   "item.mcdw.hammer_great": "Great Hammer",
@@ -432,8 +433,12 @@
   "tooltip_info_item.mcdw.whispering_spear_2" : "is plagued by a soul that controls",
   "tooltip_info_item.mcdw.whispering_spear_3" : "the mind of any who wield it.",
 
+  "tooltip_info_item.mcdw.mace_1"            : "The Mace is a brutal tool of war",
+  "tooltip_info_item.mcdw.mace_2"            : "and what it lacks in finesse; it",
+  "tooltip_info_item.mcdw.mace_3"            : "makes up for in power.",
+
   "tooltip_info_item.mcdw.flail_1"            : "This ancient weapon inflicts",
-  "tooltip_info_item.mcdw.flail_2"            : "grave blunt damage to those who ",
+  "tooltip_info_item.mcdw.flail_2"            : "grave blunt damage to those who",
   "tooltip_info_item.mcdw.flail_3"            : "cannot evade the deadly metal ball.",
 
   "tooltip_info_item.mcdw.suns_grace_1"       : "This mace, engraved with secret healing",

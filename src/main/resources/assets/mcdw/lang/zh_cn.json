@@ -16,7 +16,6 @@
   "item.mcdw.axe_anchor": "船锚",
   "item.mcdw.axe_encrusted_anchor": "覆藤船锚",
 
-
   "item.mcdw.bow_bonebow": "骨弓",
   "item.mcdw.bow_twin_bow": "双子弓",
   "item.mcdw.bow_longbow": "長弓",
@@ -98,6 +97,7 @@
   "item.mcdw.dagger_the_beginning": "始",
   "item.mcdw.dagger_the_end": "末",
 
+  "item.mcdw.hammer_mace": "锤子",
   "item.mcdw.hammer_flail": "链锤",
   "item.mcdw.hammer_gravity": "引力之锤",
   "item.mcdw.hammer_great": "大锤",
@@ -398,6 +398,10 @@
   "tooltip_info_item.mcdw.whispering_spear_2" : "灵魂附身其中，可以控制任何",
   "tooltip_info_item.mcdw.whispering_spear_3" : "使用者的思想。",
 
+  "tooltip_info_item.mcdw.mace_1"            : "一把用于战争的凶残武器，",
+  "tooltip_info_item.mcdw.mace_2"            : "用力量弥补了一切",
+  "tooltip_info_item.mcdw.mace_3"            : "技巧上的不足。",
+
   "tooltip_info_item.mcdw.flail_1"            : "这种古老的武器会对那些无法",
   "tooltip_info_item.mcdw.flail_2"            : "躲避致命金属球的人造成严重",
   "tooltip_info_item.mcdw.flail_3"            : "的钝器伤害。",
@@ -605,9 +609,9 @@
   "tooltip_info_item.mcdw.trickbow_1"           : "一把光滑的弓，似乎",
   "tooltip_info_item.mcdw.trickbow_2"           : "从未错失它的目标。",
 
-  "tooltip_info_item.mcdw.twinbow_1"            : "这把弓是专门为",
-  "tooltip_info_item.mcdw.twinbow_2"            : "出众但又孤独的",
-  "tooltip_info_item.mcdw.twinbow_3"            : "英雄所准备的。",
+  "tooltip_info_item.mcdw.twin_bow_1"            : "这把弓是专门为",
+  "tooltip_info_item.mcdw.twin_bow_2"            : "出众但又孤独的",
+  "tooltip_info_item.mcdw.twin_bow_3"            : "英雄所准备的。",
 
   "tooltip_info_item.mcdw.winters_touch_1"      : "由这把传奇之弓",
   "tooltip_info_item.mcdw.winters_touch_2"      : "发射的箭据传内含",

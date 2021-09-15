@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  A",
+        " DA",
+        "BAD"
+    ],
+    "key": {
+        "B": {
+            "item": "mcdw:dagger_backstabber"
+        },
+        "A": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "mcdw:dagger_swift_striker",
+        "count": 1
+    }
+}

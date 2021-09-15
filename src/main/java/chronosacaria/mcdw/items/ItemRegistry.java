@@ -77,6 +77,7 @@ public class ItemRegistry {
         add("hammer_great");
         add("hammer_stormlander");
         add("hammer_gravity");
+        add("hammer_mace");
         add("hammer_flail");
         add("hammer_suns_grace");
         add("hammer_boneclub");

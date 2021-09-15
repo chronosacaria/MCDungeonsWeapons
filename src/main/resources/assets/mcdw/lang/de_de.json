@@ -76,6 +76,7 @@
   "item.mcdw.dagger_resolute_tempest_knife": "Entschlossen Sturmdolch",
   "item.mcdw.dagger_shear_dagger": "Schurdolche",
 
+  "item.mcdw.hammer_mace": "Streitkolben",
   "item.mcdw.hammer_flail": "Dreschflegel",
   "item.mcdw.hammer_gravity": "Hammer der Schwerkraft",
   "item.mcdw.hammer_great": "Großhammer",
@@ -330,6 +331,10 @@
   "tooltip_info_item.mcdw.whispering_spear_2" : "is plagued by a soul that controls",
   "tooltip_info_item.mcdw.whispering_spear_3" : "the mind of any who wield it.",
 
+  "tooltip_info_item.mcdw.mace_1"            : "The Mace is a brutal tool of war",
+  "tooltip_info_item.mcdw.mace_2"            : "and what it lacks in finesse; it",
+  "tooltip_info_item.mcdw.mace_3"            : "makes up for in power.",
+
   "tooltip_info_item.mcdw.flail_1"            : "This ancient weapon inflicts",
   "tooltip_info_item.mcdw.flail_2"            : "grave blunt damage to those who ",
   "tooltip_info_item.mcdw.flail_3"            : "cannot evade the deadly metal ball.",
@@ -502,9 +507,9 @@
   "tooltip_info_item.mcdw.trickbow_1"         : "A sleek bow that seems to",
   "tooltip_info_item.mcdw.trickbow_2"         : "never miss its target.",
 
-  "tooltip_info_item.mcdw.twinbow_1"          : "The Twin Bow is the champion",
-  "tooltip_info_item.mcdw.twinbow_2"          : "of the hero who finds themselves",
-  "tooltip_info_item.mcdw.twinbow_3"          : "outnumbered and alone.",
+  "tooltip_info_item.mcdw.twin_bow_1"          : "The Twin Bow is the champion",
+  "tooltip_info_item.mcdw.twin_bow_2"          : "of the hero who finds themselves",
+  "tooltip_info_item.mcdw.twin_bow_3"          : "outnumbered and alone.",
 
   "tooltip_info_item.mcdw.winters_touch_1"    : "Arrows fired from this legendary",
   "tooltip_info_item.mcdw.winters_touch_2"    : "bow are said to be carried by the",
