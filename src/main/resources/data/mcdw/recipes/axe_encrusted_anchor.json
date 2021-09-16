@@ -13,7 +13,7 @@
             "item": "minecraft:gold_block"
         },
         "A": {
-            "item": "mcdw_axe_anchor"
+            "item": "mcdw:axe_anchor"
         }
     },
     "result": {

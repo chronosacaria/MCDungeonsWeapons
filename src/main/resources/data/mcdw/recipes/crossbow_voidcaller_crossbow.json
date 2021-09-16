@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "IEI",
+        "ECS",
+        "ISS"
+    ],
+    "key": {
+        "C": {
+            "item": "minecraft:crossbow"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "E": {
+            "item": "minecraft:ender_eye"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_voidcaller_crossbow",
+        "count": 1
+    }
+}

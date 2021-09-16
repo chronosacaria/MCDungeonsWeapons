@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " AS",
+        "P S",
+        " AS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "A": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "P": {
+            "item": "minecraft:purpur_block"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_longbow",
+        "count": 1
+    }
+}
