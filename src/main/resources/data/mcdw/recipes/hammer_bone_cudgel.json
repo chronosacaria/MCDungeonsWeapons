@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " BB",
+        " NB",
+        "b  "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:bone_block"
+        },
+        "N": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "b": {
+            "item": "mcdw:hammer_boneclub"
+        }
+    },
+    "result": {
+        "item": "mcdw:hammer_bone_cudgel",
+        "count": 1
+    }
+}
