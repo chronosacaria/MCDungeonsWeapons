@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "IIH",
+        "cCI",
+        "PcI"
+    ],
+    "key": {
+        "C": {
+            "item": "minecraft:crossbow"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "H": {
+            "item": "minecraft:trident"
+        },
+        "c": {
+            "item": "minecraft:chain"
+        },
+        "P": {
+            "tag": "minecraft:planks"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_harpoon_crossbow",
+        "count": 1
+    }
+}

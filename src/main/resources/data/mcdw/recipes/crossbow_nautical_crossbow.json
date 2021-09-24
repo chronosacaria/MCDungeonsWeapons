@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "gGP",
+        " CG",
+        "g g"
+    ],
+    "key": {
+        "C": {
+            "item": "mcdw:crossbow_harpoon_crossbow"
+        },
+        "G": {
+            "item": "minecraft:gold_block"
+        },
+        "g": {
+            "item": "minecraft:gold_ingot"
+        },
+        "P": {
+            "item": "minecraft:prismarine_crystals"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_nautical_crossbow",
+        "count": 1
+    }
+}
