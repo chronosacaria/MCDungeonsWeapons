@@ -202,6 +202,7 @@ public class McdwStatsConfig {
         MATERIAL.put("sword_iron_sword_var", ToolMaterials.IRON);
         MATERIAL.put("sword_diamond_sword_var", ToolMaterials.DIAMOND);
         MATERIAL.put("sword_hawkbrand", ToolMaterials.IRON);
+        MATERIAL.put("sword_sinister", ToolMaterials.IRON);
 
         MATERIAL.put("sword_broken_sawblade", ToolMaterials.IRON);
         MATERIAL.put("sword_mechanized_sawblade", ToolMaterials.NETHERITE);
@@ -377,6 +378,7 @@ public class McdwStatsConfig {
         DAMAGE.put("sword_iron_sword_var", 3f);
         DAMAGE.put("sword_diamond_sword_var", 3f);
         DAMAGE.put("sword_hawkbrand", 5f);
+        DAMAGE.put("sword_sinister", 5f);
 
         //Sawblades
         DAMAGE.put("sword_broken_sawblade", 3f);
@@ -495,6 +497,7 @@ public class McdwStatsConfig {
         SPEED.put("sword_iron_sword_var", -2.4f);
         SPEED.put("sword_diamond_sword_var", -2.4f);
         SPEED.put("sword_hawkbrand", -2.0f);
+        SPEED.put("sword_sinister", -2.0f);
 
         SPEED.put("sword_broken_sawblade", -2.4f);
         SPEED.put("sword_mechanized_sawblade", -2.0f);

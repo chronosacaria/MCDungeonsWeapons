@@ -148,7 +148,7 @@
   "item.mcdw.sword_masters_katana": "大师的武士刀",
   "item.mcdw.sword_dark_katana": "暗黑武士刀",
   "item.mcdw.sword_truthseeker": "求真者",
-  "item.mcdw.sword_sinister_sword": "邪恶之剑",
+  "item.mcdw.sword_sinister": "邪恶之剑",
   "item.mcdw.sword_broken_sawblade": "破损锯剑",
   "item.mcdw.sword_mechanized_sawblade": "机械锯剑",
   "item.mcdw.sword_obsidian_claymore": "黑曜石阔剑",
@@ -310,6 +310,11 @@
   "tooltip_info_item.mcdw.hawkbrand_1"        : "鹰身大剑是",
   "tooltip_info_item.mcdw.hawkbrand_2"        : "战士们的传",
   "tooltip_info_item.mcdw.hawkbrand_3"        : "说之剑。",
+
+  "tooltip_info_item.mcdw.sinister_1"        : "邪恶之剑会吸引",
+  "tooltip_info_item.mcdw.sinister_2"        : "直面夜晚中最恐怖",
+  "tooltip_info_item.mcdw.sinister_3"        : "的东西的人，用一声",
+  "tooltip_info_item.mcdw.sinister_4"        : "尖叫劈开夜色。",
 
   "tooltip_info_item.mcdw.broken_sawblade_1"      : "破损锯剑虽已遭",
   "tooltip_info_item.mcdw.broken_sawblade_2"      : "时间蹂躏，但仍",

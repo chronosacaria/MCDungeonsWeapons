@@ -35,6 +35,7 @@ public class ItemRegistry {
         add("sword_iron_sword_var");
         add("sword_diamond_sword_var");
         add("sword_hawkbrand");
+        add("sword_sinister");
         add("sword_broken_sawblade");
         add("sword_mechanized_sawblade");
         add("sword_coral_blade");

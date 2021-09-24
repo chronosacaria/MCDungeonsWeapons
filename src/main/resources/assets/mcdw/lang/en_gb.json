@@ -133,6 +133,7 @@
   "item.mcdw.sword_iron_sword_var": "Sword",
   "item.mcdw.sword_diamond_sword_var": "Diamond Sword",
   "item.mcdw.sword_hawkbrand": "Hawkbrand",
+  "item.mcdw.sword_sinister": "Sinister Sword",
 
   "item.mcdw.sword_rapier": "Rapier",
   "item.mcdw.sword_beestinger": "Bee Stinger",
@@ -161,7 +162,6 @@
   "item.mcdw.sword_dark_katana": "Dark Katana",
 
   "item.mcdw.sword_truthseeker": "Truthseeker",
-  "item.mcdw.sword_sinister_sword": "Sinister Sword",
 
   "item.mcdw.whip_whip": "Whip",
   "item.mcdw.whip_vine_whip": "Vine Whip",
@@ -369,6 +369,11 @@
   "tooltip_info_item.mcdw.hawkbrand_1"        : "The Hawkbrand is the ",
   "tooltip_info_item.mcdw.hawkbrand_2"        : "legendary sword of proven ",
   "tooltip_info_item.mcdw.hawkbrand_3"        : "warriors.",
+
+  "tooltip_info_item.mcdw.sinister_1"        : "The Sinister Sword, drawn",
+  "tooltip_info_item.mcdw.sinister_2"        : "to those who face the",
+  "tooltip_info_item.mcdw.sinister_3"        : "spookiest of nights, cuts",
+  "tooltip_info_item.mcdw.sinister_4"        : "through the night with a howl.",
 
   "tooltip_info_item.mcdw.double_axe_1"       : "A devastating weapon fit for ",
   "tooltip_info_item.mcdw.double_axe_2"       : "barbaric fighters.",

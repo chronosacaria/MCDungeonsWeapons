@@ -49,6 +49,8 @@ public class McdwEnchantsGiverConfig {
             // CRITICAL HIT ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_hawkbrand")),
                     new Identifier("mcdw:critical_hit"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_sinister")),
+                    new Identifier("mcdw:critical_hit"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_masters_katana")),
                     new Identifier("mcdw:critical_hit"), 1, true);
 

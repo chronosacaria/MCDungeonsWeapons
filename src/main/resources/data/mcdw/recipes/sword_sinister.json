@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " N ",
+        " O ",
+        "WHW"
+    ],
+    "key": {
+        "N": {
+            "item": "minecraft:nether_brick"
+        },
+        "O": {
+            "item": "minecraft:obsidian"
+        },
+        "W": {
+            "item": "minecraft:nether_wart"
+        },
+        "H": {
+            "item": "mcdw:sword_hawkbrand"
+        }
+    },
+    "result": {
+        "item": "mcdw:sword_sinister",
+        "count": 1
+    }
+}

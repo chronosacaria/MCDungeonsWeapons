@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         "#C#",
-        "DHD",
+        "RHR",
         "D/D"
     ],
     "key": {
@@ -15,11 +15,14 @@
         "/": {
             "item": "minecraft:stick"
         },
+        "R": {
+            "item": "minecraft:redstone_block"
+        },
         "D": {
-            "item": "minecraft:dragon_breath"
+            "item": "minecraft:anvil"
         },
         "#": {
-            "item": "minecraft:iron_block"
+            "item": "minecraft:copper_block"
         }
     },
     "result": {
