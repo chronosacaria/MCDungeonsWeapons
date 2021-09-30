@@ -1,13 +1,16 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "I  ",
-        " I ",
-        "  /"
+        "  I",
+        " # ",
+        "/  "
     ],
     "key": {
         "/": {
             "item": "minecraft:stick"
+        },
+        "#": {
+            "item": "minecraft:iron_block"
         },
         "I": {
             "item": "minecraft:iron_ingot"
