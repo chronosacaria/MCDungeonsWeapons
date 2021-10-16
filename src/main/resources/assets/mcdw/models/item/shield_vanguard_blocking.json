@@ -100,11 +100,12 @@
 	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [-180, 0, -180],
-			"translation": [3.5, -3, 4]
+			"rotation": [-152, -50, -180],
+			"translation": [3.5, -1.5, -2]
 		},
 		"thirdperson_lefthand": {
-			"translation": [3.5, -3, 4]
+			"rotation": [-152, 130, -180],
+			"translation": [3.5, -1.5, -2]
 		},
 		"firstperson_righthand": {
 			"rotation": [5, -90, 0],

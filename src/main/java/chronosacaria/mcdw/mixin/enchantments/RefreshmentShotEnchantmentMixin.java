@@ -29,12 +29,15 @@ public abstract class RefreshmentShotEnchantmentMixin extends Entity {
 
     //TODO Figure out how to make more than one, but less than four bottles convert to potions
     @Inject(method = "onEntityHit", at = @At("TAIL"))
-    private void onPoisonCloudShotEnchantmentEntityHit(EntityHitResult entityHitResult, CallbackInfo ci){
+    private void onRefreshmentShotEnchantmentEntityHit(EntityHitResult entityHitResult, CallbackInfo ci){
         if (!(entityHitResult.getEntity() instanceof LivingEntity)) {
             return;
         }
         PersistentProjectileEntity persistentProjectileEntity = (PersistentProjectileEntity) (Object) this;
         LivingEntity shooter = (LivingEntity) persistentProjectileEntity.getOwner();
+        if (!(shooter instanceof PlayerEntity)){
+            return;
+        }
         ItemStack mainHandStack = null;
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
