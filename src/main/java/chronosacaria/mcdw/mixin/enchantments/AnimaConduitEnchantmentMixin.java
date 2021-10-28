@@ -32,14 +32,12 @@ public abstract class AnimaConduitEnchantmentMixin {
         if (McdwEnchantsConfig.getValue("anima")) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, mainHandStack);
-                float healthRegained;
 
                 //ANIMA CONDUIT AS PER KILL
                 if (user.getHealth() < user.getMaxHealth()) {
-                    healthRegained = (float) (getXpToDrop((PlayerEntity) user) * (0.2 * level));
-                    user.heal(healthRegained);
-                    ((PlayerEntity) user).addExperienceLevels((int) -healthRegained);
-                    //this.world.sendEntityStatus(this,(byte)35);
+                    double xpToHealth = getXpToDrop((PlayerEntity) user) * (0.2 * level);
+                    user.heal((float) xpToHealth);
+                    ((PlayerEntity)user).addExperience((int) -xpToHealth);
                 }
             }
         }
