@@ -24,6 +24,11 @@ public class McdwHammer extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        if (stack.getItem() == ItemRegistry.getItem("hammer_mace")) {
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mace_1").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mace_2").formatted(Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mace_3").formatted(Formatting.ITALIC));
+        }
         if (stack.getItem() == ItemRegistry.getItem("hammer_flail")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.flail_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.flail_2").formatted(Formatting.ITALIC));

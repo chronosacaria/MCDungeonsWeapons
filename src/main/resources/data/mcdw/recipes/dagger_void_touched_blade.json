@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "DA ",
+        "ADA",
+        " AO"
+    ],
+    "key": {
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "A": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "O": {
+            "item": "minecraft:obsidian"
+        }
+    },
+    "result": {
+        "item": "mcdw:dagger_void_touched_blade",
+        "count": 1
+    }
+}

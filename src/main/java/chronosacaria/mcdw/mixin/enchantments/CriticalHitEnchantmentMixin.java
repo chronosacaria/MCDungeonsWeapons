@@ -2,7 +2,6 @@ package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.items.ItemRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -16,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(LivingEntity.class)
+@Mixin({LivingEntity.class, PlayerEntity.class})
 public class CriticalHitEnchantmentMixin {
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
@@ -32,7 +31,6 @@ public class CriticalHitEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                boolean uniqueWeaponFlag = false;
                 if (McdwEnchantsConfig.getValue("critical_hit")) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, mainHandStack) >= 1 )) {
@@ -43,7 +41,6 @@ public class CriticalHitEnchantmentMixin {
                         float criticalHitRand = user.getRandom().nextFloat();
                         float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                         float extraDamageMultiplier = 1.5F;
-                        float getExtraDamage = (attackDamage * (extraDamageMultiplier));
                         float h = target.getHealth();
 
                         if (criticalHitRand <= criticalHitChance) {

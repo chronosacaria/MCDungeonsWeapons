@@ -13,6 +13,8 @@
   "item.mcdw.axe_highland": "Highland Axe",
   "item.mcdw.axe_whirlwind": "Whirlwind",
   "item.mcdw.axe_firebrand": "Firebrand",
+  "item.mcdw.axe_anchor": "Anchor",
+  "item.mcdw.axe_encrusted_anchor": "Encrusted Anchor",
 
   "item.mcdw.bow_bonebow": "Bonebow",
   "item.mcdw.bow_twin_bow": "Twin Bow",
@@ -45,6 +47,10 @@
   "item.mcdw.bow_burst_gale_bow": "Burst Gale Bow",
   "item.mcdw.bow_weeping_vine_bow": "Weeping Vine Bow",
   "item.mcdw.bow_twisting_vine_bow": "Twisting Vine Bow",
+  "item.mcdw.bow_bubble_bow": "Bubble Bow",
+  "item.mcdw.bow_bubble_burster": "Bubble Burster",
+  "item.mcdw.bow_void_bow": "Void Bow",
+  "item.mcdw.bow_call_of_the_void": "Call of the Void",
 
   "item.mcdw.crossbow_the_slicer" : "The Slicer",
   "item.mcdw.crossbow_azure_seeker" : "Azure Seeker",
@@ -69,6 +75,12 @@
   "item.mcdw.crossbow_burst_crossbow" : "Burst Crossbow",
   "item.mcdw.crossbow_soul_hunter_crossbow" : "Soul Hunter Crossbow",
   "item.mcdw.crossbow_corrupted_crossbow" : "Corrupted Crossbow",
+  "item.mcdw.crossbow_cog_crossbow": "Cog Crossbow",
+  "item.mcdw.crossbow_pride_of_the_piglins": "Pride of the Piglins",
+  "item.mcdw.crossbow_harpoon_crossbow": "Harpoon Crossbow",
+  "item.mcdw.crossbow_nautical_crossbow": "Nautical Crossbow",
+  "item.mcdw.crossbow_shadow_crossbow": "Shadow Crossbow",
+  "item.mcdw.crossbow_veiled_crossbow": "Veiled Crossbow",
 
   "item.mcdw.dagger_dagger": "Dagger",
   "item.mcdw.dagger_fangs_of_frost": "Fangs of Frost",
@@ -79,18 +91,25 @@
   "item.mcdw.dagger_chill_gale_knife": "Chill Gale Knife",
   "item.mcdw.dagger_resolute_tempest_knife": "Resolute Tempest Knife",
   "item.mcdw.dagger_shear_dagger": "Shear Dagger",
+  "item.mcdw.dagger_backstabber": "Backstabber",
+  "item.mcdw.dagger_swift_striker": "Swift Striker",
+  "item.mcdw.dagger_void_touched_blade": "Void Touched Blade",
+  "item.mcdw.dagger_the_beginning": "The Beginning",
+  "item.mcdw.dagger_the_end": "The End",
 
+  "item.mcdw.hammer_mace": "Mace",
   "item.mcdw.hammer_flail": "Flail",
   "item.mcdw.hammer_gravity": "Hammer of Gravity",
   "item.mcdw.hammer_great": "Great Hammer",
   "item.mcdw.hammer_stormlander": "Stormlander",
   "item.mcdw.hammer_suns_grace": "Sun's Grace",
+  "item.mcdw.hammer_boneclub": "Boneclub",
+  "item.mcdw.hammer_bone_cudgel": "Bone Cudgel",
 
   "item.mcdw.pick_diamond_pickaxe_var": "Diamond Pickaxe",
   "item.mcdw.pick_mountaineer_pick": "Mountaineer Pick",
   "item.mcdw.pick_howling_pick": "Howling Pick",
   "item.mcdw.pick_hailing_pinnacle": "Hailing Pinnacle",
-
 
   "item.mcdw.sickle_sickle": "Sickle",
   "item.mcdw.sickle_nightmares_bite": "Nightmare's Bite",
@@ -114,6 +133,7 @@
   "item.mcdw.sword_iron_sword_var": "Sword",
   "item.mcdw.sword_diamond_sword_var": "Diamond Sword",
   "item.mcdw.sword_hawkbrand": "Hawkbrand",
+  "item.mcdw.sword_sinister": "Sinister Sword",
 
   "item.mcdw.sword_rapier": "Rapier",
   "item.mcdw.sword_beestinger": "Bee Stinger",
@@ -124,6 +144,14 @@
   "item.mcdw.sword_heartstealer": "Heartstealer",
   "item.mcdw.sword_great_axeblade": "Great Axeblade",
   "item.mcdw.sword_frost_slayer": "Frost Slayer",
+  "item.mcdw.sword_obsidian_claymore": "Obsidian Claymore",
+  "item.mcdw.sword_the_starless_night": "The Starless Night",
+
+  "item.mcdw.sword_broken_sawblade": "Broken Sawblade",
+  "item.mcdw.sword_mechanized_sawblade": "Mechanized Sawblade",
+
+  "item.mcdw.sword_coral_blade": "Coral Blade",
+  "item.mcdw.sword_sponge_striker": "Sponge Striker",
 
   "item.mcdw.sword_cutlass": "Cutlass",
   "item.mcdw.sword_dancers_sword": "Dancer's Sword",
@@ -134,7 +162,6 @@
   "item.mcdw.sword_dark_katana": "Dark Katana",
 
   "item.mcdw.sword_truthseeker": "Truthseeker",
-  "item.mcdw.sword_sinister_sword": "Sinister Sword",
 
   "item.mcdw.whip_whip": "Whip",
   "item.mcdw.whip_vine_whip": "Vine Whip",
@@ -152,6 +179,7 @@
   "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
 
   "enchantment.mcdw.accelerate": "Accelerate",
+  "enchantment.mcdw.ambush": "Ambush",
   "enchantment.mcdw.anima_conduit": "Anima Conduit",
   "enchantment.mcdw.bonus_shot": "Bonus Shot",
   "enchantment.mcdw.chain_reaction": "Chain Reaction",
@@ -170,6 +198,7 @@
   "enchantment.mcdw.illagers_bane": "Illager's Bane",
   "enchantment.mcdw.jungle_poison": "Jungle's Poison",
   "enchantment.mcdw.leeching": "Leeching",
+  "enchantment.mcdw.levitation_shot": "Levitation Shot",
   "enchantment.mcdw.poison_cloud": "Poison Cloud",
   "enchantment.mcdw.prospector": "Prospector",
   "enchantment.mcdw.radiance": "Radiance",
@@ -187,6 +216,8 @@
   "enchantment.mcdw.swirling": "Swirling",
   "enchantment.mcdw.tempo_theft": "Tempo Theft",
   "enchantment.mcdw.thundering": "Thundering",
+  "enchantment.mcdw.void_shot": "Void Shot",
+  "enchantment.mcdw.void_strike": "Void Strike",
   "enchantment.mcdw.weakening": "Weakening",
 
   "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing",
@@ -196,6 +227,11 @@
   "tooltip_info_item.mcdw.axe_3"              : "relentless Vindicators",
   "tooltip_info_item.mcdw.axe_4"              : "of the Arch-Illager's",
   "tooltip_info_item.mcdw.axe_5"              : "army.",
+
+  "tooltip_info_item.mcdw.anchor_1"           : "Those strong enough to wield",
+  "tooltip_info_item.mcdw.anchor_2"           : "the Anchor in battle follow",
+  "tooltip_info_item.mcdw.anchor_3"           : "the tradition of legendary",
+  "tooltip_info_item.mcdw.anchor_4"           : "seafaring warriors.",
 
   "tooltip_info_item.mcdw.firebrand_1"        : "Crafted in the blackest",
   "tooltip_info_item.mcdw.firebrand_2"        : "depths of the Fiery Forge",
@@ -234,6 +270,58 @@
   "tooltip_info_item.mcdw.heartstealer_4"     : "this runeblade is infused with",
   "tooltip_info_item.mcdw.heartstealer_5"     : "dark witchcraft.",
 
+  "tooltip_info_item.mcdw.obsidian_claymore_1": "This massive blade cleaves even the",
+  "tooltip_info_item.mcdw.obsidian_claymore_2": "thickest shulker shells with style",
+  "tooltip_info_item.mcdw.obsidian_claymore_3": "and ease.",
+
+  "tooltip_info_item.mcdw.the_starless_night_1": "The Starless Night is haunted by",
+  "tooltip_info_item.mcdw.the_starless_night_2": "echoes of pain that linger within",
+  "tooltip_info_item.mcdw.the_starless_night_3": "the pitch-black blade.",
+
+  "tooltip_info_item.mcdw.broken_sawblade_1": "The Broken Sawblade has been",
+  "tooltip_info_item.mcdw.broken_sawblade_2": "ravaged by time, but it still",
+  "tooltip_info_item.mcdw.broken_sawblade_3": "does considerable damage.",
+
+  "tooltip_info_item.mcdw.mechanized_sawblade_1": "The Mechanized Sawblade still",
+  "tooltip_info_item.mcdw.mechanized_sawblade_2": "glows from the fires of the",
+  "tooltip_info_item.mcdw.mechanized_sawblade_3": "Nether, where it was forged.",
+
+  "tooltip_info_item.mcdw.coral_blade_1": "The Coral Blade cuts through",
+  "tooltip_info_item.mcdw.coral_blade_2": "enemies with stinging",
+  "tooltip_info_item.mcdw.coral_blade_3": "accuracy.",
+
+  "tooltip_info_item.mcdw.sponge_striker_1": "This blade may look colorless",
+  "tooltip_info_item.mcdw.sponge_striker_2": "and dead, but it soaks up",
+  "tooltip_info_item.mcdw.sponge_striker_3": "energy in combat and expels",
+  "tooltip_info_item.mcdw.sponge_striker_4": "it in a powerful burst.",
+
+  "tooltip_info_item.mcdw.backstabber_1": "The preferred blade of thieves",
+  "tooltip_info_item.mcdw.backstabber_2": "and assassins, the Backstabber",
+  "tooltip_info_item.mcdw.backstabber_3": "is a must for any rogue's pack.",
+
+  "tooltip_info_item.mcdw.swift_striker_1": "A blade for those who know that",
+  "tooltip_info_item.mcdw.swift_striker_2": "the surest way to victory is to",
+  "tooltip_info_item.mcdw.swift_striker_3": "strike without being seen.",
+
+  "tooltip_info_item.mcdw.void_touched_blade_1": "This Blade is infused with a",
+  "tooltip_info_item.mcdw.void_touched_blade_2": "disturbing purpose after countless",
+  "tooltip_info_item.mcdw.void_touched_blade_3": "ages trapped in the End.",
+
+  "tooltip_info_item.mcdw.the_beginning_1": "Forged by the survivors of a doomed",
+  "tooltip_info_item.mcdw.the_beginning_2": "expedition to the End, this blade and",
+  "tooltip_info_item.mcdw.the_beginning_3": "its twin, the End, carry dark secrets.",
+
+  "tooltip_info_item.mcdw.the_end_1": "Forged by the survivors of a doomed",
+  "tooltip_info_item.mcdw.the_end_2": "expedition to the End, this blade and",
+  "tooltip_info_item.mcdw.the_end_3": "its twin, the Beginning, carry dark secrets.",
+
+  "tooltip_info_item.mcdw.boneclub_1": "Those who wield a Boneclub prefer a less",
+  "tooltip_info_item.mcdw.boneclub_2": "subtle approach to problem-solving.",
+
+  "tooltip_info_item.mcdw.bone_cudgel_1": "The Bone Cudgel is old enough to be",
+  "tooltip_info_item.mcdw.bone_cudgel_2": "considered an ancient treasure, but",
+  "tooltip_info_item.mcdw.bone_cudgel_3": "still menacing even by modern standards.",
+
   "tooltip_info_item.mcdw.cutlass_1"          : "This curved blade, wielded by the",
   "tooltip_info_item.mcdw.cutlass_2"          : "warriors of the Squid Coast, ",
   "tooltip_info_item.mcdw.cutlass_3"          : "requires a steady hand in battle.",
@@ -258,7 +346,7 @@
   "tooltip_info_item.mcdw.rapier_1"           : "The rapier, a nimble and narrow ",
   "tooltip_info_item.mcdw.rapier_2"           : "blade, strikes with quick ferocity.",
 
-  "tooltip_info_item.mcdw.beestinger_1"       : "The Beestinger, a swift blade ",
+  "tooltip_info_item.mcdw.beestinger_1"       : "The Bee Stinger, a swift blade ",
   "tooltip_info_item.mcdw.beestinger_2"       : "inspired by a bee's barb, can ",
   "tooltip_info_item.mcdw.beestinger_3"       : "draw friendly bees into the ",
   "tooltip_info_item.mcdw.beestinger_4"       : "fray to fight alongside you.",
@@ -281,6 +369,11 @@
   "tooltip_info_item.mcdw.hawkbrand_1"        : "The Hawkbrand is the ",
   "tooltip_info_item.mcdw.hawkbrand_2"        : "legendary sword of proven ",
   "tooltip_info_item.mcdw.hawkbrand_3"        : "warriors.",
+
+  "tooltip_info_item.mcdw.sinister_1"        : "The Sinister Sword, drawn",
+  "tooltip_info_item.mcdw.sinister_2"        : "to those who face the",
+  "tooltip_info_item.mcdw.sinister_3"        : "spookiest of nights, cuts",
+  "tooltip_info_item.mcdw.sinister_4"        : "through the night with a howl.",
 
   "tooltip_info_item.mcdw.double_axe_1"       : "A devastating weapon fit for ",
   "tooltip_info_item.mcdw.double_axe_2"       : "barbaric fighters.",
@@ -352,6 +445,10 @@
   "tooltip_info_item.mcdw.whispering_spear_2" : "is plagued by a soul that controls",
   "tooltip_info_item.mcdw.whispering_spear_3" : "the mind of any who wield it.",
 
+  "tooltip_info_item.mcdw.mace_1"            : "The Mace is a brutal tool of war",
+  "tooltip_info_item.mcdw.mace_2"            : "and what it lacks in finesse; it",
+  "tooltip_info_item.mcdw.mace_3"            : "makes up for in power.",
+
   "tooltip_info_item.mcdw.flail_1"            : "This ancient weapon inflicts",
   "tooltip_info_item.mcdw.flail_2"            : "grave blunt damage to those who ",
   "tooltip_info_item.mcdw.flail_3"            : "cannot evade the deadly metal ball.",
@@ -383,7 +480,6 @@
   "tooltip_info_item.mcdw.frost_scythe_2"     : "indestructible blade that is",
   "tooltip_info_item.mcdw.frost_scythe_3"     : "freezing to the touch and never",
   "tooltip_info_item.mcdw.frost_scythe_4"     : "seems to melt",
-
 
   "tooltip_info_item.mcdw.jailors_scythe_1"   : "This scythe belonged to the terror",
   "tooltip_info_item.mcdw.jailors_scythe_2"   : "of Highblock Keep, the Jailor.",
@@ -459,6 +555,7 @@
   "tooltip_info_item.mcdw.hunters_promise_1"  : "This enchanted bow deepens the",
   "tooltip_info_item.mcdw.hunters_promise_2"  : "bond between the hunter and.",
   "tooltip_info_item.mcdw.hunters_promise_3"  : "their trusted animal companion.",
+  "tooltip_ench_item.mcdw.hunters_promise_1": "Hunter's Companion",
 
   "tooltip_info_item.mcdw.hunting_bow_1"      : "This enchanted bow deepens the",
   "tooltip_info_item.mcdw.hunting_bow_2"      : "bond between the hunter and.",
@@ -523,9 +620,9 @@
   "tooltip_info_item.mcdw.trickbow_1"         : "A sleek bow that seems to",
   "tooltip_info_item.mcdw.trickbow_2"         : "never miss its target.",
 
-  "tooltip_info_item.mcdw.twinbow_1"          : "The Twin Bow is the champion",
-  "tooltip_info_item.mcdw.twinbow_2"          : "of the hero who finds themselves",
-  "tooltip_info_item.mcdw.twinbow_3"          : "outnumbered and alone.",
+  "tooltip_info_item.mcdw.twin_bow_1"          : "The Twin Bow is the champion",
+  "tooltip_info_item.mcdw.twin_bow_2"          : "of the hero who finds themselves",
+  "tooltip_info_item.mcdw.twin_bow_3"          : "outnumbered and alone.",
 
   "tooltip_info_item.mcdw.winters_touch_1"      : "Arrows fired from this legendary",
   "tooltip_info_item.mcdw.winters_touch_2"      : "bow are said to be carried by the",
@@ -555,6 +652,24 @@
   "tooltip_info_item.mcdw.weeping_vine_bow_1"  : "The Weeping Vine Bow's toxic",
   "tooltip_info_item.mcdw.weeping_vine_bow_2"  : "vines create a poisonous haze",
   "tooltip_info_item.mcdw.weeping_vine_bow_3"  : "on the battlefield.",
+
+  "tooltip_info_item.mcdw.bubble_bow_1": "Let your troubles float away",
+  "tooltip_info_item.mcdw.bubble_bow_2": "with the Bubble Bow, which",
+  "tooltip_info_item.mcdw.bubble_bow_3": "seals your target in a bubble",
+  "tooltip_info_item.mcdw.bubble_bow_4": "on a charged shot.",
+
+  "tooltip_info_item.mcdw.bubble_burster_1": "The Bubble Burster creates a",
+  "tooltip_info_item.mcdw.bubble_burster_2": "chain effect of bubble trouble",
+  "tooltip_info_item.mcdw.bubble_burster_3": "for your enemies.",
+
+  "tooltip_info_item.mcdw.void_bow_1": "When you pluck the string of the",
+  "tooltip_info_item.mcdw.void_bow_2": "Void Bow, an unsettling silence",
+  "tooltip_info_item.mcdw.void_bow_3": "reverberates across the battlefield.",
+
+  "tooltip_info_item.mcdw.call_of_the_void_1": "You can feel the Void whispering",
+  "tooltip_info_item.mcdw.call_of_the_void_2": "from deep within this bow, but",
+  "tooltip_info_item.mcdw.call_of_the_void_3": "behind that sound is another voice",
+  "tooltip_info_item.mcdw.call_of_the_void_4": "in the darkness.",
 
   "tooltip_info_item.mcdw.auto_crossbow_1"          : "The Arch-Illager said the design",
   "tooltip_info_item.mcdw.auto_crossbow_2"          : "for this powerful crossbow came",
@@ -656,10 +771,66 @@
   "tooltip_info_item.mcdw.void_caller_crossbow_2"   : "are trapped between this world and",
   "tooltip_info_item.mcdw.void_caller_crossbow_3"   : "the next.",
 
+  "tooltip_info_item.mcdw.harpoon_crossbow_1": "The Harpoon Crossbow shoots harpoons",
+  "tooltip_info_item.mcdw.harpoon_crossbow_2": "that cut through wind and water with",
+  "tooltip_info_item.mcdw.harpoon_crossbow_3": "devastating power.",
+
+  "tooltip_info_item.mcdw.nautical_crossbow_1": "Why harpoon one enemy when you",
+  "tooltip_info_item.mcdw.nautical_crossbow_2": "can harpoon many!",
+
+  "tooltip_info_item.mcdw.shadow_crossbow_1": "Those who wish to use the Shadow",
+  "tooltip_info_item.mcdw.shadow_crossbow_2": "Crossbow must train in total",
+  "tooltip_info_item.mcdw.shadow_crossbow_3": "darkness before wielding it.",
+
+  "tooltip_info_item.mcdw.veiled_crossbow_1": "The Veiled Crossbow cloaks the wielder",
+  "tooltip_info_item.mcdw.veiled_crossbow_2": "in shadow, perfect for those who prefer",
+  "tooltip_info_item.mcdw.veiled_crossbow_3": "to go unnoticed (and undefeated).",
+
   "tooltip_info_item.mcdw.gap": " ",
   "tooltip_note_item.mcdw.dualwield": "Dual Wield",
   "tooltip_note_item.mcdw.longbow": "Longbow",
   "tooltip_note_item.mcdw.shortbow": "Shortbow",
 
-  "death.attack.electricShock": "%s was electrocuted to death."
+  "death.attack.electricShock": "%s was electrocuted to death.",
+
+  "enchantment.mcdw.ambush.desc": "Deal extra damage whilst sneaking and invisible.",
+  "enchantment.mcdw.anima_conduit.desc": "Each XP orb grants a small amount of health.",
+  "enchantment.mcdw.bonus_shot.desc": "Fires an extra projectile towards a secondary target.",
+  "enchantment.mcdw.chain_reaction.desc": "A chance to fire extra projectiles from target hit with an arrow.",
+  "enchantment.mcdw.chains.desc": "A chance to pull mobs together and slow them down.",
+  "enchantment.mcdw.charge.desc": "Chance to receive the speed effect whilst attacking an enemy.",
+  "enchantment.mcdw.committed.desc": "A chance to deal damage relative to target's health.",
+  "enchantment.mcdw.critical_hit.desc": "A chance to deal critical hit without jumping.",
+  "enchantment.mcdw.echo.desc": "A chance to deal AoE sound damage in an area of 3 blocks.",
+  "enchantment.mcdw.enigma_resonator.desc": "A chance to deal damage relative to the amount of XP the user has.",
+  "enchantment.mcdw.exploding.desc": "A chance that target explodes upon death causing damage to surrounding enemies.",
+  "enchantment.mcdw.freezing.desc": "A chance to slow target and gives them mining fatigue.",
+  "enchantment.mcdw.fuse_shot.desc": "A chance that arrow explodes on impact.",
+  "enchantment.mcdw.gravity.desc": "A chance to pull in and toss targets. Distance thrown is relative to level.",
+  "enchantment.mcdw.growing.desc": "Deal extra damage the farther you are from the target.",
+  "enchantment.mcdw.guarding_strike.desc": "Gain resistance status effect for killing mobs.",
+  "enchantment.mcdw.illagers_bane.desc": "Deal extra damage to Illagers.",
+  "enchantment.mcdw.jungle_poison.desc": "A chance to apply poison to target.",
+  "enchantment.mcdw.leeching.desc": "Heal relative to the max health of the target upon its death.",
+  "enchantment.mcdw.levitation_shot.desc": "Fire a shot that gives the levitation status effect much like a shulker bullet.",
+  "enchantment.mcdw.poison_cloud.desc": "A chance to spawn a poison cloud around a target.",
+  "enchantment.mcdw.prospector.desc": "A chance to find an emerald upon killing a target.",
+  "enchantment.mcdw.radiance.desc": "A chance to spawn a healing cloud around a target.",
+  "enchantment.mcdw.radiance_shot.desc": "A chance to spawn a healing cloud around target hit by an arrow.",
+  "enchantment.mcdw.rampaging.desc": "A chance to gain stacking haste on a kill.",
+  "enchantment.mcdw.refreshment.desc": "Refills empty bottles as health potions upon kill with melee weapon.",
+  "enchantment.mcdw.refreshment_shot.desc": "Refills empty bottles as health potions upon kill with ranged weapon.",
+  "enchantment.mcdw.replenish.desc": "A chance to recover an arrow upon firing.",
+  "enchantment.mcdw.ricochet.desc": "The arrow bounces from target to target.",
+  "enchantment.mcdw.rushdown.desc": "A chance to gain stacking speed on a kill.",
+  "enchantment.mcdw.shockwave.desc": "A chance to deal explosive damage in an area of 3 blocks.",
+  "enchantment.mcdw.smiting.desc": "Deals AoE damage to Undead in an area of 3 blocks.",
+  "enchantment.mcdw.soul_siphon.desc": "A chance to gain extra XP from a kill.",
+  "enchantment.mcdw.stunning.desc": "Chance to nearly stop a target and cause nausea.",
+  "enchantment.mcdw.swirling.desc": "Chance to hit all entities in a 1.5 block radius around the user.",
+  "enchantment.mcdw.tempo_theft.desc": "Steal speed from your target, slowing them and speeding yourself up.",
+  "enchantment.mcdw.thundering.desc": "Chance to summon a lightning bolt and damage entities in a range relative to the level.",
+  "enchantment.mcdw.void_strike.desc": "Deal multiplicative damage based on level of enchantment.",
+  "enchantment.mcdw.void_shot.desc": "Deal multiplicative damage based on level of enchantment.",
+  "enchantment.mcdw.weakening.desc": "Chance to spawn a weakness cloud around the target."
 }

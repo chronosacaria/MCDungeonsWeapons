@@ -1,9 +1,6 @@
 package chronosacaria.mcdw;
 
-import chronosacaria.mcdw.configs.McdwBaseConfig;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
-import chronosacaria.mcdw.configs.McdwEnchantsGiverConfig;
-import chronosacaria.mcdw.configs.McdwStatsConfig;
+import chronosacaria.mcdw.configs.*;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.loottables.McdwLoottables;
@@ -162,11 +159,13 @@ public class Mcdw implements ModInitializer {
         // Config
         McdwStatsConfig.initAll();
         McdwEnchantsConfig.init();
+        McdwLootConfig.init();
 
         String defaultConfig =
             "{\n" +
             "  \"regenerate_stat_configs\": false,\n" +
-            "  \"regenerate_enchants_configs\": false\n" +
+            "  \"regenerate_enchants_configs\": false,\n" +
+            "  \"regenerate_loot_configs\": false\n" +
             "}";
         File configFile = McdwBaseConfig.createFile("config/minecraft_dungeon_weapons/config.json", defaultConfig, false);
         JsonObject json = McdwBaseConfig.getJsonObject(McdwBaseConfig.readFile(configFile));
@@ -176,6 +175,10 @@ public class Mcdw implements ModInitializer {
 
         McdwEnchantsConfig.generateConfigs(json == null || !json.has("regenerate_enchants_configs") || json.get("regenerate_enchants_configs").getAsBoolean());
         McdwEnchantsConfig.loadConfig();
+
+        McdwLootConfig.generateConfigs(json == null || !json.has("regenerate_loot_configs") || json.get(
+                "regenerate_loot_configs").getAsBoolean());
+        McdwLootConfig.loadConfig();
 
         // Enchants
         EnchantsRegistry.init();

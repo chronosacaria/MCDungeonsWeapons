@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "INL",
+        "NCS",
+        "LSS"
+    ],
+    "key": {
+        "C": {
+            "item": "mcdw:crossbow_heavy_crossbow"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_block"
+        },
+        "L": {
+            "item": "minecraft:lapis_lazuli"
+        },
+        "N": {
+            "item": "minecraft:netherite_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_doom_crossbow",
+        "count": 1
+    }
+}

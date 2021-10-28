@@ -35,6 +35,7 @@ public class ItemRegistry {
         add("sword_iron_sword_var");
         add("sword_diamond_sword_var");
         add("sword_hawkbrand");
+        add("sword_sinister");
         add("sword_broken_sawblade");
         add("sword_mechanized_sawblade");
         add("sword_coral_blade");
@@ -77,6 +78,7 @@ public class ItemRegistry {
         add("hammer_great");
         add("hammer_stormlander");
         add("hammer_gravity");
+        add("hammer_mace");
         add("hammer_flail");
         add("hammer_suns_grace");
         add("hammer_boneclub");

@@ -97,6 +97,7 @@
   "item.mcdw.dagger_the_beginning": "The Beginning",
   "item.mcdw.dagger_the_end": "The End",
 
+  "item.mcdw.hammer_mace": "Mace",
   "item.mcdw.hammer_flail": "Flail",
   "item.mcdw.hammer_gravity": "Hammer of Gravity",
   "item.mcdw.hammer_great": "Great Hammer",
@@ -132,6 +133,7 @@
   "item.mcdw.sword_iron_sword_var": "Sword",
   "item.mcdw.sword_diamond_sword_var": "Diamond Sword",
   "item.mcdw.sword_hawkbrand": "Hawkbrand",
+  "item.mcdw.sword_sinister": "Sinister Sword",
 
   "item.mcdw.sword_rapier": "Rapier",
   "item.mcdw.sword_beestinger": "Bee Stinger",
@@ -157,7 +159,6 @@
   "item.mcdw.sword_mechanized_sawblade": "Mechanized Sawblade",
 
   "item.mcdw.sword_truthseeker": "Truthseeker",
-  "item.mcdw.sword_sinister_sword": "Sinister Sword",
 
   "item.mcdw.sword_coral_blade": "Coral Blade",
   "item.mcdw.sword_sponge_striker": "Sponge Striker",
@@ -301,7 +302,7 @@
   "tooltip_info_item.mcdw.rapier_1"           : "The rapier, a nimble and narrow ",
   "tooltip_info_item.mcdw.rapier_2"           : "blade, strikes with quick ferocity.",
 
-  "tooltip_info_item.mcdw.beestinger_1"       : "The Beestinger, a swift blade ",
+  "tooltip_info_item.mcdw.beestinger_1"       : "The Bee Stinger, a swift blade ",
   "tooltip_info_item.mcdw.beestinger_2"       : "inspired by a bee's barb, can ",
   "tooltip_info_item.mcdw.beestinger_3"       : "draw friendly bees into the ",
   "tooltip_info_item.mcdw.beestinger_4"       : "fray to fight alongside you.",
@@ -324,6 +325,11 @@
   "tooltip_info_item.mcdw.hawkbrand_1"        : "The Hawkbrand is the ",
   "tooltip_info_item.mcdw.hawkbrand_2"        : "legendary sword of proven ",
   "tooltip_info_item.mcdw.hawkbrand_3"        : "warriors.",
+
+  "tooltip_info_item.mcdw.sinister_1"        : "The Sinister Sword, drawn",
+  "tooltip_info_item.mcdw.sinister_2"        : "to those who face the",
+  "tooltip_info_item.mcdw.sinister_3"        : "spookiest of nights, cuts",
+  "tooltip_info_item.mcdw.sinister_4"        : "through the night with a howl.",
 
   "tooltip_info_item.mcdw.broken_sawblade_1"      : "The Broken Sawblade has been",
   "tooltip_info_item.mcdw.broken_sawblade_2"      : "ravaged by time, but it still",
@@ -432,8 +438,12 @@
   "tooltip_info_item.mcdw.whispering_spear_2" : "is plagued by a soul that controls",
   "tooltip_info_item.mcdw.whispering_spear_3" : "the mind of any who wield it.",
 
+  "tooltip_info_item.mcdw.mace_1"            : "The Mace is a brutal tool of war",
+  "tooltip_info_item.mcdw.mace_2"            : "and what it lacks in finesse; it",
+  "tooltip_info_item.mcdw.mace_3"            : "makes up for in power.",
+
   "tooltip_info_item.mcdw.flail_1"            : "This ancient weapon inflicts",
-  "tooltip_info_item.mcdw.flail_2"            : "grave blunt damage to those who ",
+  "tooltip_info_item.mcdw.flail_2"            : "grave blunt damage to those who",
   "tooltip_info_item.mcdw.flail_3"            : "cannot evade the deadly metal ball.",
 
   "tooltip_info_item.mcdw.suns_grace_1"       : "This mace, engraved with secret healing",
@@ -784,9 +794,12 @@
 
   "death.attack.electricShock": "%s was electrocuted to death.",
 
+  "enchantment.mcdw.ambush.desc": "Deal extra damage whilst sneaking and invisible.",
   "enchantment.mcdw.anima_conduit.desc": "Each XP orb grants a small amount of health.",
+  "enchantment.mcdw.bonus_shot.desc": "Fires an extra projectile towards a secondary target.",
   "enchantment.mcdw.chain_reaction.desc": "A chance to fire extra projectiles from target hit with an arrow.",
   "enchantment.mcdw.chains.desc": "A chance to pull mobs together and slow them down.",
+  "enchantment.mcdw.charge.desc": "Chance to receive the speed effect whilst attacking an enemy.",
   "enchantment.mcdw.committed.desc": "A chance to deal damage relative to target's health.",
   "enchantment.mcdw.critical_hit.desc": "A chance to deal critical hit without jumping.",
   "enchantment.mcdw.echo.desc": "A chance to deal AoE sound damage in an area of 3 blocks.",
@@ -796,14 +809,18 @@
   "enchantment.mcdw.fuse_shot.desc": "A chance that arrow explodes on impact.",
   "enchantment.mcdw.gravity.desc": "A chance to pull in and toss targets. Distance thrown is relative to level.",
   "enchantment.mcdw.growing.desc": "Deal extra damage the farther you are from the target.",
+  "enchantment.mcdw.guarding_strike.desc": "Gain resistance status effect for killing mobs.",
   "enchantment.mcdw.illagers_bane.desc": "Deal extra damage to Illagers.",
-  "enchantment.mcdw.jungles_poison.desc": "A chance to apply poison to target.",
+  "enchantment.mcdw.jungle_poison.desc": "A chance to apply poison to target.",
   "enchantment.mcdw.leeching.desc": "Heal relative to the max health of the target upon its death.",
+  "enchantment.mcdw.levitation_shot.desc": "Fire a shot that gives the levitation status effect much like a shulker bullet.",
   "enchantment.mcdw.poison_cloud.desc": "A chance to spawn a poison cloud around a target.",
   "enchantment.mcdw.prospector.desc": "A chance to find an emerald upon killing a target.",
   "enchantment.mcdw.radiance.desc": "A chance to spawn a healing cloud around a target.",
   "enchantment.mcdw.radiance_shot.desc": "A chance to spawn a healing cloud around target hit by an arrow.",
   "enchantment.mcdw.rampaging.desc": "A chance to gain stacking haste on a kill.",
+  "enchantment.mcdw.refreshment.desc": "Refills empty bottles as health potions upon kill with melee weapon.",
+  "enchantment.mcdw.refreshment_shot.desc": "Refills empty bottles as health potions upon kill with ranged weapon.",
   "enchantment.mcdw.replenish.desc": "A chance to recover an arrow upon firing.",
   "enchantment.mcdw.ricochet.desc": "The arrow bounces from target to target.",
   "enchantment.mcdw.rushdown.desc": "A chance to gain stacking speed on a kill.",
@@ -814,5 +831,7 @@
   "enchantment.mcdw.swirling.desc": "Chance to hit all entities in a 1.5 block radius around the user.",
   "enchantment.mcdw.tempo_theft.desc": "Steal speed from your target, slowing them and speeding yourself up.",
   "enchantment.mcdw.thundering.desc": "Chance to summon a lightning bolt and damage entities in a range relative to the level.",
+  "enchantment.mcdw.void_strike.desc": "Deal multiplicative damage based on level of enchantment.",
+  "enchantment.mcdw.void_shot.desc": "Deal multiplicative damage based on level of enchantment.",
   "enchantment.mcdw.weakening.desc": "Chance to spawn a weakness cloud around the target."
 }

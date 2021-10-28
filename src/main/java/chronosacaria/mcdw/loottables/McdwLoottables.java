@@ -1,5 +1,6 @@
 package chronosacaria.mcdw.loottables;
 
+import chronosacaria.mcdw.configs.McdwLootConfig;
 import chronosacaria.mcdw.items.ItemRegistry;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
@@ -80,7 +81,7 @@ public class McdwLoottables {
                 supplier.pool(poolBuilder);
             }
 
-            if (pillagerTowerLootTables(id)){
+            if (pillagerTowerLootTables(id) && McdwLootConfig.getValue("pillager_towers")){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1, 0.01F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("crossbow_doom_crossbow")))
@@ -93,14 +94,14 @@ public class McdwLoottables {
                 supplier.pool(poolBuilder);
             }
 
-            if (netherFortressLootTables(id)){
+            if (netherFortressLootTables(id) && McdwLootConfig.getValue("nether_fortresses")){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1, 0.01F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("bow_ancient_bow")));
                 supplier.pool(poolBuilder);
             }
 
-            if (piglinBastionTreasureChestLootTables(id)){
+            if (piglinBastionTreasureChestLootTables(id) && McdwLootConfig.getValue("piglin_bastions")){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("sword_broken_sawblade")))
@@ -118,7 +119,7 @@ public class McdwLoottables {
                 supplier.pool(poolBuilder);
             }
 
-            if (underWaterLootTables(id)){
+            if (underWaterLootTables(id) && McdwLootConfig.getValue("under_water")){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("sword_coral_blade")))
@@ -143,7 +144,7 @@ public class McdwLoottables {
                 supplier.pool(poolBuilder);
             }
 
-            if (endLootTables(id)){
+            if (endLootTables(id) && McdwLootConfig.getValue("end_cities")){
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1, 0.30F))
                         .with(ItemEntry.builder(ItemRegistry.getItem("dagger_backstabber")))

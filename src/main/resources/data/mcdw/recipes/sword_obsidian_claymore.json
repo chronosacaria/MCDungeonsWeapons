@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " ON",
+        "OOO",
+        "CO "
+    ],
+    "key": {
+        "O": {
+            "item": "minecraft:obsidian"
+        },
+        "N": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "C": {
+            "item": "mcdw:sword_claymore"
+        }
+    },
+    "result": {
+        "item": "mcdw:sword_obsidian_claymore",
+        "count": 1
+    }
+}

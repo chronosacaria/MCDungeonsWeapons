@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " SB",
+        " BS",
+        "b  "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:bone_block"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "b": {
+            "item": "minecraft:bone"
+        }
+    },
+    "result": {
+        "item": "mcdw:hammer_boneclub",
+        "count": 1
+    }
+}

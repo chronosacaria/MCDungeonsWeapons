@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "VGV",
+        "GAG",
+        "VGV"
+    ],
+    "key": {
+        "V": {
+            "item": "minecraft:vine"
+        },
+        "G": {
+            "item": "minecraft:gold_block"
+        },
+        "A": {
+            "item": "mcdw:axe_anchor"
+        }
+    },
+    "result": {
+        "item": "mcdw:axe_encrusted_anchor",
+        "count": 1
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "WPS",
+        "CBS",
+        "WPS"
+    ],
+    "key": {
+        "W": {
+            "item": "minecraft:water_bucket"
+        },
+        "P": {
+            "item": "minecraft:prismarine_shard"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "C": {
+            "item": "minecraft:prismarine_crystals"
+        },
+        "B": {
+            "item": "minecraft:bow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_bubble_bow",
+        "count": 1
+    }
+}

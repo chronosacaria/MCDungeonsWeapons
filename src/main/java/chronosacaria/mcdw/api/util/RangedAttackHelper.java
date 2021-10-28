@@ -30,7 +30,7 @@ public class RangedAttackHelper {
         //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
 
         float bowChargeTime = McdwBow.chargeTime * (Math.max(20.0F - 5 * quickChargeLevel, 0));
-        long lastFiredtime = (long)(McdwBow.getPullProgress(22) * (Math.max(20.0F -5 * quickChargeLevel, 0)));
+        long lastFiredtime = (long)(McdwBow.getPullProgress(22) * (Math.max(20.0F - 5 * quickChargeLevel, 0)));
 
         if (/*accelerateLevel > 0 &&*/ lastFiredtime > 0){
             return Math.max(bowChargeTime - 5 * quickChargeLevel, 0);
@@ -43,13 +43,13 @@ public class RangedAttackHelper {
         int quickChargeLevel = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
         //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
 
-        float bowChargeTime = McdwShortBow.chargeTime * (Math.max(20.0F - 5 * quickChargeLevel, 0));
-        long lastFiredtime = (long)(McdwShortBow.getPullProgress(22) * (Math.max(20.0F -5 * quickChargeLevel, 0)));
+        float bowChargeTime = McdwShortBow.chargeTime * (Math.max(10.0F - 5 * quickChargeLevel, 0));
+        long lastFiredtime = (long)(McdwShortBow.getPullProgress(11) * (Math.max(10.0F - 5 * quickChargeLevel, 0)));
 
         if (/*accelerateLevel > 0 &&*/ lastFiredtime > 0){
             return Math.max(bowChargeTime - 5 * quickChargeLevel, 0);
         } else {
-            return Math.max(20.0F - 5 * quickChargeLevel, 0);
+            return Math.max(10.0F - 5 * quickChargeLevel, 0);
         }
     }
 

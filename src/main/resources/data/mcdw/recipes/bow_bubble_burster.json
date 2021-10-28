@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PCG",
+        "CBS",
+        "GSS"
+    ],
+    "key": {
+        "G": {
+            "item": "minecraft:gold_ingot"
+        },
+        "P": {
+            "item": "minecraft:prismarine_shard"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "C": {
+            "item": "minecraft:prismarine_crystals"
+        },
+        "B": {
+            "item": "mcdw:bow_bubble_bow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_bubble_burster",
+        "count": 1
+    }
+}

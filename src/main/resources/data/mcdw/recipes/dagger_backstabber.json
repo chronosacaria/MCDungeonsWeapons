@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  A",
+        " NA",
+        "OPN"
+    ],
+    "key": {
+        "O": {
+            "item": "minecraft:obsidian"
+        },
+        "P": {
+            "item": "minecraft:purpur_block"
+        },
+        "A": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "N": {
+            "item": "minecraft:gold_nugget"
+        }
+    },
+    "result": {
+        "item": "mcdw:dagger_backstabber",
+        "count": 1
+    }
+}

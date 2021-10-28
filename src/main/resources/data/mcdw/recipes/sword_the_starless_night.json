@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " AO",
+        "AOA",
+        "CA "
+    ],
+    "key": {
+        "O": {
+            "item": "minecraft:crying_obsidian"
+        },
+        "A": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "C": {
+            "item": "mcdw:sword_obsidian_claymore"
+        }
+    },
+    "result": {
+        "item": "mcdw:sword_the_starless_night",
+        "count": 1
+    }
+}

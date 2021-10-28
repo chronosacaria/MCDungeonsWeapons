@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "EDA",
+        "DBS",
+        "ASS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        },
+        "A": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "E": {
+            "item": "minecraft:ender_eye"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "B": {
+            "item": "mcdw:bow_void_bow"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_call_of_the_void",
+        "count": 1
+    }
+}

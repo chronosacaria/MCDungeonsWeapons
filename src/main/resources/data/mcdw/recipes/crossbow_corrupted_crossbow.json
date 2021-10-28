@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "NCB",
+        "CcS",
+        "BSS"
+    ],
+    "key": {
+        "c": {
+            "item": "mcdw:crossbow_burst_crossbow"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "N": {
+            "item": "minecraft:nether_star"
+        },
+        "C": {
+            "item": "minecraft:nether_star"
+        },
+        "B": {
+            "item": "minecraft:nether_brick"
+        }
+    },
+    "result": {
+        "item": "mcdw:crossbow_corrupted_crossbow",
+        "count": 1
+    }
+}

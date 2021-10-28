@@ -122,6 +122,12 @@ public class McdwSword extends SwordItem {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hawkbrand_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.hawkbrand_3").formatted(Formatting.ITALIC));
         }
+       if (stack.getItem() == ItemRegistry.getItem("sword_sinister")){
+           tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sinister_1").formatted(Formatting.ITALIC));
+           tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sinister_2").formatted(Formatting.ITALIC));
+           tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sinister_3").formatted(Formatting.ITALIC));
+           tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sinister_4").formatted(Formatting.ITALIC));
+       }
        if (stack.getItem() == ItemRegistry.getItem("sword_broken_sawblade")){
            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.broken_sawblade_1").formatted(Formatting.ITALIC));
            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.broken_sawblade_2").formatted(Formatting.ITALIC));
