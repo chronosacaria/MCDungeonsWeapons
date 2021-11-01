@@ -1,0 +1,6 @@
+{
+  "parent": "mcdw:item/model_glaive",
+  "textures": {
+    "layer0": "mcdw:item/spear_cackling_broom"
+  }
+}
