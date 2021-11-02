@@ -16,10 +16,10 @@
             "item": "mcdw:bow_soul_bow"
         },
         "G": {
-            "item": "ghast_tear"
+            "item": "minecraft:ghast_tear"
         },
         "W": {
-            "item": "wither_skeleton_skull"
+            "item": "minecraft:wither_skeleton_skull"
         }
     },
     "result": {

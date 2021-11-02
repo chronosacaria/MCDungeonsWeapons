@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "FsW",
+        "sBS",
+        "WSS"
+    ],
+    "key": {
+        "s": {
+            "item": "minecraft:stick"
+        },
+        "B": {
+            "item": "minecraft:bow"
+        },
+        "F": {
+            "item": "minecraft:fermented_spider_eye"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "W": {
+            "item": "minecraft:cobweb"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_web_bow",
+        "count": 1
+    }
+}
