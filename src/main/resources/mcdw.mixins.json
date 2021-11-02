@@ -16,6 +16,7 @@
     "enchantments.ChainReactionEnchantmentMixin",
     "enchantments.ChainsEnchantmentMixin",
     "enchantments.ChargeEnchantmentMixin",
+    "enchantments.CobwebShotEnchantmentMixin",
     "enchantments.CommittedEnchantmentsMixin",
     "enchantments.CriticalHitEnchantmentMixin",
     "enchantments.EchoEnchantmentMixin",

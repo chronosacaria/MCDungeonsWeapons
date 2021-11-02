@@ -29,6 +29,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("chain_reaction", true);
         SETTINGS.put("chains", true);
         SETTINGS.put("charge", true);
+        SETTINGS.put("cobweb_shot", true);
         SETTINGS.put("committed", true);
         SETTINGS.put("critical_hit", true);
         SETTINGS.put("dipping_poison", true);
