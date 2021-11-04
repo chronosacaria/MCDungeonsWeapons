@@ -33,6 +33,7 @@
     "enchantments.LeechingEnchantmentMixin",
     "enchantments.LevitationShotEnchantmentMixin",
     "enchantments.MultiShotEnchantmentMixin",
+    "enchantments.PhantomsMarkEnchantmentMixin",
     "enchantments.PoisonCloudEnchantmentMixin",
     "enchantments.PoisonCloudShotEnchantmentMixin",
     "enchantments.ProspectorEnchantmentMixin",

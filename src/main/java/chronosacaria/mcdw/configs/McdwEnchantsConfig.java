@@ -48,6 +48,7 @@ public class McdwEnchantsConfig {
         SETTINGS.put("levitation_shot", true);
         SETTINGS.put("custom_looting", true);
         SETTINGS.put("multi_shot", true);
+        SETTINGS.put("phantoms_mark", true);
         SETTINGS.put("poison_cloud", true);
         SETTINGS.put("prospector", true);
         SETTINGS.put("radiance", true);
