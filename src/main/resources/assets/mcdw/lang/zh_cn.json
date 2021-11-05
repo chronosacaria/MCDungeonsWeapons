@@ -51,6 +51,8 @@
   "item.mcdw.bow_bubble_burster": "气泡爆裂弓",
   "item.mcdw.bow_void_bow": "虚空之弓",
   "item.mcdw.bow_call_of_the_void": "虚空召唤",
+  "item.mcdw.bow_phantom_bow": "幻翼弓",
+  "item.mcdw.bow_web_bow": "蛛网弓",
 
   "item.mcdw.crossbow_auto_crossbow" : "自动弩",
   "item.mcdw.crossbow_azure_seeker" : "蔚蓝探索者",
@@ -118,6 +120,7 @@
   "item.mcdw.sickle_frost_scythe": "冰霜长镰",
   "item.mcdw.sickle_jailors_scythe": "狱卒的镰刀",
   "item.mcdw.sickle_soul_scythe": "灵魂长镰",
+  "item.mcdw.sickle_skull_scythe": "骷髅长镰",
 
   "item.mcdw.spear_spear": "长矛",
   "item.mcdw.spear_fortune": "幸运长矛",
@@ -125,6 +128,7 @@
   "item.mcdw.spear_glaive": "长柄刀",
   "item.mcdw.spear_grave_bane": "弑墓者",
   "item.mcdw.spear_venom_glaive": "剧毒长刀",
+  "item.mcdw.spear_cackling_broom": "咯笑扫帚",
 
   "item.mcdw.staff_battlestaff": "战斗之杖",
   "item.mcdw.staff_battlestaff_of_terror": "恐怖之杖",
@@ -179,6 +183,7 @@
   "enchantment.mcdw.chain_reaction": "链锁反应",
   "enchantment.mcdw.chains": "链锁",
   "enchantment.mcdw.charge": "冲锋",
+  "enchantment.mcdw.cobweb_shot": "蛛网射击",
   "enchantment.mcdw.committed": "进伤",
   "enchantment.mcdw.critical_hit": "暴击",
   "enchantment.mcdw.echo": "回击",
@@ -193,6 +198,7 @@
   "enchantment.mcdw.jungle_poison": "丛林毒药",
   "enchantment.mcdw.leeching": "吸血",
   "enchantment.mcdw.levitation_shot": "漂浮射击",
+  "enchantment.mcdw.phantoms_mark": "幻翼的印記",
   "enchantment.mcdw.poison_cloud": "毒雾",
   "enchantment.mcdw.prospector": "探矿者",
   "enchantment.mcdw.radiance": "治愈光辉",
@@ -391,6 +397,9 @@
   "tooltip_info_item.mcdw.grave_bane_2"       : "遗物，会散发出强大的魔法能",
   "tooltip_info_item.mcdw.grave_bane_3"       : "量来免受亡灵生物的威胁。",
 
+  "tooltip_info_item.mcdw.cackling_broom_1"   : "用这把会怪笑的扫帚",
+  "tooltip_info_item.mcdw.cackling_broom_2"   : "将敌人扫地出门。",
+
   "tooltip_info_item.mcdw.spear_1"            : "长矛的射程很远，",
   "tooltip_info_item.mcdw.spear_2"            : "范围很广，是",
   "tooltip_info_item.mcdw.spear_3"            : "一种可靠的选择。",
@@ -448,6 +457,10 @@
 
   "tooltip_info_item.mcdw.jailors_scythe_1"   : "这把镰刀由高墩城堡的恐怖人",
   "tooltip_info_item.mcdw.jailors_scythe_2"   : "物持有—狱卒。",
+
+  "tooltip_info_item.mcdw.skull_scythe_1": "千万不要问这把武器是用什么",
+  "tooltip_info_item.mcdw.skull_scythe_2": "非自然生物的骨头做的。",
+  "tooltip_info_item.mcdw.skull_scythe_3": "你肯定不想知道。",
 
   "tooltip_info_item.mcdw.sickle_1"           : "一种礼仪武器，",
   "tooltip_info_item.mcdw.sickle_2"           : "与沙漠神殿来自",
@@ -665,6 +678,16 @@
   "tooltip_info_item.mcdw.call_of_the_void_3"       : "在它背后还存在着另一个",
   "tooltip_info_item.mcdw.call_of_the_void_4"       : "黑暗中的声音。",
 
+  "tooltip_info_item.mcdw.phantom_bow_1"            : "从幻翼弓中",
+  "tooltip_info_item.mcdw.phantom_bow_2"            : "射出的箭矢",
+  "tooltip_info_item.mcdw.phantom_bow_3"            : "会如其恶名一般，",
+  "tooltip_info_item.mcdw.phantom_bow_4"            : "朝敌人疾速飞去。",
+
+  "tooltip_info_item.mcdw.web_bow_1"                : "蛛网弓由强韧",
+  "tooltip_info_item.mcdw.web_bow_2"                : "的蛛网制作而成，",
+  "tooltip_info_item.mcdw.web_bow_3"                : "助你摆脱一切",
+  "tooltip_info_item.mcdw.web_bow_4"                : "胶着状况。",
+
   "tooltip_info_item.mcdw.auto_crossbow_1"          : "奇厄教主说，这个强大",
   "tooltip_info_item.mcdw.auto_crossbow_2"          : "的弩的设计是他在",
   "tooltip_info_item.mcdw.auto_crossbow_3"          : "幻象中见到的。",
@@ -794,6 +817,7 @@
   "enchantment.mcdw.chain_reaction.desc": "A chance to fire extra projectiles from target hit with an arrow.",
   "enchantment.mcdw.chains.desc": "A chance to pull mobs together and slow them down.",
   "enchantment.mcdw.charge.desc": "Chance to receive the speed effect whilst attacking an enemy.",
+  "enchantment.mcdw.cobweb_shot.desc": "Cover an enemy or block in cobweb when your arrow hits its target.",
   "enchantment.mcdw.committed.desc": "A chance to deal damage relative to target's health.",
   "enchantment.mcdw.critical_hit.desc": "A chance to deal critical hit without jumping.",
   "enchantment.mcdw.echo.desc": "A chance to deal AoE sound damage in an area of 3 blocks.",
@@ -808,6 +832,7 @@
   "enchantment.mcdw.jungle_poison.desc": "A chance to apply poison to target.",
   "enchantment.mcdw.leeching.desc": "Heal relative to the max health of the target upon its death.",
   "enchantment.mcdw.levitation_shot.desc": "Fire a shot that gives the levitation status effect much like a shulker bullet.",
+  "enchantment.mcdw.phantoms_mark.desc": "Sets glowing on the target relative to the level of the enchantment.",
   "enchantment.mcdw.poison_cloud.desc": "A chance to spawn a poison cloud around a target.",
   "enchantment.mcdw.prospector.desc": "A chance to find an emerald upon killing a target.",
   "enchantment.mcdw.radiance.desc": "A chance to spawn a healing cloud around a target.",
@@ -828,5 +853,4 @@
   "enchantment.mcdw.void_strike.desc": "Deal multiplicative damage based on level of enchantment.",
   "enchantment.mcdw.void_shot.desc": "Deal multiplicative damage based on level of enchantment.",
   "enchantment.mcdw.weakening.desc": "Chance to spawn a weakness cloud around the target."
-
   }

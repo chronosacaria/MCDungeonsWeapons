@@ -6,6 +6,9 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.InfinityEnchantment;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.CrossbowItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -30,5 +33,10 @@ public class ChainReactionEnchantment extends Enchantment {
     @Override
     public boolean isAvailableForRandomSelection() {
         return McdwEnchantsConfig.getValue("chain_reaction");
+    }
+
+    @Override
+    public boolean isAcceptableItem(ItemStack stack) {
+        return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
     }
 }

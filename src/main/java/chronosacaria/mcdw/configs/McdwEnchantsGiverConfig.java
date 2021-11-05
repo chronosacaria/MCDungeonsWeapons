@@ -38,6 +38,10 @@ public class McdwEnchantsGiverConfig {
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_burst_gale_bow")),
                     new Identifier("mcdw:charge"), 1, true);
 
+            // COBWEB SHOT ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_web_bow")),
+                    new Identifier("mcdw:cobweb_shot"), 1, true);
+
             // COMMITTED ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_truthseeker")),
                     new Identifier("mcdw:committed"), 1, true);
@@ -92,6 +96,8 @@ public class McdwEnchantsGiverConfig {
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("dagger_chill_gale_knife")),
                     new Identifier("mcdw:freezing"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_frost_slayer")),
+                    new Identifier("mcdw:freezing"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sickle_skull_scythe")),
                     new Identifier("mcdw:freezing"), 1, true);
 
             // FUSE SHOT ENCHANTMENT
@@ -148,6 +154,10 @@ public class McdwEnchantsGiverConfig {
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_lightning_harp_crossbow")),
                     new Identifier("minecraft:multishot"), 1, true);
 
+            // PHANTOM'S MARK ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_phantom_bow")),
+                    new Identifier("mcdw:phantoms_mark"), 1, true);
+
             // PIERCING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("crossbow_the_slicer")),
                     new Identifier("minecraft:piercing"), 1, true);
@@ -169,6 +179,8 @@ public class McdwEnchantsGiverConfig {
                     new Identifier("minecraft:power"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_elite_power_bow")),
                     new Identifier("minecraft:power"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("bow_phantom_bow")),
+                    new Identifier("minecraft:power"), 1, false);
 
             // PROSPECTOR ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sickle_last_laugh_gold")),
@@ -222,6 +234,8 @@ public class McdwEnchantsGiverConfig {
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("spear_grave_bane")),
                     new Identifier("mcdw:smiting"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("sword_dark_katana")),
+                    new Identifier("mcdw:smiting"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemRegistry.ITEMS.get("spear_cackling_broom")),
                     new Identifier("mcdw:smiting"), 1, true);
 
             // SOUL SIPHON ENCHANTMENT

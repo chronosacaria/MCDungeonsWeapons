@@ -126,7 +126,6 @@ public class McdwGlaive extends SwordItem {
         if (stack.getItem() == ItemRegistry.getItem("spear_cackling_broom")) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cackling_broom_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cackling_broom_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cackling_broom_3").formatted(Formatting.ITALIC));
         }
 
     }

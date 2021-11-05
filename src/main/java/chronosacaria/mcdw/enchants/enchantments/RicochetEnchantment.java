@@ -5,6 +5,9 @@ import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.CrossbowItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 
 public class RicochetEnchantment extends RangedEnchantment {
@@ -25,4 +28,8 @@ public class RicochetEnchantment extends RangedEnchantment {
         return McdwEnchantsConfig.getValue("ricochet");
     }
 
+    @Override
+    public boolean isAcceptableItem(ItemStack stack) {
+        return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
+    }
 }
