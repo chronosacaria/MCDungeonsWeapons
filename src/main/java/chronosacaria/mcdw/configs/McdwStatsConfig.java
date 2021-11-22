@@ -80,6 +80,8 @@ public class McdwStatsConfig {
         DRAW_SPEED.put("bow_bubble_burster", 13f);
         DRAW_SPEED.put("bow_void_bow", 13f);
         DRAW_SPEED.put("bow_call_of_the_void_bow", 13f);
+        DRAW_SPEED.put("bow_phantom_bow", 20f);
+        DRAW_SPEED.put("bow_web_bow", 13f);
 
         DRAW_SPEED.put("crossbow_the_slicer", 28f);
         DRAW_SPEED.put("crossbow_azure_seeker", 28f);
@@ -148,6 +150,8 @@ public class McdwStatsConfig {
         RANGE.put("bow_bubble_burster", 4.2f);
         RANGE.put("bow_void_bow", 4.1f);
         RANGE.put("bow_call_of_the_void_bow", 4.3f);
+        RANGE.put("bow_phantom_bow", 6.4f);
+        RANGE.put("bow_web_bow", 5.2f);
 
         RANGE.put("crossbow_the_slicer", 10.2f);
         RANGE.put("crossbow_azure_seeker", 8.4f);
@@ -312,6 +316,8 @@ public class McdwStatsConfig {
         MATERIAL.put("bow_bubble_burster", ToolMaterials.IRON);
         MATERIAL.put("bow_void_bow", ToolMaterials.DIAMOND);
         MATERIAL.put("bow_call_of_the_void_bow", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_phantom_bow", ToolMaterials.DIAMOND);
+        MATERIAL.put("bow_web_bow", ToolMaterials.DIAMOND);
 
         // crossbows
         MATERIAL.put("crossbow_the_slicer", ToolMaterials.IRON);
@@ -446,6 +452,7 @@ public class McdwStatsConfig {
         DAMAGE.put("sickle_jailors_scythe", 4f);
         DAMAGE.put("sickle_soul_scythe", 3f);
         DAMAGE.put("sickle_frost_scythe", 4f);
+        DAMAGE.put("sickle_skull_scythe", 4f);
 
         //Pickaxes
         DAMAGE.put("pick_diamond_pickaxe_var", 1f);
@@ -457,6 +464,7 @@ public class McdwStatsConfig {
         DAMAGE.put("spear_glaive", 3f);
         DAMAGE.put("spear_grave_bane", 5f);
         DAMAGE.put("spear_venom_glaive", 5f);
+        DAMAGE.put("spear_cackling_broom", 5f);
 
         //Spears
         DAMAGE.put("spear_spear", 3f);
@@ -556,6 +564,7 @@ public class McdwStatsConfig {
         SPEED.put("sickle_jailors_scythe", -2.25f);
         SPEED.put("sickle_soul_scythe", -2.25f);
         SPEED.put("sickle_frost_scythe", -2.5f);
+        SPEED.put("sickle_skull_scythe", -2.5f);
 
         SPEED.put("pick_diamond_pickaxe_var", -2.8f);
         SPEED.put("pick_mountaineer_pick", -2.8f);
@@ -565,6 +574,7 @@ public class McdwStatsConfig {
         SPEED.put("spear_glaive", -2.7f);
         SPEED.put("spear_grave_bane", -2.4f);
         SPEED.put("spear_venom_glaive", -2.5f);
+        SPEED.put("spear_cackling_broom", -2.4f);
 
         SPEED.put("spear_spear", -2.5f);
         SPEED.put("spear_whispering_spear", -2.5f);

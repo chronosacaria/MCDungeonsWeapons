@@ -7,6 +7,9 @@ import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.CrossbowItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 
 public class LevitationShotEnchantment extends Enchantment {
@@ -31,6 +34,11 @@ public class LevitationShotEnchantment extends Enchantment {
     @Override
     public boolean isAvailableForRandomSelection() {
         return McdwEnchantsConfig.getValue("levitation_shot");
+    }
+
+    @Override
+    public boolean isAcceptableItem(ItemStack stack) {
+        return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
     }
 }
 

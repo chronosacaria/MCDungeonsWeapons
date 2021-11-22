@@ -2,6 +2,7 @@ package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -10,28 +11,28 @@ import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 
-public class RefreshmentShotEnchantment extends Enchantment{
+public class CobwebShotEnchantment extends Enchantment {
 
-    public RefreshmentShotEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public CobwebShotEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        if (McdwEnchantsConfig.getValue("refreshment_shot")) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("refreshment_shot"), this);
+        if (McdwEnchantsConfig.getValue("cobweb_shot")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("cobweb_shot"), this);
         }
     }
 
     @Override
-    public int getMaxLevel() {
+    public int getMaxLevel(){
         return 1;
     }
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return McdwEnchantsConfig.getValue("enable_op_mixing");
+        return McdwEnchantsConfig.getValue("enable_op_mixing") || !(other instanceof AOEEnchantment);
     }
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return McdwEnchantsConfig.getValue("refreshment_shot");
+        return McdwEnchantsConfig.getValue("cobweb_shot");
     }
 
     @Override
@@ -39,3 +40,4 @@ public class RefreshmentShotEnchantment extends Enchantment{
         return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
     }
 }
+

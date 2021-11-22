@@ -39,10 +39,12 @@ public class EnchantsRegistry {
     public static Enchantment BONUS_SHOT;
     public static Enchantment CHAIN_REACTION;
     public static Enchantment CHARGE;
+    public static Enchantment COBWEB_SHOT;
     //public static Enchantment DIPPING_POISON;
     public static Enchantment FUSE_SHOT;
     public static Enchantment GROWING;
     public static Enchantment LEVITATION_SHOT;
+    public static Enchantment PHANTOMS_MARK;
     public static Enchantment RADIANCE_SHOT;
     public static Enchantment REFRESHMENT_SHOT;
     public static Enchantment REPLENISH;
@@ -116,6 +118,8 @@ public class EnchantsRegistry {
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         CHARGE = new ChargeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        COBWEB_SHOT = new CobwebShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         //DIPPING_POISON = new DippingPoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
         //        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         FUSE_SHOT = new FuseShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
@@ -123,6 +127,8 @@ public class EnchantsRegistry {
         GROWING = new GrowingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         LEVITATION_SHOT = new LevitationShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        PHANTOMS_MARK = new PhantomsMarkEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RADIANCE_SHOT = new RadianceShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

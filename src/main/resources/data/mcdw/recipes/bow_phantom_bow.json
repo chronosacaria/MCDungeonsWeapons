@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "FsW",
+        "sBS",
+        "WSS"
+    ],
+    "key": {
+        "s": {
+            "item": "minecraft:phantom_membrane"
+        },
+        "B": {
+            "item": "minecraft:bow"
+        },
+        "F": {
+            "item": "minecraft:emerald"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "W": {
+            "item": "minecraft:bone"
+        }
+    },
+    "result": {
+        "item": "mcdw:bow_phantom_bow",
+        "count": 1
+    }
+}

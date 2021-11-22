@@ -4,9 +4,14 @@ import chronosacaria.mcdw.configs.McdwLootConfig;
 import chronosacaria.mcdw.items.ItemRegistry;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.LootingEnchantLootFunction;
+import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.util.Identifier;
 
 public class McdwLoottables {
@@ -79,6 +84,17 @@ public class McdwLoottables {
                         .with(ItemEntry.builder(ItemRegistry.getItem("item_bee_stinger")));
 
                 supplier.pool(poolBuilder);
+            }
+
+            if ("minecraft:entities/witch".equals(id.toString())){
+                LootPool poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(ItemRegistry.getItem("spear_cackling_broom")).weight(1))
+                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F,
+                                1.0F)).build())
+                        .withFunction(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0F, 1.0F)).build())
+                        .build();
+                supplier.withPool(poolBuilder);
             }
 
             if (pillagerTowerLootTables(id) && McdwLootConfig.getValue("pillager_towers")){

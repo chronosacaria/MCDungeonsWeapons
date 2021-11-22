@@ -10,28 +10,23 @@ import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 
-public class RefreshmentShotEnchantment extends Enchantment{
+public class PhantomsMarkEnchantment extends Enchantment {
 
-    public RefreshmentShotEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    public PhantomsMarkEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        if (McdwEnchantsConfig.getValue("refreshment_shot")) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("refreshment_shot"), this);
+        if (McdwEnchantsConfig.getValue("phantoms_mark")) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("phantoms_mark"), this);
         }
     }
 
     @Override
-    public int getMaxLevel() {
-        return 1;
-    }
-
-    @Override
-    protected boolean canAccept (Enchantment other){
-        return McdwEnchantsConfig.getValue("enable_op_mixing");
+    public int getMaxLevel(){
+        return 3;
     }
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return McdwEnchantsConfig.getValue("refreshment_shot");
+        return McdwEnchantsConfig.getValue("phantoms_mark");
     }
 
     @Override
@@ -39,3 +34,4 @@ public class RefreshmentShotEnchantment extends Enchantment{
         return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
     }
 }
+

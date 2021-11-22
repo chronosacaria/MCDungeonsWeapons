@@ -100,6 +100,7 @@ public class ItemRegistry {
         add("sickle_jailors_scythe");
         add("sickle_soul_scythe");
         add("sickle_frost_scythe");
+        add("sickle_skull_scythe");
     }};
     private static final HashSet<String> PICKS = new HashSet<String>(){{
         add("pick_diamond_pickaxe_var");
@@ -111,6 +112,7 @@ public class ItemRegistry {
         add("spear_glaive");
         add("spear_grave_bane");
         add("spear_venom_glaive");
+        add("spear_cackling_broom");
     }};
     private static final HashSet<String> SPEARS = new HashSet<String>(){{
         add("spear_spear");
@@ -157,6 +159,8 @@ public class ItemRegistry {
         add("bow_bubble_burster");
         add("bow_void_bow");
         add("bow_call_of_the_void");
+        add("bow_phantom_bow");
+        add("bow_web_bow");
     }};
     public static final HashSet<String> SHORTBOWS = new HashSet<String>(){{
         add("bow_love_spell_bow");

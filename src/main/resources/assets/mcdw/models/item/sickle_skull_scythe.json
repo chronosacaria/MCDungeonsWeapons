@@ -1,0 +1,6 @@
+{
+  "parent": "mcdw:item/model_scythe",
+  "textures": {
+	  "layer0": "mcdw:item/sickle_skull_scythe"
+  }
+}
