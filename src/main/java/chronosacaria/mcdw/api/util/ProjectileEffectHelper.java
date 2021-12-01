@@ -37,7 +37,8 @@ public class ProjectileEffectHelper {
             double euclideanDistance = (double) MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
             double towardsY =
                     target.getBodyY(0.3333333333333333D) - persistentProjectileEntity.getY() + euclideanDistance * (double)0.2F;
-            persistentProjectileEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0f, arrowVelocity * 3.0f,
+            persistentProjectileEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f,
+                    arrowVelocity * 3.0f,
                     1.0f);
             setProjectileTowards(persistentProjectileEntity, towardsX, towardsY, towardsZ, 0);
 
@@ -65,7 +66,8 @@ public class ProjectileEffectHelper {
             double towardsZ = target.getZ() - attacker.getZ();
             double euclideanDist = (double)MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
             double towardsY = target.getBodyY(0.3333333333333333D) - arrowEntity.getY() + euclideanDist * (double)0.2F;
-            arrowEntity.setProperties(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F, 1.0F);
+            arrowEntity.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F,
+                    1.0F);
             setProjectileTowards(arrowEntity, towardsX, towardsY, towardsZ, 0);
             //
             arrowEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;

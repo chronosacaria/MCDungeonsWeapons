@@ -21,9 +21,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin (LivingEntity.class)
 public abstract class BusyBeeEnchantmentMixin extends Entity {
-    @Shadow
-    @Final
-    private DefaultedList<ItemStack> equippedHand;
 
     @Shadow
     public abstract ItemStack getOffHandStack();
@@ -45,7 +42,7 @@ public abstract class BusyBeeEnchantmentMixin extends Entity {
     @Inject(at = @At("HEAD"), method = "swingHand(Lnet/minecraft/util/Hand;)V", cancellable = true)
 
     private void swingHand(Hand hand, CallbackInfo ci) {
-        ItemStack mainHandStack = equippedHand.get(0);
+        ItemStack mainHandStack = getMainHandStack();
         ItemStack offHandStack = getOffHandStack();
         if (McdwEnchantsConfig.getValue("mixin_bee")) {
             if (mainHandStack.getItem() == ItemRegistry.getItem("sword_beestinger") && offHandStack.getItem() == ItemRegistry.getItem("item_bee_stinger")) {

@@ -83,7 +83,8 @@ public class McdwShortBow extends BowItem implements IRangedWeapon {
                         PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world,
                                 itemStack, playerEntity);
 
-                        persistentProjectileEntity.setProperties(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(),
+                        persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(),
+                                playerEntity.getYaw(),
                                 0.0F, f * maxBowRange, 1.0F);
                         if (f >= 0.4F) {
                             persistentProjectileEntity.setCritical(true);

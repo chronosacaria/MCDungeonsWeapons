@@ -2,7 +2,6 @@ package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
-import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -91,12 +90,4 @@ public class AbilityHelper {
 
         return false;
     }
-
-    // Have to figure out how to access targetSelector or figure out a different way to do this...
-    //public static void sendIntoWildRage(MobEntity mobEntity){
-    //    mobEntity.targetSelector.add(0, new WildRageAttackGoal(mobEntity));
-    //}
-
-
-
 }

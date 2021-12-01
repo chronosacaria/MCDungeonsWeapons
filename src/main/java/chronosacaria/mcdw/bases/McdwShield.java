@@ -28,7 +28,7 @@ public class McdwShield extends ShieldItem {
 
     @Override
     public String getTranslationKey (ItemStack itemStack){
-        return itemStack.getSubTag("BlockEntityTag") != null ?
+        return BlockItem.getBlockEntityNbt(itemStack) != null ?
                 this.getTranslationKey() + '.' + getColor(itemStack).getName() : super.getTranslationKey(itemStack);
     }
 
