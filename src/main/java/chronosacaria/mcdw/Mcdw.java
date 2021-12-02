@@ -6,6 +6,9 @@ import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.loottables.McdwLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import com.google.gson.JsonObject;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
+import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -152,10 +155,12 @@ public class Mcdw implements ModInitializer {
             })
             .build();
 
-
+    public static McdwConfig CONFIG;
 
     @Override
     public void onInitialize() {
+        CONFIG = AutoConfig.register(McdwConfig.class, PartitioningSerializer.wrap(JanksonConfigSerializer::new)).getConfig();
+
         // Config
         McdwStatsConfig.initAll();
         McdwEnchantsConfig.init();

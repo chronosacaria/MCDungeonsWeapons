@@ -29,6 +29,9 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        url "https://maven.shedaniel.me/"
+    }
     repositories {
         jcenter()
     }
@@ -52,6 +55,11 @@ dependencies {
     // EnchantGiver
     modImplementation "curse.maven:enchanthelper-434579:3347061"
     include "curse.maven:enchanthelper-434579:3347061"
+
+    // Cloth Config
+    modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 
 }
 

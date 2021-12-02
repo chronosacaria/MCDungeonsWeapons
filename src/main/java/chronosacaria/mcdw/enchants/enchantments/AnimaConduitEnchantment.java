@@ -1,8 +1,9 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
+import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -12,7 +13,7 @@ public class AnimaConduitEnchantment extends AOEEnchantment {
 
     public AnimaConduitEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        if (McdwEnchantsConfig.getValue("anima")){
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT)){
             Registry.register(Registry.ENCHANTMENT,Mcdw.ID("anima_conduit"),this);
         }
     }
@@ -25,12 +26,12 @@ public class AnimaConduitEnchantment extends AOEEnchantment {
 
     @Override
     protected boolean canAccept(Enchantment other) {
-        return McdwEnchantsConfig.getValue("extra_xp_healing") || !(other instanceof SoulSiphonEnchantment);
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.EXTRA_XP_HEALING) || !(other instanceof SoulSiphonEnchantment);
     }
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return McdwEnchantsConfig.getValue("anima");
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT);
     }
 
 }
