@@ -3,6 +3,7 @@ package chronosacaria.mcdw;
 import chronosacaria.mcdw.configs.*;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.loottables.McdwLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import com.google.gson.JsonObject;
@@ -160,6 +161,8 @@ public class Mcdw implements ModInitializer {
     @Override
     public void onInitialize() {
         CONFIG = AutoConfig.register(McdwConfig.class, PartitioningSerializer.wrap(JanksonConfigSerializer::new)).getConfig();
+
+        ItemsInit.init();
 
         // Config
         McdwStatsConfig.initAll();

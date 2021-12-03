@@ -10,11 +10,17 @@ import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 @Config(name = Mcdw.MOD_ID)
 public class McdwConfig extends PartitioningSerializer.GlobalData {
 
+    @ConfigEntry.Category("mcdw_items_registry")
+    public McdwEnableItemsConfig mcdwEnableItemsConfig = new McdwEnableItemsConfig();
+
     @ConfigEntry.Category("mcdw_enchantment_settings_config")
     public McdwEnchantmentSettingsConfig mcdwEnchantmentSettingsConfig = new McdwEnchantmentSettingsConfig();
 
     @ConfigEntry.Category("mcdw_enchantments_config")
     public McdwEnchantmentsConfig mcdwEnchantmentsConfig = new McdwEnchantmentsConfig();
+
+    @ConfigEntry.Category("mcdw_stats_config")
+    public McdwNewStatsConfig mcdwNewStatsConfig = new McdwNewStatsConfig();
 
     public static void init() {
         AutoConfig.register(McdwConfig.class,

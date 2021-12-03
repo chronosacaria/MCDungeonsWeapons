@@ -1,7 +1,5 @@
 package chronosacaria.mcdw.api.util;
 
-import chronosacaria.mcdw.enchants.lists.MeleeRangedEnchantmentList;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -127,27 +125,6 @@ public class ProjectileEffectHelper {
             world.spawnEntity(projectile);
         }
     }
-
-    //TODO RANGED ENIGMA RESONATOR
-    public static boolean soulsCriticalBoost(PlayerEntity attacker, ItemStack mainhand){
-        int numSouls = Math.min(attacker.experienceLevel, 50);
-        //boolean uniqueWeaponFlag = mainhand.getItem() == DeferredItemInit.FERAL_SOUL_CROSSBOW.get()
-                //|| mainhand.getItem() == DeferredItemInit.SOUL_HUNTER_CROSSBOW.get();
-        if(McdwEnchantmentHelper.hasEnchantment(mainhand, MeleeRangedEnchantmentList.ENIGMA_RESONATOR)){
-            int enigmaResonatorLevel =
-                    EnchantmentHelper.getLevel(MeleeRangedEnchantmentList.ENIGMA_RESONATOR, mainhand);
-            float soulsCriticalBoostChanceCap;
-            soulsCriticalBoostChanceCap = 0.1F + 0.05F * enigmaResonatorLevel;
-            float soulsCriticalBoostRand = attacker.getRandom().nextFloat();
-            return soulsCriticalBoostRand <= Math.min(numSouls / 50.0, soulsCriticalBoostChanceCap);
-        }
-        //if(uniqueWeaponFlag){
-        //    float soulsCriticalBoostRand = attacker.getRandom().nextFloat();
-        //    return soulsCriticalBoostRand <= Math.min(numSouls / 50.0, 0.15F);
-        //}
-        return false;
-    }
-
 
     public static void setProjectileTowards(ProjectileEntity projectileEntity, double x, double y
             , double z, float inaccuracy){

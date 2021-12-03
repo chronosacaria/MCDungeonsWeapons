@@ -18,7 +18,7 @@ public class ItemRegistry {
     public static final HashMap<String, Item> ITEMS = new HashMap<>();
 
     private static final HashSet<String> SWORDS = new HashSet<String>() {{
-        add("sword_claymore");
+        //add("sword_claymore");
         add("sword_broadsword");
         add("sword_frost_slayer");
         add("sword_heartstealer");
