@@ -1,7 +1,8 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -14,7 +15,7 @@ public class RefreshmentShotEnchantment extends Enchantment{
 
     public RefreshmentShotEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        if (McdwEnchantsConfig.getValue("refreshment_shot")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT_SHOT)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("refreshment_shot"), this);
         }
     }
@@ -26,12 +27,12 @@ public class RefreshmentShotEnchantment extends Enchantment{
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return McdwEnchantsConfig.getValue("enable_op_mixing");
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING);
     }
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return McdwEnchantsConfig.getValue("refreshment_shot");
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT_SHOT);
     }
 
     @Override

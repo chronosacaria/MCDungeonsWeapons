@@ -2,6 +2,7 @@ package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -11,7 +12,7 @@ public class ProspectorEnchantment extends Enchantment {
 
     public ProspectorEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        if (McdwEnchantsConfig.getValue("prospector")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("prospector"), this);
         }
     }
@@ -23,7 +24,7 @@ public class ProspectorEnchantment extends Enchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return McdwEnchantsConfig.getValue("prospector");
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR);
     }
 }
 

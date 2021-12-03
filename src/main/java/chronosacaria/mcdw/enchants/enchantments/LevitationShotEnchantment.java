@@ -4,6 +4,8 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
+import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -16,7 +18,7 @@ public class LevitationShotEnchantment extends Enchantment {
 
     public LevitationShotEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        if (McdwEnchantsConfig.getValue("levitation_shot")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEVITATION_SHOT)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("levitation_shot"), this);
         }
     }
@@ -28,12 +30,12 @@ public class LevitationShotEnchantment extends Enchantment {
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return McdwEnchantsConfig.getValue("enable_op_mixing") || !(other instanceof AOEEnchantment);
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING) || !(other instanceof AOEEnchantment);
     }
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return McdwEnchantsConfig.getValue("levitation_shot");
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEVITATION_SHOT);
     }
 
     @Override

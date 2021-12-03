@@ -2,6 +2,7 @@ package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -13,7 +14,7 @@ import net.minecraft.util.registry.Registry;
 public class TempoTheftEnchantment extends Enchantment {
     public TempoTheftEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        if (McdwEnchantsConfig.getValue("tempo_theft")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.TEMPO_THEFT)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("tempo_theft"), this);
         }
     }
@@ -25,7 +26,7 @@ public class TempoTheftEnchantment extends Enchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return McdwEnchantsConfig.getValue("tempo_theft");
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.TEMPO_THEFT);
     }
 
     @Override

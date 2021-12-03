@@ -3,6 +3,7 @@ package chronosacaria.mcdw.enchants.enchantments;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.BowItem;
@@ -13,7 +14,7 @@ import net.minecraft.util.registry.Registry;
 public class FuseShotEnchantment extends RangedEnchantment {
     public FuseShotEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        if (McdwEnchantsConfig.getValue("fuse_shot")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.FUSE_SHOT)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("fuse_shot"), this);
         }
     }
@@ -25,7 +26,7 @@ public class FuseShotEnchantment extends RangedEnchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return McdwEnchantsConfig.getValue("fuse_shot");
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.FUSE_SHOT);
     }
 
     @Override

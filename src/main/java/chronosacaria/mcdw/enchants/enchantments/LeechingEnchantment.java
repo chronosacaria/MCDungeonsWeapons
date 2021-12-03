@@ -1,8 +1,9 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
+import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -12,7 +13,7 @@ public class LeechingEnchantment extends Enchantment{
 
     public LeechingEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
-        if (McdwEnchantsConfig.getValue("leeching")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEECHING)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("leeching"), this);
         }
     }
@@ -24,7 +25,7 @@ public class LeechingEnchantment extends Enchantment{
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return McdwEnchantsConfig.getValue("extra_leeching") || !(other instanceof DamageBoostEnchantment);
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.LEECHING_CAN_BE_MIXED_WITH_HEALING) || !(other instanceof DamageBoostEnchantment);
     }
 
     /*@Override // LEECHING AS PER HIT
@@ -45,6 +46,6 @@ public class LeechingEnchantment extends Enchantment{
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return McdwEnchantsConfig.getValue("leeching");
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEECHING);
     }
 }
