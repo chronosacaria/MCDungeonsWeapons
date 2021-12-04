@@ -2,6 +2,7 @@ package chronosacaria.mcdw;
 
 import chronosacaria.mcdw.configs.*;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.loottables.McdwLoottables;
@@ -32,7 +33,7 @@ public class Mcdw implements ModInitializer {
 
     public static final ItemGroup WEAPONS = FabricItemGroupBuilder.build(
             Mcdw.ID("weapons"),
-            () -> new ItemStack(ItemRegistry.getItem("sword_heartstealer")));
+            () -> new ItemStack(ItemsInit.swordItems.get(SwordsID.SWORD_HEARTSTEALER)));
     public static final ItemGroup RANGED = FabricItemGroupBuilder.build(
             Mcdw.ID("weapons/bows"),
             () -> new ItemStack(ItemRegistry.getItem("bow_longbow")));
