@@ -719,7 +719,7 @@ public class ItemsInit {
             }
 
             whipItems.put(whipsID, weapon);
-            registerItem(whipItems.toString().toLowerCase(), weapon);
+            registerItem(whipsID.toString().toLowerCase(), weapon);
         }
     }
 
