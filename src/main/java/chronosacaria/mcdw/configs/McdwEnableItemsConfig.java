@@ -23,6 +23,7 @@ public class McdwEnableItemsConfig implements ConfigData {
     public EnumMap<SpearsID, Boolean> spearsEnabled = new EnumMap<>(SpearsID.class);
     public EnumMap<StavesID, Boolean> stavesEnabled = new EnumMap<>(StavesID.class);
     public EnumMap<WhipsID, Boolean> whipsEnabled = new EnumMap<>(WhipsID.class);
+    public EnumMap<BowsID, Boolean> bowsEnabled = new EnumMap<>(BowsID.class);
 
     public McdwEnableItemsConfig() {
         for (SwordsID swordsID : SwordsID.values()){
@@ -66,6 +67,9 @@ public class McdwEnableItemsConfig implements ConfigData {
         }
         for (WhipsID whipsID : WhipsID.values()){
             whipsEnabled.put(whipsID, true);
+        }
+        for (BowsID bowsID : BowsID.values()){
+            bowsEnabled.put(bowsID, true);
         }
     }
 }

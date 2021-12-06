@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.configs;
 
 import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
+import chronosacaria.mcdw.configs.stats.RangedWeaponStats;
 import chronosacaria.mcdw.enums.*;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
@@ -24,6 +25,7 @@ public class McdwNewStatsConfig implements ConfigData {
     public EnumMap<SpearsID, MeleeWeaponStats> spearStats = new EnumMap<>(SpearsID.class);
     public EnumMap<StavesID, MeleeWeaponStats> staffStats = new EnumMap<>(StavesID.class);
     public EnumMap<WhipsID, MeleeWeaponStats> whipStats = new EnumMap<>(WhipsID.class);
+    public EnumMap<BowsID, RangedWeaponStats> bowStats = new EnumMap<>(BowsID.class);
 
     // convenience methods:
     protected MeleeWeaponStats swordStats(int damage, float attackSpeed, SwordsID swordsID){
@@ -67,6 +69,9 @@ public class McdwNewStatsConfig implements ConfigData {
     }
     protected MeleeWeaponStats whipStats(int damage, float attackSpeed, WhipsID whipsID){
         return whipStats.get(whipsID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected RangedWeaponStats bowStats(float drawSpeed, float range, BowsID bowsID){
+        return bowStats.get(bowsID).rangedWeaponStats(drawSpeed, range);
     }
 
     public McdwNewStatsConfig() {
@@ -124,6 +129,10 @@ public class McdwNewStatsConfig implements ConfigData {
 
         for (WhipsID whipsID : WhipsID.values()) {
             whipStats.put(whipsID, new MeleeWeaponStats());
+        }
+
+        for (BowsID bowsID : BowsID.values()) {
+            bowStats.put(bowsID, new RangedWeaponStats());
         }
 
         swordStats(5, -3.0f, SwordsID.SWORD_CLAYMORE);
@@ -230,5 +239,36 @@ public class McdwNewStatsConfig implements ConfigData {
 
         whipStats(2, -3.1f, WhipsID.WHIP_WHIP);
         whipStats(5, -3.1f, WhipsID.WHIP_VINE_WHIP);
+
+        bowStats(12.0f, 7.6f, BowsID.BOW_ANCIENT_BOW);
+        bowStats(16.0f, 3.4f, BowsID.BOW_BONEBOW);
+        bowStats(8.0f, 7.4f, BowsID.BOW_LOST_SOULS);
+        bowStats(20.0f, 6.4f, BowsID.BOW_ELITE_POWER_BOW);
+        bowStats(28.0f, 7.0f, BowsID.BOW_HAUNTED_BOW);
+        bowStats(13.0f, 5.0f, BowsID.BOW_HUNTERS_PROMISE);
+        bowStats(14.0f, 4.6f, BowsID.BOW_HUNTING_BOW);
+        bowStats(15.0f, 4.4f, BowsID.BOW_MASTERS_BOW);
+        bowStats(15.0f, 6.0f, BowsID.BOW_NOCTURNAL_BOW);
+        bowStats(20.0f, 6.4f, BowsID.BOW_POWER_BOW);
+        bowStats(8.0f, 9.0f, BowsID.BOW_SABREWING);
+        bowStats(14.0f, 4.8f, BowsID.BOW_SNOW_BOW);
+        bowStats(12.0f, 4.0f, BowsID.BOW_SOUL_BOW);
+        bowStats(15.0f, 5.6f, BowsID.BOW_GREEN_MENACE);
+        bowStats(15.0f, 5.6f, BowsID.BOW_PINK_SCOUNDREL);
+        bowStats(10.0f, 4.2f, BowsID.BOW_TRICKBOW);
+        bowStats(10.0f, 4.2f, BowsID.BOW_TWIN_BOW);
+        bowStats(13.0f, 5.2f, BowsID.BOW_WINTERS_TOUCH);
+        bowStats(12.0f, 4.0f, BowsID.BOW_SHIVERING_BOW);
+        bowStats(9.0f, 6.8f, BowsID.BOW_WIND_BOW);
+        bowStats(9.0f, 7.4f, BowsID.BOW_ECHO_OF_THE_VALLEY);
+        bowStats(10.0f, 7.2f, BowsID.BOW_BURST_GALE_BOW);
+        bowStats(13.0f, 4.0f, BowsID.BOW_TWISTING_VINE_BOW);
+        bowStats(13.0f, 4.0f, BowsID.BOW_WEEPING_VINE_BOW);
+        bowStats(13.0f, 4.0f, BowsID.BOW_BUBBLE_BOW);
+        bowStats(13.0f, 4.2f, BowsID.BOW_BUBBLE_BURSTER);
+        bowStats(13.0f, 4.1f, BowsID.BOW_VOID_BOW);
+        bowStats(13.0f, 4.3f, BowsID.BOW_CALL_OF_THE_VOID);
+        bowStats(20.0f, 6.4f, BowsID.BOW_PHANTOM_BOW);
+        bowStats(13.0f, 5.2f, BowsID.BOW_WEB_BOW);
     }
 }
