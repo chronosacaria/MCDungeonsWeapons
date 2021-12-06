@@ -1,10 +1,7 @@
 package chronosacaria.mcdw.configs;
 
 import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
-import chronosacaria.mcdw.enums.AxesID;
-import chronosacaria.mcdw.enums.DaggersID;
-import chronosacaria.mcdw.enums.DoubleAxesID;
-import chronosacaria.mcdw.enums.SwordsID;
+import chronosacaria.mcdw.enums.*;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
@@ -17,6 +14,16 @@ public class McdwNewStatsConfig implements ConfigData {
     public EnumMap<AxesID, MeleeWeaponStats> axeStats = new EnumMap<>(AxesID.class);
     public EnumMap<DoubleAxesID, MeleeWeaponStats> doubleAxeStats = new EnumMap<>(DoubleAxesID.class);
     public EnumMap<DaggersID, MeleeWeaponStats> daggerStats = new EnumMap<>(DaggersID.class);
+    public EnumMap<SoulDaggersID, MeleeWeaponStats> soulDaggerStats = new EnumMap<>(SoulDaggersID.class);
+    public EnumMap<HammersID, MeleeWeaponStats> hammerStats = new EnumMap<>(HammersID.class);
+    public EnumMap<GauntletsID, MeleeWeaponStats> gauntletStats = new EnumMap<>(GauntletsID.class);
+    public EnumMap<SicklesID, MeleeWeaponStats> sickleStats = new EnumMap<>(SicklesID.class);
+    public EnumMap<ScythesID, MeleeWeaponStats> scytheStats = new EnumMap<>(ScythesID.class);
+    public EnumMap<PicksID, MeleeWeaponStats> pickStats = new EnumMap<>(PicksID.class);
+    public EnumMap<GlaivesID, MeleeWeaponStats> glaiveStats = new EnumMap<>(GlaivesID.class);
+    public EnumMap<SpearsID, MeleeWeaponStats> spearStats = new EnumMap<>(SpearsID.class);
+    public EnumMap<StavesID, MeleeWeaponStats> staffStats = new EnumMap<>(StavesID.class);
+    public EnumMap<WhipsID, MeleeWeaponStats> whipStats = new EnumMap<>(WhipsID.class);
 
     // convenience methods:
     protected MeleeWeaponStats swordStats(int damage, float attackSpeed, SwordsID swordsID){
@@ -30,6 +37,36 @@ public class McdwNewStatsConfig implements ConfigData {
     }
     protected MeleeWeaponStats daggerStats(int damage, float attackSpeed, DaggersID daggersID){
         return daggerStats.get(daggersID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected MeleeWeaponStats soulDaggerStats(int damage, float attackSpeed, SoulDaggersID soulDaggersID){
+        return soulDaggerStats.get(soulDaggersID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected MeleeWeaponStats hammerStats(int damage, float attackSpeed, HammersID hammersID){
+        return hammerStats.get(hammersID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected MeleeWeaponStats gauntletStats(int damage, float attackSpeed, GauntletsID gauntletsID){
+        return gauntletStats.get(gauntletsID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected MeleeWeaponStats sickleStats(int damage, float attackSpeed, SicklesID sicklesID){
+        return sickleStats.get(sicklesID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected MeleeWeaponStats scytheStats(int damage, float attackSpeed, ScythesID scythesID){
+        return scytheStats.get(scythesID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected MeleeWeaponStats pickStats(int damage, float attackSpeed, PicksID picksID){
+        return pickStats.get(picksID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected MeleeWeaponStats glaiveStats(int damage, float attackSpeed, GlaivesID glaivesID){
+        return glaiveStats.get(glaivesID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected MeleeWeaponStats spearStats(int damage, float attackSpeed, SpearsID spearsID){
+        return spearStats.get(spearsID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected MeleeWeaponStats staffStats(int damage, float attackSpeed, StavesID stavesID){
+        return staffStats.get(stavesID).meleeWeaponStats(damage, attackSpeed);
+    }
+    protected MeleeWeaponStats whipStats(int damage, float attackSpeed, WhipsID whipsID){
+        return whipStats.get(whipsID).meleeWeaponStats(damage, attackSpeed);
     }
 
     public McdwNewStatsConfig() {
@@ -47,6 +84,46 @@ public class McdwNewStatsConfig implements ConfigData {
 
         for (DaggersID daggersID : DaggersID.values()) {
             daggerStats.put(daggersID, new MeleeWeaponStats());
+        }
+
+        for (SoulDaggersID soulDaggersID : SoulDaggersID.values()) {
+            soulDaggerStats.put(soulDaggersID, new MeleeWeaponStats());
+        }
+
+        for (HammersID hammersID : HammersID.values()) {
+            hammerStats.put(hammersID, new MeleeWeaponStats());
+        }
+
+        for (GauntletsID gauntletsID : GauntletsID.values()) {
+            gauntletStats.put(gauntletsID, new MeleeWeaponStats());
+        }
+
+        for (SicklesID sicklesID : SicklesID.values()) {
+            sickleStats.put(sicklesID, new MeleeWeaponStats());
+        }
+
+        for (ScythesID scythesID : ScythesID.values()) {
+            scytheStats.put(scythesID, new MeleeWeaponStats());
+        }
+
+        for (PicksID picksID : PicksID.values()) {
+            pickStats.put(picksID, new MeleeWeaponStats());
+        }
+
+        for (GlaivesID glaivesID : GlaivesID.values()) {
+            glaiveStats.put(glaivesID, new MeleeWeaponStats());
+        }
+
+        for (SpearsID spearsID : SpearsID.values()) {
+            spearStats.put(spearsID, new MeleeWeaponStats());
+        }
+
+        for (StavesID stavesID : StavesID.values()) {
+            staffStats.put(stavesID, new MeleeWeaponStats());
+        }
+
+        for (WhipsID whipsID : WhipsID.values()) {
+            whipStats.put(whipsID, new MeleeWeaponStats());
         }
 
         swordStats(5, -3.0f, SwordsID.SWORD_CLAYMORE);
@@ -101,59 +178,57 @@ public class McdwNewStatsConfig implements ConfigData {
         daggerStats(4, -1.2f, DaggersID.DAGGER_VOID_TOUCHED_BLADE);
         daggerStats(4, -1.2f, DaggersID.DAGGER_THE_BEGINNING);
         daggerStats(4, -1.2f, DaggersID.DAGGER_THE_END);
-//
+
         daggerStats(2, -1.3f, DaggersID.DAGGER_TEMPEST_KNIFE);
         daggerStats(3, -1.3f, DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE);
         daggerStats(4, -1.3f, DaggersID.DAGGER_CHILL_GALE_KNIFE);
-//
-        //soulDaggerStats(1, -1.1f, SoulDaggersID.DAGGER_SOUL_KNIFE);
-        //soulDaggerStats(4, -0.9f, SoulDaggersID.DAGGER_ETERNAL_KNIFE);
-        //soulDaggerStats(3, -1.5f, SoulDaggersID.SWORD_TRUTHSEEKER);
-//
-        //meleeWeaponStats(4, -3.0f, MeleeWeaponID.HAMMER_GREAT);
-        //meleeWeaponStats(5, -3.0f, MeleeWeaponID.HAMMER_STORMLANDER);
-        //meleeWeaponStats(5, -3.0f, MeleeWeaponID.HAMMER_GRAVITY);
-        //meleeWeaponStats(4, -2.9f, MeleeWeaponID.HAMMER_MACE);
-        //meleeWeaponStats(5, -2.9f, MeleeWeaponID.HAMMER_FLAIL);
-        //meleeWeaponStats(4, -2.5f, MeleeWeaponID.HAMMER_SUNS_GRACE);
-        //meleeWeaponStats(5, -3.1f, MeleeWeaponID.HAMMER_BONECLUB);
-        //meleeWeaponStats(5, -3.1f, MeleeWeaponID.HAMMER_BONE_CUDGEL);
-//
-        //meleeWeaponStats(0, -1.4f, MeleeWeaponID.GAUNTLET_GAUNTLET);
-        //meleeWeaponStats(0, -1.4f, MeleeWeaponID.GAUNTLET_MAULERS);
-        //meleeWeaponStats(0, -1.4f, MeleeWeaponID.GAUNTLET_SOUL_FISTS);
-//
-        //meleeWeaponStats(1, -1.9f, MeleeWeaponID.SICKLE_SICKLE);
-        //meleeWeaponStats(3, -1.9f, MeleeWeaponID.SICKLE_NIGHTMARES_BITE);
-        //meleeWeaponStats(4, -1.9f, MeleeWeaponID.SICKLE_LAST_LAUGH_GOLD);
-        //meleeWeaponStats(4, -1.9f, MeleeWeaponID.SICKLE_LAST_LAUGH_SILVER);
-//
-        //meleeWeaponStats(4, -2.25f, MeleeWeaponID.SICKLE_JAILORS_SCYTHE);
-        //meleeWeaponStats(3, -2.25f, MeleeWeaponID.SICKLE_SOUL_SCYTHE);
-        //meleeWeaponStats(4, -2.5f, MeleeWeaponID.SICKLE_FROST_SCYTHE);
-        //meleeWeaponStats(4, -2.5f, MeleeWeaponID.SICKLE_SKULL_SCYTHE);
-//
-        //meleeWeaponStats(1, -2.8f, MeleeWeaponID.PICK_DIAMOND_PICKAXE_VAR);
-        //meleeWeaponStats(1, -2.8f, MeleeWeaponID.PICK_MOUNTAINEER_PICK);
-        //meleeWeaponStats(1, -2.8f, MeleeWeaponID.PICK_HOWLING_PICK);
-        //meleeWeaponStats(1, -2.8f, MeleeWeaponID.PICK_HAILING_PINNACLE);
-//
-        //meleeWeaponStats(3, -2.7f, MeleeWeaponID.SPEAR_GLAIVE);
-        //meleeWeaponStats(5, -2.4f, MeleeWeaponID.SPEAR_GRAVE_BANE);
-        //meleeWeaponStats(5, -2.5f, MeleeWeaponID.SPEAR_VENOM_GLAIVE);
-        //meleeWeaponStats(5, -2.4f, MeleeWeaponID.SPEAR_CACKLING_BROOM);
-//
-        //meleeWeaponStats(3, -2.5f, MeleeWeaponID.SPEAR_SPEAR);
-        //meleeWeaponStats(5, -2.5f, MeleeWeaponID.SPEAR_WHISPERING_SPEAR);
-        //meleeWeaponStats(4, -2.15f, MeleeWeaponID.SPEAR_FORTUNE);
-//
-        //meleeWeaponStats(0, -0.1f, MeleeWeaponID.STAFF_BATTLESTAFF);
-        //meleeWeaponStats(1, -0.1f, MeleeWeaponID.STAFF_GROWING_STAFF);
-        //meleeWeaponStats(0, -0.1f, MeleeWeaponID.STAFF_BATTLESTAFF_OF_TERROR);
-//
-        //meleeWeaponStats(2, -3.1f, MeleeWeaponID.WHIP_WHIP);
-        //meleeWeaponStats(5, -3.1f, MeleeWeaponID.WHIP_VINE_WHIP);
+
+        soulDaggerStats(1, -1.1f, SoulDaggersID.DAGGER_SOUL_KNIFE);
+        soulDaggerStats(4, -0.9f, SoulDaggersID.DAGGER_ETERNAL_KNIFE);
+        soulDaggerStats(3, -1.5f, SoulDaggersID.SWORD_TRUTHSEEKER);
+
+        hammerStats(4, -3.0f,HammersID.HAMMER_GREAT);
+        hammerStats(5, -3.0f,HammersID.HAMMER_STORMLANDER);
+        hammerStats(5, -3.0f,HammersID.HAMMER_GRAVITY);
+        hammerStats(4, -2.9f,HammersID.HAMMER_MACE);
+        hammerStats(5, -2.9f,HammersID.HAMMER_FLAIL);
+        hammerStats(4, -2.5f,HammersID.HAMMER_SUNS_GRACE);
+        hammerStats(5, -3.1f,HammersID.HAMMER_BONECLUB);
+        hammerStats(5, -3.1f,HammersID.HAMMER_BONE_CUDGEL);
+
+        gauntletStats(0, -1.4f, GauntletsID.GAUNTLET_GAUNTLET);
+        gauntletStats(0, -1.4f, GauntletsID.GAUNTLET_MAULERS);
+        gauntletStats(0, -1.4f, GauntletsID.GAUNTLET_SOUL_FISTS);
+
+        sickleStats(1, -1.9f, SicklesID.SICKLE_SICKLE);
+        sickleStats(3, -1.9f, SicklesID.SICKLE_NIGHTMARES_BITE);
+        sickleStats(2, -1.9f, SicklesID.SICKLE_LAST_LAUGH_GOLD);
+        sickleStats(2, -1.9f, SicklesID.SICKLE_LAST_LAUGH_SILVER);
+
+        scytheStats(4, -2.25f, ScythesID.SICKLE_JAILORS_SCYTHE);
+        scytheStats(3, -2.25f, ScythesID.SICKLE_SOUL_SCYTHE);
+        scytheStats(4, -2.5f, ScythesID.SICKLE_FROST_SCYTHE);
+        scytheStats(4, -2.5f, ScythesID.SICKLE_SKULL_SCYTHE);
+
+        pickStats(1, -2.8f, PicksID.PICK_DIAMOND_PICKAXE_VAR);
+        pickStats(1, -2.8f, PicksID.PICK_MOUNTAINEER_PICK);
+        pickStats(1, -2.8f, PicksID.PICK_HOWLING_PICK);
+        pickStats(1, -2.8f, PicksID.PICK_HAILING_PINNACLE);
+
+        glaiveStats(3, -2.7f, GlaivesID.SPEAR_GLAIVE);
+        glaiveStats(5, -2.4f, GlaivesID.SPEAR_GRAVE_BANE);
+        glaiveStats(5, -2.5f, GlaivesID.SPEAR_VENOM_GLAIVE);
+        glaiveStats(5, -2.4f, GlaivesID.SPEAR_CACKLING_BROOM);
+
+        spearStats(3, -2.5f, SpearsID.SPEAR_SPEAR);
+        spearStats(5, -2.5f, SpearsID.SPEAR_WHISPERING_SPEAR);
+        spearStats(4, -2.15f, SpearsID.SPEAR_FORTUNE);
+
+        staffStats(0, -0.1f, StavesID.STAFF_BATTLESTAFF);
+        staffStats(1, -0.1f, StavesID.STAFF_GROWING_STAFF);
+        staffStats(0, -0.1f, StavesID.STAFF_BATTLESTAFF_OF_TERROR);
+
+        whipStats(2, -3.1f, WhipsID.WHIP_WHIP);
+        whipStats(5, -3.1f, WhipsID.WHIP_VINE_WHIP);
     }
-
-
 }
