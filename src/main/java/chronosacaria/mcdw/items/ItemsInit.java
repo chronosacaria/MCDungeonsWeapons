@@ -42,122 +42,144 @@ public class ItemsInit {
             switch (swordsID) {
                 case SWORD_CLAYMORE:
                     weapon =
-                            new McdwSword(ToolMaterials.IRON,
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_CLAYMORE).material),
                                     CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_CLAYMORE).damage,
                                     CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_CLAYMORE).attackSpeed);
                     break;
                 case SWORD_BROADSWORD:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_BROADSWORD).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_BROADSWORD).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_BROADSWORD).attackSpeed);
                     break;
                 case SWORD_FROST_SLAYER:
-                    weapon = new McdwSword(ToolMaterials.DIAMOND,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_FROST_SLAYER).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_FROST_SLAYER).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_FROST_SLAYER).attackSpeed);
                     break;
                 case SWORD_HEARTSTEALER:
-                    weapon = new McdwSword(ToolMaterials.DIAMOND,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_HEARTSTEALER).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_HEARTSTEALER).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_HEARTSTEALER).attackSpeed);
                     break;
                 case SWORD_GREAT_AXEBLADE:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_GREAT_AXEBLADE).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_GREAT_AXEBLADE).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_GREAT_AXEBLADE).attackSpeed);
                     break;
                 case SWORD_RAPIER:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_RAPIER).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_RAPIER).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_RAPIER).attackSpeed);
                     break;
                 case SWORD_BEESTINGER:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_BEESTINGER).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_BEESTINGER).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_BEESTINGER).attackSpeed);
                     break;
                 case SWORD_FREEZING_FOIL:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_FREEZING_FOIL).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_FREEZING_FOIL).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_FREEZING_FOIL).attackSpeed);
                     break;
                 case SWORD_CUTLASS:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_CUTLASS).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_CUTLASS).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_CUTLASS).attackSpeed);
                     break;
                 case SWORD_NAMELESS_BLADE:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_NAMELESS_BLADE).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_NAMELESS_BLADE).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_NAMELESS_BLADE).attackSpeed);
                     break;
                 case SWORD_DANCERS_SWORD:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_DANCERS_SWORD).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_DANCERS_SWORD).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_DANCERS_SWORD).attackSpeed);
                     break;
                 case SWORD_KATANA:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_KATANA).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_KATANA).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_KATANA).attackSpeed);
                     break;
                 case SWORD_MASTERS_KATANA:
-                    weapon = new McdwSword(ToolMaterials.DIAMOND,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_MASTERS_KATANA).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_MASTERS_KATANA).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_MASTERS_KATANA).attackSpeed);
                     break;
                 case SWORD_DARK_KATANA:
-                    weapon = new McdwSword(ToolMaterials.NETHERITE,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_DARK_KATANA).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_DARK_KATANA).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_DARK_KATANA).attackSpeed);
                     break;
                 case SWORD_IRON_SWORD_VAR:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_IRON_SWORD_VAR).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_IRON_SWORD_VAR).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_IRON_SWORD_VAR).attackSpeed);
                     break;
                 case SWORD_DIAMOND_SWORD_VAR:
-                    weapon = new McdwSword(ToolMaterials.DIAMOND,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_DIAMOND_SWORD_VAR).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_DIAMOND_SWORD_VAR).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_DIAMOND_SWORD_VAR).attackSpeed);
                     break;
                 case SWORD_HAWKBRAND:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_HAWKBRAND).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_HAWKBRAND).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_HAWKBRAND).attackSpeed);
                     break;
                 case SWORD_SINISTER:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_SINISTER).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_SINISTER).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_SINISTER).attackSpeed);
                     break;
                 case SWORD_BROKEN_SAWBLADE:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_BROKEN_SAWBLADE).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_BROKEN_SAWBLADE).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_BROKEN_SAWBLADE).attackSpeed);
                     break;
                 case SWORD_MECHANIZED_SAWBLADE:
-                    weapon = new McdwSword(ToolMaterials.NETHERITE,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_MECHANIZED_SAWBLADE).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_MECHANIZED_SAWBLADE).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_MECHANIZED_SAWBLADE).attackSpeed);
                     break;
                 case SWORD_CORAL_BLADE:
-                    weapon = new McdwSword(ToolMaterials.IRON,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_CORAL_BLADE).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_CORAL_BLADE).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_CORAL_BLADE).attackSpeed);
                     break;
                 case SWORD_SPONGE_STRIKER:
-                    weapon = new McdwSword(ToolMaterials.DIAMOND,
+                    weapon = new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_CLAYMORE).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_SPONGE_STRIKER).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_SPONGE_STRIKER).attackSpeed);
                     break;
                 case SWORD_OBSIDIAN_CLAYMORE:
-                    weapon = new McdwSword(ToolMaterials.DIAMOND,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_OBSIDIAN_CLAYMORE).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_OBSIDIAN_CLAYMORE).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_OBSIDIAN_CLAYMORE).attackSpeed);
                     break;
                 case SWORD_THE_STARLESS_NIGHT:
-                    weapon = new McdwSword(ToolMaterials.NETHERITE,
+                    weapon =
+                            new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_THE_STARLESS_NIGHT).material),
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_THE_STARLESS_NIGHT).damage,
                             CONFIG.mcdwNewStatsConfig.swordStats.get(SwordsID.SWORD_THE_STARLESS_NIGHT).attackSpeed);
                     break;
@@ -179,31 +201,31 @@ public class ItemsInit {
             switch (axesID) {
                 case AXE:
                     weapon =
-                            new McdwAxe(ToolMaterials.IRON,
+                            new McdwAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE).material),
                                     CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE).damage,
                                     CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE).attackSpeed);
                     break;
                 case AXE_FIREBRAND:
                     weapon =
-                            new McdwAxe(ToolMaterials.DIAMOND,
+                            new McdwAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_FIREBRAND).material),
                                     CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_FIREBRAND).damage,
                                     CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_FIREBRAND).attackSpeed);
                     break;
                 case AXE_HIGHLAND:
                     weapon =
-                            new McdwAxe(ToolMaterials.IRON,
+                            new McdwAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_HIGHLAND).material),
                                     CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_HIGHLAND).damage,
                                     CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_HIGHLAND).attackSpeed);
                     break;
                 case AXE_ANCHOR:
                     weapon =
-                            new McdwAxe(ToolMaterials.IRON,
+                            new McdwAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_ANCHOR).material),
                                     CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_ANCHOR).damage,
                                     CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_ANCHOR).attackSpeed);
                     break;
                 case AXE_ENCRUSTED_ANCHOR:
                     weapon =
-                            new McdwAxe(ToolMaterials.DIAMOND,
+                            new McdwAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_ENCRUSTED_ANCHOR).material),
                                     CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_ENCRUSTED_ANCHOR).damage,
                                     CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_ENCRUSTED_ANCHOR).attackSpeed);
                     break;
@@ -225,21 +247,21 @@ public class ItemsInit {
             switch (doubleAxesID) {
                 case AXE_DOUBLE:
                     weapon =
-                            new McdwDoubleAxe(ToolMaterials.IRON,
-                                    CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE).damage,
-                                    CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE).attackSpeed);
+                            new McdwDoubleAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(DoubleAxesID.AXE_DOUBLE).material),
+                                    CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(DoubleAxesID.AXE_DOUBLE).damage,
+                                    CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(DoubleAxesID.AXE_DOUBLE).attackSpeed);
                     break;
                 case AXE_CURSED:
                     weapon =
-                            new McdwDoubleAxe(ToolMaterials.IRON,
-                                    CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_FIREBRAND).damage,
-                                    CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_FIREBRAND).attackSpeed);
+                            new McdwDoubleAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(DoubleAxesID.AXE_CURSED).material),
+                                    CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(DoubleAxesID.AXE_CURSED).damage,
+                                    CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(DoubleAxesID.AXE_CURSED).attackSpeed);
                     break;
                 case AXE_WHIRLWIND:
                     weapon =
-                            new McdwDoubleAxe(ToolMaterials.IRON,
-                                    CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_HIGHLAND).damage,
-                                    CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_HIGHLAND).attackSpeed);
+                            new McdwDoubleAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(DoubleAxesID.AXE_WHIRLWIND).material),
+                                    CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(DoubleAxesID.AXE_WHIRLWIND).damage,
+                                    CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(DoubleAxesID.AXE_WHIRLWIND).attackSpeed);
                     break;
                 default:
                     weapon = new McdwDoubleAxe(ToolMaterials.IRON,
@@ -259,73 +281,73 @@ public class ItemsInit {
             switch (daggersID) {
                 case DAGGER_DAGGER:
                     weapon =
-                            new McdwDagger(ToolMaterials.IRON,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_DAGGER).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_DAGGER).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_DAGGER).attackSpeed);
                     break;
                 case DAGGER_FANGS_OF_FROST:
                     weapon =
-                            new McdwDagger(ToolMaterials.IRON,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_FANGS_OF_FROST).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_FANGS_OF_FROST).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_FANGS_OF_FROST).attackSpeed);
                     break;
                 case DAGGER_MOON:
                     weapon =
-                            new McdwDagger(ToolMaterials.IRON,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_MOON).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_MOON).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_MOON).attackSpeed);
                     break;
                 case DAGGER_SHEAR_DAGGER:
                     weapon =
-                            new McdwDagger(ToolMaterials.IRON,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_SHEAR_DAGGER).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_SHEAR_DAGGER).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_SHEAR_DAGGER).attackSpeed);
                     break;
                 case DAGGER_TEMPEST_KNIFE:
                     weapon =
-                            new McdwDagger(ToolMaterials.IRON,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_TEMPEST_KNIFE).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_TEMPEST_KNIFE).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_TEMPEST_KNIFE).attackSpeed);
                     break;
                 case DAGGER_RESOLUTE_TEMPEST_KNIFE:
                     weapon =
-                            new McdwDagger(ToolMaterials.IRON,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE).attackSpeed);
                     break;
                 case DAGGER_CHILL_GALE_KNIFE:
                     weapon =
-                            new McdwDagger(ToolMaterials.IRON,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_CHILL_GALE_KNIFE).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_CHILL_GALE_KNIFE).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_CHILL_GALE_KNIFE).attackSpeed);
                     break;
                 case DAGGER_BACKSTABBER:
                     weapon =
-                            new McdwDagger(ToolMaterials.DIAMOND,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_BACKSTABBER).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_BACKSTABBER).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_BACKSTABBER).attackSpeed);
                     break;
                 case DAGGER_SWIFT_STRIKER:
                     weapon =
-                            new McdwDagger(ToolMaterials.NETHERITE,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_SWIFT_STRIKER).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_SWIFT_STRIKER).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_SWIFT_STRIKER).attackSpeed);
                     break;
                 case DAGGER_VOID_TOUCHED_BLADE:
                     weapon =
-                            new McdwDagger(ToolMaterials.DIAMOND,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_VOID_TOUCHED_BLADE).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_VOID_TOUCHED_BLADE).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_VOID_TOUCHED_BLADE).attackSpeed);
                     break;
                 case DAGGER_THE_BEGINNING:
                     weapon =
-                            new McdwDagger(ToolMaterials.NETHERITE,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_THE_BEGINNING).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_THE_BEGINNING).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_THE_BEGINNING).attackSpeed);
                     break;
                 case DAGGER_THE_END:
                     weapon =
-                            new McdwDagger(ToolMaterials.NETHERITE,
+                            new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_THE_END).material),
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_THE_END).damage,
                                     CONFIG.mcdwNewStatsConfig.daggerStats.get(DaggersID.DAGGER_THE_END).attackSpeed);
                     break;
@@ -347,19 +369,19 @@ public class ItemsInit {
             switch (soulDaggersID) {
                 case DAGGER_SOUL_KNIFE:
                     weapon =
-                            new McdwSoulDagger(ToolMaterials.IRON,
+                            new McdwSoulDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(SoulDaggersID.DAGGER_SOUL_KNIFE).material),
                                     CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(SoulDaggersID.DAGGER_SOUL_KNIFE).damage,
                                     CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(SoulDaggersID.DAGGER_SOUL_KNIFE).attackSpeed);
                     break;
                 case DAGGER_ETERNAL_KNIFE:
                     weapon =
-                            new McdwSoulDagger(ToolMaterials.NETHERITE,
+                            new McdwSoulDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE).material),
                                     CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE).damage,
                                     CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE).attackSpeed);
                     break;
                 case SWORD_TRUTHSEEKER:
                     weapon =
-                            new McdwSoulDagger(ToolMaterials.NETHERITE,
+                            new McdwSoulDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(SoulDaggersID.SWORD_TRUTHSEEKER).material),
                                     CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(SoulDaggersID.SWORD_TRUTHSEEKER).damage,
                                     CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(SoulDaggersID.SWORD_TRUTHSEEKER).attackSpeed);
                     break;
@@ -381,49 +403,49 @@ public class ItemsInit {
             switch (hammersID) {
                 case HAMMER_GREAT:
                     weapon =
-                            new McdwHammer(ToolMaterials.IRON,
+                            new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GREAT).material),
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GREAT).damage,
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GREAT).attackSpeed);
                     break;
                 case HAMMER_STORMLANDER:
                     weapon =
-                            new McdwHammer(ToolMaterials.DIAMOND,
+                            new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_STORMLANDER).material),
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_STORMLANDER).damage,
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_STORMLANDER).attackSpeed);
                     break;
                 case HAMMER_GRAVITY:
                     weapon =
-                            new McdwHammer(ToolMaterials.DIAMOND,
+                            new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GRAVITY).material),
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GRAVITY).damage,
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GRAVITY).attackSpeed);
                     break;
                 case HAMMER_MACE:
                     weapon =
-                            new McdwHammer(ToolMaterials.IRON,
+                            new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_MACE).material),
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_MACE).damage,
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_MACE).attackSpeed);
                     break;
                 case HAMMER_FLAIL:
                     weapon =
-                            new McdwHammer(ToolMaterials.IRON,
+                            new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_FLAIL).material),
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_FLAIL).damage,
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_FLAIL).attackSpeed);
                     break;
                 case HAMMER_SUNS_GRACE:
                     weapon =
-                            new McdwHammer(ToolMaterials.DIAMOND,
+                            new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_SUNS_GRACE).material),
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_SUNS_GRACE).damage,
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_SUNS_GRACE).attackSpeed);
                     break;
                 case HAMMER_BONECLUB:
                     weapon =
-                            new McdwHammer(ToolMaterials.IRON,
+                            new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_BONECLUB).material),
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_BONECLUB).damage,
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_BONECLUB).attackSpeed);
                     break;
                 case HAMMER_BONE_CUDGEL:
                     weapon =
-                            new McdwHammer(ToolMaterials.DIAMOND,
+                            new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_BONE_CUDGEL).material),
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_BONE_CUDGEL).damage,
                                     CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_BONE_CUDGEL).attackSpeed);
                     break;
@@ -445,19 +467,19 @@ public class ItemsInit {
             switch (gauntletsID) {
                 case GAUNTLET_GAUNTLET:
                     weapon =
-                            new McdwGauntlet(ToolMaterials.IRON,
+                            new McdwGauntlet(stringToMaterial(CONFIG.mcdwNewStatsConfig.gauntletStats.get(GauntletsID.GAUNTLET_GAUNTLET).material),
                                     CONFIG.mcdwNewStatsConfig.gauntletStats.get(GauntletsID.GAUNTLET_GAUNTLET).damage,
                                     CONFIG.mcdwNewStatsConfig.gauntletStats.get(GauntletsID.GAUNTLET_GAUNTLET).attackSpeed);
                     break;
                 case GAUNTLET_MAULERS:
                     weapon =
-                            new McdwGauntlet(ToolMaterials.DIAMOND,
+                            new McdwGauntlet(stringToMaterial(CONFIG.mcdwNewStatsConfig.gauntletStats.get(GauntletsID.GAUNTLET_MAULERS).material),
                                     CONFIG.mcdwNewStatsConfig.gauntletStats.get(GauntletsID.GAUNTLET_MAULERS).damage,
                                     CONFIG.mcdwNewStatsConfig.gauntletStats.get(GauntletsID.GAUNTLET_MAULERS).attackSpeed);
                     break;
                 case GAUNTLET_SOUL_FISTS:
                     weapon =
-                            new McdwGauntlet(ToolMaterials.NETHERITE,
+                            new McdwGauntlet(stringToMaterial(CONFIG.mcdwNewStatsConfig.gauntletStats.get(GauntletsID.GAUNTLET_SOUL_FISTS).material),
                                     CONFIG.mcdwNewStatsConfig.gauntletStats.get(GauntletsID.GAUNTLET_SOUL_FISTS).damage,
                                     CONFIG.mcdwNewStatsConfig.gauntletStats.get(GauntletsID.GAUNTLET_SOUL_FISTS).attackSpeed);
                     break;
@@ -479,25 +501,25 @@ public class ItemsInit {
             switch (sicklesID) {
                 case SICKLE_SICKLE:
                     weapon =
-                            new McdwSickle(ToolMaterials.IRON,
+                            new McdwSickle(stringToMaterial(CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_SICKLE).material),
                                     CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_SICKLE).damage,
                                     CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_SICKLE).attackSpeed);
                     break;
                 case SICKLE_NIGHTMARES_BITE:
                     weapon =
-                            new McdwSickle(ToolMaterials.IRON,
+                            new McdwSickle(stringToMaterial(CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_NIGHTMARES_BITE).material),
                                     CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_NIGHTMARES_BITE).damage,
                                     CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_NIGHTMARES_BITE).attackSpeed);
                     break;
                 case SICKLE_LAST_LAUGH_GOLD:
                     weapon =
-                            new McdwSickle(ToolMaterials.IRON,
+                            new McdwSickle(stringToMaterial(CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_LAST_LAUGH_GOLD).material),
                                     CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_LAST_LAUGH_GOLD).damage,
                                     CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_LAST_LAUGH_GOLD).attackSpeed);
                     break;
                 case SICKLE_LAST_LAUGH_SILVER:
                     weapon =
-                            new McdwSickle(ToolMaterials.IRON,
+                            new McdwSickle(stringToMaterial(CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_LAST_LAUGH_SILVER).material),
                                     CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_LAST_LAUGH_SILVER).damage,
                                     CONFIG.mcdwNewStatsConfig.sickleStats.get(SicklesID.SICKLE_LAST_LAUGH_SILVER).attackSpeed);
                     break;
@@ -519,25 +541,25 @@ public class ItemsInit {
             switch (scythesID) {
                 case SICKLE_JAILORS_SCYTHE:
                     weapon =
-                            new McdwScythe(ToolMaterials.IRON,
+                            new McdwScythe(stringToMaterial(CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_JAILORS_SCYTHE).material),
                                     CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_JAILORS_SCYTHE).damage,
                                     CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_JAILORS_SCYTHE).attackSpeed);
                     break;
                 case SICKLE_SOUL_SCYTHE:
                     weapon =
-                            new McdwScythe(ToolMaterials.DIAMOND,
+                            new McdwScythe(stringToMaterial(CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_SOUL_SCYTHE).material),
                                     CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_SOUL_SCYTHE).damage,
                                     CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_SOUL_SCYTHE).attackSpeed);
                     break;
                 case SICKLE_FROST_SCYTHE:
                     weapon =
-                            new McdwScythe(ToolMaterials.DIAMOND,
+                            new McdwScythe(stringToMaterial(CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_FROST_SCYTHE).material),
                                     CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_FROST_SCYTHE).damage,
                                     CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_FROST_SCYTHE).attackSpeed);
                     break;
                 case SICKLE_SKULL_SCYTHE:
                     weapon =
-                            new McdwScythe(ToolMaterials.DIAMOND,
+                            new McdwScythe(stringToMaterial(CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_SKULL_SCYTHE).material),
                                     CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_SKULL_SCYTHE).damage,
                                     CONFIG.mcdwNewStatsConfig.scytheStats.get(ScythesID.SICKLE_SKULL_SCYTHE).attackSpeed);
                     break;
@@ -559,25 +581,25 @@ public class ItemsInit {
             switch (picksID) {
                 case PICK_DIAMOND_PICKAXE_VAR:
                     weapon =
-                            new McdwPick(ToolMaterials.DIAMOND,
+                            new McdwPick(stringToMaterial(CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_DIAMOND_PICKAXE_VAR).material),
                                     CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_DIAMOND_PICKAXE_VAR).damage,
                                     CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_DIAMOND_PICKAXE_VAR).attackSpeed);
                     break;
                 case PICK_MOUNTAINEER_PICK:
                     weapon =
-                            new McdwPick(ToolMaterials.IRON,
+                            new McdwPick(stringToMaterial(CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_MOUNTAINEER_PICK).material),
                                     CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_MOUNTAINEER_PICK).damage,
                                     CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_MOUNTAINEER_PICK).attackSpeed);
                     break;
                 case PICK_HOWLING_PICK:
                     weapon =
-                            new McdwPick(ToolMaterials.IRON,
+                            new McdwPick(stringToMaterial(CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_HOWLING_PICK).material),
                                     CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_HOWLING_PICK).damage,
                                     CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_HOWLING_PICK).attackSpeed);
                     break;
                 case PICK_HAILING_PINNACLE:
                     weapon =
-                            new McdwPick(ToolMaterials.DIAMOND,
+                            new McdwPick(stringToMaterial(CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_HAILING_PINNACLE).material),
                                     CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_HAILING_PINNACLE).damage,
                                     CONFIG.mcdwNewStatsConfig.pickStats.get(PicksID.PICK_HAILING_PINNACLE).attackSpeed);
                     break;
@@ -599,25 +621,25 @@ public class ItemsInit {
             switch (glaivesID) {
                 case SPEAR_GLAIVE:
                     weapon =
-                            new McdwGlaive(ToolMaterials.IRON,
+                            new McdwGlaive(stringToMaterial(CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_GLAIVE).material),
                                     CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_GLAIVE).damage,
                                     CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_GLAIVE).attackSpeed);
                     break;
                 case SPEAR_GRAVE_BANE:
                     weapon =
-                            new McdwGlaive(ToolMaterials.IRON,
+                            new McdwGlaive(stringToMaterial(CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_GRAVE_BANE).material),
                                     CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_GRAVE_BANE).damage,
                                     CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_GRAVE_BANE).attackSpeed);
                     break;
                 case SPEAR_VENOM_GLAIVE:
                     weapon =
-                            new McdwGlaive(ToolMaterials.IRON,
+                            new McdwGlaive(stringToMaterial(CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_VENOM_GLAIVE).material),
                                     CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_VENOM_GLAIVE).damage,
                                     CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_VENOM_GLAIVE).attackSpeed);
                     break;
                 case SPEAR_CACKLING_BROOM:
                     weapon =
-                            new McdwGlaive(ToolMaterials.IRON,
+                            new McdwGlaive(stringToMaterial(CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_CACKLING_BROOM).material),
                                     CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_CACKLING_BROOM).damage,
                                     CONFIG.mcdwNewStatsConfig.glaiveStats.get(GlaivesID.SPEAR_CACKLING_BROOM).attackSpeed);
                     break;
@@ -639,19 +661,19 @@ public class ItemsInit {
             switch (spearsID) {
                 case SPEAR_SPEAR:
                     weapon =
-                            new McdwSpear(ToolMaterials.IRON,
+                            new McdwSpear(stringToMaterial(CONFIG.mcdwNewStatsConfig.spearStats.get(SpearsID.SPEAR_SPEAR).material),
                                     CONFIG.mcdwNewStatsConfig.spearStats.get(SpearsID.SPEAR_SPEAR).damage,
                                     CONFIG.mcdwNewStatsConfig.spearStats.get(SpearsID.SPEAR_SPEAR).attackSpeed);
                     break;
                 case SPEAR_WHISPERING_SPEAR:
                     weapon =
-                            new McdwSpear(ToolMaterials.IRON,
+                            new McdwSpear(stringToMaterial(CONFIG.mcdwNewStatsConfig.spearStats.get(SpearsID.SPEAR_WHISPERING_SPEAR).material),
                                     CONFIG.mcdwNewStatsConfig.spearStats.get(SpearsID.SPEAR_WHISPERING_SPEAR).damage,
                                     CONFIG.mcdwNewStatsConfig.spearStats.get(SpearsID.SPEAR_WHISPERING_SPEAR).attackSpeed);
                     break;
                 case SPEAR_FORTUNE:
                     weapon =
-                            new McdwSpear(ToolMaterials.IRON,
+                            new McdwSpear(stringToMaterial(CONFIG.mcdwNewStatsConfig.spearStats.get(SpearsID.SPEAR_FORTUNE).material),
                                     CONFIG.mcdwNewStatsConfig.spearStats.get(SpearsID.SPEAR_FORTUNE).damage,
                                     CONFIG.mcdwNewStatsConfig.spearStats.get(SpearsID.SPEAR_FORTUNE).attackSpeed);
                     break;
@@ -673,19 +695,19 @@ public class ItemsInit {
             switch (stavesID) {
                 case STAFF_BATTLESTAFF:
                     weapon =
-                            new McdwStaff(ToolMaterials.WOOD,
+                            new McdwStaff(stringToMaterial(CONFIG.mcdwNewStatsConfig.staffStats.get(StavesID.STAFF_BATTLESTAFF).material),
                                     CONFIG.mcdwNewStatsConfig.staffStats.get(StavesID.STAFF_BATTLESTAFF).damage,
                                     CONFIG.mcdwNewStatsConfig.staffStats.get(StavesID.STAFF_BATTLESTAFF).attackSpeed);
                     break;
                 case STAFF_GROWING_STAFF:
                     weapon =
-                            new McdwStaff(ToolMaterials.IRON,
+                            new McdwStaff(stringToMaterial(CONFIG.mcdwNewStatsConfig.staffStats.get(StavesID.STAFF_GROWING_STAFF).material),
                                     CONFIG.mcdwNewStatsConfig.staffStats.get(StavesID.STAFF_GROWING_STAFF).damage,
                                     CONFIG.mcdwNewStatsConfig.staffStats.get(StavesID.STAFF_GROWING_STAFF).attackSpeed);
                     break;
                 case STAFF_BATTLESTAFF_OF_TERROR:
                     weapon =
-                            new McdwStaff(ToolMaterials.IRON,
+                            new McdwStaff(stringToMaterial(CONFIG.mcdwNewStatsConfig.staffStats.get(StavesID.STAFF_BATTLESTAFF_OF_TERROR).material),
                                     CONFIG.mcdwNewStatsConfig.staffStats.get(StavesID.STAFF_BATTLESTAFF_OF_TERROR).damage,
                                     CONFIG.mcdwNewStatsConfig.staffStats.get(StavesID.STAFF_BATTLESTAFF_OF_TERROR).attackSpeed);
                     break;
@@ -707,13 +729,13 @@ public class ItemsInit {
             switch (whipsID) {
                 case WHIP_WHIP:
                     weapon =
-                            new McdwWhip(ToolMaterials.IRON,
+                            new McdwWhip(stringToMaterial(CONFIG.mcdwNewStatsConfig.whipStats.get(WhipsID.WHIP_WHIP).material),
                                     CONFIG.mcdwNewStatsConfig.whipStats.get(WhipsID.WHIP_WHIP).damage,
                                     CONFIG.mcdwNewStatsConfig.whipStats.get(WhipsID.WHIP_WHIP).attackSpeed);
                     break;
                 case WHIP_VINE_WHIP:
                     weapon =
-                            new McdwWhip(ToolMaterials.IRON,
+                            new McdwWhip(stringToMaterial(CONFIG.mcdwNewStatsConfig.whipStats.get(WhipsID.WHIP_VINE_WHIP).material),
                                     CONFIG.mcdwNewStatsConfig.whipStats.get(WhipsID.WHIP_VINE_WHIP).damage,
                                     CONFIG.mcdwNewStatsConfig.whipStats.get(WhipsID.WHIP_VINE_WHIP).attackSpeed);
                     break;
@@ -995,6 +1017,196 @@ public class ItemsInit {
 
             longBowItems.put(longBowsID, weapon);
             registerItem(longBowsID.toString().toLowerCase(), weapon);
+        }
+        for (CrossbowsID crossbowsID : CrossbowsID.values()) {
+            if (!CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(crossbowsID))
+                continue;
+
+            McdwCrossbow weapon;
+
+            switch (crossbowsID) {
+                case CROSSBOW_THE_SLICER:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_THE_SLICER).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_THE_SLICER).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW).range);
+                    break;
+                case CROSSBOW_AZURE_SEEKER:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_AZURE_SEEKER).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_AZURE_SEEKER).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_AZURE_SEEKER).range);
+                    break;
+                case CROSSBOW_EXPLODING_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW).range);
+                    break;
+                case CROSSBOW_IMPLODING_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW).range);
+                    break;
+                case CROSSBOW_FIREBOLT_THROWER:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER).range);
+                    break;
+                case CROSSBOW_HEAVY_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW).range);
+                    break;
+                case CROSSBOW_DOOM_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_DOOM_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_DOOM_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_DOOM_CROSSBOW).range);
+                    break;
+                case CROSSBOW_SLAYER_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW).range);
+                    break;
+                case CROSSBOW_RAPID_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW).range);
+                    break;
+                case CROSSBOW_BUTTERFLY_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW).range);
+                    break;
+                case CROSSBOW_AUTO_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW).range);
+                    break;
+                case CROSSBOW_SCATTER_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW).range);
+                    break;
+                case CROSSBOW_HARP_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW).range);
+                    break;
+                case CROSSBOW_LIGHTNING_HARP_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW).range);
+                    break;
+                case CROSSBOW_SOUL_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW).range);
+                    break;
+                case CROSSBOW_FERAL_SOUL_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_FERAL_SOUL_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_FERAL_SOUL_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_FERAL_SOUL_CROSSBOW).range);
+                    break;
+                case CROSSBOW_VOIDCALLER_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW).range);
+                    break;
+                case CROSSBOW_DUAL_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW).range);
+                    break;
+                case CROSSBOW_SPELLBOUND_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SPELLBOUND_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SPELLBOUND_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SPELLBOUND_CROSSBOW).range);
+                    break;
+                case CROSSBOW_BABY_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_BABY_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_BABY_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_BABY_CROSSBOW).range);
+                    break;
+                case CROSSBOW_BURST_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW).range);
+                    break;
+                case CROSSBOW_SOUL_HUNTER_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW).range);
+                    break;
+                case CROSSBOW_CORRUPTED_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW).range);
+                    break;
+                case CROSSBOW_COG_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_COG_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_COG_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_COG_CROSSBOW).range);
+                    break;
+                case CROSSBOW_PRIDE_OF_THE_PIGLINS:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS).range);
+                    break;
+                case CROSSBOW_HARPOON_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW).range);
+                    break;
+                case CROSSBOW_NAUTICAL_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW).range);
+                    break;
+                case CROSSBOW_SHADOW_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW).range);
+                    break;
+                case CROSSBOW_VEILED_CROSSBOW:
+                    weapon =
+                            new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW).material),
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW).range);
+                    break;
+                default:
+                    weapon = new McdwCrossbow(ToolMaterials.WOOD,
+                            0.0f,
+                            0.0f);
+            }
+
+            crossbowItems.put(crossbowsID, weapon);
+            registerItem(crossbowsID.toString().toLowerCase(), weapon);
         }
     }
 

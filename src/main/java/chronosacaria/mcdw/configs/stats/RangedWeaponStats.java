@@ -1,8 +1,5 @@
 package chronosacaria.mcdw.configs.stats;
 
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.ToolMaterials;
-
 public class RangedWeaponStats {
     public String material;
     public float drawSpeed;
