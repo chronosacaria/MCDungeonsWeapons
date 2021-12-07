@@ -5,6 +5,8 @@ import chronosacaria.mcdw.configs.stats.RangedWeaponStats;
 import chronosacaria.mcdw.enums.*;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
 
@@ -73,17 +75,17 @@ public class McdwNewStatsConfig implements ConfigData {
     protected MeleeWeaponStats whipStats(int damage, float attackSpeed, WhipsID whipsID){
         return whipStats.get(whipsID).meleeWeaponStats(damage, attackSpeed);
     }
-    protected RangedWeaponStats bowStats(float drawSpeed, float range, BowsID bowsID){
-        return bowStats.get(bowsID).rangedWeaponStats(drawSpeed, range);
+    protected RangedWeaponStats bowStats(String material, float drawSpeed, float range, BowsID bowsID){
+        return bowStats.get(bowsID).rangedWeaponStats(material, drawSpeed, range);
     }
-    protected RangedWeaponStats shortBowStats(float drawSpeed, float range, ShortBowsID shortBowsID){
-        return shortBowStats.get(shortBowsID).rangedWeaponStats(drawSpeed, range);
+    protected RangedWeaponStats shortBowStats(String material, float drawSpeed, float range, ShortBowsID shortBowsID){
+        return shortBowStats.get(shortBowsID).rangedWeaponStats(material, drawSpeed, range);
     }
-    protected RangedWeaponStats longBowStats(float drawSpeed, float range, LongBowsID longBowsID){
-        return longBowStats.get(longBowsID).rangedWeaponStats(drawSpeed, range);
+    protected RangedWeaponStats longBowStats(String material, float drawSpeed, float range, LongBowsID longBowsID){
+        return longBowStats.get(longBowsID).rangedWeaponStats(material, drawSpeed, range);
     }
-    protected RangedWeaponStats crossbowStats(float drawSpeed, float range, CrossbowsID crossbowsID){
-        return bowStats.get(crossbowsID).rangedWeaponStats(drawSpeed, range);
+    protected RangedWeaponStats crossbowStats(String material, float drawSpeed, float range, CrossbowsID crossbowsID){
+        return crossbowStats.get(crossbowsID).rangedWeaponStats(material, drawSpeed, range);
     }
 
     public McdwNewStatsConfig() {
@@ -264,44 +266,94 @@ public class McdwNewStatsConfig implements ConfigData {
         whipStats(2, -3.1f, WhipsID.WHIP_WHIP);
         whipStats(5, -3.1f, WhipsID.WHIP_VINE_WHIP);
 
-        bowStats(12.0f, 7.6f, BowsID.BOW_ANCIENT_BOW);
-        bowStats(16.0f, 3.4f, BowsID.BOW_BONEBOW);
-        bowStats(8.0f, 7.4f, BowsID.BOW_LOST_SOULS);
-        bowStats(20.0f, 6.4f, BowsID.BOW_ELITE_POWER_BOW);
-        bowStats(28.0f, 7.0f, BowsID.BOW_HAUNTED_BOW);
-        bowStats(13.0f, 5.0f, BowsID.BOW_HUNTERS_PROMISE);
-        bowStats(14.0f, 4.6f, BowsID.BOW_HUNTING_BOW);
-        bowStats(15.0f, 4.4f, BowsID.BOW_MASTERS_BOW);
-        bowStats(15.0f, 6.0f, BowsID.BOW_NOCTURNAL_BOW);
-        bowStats(20.0f, 6.4f, BowsID.BOW_POWER_BOW);
-        bowStats(8.0f, 9.0f, BowsID.BOW_SABREWING);
-        bowStats(14.0f, 4.8f, BowsID.BOW_SNOW_BOW);
-        bowStats(12.0f, 4.0f, BowsID.BOW_SOUL_BOW);
-        bowStats(15.0f, 5.6f, BowsID.BOW_GREEN_MENACE);
-        bowStats(15.0f, 5.6f, BowsID.BOW_PINK_SCOUNDREL);
-        bowStats(10.0f, 4.2f, BowsID.BOW_TRICKBOW);
-        bowStats(10.0f, 4.2f, BowsID.BOW_TWIN_BOW);
-        bowStats(13.0f, 5.2f, BowsID.BOW_WINTERS_TOUCH);
-        bowStats(12.0f, 4.0f, BowsID.BOW_SHIVERING_BOW);
-        bowStats(9.0f, 6.8f, BowsID.BOW_WIND_BOW);
-        bowStats(9.0f, 7.4f, BowsID.BOW_ECHO_OF_THE_VALLEY);
-        bowStats(10.0f, 7.2f, BowsID.BOW_BURST_GALE_BOW);
-        bowStats(13.0f, 4.0f, BowsID.BOW_TWISTING_VINE_BOW);
-        bowStats(13.0f, 4.0f, BowsID.BOW_WEEPING_VINE_BOW);
-        bowStats(13.0f, 4.0f, BowsID.BOW_BUBBLE_BOW);
-        bowStats(13.0f, 4.2f, BowsID.BOW_BUBBLE_BURSTER);
-        bowStats(13.0f, 4.1f, BowsID.BOW_VOID_BOW);
-        bowStats(13.0f, 4.3f, BowsID.BOW_CALL_OF_THE_VOID);
-        bowStats(20.0f, 6.4f, BowsID.BOW_PHANTOM_BOW);
-        bowStats(13.0f, 5.2f, BowsID.BOW_WEB_BOW);
+        bowStats(materialToString(ToolMaterials.NETHERITE),12.0f, 7.6f, BowsID.BOW_ANCIENT_BOW);
+        bowStats(materialToString(ToolMaterials.STONE),16.0f, 3.4f, BowsID.BOW_BONEBOW);
+        bowStats(materialToString(ToolMaterials.NETHERITE),8.0f, 7.4f, BowsID.BOW_LOST_SOULS);
+        bowStats(materialToString(ToolMaterials.IRON),20.0f, 6.4f, BowsID.BOW_ELITE_POWER_BOW);
+        bowStats(materialToString(ToolMaterials.NETHERITE),28.0f, 7.0f, BowsID.BOW_HAUNTED_BOW);
+        bowStats(materialToString(ToolMaterials.IRON),13.0f, 5.0f, BowsID.BOW_HUNTERS_PROMISE);
+        bowStats(materialToString(ToolMaterials.IRON),14.0f, 4.6f, BowsID.BOW_HUNTING_BOW);
+        bowStats(materialToString(ToolMaterials.IRON),15.0f, 4.4f, BowsID.BOW_MASTERS_BOW);
+        bowStats(materialToString(ToolMaterials.DIAMOND),15.0f, 6.0f, BowsID.BOW_NOCTURNAL_BOW);
+        bowStats(materialToString(ToolMaterials.IRON),20.0f, 6.4f, BowsID.BOW_POWER_BOW);
+        bowStats(materialToString(ToolMaterials.DIAMOND),8.0f, 9.0f, BowsID.BOW_SABREWING);
+        bowStats(materialToString(ToolMaterials.IRON),14.0f, 4.8f, BowsID.BOW_SNOW_BOW);
+        bowStats(materialToString(ToolMaterials.IRON),12.0f, 4.0f, BowsID.BOW_SOUL_BOW);
+        bowStats(materialToString(ToolMaterials.DIAMOND),15.0f, 5.6f, BowsID.BOW_GREEN_MENACE);
+        bowStats(materialToString(ToolMaterials.DIAMOND),15.0f, 5.6f, BowsID.BOW_PINK_SCOUNDREL);
+        bowStats(materialToString(ToolMaterials.DIAMOND),10.0f, 4.2f, BowsID.BOW_TRICKBOW);
+        bowStats(materialToString(ToolMaterials.DIAMOND),10.0f, 4.2f, BowsID.BOW_TWIN_BOW);
+        bowStats(materialToString(ToolMaterials.DIAMOND),13.0f, 5.2f, BowsID.BOW_WINTERS_TOUCH);
+        bowStats(materialToString(ToolMaterials.DIAMOND),12.0f, 4.0f, BowsID.BOW_SHIVERING_BOW);
+        bowStats(materialToString(ToolMaterials.DIAMOND),9.0f, 6.8f, BowsID.BOW_WIND_BOW);
+        bowStats(materialToString(ToolMaterials.DIAMOND),9.0f, 7.4f, BowsID.BOW_ECHO_OF_THE_VALLEY);
+        bowStats(materialToString(ToolMaterials.DIAMOND),10.0f, 7.2f, BowsID.BOW_BURST_GALE_BOW);
+        bowStats(materialToString(ToolMaterials.IRON),13.0f, 4.0f, BowsID.BOW_TWISTING_VINE_BOW);
+        bowStats(materialToString(ToolMaterials.IRON),13.0f, 4.0f, BowsID.BOW_WEEPING_VINE_BOW);
+        bowStats(materialToString(ToolMaterials.IRON),13.0f, 4.0f, BowsID.BOW_BUBBLE_BOW);
+        bowStats(materialToString(ToolMaterials.DIAMOND),13.0f, 4.2f, BowsID.BOW_BUBBLE_BURSTER);
+        bowStats(materialToString(ToolMaterials.DIAMOND),13.0f, 4.1f, BowsID.BOW_VOID_BOW);
+        bowStats(materialToString(ToolMaterials.NETHERITE),13.0f, 4.3f, BowsID.BOW_CALL_OF_THE_VOID);
+        bowStats(materialToString(ToolMaterials.DIAMOND),20.0f, 6.4f, BowsID.BOW_PHANTOM_BOW);
+        bowStats(materialToString(ToolMaterials.DIAMOND),13.0f, 5.2f, BowsID.BOW_WEB_BOW);
 
-        shortBowStats(8.0f, 2.0f, ShortBowsID.BOW_SHORTBOW);
-        shortBowStats(8.0f, 2.0f, ShortBowsID.BOW_LOVE_SPELL_BOW);
-        shortBowStats(8.0f, 2.6f, ShortBowsID.BOW_MECHANICAL_SHORTBOW);
-        shortBowStats(8.0f, 2.0f, ShortBowsID.BOW_PURPLE_STORM);
+        shortBowStats(materialToString(ToolMaterials.IRON), 8.0f, 2.0f, ShortBowsID.BOW_SHORTBOW);
+        shortBowStats(materialToString(ToolMaterials.IRON), 8.0f, 2.0f, ShortBowsID.BOW_LOVE_SPELL_BOW);
+        shortBowStats(materialToString(ToolMaterials.IRON), 8.0f, 2.6f, ShortBowsID.BOW_MECHANICAL_SHORTBOW);
+        shortBowStats(materialToString(ToolMaterials.IRON), 8.0f, 2.0f, ShortBowsID.BOW_PURPLE_STORM);
 
-        longBowStats(20.0f, 7.0f, LongBowsID.BOW_LONGBOW);
-        longBowStats(30.0f, 6.4f, LongBowsID.BOW_GUARDIAN_BOW);
-        longBowStats(30.0f, 8.4f, LongBowsID.BOW_RED_SNAKE);
+        longBowStats(materialToString(ToolMaterials.WOOD), 20.0f, 7.0f, LongBowsID.BOW_LONGBOW);
+        longBowStats(materialToString(ToolMaterials.DIAMOND), 30.0f, 6.4f, LongBowsID.BOW_GUARDIAN_BOW);
+        longBowStats(materialToString(ToolMaterials.DIAMOND), 30.0f, 8.4f, LongBowsID.BOW_RED_SNAKE);
+
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 10.2f, CrossbowsID.CROSSBOW_THE_SLICER);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.4f, CrossbowsID.CROSSBOW_AZURE_SEEKER);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.0f, CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.0f, CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 7.9f, CrossbowsID.CROSSBOW_FIREBOLT_THROWER);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.0f, CrossbowsID.CROSSBOW_HEAVY_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 26.0f, 8.0f, CrossbowsID.CROSSBOW_DOOM_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 26.0f, 8.8f, CrossbowsID.CROSSBOW_SLAYER_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 20.0f, 8.2f, CrossbowsID.CROSSBOW_RAPID_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.9f, CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.0f, CrossbowsID.CROSSBOW_AUTO_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.0f, CrossbowsID.CROSSBOW_SCATTER_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.6f, CrossbowsID.CROSSBOW_HARP_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 14.2f, CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.0f, CrossbowsID.CROSSBOW_SOUL_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 9.2f, CrossbowsID.CROSSBOW_FERAL_SOUL_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 26.0f, 12.5f, CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 24.0f, 7.0f, CrossbowsID.CROSSBOW_DUAL_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.9f, CrossbowsID.CROSSBOW_SPELLBOUND_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 23.0f, 7.2f, CrossbowsID.CROSSBOW_BABY_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.0f, CrossbowsID.CROSSBOW_BURST_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 11.0f, CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 22.0f, 14.0f, CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 8.4f, CrossbowsID.CROSSBOW_COG_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 20.0f, 13.0f, CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 28.0f, 11.0f, CrossbowsID.CROSSBOW_HARPOON_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 24.0f, 14.0f, CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 25.0f, 12.0f, CrossbowsID.CROSSBOW_SHADOW_CROSSBOW);
+        crossbowStats(materialToString(ToolMaterials.NETHERITE), 22.0f, 14.5f, CrossbowsID.CROSSBOW_VEILED_CROSSBOW);
+    }
+
+
+
+    private static String materialToString(ToolMaterial toolMaterial) {
+        if (toolMaterial == ToolMaterials.WOOD) {
+            return "wood";
+        } else if (toolMaterial == ToolMaterials.STONE) {
+            return "stone";
+        } else if (toolMaterial == ToolMaterials.GOLD) {
+            return "gold";
+        } else if (toolMaterial == ToolMaterials.IRON) {
+            return "iron";
+        } else if (toolMaterial == ToolMaterials.DIAMOND) {
+            return "diamond";
+        } else if (toolMaterial == ToolMaterials.NETHERITE) {
+            return "netherite";
+        } else {
+            return "none";
+        }
     }
 }

@@ -3,6 +3,7 @@ package chronosacaria.mcdw.items;
 import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enums.*;
 import net.minecraft.item.Item;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.registry.Registry;
 
@@ -734,181 +735,181 @@ public class ItemsInit {
             switch (bowsID) {
                 case BOW_ANCIENT_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.NETHERITE,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_ANCIENT_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_ANCIENT_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_ANCIENT_BOW).range);
                     break;
                 case BOW_BONEBOW:
                     weapon =
-                            new McdwBow(ToolMaterials.STONE,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BONEBOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BONEBOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BONEBOW).range);
                     break;
                 case BOW_LOST_SOULS:
                     weapon =
-                            new McdwBow(ToolMaterials.NETHERITE,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_LOST_SOULS).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_LOST_SOULS).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_LOST_SOULS).range);
                     break;
                 case BOW_ELITE_POWER_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.IRON,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_ELITE_POWER_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_ELITE_POWER_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_ELITE_POWER_BOW).range);
                     break;
                 case BOW_HAUNTED_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.NETHERITE,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_HAUNTED_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_HAUNTED_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_HAUNTED_BOW).range);
                     break;
                 case BOW_HUNTERS_PROMISE:
                     weapon =
-                            new McdwBow(ToolMaterials.IRON,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_HUNTERS_PROMISE).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_HUNTERS_PROMISE).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_HUNTERS_PROMISE).range);
                     break;
                 case BOW_HUNTING_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.WOOD,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_HUNTING_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_HUNTING_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_HUNTING_BOW).range);
                     break;
                 case BOW_MASTERS_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.IRON,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_MASTERS_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_MASTERS_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_MASTERS_BOW).range);
                     break;
                 case BOW_NOCTURNAL_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_NOCTURNAL_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_NOCTURNAL_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_NOCTURNAL_BOW).range);
                     break;
                 case BOW_POWER_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.IRON,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_POWER_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_POWER_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_POWER_BOW).range);
                     break;
                 case BOW_SABREWING:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SABREWING).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SABREWING).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SABREWING).range);
                     break;
                 case BOW_SNOW_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.IRON,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SNOW_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SNOW_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SNOW_BOW).range);
                     break;
                 case BOW_SOUL_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.IRON,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SOUL_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SOUL_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SOUL_BOW).range);
                     break;
                 case BOW_GREEN_MENACE:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_GREEN_MENACE).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_GREEN_MENACE).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_GREEN_MENACE).range);
                     break;
                 case BOW_PINK_SCOUNDREL:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_PINK_SCOUNDREL).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_PINK_SCOUNDREL).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_PINK_SCOUNDREL).range);
                     break;
                 case BOW_TRICKBOW:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_TRICKBOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_TRICKBOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_TRICKBOW).range);
                     break;
                 case BOW_TWIN_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_TWIN_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_TWIN_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_TWIN_BOW).range);
                     break;
                 case BOW_WINTERS_TOUCH:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WINTERS_TOUCH).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WINTERS_TOUCH).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WINTERS_TOUCH).range);
                     break;
                 case BOW_SHIVERING_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SHIVERING_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SHIVERING_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_SHIVERING_BOW).range);
                     break;
                 case BOW_WIND_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WIND_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WIND_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WIND_BOW).range);
                     break;
                 case BOW_ECHO_OF_THE_VALLEY:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_ECHO_OF_THE_VALLEY).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_ECHO_OF_THE_VALLEY).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_ECHO_OF_THE_VALLEY).range);
                     break;
                 case BOW_BURST_GALE_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BURST_GALE_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BURST_GALE_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BURST_GALE_BOW).range);
                     break;
                 case BOW_TWISTING_VINE_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.IRON,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_TWISTING_VINE_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_TWISTING_VINE_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_TWISTING_VINE_BOW).range);
                     break;
                 case BOW_WEEPING_VINE_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.IRON,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WEEPING_VINE_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WEEPING_VINE_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WEEPING_VINE_BOW).range);
                     break;
                 case BOW_BUBBLE_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.IRON,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BUBBLE_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BUBBLE_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BUBBLE_BOW).range);
                     break;
                 case BOW_BUBBLE_BURSTER:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BUBBLE_BURSTER).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BUBBLE_BURSTER).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_BUBBLE_BURSTER).range);
                     break;
                 case BOW_VOID_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_VOID_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_VOID_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_VOID_BOW).range);
                     break;
                 case BOW_CALL_OF_THE_VOID:
                     weapon =
-                            new McdwBow(ToolMaterials.NETHERITE,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_CALL_OF_THE_VOID).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_CALL_OF_THE_VOID).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_CALL_OF_THE_VOID).range);
                     break;
                 case BOW_PHANTOM_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_PHANTOM_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_PHANTOM_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_PHANTOM_BOW).range);
                     break;
                 case BOW_WEB_BOW:
                     weapon =
-                            new McdwBow(ToolMaterials.DIAMOND,
+                            new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WEB_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WEB_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.bowStats.get(BowsID.BOW_WEB_BOW).range);
                     break;
@@ -930,25 +931,25 @@ public class ItemsInit {
             switch (shortBowsID) {
                 case BOW_SHORTBOW:
                     weapon =
-                            new McdwShortBow(ToolMaterials.WOOD,
+                            new McdwShortBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_SHORTBOW).material),
                                     CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_SHORTBOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_SHORTBOW).range);
                     break;
                 case BOW_LOVE_SPELL_BOW:
                     weapon =
-                            new McdwShortBow(ToolMaterials.IRON,
+                            new McdwShortBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_LOVE_SPELL_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_LOVE_SPELL_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_LOVE_SPELL_BOW).range);
                     break;
                 case BOW_MECHANICAL_SHORTBOW:
                     weapon =
-                            new McdwShortBow(ToolMaterials.IRON,
+                            new McdwShortBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW).material),
                                     CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW).range);
                     break;
                 case BOW_PURPLE_STORM:
                     weapon =
-                            new McdwShortBow(ToolMaterials.IRON,
+                            new McdwShortBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_PURPLE_STORM).material),
                                     CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_PURPLE_STORM).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_PURPLE_STORM).range);
                     break;
@@ -970,19 +971,19 @@ public class ItemsInit {
             switch (longBowsID) {
                 case BOW_LONGBOW:
                     weapon =
-                            new McdwLongBow(ToolMaterials.WOOD,
+                            new McdwLongBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_LONGBOW).material),
                                     CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_LONGBOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_LONGBOW).range);
                     break;
                 case BOW_GUARDIAN_BOW:
                     weapon =
-                            new McdwLongBow(ToolMaterials.DIAMOND,
+                            new McdwLongBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_GUARDIAN_BOW).material),
                                     CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_GUARDIAN_BOW).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_GUARDIAN_BOW).range);
                     break;
                 case BOW_RED_SNAKE:
                     weapon =
-                            new McdwLongBow(ToolMaterials.DIAMOND,
+                            new McdwLongBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_RED_SNAKE).material),
                                     CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_RED_SNAKE).drawSpeed,
                                     CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_RED_SNAKE).range);
                     break;
@@ -999,5 +1000,22 @@ public class ItemsInit {
 
     protected static void registerItem(String id, Item item) {
         Registry.register(Registry.ITEM, ID(id), item);
+    }
+
+    private static ToolMaterial stringToMaterial(String material) {
+        switch (material) {
+            case "wood":
+                return ToolMaterials.WOOD;
+            case "stone":
+                return ToolMaterials.STONE;
+            case "gold":
+                return ToolMaterials.GOLD;
+            case "diamond":
+                return ToolMaterials.DIAMOND;
+            case "netherite":
+                return ToolMaterials.NETHERITE;
+            default:
+                return ToolMaterials.IRON;
+        }
     }
 }
