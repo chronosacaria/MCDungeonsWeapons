@@ -3,10 +3,7 @@ package chronosacaria.mcdw.client;
 import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.render.SummonedBeeRenderer;
-import chronosacaria.mcdw.enums.BowsID;
-import chronosacaria.mcdw.enums.CrossbowsID;
-import chronosacaria.mcdw.enums.LongBowsID;
-import chronosacaria.mcdw.enums.ShortBowsID;
+import chronosacaria.mcdw.enums.*;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.fabricmc.api.ClientModInitializer;
@@ -43,8 +40,8 @@ public class McdwClient implements ClientModInitializer {
             registerCrossbowPredicates(ItemsInit.crossbowItems.get(itemID));
         }
 
-        for (String itemID : ItemRegistry.SHIELDS){
-            registerShieldPredicates((McdwShield) ItemRegistry.getItem(itemID));
+        for (ShieldsID itemID : ShieldsID.values()){
+            registerShieldPredicates(ItemsInit.shieldItems.get(itemID));
         }
     }
 

@@ -31,6 +31,7 @@ public class ItemsInit {
     public static final EnumMap<ShortBowsID, McdwShortBow> shortBowItems = new EnumMap<>(ShortBowsID.class);
     public static final EnumMap<LongBowsID, McdwLongBow> longBowItems = new EnumMap<>(LongBowsID.class);
     public static final EnumMap<CrossbowsID, McdwCrossbow> crossbowItems = new EnumMap<>(CrossbowsID.class);
+    public static final EnumMap<ShieldsID, McdwShield> shieldItems = new EnumMap<>(ShieldsID.class);
 
     public static void init() {
         for (SwordsID swordsID : SwordsID.values()) {
@@ -1207,6 +1208,28 @@ public class ItemsInit {
 
             crossbowItems.put(crossbowsID, weapon);
             registerItem(crossbowsID.toString().toLowerCase(), weapon);
+        }
+        for (ShieldsID shieldsID : ShieldsID.values()) {
+            if (!CONFIG.mcdwEnableItemsConfig.shieldsEnabled.get(shieldsID))
+                continue;
+
+            McdwShield shield;
+
+            switch (shieldsID) {
+                case SHIELD_ROYAL_GUARD:
+                    shield =
+                            new McdwShield(stringToMaterial(CONFIG.mcdwNewStatsConfig.shieldStats.get(ShieldsID.SHIELD_ROYAL_GUARD).material));
+                    break;
+                case SHIELD_VANGUARD:
+                    shield =
+                            new McdwShield(stringToMaterial(CONFIG.mcdwNewStatsConfig.shieldStats.get(ShieldsID.SHIELD_VANGUARD).material));
+                    break;
+                default:
+                    shield = new McdwShield(ToolMaterials.WOOD);
+            }
+
+            shieldItems.put(shieldsID, shield);
+            registerItem(shieldsID.toString().toLowerCase(), shield);
         }
     }
 

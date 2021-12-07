@@ -203,8 +203,8 @@ public class ItemRegistry {
         //add("crossbow_veiled_crossbow");
     }};
     public static final HashSet<String> SHIELDS = new HashSet<String>(){{
-        add("shield_royal_guard");
-        add("shield_vanguard");
+        //add("shield_royal_guard");
+        //add("shield_vanguard");
     }};
 
     public static Item getItem(String id) {

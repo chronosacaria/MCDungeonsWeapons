@@ -2,6 +2,7 @@ package chronosacaria.mcdw.configs;
 
 import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.configs.stats.RangedWeaponStats;
+import chronosacaria.mcdw.configs.stats.ShieldStats;
 import chronosacaria.mcdw.enums.*;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
@@ -31,6 +32,7 @@ public class McdwNewStatsConfig implements ConfigData {
     public EnumMap<ShortBowsID, RangedWeaponStats> shortBowStats = new EnumMap<>(ShortBowsID.class);
     public EnumMap<LongBowsID, RangedWeaponStats> longBowStats = new EnumMap<>(LongBowsID.class);
     public EnumMap<CrossbowsID, RangedWeaponStats> crossbowStats = new EnumMap<>(CrossbowsID.class);
+    public EnumMap<ShieldsID, ShieldStats> shieldStats = new EnumMap<>(ShieldsID.class);
 
     // convenience methods:
     protected MeleeWeaponStats swordStats(String material, int damage, float attackSpeed, SwordsID swordsID){
@@ -86,6 +88,9 @@ public class McdwNewStatsConfig implements ConfigData {
     }
     protected RangedWeaponStats crossbowStats(String material, float drawSpeed, float range, CrossbowsID crossbowsID){
         return crossbowStats.get(crossbowsID).rangedWeaponStats(material, drawSpeed, range);
+    }
+    protected ShieldStats shieldStats(String material, ShieldsID shieldsID){
+        return shieldStats.get(shieldsID).shieldStats(material);
     }
 
     public McdwNewStatsConfig() {
@@ -159,6 +164,10 @@ public class McdwNewStatsConfig implements ConfigData {
 
         for (CrossbowsID crossbowsID : CrossbowsID.values()) {
             crossbowStats.put(crossbowsID, new RangedWeaponStats());
+        }
+
+        for (ShieldsID shieldsID : ShieldsID.values()) {
+            shieldStats.put(shieldsID, new ShieldStats());
         }
 
         swordStats(materialToString(ToolMaterials.IRON), 5, -3.0f, SwordsID.SWORD_CLAYMORE);
@@ -334,6 +343,9 @@ public class McdwNewStatsConfig implements ConfigData {
         crossbowStats(materialToString(ToolMaterials.DIAMOND), 24.0f, 14.0f, CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW);
         crossbowStats(materialToString(ToolMaterials.DIAMOND), 25.0f, 12.0f, CrossbowsID.CROSSBOW_SHADOW_CROSSBOW);
         crossbowStats(materialToString(ToolMaterials.DIAMOND), 22.0f, 14.5f, CrossbowsID.CROSSBOW_VEILED_CROSSBOW);
+
+        shieldStats(materialToString(ToolMaterials.DIAMOND), ShieldsID.SHIELD_ROYAL_GUARD);
+        shieldStats(materialToString(ToolMaterials.DIAMOND), ShieldsID.SHIELD_VANGUARD);
     }
 
     private static String materialToString(ToolMaterial toolMaterial) {

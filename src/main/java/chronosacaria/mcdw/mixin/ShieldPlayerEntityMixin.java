@@ -1,7 +1,8 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.bases.McdwShield;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.ShieldsID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -61,7 +62,7 @@ public abstract class ShieldPlayerEntityMixin extends LivingEntity {
 
     @Inject(method = "disableShield", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/ItemCooldownManager;set(Lnet/minecraft/item/Item;I)V"))
     public void disableMcdwShield(boolean sprinting, CallbackInfo ci){
-        this.getItemCooldownManager().set(ItemRegistry.getItem("shield_royal_guard").asItem(), 100);
-        this.getItemCooldownManager().set(ItemRegistry.getItem("shield_vanguard").asItem(), 100);
+        this.getItemCooldownManager().set(ItemsInit.shieldItems.get(ShieldsID.SHIELD_ROYAL_GUARD).asItem(), 100);
+        this.getItemCooldownManager().set(ItemsInit.shieldItems.get(ShieldsID.SHIELD_VANGUARD).asItem(), 100);
     }
 }
