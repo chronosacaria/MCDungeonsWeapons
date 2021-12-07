@@ -27,6 +27,9 @@ public class ItemsInit {
     public static final EnumMap<StavesID, McdwStaff> staffItems = new EnumMap<>(StavesID.class);
     public static final EnumMap<WhipsID, McdwWhip> whipItems = new EnumMap<>(WhipsID.class);
     public static final EnumMap<BowsID, McdwBow> bowItems = new EnumMap<>(BowsID.class);
+    public static final EnumMap<ShortBowsID, McdwShortBow> shortBowItems = new EnumMap<>(ShortBowsID.class);
+    public static final EnumMap<LongBowsID, McdwLongBow> longBowItems = new EnumMap<>(LongBowsID.class);
+    public static final EnumMap<CrossbowsID, McdwCrossbow> crossbowItems = new EnumMap<>(CrossbowsID.class);
 
     public static void init() {
         for (SwordsID swordsID : SwordsID.values()) {
@@ -917,6 +920,80 @@ public class ItemsInit {
 
             bowItems.put(bowsID, weapon);
             registerItem(bowsID.toString().toLowerCase(), weapon);
+        }
+        for (ShortBowsID shortBowsID : ShortBowsID.values()) {
+            if (!CONFIG.mcdwEnableItemsConfig.shortBowsEnabled.get(shortBowsID))
+                continue;
+
+            McdwShortBow weapon;
+
+            switch (shortBowsID) {
+                case BOW_SHORTBOW:
+                    weapon =
+                            new McdwShortBow(ToolMaterials.WOOD,
+                                    CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_SHORTBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_SHORTBOW).range);
+                    break;
+                case BOW_LOVE_SPELL_BOW:
+                    weapon =
+                            new McdwShortBow(ToolMaterials.IRON,
+                                    CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_LOVE_SPELL_BOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_LOVE_SPELL_BOW).range);
+                    break;
+                case BOW_MECHANICAL_SHORTBOW:
+                    weapon =
+                            new McdwShortBow(ToolMaterials.IRON,
+                                    CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW).range);
+                    break;
+                case BOW_PURPLE_STORM:
+                    weapon =
+                            new McdwShortBow(ToolMaterials.IRON,
+                                    CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_PURPLE_STORM).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.shortBowStats.get(ShortBowsID.BOW_PURPLE_STORM).range);
+                    break;
+                default:
+                    weapon = new McdwShortBow(ToolMaterials.WOOD,
+                            0.0f,
+                            0.0f);
+            }
+
+            shortBowItems.put(shortBowsID, weapon);
+            registerItem(shortBowsID.toString().toLowerCase(), weapon);
+        }
+        for (LongBowsID longBowsID : LongBowsID.values()) {
+            if (!CONFIG.mcdwEnableItemsConfig.longBowsEnabled.get(longBowsID))
+                continue;
+
+            McdwLongBow weapon;
+
+            switch (longBowsID) {
+                case BOW_LONGBOW:
+                    weapon =
+                            new McdwLongBow(ToolMaterials.WOOD,
+                                    CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_LONGBOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_LONGBOW).range);
+                    break;
+                case BOW_GUARDIAN_BOW:
+                    weapon =
+                            new McdwLongBow(ToolMaterials.DIAMOND,
+                                    CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_GUARDIAN_BOW).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_GUARDIAN_BOW).range);
+                    break;
+                case BOW_RED_SNAKE:
+                    weapon =
+                            new McdwLongBow(ToolMaterials.DIAMOND,
+                                    CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_RED_SNAKE).drawSpeed,
+                                    CONFIG.mcdwNewStatsConfig.longBowStats.get(LongBowsID.BOW_RED_SNAKE).range);
+                    break;
+                default:
+                    weapon = new McdwLongBow(ToolMaterials.WOOD,
+                            0.0f,
+                            0.0f);
+            }
+
+            longBowItems.put(longBowsID, weapon);
+            registerItem(longBowsID.toString().toLowerCase(), weapon);
         }
     }
 

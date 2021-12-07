@@ -3,7 +3,12 @@ package chronosacaria.mcdw.client;
 import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.render.SummonedBeeRenderer;
+import chronosacaria.mcdw.enums.BowsID;
+import chronosacaria.mcdw.enums.CrossbowsID;
+import chronosacaria.mcdw.enums.LongBowsID;
+import chronosacaria.mcdw.enums.ShortBowsID;
 import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -22,20 +27,20 @@ public class McdwClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(SummonedEntityRegistry.SUMMONED_BEE_ENTITY, SummonedBeeRenderer::new);
         //SummonedEntityRenderRegistry.register();
 
-        for (String itemID : ItemRegistry.BOWS) {
-            registerBowPredicates((McdwBow) ItemRegistry.getItem(itemID));
+        for (BowsID itemID : BowsID.values()) {
+            registerBowPredicates(ItemsInit.bowItems.get(itemID));
         }
 
-        for (String itemID : ItemRegistry.SHORTBOWS) {
-            registerShortBowPredicates((McdwShortBow) ItemRegistry.getItem(itemID));
+        for (ShortBowsID itemID : ShortBowsID.values()) {
+            registerShortBowPredicates(ItemsInit.shortBowItems.get(itemID));
         }
 
-        for (String itemID : ItemRegistry.LONGBOWS) {
-            registerLongBowPredicates((McdwLongBow) ItemRegistry.getItem(itemID));
+        for (LongBowsID itemID : LongBowsID.values()) {
+            registerLongBowPredicates(ItemsInit.longBowItems.get(itemID));
         }
 
-        for (String itemID : ItemRegistry.CROSSBOWS) {
-            registerCrossbowPredicates((McdwCrossbow) ItemRegistry.getItem(itemID));
+        for (CrossbowsID itemID : CrossbowsID.values()) {
+            registerCrossbowPredicates(ItemsInit.crossbowItems.get(itemID));
         }
 
         for (String itemID : ItemRegistry.SHIELDS){

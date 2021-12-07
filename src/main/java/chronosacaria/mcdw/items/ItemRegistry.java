@@ -163,13 +163,13 @@ public class ItemRegistry {
         //add("bow_web_bow");
     }};
     public static final HashSet<String> SHORTBOWS = new HashSet<String>(){{
-        add("bow_love_spell_bow");
-        add("bow_shortbow");
-        add("bow_mechanical_shortbow");
-        add("bow_purple_storm");
+        //add("bow_love_spell_bow");
+        //add("bow_shortbow");
+        //add("bow_mechanical_shortbow");
+        //add("bow_purple_storm");
     }};
     public static final HashSet<String> LONGBOWS = new HashSet<String>(){{
-        add("bow_red_snake");
+        //add("bow_red_snake");
     }};
     public static final HashSet<String> CROSSBOWS = new HashSet<String>(){{
         add("crossbow_the_slicer");

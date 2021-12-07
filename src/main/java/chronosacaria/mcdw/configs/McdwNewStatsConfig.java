@@ -26,6 +26,9 @@ public class McdwNewStatsConfig implements ConfigData {
     public EnumMap<StavesID, MeleeWeaponStats> staffStats = new EnumMap<>(StavesID.class);
     public EnumMap<WhipsID, MeleeWeaponStats> whipStats = new EnumMap<>(WhipsID.class);
     public EnumMap<BowsID, RangedWeaponStats> bowStats = new EnumMap<>(BowsID.class);
+    public EnumMap<ShortBowsID, RangedWeaponStats> shortBowStats = new EnumMap<>(ShortBowsID.class);
+    public EnumMap<LongBowsID, RangedWeaponStats> longBowStats = new EnumMap<>(LongBowsID.class);
+    public EnumMap<CrossbowsID, RangedWeaponStats> crossbowStats = new EnumMap<>(CrossbowsID.class);
 
     // convenience methods:
     protected MeleeWeaponStats swordStats(int damage, float attackSpeed, SwordsID swordsID){
@@ -72,6 +75,15 @@ public class McdwNewStatsConfig implements ConfigData {
     }
     protected RangedWeaponStats bowStats(float drawSpeed, float range, BowsID bowsID){
         return bowStats.get(bowsID).rangedWeaponStats(drawSpeed, range);
+    }
+    protected RangedWeaponStats shortBowStats(float drawSpeed, float range, ShortBowsID shortBowsID){
+        return shortBowStats.get(shortBowsID).rangedWeaponStats(drawSpeed, range);
+    }
+    protected RangedWeaponStats longBowStats(float drawSpeed, float range, LongBowsID longBowsID){
+        return longBowStats.get(longBowsID).rangedWeaponStats(drawSpeed, range);
+    }
+    protected RangedWeaponStats crossbowStats(float drawSpeed, float range, CrossbowsID crossbowsID){
+        return bowStats.get(crossbowsID).rangedWeaponStats(drawSpeed, range);
     }
 
     public McdwNewStatsConfig() {
@@ -133,6 +145,18 @@ public class McdwNewStatsConfig implements ConfigData {
 
         for (BowsID bowsID : BowsID.values()) {
             bowStats.put(bowsID, new RangedWeaponStats());
+        }
+
+        for (ShortBowsID shortBowsID : ShortBowsID.values()) {
+            shortBowStats.put(shortBowsID, new RangedWeaponStats());
+        }
+
+        for (LongBowsID longBowsID : LongBowsID.values()) {
+            longBowStats.put(longBowsID, new RangedWeaponStats());
+        }
+
+        for (CrossbowsID crossbowsID : CrossbowsID.values()) {
+            crossbowStats.put(crossbowsID, new RangedWeaponStats());
         }
 
         swordStats(5, -3.0f, SwordsID.SWORD_CLAYMORE);
@@ -270,5 +294,14 @@ public class McdwNewStatsConfig implements ConfigData {
         bowStats(13.0f, 4.3f, BowsID.BOW_CALL_OF_THE_VOID);
         bowStats(20.0f, 6.4f, BowsID.BOW_PHANTOM_BOW);
         bowStats(13.0f, 5.2f, BowsID.BOW_WEB_BOW);
+
+        shortBowStats(8.0f, 2.0f, ShortBowsID.BOW_SHORTBOW);
+        shortBowStats(8.0f, 2.0f, ShortBowsID.BOW_LOVE_SPELL_BOW);
+        shortBowStats(8.0f, 2.6f, ShortBowsID.BOW_MECHANICAL_SHORTBOW);
+        shortBowStats(8.0f, 2.0f, ShortBowsID.BOW_PURPLE_STORM);
+
+        longBowStats(20.0f, 7.0f, LongBowsID.BOW_LONGBOW);
+        longBowStats(30.0f, 6.4f, LongBowsID.BOW_GUARDIAN_BOW);
+        longBowStats(30.0f, 8.4f, LongBowsID.BOW_RED_SNAKE);
     }
 }
