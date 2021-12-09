@@ -4,12 +4,11 @@ import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.render.SummonedBeeRenderer;
 import chronosacaria.mcdw.enums.*;
-import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
@@ -21,8 +20,7 @@ public class McdwClient implements ClientModInitializer {
     public void onInitializeClient() {
         SummonedEntityRegistry.register();
 
-        EntityRendererRegistry.INSTANCE.register(SummonedEntityRegistry.SUMMONED_BEE_ENTITY, SummonedBeeRenderer::new);
-        //SummonedEntityRenderRegistry.register();
+        EntityRendererRegistry.register(SummonedEntityRegistry.SUMMONED_BEE_ENTITY, SummonedBeeRenderer::new);
 
         for (BowsID itemID : BowsID.values()) {
             registerBowPredicates(ItemsInit.bowItems.get(itemID));

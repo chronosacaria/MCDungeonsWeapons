@@ -22,6 +22,9 @@ public class McdwConfig extends PartitioningSerializer.GlobalData {
     @ConfigEntry.Category("mcdw_stats_config")
     public McdwNewStatsConfig mcdwNewStatsConfig = new McdwNewStatsConfig();
 
+    @ConfigEntry.Category("mcdw_loot_config")
+    public McdwNewLootConfig mcdwNewlootConfig = new McdwNewLootConfig();
+
     public static void init() {
         AutoConfig.register(McdwConfig.class,
                 PartitioningSerializer.wrap(JanksonConfigSerializer::new)

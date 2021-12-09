@@ -16,14 +16,6 @@ repositories {
         url "https://maven.jamieswhiteshirt.com/libs-release/"
     }
     maven {
-        name = "Ladysnake Libs"
-        url = 'https://dl.bintray.com/ladysnake/libs'
-    }
-    maven {
-        name = "Siphalor's Maven"
-        url = "https://maven.siphalor.de"
-    }
-    maven {
         url "https://www.cursemaven.com"
         content {
             includeGroup "curse.maven"
