@@ -48,7 +48,8 @@ public class McdwNewLootConfig implements ConfigData {
             commonLootTables.put(SettingsID.COMMON_LOOT_TABLES, Lists.newArrayList(
                     "minecraft:chests/abandoned_mineshaft",
                     "minecraft:chests/shipwreck",
-                    "minecraft:chests/desert_pyramid"));
+                    "minecraft:chests/desert_pyramid",
+                    "minecraft:chests/village/village_weaponsmith"));
         }
         for (SettingsID uncommonLootTable : SettingsID.values()) {
             uncommonLootTables.put(SettingsID.UNCOMMON_LOOT_TABLES, Lists.newArrayList(
@@ -61,11 +62,11 @@ public class McdwNewLootConfig implements ConfigData {
                     "minecraft:chests/underwater_ruin",
                     "minecraft:chests/ruined_portal",
                     "minecraft:chests/simple_dungeon",
-                    "minecraft:chests/igloo_chest"));
+                    "minecraft:chests/igloo_chest",
+                    "minecraft:chests/pillager_outpost"));
         }
         for (SettingsID epicLootTable : SettingsID.values()) {
             epicLootTables.put(SettingsID.EPIC_LOOT_TABLES, Lists.newArrayList(
-                    "minecraft:chests/pillager_outpost",
                     "minecraft:stronghold",
                     "minecraft:chests/end_city_treasure"));
         }
@@ -105,7 +106,7 @@ public class McdwNewLootConfig implements ConfigData {
             glaiveSpawnRates.put(GlaivesID.SPEAR_GLAIVE, 0.1f);
             glaiveSpawnRates.put(GlaivesID.SPEAR_GRAVE_BANE, 0.05f);
             glaiveSpawnRates.put(GlaivesID.SPEAR_VENOM_GLAIVE, 0.05f);
-            //glaiveSpawnRates.put(GlaivesID.SPEAR_CACKLING_BROOM, 0.05f);
+            glaiveSpawnRates.put(GlaivesID.SPEAR_CACKLING_BROOM, 0.05f);
         }
         for (HammersID hammersID : HammersID.values()) {
             hammerSpawnRates.put(HammersID.HAMMER_GREAT, 0.1f);
@@ -179,6 +180,80 @@ public class McdwNewLootConfig implements ConfigData {
         for (WhipsID whipsID : WhipsID.values()) {
             whipSpawnRates.put(WhipsID.WHIP_WHIP, 0.1f);
             whipSpawnRates.put(WhipsID.WHIP_VINE_WHIP, 0.05f);
+        }
+        for (BowsID bowsID : BowsID.values()) {
+            bowSpawnRates.put(BowsID.BOW_ANCIENT_BOW, 0.0f);
+            bowSpawnRates.put(BowsID.BOW_BONEBOW, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_LOST_SOULS, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_ELITE_POWER_BOW, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_HAUNTED_BOW, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_HUNTERS_PROMISE, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_HUNTING_BOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_MASTERS_BOW, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_NOCTURNAL_BOW, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_POWER_BOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_SABREWING, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_SNOW_BOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_SOUL_BOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_GREEN_MENACE, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_PINK_SCOUNDREL, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_TRICKBOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_TWIN_BOW, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_WINTERS_TOUCH, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_SHIVERING_BOW, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_WIND_BOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_ECHO_OF_THE_VALLEY, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_BURST_GALE_BOW, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_TWISTING_VINE_BOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_WEEPING_VINE_BOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_BUBBLE_BOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_BUBBLE_BURSTER, 0.5f);
+            bowSpawnRates.put(BowsID.BOW_VOID_BOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_CALL_OF_THE_VOID, 0.05f);
+            bowSpawnRates.put(BowsID.BOW_PHANTOM_BOW, 0.1f);
+            bowSpawnRates.put(BowsID.BOW_WEB_BOW, 0.1f);
+        }
+        for (LongBowsID longBowsID : LongBowsID.values()){
+            longBowSpawnRates.put(LongBowsID.BOW_LONGBOW, 0.1f);
+            longBowSpawnRates.put(LongBowsID.BOW_GUARDIAN_BOW, 0.05f);
+            longBowSpawnRates.put(LongBowsID.BOW_RED_SNAKE, 0.05f);
+        }
+        for (ShortBowsID shortBowsID : ShortBowsID.values()){
+            shortBowSpawnRates.put(ShortBowsID.BOW_SHORTBOW, 0.1f);
+            shortBowSpawnRates.put(ShortBowsID.BOW_MECHANICAL_SHORTBOW, 0.05f);
+            shortBowSpawnRates.put(ShortBowsID.BOW_LOVE_SPELL_BOW, 0.05f);
+            shortBowSpawnRates.put(ShortBowsID.BOW_PURPLE_STORM, 0.05f);
+        }
+        for (CrossbowsID crossbowsID : CrossbowsID.values()){
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_THE_SLICER, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_AZURE_SEEKER, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_FIREBOLT_THROWER, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_DOOM_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_RAPID_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_AUTO_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_HARP_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_SOUL_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_FERAL_SOUL_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_DUAL_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_SPELLBOUND_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_BABY_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_BURST_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_COG_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW, 0.05f);
+            crossbowSpawnRates.put(CrossbowsID.CROSSBOW_VEILED_CROSSBOW, 0.05f);
         }
     }
 
