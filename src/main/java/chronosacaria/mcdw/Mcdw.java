@@ -8,6 +8,7 @@ import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.loottables.McdwLoottables;
+import chronosacaria.mcdw.loottables.McdwNewLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import com.google.gson.JsonObject;
 import me.shedaniel.autoconfig.AutoConfig;
@@ -199,7 +200,8 @@ public class Mcdw implements ModInitializer {
         ItemRegistry.registerItems();
 
         // Loot
-        McdwLoottables.init();
+        //McdwLoottables.init();
+        McdwNewLoottables.init();
 
         // Sounds
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);

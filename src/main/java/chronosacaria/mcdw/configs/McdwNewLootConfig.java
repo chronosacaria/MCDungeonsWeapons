@@ -1,16 +1,23 @@
 package chronosacaria.mcdw.configs;
 
 import chronosacaria.mcdw.enums.*;
+import com.google.common.collect.Lists;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 
 @Config(name = "mcdw_loot_config")
 public class McdwNewLootConfig implements ConfigData {
-    public EnumMap<SettingsID, Boolean> enableLootTableSettings = new EnumMap<>(SettingsID.class);
+    public EnumMap<SettingsID, Boolean> weaponsEnabledInLootTables = new EnumMap<>(SettingsID.class);
+
+    public EnumMap<SettingsID, ArrayList<String>> commonLootTables = new EnumMap<>(SettingsID.class);
+    public EnumMap<SettingsID, ArrayList<String>> uncommonLootTables = new EnumMap<>(SettingsID.class);
+    public EnumMap<SettingsID, ArrayList<String>> rareLootTables = new EnumMap<>(SettingsID.class);
+    public EnumMap<SettingsID, ArrayList<String>> epicLootTables = new EnumMap<>(SettingsID.class);
+
     public EnumMap<AxesID, Float> axeSpawnRates = new EnumMap<>(AxesID.class);
-    public EnumMap<CrossbowsID, Float> crossbowSpawnRates = new EnumMap<>(CrossbowsID.class);
     public EnumMap<DaggersID, Float> daggerSpawnRates = new EnumMap<>(DaggersID.class);
     public EnumMap<DoubleAxesID, Float> doubleAxeSpawnRates = new EnumMap<>(DoubleAxesID.class);
     public EnumMap<GauntletsID, Float> gauntletSpawnRates = new EnumMap<>(GauntletsID.class);
@@ -28,13 +35,39 @@ public class McdwNewLootConfig implements ConfigData {
     public EnumMap<BowsID, Float> bowSpawnRates = new EnumMap<>(BowsID.class);
     public EnumMap<LongBowsID, Float> longBowSpawnRates = new EnumMap<>(LongBowsID.class);
     public EnumMap<ShortBowsID, Float> shortBowSpawnRates = new EnumMap<>(ShortBowsID.class);
+    public EnumMap<CrossbowsID, Float> crossbowSpawnRates = new EnumMap<>(CrossbowsID.class);
 
     public EnumMap<ShieldsID, Float> shieldSpawnRates = new EnumMap<>(ShieldsID.class);
 
     public McdwNewLootConfig(){
-        for (SettingsID settingsEnum : SettingsID.values()) {
-            enableLootTableSettings.put(SettingsID.ENABLE_BASIC_WEAPONS_IN_LOOTTABLES, true);
-            enableLootTableSettings.put(SettingsID.ENABLE_ALL_WEAPONS_IN_LOOTTABLES, false);
+        for (SettingsID weaponsEnabled : SettingsID.values()){
+            weaponsEnabledInLootTables.put(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES, true);
+        }
+
+        for (SettingsID commonLootTable : SettingsID.values()) {
+            commonLootTables.put(SettingsID.COMMON_LOOT_TABLES, Lists.newArrayList(
+                    "minecraft:chests/abandoned_mineshaft",
+                    "minecraft:chests/shipwreck",
+                    "minecraft:chests/desert_pyramid"));
+        }
+        for (SettingsID uncommonLootTable : SettingsID.values()) {
+            uncommonLootTables.put(SettingsID.UNCOMMON_LOOT_TABLES, Lists.newArrayList(
+                    "minecraft:chests/jungle_temple",
+                    "minecraft:chests/nether_bridge",
+                    "minecraft:chests/bastion"));
+        }
+        for (SettingsID rareLootTable : SettingsID.values()) {
+            rareLootTables.put(SettingsID.RARE_LOOT_TABLES, Lists.newArrayList(
+                    "minecraft:chests/underwater_ruin",
+                    "minecraft:chests/ruined_portal",
+                    "minecraft:chests/simple_dungeon",
+                    "minecraft:chests/igloo_chest"));
+        }
+        for (SettingsID epicLootTable : SettingsID.values()) {
+            epicLootTables.put(SettingsID.EPIC_LOOT_TABLES, Lists.newArrayList(
+                    "minecraft:chests/pillager_outpost",
+                    "minecraft:stronghold",
+                    "minecraft:chests/end_city_treasure"));
         }
 
         for (AxesID axesID : AxesID.values()) {
@@ -73,6 +106,79 @@ public class McdwNewLootConfig implements ConfigData {
             glaiveSpawnRates.put(GlaivesID.SPEAR_GRAVE_BANE, 0.05f);
             glaiveSpawnRates.put(GlaivesID.SPEAR_VENOM_GLAIVE, 0.05f);
             //glaiveSpawnRates.put(GlaivesID.SPEAR_CACKLING_BROOM, 0.05f);
+        }
+        for (HammersID hammersID : HammersID.values()) {
+            hammerSpawnRates.put(HammersID.HAMMER_GREAT, 0.1f);
+            hammerSpawnRates.put(HammersID.HAMMER_STORMLANDER, 0.05f);
+            hammerSpawnRates.put(HammersID.HAMMER_GRAVITY, 0.05f);
+            hammerSpawnRates.put(HammersID.HAMMER_MACE, 0.1f);
+            hammerSpawnRates.put(HammersID.HAMMER_FLAIL, 0.05f);
+            hammerSpawnRates.put(HammersID.HAMMER_SUNS_GRACE, 0.05f);
+            hammerSpawnRates.put(HammersID.HAMMER_BONECLUB, 0.1f);
+            hammerSpawnRates.put(HammersID.HAMMER_BONE_CUDGEL, 0.05f);
+        }
+        for (PicksID picksID : PicksID.values()) {
+            pickSpawnRates.put(PicksID.PICK_DIAMOND_PICKAXE_VAR, 0.1f);
+            pickSpawnRates.put(PicksID.PICK_MOUNTAINEER_PICK, 0.1f);
+            pickSpawnRates.put(PicksID.PICK_HOWLING_PICK, 0.1f);
+            pickSpawnRates.put(PicksID.PICK_HAILING_PINNACLE, 0.1f);
+        }
+        for (ScythesID scythesID : ScythesID.values()) {
+            scytheSpawnRates.put(ScythesID.SICKLE_JAILORS_SCYTHE, 0.1f);
+            scytheSpawnRates.put(ScythesID.SICKLE_SOUL_SCYTHE, 0.05f);
+            scytheSpawnRates.put(ScythesID.SICKLE_FROST_SCYTHE, 0.05f);
+            scytheSpawnRates.put(ScythesID.SICKLE_SKULL_SCYTHE, 0.05f);
+        }
+        for (SicklesID sicklesID : SicklesID.values()) {
+            sickleSpawnRates.put(SicklesID.SICKLE_SICKLE, 0.1f);
+            sickleSpawnRates.put(SicklesID.SICKLE_NIGHTMARES_BITE, 0.05f);
+            sickleSpawnRates.put(SicklesID.SICKLE_LAST_LAUGH_GOLD, 0.05f);
+            sickleSpawnRates.put(SicklesID.SICKLE_LAST_LAUGH_SILVER, 0.05f);
+        }
+        for (SoulDaggersID soulDaggersID : SoulDaggersID.values()) {
+            soulDaggerSpawnRates.put(SoulDaggersID.DAGGER_SOUL_KNIFE, 0.1f);
+            soulDaggerSpawnRates.put(SoulDaggersID.DAGGER_ETERNAL_KNIFE, 0.05f);
+            soulDaggerSpawnRates.put(SoulDaggersID.SWORD_TRUTHSEEKER, 0.05f);
+        }
+        for (SpearsID spearsID : SpearsID.values()) {
+            spearSpawnRates.put(SpearsID.SPEAR_SPEAR, 0.1f);
+            spearSpawnRates.put(SpearsID.SPEAR_WHISPERING_SPEAR, 0.05f);
+            spearSpawnRates.put(SpearsID.SPEAR_FORTUNE, 0.05f);
+        }
+        for (StavesID stavesID : StavesID.values()) {
+            staffSpawnRates.put(StavesID.STAFF_BATTLESTAFF, 0.1f);
+            staffSpawnRates.put(StavesID.STAFF_GROWING_STAFF, 0.05f);
+            staffSpawnRates.put(StavesID.STAFF_BATTLESTAFF_OF_TERROR, 0.05f);
+        }
+        for (SwordsID swordsID : SwordsID.values()) {
+            swordSpawnRates.put(SwordsID.SWORD_BROADSWORD, 0.1f);
+            swordSpawnRates.put(SwordsID.SWORD_CLAYMORE, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_FROST_SLAYER, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_HEARTSTEALER, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_GREAT_AXEBLADE, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_RAPIER, 0.1f);
+            swordSpawnRates.put(SwordsID.SWORD_BEESTINGER, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_FREEZING_FOIL, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_CUTLASS, 0.1f);
+            swordSpawnRates.put(SwordsID.SWORD_NAMELESS_BLADE, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_DANCERS_SWORD, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_KATANA, 0.1f);
+            swordSpawnRates.put(SwordsID.SWORD_MASTERS_KATANA, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_DARK_KATANA, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_IRON_SWORD_VAR, 0.1f);
+            swordSpawnRates.put(SwordsID.SWORD_DIAMOND_SWORD_VAR, 0.1f);
+            swordSpawnRates.put(SwordsID.SWORD_HAWKBRAND, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_SINISTER, 0.01f);
+            swordSpawnRates.put(SwordsID.SWORD_BROKEN_SAWBLADE, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_MECHANIZED_SAWBLADE, 0.01f);
+            swordSpawnRates.put(SwordsID.SWORD_CORAL_BLADE, 0.1f);
+            swordSpawnRates.put(SwordsID.SWORD_SPONGE_STRIKER, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_OBSIDIAN_CLAYMORE, 0.05f);
+            swordSpawnRates.put(SwordsID.SWORD_THE_STARLESS_NIGHT, 0.01f);
+        }
+        for (WhipsID whipsID : WhipsID.values()) {
+            whipSpawnRates.put(WhipsID.WHIP_WHIP, 0.1f);
+            whipSpawnRates.put(WhipsID.WHIP_VINE_WHIP, 0.05f);
         }
     }
 
