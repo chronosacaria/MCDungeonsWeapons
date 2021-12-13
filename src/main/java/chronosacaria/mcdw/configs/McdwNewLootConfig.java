@@ -47,7 +47,8 @@ public class McdwNewLootConfig implements ConfigData {
         for (SettingsID commonLootTable : SettingsID.values()) {
             commonLootTables.put(SettingsID.COMMON_LOOT_TABLES, Lists.newArrayList(
                     "minecraft:chests/abandoned_mineshaft",
-                    "minecraft:chests/shipwreck",
+                    "minecraft:chests/shipwreck_supply",
+                    "minecraft:chests/shipwreck_treasure",
                     "minecraft:chests/desert_pyramid",
                     "minecraft:chests/village/village_weaponsmith"));
         }
@@ -114,7 +115,7 @@ public class McdwNewLootConfig implements ConfigData {
             hammerSpawnRates.put(HammersID.HAMMER_GRAVITY, 0.05f);
             hammerSpawnRates.put(HammersID.HAMMER_MACE, 0.1f);
             hammerSpawnRates.put(HammersID.HAMMER_FLAIL, 0.05f);
-            hammerSpawnRates.put(HammersID.HAMMER_SUNS_GRACE, 0.05f);
+            hammerSpawnRates.put(HammersID.HAMMER_SUNS_GRACE, 0.00f);
             hammerSpawnRates.put(HammersID.HAMMER_BONECLUB, 0.1f);
             hammerSpawnRates.put(HammersID.HAMMER_BONE_CUDGEL, 0.05f);
         }
