@@ -44,6 +44,7 @@ public class McdwNewLootConfig implements ConfigData {
             weaponsEnabledInLootTables.put(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES, true);
         }
 
+        //TODO MAKE LOOTTABLES NOT REVERT WHEN CHANGED BY USER
         for (SettingsID commonLootTable : SettingsID.values()) {
             commonLootTables.put(SettingsID.COMMON_LOOT_TABLES, Lists.newArrayList(
                     "minecraft:chests/abandoned_mineshaft",
@@ -56,11 +57,14 @@ public class McdwNewLootConfig implements ConfigData {
             uncommonLootTables.put(SettingsID.UNCOMMON_LOOT_TABLES, Lists.newArrayList(
                     "minecraft:chests/jungle_temple",
                     "minecraft:chests/nether_bridge",
-                    "minecraft:chests/bastion"));
+                    "minecraft:chests/bastion_bridge",
+                    "minecraft:chests/bastion_other",
+                    "minecraft:chests/bastion_treasure"));
         }
         for (SettingsID rareLootTable : SettingsID.values()) {
             rareLootTables.put(SettingsID.RARE_LOOT_TABLES, Lists.newArrayList(
-                    "minecraft:chests/underwater_ruin",
+                    "minecraft:chests/underwater_ruin_small",
+                    "minecraft:chests/underwater_ruin_big",
                     "minecraft:chests/ruined_portal",
                     "minecraft:chests/simple_dungeon",
                     "minecraft:chests/igloo_chest",
@@ -68,7 +72,9 @@ public class McdwNewLootConfig implements ConfigData {
         }
         for (SettingsID epicLootTable : SettingsID.values()) {
             epicLootTables.put(SettingsID.EPIC_LOOT_TABLES, Lists.newArrayList(
-                    "minecraft:stronghold",
+                    "minecraft:chests/stronghold_corridor",
+                    "minecraft:chests/stronghold_crossing",
+                    "minecraft:chests/stronghold_library",
                     "minecraft:chests/end_city_treasure"));
         }
 

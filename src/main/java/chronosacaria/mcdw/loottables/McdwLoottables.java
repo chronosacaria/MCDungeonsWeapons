@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.loottables;
+/*package chronosacaria.mcdw.loottables;
 
 import chronosacaria.mcdw.configs.McdwLootConfig;
 import chronosacaria.mcdw.items.ItemRegistry;
@@ -195,3 +195,4 @@ public class McdwLoottables {
 
     }
 }
+*/

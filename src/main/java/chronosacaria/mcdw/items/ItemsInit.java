@@ -2,9 +2,7 @@ package chronosacaria.mcdw.items;
 
 import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enums.*;
-import net.minecraft.item.Item;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.ToolMaterials;
+import net.minecraft.item.*;
 import net.minecraft.util.registry.Registry;
 
 import java.util.EnumMap;
@@ -32,6 +30,7 @@ public class ItemsInit {
     public static final EnumMap<LongBowsID, McdwLongBow> longBowItems = new EnumMap<>(LongBowsID.class);
     public static final EnumMap<CrossbowsID, McdwCrossbow> crossbowItems = new EnumMap<>(CrossbowsID.class);
     public static final EnumMap<ShieldsID, McdwShield> shieldItems = new EnumMap<>(ShieldsID.class);
+    public static final EnumMap<ItemsID, BeeStingerItem> mcdwItems = new EnumMap<>(ItemsID.class);
 
     public static void init() {
         for (SwordsID swordsID : SwordsID.values()) {
@@ -1230,6 +1229,20 @@ public class ItemsInit {
 
             shieldItems.put(shieldsID, shield);
             registerItem(shieldsID.toString().toLowerCase(), shield);
+        }
+        for (ItemsID itemsID : ItemsID.values()) {
+            if (!CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(itemsID))
+                continue;
+
+            var beeStingerItem = new BeeStingerItem(new Item.Settings().group(ItemGroup.MISC).maxCount(64));
+
+            if (itemsID == ItemsID.ITEM_BEE_STINGER) {
+                beeStingerItem.asItem();
+            } else {
+                new Item(new Item.Settings());
+            }
+            mcdwItems.put(itemsID, beeStingerItem);
+            registerItem(itemsID.toString().toLowerCase(), beeStingerItem);
         }
     }
 

@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.loottables;
 
 import chronosacaria.mcdw.enums.*;
-import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
@@ -28,49 +27,12 @@ public class McdwNewLoottables {
     public static final ArrayList<String> EPIC_LOOT_TABLES =
             new ArrayList<>(CONFIG.mcdwNewlootConfig.epicLootTables.get(SettingsID.EPIC_LOOT_TABLES));
 
-    private static boolean commonLootTables(String lootTable){
-        for (String id : COMMON_LOOT_TABLES){
-            if (id.equals(lootTable)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean uncommonLootTables(String lootTable){
-        for (String id : UNCOMMON_LOOT_TABLES){
-            if (id.equals(lootTable)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean rareLootTables(String lootTable){
-        for (String id : RARE_LOOT_TABLES){
-            if (id.equals(lootTable)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean epicLootTables(String lootTable){
-        for (String id : EPIC_LOOT_TABLES){
-            if (id.equals(lootTable)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-
     public static void init() {
         LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, id, supplier, setter) -> {
             if ("minecraft:entities/bee".equals(id.toString())) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1, 1.0F))
-                        .with(ItemEntry.builder(ItemRegistry.getItem("item_bee_stinger")));
+                        .with(ItemEntry.builder(ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER)));
 
                 supplier.pool(poolBuilder);
             }
@@ -78,7 +40,7 @@ public class McdwNewLoottables {
             if ("minecraft:entities/witch".equals(id.toString())) {
                 LootPool poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .with(ItemEntry.builder(ItemRegistry.getItem("spear_cackling_broom")).weight(1))
+                        .with(ItemEntry.builder(ItemsInit.glaiveItems.get(GlaivesID.SPEAR_CACKLING_BROOM)).weight(1))
                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F,
                                 1.0F)).build())
                         .withFunction(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0F, 1.0F)).build())
@@ -86,17 +48,13 @@ public class McdwNewLoottables {
                 supplier.withPool(poolBuilder);
             }
 
-            var commonValues = (CONFIG.mcdwNewlootConfig.commonLootTables).values();
-            if (commonValues == commonValues.iterator()){
-
-            }
-
-            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)
-                    && COMMON_LOOT_TABLES.get(0).equals(id.toString())
-                    || COMMON_LOOT_TABLES.get(1).equals(id.toString())
-                    || COMMON_LOOT_TABLES.get(2).equals(id.toString())
-                    || COMMON_LOOT_TABLES.get(3).equals(id.toString())
-                    || COMMON_LOOT_TABLES.get(4).equals(id.toString())) {
+            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+                boolean addToLootTable = false;
+                for (int i = 0; i < COMMON_LOOT_TABLES.size(); i++) {
+                    if (COMMON_LOOT_TABLES.get(i).equals(id.toString())) addToLootTable = true;
+                    if (addToLootTable) break;
+                }
+                //if (!addToLootTable) return;
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE)))
@@ -177,18 +135,22 @@ public class McdwNewLoottables {
                 supplier.pool(poolBuilder);
             }
 
-           /*if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES) &&
-                   uncommonLootTables(UNCOMMON_LOOT_TABLES.get(CONFIG.mcdwNewlootConfig.uncommonLootTables.size())
-                   )) {
+            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+                boolean addToLootTable = false;
+                for (int i = 0; i < UNCOMMON_LOOT_TABLES.size(); i++) {
+                    if (UNCOMMON_LOOT_TABLES.get(i).equals(id.toString())) addToLootTable = true;
+                    if (addToLootTable) break;
+                }
+                //if (!addToLootTable) return;
                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.whipSpawnRates.get(WhipsID.WHIP_WHIP)))
                        .with(ItemEntry.builder(ItemsInit.whipItems.get(WhipsID.WHIP_WHIP)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.whipSpawnRates.get(WhipsID.WHIP_VINE_WHIP)))
                        .with(ItemEntry.builder(ItemsInit.whipItems.get(WhipsID.WHIP_VINE_WHIP)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE_FIREBRAND)))
                        .with(ItemEntry.builder(ItemsInit.axeItems.get(AxesID.AXE_FIREBRAND)))
@@ -196,51 +158,51 @@ public class McdwNewLoottables {
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates.get(DoubleAxesID.AXE_CURSED)))
                        .with(ItemEntry.builder(ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_CURSED)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_BONECLUB)))
                        .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_BONECLUB)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_BONE_CUDGEL)))
                        .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_BONE_CUDGEL)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_SKULL_SCYTHE)))
                        .with(ItemEntry.builder(ItemsInit.scytheItems.get(ScythesID.SICKLE_SKULL_SCYTHE)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.sickleSpawnRates.get(SicklesID.SICKLE_NIGHTMARES_BITE)))
                        .with(ItemEntry.builder(ItemsInit.sickleItems.get(SicklesID.SICKLE_NIGHTMARES_BITE)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_SKULL_SCYTHE)))
                        .with(ItemEntry.builder(ItemsInit.scytheItems.get(ScythesID.SICKLE_SKULL_SCYTHE)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_BROADSWORD)))
                        .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_BROADSWORD)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_CLAYMORE)))
                        .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_CLAYMORE)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_NAMELESS_BLADE)))
                        .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_NAMELESS_BLADE)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_DIAMOND_SWORD_VAR)))
                        .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_DIAMOND_SWORD_VAR)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_SINISTER)))
                        .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_SINISTER)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_BROKEN_SAWBLADE)))
                        .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_BROKEN_SAWBLADE)))
-//
+
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_MECHANIZED_SAWBLADE)))
                        .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_MECHANIZED_SAWBLADE)))
@@ -248,12 +210,17 @@ public class McdwNewLoottables {
                        .rolls(BinomialLootNumberProvider.create(1,
                                CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_JAILORS_SCYTHE)))
                        .with(ItemEntry.builder(ItemsInit.scytheItems.get(ScythesID.SICKLE_JAILORS_SCYTHE)));
-//
+
                supplier.pool(poolBuilder);
            }
 
-            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES) &&
-                    rareLootTables(RARE_LOOT_TABLES.get(CONFIG.mcdwNewlootConfig.rareLootTables.size()))) {
+            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+                boolean addToLootTable = false;
+                for (int i = 0; i < RARE_LOOT_TABLES.size(); i++) {
+                    if (RARE_LOOT_TABLES.get(i).equals(id.toString())) addToLootTable = true;
+                    if (addToLootTable) break;
+                }
+                //if (!addToLootTable) return;
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE_HIGHLAND)))
@@ -346,43 +313,43 @@ public class McdwNewLoottables {
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.staffSpawnRates.get(StavesID.STAFF_BATTLESTAFF_OF_TERROR)))
                         .with(ItemEntry.builder(ItemsInit.staffItems.get(StavesID.STAFF_BATTLESTAFF_OF_TERROR)))
-//
+
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_FROST_SLAYER)))
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_FROST_SLAYER)))
-//
+
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_HEARTSTEALER)))
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_HEARTSTEALER)))
-//
+
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_GREAT_AXEBLADE)))
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_GREAT_AXEBLADE)))
-//
+
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_BEESTINGER)))
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_BEESTINGER)))
-//
+
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_FREEZING_FOIL)))
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_FREEZING_FOIL)))
-//
+
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_DANCERS_SWORD)))
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_DANCERS_SWORD)))
-//
+
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_MASTERS_KATANA)))
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_MASTERS_KATANA)))
-//
+
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_HAWKBRAND)))
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_HAWKBRAND)))
-//
+
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_CORAL_BLADE)))
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_CORAL_BLADE)))
-//
+
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_SPONGE_STRIKER)))
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_SPONGE_STRIKER)));
@@ -390,8 +357,13 @@ public class McdwNewLoottables {
                 supplier.pool(poolBuilder);
             }
 
-            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES) &&
-                    epicLootTables(COMMON_LOOT_TABLES.get(CONFIG.mcdwNewlootConfig.epicLootTables.size()))) {
+            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+                boolean addToLootTable = false;
+                for (int i = 0; i < EPIC_LOOT_TABLES.size(); i++) {
+                    if (EPIC_LOOT_TABLES.get(i).equals(id.toString())) addToLootTable = true;
+                    if (addToLootTable) break;
+                }
+                if (!addToLootTable) return;
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1,
                                 CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_BACKSTABBER)))
@@ -458,7 +430,7 @@ public class McdwNewLoottables {
                         .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_THE_STARLESS_NIGHT)));
 
                 supplier.pool(poolBuilder);
-            }*/
+            }
         }));
 
     }
