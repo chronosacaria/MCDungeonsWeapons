@@ -2,7 +2,8 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.StavesID;
+import chronosacaria.mcdw.items.ItemsInit;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -111,17 +112,17 @@ public class McdwStaff extends AxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == ItemRegistry.getItem("staff_battlestaff")) {
+        if (stack.getItem() == ItemsInit.staffItems.get(StavesID.STAFF_BATTLESTAFF)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.battlestaff_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.battlestaff_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.battlestaff_3").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("staff_battlestaff_of_terror")) {
+        if (stack.getItem() == ItemsInit.staffItems.get(StavesID.STAFF_BATTLESTAFF_OF_TERROR)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.battlestaff_of_terror_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.battlestaff_of_terror_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.battlestaff_of_terror_3").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("staff_growing_staff")) {
+        if (stack.getItem() == ItemsInit.staffItems.get(StavesID.STAFF_GROWING_STAFF)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.growing_staff_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.growing_staff_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.growing_staff_3").formatted(Formatting.ITALIC));

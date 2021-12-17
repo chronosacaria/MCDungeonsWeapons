@@ -4,7 +4,8 @@ package chronosacaria.mcdw.bases;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IRangedWeapon;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.ShortBowsID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -175,28 +176,28 @@ public class McdwShortBow extends BowItem implements IRangedWeapon {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == ItemRegistry.getItem("bow_love_spell_bow")) {
+        if (stack.getItem() == ItemsInit.shortBowItems.get(ShortBowsID.BOW_LOVE_SPELL_BOW)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.love_spell_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.love_spell_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.love_spell_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("bow_mechanical_shortbow")) {
+        if (stack.getItem() == ItemsInit.shortBowItems.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mechanical_shortbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mechanical_shortbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.mechanical_shortbow_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("bow_purple_storm")) {
+        if (stack.getItem() == ItemsInit.shortBowItems.get(ShortBowsID.BOW_PURPLE_STORM)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.purple_storm_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.purple_storm_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.purple_storm_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("bow_shortbow")) {
+        if (stack.getItem() == ItemsInit.shortBowItems.get(ShortBowsID.BOW_SHORTBOW)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shortbow_3").formatted(Formatting.ITALIC));

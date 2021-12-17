@@ -4,7 +4,8 @@ package chronosacaria.mcdw.bases;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IRangedWeapon;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.LongBowsID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -158,21 +159,21 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == ItemRegistry.getItem("bow_longbow")) {
+        if (stack.getItem() == ItemsInit.longBowItems.get(LongBowsID.BOW_LONGBOW)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.longbow_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.longbow_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.longbow_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("bow_guardian_bow")) {
+        if (stack.getItem() == ItemsInit.longBowItems.get(LongBowsID.BOW_GUARDIAN_BOW)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.guardian_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("bow_red_snake")) {
+        if (stack.getItem() == ItemsInit.longBowItems.get(LongBowsID.BOW_RED_SNAKE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.red_snake_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.red_snake_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.red_snake_3").formatted(Formatting.ITALIC));

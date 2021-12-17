@@ -1,39 +1,20 @@
 package chronosacaria.mcdw.mixin;
 
-import chronosacaria.mcdw.api.util.AOECloudHelper;
-import chronosacaria.mcdw.api.util.AOEHelper;
-import chronosacaria.mcdw.api.util.AbilityHelper;
-import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
-import chronosacaria.mcdw.bases.McdwBow;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
-import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
-import chronosacaria.mcdw.items.ItemRegistry;
-import chronosacaria.mcdw.sounds.McdwSoundEvents;
+import chronosacaria.mcdw.enums.*;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Hand;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -70,13 +51,12 @@ public abstract class LivingEntityMixin extends Entity {
 
     private void removePoisonIfPCEnchant(CallbackInfo ci) {
         if ((Object) this instanceof PlayerEntity) {
-            PlayerEntity entity = (PlayerEntity) (Object) this;
             ItemStack mainHand = getMainHandStack();
 
 
             if (EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHand) >= 1
-                    || mainHand.getItem() == ItemRegistry.getItem("sickle_nightmares_bite").asItem()
-                    || mainHand.getItem() == ItemRegistry.getItem("spear_venom_glaive").asItem())
+                    || mainHand.getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_NIGHTMARES_BITE).asItem()
+                    || mainHand.getItem() == ItemsInit.glaiveItems.get(GlaivesID.SPEAR_VENOM_GLAIVE).asItem())
             {
                 this.removeStatusEffect(StatusEffects.POISON);
             }
@@ -91,11 +71,10 @@ public abstract class LivingEntityMixin extends Entity {
 
     private void removeStunnedIfPCEnchant(CallbackInfo ci) {
         if ((Object) this instanceof PlayerEntity) {
-            PlayerEntity entity = (PlayerEntity) (Object) this;
             ItemStack mainHand = getMainHandStack();
 
             if (EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHand) >= 1
-                    || mainHand.getItem() == ItemRegistry.getItem("axe_highland").asItem()) {
+                    || mainHand.getItem() == ItemsInit.axeItems.get(AxesID.AXE_HIGHLAND).asItem()) {
                 this.removeStatusEffect(StatusEffects.NAUSEA);
                 this.removeStatusEffect(StatusEffects.SLOWNESS);
             }
@@ -111,11 +90,10 @@ public abstract class LivingEntityMixin extends Entity {
 
     private void removeWeakenedIfPCEnchant(CallbackInfo ci) {
         if ((Object) this instanceof PlayerEntity) {
-            PlayerEntity entity = (PlayerEntity) (Object) this;
             ItemStack mainHand = getMainHandStack();
 
             if (EnchantmentHelper.getLevel(EnchantsRegistry.WEAKENING, mainHand) >= 1
-                    || mainHand.getItem() == ItemRegistry.getItem("sword_nameless_blade").asItem()) {
+                    || mainHand.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_NAMELESS_BLADE).asItem()) {
                 this.removeStatusEffect(StatusEffects.WEAKNESS);
             }
         }
@@ -139,7 +117,7 @@ public abstract class LivingEntityMixin extends Entity {
                 UUID petOwnerUUID = owner.getUuid();
                 ItemStack mainHandStack = owner.getMainHandStack();
 
-                if (mainHandStack.getItem() == ItemRegistry.getItem("bow_hunters_promise").asItem()){
+                if (mainHandStack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE).asItem()){
                     if (petOwnerUUID != null){
                         Entity petOwner = serverWorld.getEntity(petOwnerUUID);
                         if (petOwner instanceof LivingEntity){

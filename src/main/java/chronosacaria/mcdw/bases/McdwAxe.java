@@ -2,7 +2,8 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.AxesID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
@@ -23,26 +24,26 @@ public class McdwAxe extends AxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext){
-        if (stack.getItem() == ItemRegistry.getItem("axe")){
+        if (stack.getItem() == ItemsInit.axeItems.get(AxesID.AXE)){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.axe_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.axe_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.axe_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.axe_4").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.axe_5").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("axe_firebrand")){
+        if (stack.getItem() == ItemsInit.axeItems.get(AxesID.AXE_FIREBRAND)){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_4").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("axe_highland")){
+        if (stack.getItem() == ItemsInit.axeItems.get(AxesID.AXE_HIGHLAND)){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_4").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("axe_anchor")){
+        if (stack.getItem() == ItemsInit.axeItems.get(AxesID.AXE_ANCHOR)){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_3").formatted(Formatting.ITALIC));

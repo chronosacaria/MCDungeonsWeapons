@@ -5,7 +5,8 @@ import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.CrossbowsID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -32,8 +33,8 @@ public class BonusShotEnchantmentMixin {
             if (stack.getItem() instanceof CrossbowItem){
                 if (CrossbowItem.isCharged(stack)) {
                     boolean uniqueWeaponFlag =
-                            stack.getItem() == ItemRegistry.getItem("crossbow_butterfly_crossbow").asItem()
-                                    || stack.getItem() == ItemRegistry.getItem("crossbow_auto_crossbow").asItem();
+                            stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW).asItem()
+                                    || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW).asItem();
                     if (McdwEnchantmentHelper.hasEnchantment(stack, EnchantsRegistry.BONUS_SHOT) || uniqueWeaponFlag) {
                         int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
                         float damageMultiplier = 0.1F + ((bonusShotLevel - 1) * 0.07F);

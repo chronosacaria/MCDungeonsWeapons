@@ -3,16 +3,16 @@ package chronosacaria.mcdw.mixin.enchantments;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.ItemsID;
+import chronosacaria.mcdw.enums.SwordsID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -45,7 +45,7 @@ public abstract class BusyBeeEnchantmentMixin extends Entity {
         ItemStack mainHandStack = getMainHandStack();
         ItemStack offHandStack = getOffHandStack();
         if (McdwEnchantsConfig.getValue("mixin_bee")) {
-            if (mainHandStack.getItem() == ItemRegistry.getItem("sword_beestinger") && offHandStack.getItem() == ItemRegistry.getItem("item_bee_stinger")) {
+            if (mainHandStack.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER)) {
                 SummonedBeeEntity summonedBeeEntity_1 = s_bee.create(world);
                 if (summonedBeeEntity_1 != null) {
                     summonedBeeEntity_1.setSummoner(this);
@@ -53,7 +53,7 @@ public abstract class BusyBeeEnchantmentMixin extends Entity {
                     world.spawnEntity(summonedBeeEntity_1);
                 }
             }
-            if ((offHandStack.getItem() == ItemRegistry.getItem("item_bee_stinger") && (mainHandStack.getItem() == ItemRegistry.getItem("sword_beestinger")))) {
+            if ((offHandStack.getItem() == ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER) && (mainHandStack.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_BEESTINGER)))) {
                 offHandStack.decrement(1);
             }
         }

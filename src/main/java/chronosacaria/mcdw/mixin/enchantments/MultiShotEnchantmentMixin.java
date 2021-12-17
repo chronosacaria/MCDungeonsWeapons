@@ -1,7 +1,8 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.BowsID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.*;
@@ -19,7 +20,7 @@ public class MultiShotEnchantmentMixin {
     @Inject(method = "onStoppedUsing", at = @At("HEAD"))
     private void createMultiShotArrows(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
         LivingEntity target = user.getAttacking();
-        boolean uniqueWeaponFlag = stack.getItem() == ItemRegistry.getItem("bow_lost_souls").asItem();
+        boolean uniqueWeaponFlag = stack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_LOST_SOULS).asItem();
         if (McdwEnchantsConfig.getValue("multi_shot")){
             if (uniqueWeaponFlag) {
                 ArrowItem arrowitem = (ArrowItem) (stack.getItem() instanceof ArrowItem ? stack.getItem() : Items.ARROW);

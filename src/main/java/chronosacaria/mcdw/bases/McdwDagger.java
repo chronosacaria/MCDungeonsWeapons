@@ -3,7 +3,8 @@ package chronosacaria.mcdw.bases;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.DaggersID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -33,13 +34,13 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == ItemRegistry.getItem("dagger_dagger")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_DAGGER)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dagger_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.dagger_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_fangs_of_frost")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_FANGS_OF_FROST)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fangs_of_frost_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fangs_of_frost_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fangs_of_frost_3").formatted(Formatting.ITALIC));
@@ -47,70 +48,70 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_moon")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_MOON)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.moon_daggers_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.moon_daggers_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.moon_daggers_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_shear_dagger")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_SHEAR_DAGGER)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shear_daggers_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shear_daggers_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.shear_daggers_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_tempest_knife")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_TEMPEST_KNIFE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.tempest_knife_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.tempest_knife_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.tempest_knife_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_resolute_tempest_knife")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.resolute_tempest_knife_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.resolute_tempest_knife_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.resolute_tempest_knife_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_chill_gale_knife")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_CHILL_GALE_KNIFE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.chill_gale_knife_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.chill_gale_knife_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.chill_gale_knife_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_backstabber")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_BACKSTABBER)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.backstabber_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.backstabber_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.backstabber_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_swift_striker")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_SWIFT_STRIKER)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.swift_striker_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.swift_striker_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.swift_striker_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_void_touched_blade")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_VOID_TOUCHED_BLADE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.void_touched_blade_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.void_touched_blade_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.void_touched_blade_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_the_beginning")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_BEGINNING)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_beginning_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_beginning_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_beginning_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemRegistry.getItem("dagger_the_end")) {
+        if (stack.getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_END)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_end_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_end_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.the_end_3").formatted(Formatting.ITALIC));

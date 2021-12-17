@@ -2,7 +2,8 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.WhipsID;
+import chronosacaria.mcdw.items.ItemsInit;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -109,12 +110,12 @@ public class McdwWhip extends McdwCustomWeaponBase implements Vanishable {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == ItemRegistry.getItem("whip_whip")) {
+        if (stack.getItem() == ItemsInit.whipItems.get(WhipsID.WHIP_WHIP)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whip_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whip_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whip_3").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("whip_vine_whip")) {
+        if (stack.getItem() == ItemsInit.whipItems.get(WhipsID.WHIP_VINE_WHIP)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.vine_whip_3").formatted(Formatting.ITALIC));

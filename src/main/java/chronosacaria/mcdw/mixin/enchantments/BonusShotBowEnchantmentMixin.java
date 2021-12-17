@@ -5,7 +5,8 @@ import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.BowsID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.BowItem;
@@ -21,8 +22,8 @@ public class BonusShotBowEnchantmentMixin {
     @Inject(method = "onStoppedUsing", at = @At("HEAD"))
     public void createBonusShotArrowForBow(ItemStack stack, World world, LivingEntity user,
                                                    int remainingUseTicks, CallbackInfo ci){
-        boolean uniqueWeaponFlag1 = stack.getItem() == ItemRegistry.getItem("bow_haunted_bow").asItem();
-        boolean uniqueWeaponFlag2 = stack.getItem() == ItemRegistry.getItem("bow_twin_bow").asItem();
+        boolean uniqueWeaponFlag1 = stack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_HAUNTED_BOW).asItem();
+        boolean uniqueWeaponFlag2 = stack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_TWIN_BOW).asItem();
         if (McdwEnchantsConfig.getValue("bonus_shot")){
             if (McdwEnchantmentHelper.hasEnchantment(stack, EnchantsRegistry.BONUS_SHOT) || uniqueWeaponFlag1 || uniqueWeaponFlag2){
                 int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);

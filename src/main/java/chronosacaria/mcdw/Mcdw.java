@@ -5,9 +5,7 @@ import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.LongBowsID;
 import chronosacaria.mcdw.enums.ShieldsID;
 import chronosacaria.mcdw.enums.SwordsID;
-import chronosacaria.mcdw.items.ItemRegistry;
 import chronosacaria.mcdw.items.ItemsInit;
-import chronosacaria.mcdw.loottables.McdwLoottables;
 import chronosacaria.mcdw.loottables.McdwNewLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import com.google.gson.JsonObject;
@@ -167,6 +165,7 @@ public class Mcdw implements ModInitializer {
         CONFIG = AutoConfig.register(McdwConfig.class, PartitioningSerializer.wrap(JanksonConfigSerializer::new)).getConfig();
 
         ItemsInit.init();
+        McdwNewLoottables.init();
 
         // Config
         McdwStatsConfig.initAll();
@@ -195,13 +194,8 @@ public class Mcdw implements ModInitializer {
         // Enchants
         EnchantsRegistry.init();
 
-        // Items
-        ItemRegistry.addItems();
-        ItemRegistry.registerItems();
-
         // Loot
         //McdwLoottables.init();
-        McdwNewLoottables.init();
 
         // Sounds
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);

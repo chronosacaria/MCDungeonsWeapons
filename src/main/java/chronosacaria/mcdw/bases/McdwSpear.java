@@ -2,7 +2,8 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.SpearsID;
+import chronosacaria.mcdw.items.ItemsInit;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -107,17 +108,17 @@ public class McdwSpear extends McdwCustomWeaponBase implements Vanishable {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == ItemRegistry.getItem("spear_spear")) {
+        if (stack.getItem() == ItemsInit.spearItems.get(SpearsID.SPEAR_SPEAR)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_3").formatted(Formatting.ITALIC));
         }
-        else if (stack.getItem() == ItemRegistry.getItem("spear_fortune")) {
+        else if (stack.getItem() == ItemsInit.spearItems.get(SpearsID.SPEAR_FORTUNE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_3").formatted(Formatting.ITALIC));
         }
-        else if (stack.getItem() == ItemRegistry.getItem("spear_whispering_spear")) {
+        else if (stack.getItem() == ItemsInit.spearItems.get(SpearsID.SPEAR_WHISPERING_SPEAR)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_3").formatted(Formatting.ITALIC));

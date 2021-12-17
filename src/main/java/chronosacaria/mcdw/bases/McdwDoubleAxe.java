@@ -2,7 +2,8 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.DoubleAxesID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
@@ -24,17 +25,17 @@ public class McdwDoubleAxe extends AxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext){
-        if (stack.getItem() == ItemRegistry.getItem("axe_double")){
+        if (stack.getItem() == ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_DOUBLE)){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.double_axe_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.double_axe_2").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("axe_cursed")){
+        if (stack.getItem() == ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_CURSED)){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_4").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("axe_whirlwind")){
+        if (stack.getItem() == ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_WHIRLWIND)){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whirlwind_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whirlwind_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whirlwind_3").formatted(Formatting.ITALIC));

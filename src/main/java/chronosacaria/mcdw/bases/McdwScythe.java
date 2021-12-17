@@ -2,7 +2,8 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.items.ItemRegistry;
+import chronosacaria.mcdw.enums.ScythesID;
+import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,22 +23,22 @@ public class McdwScythe extends SwordItem {
     }
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == ItemRegistry.getItem("sickle_soul_scythe")) {
+        if (stack.getItem() == ItemsInit.scytheItems.get(ScythesID.SICKLE_SOUL_SCYTHE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_scythe_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_scythe_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_scythe_3").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("sickle_frost_scythe")) {
+        if (stack.getItem() == ItemsInit.scytheItems.get(ScythesID.SICKLE_FROST_SCYTHE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_scythe_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_scythe_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_scythe_3").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.frost_scythe_4").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("sickle_jailors_scythe")) {
+        if (stack.getItem() == ItemsInit.scytheItems.get(ScythesID.SICKLE_JAILORS_SCYTHE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.jailors_scythe_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.jailors_scythe_2").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemRegistry.getItem("sickle_skull_scythe")) {
+        if (stack.getItem() == ItemsInit.scytheItems.get(ScythesID.SICKLE_SKULL_SCYTHE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.skull_scythe_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.skull_scythe_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.skull_scythe_3").formatted(Formatting.ITALIC));
