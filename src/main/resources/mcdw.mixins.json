@@ -47,6 +47,7 @@
     "enchantments.RushdownEnchantmentMixin",
     "enchantments.ShockwaveEnchantmentMixin",
     "enchantments.SmitingEnchantmentMixin",
+    "enchantments.SoulDevourerMixin",
     "enchantments.SoulSiphonEnchantmentMixin",
     "enchantments.StunningEnchantmentMixin",
     "enchantments.SwirlingEnchantmentMixin",

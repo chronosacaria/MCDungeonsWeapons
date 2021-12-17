@@ -28,6 +28,7 @@ public class EnchantsRegistry {
     public static Enchantment RUSHDOWN;
     public static Enchantment SHOCKWAVE;
     public static Enchantment SMITING;
+    public static Enchantment SOUL_DEVOURER;
     public static Enchantment SOUL_SIPHON;
     public static Enchantment STUNNING;
     public static Enchantment SWIRLING;
@@ -96,6 +97,8 @@ public class EnchantsRegistry {
         SHOCKWAVE = new ShockwaveEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         SMITING = new SmitingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        SOUL_DEVOURER = new SoulDevourerEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         SOUL_SIPHON = new SoulSiphonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

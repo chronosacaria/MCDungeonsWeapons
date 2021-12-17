@@ -39,6 +39,7 @@ public enum EnchantmentsID {
     RUSHDOWN,
     SHOCKWAVE,
     SMITING,
+    SOUL_DEVOURER,
     SOUL_SIPHON,
     STUNNING,
     SWIRLING,
