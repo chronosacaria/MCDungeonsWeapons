@@ -4,7 +4,6 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.registry.Registry;
 
