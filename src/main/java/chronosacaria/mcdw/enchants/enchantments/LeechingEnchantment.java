@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;
@@ -25,7 +24,7 @@ public class LeechingEnchantment extends Enchantment{
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.LEECHING_CAN_BE_MIXED_WITH_HEALING) || !(other instanceof DamageBoostEnchantment);
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.LEECHING_CAN_BE_MIXED_WITH_HEALING);
     }
 
     /*@Override // LEECHING AS PER HIT

@@ -130,6 +130,7 @@ public class McdwNewLoottables {
 
                         supplier.pool(poolBuilder);
                     }
+                }
             }
 
             if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
@@ -144,10 +145,6 @@ public class McdwNewLoottables {
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.whipSpawnRates.get(WhipsID.WHIP_VINE_WHIP)))
                                 .with(ItemEntry.builder(ItemsInit.whipItems.get(WhipsID.WHIP_VINE_WHIP)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE_FIREBRAND)))
-                                .with(ItemEntry.builder(ItemsInit.axeItems.get(AxesID.AXE_FIREBRAND)))
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates.get(DoubleAxesID.AXE_CURSED)))
@@ -218,6 +215,10 @@ public class McdwNewLoottables {
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE_HIGHLAND)))
                                 .with(ItemEntry.builder(ItemsInit.axeItems.get(AxesID.AXE_HIGHLAND)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE_FIREBRAND)))
+                                .with(ItemEntry.builder(ItemsInit.axeItems.get(AxesID.AXE_FIREBRAND)))
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE_ENCRUSTED_ANCHOR)))
@@ -354,76 +355,78 @@ public class McdwNewLoottables {
 
             if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
                 for (int i = 0; i < EPIC_LOOT_TABLES.size(); i++) {
+                    if (EPIC_LOOT_TABLES.get(i).equals(id.toString())) {
 
-                    FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_BACKSTABBER)))
-                            .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_BACKSTABBER)))
+                        FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_BACKSTABBER)))
+                                .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_BACKSTABBER)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_SWIFT_STRIKER)))
-                            .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_SWIFT_STRIKER)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_SWIFT_STRIKER)))
+                                .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_SWIFT_STRIKER)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_VOID_TOUCHED_BLADE)))
-                            .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_VOID_TOUCHED_BLADE)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_VOID_TOUCHED_BLADE)))
+                                .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_VOID_TOUCHED_BLADE)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_THE_BEGINNING)))
-                            .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_BEGINNING)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_THE_BEGINNING)))
+                                .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_BEGINNING)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_THE_END)))
-                            .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_END)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_THE_END)))
+                                .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_END)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.gauntletSpawnRates.get(GauntletsID.GAUNTLET_SOUL_FISTS)))
-                            .with(ItemEntry.builder(ItemsInit.gauntletItems.get(GauntletsID.GAUNTLET_SOUL_FISTS)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.gauntletSpawnRates.get(GauntletsID.GAUNTLET_SOUL_FISTS)))
+                                .with(ItemEntry.builder(ItemsInit.gauntletItems.get(GauntletsID.GAUNTLET_SOUL_FISTS)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_STORMLANDER)))
-                            .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_STORMLANDER)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_STORMLANDER)))
+                                .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_STORMLANDER)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_GRAVITY)))
-                            .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_GRAVITY)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_GRAVITY)))
+                                .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_GRAVITY)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates.get(SoulDaggersID.DAGGER_SOUL_KNIFE)))
-                            .with(ItemEntry.builder(ItemsInit.soulDaggerItems.get(SoulDaggersID.DAGGER_SOUL_KNIFE)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates.get(SoulDaggersID.DAGGER_SOUL_KNIFE)))
+                                .with(ItemEntry.builder(ItemsInit.soulDaggerItems.get(SoulDaggersID.DAGGER_SOUL_KNIFE)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE)))
-                            .with(ItemEntry.builder(ItemsInit.soulDaggerItems.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE)))
+                                .with(ItemEntry.builder(ItemsInit.soulDaggerItems.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates.get(SoulDaggersID.SWORD_TRUTHSEEKER)))
-                            .with(ItemEntry.builder(ItemsInit.soulDaggerItems.get(SoulDaggersID.SWORD_TRUTHSEEKER)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates.get(SoulDaggersID.SWORD_TRUTHSEEKER)))
+                                .with(ItemEntry.builder(ItemsInit.soulDaggerItems.get(SoulDaggersID.SWORD_TRUTHSEEKER)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_SUNS_GRACE)))
-                            .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_SUNS_GRACE)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_SUNS_GRACE)))
+                                .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_SUNS_GRACE)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_SOUL_SCYTHE)))
-                            .with(ItemEntry.builder(ItemsInit.scytheItems.get(ScythesID.SICKLE_SOUL_SCYTHE)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_SOUL_SCYTHE)))
+                                .with(ItemEntry.builder(ItemsInit.scytheItems.get(ScythesID.SICKLE_SOUL_SCYTHE)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_DARK_KATANA)))
-                            .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_DARK_KATANA)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_DARK_KATANA)))
+                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_DARK_KATANA)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_OBSIDIAN_CLAYMORE)))
-                            .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_OBSIDIAN_CLAYMORE)))
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_OBSIDIAN_CLAYMORE)))
+                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_OBSIDIAN_CLAYMORE)))
 
-                            .rolls(BinomialLootNumberProvider.create(1,
-                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_THE_STARLESS_NIGHT)))
-                            .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_THE_STARLESS_NIGHT)));
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_THE_STARLESS_NIGHT)))
+                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_THE_STARLESS_NIGHT)));
 
-                    supplier.pool(poolBuilder);
+                        supplier.pool(poolBuilder);
+                    }
                 }
             }
-        }}));
+        }));
     }
 }
 
