@@ -6,11 +6,7 @@ import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.function.LootingEnchantLootFunction;
-import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 
 import java.util.ArrayList;
 
@@ -39,11 +35,8 @@ public class McdwNewLoottables {
 
             if ("minecraft:entities/witch".equals(id.toString())) {
                 LootPool poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .with(ItemEntry.builder(ItemsInit.glaiveItems.get(GlaivesID.SPEAR_CACKLING_BROOM)).weight(1))
-                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F,
-                                1.0F)).build())
-                        .withFunction(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0F, 1.0F)).build())
+                        .rolls(BinomialLootNumberProvider.create(1, 0.20f))
+                        .with(ItemEntry.builder(ItemsInit.glaiveItems.get(GlaivesID.SPEAR_CACKLING_BROOM)))
                         .build();
                 supplier.withPool(poolBuilder);
             }
