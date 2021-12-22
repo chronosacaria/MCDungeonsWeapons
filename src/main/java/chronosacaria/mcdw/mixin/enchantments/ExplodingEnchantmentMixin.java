@@ -1,9 +1,10 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOECloudHelper;
 import chronosacaria.mcdw.api.util.AOEHelper;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -31,7 +32,7 @@ public class ExplodingEnchantmentMixin {
             mainHandStack = user.getMainHandStack();
         }
         boolean uniqueWeaponFlag = false;
-        if (McdwEnchantsConfig.getValue("exploding")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.EXPLODING)) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, mainHandStack) >= 1 )) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, mainHandStack);
                 float explodingDamage;

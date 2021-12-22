@@ -1,7 +1,8 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -31,7 +32,7 @@ public class CriticalHitEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                if (McdwEnchantsConfig.getValue("critical_hit")) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CRITICAL_HIT)) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, mainHandStack) >= 1 )) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, mainHandStack);

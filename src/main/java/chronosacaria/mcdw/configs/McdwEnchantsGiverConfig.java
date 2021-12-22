@@ -1,6 +1,7 @@
 
 package chronosacaria.mcdw.configs;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enums.*;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.util.Identifier;
@@ -10,7 +11,7 @@ import wraith.enchant_giver.EnchantsList;
 public class McdwEnchantsGiverConfig {
     public static void appendEnchants(){
 
-        if (McdwEnchantsConfig.getValue("enable_innate_enchants")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_INNATE_ENCHANTMENTS)) {
             // AMBUSH ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_BACKSTABBER)),
                     new Identifier("mcdw:ambush"), 1, true);

@@ -1,7 +1,8 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -30,7 +31,7 @@ public class VoidStrikeEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                if (McdwEnchantsConfig.getValue("void_strike")) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_STRIKE)) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.VOID_STRIKE, mainHandStack) >= 1 )) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_STRIKE, mainHandStack);

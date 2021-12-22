@@ -1,8 +1,9 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AbilityHelper;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -28,10 +29,8 @@ public class TempoTheftEnchantmentMixin {
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
                 }
-                boolean uniqueWeaponFlag =
-                        false;
-                if (McdwEnchantsConfig.getValue("tempo_theft")) {
-                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, mainHandStack) >= 1 || uniqueWeaponFlag)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.TEMPO_THEFT)) {
+                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, mainHandStack) >= 1)) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, mainHandStack);
                         if (target instanceof LivingEntity) {
                             AbilityHelper.stealSpeedFromTarget(user, target, level);

@@ -1,6 +1,5 @@
 /*package chronosacaria.mcdw.mixin.enchantments;
 
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.ItemEntity;
@@ -36,7 +35,7 @@ public abstract class DippingPoisonEnchantmentMixin {
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("dipping_poison")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DIPPING_POISON)) {
            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, mainHandStack) >= 1 )) {
                int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, mainHandStack);
                if (user instanceof PlayerEntity) {

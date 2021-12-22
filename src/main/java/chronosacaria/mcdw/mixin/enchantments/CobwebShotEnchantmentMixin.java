@@ -1,7 +1,8 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -39,7 +40,7 @@ public abstract class CobwebShotEnchantmentMixin extends Entity {
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("cobweb_shot")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COBWEB_SHOT)) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, mainHandStack) >= 1)) {
                 if (targetWorld.getBlockState(targetPos) == Blocks.AIR.getDefaultState()) {
                     targetWorld.setBlockState(targetPos, Blocks.COBWEB.getDefaultState());
@@ -57,7 +58,7 @@ public abstract class CobwebShotEnchantmentMixin extends Entity {
             World shooterWorld = shooter.getEntityWorld();
             mainHandStack = shooter.getMainHandStack();
             Direction side = blockHitResult.getSide();
-            if (McdwEnchantsConfig.getValue("cobweb_shot")) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COBWEB_SHOT)) {
                 if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, mainHandStack) >= 1)) {
                     if (shooterWorld.getBlockState(blockHitResult.getBlockPos().offset(side)) == Blocks.AIR.getDefaultState()){
                         shooterWorld.setBlockState(blockHitResult.getBlockPos().offset(side),

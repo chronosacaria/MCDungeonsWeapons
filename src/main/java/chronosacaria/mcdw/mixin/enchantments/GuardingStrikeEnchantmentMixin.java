@@ -1,8 +1,9 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.PlayerAttackHelper;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -16,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin({LivingEntity.class, PlayerEntity.class})
-public abstract class GuardingStrikeEnchantmentMixin {
+public class GuardingStrikeEnchantmentMixin {
 
     @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
 
@@ -30,7 +31,7 @@ public abstract class GuardingStrikeEnchantmentMixin {
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("guarding_strike")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GUARDING_STRIKE)) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.GUARDING_STRIKE, mainHandStack) >= 1 )) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.GUARDING_STRIKE, mainHandStack);
                     int shieldDuration = 20 + (20 * level);

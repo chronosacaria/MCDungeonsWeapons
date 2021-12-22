@@ -1,9 +1,10 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOECloudHelper;
 import chronosacaria.mcdw.api.util.AOEHelper;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -39,7 +40,7 @@ public abstract class FuseShotEnchantmentMixin extends Entity {
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("fuse_shot")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.FUSE_SHOT)) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, mainHandStack);
                 float f = (float) persistentProjectileEntity.getVelocity().length();

@@ -1,8 +1,9 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -37,7 +38,7 @@ public abstract class ChainReactionEnchantmentMixin extends Entity {
         if (shooter != null) {
             mainHandStack = shooter.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("chain_reaction")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CHAIN_REACTION)) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, mainHandStack);
                 if (target == null) return;

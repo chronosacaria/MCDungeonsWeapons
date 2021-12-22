@@ -1,9 +1,10 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.bases.McdwBow;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -26,7 +27,7 @@ public class RicochetEnchantmentMixin {
 
         ItemStack mainHandStack = attacker.getMainHandStack();
 
-        if (McdwEnchantsConfig.getValue("ricochet"))  {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RICOCHET))  {
             if (mainHandStack != ItemStack.EMPTY && (EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, mainHandStack) >= 1)) {
             int level = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, mainHandStack);
                 if (level >= 1) {

@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentTarget;

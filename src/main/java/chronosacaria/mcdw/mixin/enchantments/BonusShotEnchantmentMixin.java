@@ -1,11 +1,12 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.CrossbowsID;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
@@ -29,7 +30,7 @@ public class BonusShotEnchantmentMixin {
                                     CallbackInfoReturnable<PersistentProjectileEntity> cir, ArrowItem arrowItem,
                                     PersistentProjectileEntity persistentProjectileEntity){
         ItemStack stack = user.getMainHandStack();
-        if (McdwEnchantsConfig.getValue("bonus_shot")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BONUS_SHOT)) {
             if (stack.getItem() instanceof CrossbowItem){
                 if (CrossbowItem.isCharged(stack)) {
                     boolean uniqueWeaponFlag =

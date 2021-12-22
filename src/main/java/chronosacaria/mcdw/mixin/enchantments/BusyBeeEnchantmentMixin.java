@@ -1,8 +1,9 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.ItemsID;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemsInit;
@@ -44,7 +45,7 @@ public abstract class BusyBeeEnchantmentMixin extends Entity {
     private void swingHand(Hand hand, CallbackInfo ci) {
         ItemStack mainHandStack = getMainHandStack();
         ItemStack offHandStack = getOffHandStack();
-        if (McdwEnchantsConfig.getValue("mixin_bee")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BUZZY_BEE)) {
             if (mainHandStack.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER)) {
                 SummonedBeeEntity summonedBeeEntity_1 = s_bee.create(world);
                 if (summonedBeeEntity_1 != null) {

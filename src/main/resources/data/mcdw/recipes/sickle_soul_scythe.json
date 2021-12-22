@@ -1,8 +1,8 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "NAS",
-        "N/N",
+        "IAS",
+        "I/N",
         "/I "
     ],
     "key": {

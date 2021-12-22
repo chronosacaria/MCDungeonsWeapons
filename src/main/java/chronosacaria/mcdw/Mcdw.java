@@ -8,7 +8,6 @@ import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.loottables.McdwNewLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
-import com.google.gson.JsonObject;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
@@ -21,8 +20,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-
-import java.io.File;
 
 public class Mcdw implements ModInitializer {
 
@@ -167,35 +164,8 @@ public class Mcdw implements ModInitializer {
         ItemsInit.init();
         McdwNewLoottables.init();
 
-        // Config
-        McdwStatsConfig.initAll();
-        McdwEnchantsConfig.init();
-        McdwLootConfig.init();
-
-        String defaultConfig =
-            "{\n" +
-            "  \"regenerate_stat_configs\": false,\n" +
-            "  \"regenerate_enchants_configs\": false,\n" +
-            "  \"regenerate_loot_configs\": false\n" +
-            "}";
-        File configFile = McdwBaseConfig.createFile("config/minecraft_dungeon_weapons/config.json", defaultConfig, false);
-        JsonObject json = McdwBaseConfig.getJsonObject(McdwBaseConfig.readFile(configFile));
-
-        McdwStatsConfig.generateConfigs(json == null || !json.has("regenerate_stat_configs") || json.get("regenerate_stat_configs").getAsBoolean());
-        McdwStatsConfig.loadConfig();
-
-        McdwEnchantsConfig.generateConfigs(json == null || !json.has("regenerate_enchants_configs") || json.get("regenerate_enchants_configs").getAsBoolean());
-        McdwEnchantsConfig.loadConfig();
-
-        McdwLootConfig.generateConfigs(json == null || !json.has("regenerate_loot_configs") || json.get(
-                "regenerate_loot_configs").getAsBoolean());
-        McdwLootConfig.loadConfig();
-
         // Enchants
         EnchantsRegistry.init();
-
-        // Loot
-        //McdwLoottables.init();
 
         // Sounds
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);

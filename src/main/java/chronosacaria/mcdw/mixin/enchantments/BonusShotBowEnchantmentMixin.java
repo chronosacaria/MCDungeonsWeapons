@@ -1,11 +1,12 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.BowsID;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
@@ -24,7 +25,7 @@ public class BonusShotBowEnchantmentMixin {
                                                    int remainingUseTicks, CallbackInfo ci){
         boolean uniqueWeaponFlag1 = stack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_HAUNTED_BOW).asItem();
         boolean uniqueWeaponFlag2 = stack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_TWIN_BOW).asItem();
-        if (McdwEnchantsConfig.getValue("bonus_shot")){
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BONUS_SHOT)){
             if (McdwEnchantmentHelper.hasEnchantment(stack, EnchantsRegistry.BONUS_SHOT) || uniqueWeaponFlag1 || uniqueWeaponFlag2){
                 int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
                 float damageMultiplier = 0.1F + ((bonusShotLevel - 1) * 0.07F);

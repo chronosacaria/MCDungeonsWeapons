@@ -1,11 +1,11 @@
 package chronosacaria.mcdw.api.util;
 
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
+import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 
@@ -85,7 +85,7 @@ public class AbilityHelper {
         if (entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
             if (player.isCreative()) return true;
-            return McdwEnchantsConfig.getValue("aoe_dont_affect_players");
+            return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS);
         }
 
         return false;

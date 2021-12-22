@@ -1,9 +1,7 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
-import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;

@@ -1,7 +1,8 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
-import chronosacaria.mcdw.configs.McdwEnchantsConfig;
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
@@ -28,7 +29,7 @@ public class ProspectorEnchantmentMixin {
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
-        if (McdwEnchantsConfig.getValue("prospector")) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR)) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.PROSPECTOR, mainHandStack) >= 1 )) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.PROSPECTOR, mainHandStack);
                 float prospectorChance = 0.05F * level;

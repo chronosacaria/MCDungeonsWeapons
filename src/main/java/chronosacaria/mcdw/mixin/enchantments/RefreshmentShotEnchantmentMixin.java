@@ -2,8 +2,6 @@ package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -14,18 +12,13 @@ import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PersistentProjectileEntity.class)
-public abstract class RefreshmentShotEnchantmentMixin extends Entity {
-
-    public RefreshmentShotEnchantmentMixin(EntityType<?> type, World world) {
-        super(type, world);
-    }
+public class RefreshmentShotEnchantmentMixin{
 
     //TODO Figure out how to make more than one, but less than four bottles convert to potions
     @Inject(method = "onEntityHit", at = @At("TAIL"))
