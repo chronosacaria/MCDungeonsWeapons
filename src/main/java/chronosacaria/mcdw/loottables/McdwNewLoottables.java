@@ -41,6 +41,14 @@ public class McdwNewLoottables {
                 supplier.withPool(poolBuilder);
             }
 
+            if ("minecraft:entities/wither".equals(id.toString())) {
+                LootPool poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(BinomialLootNumberProvider.create(1, 0.1f))
+                        .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_ANCIENT_BOW)))
+                        .build();
+                supplier.withPool(poolBuilder);
+            }
+
             if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
                 for (int i = 0; i < COMMON_LOOT_TABLES.size(); i++) {
                     if (COMMON_LOOT_TABLES.get(i).equals(id.toString())) {
@@ -193,7 +201,51 @@ public class McdwNewLoottables {
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_JAILORS_SCYTHE)))
-                                .with(ItemEntry.builder(ItemsInit.scytheItems.get(ScythesID.SICKLE_JAILORS_SCYTHE)));
+                                .with(ItemEntry.builder(ItemsInit.scytheItems.get(ScythesID.SICKLE_JAILORS_SCYTHE)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_BONEBOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_BONEBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_HUNTERS_PROMISE)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_HUNTING_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_HUNTING_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_MASTERS_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_MASTERS_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_POWER_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_POWER_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_SNOW_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_SNOW_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_SOUL_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_SOUL_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_WIND_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_WIND_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_TWISTING_VINE_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_TWISTING_VINE_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_WEEPING_VINE_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_WEEPING_VINE_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_BUBBLE_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_BUBBLE_BOW)));
 
                         supplier.pool(poolBuilder);
                     }
@@ -339,7 +391,91 @@ public class McdwNewLoottables {
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_SPONGE_STRIKER)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_SPONGE_STRIKER)));
+                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_SPONGE_STRIKER)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_ELITE_POWER_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_ELITE_POWER_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_NOCTURNAL_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_NOCTURNAL_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_SABREWING)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_SABREWING)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_GREEN_MENACE)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_GREEN_MENACE)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_PINK_SCOUNDREL)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_PINK_SCOUNDREL)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_TRICKBOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_TRICKBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_TWIN_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_TWIN_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_WINTERS_TOUCH)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_WINTERS_TOUCH)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_SHIVERING_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_SHIVERING_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_ECHO_OF_THE_VALLEY)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_ECHO_OF_THE_VALLEY)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_BURST_GALE_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_BURST_GALE_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_BUBBLE_BURSTER)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_BUBBLE_BURSTER)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_VOID_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_VOID_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_CALL_OF_THE_VOID)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_CALL_OF_THE_VOID)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_PHANTOM_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_PHANTOM_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_WEB_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_WEB_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.longBowSpawnRates.get(LongBowsID.BOW_GUARDIAN_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.longBowItems.get(LongBowsID.BOW_GUARDIAN_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.longBowSpawnRates.get(LongBowsID.BOW_RED_SNAKE)))
+                                .with(ItemEntry.builder(ItemsInit.longBowItems.get(LongBowsID.BOW_RED_SNAKE)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.shortBowSpawnRates.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW)))
+                                .with(ItemEntry.builder(ItemsInit.shortBowItems.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.shortBowSpawnRates.get(ShortBowsID.BOW_LOVE_SPELL_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.shortBowItems.get(ShortBowsID.BOW_LOVE_SPELL_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.shortBowSpawnRates.get(ShortBowsID.BOW_PURPLE_STORM)))
+                                .with(ItemEntry.builder(ItemsInit.shortBowItems.get(ShortBowsID.BOW_PURPLE_STORM)));
 
                         supplier.pool(poolBuilder);
                     }
@@ -413,7 +549,19 @@ public class McdwNewLoottables {
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_THE_STARLESS_NIGHT)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_THE_STARLESS_NIGHT)));
+                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_THE_STARLESS_NIGHT)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_ANCIENT_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_ANCIENT_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_LOST_SOULS)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_LOST_SOULS)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_HAUNTED_BOW)))
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_HAUNTED_BOW)));
 
                         supplier.pool(poolBuilder);
                     }

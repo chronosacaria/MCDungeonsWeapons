@@ -214,7 +214,7 @@ public class McdwNewLootConfig implements ConfigData {
             bowSpawnRates.put(BowsID.BOW_TWISTING_VINE_BOW, 0.1f);
             bowSpawnRates.put(BowsID.BOW_WEEPING_VINE_BOW, 0.1f);
             bowSpawnRates.put(BowsID.BOW_BUBBLE_BOW, 0.1f);
-            bowSpawnRates.put(BowsID.BOW_BUBBLE_BURSTER, 0.5f);
+            bowSpawnRates.put(BowsID.BOW_BUBBLE_BURSTER, 0.05f);
             bowSpawnRates.put(BowsID.BOW_VOID_BOW, 0.1f);
             bowSpawnRates.put(BowsID.BOW_CALL_OF_THE_VOID, 0.05f);
             bowSpawnRates.put(BowsID.BOW_PHANTOM_BOW, 0.1f);
