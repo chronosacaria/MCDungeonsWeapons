@@ -1,11 +1,11 @@
 package chronosacaria.mcdw.mixin.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.configs.McdwEnchantmentsConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -37,11 +37,12 @@ public abstract class AmbushEnchantmentMixin {
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.AMBUSH, mainHandStack) >= 1 )) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.AMBUSH, mainHandStack);
 
+                        float attackDamage = (float) player.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                         float extraDamageMultiplier = 0.15f;
-                        float h = ambushee.getHealth();
 
                         if (player.isInvisible() && player.isSneaking()) {
-                            ambushee.setHealth(h - (amount * (1 + (level * extraDamageMultiplier))));
+                            ambushee.damage(DamageSource.GENERIC,
+                                    (attackDamage * (1 + (level * extraDamageMultiplier))));
                             ambushee.world.playSound(
                                     null,
                                     ambushee.getX(),

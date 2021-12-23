@@ -44,12 +44,13 @@ public class CommittedEnchantmentsMixin {
                         float getTargetRemainingHealth = getTargetHealth / getTargetMaxHealth;
                         float getOriginalDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                         float extraDamageMultiplier = 0.1F + level * 0.1F;
-                        float getExtraDamage = (getOriginalDamage * (1 - getTargetRemainingHealth) * extraDamageMultiplier);
+                        float getExtraDamage = amount * ((getOriginalDamage / 2) * (1 - getTargetRemainingHealth) * extraDamageMultiplier);
 
                         float chance = user.getRandom().nextFloat();
                         if (chance <= 0.2) {
                             if ((Math.abs(getTargetHealth)) < (Math.abs(getTargetMaxHealth))) {
-                                target.setHealth(getTargetHealth - (amount * getExtraDamage));
+                                target.damage(DamageSource.GENERIC,
+                                        amount + getExtraDamage);
                                 target.world.playSound(
                                         null,
                                         target.getX(),

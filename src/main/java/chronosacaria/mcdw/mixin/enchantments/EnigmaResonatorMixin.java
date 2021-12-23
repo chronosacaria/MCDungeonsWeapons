@@ -5,6 +5,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -46,6 +47,14 @@ public abstract class EnigmaResonatorMixin {
 
                         if (numSouls >= 1){
 
+                            // You wouldn't think that you would need to do this, but haha! You thought wrong! Help
+                            // me...
+                            int lootingLevel = EnchantmentHelper.getLevel(Enchantments.LOOTING, mainHandStack);
+
+                            if (lootingLevel >= 1 && EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR
+                                    , mainHandStack) >= 1){
+                                EnchantmentHelper.getLooting(user);
+                            }
                             target.damage(DamageSource.GENERIC, getExtraDamage);
                             target.world.playSound(
                                     null,
