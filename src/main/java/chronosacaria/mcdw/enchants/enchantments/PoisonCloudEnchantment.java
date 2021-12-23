@@ -38,7 +38,9 @@ public class PoisonCloudEnchantment extends AOEEnchantment {
 
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem || stack.getItem() instanceof McdwCustomWeaponBase || stack.getItem() instanceof BowItem || stack.getItem() instanceof CrossbowItem;
+        return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem
+                || stack.getItem() instanceof McdwCustomWeaponBase || stack.getItem() instanceof BowItem
+                || stack.getItem() instanceof CrossbowItem;
     }
 
 }

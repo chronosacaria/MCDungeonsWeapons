@@ -245,7 +245,67 @@ public class McdwNewLoottables {
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_BUBBLE_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_BUBBLE_BOW)));
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_BUBBLE_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_THE_SLICER)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_THE_SLICER)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_AZURE_SEEKER)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AZURE_SEEKER)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW)));
 
                         supplier.pool(poolBuilder);
                     }
@@ -475,7 +535,51 @@ public class McdwNewLoottables {
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.shortBowSpawnRates.get(ShortBowsID.BOW_PURPLE_STORM)))
-                                .with(ItemEntry.builder(ItemsInit.shortBowItems.get(ShortBowsID.BOW_PURPLE_STORM)));
+                                .with(ItemEntry.builder(ItemsInit.shortBowItems.get(ShortBowsID.BOW_PURPLE_STORM)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_FERAL_SOUL_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_FERAL_SOUL_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_SPELLBOUND_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SPELLBOUND_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_BABY_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BABY_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_COG_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_COG_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)));
 
                         supplier.pool(poolBuilder);
                     }
@@ -561,7 +665,19 @@ public class McdwNewLoottables {
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_HAUNTED_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_HAUNTED_BOW)));
+                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_HAUNTED_BOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_DOOM_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_DOOM_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS)))
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS)));
 
                         supplier.pool(poolBuilder);
                     }
