@@ -2,6 +2,7 @@ package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.api.interfaces.ProjectileManipulator;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
@@ -11,6 +12,8 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -37,7 +40,7 @@ public abstract class PersistentProjectileEntityMixin extends Entity implements 
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V", ordinal = 0),
             locals = LocalCapture.CAPTURE_FAILHARD
     )
-    private void storeContext(CallbackInfo ci, boolean bl, Vec3d vec3d, double d, double e, double g, int i) {
+    private void storeContext(CallbackInfo ci, boolean bl, Vec3d vec3d, BlockPos d, BlockState blockState, Vec3d voxelShape, Vec3d vec3d2, HitResult hitResult, double box, double entity2, double e, int i) {
         this.posContext = vec3d;
         this.iteration = i;
     }
