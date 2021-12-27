@@ -305,7 +305,15 @@ public class McdwNewLoottables {
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW)));
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.shieldSpawnRates.get(ShieldsID.SHIELD_VANGUARD)))
+                                .with(ItemEntry.builder(ItemsInit.shieldItems.get(ShieldsID.SHIELD_VANGUARD)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.shieldSpawnRates.get(ShieldsID.SHIELD_ROYAL_GUARD)))
+                                .with(ItemEntry.builder(ItemsInit.shieldItems.get(ShieldsID.SHIELD_ROYAL_GUARD)));
 
                         supplier.pool(poolBuilder);
                     }
@@ -579,7 +587,15 @@ public class McdwNewLoottables {
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)));
+                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.shieldSpawnRates.get(ShieldsID.SHIELD_VANGUARD)))
+                                .with(ItemEntry.builder(ItemsInit.shieldItems.get(ShieldsID.SHIELD_VANGUARD)))
+
+                                .rolls(BinomialLootNumberProvider.create(1,
+                                        CONFIG.mcdwNewlootConfig.shieldSpawnRates.get(ShieldsID.SHIELD_ROYAL_GUARD)))
+                                .with(ItemEntry.builder(ItemsInit.shieldItems.get(ShieldsID.SHIELD_ROYAL_GUARD)));
 
                         supplier.pool(poolBuilder);
                     }

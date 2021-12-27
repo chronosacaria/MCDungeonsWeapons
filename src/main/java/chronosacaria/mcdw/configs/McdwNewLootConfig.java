@@ -262,6 +262,10 @@ public class McdwNewLootConfig implements ConfigData {
             crossbowSpawnRates.put(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW, 0.05f);
             crossbowSpawnRates.put(CrossbowsID.CROSSBOW_VEILED_CROSSBOW, 0.05f);
         }
+        for (ShieldsID shieldsID : ShieldsID.values()){
+            shieldSpawnRates.put(ShieldsID.SHIELD_ROYAL_GUARD, 0.05f);
+            shieldSpawnRates.put(ShieldsID.SHIELD_VANGUARD, 0.05f);
+        }
     }
 
 }
