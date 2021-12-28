@@ -10,29 +10,30 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
+import java.util.HashMap;
 
 @Config(name = "mcdw_stats_config")
 public class McdwNewStatsConfig implements ConfigData {
 
-    public EnumMap<SwordsID, MeleeWeaponStats> swordStats = new EnumMap<>(SwordsID.class);
-    public EnumMap<AxesID, MeleeWeaponStats> axeStats = new EnumMap<>(AxesID.class);
-    public EnumMap<DoubleAxesID, MeleeWeaponStats> doubleAxeStats = new EnumMap<>(DoubleAxesID.class);
-    public EnumMap<DaggersID, MeleeWeaponStats> daggerStats = new EnumMap<>(DaggersID.class);
-    public EnumMap<SoulDaggersID, MeleeWeaponStats> soulDaggerStats = new EnumMap<>(SoulDaggersID.class);
-    public EnumMap<HammersID, MeleeWeaponStats> hammerStats = new EnumMap<>(HammersID.class);
-    public EnumMap<GauntletsID, MeleeWeaponStats> gauntletStats = new EnumMap<>(GauntletsID.class);
-    public EnumMap<SicklesID, MeleeWeaponStats> sickleStats = new EnumMap<>(SicklesID.class);
-    public EnumMap<ScythesID, MeleeWeaponStats> scytheStats = new EnumMap<>(ScythesID.class);
-    public EnumMap<PicksID, MeleeWeaponStats> pickStats = new EnumMap<>(PicksID.class);
-    public EnumMap<GlaivesID, MeleeWeaponStats> glaiveStats = new EnumMap<>(GlaivesID.class);
-    public EnumMap<SpearsID, MeleeWeaponStats> spearStats = new EnumMap<>(SpearsID.class);
-    public EnumMap<StavesID, MeleeWeaponStats> staffStats = new EnumMap<>(StavesID.class);
-    public EnumMap<WhipsID, MeleeWeaponStats> whipStats = new EnumMap<>(WhipsID.class);
-    public EnumMap<BowsID, RangedWeaponStats> bowStats = new EnumMap<>(BowsID.class);
-    public EnumMap<ShortBowsID, RangedWeaponStats> shortBowStats = new EnumMap<>(ShortBowsID.class);
-    public EnumMap<LongBowsID, RangedWeaponStats> longBowStats = new EnumMap<>(LongBowsID.class);
-    public EnumMap<CrossbowsID, RangedWeaponStats> crossbowStats = new EnumMap<>(CrossbowsID.class);
-    public EnumMap<ShieldsID, ShieldStats> shieldStats = new EnumMap<>(ShieldsID.class);
+    public HashMap<SwordsID, MeleeWeaponStats> swordStats = new HashMap<>();
+    public HashMap<AxesID, MeleeWeaponStats> axeStats = new HashMap<>();
+    public HashMap<DoubleAxesID, MeleeWeaponStats> doubleAxeStats = new HashMap<>();
+    public HashMap<DaggersID, MeleeWeaponStats> daggerStats = new HashMap<>();
+    public HashMap<SoulDaggersID, MeleeWeaponStats> soulDaggerStats = new HashMap<>();
+    public HashMap<HammersID, MeleeWeaponStats> hammerStats = new HashMap<>();
+    public HashMap<GauntletsID, MeleeWeaponStats> gauntletStats = new HashMap<>();
+    public HashMap<SicklesID, MeleeWeaponStats> sickleStats = new HashMap<>();
+    public HashMap<ScythesID, MeleeWeaponStats> scytheStats = new HashMap<>();
+    public HashMap<PicksID, MeleeWeaponStats> pickStats = new HashMap<>();
+    public HashMap<GlaivesID, MeleeWeaponStats> glaiveStats = new HashMap<>();
+    public HashMap<SpearsID, MeleeWeaponStats> spearStats = new HashMap<>();
+    public HashMap<StavesID, MeleeWeaponStats> staffStats = new HashMap<>();
+    public HashMap<WhipsID, MeleeWeaponStats> whipStats = new HashMap<>();
+    public HashMap<BowsID, RangedWeaponStats> bowStats = new HashMap<>();
+    public HashMap<ShortBowsID, RangedWeaponStats> shortBowStats = new HashMap<>();
+    public HashMap<LongBowsID, RangedWeaponStats> longBowStats = new HashMap<>();
+    public HashMap<CrossbowsID, RangedWeaponStats> crossbowStats = new HashMap<>();
+    public HashMap<ShieldsID, ShieldStats> shieldStats = new HashMap<>();
 
     // convenience methods:
     protected MeleeWeaponStats swordStats(String material, int damage, float attackSpeed, SwordsID swordsID){

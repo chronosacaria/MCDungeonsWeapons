@@ -7,37 +7,36 @@ import me.shedaniel.autoconfig.annotation.Config;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.HashMap;
 
 @Config(name = "mcdw_loot_config")
 public class McdwNewLootConfig implements ConfigData {
-    public EnumMap<SettingsID, Boolean> weaponsEnabledInLootTables = new EnumMap<>(SettingsID.class);
+    public HashMap<SettingsID, Boolean> weaponsEnabledInLootTables = new HashMap<>();
 
-    public EnumMap<SettingsID, ArrayList<String>> commonLootTables = new EnumMap<>(SettingsID.class);
-    public EnumMap<SettingsID, ArrayList<String>> uncommonLootTables = new EnumMap<>(SettingsID.class);
-    public EnumMap<SettingsID, ArrayList<String>> rareLootTables = new EnumMap<>(SettingsID.class);
-    public EnumMap<SettingsID, ArrayList<String>> epicLootTables = new EnumMap<>(SettingsID.class);
+    public HashMap<SettingsID, ArrayList<String>> commonLootTables = new HashMap<>();
+    public HashMap<SettingsID, ArrayList<String>> uncommonLootTables = new HashMap<>();
+    public HashMap<SettingsID, ArrayList<String>> rareLootTables = new HashMap<>();
+    public HashMap<SettingsID, ArrayList<String>> epicLootTables = new HashMap<>();
 
-    public EnumMap<AxesID, Float> axeSpawnRates = new EnumMap<>(AxesID.class);
-    public EnumMap<DaggersID, Float> daggerSpawnRates = new EnumMap<>(DaggersID.class);
-    public EnumMap<DoubleAxesID, Float> doubleAxeSpawnRates = new EnumMap<>(DoubleAxesID.class);
-    public EnumMap<GauntletsID, Float> gauntletSpawnRates = new EnumMap<>(GauntletsID.class);
-    public EnumMap<GlaivesID, Float> glaiveSpawnRates = new EnumMap<>(GlaivesID.class);
-    public EnumMap<HammersID, Float> hammerSpawnRates = new EnumMap<>(HammersID.class);
-    public EnumMap<PicksID, Float> pickSpawnRates = new EnumMap<>(PicksID.class);
-    public EnumMap<ScythesID, Float> scytheSpawnRates = new EnumMap<>(ScythesID.class);
-    public EnumMap<SicklesID, Float> sickleSpawnRates = new EnumMap<>(SicklesID.class);
-    public EnumMap<SoulDaggersID, Float> soulDaggerSpawnRates = new EnumMap<>(SoulDaggersID.class);
-    public EnumMap<SpearsID, Float> spearSpawnRates = new EnumMap<>(SpearsID.class);
-    public EnumMap<StavesID, Float> staffSpawnRates = new EnumMap<>(StavesID.class);
-    public EnumMap<SwordsID, Float> swordSpawnRates = new EnumMap<>(SwordsID.class);
-    public EnumMap<WhipsID, Float> whipSpawnRates = new EnumMap<>(WhipsID.class);
-
-    public EnumMap<BowsID, Float> bowSpawnRates = new EnumMap<>(BowsID.class);
-    public EnumMap<LongBowsID, Float> longBowSpawnRates = new EnumMap<>(LongBowsID.class);
-    public EnumMap<ShortBowsID, Float> shortBowSpawnRates = new EnumMap<>(ShortBowsID.class);
-    public EnumMap<CrossbowsID, Float> crossbowSpawnRates = new EnumMap<>(CrossbowsID.class);
-
-    public EnumMap<ShieldsID, Float> shieldSpawnRates = new EnumMap<>(ShieldsID.class);
+    public HashMap<AxesID, Float> axeSpawnRates = new HashMap<>();
+    public HashMap<DaggersID, Float> daggerSpawnRates = new HashMap<>();
+    public HashMap<DoubleAxesID, Float> doubleAxeSpawnRates = new HashMap<>();
+    public HashMap<GauntletsID, Float> gauntletSpawnRates = new HashMap<>();
+    public HashMap<GlaivesID, Float> glaiveSpawnRates = new HashMap<>();
+    public HashMap<HammersID, Float> hammerSpawnRates = new HashMap<>();
+    public HashMap<PicksID, Float> pickSpawnRates = new HashMap<>();
+    public HashMap<ScythesID, Float> scytheSpawnRates = new HashMap<>();
+    public HashMap<SicklesID, Float> sickleSpawnRates = new HashMap<>();
+    public HashMap<SoulDaggersID, Float> soulDaggerSpawnRates = new HashMap<>();
+    public HashMap<SpearsID, Float> spearSpawnRates = new HashMap<>();
+    public HashMap<StavesID, Float> staffSpawnRates = new HashMap<>();
+    public HashMap<SwordsID, Float> swordSpawnRates = new HashMap<>();
+    public HashMap<WhipsID, Float> whipSpawnRates = new HashMap<>();
+    public HashMap<BowsID, Float> bowSpawnRates = new HashMap<>();
+    public HashMap<LongBowsID, Float> longBowSpawnRates = new HashMap<>();
+    public HashMap<ShortBowsID, Float> shortBowSpawnRates = new HashMap<>();
+    public HashMap<CrossbowsID, Float> crossbowSpawnRates = new HashMap<>();
+    public HashMap<ShieldsID, Float> shieldSpawnRates = new HashMap<>();
 
     public McdwNewLootConfig(){
         for (SettingsID weaponsEnabled : SettingsID.values()){

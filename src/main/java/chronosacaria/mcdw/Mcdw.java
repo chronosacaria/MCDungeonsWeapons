@@ -9,6 +9,7 @@ import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.loottables.McdwNewLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -159,7 +160,8 @@ public class Mcdw implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        CONFIG = AutoConfig.register(McdwConfig.class, PartitioningSerializer.wrap(JanksonConfigSerializer::new)).getConfig();
+        McdwConfig.init();
+        CONFIG = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
 
         ItemsInit.init();
         McdwNewLoottables.init();

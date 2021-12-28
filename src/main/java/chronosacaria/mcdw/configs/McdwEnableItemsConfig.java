@@ -5,30 +5,32 @@ import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
 import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.HashSet;
 
 @Config(name = "mcdw_items_registry")
 public class McdwEnableItemsConfig implements ConfigData {
 
-    public EnumMap<SwordsID, Boolean> swordsEnabled = new EnumMap<>(SwordsID.class);
-    public EnumMap<AxesID, Boolean> axesEnabled = new EnumMap<>(AxesID.class);
-    public EnumMap<DoubleAxesID, Boolean> doubleAxesEnabled = new EnumMap<>(DoubleAxesID.class);
-    public EnumMap<DaggersID, Boolean> daggersEnabled = new EnumMap<>(DaggersID.class);
-    public EnumMap<SoulDaggersID, Boolean> soulDaggersEnabled = new EnumMap<>(SoulDaggersID.class);
-    public EnumMap<HammersID, Boolean> hammersEnabled = new EnumMap<>(HammersID.class);
-    public EnumMap<GauntletsID, Boolean> gauntletsEnabled = new EnumMap<>(GauntletsID.class);
-    public EnumMap<SicklesID, Boolean> sicklesEnabled = new EnumMap<>(SicklesID.class);
-    public EnumMap<ScythesID, Boolean> scythesEnabled = new EnumMap<>(ScythesID.class);
-    public EnumMap<PicksID, Boolean> picksEnabled = new EnumMap<>(PicksID.class);
-    public EnumMap<GlaivesID, Boolean> glaivesEnabled = new EnumMap<>(GlaivesID.class);
-    public EnumMap<SpearsID, Boolean> spearsEnabled = new EnumMap<>(SpearsID.class);
-    public EnumMap<StavesID, Boolean> stavesEnabled = new EnumMap<>(StavesID.class);
-    public EnumMap<WhipsID, Boolean> whipsEnabled = new EnumMap<>(WhipsID.class);
-    public EnumMap<BowsID, Boolean> bowsEnabled = new EnumMap<>(BowsID.class);
-    public EnumMap<ShortBowsID, Boolean> shortBowsEnabled = new EnumMap<>(ShortBowsID.class);
-    public EnumMap<LongBowsID, Boolean> longBowsEnabled = new EnumMap<>(LongBowsID.class);
-    public EnumMap<CrossbowsID, Boolean> crossbowsEnabled = new EnumMap<>(CrossbowsID.class);
-    public EnumMap<ShieldsID, Boolean> shieldsEnabled = new EnumMap<>(ShieldsID.class);
-    public EnumMap<ItemsID, Boolean> itemsEnabled = new EnumMap<>(ItemsID.class);
+    public HashMap<SwordsID, Boolean> swordsEnabled = new HashMap<>();
+    public HashMap<AxesID, Boolean> axesEnabled = new HashMap<>();
+    public HashMap<DoubleAxesID, Boolean> doubleAxesEnabled = new HashMap<>();
+    public HashMap<DaggersID, Boolean> daggersEnabled = new HashMap<>();
+    public HashMap<SoulDaggersID, Boolean> soulDaggersEnabled = new HashMap<>();
+    public HashMap<HammersID, Boolean> hammersEnabled = new HashMap<>();
+    public HashMap<GauntletsID, Boolean> gauntletsEnabled = new HashMap<>();
+    public HashMap<SicklesID, Boolean> sicklesEnabled = new HashMap<>();
+    public HashMap<ScythesID, Boolean> scythesEnabled = new HashMap<>();
+    public HashMap<PicksID, Boolean> picksEnabled = new HashMap<>();
+    public HashMap<GlaivesID, Boolean> glaivesEnabled = new HashMap<>();
+    public HashMap<SpearsID, Boolean> spearsEnabled = new HashMap<>();
+    public HashMap<StavesID, Boolean> stavesEnabled = new HashMap<>();
+    public HashMap<WhipsID, Boolean> whipsEnabled = new HashMap<>();
+    public HashMap<BowsID, Boolean> bowsEnabled = new HashMap<>();
+    public HashMap<ShortBowsID, Boolean> shortBowsEnabled = new HashMap<>();
+    public HashMap<LongBowsID, Boolean> longBowsEnabled = new HashMap<>();
+    public HashMap<CrossbowsID, Boolean> crossbowsEnabled = new HashMap<>();
+    public HashMap<ShieldsID, Boolean> shieldsEnabled = new HashMap<>();
+    public HashMap<ItemsID, Boolean> itemsEnabled = new HashMap<>();
 
     public McdwEnableItemsConfig() {
         for (SwordsID swordsID : SwordsID.values()){

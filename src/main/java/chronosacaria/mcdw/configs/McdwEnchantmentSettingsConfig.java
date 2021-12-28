@@ -5,12 +5,13 @@ import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
 import java.util.EnumMap;
+import java.util.HashMap;
 
 @Config(name = "mcdw_enchantment_settings_config")
 public class McdwEnchantmentSettingsConfig implements ConfigData {
 
     // Enchantment Settings
-    public EnumMap<SettingsID, Boolean> enableEnchantmentSettings = new EnumMap<>(SettingsID.class);
+    public HashMap<SettingsID, Boolean> enableEnchantmentSettings = new HashMap<>();
 
     public McdwEnchantmentSettingsConfig(){
         for (SettingsID settingsEnum : SettingsID.values()) {
