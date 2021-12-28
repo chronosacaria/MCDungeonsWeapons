@@ -27,7 +27,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import java.util.List;
 
-//TODO Make sure that they cannot strip logs
 public class McdwWhip extends McdwCustomWeaponBase implements Vanishable {
 
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;

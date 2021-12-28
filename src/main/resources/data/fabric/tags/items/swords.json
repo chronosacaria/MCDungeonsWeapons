@@ -22,6 +22,8 @@
     "mcdw:sword_mechanized_sawblade",
     "mcdw:sword_coral_blade",
     "mcdw:sword_sponge_striker",
+    "mcdw:sword_obsidian_claymore",
+    "mcdw:sword_the_starless_night",
 
     "mcdw:dagger_dagger",
     "mcdw:dagger_fangs_of_frost",
@@ -30,6 +32,11 @@
     "mcdw:dagger_tempest_knife",
     "mcdw:dagger_resolute_tempest_knife",
     "mcdw:dagger_chill_gale_knife",
+    "mcdw:dagger_backstabber",
+    "mcdw:dagger_swift_striker",
+    "mcdw:dagger_void_touched_blade",
+    "mcdw:dagger_the_beginning",
+    "mcdw:dagger_the_end",
 
     "mcdw:dagger_soul_knife",
     "mcdw:dagger_eternal_knife",
@@ -55,9 +62,11 @@
     "mcdw:sickle_jailors_scythe",
     "mcdw:sickle_soul_scythe",
     "mcdw:sickle_frost_scythe",
+    "mcdw:sickle_skull_scythe",
 
     "mcdw:spear_glaive",
     "mcdw:spear_grave_bane",
-    "mcdw:spear_venom_glaive"
+    "mcdw:spear_venom_glaive",
+    "mcdw:spear_cackling_broom"
   ]
 }
