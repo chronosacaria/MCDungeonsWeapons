@@ -4,7 +4,6 @@ import chronosacaria.mcdw.enums.EnchantmentsID;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
-import java.util.EnumMap;
 import java.util.HashMap;
 
 @Config(name = "mcdw_enchantments_config")

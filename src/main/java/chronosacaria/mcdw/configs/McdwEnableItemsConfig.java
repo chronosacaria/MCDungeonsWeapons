@@ -4,9 +4,7 @@ import chronosacaria.mcdw.enums.*;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
-import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.HashSet;
 
 @Config(name = "mcdw_items_registry")
 public class McdwEnableItemsConfig implements ConfigData {

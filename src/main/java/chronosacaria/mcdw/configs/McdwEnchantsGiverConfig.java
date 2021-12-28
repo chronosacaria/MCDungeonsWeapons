@@ -243,6 +243,10 @@ public class McdwEnchantsGiverConfig {
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.glaiveItems.get(GlaivesID.SPEAR_CACKLING_BROOM)),
                     new Identifier("mcdw:smiting"), 1, true);
 
+            // SOUL DEVOURER ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.sickleItems.get(ScythesID.SICKLE_SOUL_SCYTHE)),
+                    new Identifier("mcdw:soul_devourer"), 1, true);
+
             // SOUL SIPHON ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.soulDaggerItems.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE)),
                     new Identifier("mcdw:soul_siphon"), 1, true);

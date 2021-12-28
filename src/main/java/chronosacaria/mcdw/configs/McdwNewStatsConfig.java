@@ -9,7 +9,6 @@ import me.shedaniel.autoconfig.annotation.Config;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
-import java.util.EnumMap;
 import java.util.HashMap;
 
 @Config(name = "mcdw_stats_config")
