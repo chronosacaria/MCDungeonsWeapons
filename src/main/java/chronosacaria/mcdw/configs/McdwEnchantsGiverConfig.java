@@ -244,7 +244,7 @@ public class McdwEnchantsGiverConfig {
                     new Identifier("mcdw:smiting"), 1, true);
 
             // SOUL DEVOURER ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.sickleItems.get(ScythesID.SICKLE_SOUL_SCYTHE)),
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.scytheItems.get(ScythesID.SICKLE_SOUL_SCYTHE)),
                     new Identifier("mcdw:soul_devourer"), 1, true);
 
             // SOUL SIPHON ENCHANTMENT
