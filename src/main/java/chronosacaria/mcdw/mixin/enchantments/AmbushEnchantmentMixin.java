@@ -37,12 +37,11 @@ public abstract class AmbushEnchantmentMixin {
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.AMBUSH, mainHandStack) >= 1 )) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.AMBUSH, mainHandStack);
 
-                        float attackDamage = (float) player.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                         float extraDamageMultiplier = 0.15f;
 
                         if (player.isInvisible() && player.isSneaking()) {
                             ambushee.damage(DamageSource.GENERIC,
-                                    (attackDamage * (1 + (level * extraDamageMultiplier))));
+                                    (amount * (1 + (level * extraDamageMultiplier))));
                             ambushee.world.playSound(
                                     null,
                                     ambushee.getX(),

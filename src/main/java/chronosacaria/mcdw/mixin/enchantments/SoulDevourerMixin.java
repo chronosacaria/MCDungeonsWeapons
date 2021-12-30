@@ -35,20 +35,18 @@ public abstract class SoulDevourerMixin extends Entity {
             return;
 
         if (!world.isClient) {
-            int soulDevourerLevel = EnchantmentHelper.getEquipmentLevel(EnchantsRegistry.SOUL_DEVOURER, player);
-            int soulDevourerCount = 0;
 
             ItemStack mainHandStack = player.getMainHandStack();
             ItemStack offHandStack = player.getOffHandStack();
 
-            if (mainHandStack != null || offHandStack.getItem() instanceof IOffhandAttack && soulDevourerLevel > 0) {
-                if (EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, mainHandStack) > 0) {
-                    soulDevourerCount++;
-                }
-                if (EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, offHandStack) > 0) {
-                    soulDevourerCount++;
-                }
-                this.amount = (this.amount * (1 + (soulDevourerLevel / 3))) * soulDevourerCount;
+            int soulDevourerLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, mainHandStack);
+
+            if (offHandStack.getItem() instanceof IOffhandAttack) {
+                soulDevourerLevel += EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, offHandStack);
+            }
+
+            if (soulDevourerLevel > 0) {
+                this.amount = (this.amount * (1 + (soulDevourerLevel / 3)) + Math.round(((soulDevourerLevel % 3)/3.0f) * this.amount));
                 this.remove(RemovalReason.KILLED);
                 player.world.playSound(
                         null,

@@ -41,6 +41,7 @@ public abstract class EnigmaResonatorMixin {
 
                         int numSouls = ((PlayerEntity) source.getAttacker()).experienceLevel;
 
+                        // You will never do less than the GENERIC_ATTACK_DAMAGE during an attack from Enigma Resonator
                         float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                         float extraDamageMultiplier = (float) (Math.log(numSouls * level))/1.75F;
                         float getExtraDamage = (attackDamage * (extraDamageMultiplier));

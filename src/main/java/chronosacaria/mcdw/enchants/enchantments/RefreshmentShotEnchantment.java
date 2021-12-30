@@ -26,11 +26,6 @@ public class RefreshmentShotEnchantment extends Enchantment{
     }
 
     @Override
-    protected boolean canAccept (Enchantment other){
-        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING);
-    }
-
-    @Override
     public boolean isAvailableForRandomSelection() {
         return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT_SHOT);
     }

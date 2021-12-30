@@ -32,11 +32,6 @@ public class RefreshmentEnchantment extends Enchantment{
     }
 
     @Override
-    public boolean isAvailableForRandomSelection() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT);
-    }
-
-    @Override
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem || stack.getItem() instanceof McdwCustomWeaponBase;
     }
