@@ -4,6 +4,7 @@ import chronosacaria.mcdw.enums.*;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.minecraft.item.Item;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
@@ -49,15 +50,17 @@ public class McdwNewLoottables {
                 supplier.withPool(poolBuilder);
             }
 
+            FabricLootPoolBuilder poolBuilder;
+
             if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
                 for (int i = 0; i < COMMON_LOOT_TABLES.size(); i++) {
                     if (COMMON_LOOT_TABLES.get(i).equals(id.toString())) {
-                        FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE)))
-                                .with(ItemEntry.builder(ItemsInit.axeItems.get(AxesID.AXE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
+                        poolBuilder = FabricLootPoolBuilder.builder();
+                        if (CONFIG.mcdwEnableItemsConfig.axesEnabled.get(AxesID.AXE)) {
+                            addWeapon(poolBuilder, ItemsInit.axeItems.get(AxesID.AXE),
+                                    CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE));
+                        }
+                                /*.rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_DAGGER)))
                                 .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_DAGGER)))
 
@@ -127,14 +130,14 @@ public class McdwNewLoottables {
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.pickSpawnRates.get(PicksID.PICK_HOWLING_PICK)))
-                                .with(ItemEntry.builder(ItemsInit.pickItems.get(PicksID.PICK_HOWLING_PICK)));
+                                .with(ItemEntry.builder(ItemsInit.pickItems.get(PicksID.PICK_HOWLING_PICK)));*/
 
                         supplier.pool(poolBuilder);
                     }
                 }
             }
 
-            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+            /*if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
                 for (int i = 0; i < UNCOMMON_LOOT_TABLES.size(); i++) {
                     if (UNCOMMON_LOOT_TABLES.get(i).equals(id.toString())) {
 
@@ -318,9 +321,9 @@ public class McdwNewLoottables {
                         supplier.pool(poolBuilder);
                     }
                 }
-           }
+           }*/
 
-            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+            /*if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
                 for (int i = 0; i < RARE_LOOT_TABLES.size(); i++) {
                     if (RARE_LOOT_TABLES.get(i).equals(id.toString())) {
 
@@ -600,9 +603,9 @@ public class McdwNewLoottables {
                         supplier.pool(poolBuilder);
                     }
                 }
-            }
+            }*/
 
-            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+            /*if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
                 for (int i = 0; i < EPIC_LOOT_TABLES.size(); i++) {
                     if (EPIC_LOOT_TABLES.get(i).equals(id.toString())) {
 
@@ -698,8 +701,13 @@ public class McdwNewLoottables {
                         supplier.pool(poolBuilder);
                     }
                 }
-            }
+            }*/
         }));
+    }
+
+    public static void addWeapon(FabricLootPoolBuilder poolBuilder, Item weapon, float p){
+        poolBuilder.rolls(BinomialLootNumberProvider.create(1, p));
+        poolBuilder.withEntry(ItemEntry.builder(weapon).build());
     }
 }
 
