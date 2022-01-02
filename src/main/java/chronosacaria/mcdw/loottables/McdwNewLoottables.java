@@ -60,268 +60,268 @@ public class McdwNewLoottables {
                             addWeapon(poolBuilder, ItemsInit.axeItems.get(AxesID.AXE),
                                     CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE));
                         }
-                                /*.rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_DAGGER)))
-                                .with(ItemEntry.builder(ItemsInit.daggerItems.get(DaggersID.DAGGER_DAGGER)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates.get(DoubleAxesID.AXE_DOUBLE)))
-                                .with(ItemEntry.builder(ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_DOUBLE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.gauntletSpawnRates.get(GauntletsID.GAUNTLET_GAUNTLET)))
-                                .with(ItemEntry.builder(ItemsInit.gauntletItems.get(GauntletsID.GAUNTLET_GAUNTLET)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.glaiveSpawnRates.get(GlaivesID.SPEAR_GLAIVE)))
-                                .with(ItemEntry.builder(ItemsInit.glaiveItems.get(GlaivesID.SPEAR_GLAIVE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.spearSpawnRates.get(SpearsID.SPEAR_SPEAR)))
-                                .with(ItemEntry.builder(ItemsInit.spearItems.get(SpearsID.SPEAR_SPEAR)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.sickleSpawnRates.get(SicklesID.SICKLE_SICKLE)))
-                                .with(ItemEntry.builder(ItemsInit.sickleItems.get(SicklesID.SICKLE_SICKLE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.staffSpawnRates.get(StavesID.STAFF_BATTLESTAFF)))
-                                .with(ItemEntry.builder(ItemsInit.staffItems.get(StavesID.STAFF_BATTLESTAFF)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE_ANCHOR)))
-                                .with(ItemEntry.builder(ItemsInit.axeItems.get(AxesID.AXE_ANCHOR)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_MACE)))
-                                .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_MACE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_GREAT)))
-                                .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_GREAT)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_IRON_SWORD_VAR)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_IRON_SWORD_VAR)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_KATANA)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_KATANA)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_RAPIER)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_RAPIER)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_CUTLASS)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_CUTLASS)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.longBowSpawnRates.get(LongBowsID.BOW_LONGBOW)))
-                                .with(ItemEntry.builder(ItemsInit.longBowItems.get(LongBowsID.BOW_LONGBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.shortBowSpawnRates.get(ShortBowsID.BOW_SHORTBOW)))
-                                .with(ItemEntry.builder(ItemsInit.shortBowItems.get(ShortBowsID.BOW_SHORTBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.pickSpawnRates.get(PicksID.PICK_MOUNTAINEER_PICK)))
-                                .with(ItemEntry.builder(ItemsInit.pickItems.get(PicksID.PICK_MOUNTAINEER_PICK)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.pickSpawnRates.get(PicksID.PICK_HOWLING_PICK)))
-                                .with(ItemEntry.builder(ItemsInit.pickItems.get(PicksID.PICK_HOWLING_PICK)));*/
+                        if (CONFIG.mcdwEnableItemsConfig.daggersEnabled.get(DaggersID.DAGGER_DAGGER)) {
+                            addWeapon(poolBuilder, ItemsInit.daggerItems.get(DaggersID.DAGGER_DAGGER),
+                                    CONFIG.mcdwNewlootConfig.daggerSpawnRates.get(DaggersID.DAGGER_DAGGER));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.doubleAxesEnabled.get(DoubleAxesID.AXE_DOUBLE)) {
+                            addWeapon(poolBuilder, ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_DOUBLE),
+                                    CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates.get(DoubleAxesID.AXE_DOUBLE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.gauntletsEnabled.get(GauntletsID.GAUNTLET_GAUNTLET)) {
+                            addWeapon(poolBuilder, ItemsInit.gauntletItems.get(GauntletsID.GAUNTLET_GAUNTLET),
+                                    CONFIG.mcdwNewlootConfig.gauntletSpawnRates.get(GauntletsID.GAUNTLET_GAUNTLET));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.glaivesEnabled.get(GlaivesID.SPEAR_GLAIVE)) {
+                            addWeapon(poolBuilder, ItemsInit.glaiveItems.get(GlaivesID.SPEAR_GLAIVE),
+                                    CONFIG.mcdwNewlootConfig.glaiveSpawnRates.get(GlaivesID.SPEAR_GLAIVE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.spearsEnabled.get(SpearsID.SPEAR_SPEAR)) {
+                            addWeapon(poolBuilder, ItemsInit.spearItems.get(SpearsID.SPEAR_SPEAR),
+                                    CONFIG.mcdwNewlootConfig.spearSpawnRates.get(SpearsID.SPEAR_SPEAR));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.sicklesEnabled.get(SicklesID.SICKLE_SICKLE)) {
+                            addWeapon(poolBuilder, ItemsInit.sickleItems.get(SicklesID.SICKLE_SICKLE),
+                                    CONFIG.mcdwNewlootConfig.sickleSpawnRates.get(SicklesID.SICKLE_SICKLE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.stavesEnabled.get(StavesID.STAFF_BATTLESTAFF)) {
+                            addWeapon(poolBuilder, ItemsInit.staffItems.get(StavesID.STAFF_BATTLESTAFF),
+                                    CONFIG.mcdwNewlootConfig.staffSpawnRates.get(StavesID.STAFF_BATTLESTAFF));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.axesEnabled.get(AxesID.AXE_ANCHOR)) {
+                            addWeapon(poolBuilder, ItemsInit.axeItems.get(AxesID.AXE_ANCHOR),
+                                    CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE_ANCHOR));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.hammersEnabled.get(HammersID.HAMMER_MACE)) {
+                            addWeapon(poolBuilder, ItemsInit.hammerItems.get(HammersID.HAMMER_MACE),
+                                    CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_MACE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.hammersEnabled.get(HammersID.HAMMER_GREAT)) {
+                            addWeapon(poolBuilder, ItemsInit.hammerItems.get(HammersID.HAMMER_GREAT),
+                                    CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_GREAT));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_IRON_SWORD_VAR)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_IRON_SWORD_VAR),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_IRON_SWORD_VAR));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_KATANA)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_KATANA),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_KATANA));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_RAPIER)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_RAPIER),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_RAPIER));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_CUTLASS)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_CUTLASS),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_CUTLASS));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.longBowsEnabled.get(LongBowsID.BOW_LONGBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.longBowItems.get(LongBowsID.BOW_LONGBOW),
+                                    CONFIG.mcdwNewlootConfig.longBowSpawnRates.get(LongBowsID.BOW_LONGBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.shortBowsEnabled.get(ShortBowsID.BOW_SHORTBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.shortBowItems.get(ShortBowsID.BOW_SHORTBOW),
+                                    CONFIG.mcdwNewlootConfig.shortBowSpawnRates.get(ShortBowsID.BOW_SHORTBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.picksEnabled.get(PicksID.PICK_MOUNTAINEER_PICK)) {
+                            addWeapon(poolBuilder, ItemsInit.pickItems.get(PicksID.PICK_MOUNTAINEER_PICK),
+                                    CONFIG.mcdwNewlootConfig.pickSpawnRates.get(PicksID.PICK_MOUNTAINEER_PICK));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.picksEnabled.get(PicksID.PICK_HOWLING_PICK)) {
+                            addWeapon(poolBuilder, ItemsInit.pickItems.get(PicksID.PICK_HOWLING_PICK),
+                                    CONFIG.mcdwNewlootConfig.pickSpawnRates.get(PicksID.PICK_HOWLING_PICK));
+                        }
 
                         supplier.pool(poolBuilder);
                     }
                 }
             }
 
-            /*if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
                 for (int i = 0; i < UNCOMMON_LOOT_TABLES.size(); i++) {
                     if (UNCOMMON_LOOT_TABLES.get(i).equals(id.toString())) {
-
-                        FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.whipSpawnRates.get(WhipsID.WHIP_WHIP)))
-                                .with(ItemEntry.builder(ItemsInit.whipItems.get(WhipsID.WHIP_WHIP)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.whipSpawnRates.get(WhipsID.WHIP_VINE_WHIP)))
-                                .with(ItemEntry.builder(ItemsInit.whipItems.get(WhipsID.WHIP_VINE_WHIP)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates.get(DoubleAxesID.AXE_CURSED)))
-                                .with(ItemEntry.builder(ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_CURSED)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_BONECLUB)))
-                                .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_BONECLUB)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_BONE_CUDGEL)))
-                                .with(ItemEntry.builder(ItemsInit.hammerItems.get(HammersID.HAMMER_BONE_CUDGEL)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_SKULL_SCYTHE)))
-                                .with(ItemEntry.builder(ItemsInit.scytheItems.get(ScythesID.SICKLE_SKULL_SCYTHE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.sickleSpawnRates.get(SicklesID.SICKLE_NIGHTMARES_BITE)))
-                                .with(ItemEntry.builder(ItemsInit.sickleItems.get(SicklesID.SICKLE_NIGHTMARES_BITE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_SKULL_SCYTHE)))
-                                .with(ItemEntry.builder(ItemsInit.scytheItems.get(ScythesID.SICKLE_SKULL_SCYTHE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_BROADSWORD)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_BROADSWORD)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_CLAYMORE)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_CLAYMORE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_NAMELESS_BLADE)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_NAMELESS_BLADE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_DIAMOND_SWORD_VAR)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_DIAMOND_SWORD_VAR)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_SINISTER)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_SINISTER)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_BROKEN_SAWBLADE)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_BROKEN_SAWBLADE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_MECHANIZED_SAWBLADE)))
-                                .with(ItemEntry.builder(ItemsInit.swordItems.get(SwordsID.SWORD_MECHANIZED_SAWBLADE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_JAILORS_SCYTHE)))
-                                .with(ItemEntry.builder(ItemsInit.scytheItems.get(ScythesID.SICKLE_JAILORS_SCYTHE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_BONEBOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_BONEBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_HUNTERS_PROMISE)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_HUNTING_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_HUNTING_BOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_MASTERS_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_MASTERS_BOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_POWER_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_POWER_BOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_SNOW_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_SNOW_BOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_SOUL_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_SOUL_BOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_WIND_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_WIND_BOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_TWISTING_VINE_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_TWISTING_VINE_BOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_WEEPING_VINE_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_WEEPING_VINE_BOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_BUBBLE_BOW)))
-                                .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_BUBBLE_BOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_THE_SLICER)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_THE_SLICER)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_AZURE_SEEKER)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AZURE_SEEKER)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
-                                        CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW)))
-                                .with(ItemEntry.builder(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW)))
-
-                                .rolls(BinomialLootNumberProvider.create(1,
+                        poolBuilder = FabricLootPoolBuilder.builder();
+                        if (CONFIG.mcdwEnableItemsConfig.whipsEnabled.get(WhipsID.WHIP_WHIP)) {
+                            addWeapon(poolBuilder, ItemsInit.whipItems.get(WhipsID.WHIP_WHIP),
+                                    CONFIG.mcdwNewlootConfig.whipSpawnRates.get(WhipsID.WHIP_WHIP));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.whipsEnabled.get(WhipsID.WHIP_VINE_WHIP)) {
+                            addWeapon(poolBuilder, ItemsInit.whipItems.get(WhipsID.WHIP_VINE_WHIP),
+                                    CONFIG.mcdwNewlootConfig.whipSpawnRates.get(WhipsID.WHIP_VINE_WHIP));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.picksEnabled.get(PicksID.PICK_HOWLING_PICK)) {
+                            addWeapon(poolBuilder, ItemsInit.pickItems.get(PicksID.PICK_HOWLING_PICK),
+                                    CONFIG.mcdwNewlootConfig.pickSpawnRates.get(PicksID.PICK_HOWLING_PICK));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.doubleAxesEnabled.get(DoubleAxesID.AXE_CURSED)) {
+                            addWeapon(poolBuilder, ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_CURSED),
+                                    CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates.get(DoubleAxesID.AXE_CURSED));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.hammersEnabled.get(HammersID.HAMMER_BONECLUB)) {
+                            addWeapon(poolBuilder, ItemsInit.hammerItems.get(HammersID.HAMMER_BONECLUB),
+                                    CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_BONECLUB));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.hammersEnabled.get(HammersID.HAMMER_BONE_CUDGEL)) {
+                            addWeapon(poolBuilder, ItemsInit.hammerItems.get(HammersID.HAMMER_BONE_CUDGEL),
+                                    CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_BONE_CUDGEL));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.scythesEnabled.get(ScythesID.SICKLE_SKULL_SCYTHE)) {
+                            addWeapon(poolBuilder, ItemsInit.scytheItems.get(ScythesID.SICKLE_SKULL_SCYTHE),
+                                    CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_SKULL_SCYTHE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.sicklesEnabled.get(SicklesID.SICKLE_NIGHTMARES_BITE)) {
+                            addWeapon(poolBuilder, ItemsInit.sickleItems.get(SicklesID.SICKLE_NIGHTMARES_BITE),
+                                    CONFIG.mcdwNewlootConfig.sickleSpawnRates.get(SicklesID.SICKLE_NIGHTMARES_BITE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_BROADSWORD)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_BROADSWORD),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_BROADSWORD));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_CLAYMORE)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_CLAYMORE),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_CLAYMORE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_NAMELESS_BLADE)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_NAMELESS_BLADE),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_NAMELESS_BLADE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_DIAMOND_SWORD_VAR)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_DIAMOND_SWORD_VAR),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_DIAMOND_SWORD_VAR));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_SINISTER)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_SINISTER),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_SINISTER));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_BROKEN_SAWBLADE)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_BROKEN_SAWBLADE),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_BROKEN_SAWBLADE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_MECHANIZED_SAWBLADE)) {
+                            addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_MECHANIZED_SAWBLADE),
+                                    CONFIG.mcdwNewlootConfig.swordSpawnRates.get(SwordsID.SWORD_MECHANIZED_SAWBLADE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.scythesEnabled.get(ScythesID.SICKLE_JAILORS_SCYTHE)) {
+                            addWeapon(poolBuilder, ItemsInit.scytheItems.get(ScythesID.SICKLE_JAILORS_SCYTHE),
+                                    CONFIG.mcdwNewlootConfig.scytheSpawnRates.get(ScythesID.SICKLE_JAILORS_SCYTHE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_BONEBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_BONEBOW),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_BONEBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_HUNTERS_PROMISE)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_HUNTERS_PROMISE));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_HUNTING_BOW)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_HUNTING_BOW),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_HUNTING_BOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_MASTERS_BOW)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_MASTERS_BOW),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_MASTERS_BOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_POWER_BOW)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_POWER_BOW),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_POWER_BOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_SNOW_BOW)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_SNOW_BOW),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_SNOW_BOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_SOUL_BOW)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_SOUL_BOW),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_SOUL_BOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_WIND_BOW)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_WIND_BOW),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_WIND_BOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_TWISTING_VINE_BOW)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_TWISTING_VINE_BOW),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_TWISTING_VINE_BOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_WEEPING_VINE_BOW)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_WEEPING_VINE_BOW),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_WEEPING_VINE_BOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_BUBBLE_BOW)) {
+                            addWeapon(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_BUBBLE_BOW),
+                                    CONFIG.mcdwNewlootConfig.bowSpawnRates.get(BowsID.BOW_BUBBLE_BOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_THE_SLICER)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_THE_SLICER),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_THE_SLICER));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_AZURE_SEEKER)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AZURE_SEEKER),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_AZURE_SEEKER));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW));
+                        }
+                        if (CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW)) {
+                            addWeapon(poolBuilder, ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW),
+                                    CONFIG.mcdwNewlootConfig.crossbowSpawnRates.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW));
+                        }
+                               /* .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.shieldSpawnRates.get(ShieldsID.SHIELD_VANGUARD)))
                                 .with(ItemEntry.builder(ItemsInit.shieldItems.get(ShieldsID.SHIELD_VANGUARD)))
 
                                 .rolls(BinomialLootNumberProvider.create(1,
                                         CONFIG.mcdwNewlootConfig.shieldSpawnRates.get(ShieldsID.SHIELD_ROYAL_GUARD)))
-                                .with(ItemEntry.builder(ItemsInit.shieldItems.get(ShieldsID.SHIELD_ROYAL_GUARD)));
+                                .with(ItemEntry.builder(ItemsInit.shieldItems.get(ShieldsID.SHIELD_ROYAL_GUARD))); */
 
                         supplier.pool(poolBuilder);
                     }
                 }
-           }*/
+           }
 
             /*if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
                 for (int i = 0; i < RARE_LOOT_TABLES.size(); i++) {
