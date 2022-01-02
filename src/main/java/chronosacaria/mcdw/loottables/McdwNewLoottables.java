@@ -25,7 +25,7 @@ public class McdwNewLoottables {
 
     public static void init() {
         LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, id, supplier, setter) -> {
-            if ("minecraft:entities/bee".equals(id.toString())) {
+            if ("minecraft:entities/bee".equals(id.toString()) && CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(ItemsID.ITEM_BEE_STINGER)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1, 1.0F))
                         .with(ItemEntry.builder(ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER)));
@@ -33,7 +33,7 @@ public class McdwNewLoottables {
                 supplier.pool(poolBuilder);
             }
 
-            if ("minecraft:entities/witch".equals(id.toString())) {
+            if ("minecraft:entities/witch".equals(id.toString()) && CONFIG.mcdwEnableItemsConfig.glaivesEnabled.get(GlaivesID.SPEAR_CACKLING_BROOM)) {
                 LootPool poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1, 0.20f))
                         .with(ItemEntry.builder(ItemsInit.glaiveItems.get(GlaivesID.SPEAR_CACKLING_BROOM)))
@@ -41,7 +41,7 @@ public class McdwNewLoottables {
                 supplier.withPool(poolBuilder);
             }
 
-            if ("minecraft:entities/wither".equals(id.toString())) {
+            if ("minecraft:entities/wither".equals(id.toString()) && CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_ANCIENT_BOW)) {
                 LootPool poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(BinomialLootNumberProvider.create(1, 0.1f))
                         .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_ANCIENT_BOW)))
