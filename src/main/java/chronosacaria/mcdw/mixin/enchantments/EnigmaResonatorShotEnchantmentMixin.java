@@ -29,16 +29,16 @@ public abstract class EnigmaResonatorShotEnchantmentMixin extends Entity {
 
     @Inject(method = "onEntityHit", at = @At("TAIL"))
     private void onEnigmaShotEnchantmentEntityHit(EntityHitResult entityHitResult, CallbackInfo ci){
-        if (!(entityHitResult.getEntity() instanceof LivingEntity)) {
+        if (!(entityHitResult.getEntity() instanceof LivingEntity target)) {
             return;
         }
         PersistentProjectileEntity persistentProjectileEntity = (PersistentProjectileEntity) (Object) this;
-        LivingEntity target = (LivingEntity) entityHitResult.getEntity();
         LivingEntity shooter = (LivingEntity) persistentProjectileEntity.getOwner();
-        ItemStack mainHandStack = null;
-        if (shooter != null) {
-            mainHandStack = shooter.getMainHandStack();
-        }
+
+        if (!(shooter instanceof PlayerEntity)) return;
+
+        ItemStack mainHandStack = shooter.getMainHandStack();
+
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ENIGMA_RESONATOR)) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, mainHandStack) >= 1)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, mainHandStack);
