@@ -852,6 +852,7 @@
   "enchantment.mcdw.rushdown.desc": "A chance to gain stacking speed on a kill.",
   "enchantment.mcdw.shockwave.desc": "A chance to deal explosive damage in an area of 3 blocks.",
   "enchantment.mcdw.smiting.desc": "Deals AoE damage to Undead in an area of 3 blocks.",
+  "enchantment.mcdw.soul_devourer.desc": "Multiplies XP gained from a kill.",
   "enchantment.mcdw.soul_siphon.desc": "A chance to gain extra XP from a kill.",
   "enchantment.mcdw.stunning.desc": "Chance to nearly stop a target and cause nausea.",
   "enchantment.mcdw.swirling.desc": "Chance to hit all entities in a 1.5 block radius around the user.",
