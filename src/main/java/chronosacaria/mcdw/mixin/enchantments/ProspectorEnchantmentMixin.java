@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LivingEntity.class)
 public class ProspectorEnchantmentMixin {
 
-    @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "onDeath")
 
     private void onProspectorEnchantmentKill(DamageSource source, CallbackInfo ci) {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;

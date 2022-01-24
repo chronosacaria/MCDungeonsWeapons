@@ -175,8 +175,8 @@ public class McdwNewStatsConfig implements ConfigData {
         swordStats(materialToString(ToolMaterials.DIAMOND), 5, -3.0f, SwordsID.SWORD_FROST_SLAYER);
         swordStats(materialToString(ToolMaterials.DIAMOND), 4, -3.0f, SwordsID.SWORD_HEARTSTEALER);
         swordStats(materialToString(ToolMaterials.IRON), 6, -3.0f, SwordsID.SWORD_GREAT_AXEBLADE);
-        swordStats(materialToString(ToolMaterials.IRON), 8, -3.0f, SwordsID.SWORD_OBSIDIAN_CLAYMORE);
-        swordStats(materialToString(ToolMaterials.IRON), 10, -3.0f,SwordsID.SWORD_THE_STARLESS_NIGHT);
+        swordStats(materialToString(ToolMaterials.NETHERITE), 6, -3.0f, SwordsID.SWORD_OBSIDIAN_CLAYMORE);
+        swordStats(materialToString(ToolMaterials.NETHERITE), 8, -3.0f,SwordsID.SWORD_THE_STARLESS_NIGHT);
 
         swordStats(materialToString(ToolMaterials.IRON),0, -0.9f, SwordsID.SWORD_RAPIER);
         swordStats(materialToString(ToolMaterials.IRON),0, -0.9f, SwordsID.SWORD_BEESTINGER);
