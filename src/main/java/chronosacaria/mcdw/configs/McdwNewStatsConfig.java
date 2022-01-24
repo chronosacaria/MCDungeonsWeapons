@@ -224,7 +224,7 @@ public class McdwNewStatsConfig implements ConfigData {
 
         daggerStats(materialToString(ToolMaterials.IRON),2, -1.3f, DaggersID.DAGGER_TEMPEST_KNIFE);
         daggerStats(materialToString(ToolMaterials.IRON),3, -1.3f, DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE);
-        daggerStats(materialToString(ToolMaterials.IRON),4, -1.3f, DaggersID.DAGGER_CHILL_GALE_KNIFE);
+        daggerStats(materialToString(ToolMaterials.DIAMOND),3, -1.3f, DaggersID.DAGGER_CHILL_GALE_KNIFE);
 
         soulDaggerStats(materialToString(ToolMaterials.IRON),1, -1.1f, SoulDaggersID.DAGGER_SOUL_KNIFE);
         soulDaggerStats(materialToString(ToolMaterials.NETHERITE),4, -0.9f, SoulDaggersID.DAGGER_ETERNAL_KNIFE);
