@@ -4,5 +4,12 @@
 		"layer0": "mcdw:item/pick_diamond_pickaxe_var",
 		"particle": "mcdw:item/pick_diamond_pickaxe_var"
 	},
-	"gui_light": "front"
+	"gui_light": "front",
+	"display": {
+		"head": {
+			"rotation": [0, 0, 0],
+			"translation": [0, 2, 0],
+			"scale":[ 0.5, 0.5, 0.5 ]
+		}
+	}
 }

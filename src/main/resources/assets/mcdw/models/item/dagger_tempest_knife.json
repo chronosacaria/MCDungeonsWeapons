@@ -2,5 +2,12 @@
 	"parent": "mcdw:item/model_tempest_knife",
 	"textures": {
 		"layer0": "mcdw:item/dagger_tempest_knife"
+	},
+	"display": {
+		"head": {
+			"rotation": [ 180, 0, 270 ],
+			"translation": [ 0, 2, 0],
+			"scale":[ 1, 1, 0.5 ]
+		}
 	}
 }

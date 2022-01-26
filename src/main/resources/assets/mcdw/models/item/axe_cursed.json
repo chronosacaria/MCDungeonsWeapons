@@ -20,6 +20,11 @@
     },
     "fixed": {
       "scale": [ 2, 2, 1 ]
-    }
+    },
+	"head": {
+		"rotation": [0, 0, 0],
+		"translation": [0.5, 2, 0],
+		"scale": [1, 1, 0.5]
+	}
   }
 }

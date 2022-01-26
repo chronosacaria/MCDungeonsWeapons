@@ -4,5 +4,12 @@
 		"layer0": "mcdw:item/pick_hailing_pinnacle",
 		"particle": "mcdw:item/pick_hailing_pinnacle"
 	},
-	"gui_light": "front"
+	"gui_light": "front",
+	"display": {
+		"head": {
+			"rotation": [0, 0, 0],
+			"translation": [0, 2, 0],
+			"scale":[ 0.5, 0.5, 0.5 ]
+		}
+	}
 }

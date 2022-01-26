@@ -3,5 +3,12 @@
 	"parent": "mcdw:item/model_broadsword",
 	"textures": {
 		"layer0": "mcdw:item/sword_broadsword"
+	},  
+  "display": {
+    "head": {
+      "rotation": [ 0, 0, 0 ],
+      "translation": [ 0, 2, 0],
+      "scale":[ 1, 1, 0.5 ]
 	}
+  }
 }

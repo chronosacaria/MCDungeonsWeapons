@@ -1,5 +1,5 @@
 {
-	"credit": "Made by SeaOfPixels",
+	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "mcdw:item/hammer_flail",
@@ -385,6 +385,11 @@
 			"translation": [-2.5, 0, 0],
 			"scale": [0.83, 0.83, 0.83]
 		},
+		"head": {
+			"rotation": [-75, 0, -90],
+			"translation": [0, 3, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
 		"fixed": {
 			"rotation": [0, -90, 0],
 			"translation": [2.9, 0, 0],
@@ -395,35 +400,42 @@
 		{
 			"name": "flail",
 			"origin": [8, 8, 8],
+			"color": 0,
 			"children": [
 				{
 					"name": "thorns",
 					"origin": [8, 8, 8],
+					"color": 0,
 					"children": [0, 1, 2, 3, 4, 5]
 				},
 				{
 					"name": "stick",
 					"origin": [8, 8, 8],
+					"color": 0,
 					"children": [6, 7, 8, 9, 10, 11, 12, 13]
 				},
 				{
 					"name": "head",
 					"origin": [9, 15, 16],
+					"color": 0,
 					"children": [14]
 				},
 				{
 					"name": "chain1",
 					"origin": [8, 8, 8],
+					"color": 0,
 					"children": [15, 16, 17, 18]
 				},
 				{
 					"name": "chain3",
 					"origin": [8, 8, 8],
+					"color": 0,
 					"children": [19, 20, 21, 22]
 				},
 				{
 					"name": "chain2",
 					"origin": [8, 8, 8],
+					"color": 0,
 					"children": [23, 24, 25, 26]
 				}
 			]

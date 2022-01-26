@@ -1,5 +1,5 @@
 {
-	"parent": "mcdw:item/model_hammer",
+	"parent": "mcdw:item/model_mace",
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "mcdw:item/hammer_mace",
@@ -228,8 +228,9 @@
 			"rotation": [0, 90, 0]
 		},
 		"head": {
-			"rotation": [0, 90, 0],
-			"translation": [-9.75, 2.75, 0]
+			"rotation": [-75, 0, -90],
+			"translation": [-0, 3, 0],
+			"scale":[ 0.6, 0.6, 0.6 ]
 		},
 		"fixed": {
 			"rotation": [0, -90, 0]

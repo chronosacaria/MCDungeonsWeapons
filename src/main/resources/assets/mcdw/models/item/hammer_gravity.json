@@ -217,8 +217,9 @@
 			"scale": [0.8, 0.8, 0.8]
 		},
 		"head": {
-			"rotation": [0, 90, 0],
-			"translation": [-9.75, 2.25, 0]
+			"rotation": [-75, 0, -90],
+			"translation": [-0, 2.25, 0],
+			"scale":[ 0.6, 0.6, 0.6 ]
 		},
 		"fixed": {
 			"rotation": [0, -90, 0],

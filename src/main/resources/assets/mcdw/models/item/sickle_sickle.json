@@ -2,5 +2,12 @@
 	"parent": "mcdw:item/model_sickle",
 	"textures": {
 		"layer0": "mcdw:item/sickle_sickle"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 0, 0],
+			"translation": [0, 2, 0],
+			"scale":[ 0.5, 0.5, 0.5 ]
+		}
 	}
 }

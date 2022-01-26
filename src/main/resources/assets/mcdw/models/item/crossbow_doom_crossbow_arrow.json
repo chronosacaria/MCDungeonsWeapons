@@ -38,6 +38,11 @@
       "rotation": [ 0, 0, 0 ],
       "translation": [ 0, 0, 0 ],
       "scale": [ 2.0, 2.0, 1.0 ]
-    }
+    },  
+    "head": {
+      "rotation": [ 0, 0, 270 ],
+      "translation": [ -1, 3.5, 0],
+      "scale":[ 1, 1, 0.5 ]
+	}
   }
 }

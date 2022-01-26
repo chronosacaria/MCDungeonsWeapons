@@ -2,5 +2,12 @@
   "parent": "item/crossbow",
   "textures": {
     "layer0": "mcdw:item/crossbows/baby_crossbow_firework"
+  },
+  "display": {
+	"head": {
+		"rotation": [ 0, 0, 270 ],
+		"translation": [ -1, 2.5, 0],
+		"scale":[ 0.55, 0.55, 0.5 ]
+	}
   }
 }
