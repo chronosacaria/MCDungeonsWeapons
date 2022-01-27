@@ -2,6 +2,7 @@ package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwCustomWeaponBase;
+import chronosacaria.mcdw.enchants.types.HealingEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;
@@ -12,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.util.registry.Registry;
 
-public class LeechingEnchantment extends Enchantment{
+public class LeechingEnchantment extends HealingEnchantment {
 
     public LeechingEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
@@ -28,24 +29,9 @@ public class LeechingEnchantment extends Enchantment{
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.LEECHING_CAN_BE_MIXED_WITH_HEALING);
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.LEECHING_CAN_BE_MIXED_WITH_HEALING)
+                || !(other instanceof HealingEnchantment);
     }
-
-    /*@Override // LEECHING AS PER HIT
-    public void onTargetDamaged(LivingEntity user, Entity target, int level){
-        float chance = user.getRandom().nextFloat();
-        if (!(target instanceof LivingEntity)){
-            return;}
-        else {
-            if (chance <= 0.3) {
-                float damageDealt = ((LivingEntity) target).getMaxHealth() - ((LivingEntity) target).getHealth();
-                //float targetMaxHealth = ((LivingEntity) target).getMaxHealth();
-                float healthRegained;
-                healthRegained = (0.02F + 0.02F * level) * (damageDealt * (0.25f * level));
-                user.heal(healthRegained);
-            }
-        }
-    }*/
 
     @Override
     public boolean isAvailableForRandomSelection() {
@@ -55,5 +41,15 @@ public class LeechingEnchantment extends Enchantment{
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem || stack.getItem() instanceof McdwCustomWeaponBase;
+    }
+
+    @Override
+    public int getMinPower(int level) {
+        return 1 + level * 10;
+    }
+
+    @Override
+    public int getMaxPower(int level) {
+        return this.getMinPower(level) + 5;
     }
 }

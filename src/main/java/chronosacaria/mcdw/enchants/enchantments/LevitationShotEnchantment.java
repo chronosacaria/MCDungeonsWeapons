@@ -2,6 +2,7 @@ package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
+import chronosacaria.mcdw.enchants.types.RangedEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;
@@ -12,7 +13,7 @@ import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 
-public class LevitationShotEnchantment extends Enchantment {
+public class LevitationShotEnchantment extends RangedEnchantment {
 
     public LevitationShotEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
@@ -28,7 +29,8 @@ public class LevitationShotEnchantment extends Enchantment {
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING) || !(other instanceof AOEEnchantment);
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
+                || !(other instanceof AOEEnchantment);
     }
 
     @Override
@@ -39,6 +41,16 @@ public class LevitationShotEnchantment extends Enchantment {
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
+    }
+
+    @Override
+    public int getMinPower(int level) {
+        return 1 + level * 10;
+    }
+
+    @Override
+    public int getMaxPower(int level) {
+        return this.getMinPower(level) + 5;
     }
 }
 

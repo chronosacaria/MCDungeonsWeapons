@@ -19,9 +19,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ChargeEnchantmentMixin {
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyCharge(DamageSource source, float amount, CallbackInfo info) {
-        if (!(source.getAttacker() instanceof PlayerEntity)) return;
+        if (!(source.getAttacker() instanceof PlayerEntity user)) return;
 
-        PlayerEntity user = (PlayerEntity) source.getAttacker();
         ItemStack mainHandStack = null;
 
         if (user != null) {

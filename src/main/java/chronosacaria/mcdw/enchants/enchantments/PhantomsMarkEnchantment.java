@@ -33,5 +33,15 @@ public class PhantomsMarkEnchantment extends Enchantment {
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
     }
+
+    @Override
+    public int getMinPower(int level) {
+        return 1 + level * 10;
+    }
+
+    @Override
+    public int getMaxPower(int level) {
+        return this.getMinPower(level) + 5;
+    }
 }
 

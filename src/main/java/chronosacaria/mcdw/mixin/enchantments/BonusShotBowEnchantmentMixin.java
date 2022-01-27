@@ -21,8 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(BowItem.class)
 public class BonusShotBowEnchantmentMixin {
     @Inject(method = "onStoppedUsing", at = @At("HEAD"))
-    public void createBonusShotArrowForBow(ItemStack stack, World world, LivingEntity user,
-                                                   int remainingUseTicks, CallbackInfo ci){
+    public void createBonusShotArrowForBow(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
         boolean uniqueWeaponFlag1 = stack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_HAUNTED_BOW).asItem();
         boolean uniqueWeaponFlag2 = stack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_TWIN_BOW).asItem();
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BONUS_SHOT)){

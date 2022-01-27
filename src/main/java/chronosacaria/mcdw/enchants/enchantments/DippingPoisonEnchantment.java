@@ -25,7 +25,8 @@ public class DippingPoisonEnchantment extends RangedEnchantment {
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING) || !(other instanceof InfinityEnchantment || other instanceof ReplenishEnchantment);
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
+                || !(other instanceof InfinityEnchantment || other instanceof ReplenishEnchantment);
     }
 
     @Override
@@ -33,4 +34,13 @@ public class DippingPoisonEnchantment extends RangedEnchantment {
         return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DRIPPING_POISON);
     }
 
+    @Override
+    public int getMinPower(int level) {
+        return 1 + level * 10;
+    }
+
+    @Override
+    public int getMaxPower(int level) {
+        return this.getMinPower(level) + 5;
+    }
 }

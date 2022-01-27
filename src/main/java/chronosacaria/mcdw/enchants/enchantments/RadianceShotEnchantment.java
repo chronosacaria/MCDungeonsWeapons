@@ -1,8 +1,12 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.enchants.types.AOEEnchantment;
+import chronosacaria.mcdw.enchants.types.HealingEnchantment;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.enums.SettingsID;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.BowItem;
@@ -23,14 +27,11 @@ public class RadianceShotEnchantment extends RangedEnchantment {
         return 3;
     }
 
-    /*@Override
-    public void onTargetDamaged (LivingEntity user, Entity target, int level){
-        if (target instanceof LivingEntity){
-            World world = user.getEntityWorld();
-            world.createExplosion(target, target.getX(), target.getY(), target.getZ(), level,
-                    Explosion.DestructionType.NONE);
-        }
-    }*/
+    @Override
+    protected boolean canAccept (Enchantment other){
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
+                || !(other instanceof AOEEnchantment || other instanceof HealingEnchantment);
+    }
 
     @Override
     public boolean isAvailableForRandomSelection() {
@@ -40,5 +41,15 @@ public class RadianceShotEnchantment extends RangedEnchantment {
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
+    }
+
+    @Override
+    public int getMinPower(int level) {
+        return 1 + level * 10;
+    }
+
+    @Override
+    public int getMaxPower(int level) {
+        return this.getMinPower(level) + 5;
     }
 }
