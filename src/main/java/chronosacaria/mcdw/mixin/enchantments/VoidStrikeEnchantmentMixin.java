@@ -20,43 +20,37 @@ public class VoidStrikeEnchantmentMixin {
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyVoidStrikeEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
-        if(!(source.getAttacker() instanceof PlayerEntity)) return;
+        if(!(source.getAttacker() instanceof PlayerEntity user))
+            return;
+        if(!((Object) this instanceof LivingEntity target))
+            return;
+        if (!(source.getSource() instanceof LivingEntity))
+            return;
 
-        LivingEntity user = (LivingEntity) source.getAttacker();
-        LivingEntity target = (LivingEntity) (Object) this;
-
-        if (source.getSource() instanceof LivingEntity) {
-            if (amount != 0.0F) {
+        if (amount != 0.0F) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_STRIKE)) {
                 ItemStack mainHandStack = null;
-                if (user != null) {
+                if (user != null)
                     mainHandStack = user.getMainHandStack();
-                }
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_STRIKE)) {
 
-                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.VOID_STRIKE, mainHandStack) >= 1 )) {
-                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_STRIKE, mainHandStack);
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.VOID_STRIKE, mainHandStack) >= 1)) {
+                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_STRIKE, mainHandStack);
 
-                        float voidStrikeChance;
-                        voidStrikeChance = 0.5f + level * 0.05F;
-                        float voidStrikeRand = user.getRandom().nextFloat();
-                        float voidDamageModifier = 0;
-                        if (level == 1) voidDamageModifier = 2.0F;
-                        if (level == 2) voidDamageModifier = 4.0F;
-                        if (level == 3) voidDamageModifier = 6.0F;
-                        float h = target.getHealth();
+                    float voidStrikeChance = 0.5f + level * 0.05F;
+                    float voidStrikeRand = user.getRandom().nextFloat();
 
-                        if (voidStrikeRand <= voidStrikeChance) {
-                            target.setHealth(h - (amount * Math.min(level, voidDamageModifier)));
-                            target.world.playSound(
-                                    null,
-                                    target.getX(),
-                                    target.getY(),
-                                    target.getZ(),
-                                    SoundEvents.ENTITY_ENDERMAN_TELEPORT,
-                                    SoundCategory.PLAYERS,
-                                    0.5F,
-                                    1.0F);
-                        }
+                    if (voidStrikeRand <= voidStrikeChance) {
+                        float voidDamageModifier = 2.0F * level;
+                        target.damage(DamageSource.GENERIC, amount * voidDamageModifier);
+                        target.world.playSound(
+                                null,
+                                target.getX(),
+                                target.getY(),
+                                target.getZ(),
+                                SoundEvents.ENTITY_ENDERMAN_TELEPORT,
+                                SoundCategory.PLAYERS,
+                                0.5F,
+                                1.0F);
                     }
                 }
             }
