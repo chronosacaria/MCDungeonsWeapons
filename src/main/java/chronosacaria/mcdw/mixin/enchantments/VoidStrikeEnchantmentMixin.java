@@ -36,7 +36,7 @@ public class VoidStrikeEnchantmentMixin {
                 if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.VOID_STRIKE, mainHandStack) >= 1)) {
                     int level = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_STRIKE, mainHandStack);
 
-                    float voidStrikeChance = 0.5f + level * 0.05F;
+                    float voidStrikeChance = 0.15f + level * 0.05F;
                     float voidStrikeRand = user.getRandom().nextFloat();
 
                     if (voidStrikeRand <= voidStrikeChance) {
