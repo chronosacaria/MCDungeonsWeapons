@@ -9,6 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -28,10 +29,9 @@ public class AOEHelper {
     public static void pullTowards(Entity self, Entity target) {
         if (self instanceof PlayerEntity && ((PlayerEntity) self).getAbilities().creativeMode) return;
 
-        double motionX = target.getX() - self.getX();
-        double motionY = target.getX() - self.getY();
-        double motionZ = target.getX() - self.getZ();
-        Vec3d vec3d = new Vec3d(motionX, motionY, motionZ);
+        double motionX = MathHelper.clamp((target.getX() - self.getX()) * 0.15f, -5, 5);
+        double motionZ = MathHelper.clamp((target.getZ() - self.getZ()) * 0.15f, -5, 5);
+        Vec3d vec3d = new Vec3d(motionX, 0, motionZ);
 
         self.setVelocity(vec3d);
     }

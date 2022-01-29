@@ -27,16 +27,14 @@ public class AbilityHelper {
     }
 
     public static boolean isPetOf(LivingEntity self, LivingEntity owner){
-        if (self instanceof TameableEntity){
-            TameableEntity pet = (TameableEntity) self;
+        if (self instanceof TameableEntity pet){
             return pet.getOwner() == owner;
         }
         //if(self instanceof IronGolemEntity){
         //    IronGolemEntity ironGolem = (IronGolemEntity) self;
         //    return GoalUtils.getOwner(ironGolem) == owner;
         //}
-        if(self instanceof HorseBaseEntity){
-            HorseBaseEntity horseBaseEntity = (HorseBaseEntity) self;
+        if(self instanceof HorseBaseEntity horseBaseEntity){
             return GoalUtils.getOwner(horseBaseEntity) == owner;
         }
 
@@ -82,12 +80,10 @@ public class AbilityHelper {
     }
 
     private static boolean isUnaffectedByAoe(LivingEntity entity) {
-        if (entity instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) entity;
+        if (entity instanceof PlayerEntity player) {
             if (player.isCreative()) return true;
             return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS);
         }
-
         return false;
     }
 }

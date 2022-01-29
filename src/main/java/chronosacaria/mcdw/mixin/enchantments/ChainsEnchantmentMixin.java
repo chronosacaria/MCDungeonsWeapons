@@ -21,9 +21,8 @@ public abstract class ChainsEnchantmentMixin {
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyChainsEnchantment(DamageSource source, float amount, CallbackInfo info) {
 
-        if (source.getSource() instanceof ArrowEntity) {
+        if (source.getSource() instanceof ArrowEntity)
             return;
-        }
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
 
 
@@ -42,13 +41,8 @@ public abstract class ChainsEnchantmentMixin {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, mainHandStack);
 
                         float chance = user.getRandom().nextFloat();
-                        if (chance <= 0.2f) {
-                            AOEHelper.chainNearbyEntities(
-                                    user,
-                                    target,
-                                    1.5F * level,
-                                    level);
-                        }
+                        if (chance <= 0.2f)
+                            AOEHelper.chainNearbyEntities(user, target, 1.5F * level, level);
                     }
                 }
             }
