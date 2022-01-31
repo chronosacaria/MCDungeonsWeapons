@@ -17,8 +17,7 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(LivingEntity.class)
 public abstract class VoidShotEnchantmentMixin extends Entity {
@@ -30,14 +29,14 @@ public abstract class VoidShotEnchantmentMixin extends Entity {
     @Shadow
     public abstract ItemStack getMainHandStack();
 
-    @Inject(method = "damage", at = @At("HEAD"))
-    private void applyVoidShot(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    @ModifyVariable(method = "damage", at = @At(value = "HEAD"), argsOnly = true)
+    private float applyVoidShot(float amount, DamageSource source) {
         if (!((Object) this instanceof LivingEntity livingEntity))
-            return;
+            return amount;
         if (!(source.getSource() instanceof PersistentProjectileEntity persistentProjectileEntity))
-            return;
+            return amount;
         if (!(persistentProjectileEntity.getOwner() instanceof PlayerEntity shooter))
-            return;
+            return amount;
         if (amount > 0 && source.getAttacker() instanceof LivingEntity) {
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_SHOT)) {
                 ItemStack mainHandStack = shooter.getMainHandStack();
@@ -47,9 +46,7 @@ public abstract class VoidShotEnchantmentMixin extends Entity {
                     float voidShotRand = shooter.getRandom().nextFloat();
 
                     if (voidShotRand <= voidShotChance) {
-                        double damageModifier = 1.0D + level;
-                        //TODO Find a way to make this source an arrow without looping it
-                        livingEntity.damage(DamageSource.GENERIC, (float) (amount * damageModifier));
+                        float damageModifier = 1.0F + level;
                         livingEntity.world.playSound(
                                 null,
                                 livingEntity.getX(),
@@ -59,10 +56,11 @@ public abstract class VoidShotEnchantmentMixin extends Entity {
                                 SoundCategory.PLAYERS,
                                 0.5F,
                                 1.0F);
-                        persistentProjectileEntity.remove(RemovalReason.KILLED);
+                        return amount * damageModifier;
                     }
                 }
             }
         }
+        return amount;
     }
 }
