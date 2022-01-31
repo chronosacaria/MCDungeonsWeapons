@@ -14,14 +14,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
+/*
 @Mixin(LivingEntity.class)
 public abstract class GrowingEnchantmentMixin extends Entity {
     public GrowingEnchantmentMixin(EntityType<?> type, World world) {
@@ -65,17 +67,27 @@ public abstract class GrowingEnchantmentMixin extends Entity {
         }
     }
 }
-/*
+ */
+
 @Mixin(PersistentProjectileEntity.class)
-...
-@ModifyArg(method = "onEntityHit", at = @At(value = "INVOKE", target = "La/b/c/Entity;damage()V"), index = 1)
-private float injected(float amount) {
+public class GrowingEnchantmentMixin {
 
-  // Checks and stuff
-  double damageModifier = 1.0D + (0.25D * level);
-  double distance = shooter.distanceTo(livingEntity);
-  damageModifier *= distance * 0.1D;
+    @ModifyArg(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"), index = 1)
+    private float injected(float amount) {
 
-  return amount * MathHelper.clamp(damageModifier, 1, 1 + level);
+        PersistentProjectileEntity persistentProjectileEntity = (PersistentProjectileEntity) (Object) this;
+        Entity shooter = persistentProjectileEntity.getOwner();
+
+        if (EnchantmentHelper.getEquipmentLevel(EnchantsRegistry.GROWING, (LivingEntity) shooter) >= 1) {
+            int level = EnchantmentHelper.getEquipmentLevel(EnchantsRegistry.GROWING, (LivingEntity) shooter);
+
+            // Checks and stuff
+            double damageModifier = 1.0D + (0.25D * level);
+            double distance = shooter.distanceTo();
+            damageModifier *= distance * 0.1D;
+
+            return (float) (amount * MathHelper.clamp(damageModifier, 1, 1 + level));
+        }
+        return amount;
+    }
 }
-*/
