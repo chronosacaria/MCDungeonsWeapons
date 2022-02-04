@@ -10,55 +10,37 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.ModifyArgs;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin({ExperienceOrbEntity.class})
 public abstract class SoulDevourerMixin extends Entity {
-
-    @Shadow private int amount;
 
     public SoulDevourerMixin(EntityType<?> type, World world) {
         super(type, world);
     }
 
-    @Inject(method = "onPlayerCollision", at = @At("HEAD"))
-    public void onSoulDevourerDeath(PlayerEntity player, CallbackInfo ci) {
+    @ModifyArgs(method = "onPlayerCollision", at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/entity/ExperienceOrbEntity;repairPlayerGears(Lnet/minecraft/entity/player/PlayerEntity;I)I"))
+    public void mcdwModifyExperience(Args args){
+        int amount = args.get(1);
+        PlayerEntity playerEntity = args.get(0);
+
         if (!Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_DEVOURER))
             return;
 
-        if (!world.isClient) {
+        int mainHandLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, playerEntity.getMainHandStack());
+        int offHandLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, playerEntity.getOffHandStack());
 
-            ItemStack mainHandStack = player.getMainHandStack();
-            ItemStack offHandStack = player.getOffHandStack();
+        int soulDevourerLevel = playerEntity.getOffHandStack().getItem() instanceof IOffhandAttack ?
+                mainHandLevel + offHandLevel : mainHandLevel;
 
-            int soulDevourerLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, mainHandStack);
+        if (soulDevourerLevel > 0)
+            amount = (amount * (1 + (soulDevourerLevel / 3)) + Math.round(((soulDevourerLevel % 3)/3.0f) * amount));
 
-            if (offHandStack.getItem() instanceof IOffhandAttack) {
-                soulDevourerLevel += EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, offHandStack);
-            }
-
-            if (soulDevourerLevel > 0) {
-                this.amount = (this.amount * (1 + (soulDevourerLevel / 3)) + Math.round(((soulDevourerLevel % 3)/3.0f) * this.amount));
-                this.remove(RemovalReason.KILLED);
-                player.world.playSound(
-                        null,
-                        player.getX(),
-                        player.getY(),
-                        player.getZ(),
-                        SoundEvents.PARTICLE_SOUL_ESCAPE,
-                        SoundCategory.PLAYERS,
-                        0.5F,
-                        1.0F);
-
-            }
-        }
+        args.set(1, amount);
     }
 }
