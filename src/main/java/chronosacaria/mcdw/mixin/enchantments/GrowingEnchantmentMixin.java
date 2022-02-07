@@ -30,7 +30,7 @@ public abstract class GrowingEnchantmentMixin extends Entity {
     public abstract ItemStack getMainHandStack();
 
     @ModifyVariable(method = "damage", at = @At(value = "HEAD"), argsOnly = true)
-    private float onGrowingEnchantment(float amount, DamageSource source) {
+    public float onGrowingEnchantment(float amount, DamageSource source) {
         if (!((Object) this instanceof LivingEntity livingEntity))
             return amount;
         if (!(source.getSource() instanceof PersistentProjectileEntity persistentProjectileEntity))
@@ -40,7 +40,7 @@ public abstract class GrowingEnchantmentMixin extends Entity {
         if (amount > 0 && source.getAttacker() instanceof LivingEntity) {
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GROWING)) {
                 ItemStack mainHandStack = shooter.getMainHandStack();
-                if (EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, mainHandStack) >= 1) {
+                if (EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, mainHandStack) > 0) {
                     int level = EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, mainHandStack);
 
                     double damageModifier = 1.0D + (0.25D * level);
