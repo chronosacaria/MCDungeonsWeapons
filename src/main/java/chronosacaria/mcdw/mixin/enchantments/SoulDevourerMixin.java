@@ -6,22 +6,15 @@ import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin({ExperienceOrbEntity.class})
-public abstract class SoulDevourerMixin extends Entity {
-
-    public SoulDevourerMixin(EntityType<?> type, World world) {
-        super(type, world);
-    }
+public class SoulDevourerMixin {
 
     @ModifyArgs(method = "onPlayerCollision", at = @At(value = "INVOKE",
             target = "Lnet/minecraft/entity/ExperienceOrbEntity;repairPlayerGears(Lnet/minecraft/entity/player/PlayerEntity;I)I"))

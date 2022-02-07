@@ -42,7 +42,6 @@ public class McdwNewLootConfig implements ConfigData {
             weaponsEnabledInLootTables.put(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES, true);
         }
 
-        //TODO MAKE LOOTTABLES NOT REVERT WHEN CHANGED BY USER
         for (SettingsID commonLootTable : SettingsID.values()) {
             commonLootTables.put(SettingsID.COMMON_LOOT_TABLES, Lists.newArrayList(
                     "minecraft:chests/abandoned_mineshaft",

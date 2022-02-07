@@ -3,11 +3,10 @@
   "package": "chronosacaria.mcdw.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "AccessorItemTags",
     "DamageEnchantmentMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
-    "MixinEntity",
+    "EntityMixin",
     "ShieldPlayerEntityMixin",
     "enchantments.AmbushEnchantmentMixin",
     "enchantments.AnimaConduitEnchantmentMixin",
