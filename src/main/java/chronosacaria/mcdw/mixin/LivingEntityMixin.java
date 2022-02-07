@@ -60,11 +60,7 @@ public abstract class LivingEntityMixin extends Entity {
     |****STATUS REMOVAL****|
     | * * * * * * * * * * */
 // Remove Poison Effect if Player has weapon with Poison Cloud Enchantment
-    @Inject(
-            at = @At("HEAD"),
-            method = "tick",
-            cancellable = true)
-
+    @Inject(at = @At("HEAD"), method = "tick")
     private void removePoisonIfPCEnchant(CallbackInfo ci) {
         if ((Object) this instanceof PlayerEntity) {
             ItemStack mainHand = getMainHandStack();
@@ -80,11 +76,7 @@ public abstract class LivingEntityMixin extends Entity {
     }
     // Remove Stunned Effects if Player has weapon with Stunning Enchantment
 
-    @Inject(
-            at = @At("HEAD"),
-            method = "tick",
-            cancellable = true)
-
+    @Inject(at = @At("HEAD"), method = "tick")
     private void removeStunnedIfPCEnchant(CallbackInfo ci) {
         if ((Object) this instanceof PlayerEntity) {
             ItemStack mainHand = getMainHandStack();
@@ -99,11 +91,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     // Remove Weakness Effect if Player has weapon with Weakening Enchantment
 
-    @Inject(
-            at = @At("HEAD"),
-            method = "tick",
-            cancellable = true)
-
+    @Inject(at = @At("HEAD"), method = "tick")
     private void removeWeakenedIfPCEnchant(CallbackInfo ci) {
         if ((Object) this instanceof PlayerEntity) {
             ItemStack mainHand = getMainHandStack();
@@ -119,15 +107,14 @@ public abstract class LivingEntityMixin extends Entity {
     |****HUNTER'S COMPANION EFFECT****|
     |* * * * * * * * * * * * * * * * */
 
-    @Inject(method = "applyDamage", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "applyDamage", at = @At("HEAD"))
     public void onHuntersPromiseCompanionDamage(DamageSource source, float amount, CallbackInfo into){
         LivingEntity target = (LivingEntity) (Object) this;
         Entity petSource = source.getSource();
 
         if (petSource == null) return;
 
-        if (petSource.world instanceof ServerWorld && petSource instanceof TameableEntity){
-            ServerWorld serverWorld = (ServerWorld) petSource.world;
+        if (petSource.world instanceof ServerWorld serverWorld && petSource instanceof TameableEntity){
             PlayerEntity owner = (PlayerEntity) ((TameableEntity) petSource).getOwner();
             if (owner != null){
                 UUID petOwnerUUID = owner.getUuid();
@@ -175,7 +162,7 @@ public abstract class LivingEntityMixin extends Entity {
     }
 
     //TODO Figure out how to make more than one, but less than four bottles convert to potions
-    @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "onDeath")
 
     private void onRefreshmentEnchantmentKill(DamageSource source, CallbackInfo ci) {
         if(!(source.getSource() instanceof PlayerEntity)) return;
@@ -205,8 +192,7 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
-    @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
-
+    @Inject(at = @At("HEAD"), method = "onDeath")
     private void onRushdownEnchantmentKill(DamageSource source, CallbackInfo ci) {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
         LivingEntity user = (LivingEntity) source.getAttacker();
@@ -260,7 +246,7 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
-    @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "onDeath")
     private void onSoulSiphonEnchantmentKill(DamageSource source, CallbackInfo ci) {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
         LivingEntity user = (LivingEntity) source.getAttacker();

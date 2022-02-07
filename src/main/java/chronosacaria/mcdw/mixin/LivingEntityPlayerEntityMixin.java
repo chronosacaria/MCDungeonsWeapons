@@ -159,7 +159,7 @@ public class LivingEntityPlayerEntityMixin {
                         float criticalHitChance;
                         criticalHitChance = 0.5f + level * 0.05F;
                         float criticalHitRand = user.getRandom().nextFloat();
-                        float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                        //float attackDamage = (float) user.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                         float extraDamageMultiplier = 1.5F;
                         float h = target.getHealth();
 
@@ -274,7 +274,7 @@ public class LivingEntityPlayerEntityMixin {
         }
     }
 
-    @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "onDeath")
 
     private void onExplodingEnchantmentKill(DamageSource source, CallbackInfo ci) {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
@@ -285,7 +285,7 @@ public class LivingEntityPlayerEntityMixin {
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
-        boolean uniqueWeaponFlag = false;
+
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.EXPLODING)) {
             if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, mainHandStack) >= 1 )) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, mainHandStack);
@@ -340,7 +340,7 @@ public class LivingEntityPlayerEntityMixin {
         }
     }
 
-    @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "onDeath")
 
     private void onGuardingStrikeEnchantmentKill(DamageSource source, CallbackInfo ci) {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
@@ -457,7 +457,7 @@ public class LivingEntityPlayerEntityMixin {
         }
     }
 
-    @Inject(at = @At("HEAD"), method = "onDeath", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "onDeath")
     private void onRampagingEnchantmentKill(DamageSource source, CallbackInfo ci) {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
         LivingEntity user = (LivingEntity) source.getAttacker();
@@ -518,9 +518,8 @@ public class LivingEntityPlayerEntityMixin {
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyRicochet(DamageSource source, float amount, CallbackInfo info) {
-        if (!(source.getAttacker() instanceof PlayerEntity)) return;
+        if (!(source.getAttacker() instanceof PlayerEntity attacker)) return;
 
-        PlayerEntity attacker = (PlayerEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
         ItemStack mainHandStack = attacker.getMainHandStack();
@@ -542,10 +541,9 @@ public class LivingEntityPlayerEntityMixin {
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applyShockwaveEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
 
-        if(!(source.getAttacker() instanceof PlayerEntity)) return;
+        if(!(source.getAttacker() instanceof PlayerEntity user)) return;
 
 
-        PlayerEntity user = (PlayerEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
         if (source.getSource() instanceof PlayerEntity) {
@@ -684,7 +682,6 @@ public class LivingEntityPlayerEntityMixin {
         if(!(source.getAttacker() instanceof PlayerEntity)) return;
 
         LivingEntity user = (LivingEntity) source.getAttacker();
-        LivingEntity target = (LivingEntity) (Object) this;
 
         if (source.getSource() instanceof LivingEntity) {
             if (amount != 0.0F) {
