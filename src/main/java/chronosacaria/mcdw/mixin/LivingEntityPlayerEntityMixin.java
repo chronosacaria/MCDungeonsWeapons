@@ -26,8 +26,8 @@ public class LivingEntityPlayerEntityMixin {
     public float mcdw$damageModifiers(float amount, DamageSource source) {
         if (!(source.getAttacker() instanceof LivingEntity attackingEntity))
             return amount;
-        if (!((Object) this instanceof LivingEntity victim))
-            return amount;
+
+        LivingEntity victim = (LivingEntity) (Object) this;
 
         if (attackingEntity == null)
             return amount;
@@ -56,8 +56,8 @@ public class LivingEntityPlayerEntityMixin {
     public void mcdw$onApplyDamageHead(DamageSource source, float amount, CallbackInfo info) {
         if (!(source.getAttacker() instanceof LivingEntity attackingEntity))
             return;
-        if (!((Object) this instanceof LivingEntity victim))
-            return;
+
+        LivingEntity victim = (LivingEntity) (Object) this;
 
         if (attackingEntity == null)
             return;
@@ -101,8 +101,8 @@ public class LivingEntityPlayerEntityMixin {
     public void mcdw$onApplyDamageTail(DamageSource source, float amount, CallbackInfo info) {
         if (!(source.getAttacker() instanceof LivingEntity attackingEntity))
             return;
-        if (!((Object) this instanceof LivingEntity victim))
-            return;
+
+        LivingEntity victim = (LivingEntity) (Object) this;
 
         if (attackingEntity == null)
             return;
@@ -120,8 +120,8 @@ public class LivingEntityPlayerEntityMixin {
     private void mcdw$onDeath(DamageSource source, CallbackInfo ci) {
         if (!(source.getAttacker() instanceof LivingEntity attackingEntity))
             return;
-        if (!((Object) this instanceof LivingEntity victim))
-            return;
+
+        LivingEntity victim = (LivingEntity) (Object) this;
 
         if (attackingEntity == null)
             return;
