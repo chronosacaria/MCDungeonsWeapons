@@ -115,7 +115,7 @@ public class AOEHelper {
         }
     }
 
-    public static void causeShockwaveAttack(PlayerEntity user, LivingEntity target, float distance, float amount) {
+    public static void causeShockwaveAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
             if (nearbyEntity != target) {
                 nearbyEntity.damage(DamageSource.GENERIC, amount * 0.25f);
