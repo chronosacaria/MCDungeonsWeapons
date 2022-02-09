@@ -1,5 +1,5 @@
 
-package chronosacaria.mcdw.mixin.enchantments;
+package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
@@ -14,11 +14,11 @@ import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin({ExperienceOrbEntity.class})
-public class SoulDevourerMixin {
+public class ExperienceOrbEntityMixin {
 
     @ModifyArgs(method = "onPlayerCollision", at = @At(value = "INVOKE",
             target = "Lnet/minecraft/entity/ExperienceOrbEntity;repairPlayerGears(Lnet/minecraft/entity/player/PlayerEntity;I)I"))
-    public void mcdwModifyExperience(Args args){
+    public void mcdw$ModifyExperience(Args args){
         int amount = args.get(1);
         PlayerEntity playerEntity = args.get(0);
 
