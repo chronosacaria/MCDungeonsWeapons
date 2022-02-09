@@ -20,14 +20,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(LivingEntity.class)
-public abstract class VoidShotEnchantmentMixin extends Entity {
-
-    public VoidShotEnchantmentMixin(EntityType<?> type, World world) {
-        super(type, world);
-    }
-
-    @Shadow
-    public abstract ItemStack getMainHandStack();
+public class VoidShotEnchantmentMixin {
 
     @ModifyVariable(method = "damage", at = @At(value = "HEAD"), argsOnly = true)
     private float applyVoidShot(float amount, DamageSource source) {

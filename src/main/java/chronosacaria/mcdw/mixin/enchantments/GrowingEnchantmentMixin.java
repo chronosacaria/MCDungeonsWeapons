@@ -21,13 +21,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(LivingEntity.class)
-public abstract class GrowingEnchantmentMixin extends Entity {
-    public GrowingEnchantmentMixin(EntityType<?> type, World world) {
-        super(type, world);
-    }
-
-    @Shadow
-    public abstract ItemStack getMainHandStack();
+public class GrowingEnchantmentMixin{
 
     @ModifyVariable(method = "damage", at = @At(value = "HEAD"), argsOnly = true)
     private float onGrowingEnchantment(float amount, DamageSource source) {
