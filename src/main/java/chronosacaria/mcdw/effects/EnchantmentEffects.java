@@ -94,12 +94,12 @@ public class EnchantmentEffects {
     }
 
     //mcdw$onApplyDamageHead
-    public static void applyCharge (PlayerEntity playerEntity) {
-        int chargeLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(playerEntity, EnchantsRegistry.CHARGE);
+    public static void applyCharge (LivingEntity chargingEntity) {
+        int chargeLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(chargingEntity, EnchantsRegistry.CHARGE);
         if (chargeLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(10))
-                playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, chargeLevel * 20, 4));
+                chargingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, chargeLevel * 20, 4));
         }
     }
 
@@ -193,7 +193,7 @@ public class EnchantmentEffects {
         if (swirlingLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(10 + (15 * swirlingLevel))) {
-                AOEHelper.causeSwirlingAttack((PlayerEntity) swirlingEntity, target,
+                AOEHelper.causeSwirlingAttack(swirlingEntity, swirlingEntity,
                         1.5f, amount);
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 0.5F, 1.0F);
@@ -201,12 +201,12 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyGravity (PlayerEntity playerEntity, LivingEntity target) {
-        int gravityLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(playerEntity, EnchantsRegistry.CHARGE);
+    public static void applyGravity (LivingEntity gravityEntity, LivingEntity target) {
+        int gravityLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(gravityEntity, EnchantsRegistry.CHARGE);
         if (gravityLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(30)) {
-                AOEHelper.pullInNearbyEntities(playerEntity, target,
+                AOEHelper.pullInNearbyEntities(gravityEntity, target,
                         (gravityLevel + 1) * 3);
             }
         }

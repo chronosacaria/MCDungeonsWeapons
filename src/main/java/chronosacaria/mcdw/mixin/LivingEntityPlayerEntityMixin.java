@@ -39,10 +39,13 @@ public class LivingEntityPlayerEntityMixin {
                     amount *= EnchantmentEffects.ambushDamage(attackingEntity, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CRITICAL_HIT))
                     amount *= EnchantmentEffects.criticalHitDamage(attackingEntity, victim);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ENIGMA_RESONATOR))
-                    amount *= EnchantmentEffects.enigmaResonatorDamage(attackingEntity, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_STRIKE))
                     amount *= EnchantmentEffects.voidStrikeDamage(attackingEntity, victim);
+            }
+
+            if (source.getSource() instanceof PlayerEntity) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ENIGMA_RESONATOR))
+                    amount *= EnchantmentEffects.enigmaResonatorDamage(attackingEntity, victim);
             }
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED))
@@ -66,7 +69,7 @@ public class LivingEntityPlayerEntityMixin {
 
             if (source.getSource() instanceof LivingEntity) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CHARGE))
-                    EnchantmentEffects.applyCharge((PlayerEntity) attackingEntity);
+                    EnchantmentEffects.applyCharge(attackingEntity);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.POISONING))
                     EnchantmentEffects.applyPoisoning(attackingEntity, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.POISON_CLOUD))
@@ -86,7 +89,7 @@ public class LivingEntityPlayerEntityMixin {
 
                 if (!source.isProjectile()) {
                     if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GRAVITY))
-                        EnchantmentEffects.applyGravity((PlayerEntity) attackingEntity, victim);
+                        EnchantmentEffects.applyGravity(attackingEntity, victim);
                 }
 
                 if (source.isProjectile()) {
