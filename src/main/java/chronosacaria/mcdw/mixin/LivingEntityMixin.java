@@ -2,7 +2,11 @@ package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOEHelper;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
+import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
+import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enums.*;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -12,7 +16,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.Monster;
@@ -25,10 +28,8 @@ import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -36,69 +37,34 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.UUID;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin extends Entity {
+public class LivingEntityMixin {
 
-    @Shadow
-    @Nullable
-    protected PlayerEntity attackingPlayer;
-
-    @Shadow
-    public abstract ItemStack getMainHandStack();
-
-    @Shadow
-    public abstract boolean damage(DamageSource source, float amount);
-
-    @Shadow
-    public abstract boolean removeStatusEffect(StatusEffect type);
-
-    public LivingEntityMixin(EntityType<?> type, World world) {
-        super(type, world);
-    }
-
+    public EntityType<SummonedBeeEntity> s_bee =
+            SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
 
     /* * * * * * * * * * * |
     |****STATUS REMOVAL****|
     | * * * * * * * * * * */
-// Remove Poison Effect if Player has weapon with Poison Cloud Enchantment
     @Inject(at = @At("HEAD"), method = "tick")
-    private void removePoisonIfPCEnchant(CallbackInfo ci) {
-        if ((Object) this instanceof PlayerEntity) {
-            ItemStack mainHand = getMainHandStack();
+    private void mcdw$onTick(CallbackInfo ci) {
+        if ((Object) this instanceof LivingEntity livingEntity) {
+            ItemStack mainHand = livingEntity.getMainHandStack();
 
 
-            if (EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHand) >= 1
+            if (EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHand) > 0
                     || mainHand.getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_NIGHTMARES_BITE).asItem()
                     || mainHand.getItem() == ItemsInit.glaiveItems.get(GlaivesID.SPEAR_VENOM_GLAIVE).asItem())
             {
-                this.removeStatusEffect(StatusEffects.POISON);
+                livingEntity.removeStatusEffect(StatusEffects.POISON);
             }
-        }
-    }
-    // Remove Stunned Effects if Player has weapon with Stunning Enchantment
-
-    @Inject(at = @At("HEAD"), method = "tick")
-    private void removeStunnedIfPCEnchant(CallbackInfo ci) {
-        if ((Object) this instanceof PlayerEntity) {
-            ItemStack mainHand = getMainHandStack();
-
-            if (EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHand) >= 1
+            if (EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHand) > 0
                     || mainHand.getItem() == ItemsInit.axeItems.get(AxesID.AXE_HIGHLAND).asItem()) {
-                this.removeStatusEffect(StatusEffects.NAUSEA);
-                this.removeStatusEffect(StatusEffects.SLOWNESS);
+                livingEntity.removeStatusEffect(StatusEffects.NAUSEA);
+                livingEntity.removeStatusEffect(StatusEffects.SLOWNESS);
             }
-        }
-    }
-
-    // Remove Weakness Effect if Player has weapon with Weakening Enchantment
-
-    @Inject(at = @At("HEAD"), method = "tick")
-    private void removeWeakenedIfPCEnchant(CallbackInfo ci) {
-        if ((Object) this instanceof PlayerEntity) {
-            ItemStack mainHand = getMainHandStack();
-
-            if (EnchantmentHelper.getLevel(EnchantsRegistry.WEAKENING, mainHand) >= 1
+            if (EnchantmentHelper.getLevel(EnchantsRegistry.WEAKENING, mainHand) > 0
                     || mainHand.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_NAMELESS_BLADE).asItem()) {
-                this.removeStatusEffect(StatusEffects.WEAKNESS);
+                livingEntity.removeStatusEffect(StatusEffects.WEAKNESS);
             }
         }
     }
@@ -110,26 +76,29 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "applyDamage", at = @At("HEAD"))
     public void onHuntersPromiseCompanionDamage(DamageSource source, float amount, CallbackInfo into){
         LivingEntity target = (LivingEntity) (Object) this;
-        Entity petSource = source.getSource();
+        if (!(source.getSource() instanceof TameableEntity petSource))
+            return;
 
-        if (petSource == null) return;
+        if (petSource == null)
+            return;
 
-        if (petSource.world instanceof ServerWorld serverWorld && petSource instanceof TameableEntity){
-            PlayerEntity owner = (PlayerEntity) ((TameableEntity) petSource).getOwner();
-            if (owner != null){
-                UUID petOwnerUUID = owner.getUuid();
-                ItemStack mainHandStack = owner.getMainHandStack();
+        if (!(petSource.world instanceof ServerWorld serverWorld))
+            return;
+        if (!(petSource.getOwner() instanceof PlayerEntity owner))
+            return;
+        if (owner == null)
+            return;
+        UUID petOwnerUUID = owner.getUuid();
+        ItemStack mainHandStack = owner.getMainHandStack();
 
-                if (mainHandStack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE).asItem()){
-                    if (petOwnerUUID != null){
-                        Entity petOwner = serverWorld.getEntity(petOwnerUUID);
-                        if (petOwner instanceof LivingEntity){
-                            float huntersPromiseCompanionFactor = 1.5f;
-                            float newDamage = amount * huntersPromiseCompanionFactor;
-                            float h = target.getHealth();
-                            target.setHealth(h - newDamage);
-                        }
-                    }
+        if (mainHandStack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE).asItem()){
+            if (petOwnerUUID != null){
+                Entity petOwner = serverWorld.getEntity(petOwnerUUID);
+                if (petOwner instanceof LivingEntity){
+                    float huntersPromiseCompanionFactor = 1.5f;
+                    float newDamage = amount * huntersPromiseCompanionFactor;
+                    float h = target.getHealth();
+                    target.setHealth(h - newDamage);
                 }
             }
         }
@@ -137,24 +106,17 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "onDeath")
     private void onProspectorEnchantmentKill(DamageSource source, CallbackInfo ci) {
-        if(!(source.getAttacker() instanceof PlayerEntity)) return;
-        LivingEntity user = (LivingEntity) source.getAttacker();
+        if(!(source.getAttacker() instanceof PlayerEntity attackingPlayer)) return;
         LivingEntity target = (LivingEntity) (Object) this;
-        ItemStack mainHandStack = null;
-        if (user != null) {
-            mainHandStack = user.getMainHandStack();
-        }
+
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR)) {
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.PROSPECTOR, mainHandStack) >= 1 )) {
-                int level = EnchantmentHelper.getLevel(EnchantsRegistry.PROSPECTOR, mainHandStack);
-                float prospectorChance = 0.05F * level;
-                float prospectorRand = user.getRandom().nextFloat();
-                if (prospectorRand <= prospectorChance) {
+            int prospectorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(attackingPlayer, EnchantsRegistry.SOUL_SIPHON);
+            if (prospectorLevel > 0) {
+                if (CleanlinessHelper.percentToOccur(5 * prospectorLevel)) {
                     if (target instanceof Monster){
-                        ItemEntity emeraldDrop = new ItemEntity(target.world, target.getX(), target.getY(),
-                                target.getZ(),
+                        ItemEntity emeraldDrop = new ItemEntity(target.world, target.getX(), target.getY(), target.getZ(),
                                 new ItemStack(Items.EMERALD, 1));
-                        user.world.spawnEntity(emeraldDrop);
+                        attackingPlayer.world.spawnEntity(emeraldDrop);
                     }
                 }
             }
@@ -174,7 +136,7 @@ public abstract class LivingEntityMixin extends Entity {
                 mainHandStack = user.getMainHandStack();
             }
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT)) {
-                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.REFRESHMENT, mainHandStack) > 0 )) {
+                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.REFRESHMENT, mainHandStack) > 0)) {
                     int level = EnchantmentHelper.getLevel(EnchantsRegistry.REFRESHMENT, mainHandStack);
                     PlayerInventory playerInventory = ((PlayerEntity)user).getInventory();
                     for (int slotID = 0; slotID < playerInventory.size(); slotID++){
@@ -194,21 +156,20 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "onDeath")
     private void onRushdownEnchantmentKill(DamageSource source, CallbackInfo ci) {
-        if(!(source.getAttacker() instanceof PlayerEntity)) return;
-        LivingEntity user = (LivingEntity) source.getAttacker();
-        ItemStack mainHandStack = null;
-        if (user != null) {
-            mainHandStack = user.getMainHandStack();
-        }
+        if(!(source.getAttacker() instanceof PlayerEntity attackingPlayer))
+            return;
+        if (attackingPlayer == null)
+            return;
+
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RUSHDOWN)) {
 
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.RUSHDOWN, mainHandStack) >= 1)) {
-                int level = EnchantmentHelper.getLevel(EnchantsRegistry.RUSHDOWN, mainHandStack);
-                float rushdownRand = user.getRandom().nextFloat();
-                if (rushdownRand <= 0.1F) {
-                    StatusEffectInstance rushdown = new StatusEffectInstance(StatusEffects.SPEED, level * 100, 2,
+            int rushdownLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(attackingPlayer, EnchantsRegistry.RUSHDOWN);
+            if (rushdownLevel > 0) {
+
+                if (CleanlinessHelper.percentToOccur(10)) {
+                    StatusEffectInstance rushdown = new StatusEffectInstance(StatusEffects.SPEED, 100 * rushdownLevel, 2,
                             false, false);
-                    user.addStatusEffect(rushdown);
+                    attackingPlayer.addStatusEffect(rushdown);
                 }
             }
         }
@@ -224,7 +185,7 @@ public abstract class LivingEntityMixin extends Entity {
         if(target instanceof PlayerEntity) return;
 
         if (source.getSource() instanceof LivingEntity) {
-            if (amount != 0.0F) {
+            if (amount > 0) {
                 ItemStack mainHandStack = null;
                 if (user != null) {
                     mainHandStack = user.getMainHandStack();
@@ -248,21 +209,38 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "onDeath")
     private void onSoulSiphonEnchantmentKill(DamageSource source, CallbackInfo ci) {
-        if(!(source.getAttacker() instanceof PlayerEntity)) return;
-        LivingEntity user = (LivingEntity) source.getAttacker();
-        ItemStack mainHandStack = null;
-        if (user != null) {
-            mainHandStack = user.getMainHandStack();
-        }
+        if(!(source.getAttacker() instanceof PlayerEntity attackingPlayer))
+            return;
+        if (attackingPlayer == null)
+            return;
+
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_SIPHON)) {
 
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_SIPHON, mainHandStack) >= 1)) {
-                int level = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_SIPHON, mainHandStack);
-                float siphonRand = user.getRandom().nextFloat();
-                if (siphonRand <= 0.1F) {
-                    if (attackingPlayer != null) {
-                        attackingPlayer.addExperience(level * 3);
-                    }
+            int soulLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(attackingPlayer, EnchantsRegistry.SOUL_SIPHON);
+            if (soulLevel > 0) {
+
+                if (CleanlinessHelper.percentToOccur(10)) {
+                    attackingPlayer.addExperience(3 * soulLevel);
+                }
+            }
+        }
+    }
+
+    @Inject(at = @At("HEAD"), method = "swingHand(Lnet/minecraft/util/Hand;)V")
+    private void swingHand(Hand hand, CallbackInfo ci) {
+        if(!((Object) this instanceof PlayerEntity attackingPlayer))
+            return;
+
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BUZZY_BEE)) {
+            ItemStack mainHandStack = attackingPlayer.getMainHandStack();
+            ItemStack offHandStack = attackingPlayer.getOffHandStack();
+            if (mainHandStack.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER)) {
+                offHandStack.decrement(1);
+                SummonedBeeEntity summonedBeeEntity_1 = s_bee.create(attackingPlayer.world);
+                if (summonedBeeEntity_1 != null) {
+                    summonedBeeEntity_1.setSummoner(attackingPlayer);
+                    summonedBeeEntity_1.refreshPositionAndAngles(attackingPlayer.getX(), attackingPlayer.getY() + 1, attackingPlayer.getZ(), 0, 0);
+                    attackingPlayer.world.spawnEntity(summonedBeeEntity_1);
                 }
             }
         }

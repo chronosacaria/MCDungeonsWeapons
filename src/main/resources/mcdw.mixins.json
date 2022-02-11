@@ -13,7 +13,6 @@
     "ShieldPlayerEntityMixin",
     "enchantments.AnimaConduitEnchantmentMixin",
     "enchantments.BonusShotEnchantmentMixin",
-    "enchantments.BusyBeeEnchantmentMixin",
     "ExperienceOrbEntityMixin"
   ],
   "client": [
