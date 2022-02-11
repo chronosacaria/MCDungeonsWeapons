@@ -45,6 +45,10 @@ public class LivingEntityPlayerEntityMixin {
             if (source.isProjectile()) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ENIGMA_RESONATOR))
                     amount *= EnchantmentEffects.enigmaShotDamage(attackingEntity, victim);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GROWING))
+                    amount *= EnchantmentEffects.growingDamage(attackingEntity, victim);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_SHOT))
+                    amount *= EnchantmentEffects.voidShotDamage(attackingEntity, victim);
             }
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED))
@@ -69,6 +73,8 @@ public class LivingEntityPlayerEntityMixin {
             if (source.getSource() instanceof LivingEntity) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CHARGE))
                     EnchantmentEffects.applyCharge(attackingEntity);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.FREEZING))
+                    EnchantmentEffects.applyFreezing(attackingEntity, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.POISONING))
                     EnchantmentEffects.applyPoisoning(attackingEntity, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.POISON_CLOUD))
@@ -87,6 +93,8 @@ public class LivingEntityPlayerEntityMixin {
                     EnchantmentEffects.applyWeakeningCloud(attackingEntity, victim);
 
                 if (!source.isProjectile()) {
+                    if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CHAINS))
+                        EnchantmentEffects.applyChains(attackingEntity, victim);
                     if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GRAVITY))
                         EnchantmentEffects.applyGravity(attackingEntity, victim);
                 }
@@ -133,6 +141,8 @@ public class LivingEntityPlayerEntityMixin {
                 EnchantmentEffects.explodingDamage(attackingEntity, victim);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RAMPAGING))
                 EnchantmentEffects.applyRampaging(attackingEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEECHING))
+                EnchantmentEffects.applyLeeching(attackingEntity, victim);
 
 
             if (!PlayerAttackHelper.isLikelyNotMeleeDamage(source)) {

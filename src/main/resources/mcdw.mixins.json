@@ -14,12 +14,7 @@
     "enchantments.AnimaConduitEnchantmentMixin",
     "enchantments.BonusShotEnchantmentMixin",
     "enchantments.BusyBeeEnchantmentMixin",
-    "enchantments.ChainsEnchantmentMixin",
-    "enchantments.FreezingEnchantmentMixin",
-    "enchantments.GrowingEnchantmentMixin",
-    "enchantments.LeechingEnchantmentMixin",
-    "ExperienceOrbEntityMixin",
-    "enchantments.VoidShotEnchantmentMixin"
+    "ExperienceOrbEntityMixin"
   ],
   "client": [
   ],

@@ -1,10 +1,12 @@
 package chronosacaria.mcdw.effects;
 
+import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import net.minecraft.block.Blocks;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -27,6 +29,20 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EnchantmentEffects {
+
+    /* ExperienceOrbEntityMixin */
+    //mcdw$ModifyExperience
+    public static int soulDevourerExperience(PlayerEntity playerEntity, int amount) {
+        int mainHandLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, playerEntity.getMainHandStack());
+        int offHandLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, playerEntity.getOffHandStack());
+
+        int soulDevourerLevel = playerEntity.getOffHandStack().getItem() instanceof IOffhandAttack ?
+                mainHandLevel + offHandLevel : mainHandLevel;
+
+        if (soulDevourerLevel > 0)
+            return (amount * (1 + (soulDevourerLevel / 3)) + Math.round(((soulDevourerLevel % 3)/3.0f) * amount));
+        return amount;
+    }
 
     /* LivingEntityPlayerEntityMixin */
     //mcdw$damageModifiers
@@ -103,6 +119,29 @@ public class EnchantmentEffects {
         return 1f;
     }
 
+    public static float growingDamage(LivingEntity growingEntity, LivingEntity target) {
+        int growingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(growingEntity, EnchantsRegistry.GROWING);
+        if (growingLevel > 0) {
+
+            CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 0.5F, 1.0F);
+            float damageModifier = 0.03F * growingEntity.distanceTo(target) * growingLevel;
+            return MathHelper.clamp(damageModifier, 1f, growingLevel + 1f);
+        }
+        return 1f;
+    }
+
+    public static float voidShotDamage(LivingEntity voidEntity, LivingEntity target) {
+        int voidlevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(voidEntity, EnchantsRegistry.VOID_SHOT);
+        if (voidlevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(25 + (5 * voidlevel))) {
+                CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 0.5F, 1.0F);
+                return voidlevel + 1f;
+            }
+        }
+        return 1f;
+    }
+
     public static float committedDamage(LivingEntity committedEntity, LivingEntity target) {
 
         int committedLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(committedEntity, EnchantsRegistry.COMMITTED);
@@ -129,6 +168,16 @@ public class EnchantmentEffects {
 
             if (CleanlinessHelper.percentToOccur(10))
                 chargingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, chargeLevel * 20, 4));
+        }
+    }
+
+    public static void applyFreezing(LivingEntity freezerEntity, LivingEntity target) {
+        int freezingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(freezerEntity, EnchantsRegistry.FREEZING);
+        if (freezingLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(30 + (10 * freezingLevel))) {
+                AbilityHelper.causeFreezing(target, 100);
+            }
         }
     }
 
@@ -230,6 +279,15 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyChains(LivingEntity chainingEntity, LivingEntity target) {
+        int chainsLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(chainingEntity, EnchantsRegistry.CHAINS);
+        if (chainsLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(20))
+                AOEHelper.chainNearbyEntities(chainingEntity, target, 1.5F * chainsLevel, chainsLevel);
+        }
+    }
+
     public static void applyGravity(LivingEntity gravityEntity, LivingEntity target) {
         int gravityLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(gravityEntity, EnchantsRegistry.CHARGE);
         if (gravityLevel > 0) {
@@ -300,9 +358,20 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyLeeching(LivingEntity leechingEntity, LivingEntity target) {
+        int leechingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(leechingEntity, EnchantsRegistry.LEECHING);
+        if (leechingLevel > 0) {
+
+            if (leechingEntity.getHealth() < leechingEntity.getMaxHealth()) {
+                float healthRegained = (0.2F + 0.2F * leechingLevel) * target.getMaxHealth();
+                leechingEntity.heal(healthRegained);
+            }
+        }
+    }
+
     /* PersistentProjectileEntityMixin */
     // mcdw$onEntityHitTail
-    public static void applyChainReaction (LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
+    public static void applyChainReaction(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
         int chainReactLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.CHAIN_REACTION);
         if (chainReactLevel > 0) {
 
@@ -314,7 +383,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyCobwebShotEntity (LivingEntity shooter, LivingEntity target) {
+    public static void applyCobwebShotEntity(LivingEntity shooter, LivingEntity target) {
         int cobwebLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.COBWEB_SHOT);
         if (cobwebLevel > 0) {
 
@@ -325,7 +394,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyFuseShot (LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
+    public static void applyFuseShot(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
         int fuseLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.FUSE_SHOT);
         if (fuseLevel > 0) {
 
@@ -340,7 +409,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyGravityShot (LivingEntity shooter, LivingEntity target) {
+    public static void applyGravityShot(LivingEntity shooter, LivingEntity target) {
         int gravityLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.GRAVITY);
         if (gravityLevel > 0) {
 
@@ -351,7 +420,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyLevitationShot (LivingEntity shooter, LivingEntity target) {
+    public static void applyLevitationShot(LivingEntity shooter, LivingEntity target) {
         int levitationLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.LEVITATION_SHOT);
         if (levitationLevel > 0) {
 
@@ -359,7 +428,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyPhantomsMark (LivingEntity shooter, LivingEntity target) {
+    public static void applyPhantomsMark(LivingEntity shooter, LivingEntity target) {
         int phantomLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.PHANTOMS_MARK);
         if (phantomLevel > 0) {
 
@@ -367,7 +436,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyPoisonCloudShot (LivingEntity shooter, LivingEntity target) {
+    public static void applyPoisonCloudShot(LivingEntity shooter, LivingEntity target) {
         int poisonLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.POISON_CLOUD);
         if (poisonLevel > 0) {
 
@@ -377,7 +446,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyRadianceShot (LivingEntity shooter, LivingEntity target) {
+    public static void applyRadianceShot(LivingEntity shooter, LivingEntity target) {
         int radianceLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.RADIANCE_SHOT);
         if (radianceLevel > 0) {
 
@@ -386,7 +455,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyRicochet (LivingEntity shooter, LivingEntity target) {
+    public static void applyRicochet(LivingEntity shooter, LivingEntity target) {
         int ricochetLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.RICOCHET);
         if (ricochetLevel > 0) {
 
@@ -397,7 +466,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyRefreshmentShot (PlayerEntity shooter) {
+    public static void applyRefreshmentShot(PlayerEntity shooter) {
         int refreshmentLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.REFRESHMENT_SHOT);
         if (refreshmentLevel > 0) {
 
@@ -436,7 +505,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyReplenish (PlayerEntity shooter) {
+    public static void applyReplenish(PlayerEntity shooter) {
         int replenishLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.REPLENISH);
         if (replenishLevel > 0) {
 
@@ -449,7 +518,7 @@ public class EnchantmentEffects {
     }
 
     // mcdw$onBlockHitTail
-    public static void applyCobwebShotBlock (LivingEntity shooter, BlockHitResult blockHitResult) {
+    public static void applyCobwebShotBlock(LivingEntity shooter, BlockHitResult blockHitResult) {
         int cobwebLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.COBWEB_SHOT);
         if (cobwebLevel > 0) {
 
