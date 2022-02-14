@@ -6,6 +6,7 @@ import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -36,18 +37,12 @@ public class ExperienceOrbEntityMixin {
         args.set(1, amount);
     }
 
-   /* @ModifyArg(method = "onPlayerCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;addExperience(I)V"))
+   @ModifyArg(method = "onPlayerCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;addExperience(I)V"))
     public int mcdw$RepairPlayer(int experience){
-
         PlayerEntity playerEntity = getPlayerEntity();
-        while (playerEntity.getHealth() < playerEntity.getMaxHealth()) {
-            float missingHealth = playerEntity.getMaxHealth() - playerEntity.getHealth();
-            float xpHealth = experience - missingHealth;
-            experience -= missingHealth;
-            playerEntity.setHealth(playerEntity.getHealth() + xpHealth);
-        }
-
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT))
+            return EnchantmentEffects.animaConduitExperience(playerEntity, experience);
         return experience;
-    } */
+    }
 
 }

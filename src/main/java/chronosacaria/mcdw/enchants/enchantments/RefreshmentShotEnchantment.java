@@ -21,7 +21,7 @@ public class RefreshmentShotEnchantment extends RangedEnchantment {
 
     @Override
     public int getMaxLevel() {
-        return 1;
+        return 3;
     }
 
     @Override

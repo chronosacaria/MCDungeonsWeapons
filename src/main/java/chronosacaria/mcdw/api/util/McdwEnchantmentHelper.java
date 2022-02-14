@@ -3,6 +3,7 @@ package chronosacaria.mcdw.api.util;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 
 public class McdwEnchantmentHelper {
@@ -11,11 +12,15 @@ public class McdwEnchantmentHelper {
     }
 
     public static int mcdwEnchantmentLevel(LivingEntity livingEntity, Enchantment enchantment) {
-        ItemStack mainHandStack = livingEntity.getMainHandStack();
+        //ItemStack mainHandStack = livingEntity.getMainHandStack();
+        ItemStack handStack;
+        //if (livingEntity instanceof PlayerEntity)
+        //    handStack = livingEntity.getStackInHand(livingEntity.preferredHand);
+        //else
+            handStack = livingEntity.getMainHandStack();
         // Instead of always mainhand, check for which hand was used, and apply that below
-        // handUsedStack will replace mainHandStack below
-        if (mainHandStack != null)
-            return EnchantmentHelper.getLevel(enchantment, mainHandStack);
+        if (handStack != null)
+            return EnchantmentHelper.getLevel(enchantment, handStack);
         return 0;
     }
 

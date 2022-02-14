@@ -1,6 +1,8 @@
-/*package chronosacaria.mcdw.mixin.enchantments;
+package chronosacaria.mcdw.mixin.enchantments;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
@@ -24,28 +26,26 @@ public abstract class DippingPoisonEnchantmentMixin {
 
     @Inject(method = "consumeItem", at = @At("HEAD"))
     public void applyDippingPoisonPotionConsumption(CallbackInfo ci) {
-        if(!((Object)this instanceof PlayerEntity)) return;
-
-        PlayerEntity user = (PlayerEntity) (Object) this;
+        if(!((Object) this instanceof PlayerEntity user))
+            return;
 
         ItemStack mainHandStack = null;
 
-        ItemStack poisonTippedArrow = PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW), Potions.POISON);
+        ItemStack poisonTippedArrow = PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW, 8), Potions.POISON);
 
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DIPPING_POISON)) {
-           if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, mainHandStack) >= 1 )) {
-               int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, mainHandStack);
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_DEVOURER)) {
+           if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, mainHandStack) > 0)) {
+               int level = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, mainHandStack);
                if (user instanceof PlayerEntity) {
-                   if (level >= 1) {
+                   if (level > 0) {
                        List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(getOffHandStack());
                        if (potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH) {
                            ItemEntity arrowDrop = new ItemEntity(user.world, user.getX(), user.getY(),
                                    user.getZ(),
-                                   //TODO MAKE POISON TIPPED ARROWS DROP
-                                   new ItemStack(Items.TIPPED_ARROW, 8));
+                                   poisonTippedArrow);
                            user.world.spawnEntity(arrowDrop);
                        }
                    }
@@ -54,4 +54,3 @@ public abstract class DippingPoisonEnchantmentMixin {
         }
     }
 }
-*/

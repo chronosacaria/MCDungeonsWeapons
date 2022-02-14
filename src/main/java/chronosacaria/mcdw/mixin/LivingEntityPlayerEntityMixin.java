@@ -13,6 +13,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.EmptyStackException;
+
 @Mixin({LivingEntity.class, PlayerEntity.class})
 public class LivingEntityPlayerEntityMixin {
 
@@ -22,9 +24,6 @@ public class LivingEntityPlayerEntityMixin {
             return amount;
 
         LivingEntity victim = (LivingEntity) (Object) this;
-
-        if (attackingEntity == null)
-            return amount;
 
         if (amount > 0) {
 
@@ -64,9 +63,6 @@ public class LivingEntityPlayerEntityMixin {
             return;
 
         LivingEntity victim = (LivingEntity) (Object) this;
-
-        if (attackingEntity == null)
-            return;
 
         if (amount > 0) {
 
@@ -114,9 +110,6 @@ public class LivingEntityPlayerEntityMixin {
 
         LivingEntity victim = (LivingEntity) (Object) this;
 
-        if (attackingEntity == null)
-            return;
-
         if (amount > 0) {
 
             if (source.getSource() instanceof LivingEntity) {
@@ -133,9 +126,6 @@ public class LivingEntityPlayerEntityMixin {
 
         LivingEntity victim = (LivingEntity) (Object) this;
 
-        if (attackingEntity == null)
-            return;
-
         if (source.getSource() instanceof LivingEntity) {
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.EXPLODING))
                 EnchantmentEffects.explodingDamage(attackingEntity, victim);
@@ -143,12 +133,18 @@ public class LivingEntityPlayerEntityMixin {
                 EnchantmentEffects.applyRampaging(attackingEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEECHING))
                 EnchantmentEffects.applyLeeching(attackingEntity, victim);
-
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT))
+                EnchantmentEffects.applyRefreshment((PlayerEntity) attackingEntity);
 
             if (!PlayerAttackHelper.isLikelyNotMeleeDamage(source)) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GUARDING_STRIKE))
                     EnchantmentEffects.applyGuardingStrike(attackingEntity);
             }
+        }
+
+        if (source.isProjectile()){
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT_SHOT))
+                EnchantmentEffects.applyRefreshmentShot((PlayerEntity) attackingEntity);
         }
     }
 

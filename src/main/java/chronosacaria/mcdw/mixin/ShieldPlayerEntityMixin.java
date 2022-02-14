@@ -43,9 +43,7 @@ public abstract class ShieldPlayerEntityMixin extends LivingEntity {
             if (amount >= 3.0F) {
                 int i = 1 + MathHelper.floor(amount);
                 Hand hand = this.getActiveHand();
-                this.activeItemStack.damage(i, (LivingEntity) this, (Consumer<LivingEntity>) ((playerEntity) -> {
-                    playerEntity.sendToolBreakStatus(hand);
-                }));
+                this.activeItemStack.damage(i, this, (Consumer<LivingEntity>) ((playerEntity) -> playerEntity.sendToolBreakStatus(hand)));
                 if (this.activeItemStack.isEmpty()) {
                     if (hand == Hand.MAIN_HAND) {
                         this.equipStack(EquipmentSlot.MAINHAND, ItemStack.EMPTY);

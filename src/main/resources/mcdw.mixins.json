@@ -4,16 +4,16 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "BowItemMixin",
+    "CrossbowItemMixin",
+    "enchantments.DippingPoisonEnchantmentMixin",
     "DamageEnchantmentMixin",
     "EntityMixin",
+    "ExperienceOrbEntityMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
     "LivingEntityPlayerEntityMixin",
     "PersistentProjectileEntityMixin",
-    "ShieldPlayerEntityMixin",
-    "enchantments.AnimaConduitEnchantmentMixin",
-    "enchantments.BonusShotEnchantmentMixin",
-    "ExperienceOrbEntityMixin"
+    "ShieldPlayerEntityMixin"
   ],
   "client": [
   ],

@@ -24,11 +24,6 @@ public class PersistentProjectileEntityMixin {
         PersistentProjectileEntity persProjEntity = (PersistentProjectileEntity) (Object) this;
         if (persProjEntity.getOwner() instanceof LivingEntity shooter) {
 
-            //if (shooter == null)
-            //    return;
-            //if (target == null)
-            //    return;
-
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CHAIN_REACTION))
                 EnchantmentEffects.applyChainReaction(shooter, target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COBWEB_SHOT))
@@ -51,8 +46,6 @@ public class PersistentProjectileEntityMixin {
 
         if (persProjEntity.getOwner() instanceof PlayerEntity shooter) {
 
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT_SHOT))
-                EnchantmentEffects.applyRefreshmentShot(shooter);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REPLENISH))
                 EnchantmentEffects.applyReplenish(shooter);
         }

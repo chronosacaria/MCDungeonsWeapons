@@ -21,12 +21,8 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.GlassBottleItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.potion.PotionUtil;
-import net.minecraft.potion.Potions;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
@@ -36,6 +32,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.UUID;
 
+@SuppressWarnings("ConstantConditions")
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
 
@@ -117,37 +114,6 @@ public class LivingEntityMixin {
                         ItemEntity emeraldDrop = new ItemEntity(target.world, target.getX(), target.getY(), target.getZ(),
                                 new ItemStack(Items.EMERALD, 1));
                         attackingPlayer.world.spawnEntity(emeraldDrop);
-                    }
-                }
-            }
-        }
-    }
-
-    //TODO Figure out how to make more than one, but less than four bottles convert to potions
-    @Inject(at = @At("HEAD"), method = "onDeath")
-
-    private void onRefreshmentEnchantmentKill(DamageSource source, CallbackInfo ci) {
-        if(!(source.getSource() instanceof PlayerEntity)) return;
-
-        LivingEntity user = (LivingEntity) source.getSource();
-        if (source.getSource() instanceof PlayerEntity){
-            ItemStack mainHandStack = null;
-            if (user != null) {
-                mainHandStack = user.getMainHandStack();
-            }
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT)) {
-                if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.REFRESHMENT, mainHandStack) > 0)) {
-                    int level = EnchantmentHelper.getLevel(EnchantsRegistry.REFRESHMENT, mainHandStack);
-                    PlayerInventory playerInventory = ((PlayerEntity)user).getInventory();
-                    for (int slotID = 0; slotID < playerInventory.size(); slotID++){
-                        ItemStack currentStack = playerInventory.getStack(slotID);
-                        if (currentStack.getItem() instanceof GlassBottleItem && currentStack.getCount() < 2){
-                            ItemStack healthPotion = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.HEALING);
-                            playerInventory.setStack(slotID, healthPotion);
-                            if (healthPotion.getCount() <= level){
-                                break;
-                            }
-                        }
                     }
                 }
             }

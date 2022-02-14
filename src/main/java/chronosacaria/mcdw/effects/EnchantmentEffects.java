@@ -40,7 +40,21 @@ public class EnchantmentEffects {
                 mainHandLevel + offHandLevel : mainHandLevel;
 
         if (soulDevourerLevel > 0)
-            return (amount * (1 + (soulDevourerLevel / 3)) + Math.round(((soulDevourerLevel % 3)/3.0f) * amount));
+            return Math.round((float) amount * (1 + ((float) soulDevourerLevel / 3f)));
+        return amount;
+    }
+
+    public static int animaConduitExperience(PlayerEntity playerEntity, int amount) {
+        int animaLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(playerEntity, EnchantsRegistry.ANIMA_CONDUIT);
+        if (animaLevel > 0) {
+            float missingHealth = playerEntity.getMaxHealth() - playerEntity.getHealth();
+            if (missingHealth > 0) {
+                float i = Math.min(AbilityHelper.getAnimaRepairAmount(amount, animaLevel), missingHealth);
+                playerEntity.heal(i);
+                amount -= (int) (i * 10);
+                return Math.max(amount, 0);
+            }
+        }
         return amount;
     }
 
@@ -93,11 +107,9 @@ public class EnchantmentEffects {
             if (numSouls > 0) {
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
-                float attackDamage = (float) resonatingEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                 float extraDamageMultiplier = (float) (Math.log(numSouls * resonatorLevel)) / 1.75F;
-                float getExtraDamage = attackDamage * extraDamageMultiplier;
 
-                return Math.max(getExtraDamage, 1f);
+                return Math.max(extraDamageMultiplier, 1f);
             }
         }
         return 1f;
@@ -369,6 +381,24 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyRefreshment(PlayerEntity refreshingEntity){
+        int refreshmentLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(refreshingEntity, EnchantsRegistry.REFRESHMENT);
+        if (refreshmentLevel > 0) {
+
+            PlayerInventory playerInventory = refreshingEntity.getInventory();
+            for (int slotID = 0; slotID < playerInventory.size(); slotID++) {
+                ItemStack currentStack = playerInventory.getStack(slotID);
+                if (currentStack.getItem() instanceof GlassBottleItem && currentStack.getCount() == 1) {
+                    ItemStack healthPotion = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.HEALING);
+                    playerInventory.setStack(slotID, healthPotion);
+                    refreshmentLevel--;
+                    if (refreshmentLevel == 0)
+                        break;
+                }
+            }
+        }
+    }
+
     /* PersistentProjectileEntityMixin */
     // mcdw$onEntityHitTail
     public static void applyChainReaction(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
@@ -473,35 +503,14 @@ public class EnchantmentEffects {
             PlayerInventory playerInventory = shooter.getInventory();
             for (int slotID = 0; slotID < playerInventory.size(); slotID++) {
                 ItemStack currentStack = playerInventory.getStack(slotID);
-                if (currentStack.getItem() instanceof GlassBottleItem && currentStack.getCount() < 2) {
+                if (currentStack.getItem() instanceof GlassBottleItem && currentStack.getCount() == 1) {
                     ItemStack healthPotion = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.HEALING);
                     playerInventory.setStack(slotID, healthPotion);
-                    if (healthPotion.getCount() <= refreshmentLevel) {
+                    refreshmentLevel--;
+                    if (refreshmentLevel == 0)
                         break;
-                    }
                 }
             }
-            //TODO Figure out how to make more than one, but less than four bottles convert to potions
-
-            // Search through the player inventory for empty bottles. Put the slots that have them in a list according to amount of bottles in ascending order.
-            // Any slots that have a single empty bottle should be filled first.
-            // After that, fill empty slots with Healing potions until either all slots are filled, or no more healing potions should be created.
-            // Taking away empty bottles should happen recursively with a base case of the following.
-            /*
-            public void ~~~
-
-            ItemStack currentStack = playerInventory.getStack(index);
-            // Do stuff here
-
-            if (currentStack.getCount < 2) {
-                ItemStack healthPotion = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.HEALING);
-                playerInventory.setStack(slotID, healthPotion);
-                if (healthPotion.getCount() > level){
-                        ~~~(healthPotion.getCount(), nextIndex, ...)
-                    }
-            }
-            Or something along these lines.
-             */
         }
     }
 

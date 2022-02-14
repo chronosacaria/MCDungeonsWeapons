@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin.enchantments;
+package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(CrossbowItem.class)
-public class BonusShotEnchantmentMixin {
+public class CrossbowItemMixin {
 
     // Bonus Shot
     @Inject(method = "createArrow", at = @At(value = "RETURN"), locals = LocalCapture.CAPTURE_FAILSOFT)
