@@ -5,7 +5,6 @@
   "mixins": [
     "BowItemMixin",
     "CrossbowItemMixin",
-    "enchantments.DippingPoisonEnchantmentMixin",
     "DamageEnchantmentMixin",
     "EntityMixin",
     "ExperienceOrbEntityMixin",

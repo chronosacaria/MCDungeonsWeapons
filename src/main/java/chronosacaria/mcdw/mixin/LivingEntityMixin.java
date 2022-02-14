@@ -23,6 +23,8 @@ import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.potion.PotionUtil;
+import net.minecraft.potion.Potions;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
@@ -30,6 +32,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.List;
 import java.util.UUID;
 
 @SuppressWarnings("ConstantConditions")
@@ -207,6 +210,36 @@ public class LivingEntityMixin {
                     summonedBeeEntity_1.setSummoner(attackingPlayer);
                     summonedBeeEntity_1.refreshPositionAndAngles(attackingPlayer.getX(), attackingPlayer.getY() + 1, attackingPlayer.getZ(), 0, 0);
                     attackingPlayer.world.spawnEntity(summonedBeeEntity_1);
+                }
+            }
+        }
+    }
+
+    @Inject(method = "consumeItem", at = @At("HEAD"))
+    public void applyDippingPoisonPotionConsumption(CallbackInfo ci) {
+        if(!((Object) this instanceof PlayerEntity user))
+            return;
+
+        ItemStack mainHandStack = null;
+
+        ItemStack poisonTippedArrow = PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW, 8), Potions.POISON);
+
+        if (user != null) {
+            mainHandStack = user.getMainHandStack();
+        }
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_DEVOURER)) {
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, mainHandStack) > 0)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, mainHandStack);
+                if (user instanceof PlayerEntity) {
+                    if (level > 0) {
+                        List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(user.getOffHandStack());
+                        if (potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH) {
+                            ItemEntity arrowDrop = new ItemEntity(user.world, user.getX(), user.getY(),
+                                    user.getZ(),
+                                    poisonTippedArrow);
+                            user.world.spawnEntity(arrowDrop);
+                        }
+                    }
                 }
             }
         }
