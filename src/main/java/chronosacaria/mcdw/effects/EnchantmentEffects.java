@@ -477,7 +477,7 @@ public class EnchantmentEffects {
     }
 
     public static void applyRadianceShot(LivingEntity shooter, LivingEntity target) {
-        int radianceLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.RADIANCE_SHOT);
+        int radianceLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.RADIANCE);
         if (radianceLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(20))
@@ -493,24 +493,6 @@ public class EnchantmentEffects {
             float arrowVelocity = McdwBow.maxBowRange;
             if (arrowVelocity > 0.1F)
                 ProjectileEffectHelper.riochetArrowTowardsOtherEntity(target, 10, damageMultiplier, arrowVelocity);
-        }
-    }
-
-    public static void applyRefreshmentShot(PlayerEntity shooter) {
-        int refreshmentLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shooter, EnchantsRegistry.REFRESHMENT_SHOT);
-        if (refreshmentLevel > 0) {
-
-            PlayerInventory playerInventory = shooter.getInventory();
-            for (int slotID = 0; slotID < playerInventory.size(); slotID++) {
-                ItemStack currentStack = playerInventory.getStack(slotID);
-                if (currentStack.getItem() instanceof GlassBottleItem && currentStack.getCount() == 1) {
-                    ItemStack healthPotion = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.HEALING);
-                    playerInventory.setStack(slotID, healthPotion);
-                    refreshmentLevel--;
-                    if (refreshmentLevel == 0)
-                        break;
-                }
-            }
         }
     }
 

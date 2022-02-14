@@ -38,7 +38,7 @@ public class PersistentProjectileEntityMixin {
                 EnchantmentEffects.applyPhantomsMark(shooter, target);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.POISON_CLOUD))
                 EnchantmentEffects.applyPoisonCloudShot(shooter, target);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RADIANCE_SHOT))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RADIANCE))
                 EnchantmentEffects.applyRadianceShot(shooter, target);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RICOCHET))
                 EnchantmentEffects.applyRicochet(shooter, target);

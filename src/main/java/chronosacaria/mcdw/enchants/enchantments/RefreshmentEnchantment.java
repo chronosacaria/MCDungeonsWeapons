@@ -6,9 +6,7 @@ import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.minecraft.util.registry.Registry;
 
 public class RefreshmentEnchantment extends Enchantment{
@@ -27,7 +25,8 @@ public class RefreshmentEnchantment extends Enchantment{
 
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem || stack.getItem() instanceof McdwCustomWeaponBase;
+        return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem || stack.getItem() instanceof McdwCustomWeaponBase
+                || stack.getItem() instanceof BowItem || stack.getItem() instanceof CrossbowItem;
     }
 
     @Override

@@ -46,8 +46,6 @@ public class EnchantsRegistry {
     public static Enchantment GROWING;
     public static Enchantment LEVITATION_SHOT;
     public static Enchantment PHANTOMS_MARK;
-    public static Enchantment RADIANCE_SHOT;
-    public static Enchantment REFRESHMENT_SHOT;
     public static Enchantment REPLENISH;
     public static Enchantment RICOCHET;
     public static Enchantment TEMPO_THEFT;
@@ -132,10 +130,6 @@ public class EnchantsRegistry {
         LEVITATION_SHOT = new LevitationShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         PHANTOMS_MARK = new PhantomsMarkEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        RADIANCE_SHOT = new RadianceShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        REFRESHMENT_SHOT = new RefreshmentShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         REPLENISH = new ReplenishEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

@@ -13,8 +13,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.EmptyStackException;
-
 @Mixin({LivingEntity.class, PlayerEntity.class})
 public class LivingEntityPlayerEntityMixin {
 
@@ -143,8 +141,8 @@ public class LivingEntityPlayerEntityMixin {
         }
 
         if (source.isProjectile()){
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT_SHOT))
-                EnchantmentEffects.applyRefreshmentShot((PlayerEntity) attackingEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT))
+                EnchantmentEffects.applyRefreshment((PlayerEntity) attackingEntity);
         }
     }
 
