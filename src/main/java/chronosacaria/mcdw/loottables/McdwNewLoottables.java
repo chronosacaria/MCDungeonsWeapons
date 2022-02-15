@@ -5,7 +5,6 @@ import chronosacaria.mcdw.items.ItemsInit;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.item.Item;
-import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
 
@@ -26,35 +25,38 @@ public class McdwNewLoottables {
 
     public static void init() {
         LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, id, supplier, setter) -> {
-            if ("minecraft:entities/bee".equals(id.toString()) && CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(ItemsID.ITEM_BEE_STINGER)) {
-                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(BinomialLootNumberProvider.create(1, 1.0F))
-                        .with(ItemEntry.builder(ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER)));
-
-                supplier.pool(poolBuilder);
-            }
-
-            if ("minecraft:entities/witch".equals(id.toString()) && CONFIG.mcdwEnableItemsConfig.glaivesEnabled.get(GlaivesID.SPEAR_CACKLING_BROOM)) {
-                LootPool poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(BinomialLootNumberProvider.create(1, 0.20f))
-                        .with(ItemEntry.builder(ItemsInit.glaiveItems.get(GlaivesID.SPEAR_CACKLING_BROOM)))
-                        .build();
-                supplier.withPool(poolBuilder);
-            }
-
-            if ("minecraft:entities/wither".equals(id.toString()) && CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_ANCIENT_BOW)) {
-                LootPool poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(BinomialLootNumberProvider.create(1, 0.1f))
-                        .with(ItemEntry.builder(ItemsInit.bowItems.get(BowsID.BOW_ANCIENT_BOW)))
-                        .build();
-                supplier.withPool(poolBuilder);
-            }
-
             FabricLootPoolBuilder poolBuilder;
 
+            if (id.getNamespace().equals("minecraft")) {
+                switch (id.getPath()) {
+                    case "entities/bee" -> {
+                        if (CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(ItemsID.ITEM_BEE_STINGER)) {
+                            poolBuilder = FabricLootPoolBuilder.builder();
+                            addItemDrop(poolBuilder, ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER), 1, 1f);
+                            supplier.pool(poolBuilder);
+                        }
+                    }
+                    case "entities/witch" -> {
+                        if (CONFIG.mcdwEnableItemsConfig.glaivesEnabled.get(GlaivesID.SPEAR_CACKLING_BROOM)) {
+                            poolBuilder = FabricLootPoolBuilder.builder();
+                            addItemDrop(poolBuilder, ItemsInit.glaiveItems.get(GlaivesID.SPEAR_CACKLING_BROOM), 1, 0.2F);
+                            supplier.pool(poolBuilder);
+                        }
+                    }
+                    case "entities/wither" -> {
+                        if (CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_ANCIENT_BOW)) {
+                            poolBuilder = FabricLootPoolBuilder.builder();
+                            addItemDrop(poolBuilder, ItemsInit.bowItems.get(BowsID.BOW_ANCIENT_BOW), 1, 0.1F);
+                            supplier.pool(poolBuilder);
+                        }
+                    }
+                }
+            }
+
             if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
-                for (int i = 0; i < COMMON_LOOT_TABLES.size(); i++) {
-                    if (COMMON_LOOT_TABLES.get(i).equals(id.toString())) {
+
+                for (String commonLootTable : COMMON_LOOT_TABLES) {
+                    if (commonLootTable.equals(id.toString())) {
                         poolBuilder = FabricLootPoolBuilder.builder();
                         if (CONFIG.mcdwEnableItemsConfig.axesEnabled.get(AxesID.AXE)) {
                             addWeapon(poolBuilder, ItemsInit.axeItems.get(AxesID.AXE),
@@ -136,10 +138,9 @@ public class McdwNewLoottables {
                         supplier.pool(poolBuilder);
                     }
                 }
-            }
-            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
-                for (int i = 0; i < UNCOMMON_LOOT_TABLES.size(); i++) {
-                    if (UNCOMMON_LOOT_TABLES.get(i).equals(id.toString())) {
+
+                for (String uncommonLootTable : UNCOMMON_LOOT_TABLES) {
+                    if (uncommonLootTable.equals(id.toString())) {
                         poolBuilder = FabricLootPoolBuilder.builder();
                         if (CONFIG.mcdwEnableItemsConfig.whipsEnabled.get(WhipsID.WHIP_WHIP)) {
                             addWeapon(poolBuilder, ItemsInit.whipItems.get(WhipsID.WHIP_WHIP),
@@ -311,10 +312,9 @@ public class McdwNewLoottables {
                         }
                     }
                 }
-            }
-            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
-                for (int i = 0; i < RARE_LOOT_TABLES.size(); i++) {
-                    if (RARE_LOOT_TABLES.get(i).equals(id.toString())) {
+
+                for (String rareLootTable : RARE_LOOT_TABLES) {
+                    if (rareLootTable.equals(id.toString())) {
                         poolBuilder = FabricLootPoolBuilder.builder();
                         if (CONFIG.mcdwEnableItemsConfig.axesEnabled.get(AxesID.AXE_HIGHLAND)) {
                             addWeapon(poolBuilder, ItemsInit.axeItems.get(AxesID.AXE_HIGHLAND),
@@ -586,11 +586,10 @@ public class McdwNewLoottables {
                         }
                         supplier.pool(poolBuilder);
                     }
-                            }
-                        }
-            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
-                for (int i = 0; i < EPIC_LOOT_TABLES.size(); i++) {
-                    if (EPIC_LOOT_TABLES.get(i).equals(id.toString())) {
+                }
+
+                for (String epicLootTable : EPIC_LOOT_TABLES) {
+                    if (epicLootTable.equals(id.toString())) {
                         poolBuilder = FabricLootPoolBuilder.builder();
                         if (CONFIG.mcdwEnableItemsConfig.daggersEnabled.get(DaggersID.DAGGER_BACKSTABBER)) {
                             addWeapon(poolBuilder, ItemsInit.daggerItems.get(DaggersID.DAGGER_BACKSTABBER),
@@ -690,5 +689,10 @@ public class McdwNewLoottables {
     public static void addWeapon(FabricLootPoolBuilder poolBuilder, Item weapon, float p){
         poolBuilder.rolls(BinomialLootNumberProvider.create(1, p));
         poolBuilder.withEntry(ItemEntry.builder(weapon).build());
+    }
+
+    public static void addItemDrop(FabricLootPoolBuilder poolBuilder, Item item, int n, float p){
+        poolBuilder.rolls(BinomialLootNumberProvider.create(n, p));
+        poolBuilder.withEntry(ItemEntry.builder(item).build());
     }
 }
