@@ -51,7 +51,7 @@ public class McdwShield extends ShieldItem {
 
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
-        return ItemTags.PLANKS.contains(ingredient.getItem()) || super.canRepair(stack, ingredient);
+        return this.material.getRepairIngredient().test(ingredient) || super.canRepair(stack, ingredient);
     }
 
 }

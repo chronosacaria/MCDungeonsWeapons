@@ -11,6 +11,7 @@ import net.minecraft.item.ToolMaterials;
 
 import java.util.HashMap;
 
+@SuppressWarnings({"UnusedReturnValue", "SameParameterValue"})
 @Config(name = "mcdw_stats_config")
 public class McdwNewStatsConfig implements ConfigData {
 
@@ -94,81 +95,62 @@ public class McdwNewStatsConfig implements ConfigData {
     }
 
     public McdwNewStatsConfig() {
-        for (SwordsID swordsID : SwordsID.values()) {
+        for (SwordsID swordsID : SwordsID.values())
             swordStats.put(swordsID, new MeleeWeaponStats());
-        }
 
-        for (AxesID axesID : AxesID.values()) {
+        for (AxesID axesID : AxesID.values())
             axeStats.put(axesID, new MeleeWeaponStats());
-        }
 
-        for (DoubleAxesID doubleAxesID : DoubleAxesID.values()) {
+        for (DoubleAxesID doubleAxesID : DoubleAxesID.values())
             doubleAxeStats.put(doubleAxesID, new MeleeWeaponStats());
-        }
 
-        for (DaggersID daggersID : DaggersID.values()) {
+        for (DaggersID daggersID : DaggersID.values())
             daggerStats.put(daggersID, new MeleeWeaponStats());
-        }
 
-        for (SoulDaggersID soulDaggersID : SoulDaggersID.values()) {
+        for (SoulDaggersID soulDaggersID : SoulDaggersID.values())
             soulDaggerStats.put(soulDaggersID, new MeleeWeaponStats());
-        }
 
-        for (HammersID hammersID : HammersID.values()) {
+        for (HammersID hammersID : HammersID.values())
             hammerStats.put(hammersID, new MeleeWeaponStats());
-        }
 
-        for (GauntletsID gauntletsID : GauntletsID.values()) {
+        for (GauntletsID gauntletsID : GauntletsID.values())
             gauntletStats.put(gauntletsID, new MeleeWeaponStats());
-        }
 
-        for (SicklesID sicklesID : SicklesID.values()) {
+        for (SicklesID sicklesID : SicklesID.values())
             sickleStats.put(sicklesID, new MeleeWeaponStats());
-        }
 
-        for (ScythesID scythesID : ScythesID.values()) {
+        for (ScythesID scythesID : ScythesID.values())
             scytheStats.put(scythesID, new MeleeWeaponStats());
-        }
 
-        for (PicksID picksID : PicksID.values()) {
+        for (PicksID picksID : PicksID.values())
             pickStats.put(picksID, new MeleeWeaponStats());
-        }
 
-        for (GlaivesID glaivesID : GlaivesID.values()) {
+        for (GlaivesID glaivesID : GlaivesID.values())
             glaiveStats.put(glaivesID, new MeleeWeaponStats());
-        }
 
-        for (SpearsID spearsID : SpearsID.values()) {
+        for (SpearsID spearsID : SpearsID.values())
             spearStats.put(spearsID, new MeleeWeaponStats());
-        }
 
-        for (StavesID stavesID : StavesID.values()) {
+        for (StavesID stavesID : StavesID.values())
             staffStats.put(stavesID, new MeleeWeaponStats());
-        }
 
-        for (WhipsID whipsID : WhipsID.values()) {
+        for (WhipsID whipsID : WhipsID.values())
             whipStats.put(whipsID, new MeleeWeaponStats());
-        }
 
-        for (BowsID bowsID : BowsID.values()) {
+        for (BowsID bowsID : BowsID.values())
             bowStats.put(bowsID, new RangedWeaponStats());
-        }
 
-        for (ShortBowsID shortBowsID : ShortBowsID.values()) {
+        for (ShortBowsID shortBowsID : ShortBowsID.values())
             shortBowStats.put(shortBowsID, new RangedWeaponStats());
-        }
 
-        for (LongBowsID longBowsID : LongBowsID.values()) {
+        for (LongBowsID longBowsID : LongBowsID.values())
             longBowStats.put(longBowsID, new RangedWeaponStats());
-        }
 
-        for (CrossbowsID crossbowsID : CrossbowsID.values()) {
+        for (CrossbowsID crossbowsID : CrossbowsID.values())
             crossbowStats.put(crossbowsID, new RangedWeaponStats());
-        }
 
-        for (ShieldsID shieldsID : ShieldsID.values()) {
+        for (ShieldsID shieldsID : ShieldsID.values())
             shieldStats.put(shieldsID, new ShieldStats());
-        }
 
         swordStats(materialToString(ToolMaterials.IRON), 5, -3.0f, SwordsID.SWORD_CLAYMORE);
         swordStats(materialToString(ToolMaterials.IRON), 4, -3.0f, SwordsID.SWORD_BROADSWORD);
@@ -349,20 +331,19 @@ public class McdwNewStatsConfig implements ConfigData {
     }
 
     private static String materialToString(ToolMaterial toolMaterial) {
-        if (toolMaterial == ToolMaterials.WOOD) {
+        if (toolMaterial == ToolMaterials.WOOD)
             return "wood";
-        } else if (toolMaterial == ToolMaterials.STONE) {
+        else if (toolMaterial == ToolMaterials.STONE)
             return "stone";
-        } else if (toolMaterial == ToolMaterials.GOLD) {
+        else if (toolMaterial == ToolMaterials.GOLD)
             return "gold";
-        } else if (toolMaterial == ToolMaterials.IRON) {
+        else if (toolMaterial == ToolMaterials.IRON)
             return "iron";
-        } else if (toolMaterial == ToolMaterials.DIAMOND) {
+        else if (toolMaterial == ToolMaterials.DIAMOND)
             return "diamond";
-        } else if (toolMaterial == ToolMaterials.NETHERITE) {
+        else if (toolMaterial == ToolMaterials.NETHERITE)
             return "netherite";
-        } else {
+        else
             return "none";
-        }
     }
 }

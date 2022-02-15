@@ -41,13 +41,11 @@ public class EnchantsRegistry {
     public static Enchantment CHAIN_REACTION;
     public static Enchantment CHARGE;
     public static Enchantment COBWEB_SHOT;
-    //public static Enchantment DIPPING_POISON;
+    public static Enchantment DIPPING_POISON;
     public static Enchantment FUSE_SHOT;
     public static Enchantment GROWING;
     public static Enchantment LEVITATION_SHOT;
     public static Enchantment PHANTOMS_MARK;
-    public static Enchantment RADIANCE_SHOT;
-    public static Enchantment REFRESHMENT_SHOT;
     public static Enchantment REPLENISH;
     public static Enchantment RICOCHET;
     public static Enchantment TEMPO_THEFT;
@@ -123,8 +121,8 @@ public class EnchantsRegistry {
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         COBWEB_SHOT = new CobwebShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                         new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        //DIPPING_POISON = new DippingPoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-        //        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        DIPPING_POISON = new DippingPoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         FUSE_SHOT = new FuseShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         GROWING = new GrowingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
@@ -132,10 +130,6 @@ public class EnchantsRegistry {
         LEVITATION_SHOT = new LevitationShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         PHANTOMS_MARK = new PhantomsMarkEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        RADIANCE_SHOT = new RadianceShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        REFRESHMENT_SHOT = new RefreshmentShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         REPLENISH = new ReplenishEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

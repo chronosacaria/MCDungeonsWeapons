@@ -3,7 +3,6 @@ package chronosacaria.mcdw.enchants.enchantments;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwCustomWeaponBase;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
-import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;
@@ -28,7 +27,8 @@ public class PoisonCloudEnchantment extends AOEEnchantment {
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING) || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
+                || !(other instanceof AOEEnchantment);
     }
 
     @Override
@@ -43,4 +43,13 @@ public class PoisonCloudEnchantment extends AOEEnchantment {
                 || stack.getItem() instanceof CrossbowItem;
     }
 
+    @Override
+    public int getMinPower(int level) {
+        return 1 + level * 10;
+    }
+
+    @Override
+    public int getMaxPower(int level) {
+        return this.getMinPower(level) + 5;
+    }
 }

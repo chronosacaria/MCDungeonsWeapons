@@ -200,12 +200,10 @@ public class McdwEnchantsGiverConfig {
             // RADIANCE ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.hammerItems.get(HammersID.HAMMER_SUNS_GRACE)),
                     new Identifier("mcdw:radiance"), 1, true);
-
-            // RADIANCE SHOT ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_SABREWING)),
-                    new Identifier("mcdw:radiance_shot"), 1, true);
+                    new Identifier("mcdw:radiance"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.shortBowItems.get(ShortBowsID.BOW_LOVE_SPELL_BOW)),
-                    new Identifier("mcdw:radiance_shot"), 1, true);
+                    new Identifier("mcdw:radiance"), 1, true);
 
             // RAMPAGING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_DANCERS_SWORD)),

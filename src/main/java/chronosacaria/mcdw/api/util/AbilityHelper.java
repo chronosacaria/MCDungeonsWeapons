@@ -16,7 +16,6 @@ public class AbilityHelper {
         StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 80, amplifier);
         user.addStatusEffect(speed);
         target.addStatusEffect(slowness);
-
     }
 
     public static void causeFreezing(LivingEntity target, int amplifier){
@@ -27,33 +26,12 @@ public class AbilityHelper {
     }
 
     public static boolean isPetOf(LivingEntity self, LivingEntity owner){
-        if (self instanceof TameableEntity){
-            TameableEntity pet = (TameableEntity) self;
+        if (self instanceof TameableEntity pet)
             return pet.getOwner() == owner;
-        }
-        //if(self instanceof IronGolemEntity){
-        //    IronGolemEntity ironGolem = (IronGolemEntity) self;
-        //    return GoalUtils.getOwner(ironGolem) == owner;
-        //}
-        if(self instanceof HorseBaseEntity){
-            HorseBaseEntity horseBaseEntity = (HorseBaseEntity) self;
+        else if(self instanceof HorseBaseEntity horseBaseEntity)
             return GoalUtils.getOwner(horseBaseEntity) == owner;
-        }
-
-        //if(self instanceof BatEntity){
-        //    BatEntity batEntity = (BatEntity) self;
-        //    return GoalUtils.getOwner(batEntity) == owner;
-        //}
-        //if(self instanceof BeeEntity){
-        //    BeeEntity beeEntity = (BeeEntity) self;
-        //    return GoalUtils.getOwner(beeEntity) == owner;
-        //}
-        //if(self instanceof SheepEntity){
-        //    SheepEntity sheepEntity = (SheepEntity) self;
-        //    return GoalUtils.getOwner(sheepEntity) == owner;
-        //}
-
-        return false;
+        else
+            return false;
     }
 
     private static boolean isVillagerOrIronGolem(LivingEntity nearbyEntity) {
@@ -82,12 +60,15 @@ public class AbilityHelper {
     }
 
     private static boolean isUnaffectedByAoe(LivingEntity entity) {
-        if (entity instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) entity;
+        if (entity instanceof PlayerEntity player) {
             if (player.isCreative()) return true;
             return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS);
         }
-
         return false;
+    }
+
+    public static float getAnimaRepairAmount(float experience, int level) {
+        experience *= 0.1 * level;
+        return experience;
     }
 }

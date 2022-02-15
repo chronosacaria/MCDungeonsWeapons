@@ -31,65 +31,64 @@ public class McdwEnableItemsConfig implements ConfigData {
     public HashMap<ItemsID, Boolean> itemsEnabled = new HashMap<>();
 
     public McdwEnableItemsConfig() {
-        for (SwordsID swordsID : SwordsID.values()){
+        for (SwordsID swordsID : SwordsID.values())
             swordsEnabled.put(swordsID, true);
-        }
-        for (AxesID axesID : AxesID.values()){
+
+        for (AxesID axesID : AxesID.values())
             axesEnabled.put(axesID, true);
-        }
-        for (DoubleAxesID doubleAxesID : DoubleAxesID.values()){
+
+        for (DoubleAxesID doubleAxesID : DoubleAxesID.values())
             doubleAxesEnabled.put(doubleAxesID, true);
-        }
-        for (DaggersID daggersID : DaggersID.values()){
+
+        for (DaggersID daggersID : DaggersID.values())
             daggersEnabled.put(daggersID, true);
-        }
-        for (SoulDaggersID soulDaggersID : SoulDaggersID.values()){
+
+        for (SoulDaggersID soulDaggersID : SoulDaggersID.values())
             soulDaggersEnabled.put(soulDaggersID, true);
-        }
-        for (HammersID hammersID : HammersID.values()){
+
+        for (HammersID hammersID : HammersID.values())
             hammersEnabled.put(hammersID, true);
-        }
-        for (GauntletsID gauntletsID : GauntletsID.values()){
+
+        for (GauntletsID gauntletsID : GauntletsID.values())
             gauntletsEnabled.put(gauntletsID, true);
-        }
-        for (SicklesID sicklesID : SicklesID.values()){
+
+        for (SicklesID sicklesID : SicklesID.values())
             sicklesEnabled.put(sicklesID, true);
-        }
-        for (ScythesID scythesID : ScythesID.values()){
+
+        for (ScythesID scythesID : ScythesID.values())
             scythesEnabled.put(scythesID, true);
-        }
-        for (PicksID picksID : PicksID.values()){
+
+        for (PicksID picksID : PicksID.values())
             picksEnabled.put(picksID, true);
-        }
-        for (GlaivesID glaivesID : GlaivesID.values()){
+
+        for (GlaivesID glaivesID : GlaivesID.values())
             glaivesEnabled.put(glaivesID, true);
-        }
-        for (SpearsID spearsID : SpearsID.values()){
+
+        for (SpearsID spearsID : SpearsID.values())
             spearsEnabled.put(spearsID, true);
-        }
-        for (StavesID stavesID : StavesID.values()){
+
+        for (StavesID stavesID : StavesID.values())
             stavesEnabled.put(stavesID, true);
-        }
-        for (WhipsID whipsID : WhipsID.values()){
+
+        for (WhipsID whipsID : WhipsID.values())
             whipsEnabled.put(whipsID, true);
-        }
-        for (BowsID bowsID : BowsID.values()){
+
+        for (BowsID bowsID : BowsID.values())
             bowsEnabled.put(bowsID, true);
-        }
-        for (ShortBowsID shortBowsID : ShortBowsID.values()){
+
+        for (ShortBowsID shortBowsID : ShortBowsID.values())
             shortBowsEnabled.put(shortBowsID, true);
-        }
-        for (LongBowsID longBowsID : LongBowsID.values()){
+
+        for (LongBowsID longBowsID : LongBowsID.values())
             longBowsEnabled.put(longBowsID, true);
-        }
-        for (CrossbowsID crossbowsID : CrossbowsID.values()){
+
+        for (CrossbowsID crossbowsID : CrossbowsID.values())
             crossbowsEnabled.put(crossbowsID, true);
-        }
-        for (ShieldsID shieldsID : ShieldsID.values()){
+
+        for (ShieldsID shieldsID : ShieldsID.values())
             shieldsEnabled.put(shieldsID, true);
-        }
-        for (ItemsID itemsID : ItemsID.values()){
+
+        for (ItemsID itemsID : ItemsID.values())
             itemsEnabled.put(itemsID, true);
-        }
     }
 }

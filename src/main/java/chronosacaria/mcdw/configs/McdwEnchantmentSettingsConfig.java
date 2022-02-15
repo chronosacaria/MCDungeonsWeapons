@@ -13,12 +13,10 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
     public HashMap<SettingsID, Boolean> enableEnchantmentSettings = new HashMap<>();
 
     public McdwEnchantmentSettingsConfig(){
-        for (SettingsID settingsEnum : SettingsID.values()) {
-            enableEnchantmentSettings.put(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING, false);
-            enableEnchantmentSettings.put(SettingsID.LEECHING_CAN_BE_MIXED_WITH_HEALING, false);
-            enableEnchantmentSettings.put(SettingsID.EXTRA_XP_HEALING, false);
-            enableEnchantmentSettings.put(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS, true);
-            enableEnchantmentSettings.put(SettingsID.ENABLE_INNATE_ENCHANTMENTS, true);
-        }
+        enableEnchantmentSettings.put(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING, false);
+        enableEnchantmentSettings.put(SettingsID.LEECHING_CAN_BE_MIXED_WITH_HEALING, false);
+        enableEnchantmentSettings.put(SettingsID.EXTRA_XP_HEALING, false);
+        enableEnchantmentSettings.put(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS, true);
+        enableEnchantmentSettings.put(SettingsID.ENABLE_INNATE_ENCHANTMENTS, true);
     }
 }

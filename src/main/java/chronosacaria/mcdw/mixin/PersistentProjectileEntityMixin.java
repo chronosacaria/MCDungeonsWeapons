@@ -1,90 +1,64 @@
 package chronosacaria.mcdw.mixin;
 
-import chronosacaria.mcdw.bases.McdwBow;
-import chronosacaria.mcdw.api.interfaces.ProjectileManipulator;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.effects.EnchantmentEffects;
+import chronosacaria.mcdw.enums.EnchantmentsID;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.EntityHitResult;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(PersistentProjectileEntity.class)
-public abstract class PersistentProjectileEntityMixin extends Entity implements ProjectileManipulator {
+public class PersistentProjectileEntityMixin {
 
-    private static final TrackedData<ItemStack> ORIGIN_STACK = DataTracker.registerData(PersistentProjectileEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
+    @Inject(method = "onEntityHit", at = @At("TAIL"))
+    private void mcdw$onEntityHitTail(EntityHitResult entityHitResult, CallbackInfo ci){
+        if (!(entityHitResult.getEntity() instanceof LivingEntity target))
+            return;
 
-    private PersistentProjectileEntityMixin(EntityType<?> type, World world) {
-        super(type, world);
-    }
+        PersistentProjectileEntity persProjEntity = (PersistentProjectileEntity) (Object) this;
+        if (persProjEntity.getOwner() instanceof LivingEntity shooter) {
 
-    private Vec3d posContext = null;
-    private int iteration = 0;
-
-    @Inject(
-            method = "tick",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V", ordinal = 0),
-            locals = LocalCapture.CAPTURE_FAILHARD
-    )
-    private void storeContext(CallbackInfo ci, boolean bl, Vec3d vec3d, BlockPos d, BlockState blockState, Vec3d voxelShape, Vec3d vec3d2, HitResult hitResult, double box, double entity2, double e, int i) {
-        this.posContext = vec3d;
-        this.iteration = i;
-    }
-
-    @Redirect(
-            method = "tick",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)V", ordinal = 0)
-    )
-    private void changeParticles(World world, ParticleEffect parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
-        ItemStack sourceStack = dataTracker.get(ORIGIN_STACK);
-        double d = posContext.x;
-        double e = posContext.y;
-        double g = posContext.z;
-
-        // Check if the source bow has a preferred particle to display
-        if(!sourceStack.isEmpty() && sourceStack.getItem() instanceof McdwBow) {
-            McdwBow bow = (McdwBow) sourceStack.getItem();
-            ParticleEffect bowParticles = bow.getArrowParticles();
-
-            if(bowParticles != null) {
-                this.world.addParticle(bowParticles, this.getX() + d * (double) iteration / 4.0D, this.getY() + e * (double) iteration / 4.0D, this.getZ() + g * (double) iteration / 4.0D, -d, -e + 0.2D, -g);
-                return;
-            }
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CHAIN_REACTION))
+                EnchantmentEffects.applyChainReaction(shooter, target, persProjEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COBWEB_SHOT))
+                EnchantmentEffects.applyCobwebShotEntity(shooter, target);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.FUSE_SHOT))
+                EnchantmentEffects.applyFuseShot(shooter, target, persProjEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GRAVITY))
+                EnchantmentEffects.applyGravityShot(shooter, target);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEVITATION_SHOT))
+                EnchantmentEffects.applyLevitationShot(shooter, target);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PHANTOMS_MARK))
+                EnchantmentEffects.applyPhantomsMark(shooter, target);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.POISON_CLOUD))
+                EnchantmentEffects.applyPoisonCloudShot(shooter, target);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RADIANCE))
+                EnchantmentEffects.applyRadianceShot(shooter, target);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RICOCHET))
+                EnchantmentEffects.applyRicochet(shooter, target);
         }
 
-        // Display default crit particles
-        this.world.addParticle(ParticleTypes.CRIT, this.getX() + d * (double) iteration / 4.0D, this.getY() + e * (double) iteration / 4.0D, this.getZ() + g * (double) iteration / 4.0D, -d, -e + 0.2D, -g);
+        if (persProjEntity.getOwner() instanceof PlayerEntity shooter) {
+
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REPLENISH))
+                EnchantmentEffects.applyReplenish(shooter);
+        }
     }
 
-    @Override
-    public void setOrigin(ItemStack stack) {
-        dataTracker.set(ORIGIN_STACK, stack);
+    @Inject(method = "onBlockHit", at = @At("TAIL"))
+    private void mcdw$onBlockHitTail(BlockHitResult blockHitResult, CallbackInfo ci){
+        PersistentProjectileEntity persProjEntity = (PersistentProjectileEntity) (Object) this;
+        if (!(persProjEntity.getOwner() instanceof LivingEntity shooter))
+            return;
+
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COBWEB_SHOT))
+            EnchantmentEffects.applyCobwebShotBlock(shooter, blockHitResult);
     }
 
-    @Override
-    public ItemStack getOrigin() {
-        return dataTracker.get(ORIGIN_STACK);
-    }
-
-    @Inject(
-            method = "initDataTracker",
-            at = @At("RETURN")
-    )
-    private void addDataTrackers(CallbackInfo ci) {
-        dataTracker.startTracking(ORIGIN_STACK, ItemStack.EMPTY);
-    }
 }

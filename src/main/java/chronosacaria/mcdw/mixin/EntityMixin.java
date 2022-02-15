@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Entity.class)
-public class MixinEntity implements CollideAxisEntity {
+public class EntityMixin implements CollideAxisEntity {
     private boolean collidedX;
     private boolean collidedZ;
 

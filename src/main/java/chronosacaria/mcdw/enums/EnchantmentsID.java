@@ -12,7 +12,7 @@ public enum EnchantmentsID {
     COBWEB_SHOT,
     COMMITTED,
     CRITICAL_HIT,
-    DRIPPING_POISON,
+    DIPPING_POISON,
     ECHO,
     ENIGMA_RESONATOR,
     EXPLODING,
