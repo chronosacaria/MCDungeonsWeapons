@@ -2,8 +2,7 @@ package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOEHelper;
-import chronosacaria.mcdw.api.util.CleanlinessHelper;
-import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
+import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
@@ -11,14 +10,12 @@ import chronosacaria.mcdw.enums.*;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -30,10 +27,10 @@ import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
-import java.util.UUID;
 
 @SuppressWarnings("ConstantConditions")
 @Mixin(LivingEntity.class)
@@ -42,19 +39,32 @@ public class LivingEntityMixin {
     public EntityType<SummonedBeeEntity> s_bee =
             SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
 
-    /* * * * * * * * * * * |
-    |****STATUS REMOVAL****|
-    | * * * * * * * * * * */
-    @Inject(at = @At("HEAD"), method = "tick")
+    @ModifyVariable(method = "damage", at = @At(value = "HEAD"), argsOnly = true)
+    public float mcdw$damageModifiers(float amount, DamageSource source) {
+        if (!(source.getAttacker() instanceof LivingEntity attackingEntity))
+            return amount;
+
+        if (amount > 0) {
+
+            if (attackingEntity instanceof TameableEntity petSource
+                    && petSource.world instanceof ServerWorld serverWorld
+                    && petSource.getOwner() instanceof PlayerEntity owner) {
+
+                amount *= EnchantmentEffects.huntersPromiseDamage(owner, serverWorld);
+            }
+        }
+
+        return amount;
+    }
+
+    @Inject(method = "tick", at = @At("HEAD"))
     private void mcdw$onTick(CallbackInfo ci) {
         if ((Object) this instanceof LivingEntity livingEntity) {
             ItemStack mainHand = livingEntity.getMainHandStack();
 
-
             if (EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHand) > 0
                     || mainHand.getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_NIGHTMARES_BITE).asItem()
-                    || mainHand.getItem() == ItemsInit.glaiveItems.get(GlaivesID.SPEAR_VENOM_GLAIVE).asItem())
-            {
+                    || mainHand.getItem() == ItemsInit.glaiveItems.get(GlaivesID.SPEAR_VENOM_GLAIVE).asItem()) {
                 livingEntity.removeStatusEffect(StatusEffects.POISON);
             }
             if (EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHand) > 0
@@ -69,127 +79,47 @@ public class LivingEntityMixin {
         }
     }
 
-    /* * * * * * * * * * * * * * * * *|
-    |****HUNTER'S COMPANION EFFECT****|
-    |* * * * * * * * * * * * * * * * */
+    @Inject(method = "onDeath", at = @At("HEAD"))
+    private void mcdw$onDeath(DamageSource source, CallbackInfo ci) {
+        LivingEntity victim = (LivingEntity) (Object) this;
 
-    @Inject(method = "applyDamage", at = @At("HEAD"))
-    public void onHuntersPromiseCompanionDamage(DamageSource source, float amount, CallbackInfo into){
-        LivingEntity target = (LivingEntity) (Object) this;
-        if (!(source.getSource() instanceof TameableEntity petSource))
-            return;
+        if (source.getAttacker() instanceof LivingEntity attackingEntity) {
 
-        if (petSource == null)
-            return;
-
-        if (!(petSource.world instanceof ServerWorld serverWorld))
-            return;
-        if (!(petSource.getOwner() instanceof PlayerEntity owner))
-            return;
-        if (owner == null)
-            return;
-        UUID petOwnerUUID = owner.getUuid();
-        ItemStack mainHandStack = owner.getMainHandStack();
-
-        if (mainHandStack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE).asItem()){
-            if (petOwnerUUID != null){
-                Entity petOwner = serverWorld.getEntity(petOwnerUUID);
-                if (petOwner instanceof LivingEntity){
-                    float huntersPromiseCompanionFactor = 1.5f;
-                    float newDamage = amount * huntersPromiseCompanionFactor;
-                    float h = target.getHealth();
-                    target.setHealth(h - newDamage);
-                }
-            }
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR))
+                EnchantmentEffects.applyProspector(attackingEntity, victim);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RUSHDOWN))
+                EnchantmentEffects.applyRushdown(attackingEntity);
         }
-    }
 
-    @Inject(at = @At("HEAD"), method = "onDeath")
-    private void onProspectorEnchantmentKill(DamageSource source, CallbackInfo ci) {
-        if(!(source.getAttacker() instanceof PlayerEntity attackingPlayer)) return;
-        LivingEntity target = (LivingEntity) (Object) this;
+        if (source.getAttacker() instanceof PlayerEntity attackingPlayer) {
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR)) {
-            int prospectorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(attackingPlayer, EnchantsRegistry.SOUL_SIPHON);
-            if (prospectorLevel > 0) {
-                if (CleanlinessHelper.percentToOccur(5 * prospectorLevel)) {
-                    if (target instanceof Monster){
-                        ItemEntity emeraldDrop = new ItemEntity(target.world, target.getX(), target.getY(), target.getZ(),
-                                new ItemStack(Items.EMERALD, 1));
-                        attackingPlayer.world.spawnEntity(emeraldDrop);
-                    }
-                }
-            }
-        }
-    }
-
-    @Inject(at = @At("HEAD"), method = "onDeath")
-    private void onRushdownEnchantmentKill(DamageSource source, CallbackInfo ci) {
-        if(!(source.getAttacker() instanceof PlayerEntity attackingPlayer))
-            return;
-        if (attackingPlayer == null)
-            return;
-
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RUSHDOWN)) {
-
-            int rushdownLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(attackingPlayer, EnchantsRegistry.RUSHDOWN);
-            if (rushdownLevel > 0) {
-
-                if (CleanlinessHelper.percentToOccur(10)) {
-                    StatusEffectInstance rushdown = new StatusEffectInstance(StatusEffects.SPEED, 100 * rushdownLevel, 2,
-                            false, false);
-                    attackingPlayer.addStatusEffect(rushdown);
-                }
-            }
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_SIPHON))
+                EnchantmentEffects.applySoulSiphon(attackingPlayer);
         }
     }
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
     public void applySmitingEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
-        if(!(source.getAttacker() instanceof PlayerEntity)) return;
+        if(!(source.getAttacker() instanceof LivingEntity user))
+            return;
 
-        LivingEntity user = (LivingEntity) source.getAttacker();
         LivingEntity target = (LivingEntity) (Object) this;
 
         if(target instanceof PlayerEntity) return;
 
         if (source.getSource() instanceof LivingEntity) {
             if (amount > 0) {
-                ItemStack mainHandStack = null;
-                if (user != null) {
-                    mainHandStack = user.getMainHandStack();
-                }
+                ItemStack mainHandStack = user.getMainHandStack();
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SMITING)) {
 
-                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack) >= 1 && !(EnchantmentHelper.getLevel(Enchantments.SMITE, mainHandStack) >= 1))) {
+                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack) > 0
+                            && !(EnchantmentHelper.getLevel(Enchantments.SMITE, mainHandStack) > 0))) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack);
                         if (target.isUndead()) {
-                            AOEHelper.causeSmitingAttack(
-                                    (PlayerEntity) user,
-                                    target,
-                                    3.0f * level,
-                                    amount);
+                            AOEHelper.causeSmitingAttack(user, target,
+                                    3.0f * level, amount);
                         }
                     }
-                }
-            }
-        }
-    }
-
-    @Inject(at = @At("HEAD"), method = "onDeath")
-    private void onSoulSiphonEnchantmentKill(DamageSource source, CallbackInfo ci) {
-        if(!(source.getAttacker() instanceof PlayerEntity attackingPlayer))
-            return;
-        if (attackingPlayer == null)
-            return;
-
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_SIPHON)) {
-
-            int soulLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(attackingPlayer, EnchantsRegistry.SOUL_SIPHON);
-            if (soulLevel > 0) {
-
-                if (CleanlinessHelper.percentToOccur(10)) {
-                    attackingPlayer.addExperience(3 * soulLevel);
                 }
             }
         }

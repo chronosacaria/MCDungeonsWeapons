@@ -123,7 +123,7 @@ public class AOEHelper {
         }
     }
 
-    public static void causeSmitingAttack(PlayerEntity user, LivingEntity target, float distance, float amount) {
+    public static void causeSmitingAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
         for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
             if (nearbyEntity != target && nearbyEntity.isUndead()) {
                 nearbyEntity.damage(DamageSource.MAGIC, amount * 1.25F);

@@ -4,6 +4,8 @@ import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.BowsID;
+import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -12,6 +14,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -20,6 +23,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.BlockHitResult;
@@ -27,6 +31,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public class EnchantmentEffects {
 
@@ -56,6 +62,58 @@ public class EnchantmentEffects {
             }
         }
         return amount;
+    }
+
+    /* LivingEntityMixin */
+    //mcdw$damageModifiers
+    public static float huntersPromiseDamage(PlayerEntity owner, ServerWorld serverWorld) {
+        if (owner.getMainHandStack().getItem() == ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE).asItem()) {
+            UUID petOwnerUUID = owner.getUuid();
+
+            if (petOwnerUUID != null) {
+                if (serverWorld.getEntity(petOwnerUUID) instanceof LivingEntity) {
+                    return 1.5F;
+                }
+            }
+        }
+        return 1f;
+    }
+
+    //mcdw$onDeath
+    public static void applyProspector(LivingEntity prospectingEntity, LivingEntity victim) {
+        int prospectorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(prospectingEntity, EnchantsRegistry.SOUL_SIPHON);
+        if (prospectorLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(5 * prospectorLevel)) {
+                if (victim instanceof Monster){
+                    ItemEntity emeraldDrop = new ItemEntity(victim.world, victim.getX(), victim.getY(), victim.getZ(),
+                            new ItemStack(Items.EMERALD, 1));
+                    victim.world.spawnEntity(emeraldDrop);
+                }
+            }
+        }
+    }
+
+    public static void applyRushdown(LivingEntity rushingEntity) {
+        int rushdownLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(rushingEntity, EnchantsRegistry.RUSHDOWN);
+        if (rushdownLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(10)) {
+                StatusEffectInstance rushdown = new StatusEffectInstance(StatusEffects.SPEED, 100 * rushdownLevel, 2,
+                        false, false);
+                rushingEntity.addStatusEffect(rushdown);
+            }
+        }
+    }
+
+    public static void applySoulSiphon(PlayerEntity siphoningEntity) {
+        int soulLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(siphoningEntity, EnchantsRegistry.SOUL_SIPHON);
+        if (soulLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(10)) {
+                siphoningEntity.addExperience(3 * soulLevel);
+            }
+        }
     }
 
     /* LivingEntityPlayerEntityMixin */
