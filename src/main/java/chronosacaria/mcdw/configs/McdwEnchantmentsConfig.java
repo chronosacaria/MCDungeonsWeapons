@@ -13,8 +13,7 @@ public class McdwEnchantmentsConfig implements ConfigData {
     public HashMap<EnchantmentsID, Boolean> enableEnchantments = new HashMap<>();
 
     public McdwEnchantmentsConfig(){
-        for (EnchantmentsID enchantmentsID : EnchantmentsID.values()) {
+        for (EnchantmentsID enchantmentsID : EnchantmentsID.values())
             enableEnchantments.put(enchantmentsID, true);
-        }
     }
 }
