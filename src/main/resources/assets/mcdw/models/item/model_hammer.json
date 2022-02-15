@@ -29,8 +29,9 @@
 			"scale": [0.8, 0.8, 0.8]
 		},
 		"head": {
-			"rotation": [0, 90, 0],
-			"translation": [-9.75, 2.75, 0]
+			"rotation": [0, 0, -45],
+			"translation": [0, 3.25, 0.5],
+			"scale": [0.6, 0.6, 0.6]},
 		},
 		"fixed": {
 			"rotation": [0, -90, 0],

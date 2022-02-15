@@ -1,5 +1,5 @@
 {
-	"credit": "Made by SeaOfPixels",
+	"credit": "Made with Blockbench",
 	"parent": "mcdw:item/model_hammer",
 	"texture_size": [64, 64],
 	"textures": {
@@ -176,19 +176,59 @@
 			}
 		}
 	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-45, 0, 0],
+			"translation": [0, 3.75, 1.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-45, 0, 0],
+			"translation": [0, 3.75, 1.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [-20, 0, 0],
+			"translation": [5, 0, -2]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-20, 0, 0],
+			"translation": [5, 0, -2]
+		},
+		"ground": {
+			"translation": [0, 3.25, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [0, 90, 0],
+			"translation": [-1.25, -1.25, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"head": {
+			"rotation": [20, 90, 0],
+			"translation": [0, 2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"fixed": {
+			"rotation": [0, -90, 0],
+			"translation": [1.75, -1.75, 0],
+			"scale": [0.9, 0.9, 0.9]
+		}
+	},
 	"groups": [
 		{
 			"name": "great_hammer",
 			"origin": [8, 8, 8],
+			"color": 0,
 			"children": [
 				{
 					"name": "stick",
 					"origin": [8, 8, 8],
+					"color": 0,
 					"children": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 				},
 				{
 					"name": "head",
 					"origin": [9, 15, 16],
+					"color": 0,
 					"children": [12]
 				}
 			]

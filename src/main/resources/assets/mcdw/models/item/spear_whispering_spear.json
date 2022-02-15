@@ -2,5 +2,12 @@
   "parent": "mcdw:item/model_spear",
   "textures": {
 	  "layer0": "mcdw:item/spear_whispering_spear"
+  },
+  "display": {
+    "head": {
+      "rotation": [ 0, 0, 180 ],
+      "translation": [ -1, 1, -0.5],
+      "scale":[ 1, 1, 0.5 ]
+	}
   }
 }

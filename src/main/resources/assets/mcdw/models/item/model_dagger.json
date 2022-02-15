@@ -26,11 +26,11 @@
 		"ground": {
 			"translation": [ 0, 2, 0 ],
 			"scale": [ 0.5, 0.5, 0.5 ]
-		},
+		},  
 		"head": {
-			"rotation": [ 0, 0, 0 ],
-			"translation": [ 0, 0, 0],
-			"scale":[ 5, 5, 5 ]
+			"rotation": [ 180, 0, 270 ],
+			"translation": [ 0, 2, 0],
+			"scale":[ 0.5, 0.5, 0.5 ]
 		},"gui": {
 			"rotation": [ 0, 0, 0 ],
 			"translation": [ 0, 0, 0 ],

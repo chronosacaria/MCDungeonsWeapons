@@ -2,5 +2,12 @@
 	"parent": "mcdw:item/model_whip",
 	"textures": {
 		"layer0": "mcdw:item/whip_whip"
+	},  
+  "display": {
+    "head": {
+      "rotation": [ 0, 0, 45 ],
+      "translation": [ -1, 3.5, 0],
+      "scale":[ 1, 1, 0.5 ]
 	}
+  }
 }
