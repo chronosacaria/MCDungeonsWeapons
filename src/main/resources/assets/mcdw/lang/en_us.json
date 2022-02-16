@@ -356,20 +356,20 @@
   "tooltip_info_item.mcdw.sponge_striker_3"       : "energy in combat and expels",
   "tooltip_info_item.mcdw.sponge_striker_4"       : "it in a powerful burst.",
 
-  "tooltip_info_item.mcdw.double_axe_1"       : "A devastating weapon fit for ",
-  "tooltip_info_item.mcdw.double_axe_2"       : "barbaric fighters.",
+  "tooltip_info_item.mcdw.double_1"           : "A devastating weapon fit for ",
+  "tooltip_info_item.mcdw.double_2"           : "barbaric fighters.",
 
-  "tooltip_info_item.mcdw.cursed_axe_1"       : "This cursed, poisonous axe",
-  "tooltip_info_item.mcdw.cursed_axe_2"       : "leaves their victims sick",
-  "tooltip_info_item.mcdw.cursed_axe_3"       : "for years with just a single",
-  "tooltip_info_item.mcdw.cursed_axe_4"       : "scratch.",
+  "tooltip_info_item.mcdw.cursed_1"           : "This cursed, poisonous axe",
+  "tooltip_info_item.mcdw.cursed_2"           : "leaves their victims sick",
+  "tooltip_info_item.mcdw.cursed_3"           : "for years with just a single",
+  "tooltip_info_item.mcdw.cursed_4"           : "scratch.",
 
   "tooltip_info_item.mcdw.whirlwind_1"        : "Whirlwind, forged during an epic",
   "tooltip_info_item.mcdw.whirlwind_2"        : "windstorm, is a double-bladed",
   "tooltip_info_item.mcdw.whirlwind_3"        : "axe that levitates slightly.",
 
-  "tooltip_info_item.mcdw.gauntlets_1"        : "Gauntlets call back to an",
-  "tooltip_info_item.mcdw.gauntlets_2"        : "ancient style of hand to hand combat.",
+  "tooltip_info_item.mcdw.gauntlet_1"         : "Gauntlets call back to an",
+  "tooltip_info_item.mcdw.gauntlet_2"         : "ancient style of hand to hand combat.",
 
   "tooltip_info_item.mcdw.maulers_1"          : "These claw-like weapons,",
   "tooltip_info_item.mcdw.maulers_2"          : "wielded by ancient Illager soldiers,",

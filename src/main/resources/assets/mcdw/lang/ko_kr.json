@@ -279,20 +279,20 @@
   "tooltip_info_item.mcdw.hawkbrand_2"        : "증명된 전사가 사용하는",
   "tooltip_info_item.mcdw.hawkbrand_3"        : "전설의 검입니다.",
 
-  "tooltip_info_item.mcdw.double_axe_1"       : "야만적인 투사들에게",
-  "tooltip_info_item.mcdw.double_axe_2"       : "어울리는 파괴적인 무기입니다.",
+  "tooltip_info_item.mcdw.double_1"           : "야만적인 투사들에게",
+  "tooltip_info_item.mcdw.double_2"           : "어울리는 파괴적인 무기입니다.",
 
-  "tooltip_info_item.mcdw.cursed_axe_1"       : "이 저주받은 독 도끼는",
-  "tooltip_info_item.mcdw.cursed_axe_2"       : "살짝 스치기만 해도",
-  "tooltip_info_item.mcdw.cursed_axe_3"       : "피해자를 아주 오랫동안",
-  "tooltip_info_item.mcdw.cursed_axe_4"       : "아프게 합니다.",
+  "tooltip_info_item.mcdw.cursed_1"           : "이 저주받은 독 도끼는",
+  "tooltip_info_item.mcdw.cursed_2"           : "살짝 스치기만 해도",
+  "tooltip_info_item.mcdw.cursed_3"           : "피해자를 아주 오랫동안",
+  "tooltip_info_item.mcdw.cursed_4"           : "아프게 합니다.",
 
   "tooltip_info_item.mcdw.whirlwind_1"        : "전설의 회오리 폭풍에서",
   "tooltip_info_item.mcdw.whirlwind_2"        : "생겨난 이 양날 도끼는",
   "tooltip_info_item.mcdw.whirlwind_3"        : "살짝 떠 다닙니다.",
 
-  "tooltip_info_item.mcdw.gauntlets_1"        : "건틀릿은 고대의 맨손 전투",
-  "tooltip_info_item.mcdw.gauntlets_2"        : "스타일을 소환합니다.",
+  "tooltip_info_item.mcdw.gauntlet_1"         : "건틀릿은 고대의 맨손 전투",
+  "tooltip_info_item.mcdw.gauntlet_2"         : "스타일을 소환합니다.",
 
   "tooltip_info_item.mcdw.maulers_1"          : "고대 우민 군인은",
   "tooltip_info_item.mcdw.maulers_2"          : "이 발톱 모양의 무기를 사용해",

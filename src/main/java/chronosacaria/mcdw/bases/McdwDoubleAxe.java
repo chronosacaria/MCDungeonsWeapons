@@ -2,9 +2,11 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
+import chronosacaria.mcdw.enums.DaggersID;
 import chronosacaria.mcdw.enums.DoubleAxesID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,20 +27,18 @@ public class McdwDoubleAxe extends AxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext){
-        if (stack.getItem() == ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_DOUBLE)){
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.double_axe_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.double_axe_2").formatted(Formatting.ITALIC));
-        }
-        if (stack.getItem() == ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_CURSED)){
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.cursed_axe_4").formatted(Formatting.ITALIC));
-        }
-        if (stack.getItem() == ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_WHIRLWIND)){
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whirlwind_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whirlwind_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whirlwind_3").formatted(Formatting.ITALIC));
+        super.appendTooltip(stack, world, tooltip, tooltipContext);
+        for (DoubleAxesID doubleAxesID : DoubleAxesID.values()) {
+            if (stack.getItem() == ItemsInit.doubleAxeItems.get(doubleAxesID)) {
+                int i = 1;
+                String str = doubleAxesID.toString().toLowerCase().substring(4);
+                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+                while (I18n.hasTranslation(translationKey + i)) {
+                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+                    i++;
+                }
+                break;
+            }
         }
     }
 }
