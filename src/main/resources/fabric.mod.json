@@ -10,11 +10,7 @@
     "SeaOfPixels (Art)",
     "Patreons (Support)"
   ],
-  "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/mcdw",
-    "sources": "https://github.com/chronosacaria/MCDungeonsWeapons",
-    "issues": "https://github.com/chronosacaria/MCDungeonsWeapons/issues"
-  },
+  "contact": {},
   "license": "MIT",
   "icon": "assets/mcdw/icon.png",
   "environment": "*",
