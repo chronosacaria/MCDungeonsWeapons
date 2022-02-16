@@ -3,7 +3,6 @@ package chronosacaria.mcdw.bases;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.enums.DoubleAxesID;
 import chronosacaria.mcdw.enums.GauntletsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;

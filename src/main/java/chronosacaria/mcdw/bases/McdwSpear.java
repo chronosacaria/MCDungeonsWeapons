@@ -2,7 +2,7 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.enums.SpearsID;
+import chronosacaria.mcdw.enums.GlaivesID;
 import chronosacaria.mcdw.items.ItemsInit;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -12,6 +12,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -108,20 +109,18 @@ public class McdwSpear extends McdwCustomWeaponBase implements Vanishable {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == ItemsInit.spearItems.get(SpearsID.SPEAR_SPEAR)) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.spear_3").formatted(Formatting.ITALIC));
-        }
-        else if (stack.getItem() == ItemsInit.spearItems.get(SpearsID.SPEAR_FORTUNE)) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.fortune_spear_3").formatted(Formatting.ITALIC));
-        }
-        else if (stack.getItem() == ItemsInit.spearItems.get(SpearsID.SPEAR_WHISPERING_SPEAR)) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.whispering_spear_3").formatted(Formatting.ITALIC));
+        super.appendTooltip(stack, world, tooltip, tooltipContext);
+        for (GlaivesID glaivesID : GlaivesID.values()) {
+            if (stack.getItem() == ItemsInit.glaiveItems.get(glaivesID)) {
+                int i = 1;
+                String str = glaivesID.toString().toLowerCase().substring(9);
+                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+                while (I18n.hasTranslation(translationKey + i)) {
+                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+                    i++;
+                }
+                break;
+            }
         }
     }
 }

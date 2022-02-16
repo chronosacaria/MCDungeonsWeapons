@@ -341,9 +341,9 @@
   "tooltip_info_item.mcdw.spear_2"            : "닿아 넓은 범위에 쓸 수",
   "tooltip_info_item.mcdw.spear_3"            : "있는 유일한 무기입니다.",
 
-  "tooltip_info_item.mcdw.fortune_spear_1"    : "행운의 영혼이",
-  "tooltip_info_item.mcdw.fortune_spear_2"    : "지키는 이 창은 소유자에게",
-  "tooltip_info_item.mcdw.fortune_spear_3"    : "행운을 부여합니다.",
+  "tooltip_info_item.mcdw.fortune_1"          : "행운의 영혼이",
+  "tooltip_info_item.mcdw.fortune_2"          : "지키는 이 창은 소유자에게",
+  "tooltip_info_item.mcdw.fortune_3"          : "행운을 부여합니다.",
 
   "tooltip_info_item.mcdw.whispering_spear_1" : "전설에 따르면 이 저주 받은",
   "tooltip_info_item.mcdw.whispering_spear_2" : "창은 소유자의 정신을 조종하는",
@@ -360,9 +360,9 @@
   "tooltip_info_item.mcdw.great_hammer_2"     : "힘으로 대형 망치를 휘둘러",
   "tooltip_info_item.mcdw.great_hammer_3"     : "각각 제작과 전투를 합니다.",
 
-  "tooltip_info_item.mcdw.gravity_hammer_1"   : "중력을 담은",
-  "tooltip_info_item.mcdw.gravity_hammer_2"   : "수정이 장식된 망치는",
-  "tooltip_info_item.mcdw.gravity_hammer_3"   : "무척 강력합니다.",
+  "tooltip_info_item.mcdw.gravity_1"          : "중력을 담은",
+  "tooltip_info_item.mcdw.gravity_2"          : "수정이 장식된 망치는",
+  "tooltip_info_item.mcdw.gravity_3"          : "무척 강력합니다.",
 
   "tooltip_info_item.mcdw.stormlander_1"      : "사나운 폭풍의",
   "tooltip_info_item.mcdw.stormlander_2"      : "힘이 담긴 스톰랜더는",
@@ -446,9 +446,9 @@
   "tooltip_info_item.mcdw.elite_power_bow_2"  : "제작 비밀은 오래 전에",
   "tooltip_info_item.mcdw.elite_power_bow_3"  : "잊혀졌습니다.",
 
-  "tooltip_info_item.mcdw.guardian_1"         : "화석화된 산호를 사용한",
-  "tooltip_info_item.mcdw.guardian_2"         : "가디언의 활은 잃어버린",
-  "tooltip_info_item.mcdw.guardian_3"         : "시대의 잠긴 문명의 흔적입니다.",
+  "tooltip_info_item.mcdw.guardian_bow_1"     : "화석화된 산호를 사용한",
+  "tooltip_info_item.mcdw.guardian_bow_2"     : "가디언의 활은 잃어버린",
+  "tooltip_info_item.mcdw.guardian_bow_3"     : "시대의 잠긴 문명의 흔적입니다.",
 
   "tooltip_info_item.mcdw.haunted_bow_1"      : "형언할 수 없는 공포군요!",
   "tooltip_info_item.mcdw.haunted_bow_2"      : "이 활의 기어오르는 촉수는",
@@ -466,9 +466,9 @@
   "tooltip_info_item.mcdw.longbow_2"          : "적합하지만 싸움에도",
   "tooltip_info_item.mcdw.longbow_3"          : "여전히 유용합니다.",
 
-  "tooltip_info_item.mcdw.love_spell_1"       : "사랑은 마법과 같지만,",
-  "tooltip_info_item.mcdw.love_spell_2"       : "너무 강력해지면",
-  "tooltip_info_item.mcdw.love_spell_3"       : "광란으로 변할 수 있습니다.",
+  "tooltip_info_item.mcdw.love_spell_bow_1"   : "사랑은 마법과 같지만,",
+  "tooltip_info_item.mcdw.love_spell_bow_2"   : "너무 강력해지면",
+  "tooltip_info_item.mcdw.love_spell_bow_3"   : "광란으로 변할 수 있습니다.",
 
   "tooltip_info_item.mcdw.masters_bow_1"      : "이 활은 비록",
   "tooltip_info_item.mcdw.masters_bow_2"      : "간단해 보이지만 지상의",

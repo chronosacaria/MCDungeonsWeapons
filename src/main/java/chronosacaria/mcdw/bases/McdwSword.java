@@ -2,9 +2,11 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
+import chronosacaria.mcdw.enums.GlaivesID;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -25,6 +27,19 @@ public class McdwSword extends SwordItem {
 
    @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext){
+       super.appendTooltip(stack, world, tooltip, tooltipContext);
+       //for (GlaivesID glaivesID : GlaivesID.values()) {
+       //    if (stack.getItem() == ItemsInit.glaiveItems.get(glaivesID)) {
+       //        int i = 1;
+       //        String str = glaivesID.toString().toLowerCase().substring(9);
+       //        String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+       //        while (I18n.hasTranslation(translationKey + i)) {
+       //            tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+       //            i++;
+       //        }
+       //        break;
+       //    }
+       //}
         if (stack.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_CLAYMORE)){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.claymore_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.claymore_2").formatted(Formatting.ITALIC));

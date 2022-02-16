@@ -24,7 +24,7 @@ public class McdwSoulDagger extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-
+        super.appendTooltip(stack, world, tooltip, tooltipContext);
         if (stack.getItem() == ItemsInit.soulDaggerItems.get(SoulDaggersID.DAGGER_SOUL_KNIFE)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_knife_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.soul_knife_2").formatted(Formatting.ITALIC));

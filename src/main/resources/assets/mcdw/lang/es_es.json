@@ -323,9 +323,9 @@
   "tooltip_info_item.mcdw.spear_2"            : "and powerful range, is a solid",
   "tooltip_info_item.mcdw.spear_3"            : "choice of weapon.",
 
-  "tooltip_info_item.mcdw.fortune_spear_1"    : "A spear that is watched over by",
-  "tooltip_info_item.mcdw.fortune_spear_2"    : "lucky souls, bringing luck to any",
-  "tooltip_info_item.mcdw.fortune_spear_3"    : "who wield it.",
+  "tooltip_info_item.mcdw.fortune_1"          : "A spear that is watched over by",
+  "tooltip_info_item.mcdw.fortune_2"          : "lucky souls, bringing luck to any",
+  "tooltip_info_item.mcdw.fortune_3"          : "who wield it.",
 
   "tooltip_info_item.mcdw.whispering_spear_1" : "Legend says that this cursed spear",
   "tooltip_info_item.mcdw.whispering_spear_2" : "is plagued by a soul that controls",
@@ -342,9 +342,9 @@
   "tooltip_info_item.mcdw.great_hammer_2"     : "the Great Hammer for its strength",
   "tooltip_info_item.mcdw.great_hammer_3"     : "in forging and in battle.",
 
-  "tooltip_info_item.mcdw.gravity_hammer_1"   : "A hammer, embedded with a crystal that",
-  "tooltip_info_item.mcdw.gravity_hammer_2"   : "harnesses the power of gravity, that",
-  "tooltip_info_item.mcdw.gravity_hammer_3"   : "is incredibly powerful",
+  "tooltip_info_item.mcdw.gravity_1"          : "A hammer, embedded with a crystal that",
+  "tooltip_info_item.mcdw.gravity_2"          : "harnesses the power of gravity, that",
+  "tooltip_info_item.mcdw.gravity_3"          : "is incredibly powerful",
 
   "tooltip_info_item.mcdw.stormlander_1"      : "The Stormlander, enchanted with the power",
   "tooltip_info_item.mcdw.stormlander_2"      : "of the raging storm, is a treasure of",
@@ -427,9 +427,9 @@
   "tooltip_info_item.mcdw.elite_power_bow_2"  : "Bow's construction have been ",
   "tooltip_info_item.mcdw.elite_power_bow_3"  : "lost without a trace.",
 
-  "tooltip_info_item.mcdw.guardian_1"         : "Forged from fossilized coral,",
-  "tooltip_info_item.mcdw.guardian_2"         : "the Guardian Bow is a remnant from",
-  "tooltip_info_item.mcdw.guardian_3"         : "sunken civilizations of lost ages.",
+  "tooltip_info_item.mcdw.guardian_bow_1"     : "Forged from fossilized coral,",
+  "tooltip_info_item.mcdw.guardian_bow_2"     : "the Guardian Bow is a remnant from",
+  "tooltip_info_item.mcdw.guardian_bow_3"     : "sunken civilizations of lost ages.",
 
   "tooltip_info_item.mcdw.haunted_bow_1"      : "What indescribably horror! The ",
   "tooltip_info_item.mcdw.haunted_bow_2"      : "creeping tentacles of this bow",
@@ -448,9 +448,9 @@
   "tooltip_info_item.mcdw.longbow_3"          : "useful in a fight.",
 
 
-  "tooltip_info_item.mcdw.love_spell_1"       : "Love can be magical, but when it ",
-  "tooltip_info_item.mcdw.love_spell_2"       : "becomes too powerful, it can turn",
-  "tooltip_info_item.mcdw.love_spell_3"       : "into a frenzy.",
+  "tooltip_info_item.mcdw.love_spell_bow_1"   : "Love can be magical, but when it ",
+  "tooltip_info_item.mcdw.love_spell_bow_2"   : "becomes too powerful, it can turn",
+  "tooltip_info_item.mcdw.love_spell_bow_3"   : "into a frenzy.",
 
   "tooltip_info_item.mcdw.masters_bow_1"      : "The bow preferred by the masters",
   "tooltip_info_item.mcdw.masters_bow_2"      : "of archery across the Overworld,",

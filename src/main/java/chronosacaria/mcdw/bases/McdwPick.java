@@ -24,6 +24,7 @@ public class McdwPick extends PickaxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        super.appendTooltip(stack, world, tooltip, tooltipContext);
         if (stack.getItem() == ItemsInit.pickItems.get(PicksID.PICK_DIAMOND_PICKAXE_VAR)) {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.diamond_pick_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.diamond_pick_2").formatted(Formatting.ITALIC));

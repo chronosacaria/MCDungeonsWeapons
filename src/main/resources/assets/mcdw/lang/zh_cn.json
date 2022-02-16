@@ -406,9 +406,9 @@
   "tooltip_info_item.mcdw.spear_2"            : "范围很广，是",
   "tooltip_info_item.mcdw.spear_3"            : "一种可靠的选择。",
 
-  "tooltip_info_item.mcdw.fortune_spear_1"    : "被幸运的灵魂守护",
-  "tooltip_info_item.mcdw.fortune_spear_2"    : "着的一支长矛，为",
-  "tooltip_info_item.mcdw.fortune_spear_3"    : "持有者带来好运。",
+  "tooltip_info_item.mcdw.fortune_1"          : "被幸运的灵魂守护",
+  "tooltip_info_item.mcdw.fortune_2"          : "着的一支长矛，为",
+  "tooltip_info_item.mcdw.fortune_3"          : "持有者带来好运。",
 
   "tooltip_info_item.mcdw.whispering_spear_1" : "传说这把被诅咒的长矛有一个",
   "tooltip_info_item.mcdw.whispering_spear_2" : "灵魂附身其中，可以控制任何",
@@ -429,9 +429,9 @@
   "tooltip_info_item.mcdw.great_hammer_2"     : "大锤，在锻造和",
   "tooltip_info_item.mcdw.great_hammer_3"     : "战场上力量十足。",
 
-  "tooltip_info_item.mcdw.gravity_hammer_1"   : "一柄锤子，嵌有",
-  "tooltip_info_item.mcdw.gravity_hammer_2"   : "一颗能够利用重力",
-  "tooltip_info_item.mcdw.gravity_hammer_3"   : "的水晶，威力惊人。",
+  "tooltip_info_item.mcdw.gravity_1"          : "一柄锤子，嵌有",
+  "tooltip_info_item.mcdw.gravity_2"          : "一颗能够利用重力",
+  "tooltip_info_item.mcdw.gravity_3"          : "的水晶，威力惊人。",
 
   "tooltip_info_item.mcdw.stormlander_1"      : "附有强大风暴之",
   "tooltip_info_item.mcdw.stormlander_2"      : "力的锤子，是灾",
@@ -553,9 +553,9 @@
   "tooltip_info_item.mcdw.elite_power_bow_2"  : "构造的秘密早已",
   "tooltip_info_item.mcdw.elite_power_bow_3"  : "消失的无影无踪。",
 
-  "tooltip_info_item.mcdw.guardian_1"         : "由石化珊瑚锻造而成的守卫",
-  "tooltip_info_item.mcdw.guardian_2"         : "者之弓是失落岁月中沦落",
-  "tooltip_info_item.mcdw.guardian_3"         : "文明的遗留物。",
+  "tooltip_info_item.mcdw.guardian_bow_1"     : "由石化珊瑚锻造而成的守卫",
+  "tooltip_info_item.mcdw.guardian_bow_2"     : "者之弓是失落岁月中沦落",
+  "tooltip_info_item.mcdw.guardian_bow_3"     : "文明的遗留物。",
 
   "tooltip_info_item.mcdw.haunted_bow_1"      : "无法形容的恐怖，这把",
   "tooltip_info_item.mcdw.haunted_bow_2"      : "弓上毛骨悚然的触手可以",
@@ -574,9 +574,9 @@
   "tooltip_info_item.mcdw.longbow_2"          : "的，但用在战斗",
   "tooltip_info_item.mcdw.longbow_3"          : "中也用很合适。",
 
-  "tooltip_info_item.mcdw.love_spell_1"       : "爱情可以很神奇，",
-  "tooltip_info_item.mcdw.love_spell_2"       : "但只要太上头，",
-  "tooltip_info_item.mcdw.love_spell_3"       : "就会开始发狂。",
+  "tooltip_info_item.mcdw.love_spell_bow_1"   : "爱情可以很神奇，",
+  "tooltip_info_item.mcdw.love_spell_bow_2"   : "但只要太上头，",
+  "tooltip_info_item.mcdw.love_spell_bow_3"   : "就会开始发狂。",
 
   "tooltip_info_item.mcdw.masters_bow_1"      : "尽管它看起来简单，",
   "tooltip_info_item.mcdw.masters_bow_2"      : "却是箭术大师们",

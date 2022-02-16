@@ -6,6 +6,7 @@ import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.SicklesID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -33,12 +34,20 @@ public class McdwSickle extends SwordItem implements IOffhandAttack {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        if (stack.getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_SICKLE)) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sickle_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sickle_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.sickle_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
+        super.appendTooltip(stack, world, tooltip, tooltipContext);
+        for (SicklesID sicklesID : SicklesID.values()) {
+            if (stack.getItem() == ItemsInit.sickleItems.get(sicklesID)) {
+                int i = 1;
+                String str = sicklesID.toString().toLowerCase().substring(7);
+                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+                while (I18n.hasTranslation(translationKey + i)) {
+                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+                    i++;
+                }
+                tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+                tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
+                break;
+            }
         }
         if (stack.getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_LAST_LAUGH_GOLD)
                 || stack.getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_LAST_LAUGH_SILVER)) {
@@ -48,13 +57,5 @@ public class McdwSickle extends SwordItem implements IOffhandAttack {
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_NIGHTMARES_BITE)) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nightmares_bite_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nightmares_bite_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.nightmares_bite_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
-        }
     }
-
 }
