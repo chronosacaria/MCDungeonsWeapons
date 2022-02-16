@@ -58,9 +58,9 @@ public class McdwNewLoottables {
                 for (String commonLootTable : COMMON_LOOT_TABLES) {
                     if (commonLootTable.equals(id.toString())) {
                         poolBuilder = FabricLootPoolBuilder.builder();
-                        if (CONFIG.mcdwEnableItemsConfig.axesEnabled.get(AxesID.AXE)) {
-                            addWeapon(poolBuilder, ItemsInit.axeItems.get(AxesID.AXE),
-                                    CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE));
+                        if (CONFIG.mcdwEnableItemsConfig.axesEnabled.get(AxesID.AXE_AXE)) {
+                            addWeapon(poolBuilder, ItemsInit.axeItems.get(AxesID.AXE_AXE),
+                                    CONFIG.mcdwNewlootConfig.axeSpawnRates.get(AxesID.AXE_AXE));
                         }
                         if (CONFIG.mcdwEnableItemsConfig.daggersEnabled.get(DaggersID.DAGGER_DAGGER)) {
                             addWeapon(poolBuilder, ItemsInit.daggerItems.get(DaggersID.DAGGER_DAGGER),

@@ -7,7 +7,7 @@
   "attribute.name.generic.reach-entity-attributes.reach": "Reach",
   "attribute.name.generic.reach-entity-attributes.attack_range": "Attack Reach",
 
-  "item.mcdw.axe": "Axe",
+  "item.mcdw.axe_axe": "Axe",
   "item.mcdw.axe_cursed": "Cursed Axe",
   "item.mcdw.axe_double": "Double Axe",
   "item.mcdw.axe_highland": "Highland Axe",
@@ -241,10 +241,10 @@
   "tooltip_info_item.mcdw.firebrand_3"        : "and enchanted with fiery",
   "tooltip_info_item.mcdw.firebrand_4"        : "powers.",
 
-  "tooltip_info_item.mcdw.highland_axe_1"     : "Expertly crafted and a",
-  "tooltip_info_item.mcdw.highland_axe_2"     : "polished weapon of war,the",
-  "tooltip_info_item.mcdw.highland_axe_3"     : "Highland Axe also makes a",
-  "tooltip_info_item.mcdw.highland_axe_4"     : "daring backscratcher.",
+  "tooltip_info_item.mcdw.highland_1"         : "Expertly crafted and a",
+  "tooltip_info_item.mcdw.highland_2"         : "polished weapon of war,the",
+  "tooltip_info_item.mcdw.highland_3"         : "Highland Axe also makes a",
+  "tooltip_info_item.mcdw.highland_4"         : "daring backscratcher.",
 
   "tooltip_info_item.mcdw.anchor_1"           : "Those strong enough to wield",
   "tooltip_info_item.mcdw.anchor_2"           : "the Anchor in battle follow",

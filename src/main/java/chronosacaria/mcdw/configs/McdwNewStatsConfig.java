@@ -183,7 +183,7 @@ public class McdwNewStatsConfig implements ConfigData {
         swordStats(materialToString(ToolMaterials.IRON),3, -2.4f, SwordsID.SWORD_CORAL_BLADE);
         swordStats(materialToString(ToolMaterials.DIAMOND),3, -2.4f, SwordsID.SWORD_SPONGE_STRIKER);
 
-        axeStats(materialToString(ToolMaterials.IRON),6, -3.1f, AxesID.AXE);
+        axeStats(materialToString(ToolMaterials.IRON),6, -3.1f, AxesID.AXE_AXE);
         axeStats(materialToString(ToolMaterials.DIAMOND),5, -2.9f, AxesID.AXE_FIREBRAND);
         axeStats(materialToString(ToolMaterials.IRON),6, -3.1f, AxesID.AXE_HIGHLAND);
 

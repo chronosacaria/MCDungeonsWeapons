@@ -7,7 +7,7 @@
   "attribute.name.generic.reach-entity-attributes.reach": "Alcance",
   "attribute.name.generic.reach-entity-attributes.attack_range": "Alcance de Golpe",
 
-  "item.mcdw.axe": "Machado",
+  "item.mcdw.axe_axe": "Machado",
   "item.mcdw.axe_cursed": "Machado Amaldiçoado",
   "item.mcdw.axe_double": "Machado Duplo",
   "item.mcdw.axe_highland": "Machado de Planalto",
@@ -185,10 +185,10 @@
   "tooltip_info_item.mcdw.firebrand_3"        : "and enchanted with fiery",
   "tooltip_info_item.mcdw.firebrand_4"        : "powers.",
 
-  "tooltip_info_item.mcdw.highland_axe_1"     : "Expertly crafted and a",
-  "tooltip_info_item.mcdw.highland_axe_2"     : "polished weapon of war,the",
-  "tooltip_info_item.mcdw.highland_axe_3"     : "Highland Axe also makes a",
-  "tooltip_info_item.mcdw.highland_axe_4"     : "daring backscratcher.",
+  "tooltip_info_item.mcdw.highland_1"         : "Expertly crafted and a",
+  "tooltip_info_item.mcdw.highland_2"         : "polished weapon of war,the",
+  "tooltip_info_item.mcdw.highland_3"         : "Highland Axe also makes a",
+  "tooltip_info_item.mcdw.highland_4"         : "daring backscratcher.",
 
   "tooltip_info_item.mcdw.claymore_1"         : "A massive sword that seems",
   "tooltip_info_item.mcdw.claymore_2"         : "impossibly heavy yet rests",

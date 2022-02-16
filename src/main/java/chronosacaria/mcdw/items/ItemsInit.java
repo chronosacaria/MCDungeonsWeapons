@@ -122,9 +122,9 @@ public class ItemsInit {
                 continue;
 
             McdwAxe weapon = switch (axesID) {
-                case AXE -> new McdwAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE).material),
-                        CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE).damage,
-                        CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE).attackSpeed);
+                case AXE_AXE -> new McdwAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_AXE).material),
+                        CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_AXE).damage,
+                        CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_AXE).attackSpeed);
                 case AXE_FIREBRAND -> new McdwAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_FIREBRAND).material),
                         CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_FIREBRAND).damage,
                         CONFIG.mcdwNewStatsConfig.axeStats.get(AxesID.AXE_FIREBRAND).attackSpeed);

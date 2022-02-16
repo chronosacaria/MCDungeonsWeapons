@@ -41,6 +41,7 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
                     tooltip.add(new TranslatableText("tooltip_info_item.mcdw." + str.substring(7) + "_" + i).formatted(Formatting.ITALIC));
                 tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
                 tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
+                break;
             }
         }
     }
@@ -61,7 +62,7 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
                     DAGGER_THE_BEGINNING,
                     DAGGER_THE_END -> 3;
             //noinspection UnnecessaryDefault
-            default -> 1;
+            default -> 0;
         };
     }
 }

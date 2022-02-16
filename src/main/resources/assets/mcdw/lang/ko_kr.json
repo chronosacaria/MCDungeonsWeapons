@@ -7,7 +7,7 @@
   "attribute.name.generic.reach-entity-attributes.reach": "범위",
   "attribute.name.generic.reach-entity-attributes.attack_range": "공격 범위",
 
-  "item.mcdw.axe": "도끼",
+  "item.mcdw.axe_axe": "도끼",
   "item.mcdw.axe_cursed": "저주받은 도끼",
   "item.mcdw.axe_double": "양날 도끼",
   "item.mcdw.axe_highland": "산악 도끼",
@@ -199,10 +199,10 @@
   "tooltip_info_item.mcdw.firebrand_3"        : "불의 힘을 담은 속성이",
   "tooltip_info_item.mcdw.firebrand_4"        : "부여되었습니다.",
 
-  "tooltip_info_item.mcdw.highland_axe_1"     : "고지대 도끼는 전문가가",
-  "tooltip_info_item.mcdw.highland_axe_2"     : "만들어낸 품질 좋은 무기로,",
-  "tooltip_info_item.mcdw.highland_axe_3"     : "위험하지만 효자손으로도",
-  "tooltip_info_item.mcdw.highland_axe_4"     : "쓸 수 있습니다.",
+  "tooltip_info_item.mcdw.highland_1"         : "고지대 도끼는 전문가가",
+  "tooltip_info_item.mcdw.highland_2"         : "만들어낸 품질 좋은 무기로,",
+  "tooltip_info_item.mcdw.highland_3"         : "위험하지만 효자손으로도",
+  "tooltip_info_item.mcdw.highland_4"         : "쓸 수 있습니다.",
 
   "tooltip_info_item.mcdw.claymore_1"         : "들 수 없을 만큼",
   "tooltip_info_item.mcdw.claymore_2"         : "거대해 보이지만",

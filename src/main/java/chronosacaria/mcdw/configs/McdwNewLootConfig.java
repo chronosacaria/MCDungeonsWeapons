@@ -77,7 +77,7 @@ public class McdwNewLootConfig implements ConfigData {
         /* SPAWN RATES */
 
         //AXES
-        axeSpawnRates.put(AxesID.AXE, 0.1f);
+        axeSpawnRates.put(AxesID.AXE_AXE, 0.1f);
         axeSpawnRates.put(AxesID.AXE_FIREBRAND, 0.05f);
         axeSpawnRates.put(AxesID.AXE_HIGHLAND, 0.05f);
         axeSpawnRates.put(AxesID.AXE_ANCHOR, 0.1f);

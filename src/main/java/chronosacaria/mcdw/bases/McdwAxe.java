@@ -23,31 +23,24 @@ public class McdwAxe extends AxeItem {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext){
-        if (stack.getItem() == ItemsInit.axeItems.get(AxesID.AXE)){
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.axe_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.axe_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.axe_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.axe_4").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.axe_5").formatted(Formatting.ITALIC));
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        for (AxesID axesID : AxesID.values()) {
+            if (stack.getItem() == ItemsInit.axeItems.get(axesID)) {
+                String str = axesID.toString().toLowerCase();
+                for (int i = 1; i <= tooltipSize(axesID); i++)
+                    tooltip.add(new TranslatableText("tooltip_info_item.mcdw." + str.substring(4) + "_" + i).formatted(Formatting.ITALIC));
+                break;
+            }
         }
-        if (stack.getItem() == ItemsInit.axeItems.get(AxesID.AXE_FIREBRAND)){
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.firebrand_4").formatted(Formatting.ITALIC));
-        }
-        if (stack.getItem() == ItemsInit.axeItems.get(AxesID.AXE_HIGHLAND)){
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.highland_axe_4").formatted(Formatting.ITALIC));
-        }
-        if (stack.getItem() == ItemsInit.axeItems.get(AxesID.AXE_ANCHOR)){
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.anchor_4").formatted(Formatting.ITALIC));
-        }
+    }
+
+    private int tooltipSize(AxesID axesID) {
+        return switch (axesID) {
+            case AXE_AXE -> 5;
+            case AXE_FIREBRAND, AXE_ANCHOR, AXE_HIGHLAND -> 4;
+            case AXE_ENCRUSTED_ANCHOR -> 0;
+            //noinspection UnnecessaryDefault
+            default -> 0;
+        };
     }
 }

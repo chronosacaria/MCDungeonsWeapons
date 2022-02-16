@@ -7,7 +7,7 @@
   "attribute.name.generic.reach-entity-attributes.reach": "范围",
   "attribute.name.generic.reach-entity-attributes.attack_range": "击范围",
 
-  "item.mcdw.axe": "斧头",
+  "item.mcdw.axe_axe": "斧头",
   "item.mcdw.axe_cursed": "诅咒之斧",
   "item.mcdw.axe_double": "双刃斧",
   "item.mcdw.axe_highland": "高地之斧",
@@ -235,10 +235,10 @@
   "tooltip_info_item.mcdw.firebrand_3"        : "深处，拥有",
   "tooltip_info_item.mcdw.firebrand_4"        : "烈焰的力量。",
 
-  "tooltip_info_item.mcdw.highland_axe_1"     : "精心雕琢和打磨",
-  "tooltip_info_item.mcdw.highland_axe_2"     : "过的高地之斧是",
-  "tooltip_info_item.mcdw.highland_axe_3"     : "胆怯敌人的最佳",
-  "tooltip_info_item.mcdw.highland_axe_4"     : "旋转。",
+  "tooltip_info_item.mcdw.highland_1"         : "精心雕琢和打磨",
+  "tooltip_info_item.mcdw.highland_2"         : "过的高地之斧是",
+  "tooltip_info_item.mcdw.highland_3"         : "胆怯敌人的最佳",
+  "tooltip_info_item.mcdw.highland_4"         : "旋转。",
 
   "tooltip_info_item.mcdw.anchor_1"           : "那些强大到可以",
   "tooltip_info_item.mcdw.anchor_2"           : "在战斗中挥动船",
