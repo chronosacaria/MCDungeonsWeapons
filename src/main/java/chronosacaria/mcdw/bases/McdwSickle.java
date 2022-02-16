@@ -49,13 +49,5 @@ public class McdwSickle extends SwordItem implements IOffhandAttack {
                 break;
             }
         }
-        if (stack.getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_LAST_LAUGH_GOLD)
-                || stack.getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_LAST_LAUGH_SILVER)) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.last_laugh_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.last_laugh_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.last_laugh_3").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
-        }
     }
 }

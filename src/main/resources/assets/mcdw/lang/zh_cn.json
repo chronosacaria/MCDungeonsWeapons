@@ -468,9 +468,13 @@
   "tooltip_info_item.mcdw.sickle_2"           : "与沙漠神殿来自",
   "tooltip_info_item.mcdw.sickle_3"           : "同一地区。",
 
-  "tooltip_info_item.mcdw.last_laugh_1"       : "奇怪、扭曲的笑声",
-  "tooltip_info_item.mcdw.last_laugh_2"       : "似乎从这些险恶的",
-  "tooltip_info_item.mcdw.last_laugh_3"       : "镰刀中传出。",
+  "tooltip_info_item.mcdw.last_laugh_gold_1"  : "奇怪、扭曲的笑声",
+  "tooltip_info_item.mcdw.last_laugh_gold_2"  : "似乎从这些险恶的",
+  "tooltip_info_item.mcdw.last_laugh_gold_3"  : "镰刀中传出。",
+
+  "tooltip_info_item.mcdw.last_laugh_silver_1": "奇怪、扭曲的笑声",
+  "tooltip_info_item.mcdw.last_laugh_silver_2": "似乎从这些险恶的",
+  "tooltip_info_item.mcdw.last_laugh_silver_3": "镰刀中传出。",
 
   "tooltip_info_item.mcdw.nightmares_bite_1"  : "纵使多年已去，",
   "tooltip_info_item.mcdw.nightmares_bite_2"  : "刀刃上的毒液仍",

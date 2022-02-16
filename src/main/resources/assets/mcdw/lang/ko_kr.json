@@ -389,9 +389,13 @@
   "tooltip_info_item.mcdw.sickle_2"           : "있는 지역에서 온",
   "tooltip_info_item.mcdw.sickle_3"           : "제례용 무기입니다.",
 
-  "tooltip_info_item.mcdw.last_laugh_1"       : "이 위협적인 낫에서",
-  "tooltip_info_item.mcdw.last_laugh_2"       : "이상하고 비틀린 웃음 소리가",
-  "tooltip_info_item.mcdw.last_laugh_3"       : "조용히 들려오는 것 같습니다.",
+  "tooltip_info_item.mcdw.last_laugh_gold_1"  : "이 위협적인 낫에서",
+  "tooltip_info_item.mcdw.last_laugh_gold_2"  : "이상하고 비틀린 웃음 소리가",
+  "tooltip_info_item.mcdw.last_laugh_gold_3"  : "조용히 들려오는 것 같습니다.",
+
+  "tooltip_info_item.mcdw.last_laugh_silver_1": "이 위협적인 낫에서",
+  "tooltip_info_item.mcdw.last_laugh_silver_2": "이상하고 비틀린 웃음 소리가",
+  "tooltip_info_item.mcdw.last_laugh_silver_3": "조용히 들려오는 것 같습니다.",
 
   "tooltip_info_item.mcdw.nightmares_bite_1"  : "악몽의 이빨에 있는",
   "tooltip_info_item.mcdw.nightmares_bite_2"  : "두 개의 날은 위험한 독이 발려",

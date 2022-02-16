@@ -370,9 +370,13 @@
   "tooltip_info_item.mcdw.sickle_2"           : "from the same region as the",
   "tooltip_info_item.mcdw.sickle_3"           : "Desert Temple.",
 
-  "tooltip_info_item.mcdw.last_laugh_1"       : "Strange, distorted laughter",
-  "tooltip_info_item.mcdw.last_laugh_2"       : "seems to whisper from these",
-  "tooltip_info_item.mcdw.last_laugh_3"       : "menacing looking sickles.",
+  "tooltip_info_item.mcdw.last_laugh_gold_1"  : "Strange, distorted laughter",
+  "tooltip_info_item.mcdw.last_laugh_gold_2"  : "seems to whisper from these",
+  "tooltip_info_item.mcdw.last_laugh_gold_3"  : "menacing looking sickles.",
+
+  "tooltip_info_item.mcdw.last_laugh_silver_1": "Strange, distorted laughter",
+  "tooltip_info_item.mcdw.last_laugh_silver_2": "seems to whisper from these",
+  "tooltip_info_item.mcdw.last_laugh_silver_3": "menacing looking sickles.",
 
   "tooltip_info_item.mcdw.nightmares_bite_1"  : "The twin blades of Nightmare's",
   "tooltip_info_item.mcdw.nightmares_bite_2"  : "Bite drip with deadly venom,",
