@@ -3,8 +3,10 @@ package chronosacaria.mcdw.bases;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.AxesID;
+import chronosacaria.mcdw.enums.DaggersID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,23 +26,18 @@ public class McdwAxe extends AxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        super.appendTooltip(stack, world, tooltip, tooltipContext);
         for (AxesID axesID : AxesID.values()) {
             if (stack.getItem() == ItemsInit.axeItems.get(axesID)) {
+                int i = 1;
                 String str = axesID.toString().toLowerCase().substring(4);
-                for (int i = 1; i <= tooltipSize(axesID); i++)
-                    tooltip.add(new TranslatableText("tooltip_info_item.mcdw." + str + "_" + i).formatted(Formatting.ITALIC));
+                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+                while (I18n.hasTranslation(translationKey + i)) {
+                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+                    i++;
+                }
                 break;
             }
         }
-    }
-
-    private int tooltipSize(AxesID axesID) {
-        return switch (axesID) {
-            case AXE_AXE -> 5;
-            case AXE_FIREBRAND, AXE_ANCHOR, AXE_HIGHLAND -> 4;
-            case AXE_ENCRUSTED_ANCHOR -> 0;
-            //noinspection UnnecessaryDefault
-            default -> 0;
-        };
     }
 }

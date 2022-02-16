@@ -549,17 +549,17 @@
   "tooltip_info_item.mcdw.lost_souls_2"       : "过的骨头制作的，会",
   "tooltip_info_item.mcdw.lost_souls_3"       : "剥夺生命的灵魂。",
 
-  "tooltip_info_item.mcdw.elite_power_1"      : "关于精英力量弓",
-  "tooltip_info_item.mcdw.elite_power_2"      : "构造的秘密早已",
-  "tooltip_info_item.mcdw.elite_power_3"      : "消失的无影无踪。",
+  "tooltip_info_item.mcdw.elite_power_bow_1"  : "关于精英力量弓",
+  "tooltip_info_item.mcdw.elite_power_bow_2"  : "构造的秘密早已",
+  "tooltip_info_item.mcdw.elite_power_bow_3"  : "消失的无影无踪。",
 
   "tooltip_info_item.mcdw.guardian_1"         : "由石化珊瑚锻造而成的守卫",
   "tooltip_info_item.mcdw.guardian_2"         : "者之弓是失落岁月中沦落",
   "tooltip_info_item.mcdw.guardian_3"         : "文明的遗留物。",
 
-  "tooltip_info_item.mcdw.haunted_1"          : "无法形容的恐怖，这把",
-  "tooltip_info_item.mcdw.haunted_2"          : "弓上毛骨悚然的触手可以",
-  "tooltip_info_item.mcdw.haunted_3"          : "伸往未知的虚空！",
+  "tooltip_info_item.mcdw.haunted_bow_1"      : "无法形容的恐怖，这把",
+  "tooltip_info_item.mcdw.haunted_bow_2"      : "弓上毛骨悚然的触手可以",
+  "tooltip_info_item.mcdw.haunted_bow_3"      : "伸往未知的虚空！",
 
   "tooltip_info_item.mcdw.hunters_promise_1"  : "这把附魔的弓加深了",
   "tooltip_info_item.mcdw.hunters_promise_2"  : "猎人与他们信赖的",
@@ -793,9 +793,9 @@
   "tooltip_info_item.mcdw.spellbound_crossbow_1"    : "这些充满魔法的弩会对附魔的",
   "tooltip_info_item.mcdw.spellbound_crossbow_2"    : "敌人造成更多的伤害。",
 
-  "tooltip_info_item.mcdw.void_caller_crossbow_1"   : "这个武器在呼唤困",
-  "tooltip_info_item.mcdw.void_caller_crossbow_2"   : "在本世界与下个世",
-  "tooltip_info_item.mcdw.void_caller_crossbow_3"   : "界之间的灵魂。",
+  "tooltip_info_item.mcdw.voidcaller_crossbow_1"    : "这个武器在呼唤困",
+  "tooltip_info_item.mcdw.voidcaller_crossbow_2"    : "在本世界与下个世",
+  "tooltip_info_item.mcdw.voidcaller_crossbow_3"    : "界之间的灵魂。",
 
   "tooltip_info_item.mcdw.shadow_crossbow_1"        : "想要挥舞暗影弩，",
   "tooltip_info_item.mcdw.shadow_crossbow_2"        : "必先在完全的黑暗中",

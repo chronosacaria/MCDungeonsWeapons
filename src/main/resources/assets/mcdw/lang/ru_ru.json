@@ -422,17 +422,17 @@
   "tooltip_info_item.mcdw.lost_souls_2"       : "stripes the living of their",
   "tooltip_info_item.mcdw.lost_souls_3"       : "very souls.",
 
-  "tooltip_info_item.mcdw.elite_power_1"      : "The secret of the Elite Power ",
-  "tooltip_info_item.mcdw.elite_power_2"      : "Bow's construction have been ",
-  "tooltip_info_item.mcdw.elite_power_3"      : "lost without a trace.",
+  "tooltip_info_item.mcdw.elite_power_bow_1"  : "The secret of the Elite Power ",
+  "tooltip_info_item.mcdw.elite_power_bow_2"  : "Bow's construction have been ",
+  "tooltip_info_item.mcdw.elite_power_bow_3"  : "lost without a trace.",
 
   "tooltip_info_item.mcdw.guardian_1"         : "Forged from fossilized coral,",
   "tooltip_info_item.mcdw.guardian_2"         : "the Guardian Bow is a remnant from",
   "tooltip_info_item.mcdw.guardian_3"         : "sunken civilizations of lost ages.",
 
-  "tooltip_info_item.mcdw.haunted_1"          : "What indescribably horror! The ",
-  "tooltip_info_item.mcdw.haunted_2"          : "creeping tentacles of this bow",
-  "tooltip_info_item.mcdw.haunted_3"          : "reach for the unknowable Void.",
+  "tooltip_info_item.mcdw.haunted_bow_1"      : "What indescribably horror! The ",
+  "tooltip_info_item.mcdw.haunted_bow_2"      : "creeping tentacles of this bow",
+  "tooltip_info_item.mcdw.haunted_bow_3"      : "reach for the unknowable Void.",
 
   "tooltip_info_item.mcdw.hunters_promise_1"  : "This enchanted bow deepens the",
   "tooltip_info_item.mcdw.hunters_promise_2"  : "bond between the hunter and.",
@@ -502,9 +502,9 @@
   "tooltip_info_item.mcdw.trickbow_1"         : "A sleek bow that seems to",
   "tooltip_info_item.mcdw.trickbow_2"         : "never miss its target.",
 
-  "tooltip_info_item.mcdw.twinbow_1"          : "The Twin Bow is the champion",
-  "tooltip_info_item.mcdw.twinbow_2"          : "of the hero who finds themselves",
-  "tooltip_info_item.mcdw.twinbow_3"          : "outnumbered and alone.",
+  "tooltip_info_item.mcdw.twin_bow_1"         : "The Twin Bow is the champion",
+  "tooltip_info_item.mcdw.twin_bow_2"         : "of the hero who finds themselves",
+  "tooltip_info_item.mcdw.twin_bow_3"         : "outnumbered and alone.",
 
   "tooltip_info_item.mcdw.winters_touch_1"    : "Arrows fired from this legendary",
   "tooltip_info_item.mcdw.winters_touch_2"    : "bow are said to be carried by the",
@@ -608,9 +608,9 @@
   "tooltip_info_item.mcdw.spellbound_crossbow_1"    : "Enchanted enemies are especially vulnerable",
   "tooltip_info_item.mcdw.spellbound_crossbow_2"    : "to the magic of this crossbow.",
 
-  "tooltip_info_item.mcdw.void_caller_crossbow_1"   : "This weapon calls out to souls that",
-  "tooltip_info_item.mcdw.void_caller_crossbow_2"   : "are trapped between this world and",
-  "tooltip_info_item.mcdw.void_caller_crossbow_3"   : "the next.",
+  "tooltip_info_item.mcdw.voidcaller_crossbow_1"    : "This weapon calls out to souls that",
+  "tooltip_info_item.mcdw.voidcaller_crossbow_2"    : "are trapped between this world and",
+  "tooltip_info_item.mcdw.voidcaller_crossbow_3"    : "the next.",
 
   "tooltip_info_item.mcdw.gap": " ",
   "tooltip_note_item.mcdw.dualwield": "Dual Wield",
