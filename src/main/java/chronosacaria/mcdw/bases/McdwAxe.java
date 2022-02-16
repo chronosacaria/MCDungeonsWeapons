@@ -26,9 +26,9 @@ public class McdwAxe extends AxeItem {
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         for (AxesID axesID : AxesID.values()) {
             if (stack.getItem() == ItemsInit.axeItems.get(axesID)) {
-                String str = axesID.toString().toLowerCase();
+                String str = axesID.toString().toLowerCase().substring(4);
                 for (int i = 1; i <= tooltipSize(axesID); i++)
-                    tooltip.add(new TranslatableText("tooltip_info_item.mcdw." + str.substring(4) + "_" + i).formatted(Formatting.ITALIC));
+                    tooltip.add(new TranslatableText("tooltip_info_item.mcdw." + str + "_" + i).formatted(Formatting.ITALIC));
                 break;
             }
         }

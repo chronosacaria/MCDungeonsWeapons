@@ -6,6 +6,7 @@ import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.DaggersID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -34,35 +35,20 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        super.appendTooltip(stack, world, tooltip, tooltipContext);
         for (DaggersID daggersID : DaggersID.values()) {
             if (stack.getItem() == ItemsInit.daggerItems.get(daggersID)) {
-                String str = daggersID.toString().toLowerCase();
-                for (int i = 1; i <= tooltipSize(daggersID); i++)
-                    tooltip.add(new TranslatableText("tooltip_info_item.mcdw." + str.substring(7) + "_" + i).formatted(Formatting.ITALIC));
+                int i = 1;
+                String str = daggersID.toString().toLowerCase().substring(7);
+                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+                while (I18n.hasTranslation(translationKey + i)) {
+                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+                    i++;
+                }
                 tooltip.add(new TranslatableText("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
                 tooltip.add(new TranslatableText("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
                 break;
             }
         }
-    }
-
-    private int tooltipSize(DaggersID daggersID) {
-        return switch (daggersID) {
-
-            case DAGGER_DAGGER -> 2;
-            case DAGGER_FANGS_OF_FROST -> 4;
-            case DAGGER_MOON,
-                    DAGGER_SHEAR_DAGGER,
-                    DAGGER_TEMPEST_KNIFE,
-                    DAGGER_RESOLUTE_TEMPEST_KNIFE,
-                    DAGGER_CHILL_GALE_KNIFE,
-                    DAGGER_BACKSTABBER,
-                    DAGGER_SWIFT_STRIKER,
-                    DAGGER_VOID_TOUCHED_BLADE,
-                    DAGGER_THE_BEGINNING,
-                    DAGGER_THE_END -> 3;
-            //noinspection UnnecessaryDefault
-            default -> 0;
-        };
     }
 }
