@@ -310,13 +310,13 @@
   "tooltip_info_item.mcdw.fangs_of_frost_3"   : "쌍단검은 적들을 얼어붙게",
   "tooltip_info_item.mcdw.fangs_of_frost_4"   : "만든다고 합니다.",
 
-  "tooltip_info_item.mcdw.moon_daggers_1"     : "어두운 밤이면",
-  "tooltip_info_item.mcdw.moon_daggers_2"     : "굽은 칼날이",
-  "tooltip_info_item.mcdw.moon_daggers_3"     : "초승달처럼 빛납니다.",
+  "tooltip_info_item.mcdw.moon_1"             : "어두운 밤이면",
+  "tooltip_info_item.mcdw.moon_2"             : "굽은 칼날이",
+  "tooltip_info_item.mcdw.moon_3"             : "초승달처럼 빛납니다.",
 
-  "tooltip_info_item.mcdw.shear_daggers_1"    : "단순한 농부라도",
-  "tooltip_info_item.mcdw.shear_daggers_2"    : "이 깎아지른듯한 단검을 휘둘러",
-  "tooltip_info_item.mcdw.shear_daggers_3"    : "야만적인 결과를 얻을 수 있습니다.",
+  "tooltip_info_item.mcdw.shear_dagger_1"     : "단순한 농부라도",
+  "tooltip_info_item.mcdw.shear_dagger_2"     : "이 깎아지른듯한 단검을 휘둘러",
+  "tooltip_info_item.mcdw.shear_dagger_3"     : "야만적인 결과를 얻을 수 있습니다.",
 
   "tooltip_info_item.mcdw.soul_knife_1"       : "의식용 나이프로서",
   "tooltip_info_item.mcdw.soul_knife_2"       : "마법 에너지를 사용해",

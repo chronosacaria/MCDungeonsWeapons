@@ -387,13 +387,13 @@
   "tooltip_info_item.mcdw.fangs_of_frost_3"   : "are known to freeze their",
   "tooltip_info_item.mcdw.fangs_of_frost_4"   : "foes to solid ice.",
 
-  "tooltip_info_item.mcdw.moon_daggers_1"     : "These curved blades shine",
-  "tooltip_info_item.mcdw.moon_daggers_2"     : "like the crescent moon on",
-  "tooltip_info_item.mcdw.moon_daggers_3"     : "a dark night.",
+  "tooltip_info_item.mcdw.moon_1"             : "These curved blades shine",
+  "tooltip_info_item.mcdw.moon_2"             : "like the crescent moon on",
+  "tooltip_info_item.mcdw.moon_3"             : "a dark night.",
 
-  "tooltip_info_item.mcdw.shear_daggers_1"    : "Even the simplest of farmers",
-  "tooltip_info_item.mcdw.shear_daggers_2"    : "can wield these Shear Daggers",
-  "tooltip_info_item.mcdw.shear_daggers_3"    : "with savage results",
+  "tooltip_info_item.mcdw.shear_dagger_1"     : "Even the simplest of farmers",
+  "tooltip_info_item.mcdw.shear_dagger_2"     : "can wield these Shear Daggers",
+  "tooltip_info_item.mcdw.shear_dagger_3"     : "with savage results",
 
   "tooltip_info_item.mcdw.backstabber_1"      : "The preferred blade of thieves",
   "tooltip_info_item.mcdw.backstabber_2"      : "and assassins, the Backstabber",

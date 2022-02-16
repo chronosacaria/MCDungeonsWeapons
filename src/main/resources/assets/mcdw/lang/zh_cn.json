@@ -372,13 +372,13 @@
   "tooltip_info_item.mcdw.fangs_of_frost_3"   : "赞的匕首能将敌",
   "tooltip_info_item.mcdw.fangs_of_frost_4"   : "人冻为坚冰。",
 
-  "tooltip_info_item.mcdw.moon_daggers_1"     : "这些弯曲的刀刃",
-  "tooltip_info_item.mcdw.moon_daggers_2"     : "像月牙一样在黑",
-  "tooltip_info_item.mcdw.moon_daggers_3"     : "夜中闪闪发光。",
+  "tooltip_info_item.mcdw.moon_1"             : "这些弯曲的刀刃",
+  "tooltip_info_item.mcdw.moon_2"             : "像月牙一样在黑",
+  "tooltip_info_item.mcdw.moon_3"             : "夜中闪闪发光。",
 
-  "tooltip_info_item.mcdw.shear_daggers_1"    : "即使是最朴素的农民，",
-  "tooltip_info_item.mcdw.shear_daggers_2"    : "也可以用这把匕首",
-  "tooltip_info_item.mcdw.shear_daggers_3"    : "造成残暴的后果。",
+  "tooltip_info_item.mcdw.shear_dagger_1"     : "即使是最朴素的农民，",
+  "tooltip_info_item.mcdw.shear_dagger_2"     : "也可以用这把匕首",
+  "tooltip_info_item.mcdw.shear_dagger_3"     : "造成残暴的后果。",
 
   "tooltip_info_item.mcdw.soul_knife_1"       : "一种礼仪刀，它",
   "tooltip_info_item.mcdw.soul_knife_2"       : "使用魔法能量将愤怒",
