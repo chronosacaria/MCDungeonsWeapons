@@ -39,10 +39,5 @@ public class McdwHammer extends SwordItem {
                 break;
             }
         }
-        if (stack.getItem() == ItemsInit.hammerItems.get(HammersID.HAMMER_GREAT)) {
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_hammer_1").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_hammer_2").formatted(Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip_info_item.mcdw.great_hammer_3").formatted(Formatting.ITALIC));
-        }
     }
 }

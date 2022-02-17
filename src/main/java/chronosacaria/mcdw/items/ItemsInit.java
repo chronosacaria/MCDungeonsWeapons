@@ -241,9 +241,9 @@ public class ItemsInit {
                 continue;
 
             McdwHammer weapon = switch (hammersID) {
-                case HAMMER_GREAT -> new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GREAT).material),
-                        CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GREAT).damage,
-                        CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GREAT).attackSpeed);
+                case HAMMER_GREAT_HAMMER -> new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GREAT_HAMMER).material),
+                        CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GREAT_HAMMER).damage,
+                        CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_GREAT_HAMMER).attackSpeed);
                 case HAMMER_STORMLANDER -> new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_STORMLANDER).material),
                         CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_STORMLANDER).damage,
                         CONFIG.mcdwNewStatsConfig.hammerStats.get(HammersID.HAMMER_STORMLANDER).attackSpeed);

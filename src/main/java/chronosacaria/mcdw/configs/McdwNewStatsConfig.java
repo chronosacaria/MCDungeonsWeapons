@@ -212,7 +212,7 @@ public class McdwNewStatsConfig implements ConfigData {
         soulDaggerStats(materialToString(ToolMaterials.NETHERITE),4, -0.9f, SoulDaggersID.DAGGER_ETERNAL_KNIFE);
         soulDaggerStats(materialToString(ToolMaterials.NETHERITE),3, -1.5f, SoulDaggersID.SWORD_TRUTHSEEKER);
 
-        hammerStats(materialToString(ToolMaterials.IRON),4, -3.0f,HammersID.HAMMER_GREAT);
+        hammerStats(materialToString(ToolMaterials.IRON),4, -3.0f,HammersID.HAMMER_GREAT_HAMMER);
         hammerStats(materialToString(ToolMaterials.DIAMOND),5, -3.0f,HammersID.HAMMER_STORMLANDER);
         hammerStats(materialToString(ToolMaterials.DIAMOND),5, -3.0f,HammersID.HAMMER_GRAVITY);
         hammerStats(materialToString(ToolMaterials.IRON),4, -2.9f,HammersID.HAMMER_MACE);

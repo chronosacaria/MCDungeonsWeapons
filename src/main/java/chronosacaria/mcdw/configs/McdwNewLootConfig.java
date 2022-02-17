@@ -112,7 +112,7 @@ public class McdwNewLootConfig implements ConfigData {
         glaiveSpawnRates.put(GlaivesID.SPEAR_CACKLING_BROOM, 0.05f);
 
         //HAMMERS
-        hammerSpawnRates.put(HammersID.HAMMER_GREAT, 0.1f);
+        hammerSpawnRates.put(HammersID.HAMMER_GREAT_HAMMER, 0.1f);
         hammerSpawnRates.put(HammersID.HAMMER_STORMLANDER, 0.05f);
         hammerSpawnRates.put(HammersID.HAMMER_GRAVITY, 0.05f);
         hammerSpawnRates.put(HammersID.HAMMER_MACE, 0.1f);

@@ -98,9 +98,9 @@ public class McdwNewLoottables {
                             addWeapon(poolBuilder, ItemsInit.hammerItems.get(HammersID.HAMMER_MACE),
                                     CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_MACE));
                         }
-                        if (CONFIG.mcdwEnableItemsConfig.hammersEnabled.get(HammersID.HAMMER_GREAT)) {
-                            addWeapon(poolBuilder, ItemsInit.hammerItems.get(HammersID.HAMMER_GREAT),
-                                    CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_GREAT));
+                        if (CONFIG.mcdwEnableItemsConfig.hammersEnabled.get(HammersID.HAMMER_GREAT_HAMMER)) {
+                            addWeapon(poolBuilder, ItemsInit.hammerItems.get(HammersID.HAMMER_GREAT_HAMMER),
+                                    CONFIG.mcdwNewlootConfig.hammerSpawnRates.get(HammersID.HAMMER_GREAT_HAMMER));
                         }
                         if (CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(SwordsID.SWORD_IRON_SWORD_VAR)) {
                             addWeapon(poolBuilder, ItemsInit.swordItems.get(SwordsID.SWORD_IRON_SWORD_VAR),
