@@ -30,5 +30,4 @@ public class McdwConfig extends PartitioningSerializer.GlobalData {
                 PartitioningSerializer.wrap(GsonConfigSerializer::new)
         );
     }
-
 }
