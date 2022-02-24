@@ -49,7 +49,8 @@ public class McdwGlaive extends SwordItem {
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool" +
                 " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range", 1.0,
+        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
+                Mcdw.CONFIG.mcdwNewStatsConfig.doubleAttackReachOfGlaives ? 2 : 1,
                 EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
     }

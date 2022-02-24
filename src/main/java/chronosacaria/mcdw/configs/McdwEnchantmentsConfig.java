@@ -15,5 +15,6 @@ public class McdwEnchantmentsConfig implements ConfigData {
     public McdwEnchantmentsConfig(){
         for (EnchantmentsID enchantmentsID : EnchantmentsID.values())
             enableEnchantments.put(enchantmentsID, true);
+        enableEnchantments.replace(EnchantmentsID.ACCELERATE, false);
     }
 }

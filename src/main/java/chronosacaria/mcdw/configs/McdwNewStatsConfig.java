@@ -26,14 +26,19 @@ public class McdwNewStatsConfig implements ConfigData {
     public HashMap<ScythesID, MeleeWeaponStats> scytheStats = new HashMap<>();
     public HashMap<PicksID, MeleeWeaponStats> pickStats = new HashMap<>();
     public HashMap<GlaivesID, MeleeWeaponStats> glaiveStats = new HashMap<>();
+    public boolean doubleAttackReachOfGlaives = false;
     public HashMap<SpearsID, MeleeWeaponStats> spearStats = new HashMap<>();
+    public boolean doubleAttackReachOfSpears = false;
     public HashMap<StavesID, MeleeWeaponStats> staffStats = new HashMap<>();
+    public boolean doubleAttackReachOfStaves = false;
     public HashMap<WhipsID, MeleeWeaponStats> whipStats = new HashMap<>();
     public HashMap<BowsID, RangedWeaponStats> bowStats = new HashMap<>();
     public HashMap<ShortBowsID, RangedWeaponStats> shortBowStats = new HashMap<>();
     public HashMap<LongBowsID, RangedWeaponStats> longBowStats = new HashMap<>();
     public HashMap<CrossbowsID, RangedWeaponStats> crossbowStats = new HashMap<>();
     public HashMap<ShieldsID, ShieldStats> shieldStats = new HashMap<>();
+
+
 
     // convenience methods:
     protected MeleeWeaponStats swordStats(String material, int damage, float attackSpeed, SwordsID swordsID){
