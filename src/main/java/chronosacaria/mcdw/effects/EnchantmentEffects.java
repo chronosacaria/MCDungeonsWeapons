@@ -217,13 +217,14 @@ public class EnchantmentEffects {
         int committedLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(committedEntity, EnchantsRegistry.COMMITTED);
         if (committedLevel > 0) {
 
-            float getTargetRemainingHealth = MathHelper.clamp(target.getHealth() / target.getMaxHealth(), 0, 1);
-            float attributeDamage = (float) committedEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-            float committedMultiplier = 0.2F * committedLevel;
-
             if (CleanlinessHelper.percentToOccur(30)) {
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_GENERIC_EXPLODE, 0.5F, 1.0F);
+
+                float getTargetRemainingHealth = MathHelper.clamp(target.getHealth() / target.getMaxHealth(), 0, 1);
+                float attributeDamage = (float) committedEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                float committedMultiplier = 0.2F * committedLevel;
+
                 float getExtraDamage = attributeDamage * (1 - getTargetRemainingHealth) * committedMultiplier;
                 return Math.max(getExtraDamage, 0f);
             }
@@ -379,7 +380,7 @@ public class EnchantmentEffects {
 
     //mcdw$onApplyDamageTail
     public static void echoDamage(LivingEntity echoEntity, LivingEntity target, float amount) {
-        int echoLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(echoEntity, EnchantsRegistry.CRITICAL_HIT);
+        int echoLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(echoEntity, EnchantsRegistry.ECHO);
         if (echoLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(10 + (15 * echoLevel))) {
