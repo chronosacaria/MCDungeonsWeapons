@@ -19,5 +19,4 @@ public interface IRangedWeapon {
     default boolean shootsFreezingArrows(ItemStack stack){
         return false;
     }
-
 }

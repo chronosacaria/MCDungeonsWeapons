@@ -47,7 +47,8 @@ public class McdwStaff extends AxeItem {
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool" +
                 " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range", 0.75,
+        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
+                Mcdw.CONFIG.mcdwNewStatsConfig.doubleAttackReachOfStaves ? 1.5 : 0.75,
                 EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
     }

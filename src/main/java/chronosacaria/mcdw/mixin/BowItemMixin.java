@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IBowTimings;
 import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
@@ -8,6 +9,7 @@ import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.BowItem;
@@ -18,10 +20,20 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BowItem.class)
-public class BowItemMixin {
+public abstract class BowItemMixin implements IBowTimings{
+    private LivingEntity livingEntity;
+
+    public LivingEntity getLivingEntity() { return this.livingEntity; }
+
+    public void setLivingEntity(LivingEntity livingEntity){
+        this.livingEntity = livingEntity;
+    }
+
     @Inject(method = "onStoppedUsing", at = @At("HEAD"))
     public void mcdw$createBonusShotArrowForBow(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BONUS_SHOT)){
@@ -53,5 +65,23 @@ public class BowItemMixin {
                 world.spawnEntity(persistentProjectileEntity);
             }
         }
+    }
+    
+    @Inject(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getMaxUseTime(Lnet/minecraft/item/ItemStack;)I"))
+    private void mcdw$livingEntityGetter(ItemStack stack, World world, LivingEntity user,
+                                                int remainingUseTicks, CallbackInfo ci){
+        this.setLivingEntity(user);
+    }
+
+    @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getPullProgress(I)F"))
+    private int mcdw$acceleratedPullProgress(int value){
+        LivingEntity livingEntity = getLivingEntity();
+
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
+            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, livingEntity.getMainHandStack());
+
+            return (int) (value * (1 + ((6.0f + 2.0f * accelerateLevel) / 100)));
+        }
+        return value;
     }
 }
