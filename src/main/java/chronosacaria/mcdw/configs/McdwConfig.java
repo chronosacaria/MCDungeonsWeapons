@@ -4,7 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
+import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 
 @Config(name = Mcdw.MOD_ID)
@@ -27,7 +27,7 @@ public class McdwConfig extends PartitioningSerializer.GlobalData {
 
     public static void init() {
         AutoConfig.register(McdwConfig.class,
-                PartitioningSerializer.wrap(GsonConfigSerializer::new)
+                PartitioningSerializer.wrap(JanksonConfigSerializer::new)
         );
     }
 }
