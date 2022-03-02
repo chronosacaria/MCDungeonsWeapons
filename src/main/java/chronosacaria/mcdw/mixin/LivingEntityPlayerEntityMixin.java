@@ -119,30 +119,36 @@ public class LivingEntityPlayerEntityMixin {
 
     @Inject(method = "onDeath", at = @At("HEAD"))
     private void mcdw$onDeath(DamageSource source, CallbackInfo ci) {
-        if (!(source.getAttacker() instanceof LivingEntity attackingEntity))
-            return;
+        if (source.getAttacker() instanceof LivingEntity attackingEntity) {
 
-        LivingEntity victim = (LivingEntity) (Object) this;
+            LivingEntity victim = (LivingEntity) (Object) this;
 
-        if (source.getSource() instanceof LivingEntity) {
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.EXPLODING))
-                EnchantmentEffects.explodingDamage(attackingEntity, victim);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RAMPAGING))
-                EnchantmentEffects.applyRampaging(attackingEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEECHING))
-                EnchantmentEffects.applyLeeching(attackingEntity, victim);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT))
-                EnchantmentEffects.applyRefreshment((PlayerEntity) attackingEntity);
+            if (source.getSource() instanceof LivingEntity) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.EXPLODING))
+                    EnchantmentEffects.explodingDamage(attackingEntity, victim);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RAMPAGING))
+                    EnchantmentEffects.applyRampaging(attackingEntity);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEECHING))
+                    EnchantmentEffects.applyLeeching(attackingEntity, victim);
 
-            if (!PlayerAttackHelper.isLikelyNotMeleeDamage(source)) {
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GUARDING_STRIKE))
-                    EnchantmentEffects.applyGuardingStrike(attackingEntity);
+                if (!PlayerAttackHelper.isLikelyNotMeleeDamage(source)) {
+                    if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GUARDING_STRIKE))
+                        EnchantmentEffects.applyGuardingStrike(attackingEntity);
+                }
             }
         }
 
-        if (source.isProjectile()){
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT))
-                EnchantmentEffects.applyRefreshment((PlayerEntity) attackingEntity);
+        if (source.getAttacker() instanceof PlayerEntity attackingEntity) {
+
+            if (source.getSource() instanceof LivingEntity) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT))
+                    EnchantmentEffects.applyRefreshment(attackingEntity);
+            }
+
+            if (source.isProjectile()) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT))
+                    EnchantmentEffects.applyRefreshment(attackingEntity);
+            }
         }
     }
 

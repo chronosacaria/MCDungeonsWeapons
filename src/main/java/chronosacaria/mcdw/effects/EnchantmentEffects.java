@@ -81,7 +81,7 @@ public class EnchantmentEffects {
 
     //mcdw$onDeath
     public static void applyProspector(LivingEntity prospectingEntity, LivingEntity victim) {
-        int prospectorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(prospectingEntity, EnchantsRegistry.SOUL_SIPHON);
+        int prospectorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(prospectingEntity, EnchantsRegistry.PROSPECTOR);
         if (prospectorLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(5 * prospectorLevel)) {
