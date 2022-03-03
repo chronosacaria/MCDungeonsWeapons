@@ -73,7 +73,7 @@ public abstract class BowItemMixin implements IBowTimings{
         this.setLivingEntity(user);
     }
 
-    @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getPullProgress(I)F"))
+    @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getPullProgress(I)F"), index = 0)
     private int mcdw$acceleratedPullProgress(int value){
         LivingEntity livingEntity = getLivingEntity();
 
