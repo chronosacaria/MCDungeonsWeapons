@@ -1,10 +1,12 @@
 package chronosacaria.mcdw.effects;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.BowsID;
+import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import net.minecraft.block.Blocks;
@@ -165,7 +167,9 @@ public class EnchantmentEffects {
             if (numSouls > 0) {
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
-                float extraDamageMultiplier = (float) (Math.log(numSouls * resonatorLevel)) / 1.75F;
+                float extraDamageMultiplier =
+                        (float) (Math.log(numSouls * resonatorLevel)) /
+                                Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentStatsSettings.get(EnchantStatsID.VOID_STRIKE_DIVISOR);
 
                 return Math.max(extraDamageMultiplier, 1f);
             }
