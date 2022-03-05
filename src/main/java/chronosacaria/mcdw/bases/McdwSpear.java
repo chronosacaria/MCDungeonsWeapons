@@ -2,16 +2,12 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.enums.GlaivesID;
 import chronosacaria.mcdw.enums.SpearsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.EquipmentSlot;
@@ -21,7 +17,6 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -77,16 +72,6 @@ public class McdwSpear extends McdwCustomWeaponBase implements Vanishable {
         return !miner.isCreative();
     }
 
-    @Override
-    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-        Block block = state.getBlock();
-        if (block == Blocks.COBWEB){
-            return 15.0F;
-        } else {
-            Material material = state.getMaterial();
-            return material != Material.PLANT && material != Material.REPLACEABLE_PLANT && material != Material.UNDERWATER_PLANT && !state.isIn(BlockTags.LEAVES) && material != Material.GOURD ? 1.0F : 1.5F;
-        }
-    }
     // Damage to tool upon usage
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
