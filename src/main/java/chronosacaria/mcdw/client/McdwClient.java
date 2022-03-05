@@ -18,7 +18,6 @@ public class McdwClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        SummonedEntityRegistry.register();
 
         EntityRendererRegistry.register(SummonedEntityRegistry.SUMMONED_BEE_ENTITY, SummonedBeeRenderer::new);
 
