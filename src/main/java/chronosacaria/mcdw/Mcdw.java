@@ -1,6 +1,7 @@
 package chronosacaria.mcdw;
 
-import chronosacaria.mcdw.configs.*;
+import chronosacaria.mcdw.configs.McdwConfig;
+import chronosacaria.mcdw.configs.McdwEnchantsGiverConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enums.LongBowsID;

@@ -1,7 +1,7 @@
 package chronosacaria.mcdw.enchants.goals;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.passive.*;
+import net.minecraft.entity.passive.HorseBaseEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;

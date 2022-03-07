@@ -2,12 +2,16 @@ package chronosacaria.mcdw.items;
 
 import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enums.*;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.registry.Registry;
 
 import java.util.EnumMap;
 
-import static chronosacaria.mcdw.Mcdw.*;
+import static chronosacaria.mcdw.Mcdw.CONFIG;
+import static chronosacaria.mcdw.Mcdw.ID;
 
 public class ItemsInit {
 
