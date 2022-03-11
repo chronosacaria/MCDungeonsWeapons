@@ -2,6 +2,7 @@ package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IBowTimings;
+import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
@@ -10,6 +11,7 @@ import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.BowItem;
@@ -22,6 +24,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(BowItem.class)
 public abstract class BowItemMixin implements IBowTimings{
@@ -68,7 +71,77 @@ public abstract class BowItemMixin implements IBowTimings{
             }
         }
     }
-    
+
+    @Inject(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/projectile" +
+            "/PersistentProjectileEntity;setVelocity(Lnet/minecraft/entity/Entity;FFFFF)V"), locals = LocalCapture.CAPTURE_FAILHARD)
+    private void mcdw$applyBowEnchantmentLevel(ItemStack stack, World world, LivingEntity user, int remainingUseTicks,
+                                 CallbackInfo ci, PlayerEntity playerEntity, boolean bl, ItemStack itemStack, int i, float f, boolean bl2, ArrowItem arrowItem, PersistentProjectileEntity persistentProjectileEntity){
+        int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
+        if (accelerateLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setAccelerateLevel(accelerateLevel);
+        }
+        int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
+        if (bonusShotLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setBonusShotLevel(bonusShotLevel);
+        }
+        int chainReactionLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, stack);
+        if (chainReactionLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setChainReactionLevel(chainReactionLevel);
+        }
+        int chargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHARGE, stack);
+        if (chargeLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setChargeLevel(chargeLevel);
+        }
+        int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, stack);
+        if (cobwebShotLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setCobwebShotLevel(cobwebShotLevel);
+        }
+        int fuseShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, stack);
+        if (fuseShotLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setFuseShotLevel(fuseShotLevel);
+        }
+        int gravityLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, stack);
+        if (gravityLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setGravityLevel(gravityLevel);
+        }
+        int growingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, stack);
+        if (growingLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setGrowingLevel(growingLevel);
+        }
+        int levitationShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.LEVITATION_SHOT, stack);
+        if (levitationShotLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setLevitationShotLevel(levitationShotLevel);
+        }
+        int phantomsMarkLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PHANTOMS_MARK, stack);
+        if (phantomsMarkLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setPhantomsMarkLevel(phantomsMarkLevel);
+        }
+        int poisonCloudLevel = EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, stack);
+        if (poisonCloudLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setPoisonCloudLevel(poisonCloudLevel);
+        }
+        int radianceLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, stack);
+        if (radianceLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setRadianceLevel(radianceLevel);
+        }
+        int replenishLevel = EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, stack);
+        if (replenishLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setReplenishLevel(replenishLevel);
+        }
+        int ricochetLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, stack);
+        if (ricochetLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setRicochetLevel(ricochetLevel);
+        }
+        int tempoTheftLevel = EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, stack);
+        if (tempoTheftLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setTempoTheftLevel(tempoTheftLevel);
+        }
+        int voidShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_SHOT, stack);
+        if (voidShotLevel > 0) {
+            ((IMcdwEnchantedArrow)persistentProjectileEntity).setVoidShotLevel(voidShotLevel);
+        }
+    }
+
     @Inject(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getMaxUseTime(Lnet/minecraft/item/ItemStack;)I"))
     private void mcdw$livingEntityGetter(ItemStack stack, World world, LivingEntity user,
                                                 int remainingUseTicks, CallbackInfo ci){

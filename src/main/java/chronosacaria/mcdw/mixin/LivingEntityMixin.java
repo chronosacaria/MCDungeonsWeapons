@@ -157,9 +157,9 @@ public class LivingEntityMixin {
         if (user != null) {
             mainHandStack = user.getMainHandStack();
         }
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_DEVOURER)) {
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, mainHandStack) > 0)) {
-                int level = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, mainHandStack);
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DIPPING_POISON)) {
+            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, mainHandStack) > 0)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, mainHandStack);
                 if (user instanceof PlayerEntity) {
                     if (level > 0) {
                         List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(user.getOffHandStack());

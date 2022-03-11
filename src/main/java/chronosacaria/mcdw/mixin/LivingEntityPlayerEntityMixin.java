@@ -65,8 +65,7 @@ public class LivingEntityPlayerEntityMixin {
         if (amount > 0) {
 
             if (source.getSource() instanceof LivingEntity) {
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CHARGE))
-                    EnchantmentEffects.applyCharge(attackingEntity);
+
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.FREEZING))
                     EnchantmentEffects.applyFreezing(attackingEntity, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.POISONING))
@@ -91,11 +90,6 @@ public class LivingEntityPlayerEntityMixin {
                         EnchantmentEffects.applyChains(attackingEntity, victim);
                     if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GRAVITY))
                         EnchantmentEffects.applyGravity(attackingEntity, victim);
-                }
-
-                if (source.isProjectile()) {
-                    if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.TEMPO_THEFT))
-                        EnchantmentEffects.applyTempoTheft(attackingEntity, victim);
                 }
             }
         }
