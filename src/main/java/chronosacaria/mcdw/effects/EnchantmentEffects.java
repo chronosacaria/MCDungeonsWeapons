@@ -474,7 +474,7 @@ public class EnchantmentEffects {
     public static void applyCobwebShotEntity(LivingEntity target, PersistentProjectileEntity ppe) {
 
         IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getCobwebShotLevel() <= 0) {
+        if (enchantedArrow.getCobwebShotLevel() > 0) {
             World targetWorld = target.getEntityWorld();
             BlockPos targetPos = target.getBlockPos();
             if (targetWorld.getBlockState(targetPos) == Blocks.AIR.getDefaultState())
@@ -579,7 +579,7 @@ public class EnchantmentEffects {
     public static void applyCobwebShotBlock(LivingEntity shooter, BlockHitResult blockHitResult, PersistentProjectileEntity ppe) {
 
         IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getCobwebShotLevel() <= 0) {
+        if (enchantedArrow.getCobwebShotLevel() > 0) {
             World shooterWorld = shooter.getEntityWorld();
             Direction side = blockHitResult.getSide();
             if (shooterWorld.getBlockState(blockHitResult.getBlockPos().offset(side)) == Blocks.AIR.getDefaultState())

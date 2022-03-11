@@ -37,7 +37,7 @@ public abstract class BowItemMixin implements IBowTimings{
     }
 
     @Inject(method = "onStoppedUsing", at = @At("HEAD"))
-    public void mcdw$createBonusShotArrowForBow(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
+    public void mcdw$onStoppedUsingBow(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BONUS_SHOT)){
             if (McdwEnchantmentHelper.hasEnchantment(stack, EnchantsRegistry.BONUS_SHOT)){
                 int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
@@ -48,10 +48,6 @@ public abstract class BowItemMixin implements IBowTimings{
                 }
             }
         }
-    }
-
-    @Inject(method = "onStoppedUsing", at = @At("HEAD"))
-    private void mcdw$createMultiShotArrows(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.MULTI_SHOT)) {
             int multiShotLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(user, Enchantments.MULTISHOT);
             if (multiShotLevel > 0) {
@@ -75,70 +71,102 @@ public abstract class BowItemMixin implements IBowTimings{
     @Inject(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/projectile" +
             "/PersistentProjectileEntity;setVelocity(Lnet/minecraft/entity/Entity;FFFFF)V"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void mcdw$applyBowEnchantmentLevel(ItemStack stack, World world, LivingEntity user, int remainingUseTicks,
-                                 CallbackInfo ci, PlayerEntity playerEntity, boolean bl, ItemStack itemStack, int i, float f, boolean bl2, ArrowItem arrowItem, PersistentProjectileEntity persistentProjectileEntity){
+                                 CallbackInfo ci, PlayerEntity playerEntity, boolean bl, ItemStack itemStack, int i, float f, boolean bl2,
+                                               ArrowItem arrowItem, PersistentProjectileEntity ppe){
+        //Write MCDW enchantments to ppe
+
+        /*
+        NbtList nbtList = stack.getEnchantments();
+
+        for (NbtElement nbtElement: nbtList) {
+            NbtCompound nbtCompound = (NbtCompound) nbtElement;
+            Identifier identifier = EnchantmentHelper.getIdFromNbt(nbtCompound);
+            if (identifier != null) {
+                String test = nbtCompound.getString("id");
+                if (test.startsWith("mcdw:")) {
+                    Enchantment enchantment = Registry.ENCHANTMENT.get(identifier);
+                    int k = EnchantmentHelper.getLevelFromNbt(nbtCompound);
+                    if (k > 0) {
+
+                        playerEntity.sendMessage(Text.of(nbtCompound.asString()), false);
+                        ppe.writeCustomDataToNbt(nbtCompound);
+
+                        test = test.substring(5);
+                        playerEntity.sendMessage(Text.of(test + ", lvl: " + k), false);
+                    }
+                }
+            }
+        }*/
+
+        //if (stack.isOf(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW))) {
+        //    NbtCompound nbtCompound = new NbtCompound();
+        //    nbtCompound.putBoolean("mcdwHarpoon", true);
+        //    ppe.writeCustomDataToNbt(nbtCompound);
+        //}
+
         int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
         if (accelerateLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setAccelerateLevel(accelerateLevel);
+            ((IMcdwEnchantedArrow)ppe).setAccelerateLevel(accelerateLevel);
         }
         int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
         if (bonusShotLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setBonusShotLevel(bonusShotLevel);
+            ((IMcdwEnchantedArrow)ppe).setBonusShotLevel(bonusShotLevel);
         }
         int chainReactionLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, stack);
         if (chainReactionLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setChainReactionLevel(chainReactionLevel);
+            ((IMcdwEnchantedArrow)ppe).setChainReactionLevel(chainReactionLevel);
         }
         int chargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHARGE, stack);
         if (chargeLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setChargeLevel(chargeLevel);
+            ((IMcdwEnchantedArrow)ppe).setChargeLevel(chargeLevel);
         }
         int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, stack);
         if (cobwebShotLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setCobwebShotLevel(cobwebShotLevel);
+            ((IMcdwEnchantedArrow)ppe).setCobwebShotLevel(cobwebShotLevel);
         }
         int fuseShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, stack);
         if (fuseShotLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setFuseShotLevel(fuseShotLevel);
+            ((IMcdwEnchantedArrow)ppe).setFuseShotLevel(fuseShotLevel);
         }
         int gravityLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, stack);
         if (gravityLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setGravityLevel(gravityLevel);
+            ((IMcdwEnchantedArrow)ppe).setGravityLevel(gravityLevel);
         }
         int growingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, stack);
         if (growingLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setGrowingLevel(growingLevel);
+            ((IMcdwEnchantedArrow)ppe).setGrowingLevel(growingLevel);
         }
         int levitationShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.LEVITATION_SHOT, stack);
         if (levitationShotLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setLevitationShotLevel(levitationShotLevel);
+            ((IMcdwEnchantedArrow)ppe).setLevitationShotLevel(levitationShotLevel);
         }
         int phantomsMarkLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PHANTOMS_MARK, stack);
         if (phantomsMarkLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setPhantomsMarkLevel(phantomsMarkLevel);
+            ((IMcdwEnchantedArrow)ppe).setPhantomsMarkLevel(phantomsMarkLevel);
         }
         int poisonCloudLevel = EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, stack);
         if (poisonCloudLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setPoisonCloudLevel(poisonCloudLevel);
+            ((IMcdwEnchantedArrow)ppe).setPoisonCloudLevel(poisonCloudLevel);
         }
         int radianceLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, stack);
         if (radianceLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setRadianceLevel(radianceLevel);
+            ((IMcdwEnchantedArrow)ppe).setRadianceLevel(radianceLevel);
         }
         int replenishLevel = EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, stack);
         if (replenishLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setReplenishLevel(replenishLevel);
+            ((IMcdwEnchantedArrow)ppe).setReplenishLevel(replenishLevel);
         }
         int ricochetLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, stack);
         if (ricochetLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setRicochetLevel(ricochetLevel);
+            ((IMcdwEnchantedArrow)ppe).setRicochetLevel(ricochetLevel);
         }
         int tempoTheftLevel = EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, stack);
         if (tempoTheftLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setTempoTheftLevel(tempoTheftLevel);
+            ((IMcdwEnchantedArrow)ppe).setTempoTheftLevel(tempoTheftLevel);
         }
         int voidShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_SHOT, stack);
         if (voidShotLevel > 0) {
-            ((IMcdwEnchantedArrow)persistentProjectileEntity).setVoidShotLevel(voidShotLevel);
+            ((IMcdwEnchantedArrow)ppe).setVoidShotLevel(voidShotLevel);
         }
     }
 

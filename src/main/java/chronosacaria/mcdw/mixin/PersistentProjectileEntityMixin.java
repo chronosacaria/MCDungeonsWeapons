@@ -38,7 +38,6 @@ public class PersistentProjectileEntityMixin implements IMcdwEnchantedArrow {
     private int tempoTheftLevel = 0;
     private int voidShotLevel = 0;
 
-
     @Override
     public int getAccelerateLevel() {
         return accelerateLevel;
@@ -197,7 +196,7 @@ public class PersistentProjectileEntityMixin implements IMcdwEnchantedArrow {
         this.voidShotLevel = voidShotLevel;
     }
 
-    @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
+    @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void mcdw$nbtToTag(NbtCompound tag, CallbackInfo ci){
         tag.putInt("accelerateLevel", accelerateLevel);
         tag.putInt("bonusShotLevel", bonusShotLevel);
@@ -289,11 +288,11 @@ public class PersistentProjectileEntityMixin implements IMcdwEnchantedArrow {
 
     @Inject(method = "getDragInWater", at = @At("HEAD"), cancellable = true)
     public void onHarpoonArrowFire(CallbackInfoReturnable<Float> cir) {
-        PersistentProjectileEntity persistentProjectileEntity = (PersistentProjectileEntity) (Object) this;
-        if (persistentProjectileEntity.getOwner() instanceof LivingEntity shooter) {
+        PersistentProjectileEntity ppe = (PersistentProjectileEntity) (Object) this;
+        if (ppe.getOwner() instanceof LivingEntity shooter) {
 
             if (shooter.getMainHandStack().getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)) {
-                if (persistentProjectileEntity.isTouchingWater()) {
+                if (ppe.isTouchingWater()) {
                     float m = 0.85f;
                     cir.setReturnValue(m);
                 }
