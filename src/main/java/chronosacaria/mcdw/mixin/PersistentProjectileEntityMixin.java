@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PersistentProjectileEntity.class)
-public class PersistentProjectileEntityMixin implements IMcdwEnchantedArrow {
+public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedArrow {
 
     private int accelerateLevel = 0;
     private int bonusShotLevel = 0;

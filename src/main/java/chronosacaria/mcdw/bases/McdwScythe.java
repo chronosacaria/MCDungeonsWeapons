@@ -16,6 +16,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 
 public class McdwScythe extends SwordItem {
     public McdwScythe(ToolMaterial material, int attackDamage, float attackSpeed) {
@@ -28,7 +29,7 @@ public class McdwScythe extends SwordItem {
         for (ScythesID scythesID : ScythesID.values()) {
             if (stack.getItem() == ItemsInit.scytheItems.get(scythesID)) {
                 int i = 1;
-                String str = scythesID.toString().toLowerCase().substring(7);
+                String str = scythesID.toString().toLowerCase(Locale.ROOT).substring(7);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
                     tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));

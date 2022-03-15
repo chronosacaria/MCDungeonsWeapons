@@ -24,6 +24,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Predicate;
 
 import static chronosacaria.mcdw.api.util.RangedAttackHelper.getVanillaBowChargeTime;
@@ -180,7 +181,7 @@ public class McdwShortBow extends BowItem implements IRangedWeapon {
         for (ShortBowsID shortBowsID : ShortBowsID.values()) {
             if (stack.getItem() == ItemsInit.shortBowItems.get(shortBowsID)) {
                 int i = 1;
-                String str = shortBowsID.toString().toLowerCase().substring(4);
+                String str = shortBowsID.toString().toLowerCase(Locale.ROOT).substring(4);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
                     tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));

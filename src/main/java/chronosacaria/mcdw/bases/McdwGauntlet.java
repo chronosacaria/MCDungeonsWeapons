@@ -20,6 +20,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 
 public class McdwGauntlet extends SwordItem implements IOffhandAttack {
 
@@ -39,7 +40,7 @@ public class McdwGauntlet extends SwordItem implements IOffhandAttack {
         for (GauntletsID gauntletsID : GauntletsID.values()) {
             if (stack.getItem() == ItemsInit.gauntletItems.get(gauntletsID)) {
                 int i = 1;
-                String str = gauntletsID.toString().toLowerCase().substring(9);
+                String str = gauntletsID.toString().toLowerCase(Locale.ROOT).substring(9);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
                     tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));

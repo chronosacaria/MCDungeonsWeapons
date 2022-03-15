@@ -27,6 +27,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 
 public class McdwGlaive extends SwordItem {
 
@@ -102,7 +103,7 @@ public class McdwGlaive extends SwordItem {
         for (GlaivesID glaivesID : GlaivesID.values()) {
             if (stack.getItem() == ItemsInit.glaiveItems.get(glaivesID)) {
                 int i = 1;
-                String str = glaivesID.toString().toLowerCase().substring(6);
+                String str = glaivesID.toString().toLowerCase(Locale.ROOT).substring(6);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
                     tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));

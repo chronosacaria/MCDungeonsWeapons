@@ -27,6 +27,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 
 public class McdwWhip extends McdwCustomWeaponBase implements Vanishable {
 
@@ -103,7 +104,7 @@ public class McdwWhip extends McdwCustomWeaponBase implements Vanishable {
         for (WhipsID whipsID : WhipsID.values()) {
             if (stack.getItem() == ItemsInit.whipItems.get(whipsID)) {
                 int i = 1;
-                String str = whipsID.toString().toLowerCase().substring(5);
+                String str = whipsID.toString().toLowerCase(Locale.ROOT).substring(5);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
                     tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));

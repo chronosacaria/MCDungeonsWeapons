@@ -25,6 +25,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 
 public class McdwStaff extends AxeItem {
 
@@ -107,7 +108,7 @@ public class McdwStaff extends AxeItem {
         for (StavesID stavesID : StavesID.values()) {
             if (stack.getItem() == ItemsInit.staffItems.get(stavesID)) {
                 int i = 1;
-                String str = stavesID.toString().toLowerCase().substring(6);
+                String str = stavesID.toString().toLowerCase(Locale.ROOT).substring(6);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
                     tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));

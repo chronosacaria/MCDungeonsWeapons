@@ -16,6 +16,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 
 public class McdwAxe extends AxeItem {
     public McdwAxe(ToolMaterial material, float attackDamage, float attackSpeed){
@@ -29,7 +30,7 @@ public class McdwAxe extends AxeItem {
         for (AxesID axesID : AxesID.values()) {
             if (stack.getItem() == ItemsInit.axeItems.get(axesID)) {
                 int i = 1;
-                String str = axesID.toString().toLowerCase().substring(4);
+                String str = axesID.toString().toLowerCase(Locale.ROOT).substring(4);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
                     tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));

@@ -27,6 +27,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 
 public class McdwSpear extends McdwCustomWeaponBase implements Vanishable {
 
@@ -103,7 +104,7 @@ public class McdwSpear extends McdwCustomWeaponBase implements Vanishable {
         for (SpearsID spearsID : SpearsID.values()) {
             if (stack.getItem() == ItemsInit.spearItems.get(spearsID)) {
                 int i = 1;
-                String str = spearsID.toString().toLowerCase().substring(6);
+                String str = spearsID.toString().toLowerCase(Locale.ROOT).substring(6);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
                     tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));

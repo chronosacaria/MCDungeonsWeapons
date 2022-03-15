@@ -14,6 +14,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 
 public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
 
@@ -96,7 +97,7 @@ public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
         for (CrossbowsID crossbowsID : CrossbowsID.values()) {
             if (stack.getItem() == ItemsInit.crossbowItems.get(crossbowsID)) {
                 int i = 1;
-                String str = crossbowsID.toString().toLowerCase().substring(9);
+                String str = crossbowsID.toString().toLowerCase(Locale.ROOT).substring(9);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
                     tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));

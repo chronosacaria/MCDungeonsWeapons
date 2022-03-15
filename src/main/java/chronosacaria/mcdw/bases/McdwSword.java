@@ -16,6 +16,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 
 public class McdwSword extends SwordItem {
 
@@ -30,7 +31,7 @@ public class McdwSword extends SwordItem {
        for (SwordsID swordsID : SwordsID.values()) {
            if (stack.getItem() == ItemsInit.swordItems.get(swordsID)) {
                int i = 1;
-               String str = swordsID.toString().toLowerCase().substring(6);
+               String str = swordsID.toString().toLowerCase(Locale.ROOT).substring(6);
                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                while (I18n.hasTranslation(translationKey + i)) {
                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));

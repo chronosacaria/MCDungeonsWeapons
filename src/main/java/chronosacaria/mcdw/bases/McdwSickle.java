@@ -20,6 +20,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Locale;
 
 public class McdwSickle extends SwordItem implements IOffhandAttack {
     public McdwSickle(ToolMaterial material, int attackDamage, float attackSpeed) {
@@ -38,7 +39,7 @@ public class McdwSickle extends SwordItem implements IOffhandAttack {
         for (SicklesID sicklesID : SicklesID.values()) {
             if (stack.getItem() == ItemsInit.sickleItems.get(sicklesID)) {
                 int i = 1;
-                String str = sicklesID.toString().toLowerCase().substring(7);
+                String str = sicklesID.toString().toLowerCase(Locale.ROOT).substring(7);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
                     tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
