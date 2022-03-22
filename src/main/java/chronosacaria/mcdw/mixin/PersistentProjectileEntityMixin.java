@@ -3,9 +3,7 @@ package chronosacaria.mcdw.mixin;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
-import chronosacaria.mcdw.enums.CrossbowsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
-import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -22,14 +20,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedArrow {
 
     private int accelerateLevel = 0;
-    private int bonusShotLevel = 0;
     private int chainReactionLevel = 0;
     private int chargeLevel = 0;
     private int cobwebShotLevel = 0;
+    private int enigmaResonatorLevel = 0;
     private int fuseShotLevel = 0;
     private int gravityLevel = 0;
     private int growingLevel = 0;
     private int levitationShotLevel = 0;
+    private boolean nautilusBoolean = false;
     private int phantomsMarkLevel = 0;
     private int poisonCloudLevel = 0;
     private int radianceLevel = 0;
@@ -46,16 +45,6 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Override
     public void setAccelerateLevel(int accelerateLevel) {
         this.accelerateLevel = accelerateLevel;
-    }
-
-    @Override
-    public int getBonusShotLevel() {
-        return bonusShotLevel;
-    }
-
-    @Override
-    public void setBonusShotLevel(int bonusShotLevel) {
-        this.bonusShotLevel = bonusShotLevel;
     }
 
     @Override
@@ -84,6 +73,16 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Override
     public void setCobwebShotLevel(int cobwebShotLevel){
         this.cobwebShotLevel = cobwebShotLevel;
+    }
+
+    @Override
+    public int getEnigmaResonatorLevel() {
+        return enigmaResonatorLevel;
+    }
+
+    @Override
+    public void setEnigmaResonatorLevel(int enigmaResonatorLevel) {
+        this.enigmaResonatorLevel = enigmaResonatorLevel;
     }
 
     @Override
@@ -124,6 +123,16 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Override
     public void setLevitationShotLevel(int levitationShotLevel) {
         this.levitationShotLevel = levitationShotLevel;
+    }
+
+    @Override
+    public boolean getNautilusBoolean() {
+        return nautilusBoolean;
+    }
+
+    @Override
+    public void setNautilusBoolean(boolean nautilusBoolean) {
+        this.nautilusBoolean = nautilusBoolean;
     }
 
     @Override
@@ -199,14 +208,15 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void mcdw$nbtToTag(NbtCompound tag, CallbackInfo ci){
         tag.putInt("accelerateLevel", accelerateLevel);
-        tag.putInt("bonusShotLevel", bonusShotLevel);
         tag.putInt("chainReactionLevel", chainReactionLevel);
         tag.putInt("chargeLevel", chargeLevel);
         tag.putInt("cobwebShotLevel", cobwebShotLevel);
+        tag.putInt("enigmaResonatorLevel", enigmaResonatorLevel);
         tag.putInt("fuseShotLevel", fuseShotLevel);
         tag.putInt("gravityLevel", gravityLevel);
         tag.putInt("growingLevel", growingLevel);
         tag.putInt("levitationShotLevel", levitationShotLevel);
+        tag.putBoolean("nautilusBoolean", nautilusBoolean);
         tag.putInt("phantomsMarkLevel", phantomsMarkLevel);
         tag.putInt("poisonCloudLevel", poisonCloudLevel);
         tag.putInt("radianceLevel", radianceLevel);
@@ -220,14 +230,15 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
     public void mcdw$nbtFromTag(NbtCompound tag, CallbackInfo ci){
         this.accelerateLevel = tag.getInt("accelerateLevel");
-        this.bonusShotLevel = tag.getInt("bonusShotLevel");
         this.chainReactionLevel = tag.getInt("chainReactionLevel");
         this.chargeLevel = tag.getInt("chargeLevel");
         this.cobwebShotLevel = tag.getInt("cobwebShotLevel");
+        this.enigmaResonatorLevel = tag.getInt("enigmaResonatorLevel");
         this.fuseShotLevel = tag.getInt("fuseShotLevel");
         this.gravityLevel = tag.getInt("gravityLevel");
         this.growingLevel = tag.getInt("growingLevel");
         this.levitationShotLevel = tag.getInt("levitationLevel");
+        this.nautilusBoolean = tag.getBoolean("nautilusBoolean");
         this.phantomsMarkLevel = tag.getInt("phantomsMarkLevel");
         this.poisonCloudLevel = tag.getInt("poisonCloudLevel");
         this.radianceLevel = tag.getInt("radianceLevel");
@@ -256,15 +267,15 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GRAVITY))
                 EnchantmentEffects.applyGravityShot(shooter, target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEVITATION_SHOT))
-                EnchantmentEffects.applyLevitationShot(shooter, target, persProjEntity);
+                EnchantmentEffects.applyLevitationShot(target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PHANTOMS_MARK))
-                EnchantmentEffects.applyPhantomsMark(shooter, target, persProjEntity);
+                EnchantmentEffects.applyPhantomsMark(target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.POISON_CLOUD))
                 EnchantmentEffects.applyPoisonCloudShot(shooter, target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RADIANCE))
                 EnchantmentEffects.applyRadianceShot(shooter, target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RICOCHET))
-                EnchantmentEffects.applyRicochet(shooter, target, persProjEntity);
+                EnchantmentEffects.applyRicochet(target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.TEMPO_THEFT))
                 EnchantmentEffects.applyTempoTheft(shooter, target, persProjEntity);
         }
@@ -279,23 +290,20 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Inject(method = "onBlockHit", at = @At("TAIL"))
     private void mcdw$onBlockHitTail(BlockHitResult blockHitResult, CallbackInfo ci){
         PersistentProjectileEntity persProjEntity = (PersistentProjectileEntity) (Object) this;
-        if (!(persProjEntity.getOwner() instanceof LivingEntity shooter))
+        if (!(persProjEntity.getOwner() instanceof LivingEntity))
             return;
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COBWEB_SHOT))
-            EnchantmentEffects.applyCobwebShotBlock(shooter, blockHitResult, persProjEntity);
+            EnchantmentEffects.applyCobwebShotBlock(blockHitResult, persProjEntity);
     }
 
     @Inject(method = "getDragInWater", at = @At("HEAD"), cancellable = true)
     public void onHarpoonArrowFire(CallbackInfoReturnable<Float> cir) {
         PersistentProjectileEntity ppe = (PersistentProjectileEntity) (Object) this;
-        if (ppe.getOwner() instanceof LivingEntity shooter) {
-
-            if (shooter.getMainHandStack().getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)) {
-                if (ppe.isTouchingWater()) {
-                    float m = 0.85f;
-                    cir.setReturnValue(m);
-                }
+        if (ppe.isTouchingWater()) {
+            if (((IMcdwEnchantedArrow)ppe).getNautilusBoolean()) {
+                float m = 0.925f;
+                cir.setReturnValue(m);
             }
         }
     }

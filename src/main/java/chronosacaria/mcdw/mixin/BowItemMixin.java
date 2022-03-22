@@ -108,10 +108,6 @@ public abstract class BowItemMixin implements IBowTimings{
         if (accelerateLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).setAccelerateLevel(accelerateLevel);
         }
-        int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
-        if (bonusShotLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setBonusShotLevel(bonusShotLevel);
-        }
         int chainReactionLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, stack);
         if (chainReactionLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).setChainReactionLevel(chainReactionLevel);
@@ -123,6 +119,10 @@ public abstract class BowItemMixin implements IBowTimings{
         int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, stack);
         if (cobwebShotLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).setCobwebShotLevel(cobwebShotLevel);
+        }
+        int enigmaResonatorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, stack);
+        if (enigmaResonatorLevel > 0) {
+            ((IMcdwEnchantedArrow)ppe).setEnigmaResonatorLevel(enigmaResonatorLevel);
         }
         int fuseShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, stack);
         if (fuseShotLevel > 0) {

@@ -179,8 +179,9 @@ public class EnchantmentEffects {
         return 1f;
     }
 
-    public static float enigmaShotDamage(LivingEntity resonatingEntity, LivingEntity target) {
-        int resonatorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(resonatingEntity, EnchantsRegistry.ENIGMA_RESONATOR);
+    public static float enigmaShotDamage(LivingEntity resonatingEntity, LivingEntity target, PersistentProjectileEntity ppe) {
+        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
+        int resonatorLevel = enchantedArrow.getEnigmaResonatorLevel();
         if (resonatorLevel > 0) {
 
             int numSouls = ((PlayerEntity) resonatingEntity).experienceLevel;
@@ -195,8 +196,9 @@ public class EnchantmentEffects {
         return 1f;
     }
 
-    public static float growingDamage(LivingEntity growingEntity, LivingEntity target) {
-        int growingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(growingEntity, EnchantsRegistry.GROWING);
+    public static float growingDamage(LivingEntity growingEntity, LivingEntity target, PersistentProjectileEntity ppe) {
+        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
+        int growingLevel = enchantedArrow.getGrowingLevel();
         if (growingLevel > 0) {
 
             CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 0.5F, 1.0F);
@@ -206,8 +208,9 @@ public class EnchantmentEffects {
         return 1f;
     }
 
-    public static float voidShotDamage(LivingEntity voidEntity, LivingEntity target) {
-        int voidlevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(voidEntity, EnchantsRegistry.VOID_SHOT);
+    public static float voidShotDamage(LivingEntity target, PersistentProjectileEntity ppe) {
+        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
+        int voidlevel = enchantedArrow.getVoidShotLevel();
         if (voidlevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.VOID_SHOT) + (5 * voidlevel))) {
@@ -508,7 +511,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyLevitationShot(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
+    public static void applyLevitationShot(LivingEntity target, PersistentProjectileEntity ppe) {
         IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
         if (enchantedArrow.getLevitationShotLevel() > 0) {
 
@@ -516,7 +519,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyPhantomsMark(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
+    public static void applyPhantomsMark(LivingEntity target, PersistentProjectileEntity ppe) {
         IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
         if (enchantedArrow.getPhantomsMarkLevel() > 0) {
 
@@ -544,7 +547,7 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyRicochet(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
+    public static void applyRicochet(LivingEntity target, PersistentProjectileEntity ppe) {
         IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
         if (enchantedArrow.getRicochetLevel() > 0) {
 
@@ -576,14 +579,14 @@ public class EnchantmentEffects {
     }
 
     // mcdw$onBlockHitTail
-    public static void applyCobwebShotBlock(LivingEntity shooter, BlockHitResult blockHitResult, PersistentProjectileEntity ppe) {
+    public static void applyCobwebShotBlock(BlockHitResult blockHitResult, PersistentProjectileEntity ppe) {
 
         IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
         if (enchantedArrow.getCobwebShotLevel() > 0) {
-            World shooterWorld = shooter.getEntityWorld();
+            World ppeWorld = ppe.getEntityWorld();
             Direction side = blockHitResult.getSide();
-            if (shooterWorld.getBlockState(blockHitResult.getBlockPos().offset(side)) == Blocks.AIR.getDefaultState())
-                shooterWorld.setBlockState(blockHitResult.getBlockPos().offset(side), Blocks.COBWEB.getDefaultState());
+            if (ppeWorld.getBlockState(blockHitResult.getBlockPos().offset(side)) == Blocks.AIR.getDefaultState())
+                ppeWorld.setBlockState(blockHitResult.getBlockPos().offset(side), Blocks.COBWEB.getDefaultState());
         }
     }
 }

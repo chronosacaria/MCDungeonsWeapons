@@ -7,6 +7,7 @@ import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -39,13 +40,13 @@ public class LivingEntityPlayerEntityMixin {
                     amount *= EnchantmentEffects.enigmaResonatorDamage(attackingEntity, victim);
             }
 
-            if (source.isProjectile()) {
+            if (source.getSource() instanceof PersistentProjectileEntity ppe) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ENIGMA_RESONATOR))
-                    amount *= EnchantmentEffects.enigmaShotDamage(attackingEntity, victim);
+                    amount *= EnchantmentEffects.enigmaShotDamage(attackingEntity, victim, ppe);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GROWING))
-                    amount *= EnchantmentEffects.growingDamage(attackingEntity, victim);
+                    amount *= EnchantmentEffects.growingDamage(attackingEntity, victim, ppe);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_SHOT))
-                    amount *= EnchantmentEffects.voidShotDamage(attackingEntity, victim);
+                    amount *= EnchantmentEffects.voidShotDamage(victim, ppe);
             }
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED))

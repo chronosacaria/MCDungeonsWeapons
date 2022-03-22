@@ -5,9 +5,6 @@ public interface IMcdwEnchantedArrow {
     int getAccelerateLevel();
     void setAccelerateLevel(int accelerateLevel);
 
-    int getBonusShotLevel();
-    void setBonusShotLevel(int bonusShotLevel);
-
     int getChainReactionLevel();
     void setChainReactionLevel(int chainReactionLevel);
 
@@ -17,18 +14,23 @@ public interface IMcdwEnchantedArrow {
     int getCobwebShotLevel();
     void setCobwebShotLevel(int cobwebShotLevel);
 
+    int getEnigmaResonatorLevel();
+    void setEnigmaResonatorLevel(int enigmaResonatorLevel);
+
     int getFuseShotLevel();
     void setFuseShotLevel(int fuseShotLevel);
 
     int getGravityLevel();
     void setGravityLevel(int gravityLevel);
 
-    //TODO Figure out new Growing code
     int getGrowingLevel();
     void setGrowingLevel(int growingLevel);
 
     int getLevitationShotLevel();
     void setLevitationShotLevel(int levitationShotLevel);
+
+    boolean getNautilusBoolean();
+    void setNautilusBoolean(boolean nautilusBoolean);
 
     int getPhantomsMarkLevel();
     void setPhantomsMarkLevel(int phantomsMarkLevel);
@@ -48,7 +50,6 @@ public interface IMcdwEnchantedArrow {
     int getTempoTheftLevel();
     void setTempoTheftLevel(int tempoTheftLevel);
 
-    //TODO Figure out new Void Shot code
     int getVoidShotLevel();
     void setVoidShotLevel(int voidShotLevel);
 
