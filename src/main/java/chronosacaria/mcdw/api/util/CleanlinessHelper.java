@@ -1,6 +1,9 @@
 package chronosacaria.mcdw.api.util;
 
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 
@@ -14,9 +17,24 @@ public class CleanlinessHelper {
     }
 
     public static void playCenteredSound (LivingEntity center, SoundEvent soundEvent, float volume, float pitch) {
+        playCenteredSound(center, soundEvent, SoundCategory.PLAYERS, volume, pitch);
+    }
+
+    public static void playCenteredSound (LivingEntity center, SoundEvent soundEvent, SoundCategory soundCategory, float volume, float pitch) {
         center.world.playSound(null,
                 center.getX(), center.getY(), center.getZ(),
-                soundEvent, SoundCategory.PLAYERS,
+                soundEvent, soundCategory,
                 volume, pitch);
+    }
+
+    public static void mcdw$dropItem(LivingEntity le, Item item) {
+        mcdw$dropItem(le, item, 1);
+    }
+
+    public static void mcdw$dropItem(LivingEntity le, Item item, int amount) {
+        ItemEntity it = new ItemEntity(
+                le.world, le.getX(), le.getY(), le.getZ(),
+                new ItemStack(item, amount));
+        le.world.spawnEntity(it);
     }
 }

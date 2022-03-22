@@ -13,7 +13,6 @@ import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -36,9 +35,12 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
+import java.util.LinkedHashMap;
 import java.util.UUID;
 
 public class EnchantmentEffects {
+
+    static LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase;
 
     /* ExperienceOrbEntityMixin */
     //mcdw$ModifyExperience
@@ -88,11 +90,9 @@ public class EnchantmentEffects {
         int prospectorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(prospectingEntity, EnchantsRegistry.PROSPECTOR);
         if (prospectorLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.PROSPECTOR) * prospectorLevel)) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.PROSPECTOR) * prospectorLevel)) {
                 if (victim instanceof Monster){
-                    ItemEntity emeraldDrop = new ItemEntity(victim.world, victim.getX(), victim.getY(), victim.getZ(),
-                            new ItemStack(Items.EMERALD, 1));
-                    victim.world.spawnEntity(emeraldDrop);
+                    CleanlinessHelper.mcdw$dropItem(victim, Items.EMERALD);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class EnchantmentEffects {
         int rushdownLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(rushingEntity, EnchantsRegistry.RUSHDOWN);
         if (rushdownLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.RUSHDOWN))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RUSHDOWN))) {
                 StatusEffectInstance rushdown = new StatusEffectInstance(StatusEffects.SPEED, 100 * rushdownLevel, 2,
                         false, false);
                 rushingEntity.addStatusEffect(rushdown);
@@ -114,7 +114,7 @@ public class EnchantmentEffects {
         int soulLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(siphoningEntity, EnchantsRegistry.SOUL_SIPHON);
         if (soulLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.SOUL_SIPHON))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SOUL_SIPHON))) {
                 siphoningEntity.addExperience(3 * soulLevel);
             }
         }
@@ -136,11 +136,10 @@ public class EnchantmentEffects {
     }
 
     public static float criticalHitDamage(LivingEntity crittingEntity, LivingEntity target) {
-
         int criticalHitLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(crittingEntity, EnchantsRegistry.CRITICAL_HIT);
         if (criticalHitLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(10 + (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.CRITICAL_HIT) * criticalHitLevel))) {
+            if (CleanlinessHelper.percentToOccur(10 + (CONFIG_CHANCE.get(EnchantmentsID.CRITICAL_HIT) * criticalHitLevel))) {
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, 0.5F, 1.0F);
                 return 1.5f;
@@ -153,7 +152,7 @@ public class EnchantmentEffects {
         int voidlevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(voidEntity, EnchantsRegistry.VOID_STRIKE);
         if (voidlevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.VOID_STRIKE) + (5 * voidlevel))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.VOID_STRIKE) + (5 * voidlevel))) {
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 0.5F, 1.0F);
                 return 2f * voidlevel;
             }
@@ -161,11 +160,11 @@ public class EnchantmentEffects {
         return 1f;
     }
 
-    public static float enigmaResonatorDamage(LivingEntity resonatingEntity, LivingEntity target) {
+    public static float enigmaResonatorDamage(PlayerEntity resonatingEntity, LivingEntity target) {
         int resonatorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(resonatingEntity, EnchantsRegistry.ENIGMA_RESONATOR);
         if (resonatorLevel > 0) {
 
-            int numSouls = ((PlayerEntity) resonatingEntity).experienceLevel;
+            int numSouls = resonatingEntity.experienceLevel;
             if (numSouls > 0) {
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
@@ -180,11 +179,13 @@ public class EnchantmentEffects {
     }
 
     public static float enigmaShotDamage(LivingEntity resonatingEntity, LivingEntity target, PersistentProjectileEntity ppe) {
+        if (!(resonatingEntity instanceof PlayerEntity player))
+            return 1f;
         IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
         int resonatorLevel = enchantedArrow.getEnigmaResonatorLevel();
         if (resonatorLevel > 0) {
 
-            int numSouls = ((PlayerEntity) resonatingEntity).experienceLevel;
+            int numSouls = player.experienceLevel;
             if (numSouls > 0) {
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
@@ -197,8 +198,7 @@ public class EnchantmentEffects {
     }
 
     public static float growingDamage(LivingEntity growingEntity, LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        int growingLevel = enchantedArrow.getGrowingLevel();
+        int growingLevel = ((IMcdwEnchantedArrow)ppe).getGrowingLevel();
         if (growingLevel > 0) {
 
             CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 0.5F, 1.0F);
@@ -209,11 +209,10 @@ public class EnchantmentEffects {
     }
 
     public static float voidShotDamage(LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        int voidlevel = enchantedArrow.getVoidShotLevel();
+        int voidlevel = ((IMcdwEnchantedArrow)ppe).getVoidShotLevel();
         if (voidlevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.VOID_SHOT) + (5 * voidlevel))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.VOID_SHOT) + (5 * voidlevel))) {
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 0.5F, 1.0F);
                 return voidlevel + 1f;
             }
@@ -222,11 +221,10 @@ public class EnchantmentEffects {
     }
 
     public static float committedDamage(LivingEntity committedEntity, LivingEntity target) {
-
         int committedLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(committedEntity, EnchantsRegistry.COMMITTED);
         if (committedLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.COMMITTED))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.COMMITTED))) {
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_GENERIC_EXPLODE, 0.5F, 1.0F);
 
@@ -246,7 +244,7 @@ public class EnchantmentEffects {
         int freezingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(freezerEntity, EnchantsRegistry.FREEZING);
         if (freezingLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.FREEZING) + (10 * freezingLevel))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.FREEZING) + (10 * freezingLevel))) {
                 AbilityHelper.causeFreezing(target, 100);
             }
         }
@@ -256,7 +254,7 @@ public class EnchantmentEffects {
         int poisoningLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(poisoningEntity, EnchantsRegistry.JUNGLE_POISON);
         if (poisoningLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.POISONING))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.POISONING))) {
                 StatusEffectInstance poison = new StatusEffectInstance(StatusEffects.POISON, 60, poisoningLevel - 1);
                 target.addStatusEffect(poison);
             }
@@ -267,7 +265,7 @@ public class EnchantmentEffects {
         int poisoningLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(poisoningEntity, EnchantsRegistry.POISON_CLOUD);
         if (poisoningLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.POISON_CLOUD))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.POISON_CLOUD))) {
                 AOECloudHelper.spawnStatusCloud(poisoningEntity, target, StatusEffects.POISON,
                         poisoningLevel - 1);
             }
@@ -278,7 +276,7 @@ public class EnchantmentEffects {
         int radianceLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(radiantEntity, EnchantsRegistry.RADIANCE);
         if (radianceLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.RADIANCE))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RADIANCE))) {
                 AOECloudHelper.spawnStatusCloud(radiantEntity, radiantEntity, StatusEffects.REGENERATION,
                         100, radianceLevel - 1);
             }
@@ -289,16 +287,13 @@ public class EnchantmentEffects {
         int shockwaveLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shockwaveEntity, EnchantsRegistry.SHOCKWAVE);
         if (shockwaveLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.SHOCKWAVE) + (15 * shockwaveLevel))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SHOCKWAVE) + (15 * shockwaveLevel))) {
                 AOEHelper.causeShockwaveAttack(shockwaveEntity, target,
                         3.0f, amount);
 
-                target.world.playSound(null,
-                        target.getX(),
-                        target.getY(),
-                        target.getZ(),
+                CleanlinessHelper.playCenteredSound(target,
                         SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER,
-                        0.5F, 1.0F);
+                        0.5f, 1.0f);
             }
         }
     }
@@ -307,7 +302,7 @@ public class EnchantmentEffects {
         int stunningLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(stunningEntity, EnchantsRegistry.STUNNING);
         if (stunningLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.STUNNING) + (15 * stunningLevel))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.STUNNING) + (15 * stunningLevel))) {
                 target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 10));
                 target.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 60, 1));
             }
@@ -318,7 +313,7 @@ public class EnchantmentEffects {
         int thunderingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(thunderingEntity, EnchantsRegistry.THUNDERING);
         if (thunderingLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.THUNDERING))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.THUNDERING))) {
                 AOEHelper.electrocuteNearbyEnemies(thunderingEntity,
                         5 * thunderingLevel, amount,
                         Integer.MAX_VALUE);
@@ -330,7 +325,7 @@ public class EnchantmentEffects {
         int weakeningLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(weakeningEntity, EnchantsRegistry.WEAKENING);
         if (weakeningLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.WEAKENING))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.WEAKENING))) {
                 AOECloudHelper.spawnStatusCloud(weakeningEntity, target, StatusEffects.WEAKNESS,
                         weakeningLevel - 1);
             }
@@ -341,7 +336,7 @@ public class EnchantmentEffects {
         int swirlingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(swirlingEntity, EnchantsRegistry.SWIRLING);
         if (swirlingLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.SWIRLING) + (15 * swirlingLevel))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SWIRLING) + (15 * swirlingLevel))) {
                 AOEHelper.causeSwirlingAttack(swirlingEntity, swirlingEntity,
                         1.5f, amount);
 
@@ -354,16 +349,16 @@ public class EnchantmentEffects {
         int chainsLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(chainingEntity, EnchantsRegistry.CHAINS);
         if (chainsLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.CHAINS)))
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHAINS)))
                 AOEHelper.chainNearbyEntities(chainingEntity, target, 1.5F * chainsLevel, chainsLevel);
         }
     }
 
     public static void applyGravity(LivingEntity gravityEntity, LivingEntity target) {
-        int gravityLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(gravityEntity, EnchantsRegistry.CHARGE);
+        int gravityLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(gravityEntity, EnchantsRegistry.GRAVITY);
         if (gravityLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.GRAVITY))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.GRAVITY))) {
                 AOEHelper.pullInNearbyEntities(gravityEntity, target,
                         (gravityLevel + 1) * 3);
             }
@@ -375,7 +370,7 @@ public class EnchantmentEffects {
         int echoLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(echoEntity, EnchantsRegistry.ECHO);
         if (echoLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.ECHO) + (15 * echoLevel))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.ECHO) + (15 * echoLevel))) {
                 AOEHelper.causeEchoAttack(echoEntity, target,
                         3.0f,
                         echoLevel, amount);
@@ -389,7 +384,7 @@ public class EnchantmentEffects {
         int explodingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(exploderEntity, EnchantsRegistry.EXPLODING);
         if (explodingLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.EXPLODING))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.EXPLODING))) {
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_GENERIC_EXPLODE, 0.5F, 1.0F);
                 AOECloudHelper.spawnExplosionCloud(exploderEntity, target, 3.0F);
@@ -404,7 +399,7 @@ public class EnchantmentEffects {
         int rampagingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(rampagingEntity, EnchantsRegistry.RAMPAGING);
         if (rampagingLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.RAMPAGING))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RAMPAGING))) {
                 StatusEffectInstance rampage = new StatusEffectInstance(StatusEffects.HASTE, rampagingLevel * 100, 2,
                         false, false);
                 rampagingEntity.addStatusEffect(rampage);
@@ -453,43 +448,41 @@ public class EnchantmentEffects {
     /* PersistentProjectileEntityMixin */
     // mcdw$onEntityHitTail
     public static void applyChainReaction(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getChainReactionLevel() > 0) {
+        int chainReactionLevel = ((IMcdwEnchantedArrow) ppe).getChainReactionLevel();
+        if (chainReactionLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.CHAIN_REACTION) * enchantedArrow.getChainReactionLevel())){
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHAIN_REACTION) * chainReactionLevel)){
                 ProjectileEffectHelper.fireChainReactionProjectiles(target.getEntityWorld(), target, shooter,
-                        3.15F,
-                        1.0F, ppe);
+                        3.15F,1.0F, ppe);
             }
         }
     }
 
     public static void applyCharge(LivingEntity chargingEntity, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getChargeLevel() > 0) {
+        int chargeLevel = ((IMcdwEnchantedArrow) ppe).getChargeLevel();
+        if (chargeLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.CHARGE)))
-                chargingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, enchantedArrow.getChargeLevel() * 20,
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHARGE)))
+                chargingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, chargeLevel * 20,
                         4));
         }
     }
 
     public static void applyCobwebShotEntity(LivingEntity target, PersistentProjectileEntity ppe) {
-
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getCobwebShotLevel() > 0) {
+        if (((IMcdwEnchantedArrow)ppe).getCobwebShotLevel() > 0) {
             World targetWorld = target.getEntityWorld();
             BlockPos targetPos = target.getBlockPos();
+
             if (targetWorld.getBlockState(targetPos) == Blocks.AIR.getDefaultState())
                 targetWorld.setBlockState(targetPos, Blocks.COBWEB.getDefaultState());
         }
     }
 
     public static void applyFuseShot(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getFuseShotLevel() > 0) {
+        int fuseShotLevel = ((IMcdwEnchantedArrow) ppe).getFuseShotLevel();
+        if (fuseShotLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.FUSE_SHOT) + (15 * enchantedArrow.getFuseShotLevel()))) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.FUSE_SHOT) + (15 * fuseShotLevel))) {
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_GENERIC_EXPLODE, 0.5F, 1.0F);
 
                 AOECloudHelper.spawnExplosionCloud(shooter, target, 3.0F);
@@ -501,57 +494,55 @@ public class EnchantmentEffects {
     }
 
     public static void applyGravityShot(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getGravityLevel() > 0) {
+        int gravityLevel = ((IMcdwEnchantedArrow) ppe).getGravityLevel();
+        if (gravityLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.GRAVITY))) {
-                AOEHelper.pullInNearbyEntities(shooter, target,
-                        (enchantedArrow.getGravityLevel() + 1) * 3);
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.GRAVITY))) {
+                AOEHelper.pullInNearbyEntities(shooter, target, (gravityLevel + 1) * 3);
             }
         }
     }
 
     public static void applyLevitationShot(LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getLevitationShotLevel() > 0) {
+        int levitationShotLevel = ((IMcdwEnchantedArrow) ppe).getLevitationShotLevel();
+        if (levitationShotLevel > 0) {
 
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 200 * enchantedArrow.getLevitationShotLevel()));
+            target.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 200 * levitationShotLevel));
         }
     }
 
     public static void applyPhantomsMark(LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getPhantomsMarkLevel() > 0) {
+        int phantomsMarkLevel = ((IMcdwEnchantedArrow) ppe).getPhantomsMarkLevel();
+        if (phantomsMarkLevel > 0) {
 
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 100 * enchantedArrow.getPhantomsMarkLevel()));
+            target.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 100 * phantomsMarkLevel));
         }
     }
 
     public static void applyPoisonCloudShot(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getPoisonCloudLevel() > 0) {
+        int poisonCloudLevel = ((IMcdwEnchantedArrow) ppe).getPoisonCloudLevel();
+        if (poisonCloudLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.POISON_CLOUD))) {
-                AOECloudHelper.spawnStatusCloud(shooter, target, StatusEffects.POISON,
-                        enchantedArrow.getPoisonCloudLevel() - 1);
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.POISON_CLOUD))) {
+                AOECloudHelper.spawnStatusCloud(shooter, target, StatusEffects.POISON, poisonCloudLevel - 1);
             }
         }
     }
 
     public static void applyRadianceShot(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getRadianceLevel() > 0) {
+        int radianceLevel = ((IMcdwEnchantedArrow) ppe).getRadianceLevel();
+        if (radianceLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.RADIANCE)))
-                AOECloudHelper.spawnRegenCloudAtPos(shooter, true, target.getBlockPos(), enchantedArrow.getRadianceLevel() - 1);
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RADIANCE)))
+                AOECloudHelper.spawnRegenCloudAtPos(shooter, true, target.getBlockPos(), radianceLevel - 1);
         }
     }
 
     public static void applyRicochet(LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getRicochetLevel() > 0) {
+        int ricochetLevel = ((IMcdwEnchantedArrow) ppe).getRicochetLevel();
+        if (ricochetLevel > 0) {
 
-            float damageMultiplier = 0.1F + ((enchantedArrow.getRicochetLevel() - 1) * 0.07F);
+            float damageMultiplier = 0.03F + (ricochetLevel * 0.07F);
             float arrowVelocity = McdwBow.maxBowRange;
             if (arrowVelocity > 0.1F)
                 ProjectileEffectHelper.riochetArrowTowardsOtherEntity(target, 10, damageMultiplier, arrowVelocity);
@@ -559,32 +550,29 @@ public class EnchantmentEffects {
     }
 
     public static void applyReplenish(PlayerEntity shooter, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getReplenishLevel() > 0) {
+        int replenishLevel = ((IMcdwEnchantedArrow) ppe).getReplenishLevel();
+        if (replenishLevel > 0) {
 
-            if (CleanlinessHelper.percentToOccur(Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase.get(EnchantmentsID.REPLENISH) + (7 * enchantedArrow.getReplenishLevel()))) {
-                ItemEntity arrowDrop = new ItemEntity(shooter.world, shooter.getX(), shooter.getY(), shooter.getZ(),
-                        new ItemStack(Items.ARROW));
-                shooter.world.spawnEntity(arrowDrop);
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.REPLENISH) + (7 * replenishLevel))) {
+                CleanlinessHelper.mcdw$dropItem(shooter, Items.ARROW);
             }
         }
     }
 
     public static void applyTempoTheft(LivingEntity tempoEntity, LivingEntity target, PersistentProjectileEntity ppe) {
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getTempoTheftLevel() > 0) {
+        int tempoTheftLevel = ((IMcdwEnchantedArrow) ppe).getTempoTheftLevel();
+        if (tempoTheftLevel > 0) {
 
-            AbilityHelper.stealSpeedFromTarget(tempoEntity, target, enchantedArrow.getTempoTheftLevel());
+            AbilityHelper.stealSpeedFromTarget(tempoEntity, target, tempoTheftLevel);
         }
     }
 
     // mcdw$onBlockHitTail
     public static void applyCobwebShotBlock(BlockHitResult blockHitResult, PersistentProjectileEntity ppe) {
-
-        IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
-        if (enchantedArrow.getCobwebShotLevel() > 0) {
+        if (((IMcdwEnchantedArrow)ppe).getCobwebShotLevel() > 0) {
             World ppeWorld = ppe.getEntityWorld();
             Direction side = blockHitResult.getSide();
+
             if (ppeWorld.getBlockState(blockHitResult.getBlockPos().offset(side)) == Blocks.AIR.getDefaultState())
                 ppeWorld.setBlockState(blockHitResult.getBlockPos().offset(side), Blocks.COBWEB.getDefaultState());
         }

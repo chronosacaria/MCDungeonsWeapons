@@ -35,9 +35,9 @@ public class LivingEntityPlayerEntityMixin {
                     amount *= EnchantmentEffects.voidStrikeDamage(attackingEntity, victim);
             }
 
-            if (source.getSource() instanceof PlayerEntity) {
+            if (source.getSource() instanceof PlayerEntity attackingPlayer) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ENIGMA_RESONATOR))
-                    amount *= EnchantmentEffects.enigmaResonatorDamage(attackingEntity, victim);
+                    amount *= EnchantmentEffects.enigmaResonatorDamage(attackingPlayer, victim);
             }
 
             if (source.getSource() instanceof PersistentProjectileEntity ppe) {
