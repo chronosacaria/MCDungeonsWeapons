@@ -9,6 +9,7 @@ import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.registry.Registry;
 
 import java.util.EnumMap;
+import java.util.Locale;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 import static chronosacaria.mcdw.Mcdw.ID;
@@ -119,7 +120,7 @@ public class ItemsInit {
             };
 
             swordItems.put(swordsID, weapon);
-            registerItem(swordsID.toString().toLowerCase(), weapon);
+            registerItem(swordsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (AxesID axesID : AxesID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.axesEnabled.get(axesID))
@@ -146,7 +147,7 @@ public class ItemsInit {
             };
 
             axeItems.put(axesID, weapon);
-            registerItem(axesID.toString().toLowerCase(), weapon);
+            registerItem(axesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (DoubleAxesID doubleAxesID : DoubleAxesID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.doubleAxesEnabled.get(doubleAxesID))
@@ -169,7 +170,7 @@ public class ItemsInit {
             };
 
             doubleAxeItems.put(doubleAxesID, weapon);
-            registerItem(doubleAxesID.toString().toLowerCase(), weapon);
+            registerItem(doubleAxesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (DaggersID daggersID : DaggersID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.daggersEnabled.get(daggersID))
@@ -217,7 +218,7 @@ public class ItemsInit {
             };
 
             daggerItems.put(daggersID, weapon);
-            registerItem(daggersID.toString().toLowerCase(), weapon);
+            registerItem(daggersID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (SoulDaggersID soulDaggersID : SoulDaggersID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.soulDaggersEnabled.get(soulDaggersID))
@@ -238,7 +239,7 @@ public class ItemsInit {
             };
 
             soulDaggerItems.put(soulDaggersID, weapon);
-            registerItem(soulDaggersID.toString().toLowerCase(), weapon);
+            registerItem(soulDaggersID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (HammersID hammersID : HammersID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.hammersEnabled.get(hammersID))
@@ -274,7 +275,7 @@ public class ItemsInit {
             };
 
             hammerItems.put(hammersID, weapon);
-            registerItem(hammersID.toString().toLowerCase(), weapon);
+            registerItem(hammersID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (GauntletsID gauntletsID : GauntletsID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.gauntletsEnabled.get(gauntletsID))
@@ -295,7 +296,7 @@ public class ItemsInit {
             };
 
             gauntletItems.put(gauntletsID, weapon);
-            registerItem(gauntletsID.toString().toLowerCase(), weapon);
+            registerItem(gauntletsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (SicklesID sicklesID : SicklesID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.sicklesEnabled.get(sicklesID))
@@ -319,7 +320,7 @@ public class ItemsInit {
             };
 
             sickleItems.put(sicklesID, weapon);
-            registerItem(sicklesID.toString().toLowerCase(), weapon);
+            registerItem(sicklesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (ScythesID scythesID : ScythesID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.scythesEnabled.get(scythesID))
@@ -343,7 +344,7 @@ public class ItemsInit {
             };
 
             scytheItems.put(scythesID, weapon);
-            registerItem(scythesID.toString().toLowerCase(), weapon);
+            registerItem(scythesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (PicksID picksID : PicksID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.picksEnabled.get(picksID))
@@ -367,7 +368,7 @@ public class ItemsInit {
             };
 
             pickItems.put(picksID, weapon);
-            registerItem(picksID.toString().toLowerCase(), weapon);
+            registerItem(picksID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (GlaivesID glaivesID : GlaivesID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.glaivesEnabled.get(glaivesID))
@@ -391,7 +392,7 @@ public class ItemsInit {
             };
 
             glaiveItems.put(glaivesID, weapon);
-            registerItem(glaivesID.toString().toLowerCase(), weapon);
+            registerItem(glaivesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (SpearsID spearsID : SpearsID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.spearsEnabled.get(spearsID))
@@ -412,7 +413,7 @@ public class ItemsInit {
             };
 
             spearItems.put(spearsID, weapon);
-            registerItem(spearsID.toString().toLowerCase(), weapon);
+            registerItem(spearsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (StavesID stavesID : StavesID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.stavesEnabled.get(stavesID))
@@ -433,7 +434,7 @@ public class ItemsInit {
             };
 
             staffItems.put(stavesID, weapon);
-            registerItem(stavesID.toString().toLowerCase(), weapon);
+            registerItem(stavesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (WhipsID whipsID : WhipsID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.whipsEnabled.get(whipsID))
@@ -451,7 +452,7 @@ public class ItemsInit {
             };
 
             whipItems.put(whipsID, weapon);
-            registerItem(whipsID.toString().toLowerCase(), weapon);
+            registerItem(whipsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (BowsID bowsID : BowsID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(bowsID))
@@ -553,7 +554,7 @@ public class ItemsInit {
             };
 
             bowItems.put(bowsID, weapon);
-            registerItem(bowsID.toString().toLowerCase(), weapon);
+            registerItem(bowsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (ShortBowsID shortBowsID : ShortBowsID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.shortBowsEnabled.get(shortBowsID))
@@ -577,7 +578,7 @@ public class ItemsInit {
             };
 
             shortBowItems.put(shortBowsID, weapon);
-            registerItem(shortBowsID.toString().toLowerCase(), weapon);
+            registerItem(shortBowsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (LongBowsID longBowsID : LongBowsID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.longBowsEnabled.get(longBowsID))
@@ -598,7 +599,7 @@ public class ItemsInit {
             };
 
             longBowItems.put(longBowsID, weapon);
-            registerItem(longBowsID.toString().toLowerCase(), weapon);
+            registerItem(longBowsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (CrossbowsID crossbowsID : CrossbowsID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(crossbowsID))
@@ -697,7 +698,7 @@ public class ItemsInit {
             };
 
             crossbowItems.put(crossbowsID, weapon);
-            registerItem(crossbowsID.toString().toLowerCase(), weapon);
+            registerItem(crossbowsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (ShieldsID shieldsID : ShieldsID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.shieldsEnabled.get(shieldsID))
@@ -711,7 +712,7 @@ public class ItemsInit {
             };
 
             shieldItems.put(shieldsID, shield);
-            registerItem(shieldsID.toString().toLowerCase(), shield);
+            registerItem(shieldsID.toString().toLowerCase(Locale.ROOT), shield);
         }
         for (ItemsID itemsID : ItemsID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(itemsID))
@@ -725,7 +726,7 @@ public class ItemsInit {
                 new Item(new Item.Settings());
 
             mcdwItems.put(itemsID, beeStingerItem);
-            registerItem(itemsID.toString().toLowerCase(), beeStingerItem);
+            registerItem(itemsID.toString().toLowerCase(Locale.ROOT), beeStingerItem);
         }
     }
 
