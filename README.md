@@ -4,8 +4,10 @@
 ![mcdw_weapons](https://user-images.githubusercontent.com/67794130/92668875-fd532400-f2dd-11ea-9933-a2c3e8d41faf.png)
 
 ## Credits
-Code: Chronosacaria, Kai1907, SeaOfPixels
+Code: Chronosacaria, Kluzzio, Kai1907, SeaOfPixels
+
 Current Art: SeaOfPixels
+
 Initial Art: Kai1907
 
 ## Links
