@@ -63,6 +63,7 @@ public class AOECloudHelper {
         areaEffectCloudEntity.setDuration(60);
         StatusEffectInstance regeneration = new StatusEffectInstance(StatusEffects.REGENERATION, 100, amplifier);
         areaEffectCloudEntity.addEffect(regeneration);
+        ((IExclusiveAOECloud) areaEffectCloudEntity).setExclusions(false, false, true);
         user.world.spawnEntity(areaEffectCloudEntity);
     }
 }

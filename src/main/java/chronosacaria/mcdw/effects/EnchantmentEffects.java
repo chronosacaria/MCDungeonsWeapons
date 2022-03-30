@@ -577,4 +577,12 @@ public class EnchantmentEffects {
                 ppeWorld.setBlockState(blockHitResult.getBlockPos().offset(side), Blocks.COBWEB.getDefaultState());
         }
     }
+
+    public static void applyRadianceShotBlock(BlockHitResult blockHitResult, LivingEntity shooter, PersistentProjectileEntity ppe) {
+        int radianceLevel = ((IMcdwEnchantedArrow)ppe).getRadianceLevel();
+        if (radianceLevel > 0) {
+
+            AOECloudHelper.spawnRegenCloudAtPos(shooter, true, blockHitResult.getBlockPos(), radianceLevel - 1);
+        }
+    }
 }

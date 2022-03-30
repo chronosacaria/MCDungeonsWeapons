@@ -290,11 +290,13 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Inject(method = "onBlockHit", at = @At("TAIL"))
     private void mcdw$onBlockHitTail(BlockHitResult blockHitResult, CallbackInfo ci){
         PersistentProjectileEntity persProjEntity = (PersistentProjectileEntity) (Object) this;
-        if (!(persProjEntity.getOwner() instanceof LivingEntity))
+        if (!(persProjEntity.getOwner() instanceof LivingEntity shooter))
             return;
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COBWEB_SHOT))
             EnchantmentEffects.applyCobwebShotBlock(blockHitResult, persProjEntity);
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RADIANCE_SHOT))
+            EnchantmentEffects.applyRadianceShotBlock(blockHitResult, shooter, persProjEntity);
     }
 
     @Inject(method = "getDragInWater", at = @At("HEAD"), cancellable = true)
