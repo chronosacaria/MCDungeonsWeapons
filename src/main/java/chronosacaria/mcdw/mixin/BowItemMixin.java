@@ -41,7 +41,7 @@ public abstract class BowItemMixin implements IBowTimings{
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BONUS_SHOT)){
             if (McdwEnchantmentHelper.hasEnchantment(stack, EnchantsRegistry.BONUS_SHOT)){
                 int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
-                float damageMultiplier = 0.1F + ((bonusShotLevel - 1) * 0.07F);
+                float damageMultiplier = 0.03F + (bonusShotLevel * 0.07F);
                 float arrowVelocity = RangedAttackHelper.getVanillaOrModdedBowArrowVelocity(stack, remainingUseTicks);
                 if (arrowVelocity >= 0.1F){
                     ProjectileEffectHelper.fireBonusShotTowardsOtherEntity(user, 10, damageMultiplier, arrowVelocity);

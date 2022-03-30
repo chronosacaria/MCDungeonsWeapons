@@ -1,5 +1,6 @@
 package chronosacaria.mcdw.api.util;
 
+import chronosacaria.mcdw.api.interfaces.IExclusiveAOECloud;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -23,7 +24,9 @@ public class AOECloudHelper {
         center.world.spawnEntity(areaEffectCloudEntity);
     }
 
-    public static void spawnStatusCloud(LivingEntity user, LivingEntity center, StatusEffect statusEffect, int duration, int amplifier) {
+    public static void spawnPickyStatusCloud(LivingEntity user, LivingEntity center,
+                                             StatusEffect statusEffect, int duration, int amplifier,
+                                             boolean exclOwner, boolean exclAllies, boolean exclEnemy) {
         AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(
                 center.world, center.getX(), center.getY(), center.getZ());
         areaEffectCloudEntity.setOwner(user);
@@ -33,6 +36,7 @@ public class AOECloudHelper {
         areaEffectCloudEntity.setDuration(60);
         areaEffectCloudEntity.addEffect(new StatusEffectInstance(
                 statusEffect, duration, amplifier));
+        ((IExclusiveAOECloud) areaEffectCloudEntity).setExclusions(exclOwner, exclAllies, exclEnemy);
         center.world.spawnEntity(areaEffectCloudEntity);
     }
 

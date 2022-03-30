@@ -266,8 +266,8 @@ public class EnchantmentEffects {
         if (poisoningLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.POISON_CLOUD))) {
-                AOECloudHelper.spawnStatusCloud(poisoningEntity, target, StatusEffects.POISON,
-                        poisoningLevel - 1);
+                AOECloudHelper.spawnPickyStatusCloud(poisoningEntity, target, StatusEffects.POISON,
+                        60, poisoningLevel - 1, true, true, false);
             }
         }
     }
@@ -277,8 +277,8 @@ public class EnchantmentEffects {
         if (radianceLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RADIANCE))) {
-                AOECloudHelper.spawnStatusCloud(radiantEntity, radiantEntity, StatusEffects.REGENERATION,
-                        100, radianceLevel - 1);
+                AOECloudHelper.spawnPickyStatusCloud(radiantEntity, radiantEntity, StatusEffects.REGENERATION,
+                        100, radianceLevel - 1, false, false, true);
             }
         }
     }
@@ -326,8 +326,8 @@ public class EnchantmentEffects {
         if (weakeningLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.WEAKENING))) {
-                AOECloudHelper.spawnStatusCloud(weakeningEntity, target, StatusEffects.WEAKNESS,
-                        weakeningLevel - 1);
+                AOECloudHelper.spawnPickyStatusCloud(weakeningEntity, target, StatusEffects.WEAKNESS,
+                        60, weakeningLevel - 1, true, true, false);
             }
         }
     }

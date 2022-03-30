@@ -3,6 +3,7 @@
   "package": "chronosacaria.mcdw.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AreaEffectCloudEntityMixin",
     "BowItemMixin",
     "CrossbowItemMixin",
     "DamageEnchantmentMixin",

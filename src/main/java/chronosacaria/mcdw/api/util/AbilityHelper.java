@@ -48,7 +48,7 @@ public class AbilityHelper {
             && healer.canSee(nearbyEntity);
     }
 
-    private static boolean isAllyOf(LivingEntity self, LivingEntity other) {
+    public static boolean isAllyOf(LivingEntity self, LivingEntity other) {
         return self.isTeammate(other)
             || isPetOf(self, other)
             || isVillagerOrIronGolem(other);

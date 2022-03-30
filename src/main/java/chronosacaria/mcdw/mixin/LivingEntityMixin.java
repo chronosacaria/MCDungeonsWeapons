@@ -6,7 +6,9 @@ import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
-import chronosacaria.mcdw.enums.*;
+import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.enums.ItemsID;
+import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -55,28 +57,6 @@ public class LivingEntityMixin {
         }
 
         return amount;
-    }
-
-    @Inject(method = "tick", at = @At("HEAD"))
-    private void mcdw$onTick(CallbackInfo ci) {
-        if ((Object) this instanceof LivingEntity livingEntity) {
-            ItemStack mainHand = livingEntity.getMainHandStack();
-
-            if (EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, mainHand) > 0
-                    || mainHand.getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_NIGHTMARES_BITE).asItem()
-                    || mainHand.getItem() == ItemsInit.glaiveItems.get(GlaivesID.SPEAR_VENOM_GLAIVE).asItem()) {
-                livingEntity.removeStatusEffect(StatusEffects.POISON);
-            }
-            if (EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, mainHand) > 0
-                    || mainHand.getItem() == ItemsInit.axeItems.get(AxesID.AXE_HIGHLAND).asItem()) {
-                livingEntity.removeStatusEffect(StatusEffects.NAUSEA);
-                livingEntity.removeStatusEffect(StatusEffects.SLOWNESS);
-            }
-            if (EnchantmentHelper.getLevel(EnchantsRegistry.WEAKENING, mainHand) > 0
-                    || mainHand.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_NAMELESS_BLADE).asItem()) {
-                livingEntity.removeStatusEffect(StatusEffects.WEAKNESS);
-            }
-        }
     }
 
     @Inject(method = "onDeath", at = @At("HEAD"))

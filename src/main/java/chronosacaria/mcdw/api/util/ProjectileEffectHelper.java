@@ -28,13 +28,13 @@ public class ProjectileEffectHelper {
         nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(user)));
         LivingEntity target = nearbyEntities.get(0);
         if (target != null){
-            ArrowItem arrowItem = (ArrowItem)((ArrowItem)(Items.ARROW));
+            ArrowItem arrowItem = (ArrowItem) Items.ARROW;
             PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, new ItemStack(Items.ARROW),user);
             persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() * bonusShotDamageMultiplier);
 
             double towardsX = target.getX() - user.getX();
             double towardsZ = target.getZ() - user.getZ();
-            double euclideanDistance = (double) MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
+            double euclideanDistance = MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
             double towardsY =
                     target.getBodyY(0.3333333333333333D) - persistentProjectileEntity.getY() + euclideanDistance * (double)0.2F;
             persistentProjectileEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f,
@@ -58,13 +58,13 @@ public class ProjectileEffectHelper {
         nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(attacker)));
         LivingEntity target =  nearbyEntities.get(0);
         if(target != null){
-            ArrowItem arrowItem = (ArrowItem)((ArrowItem)(Items.ARROW));
+            ArrowItem arrowItem = (ArrowItem) Items.ARROW;
             PersistentProjectileEntity arrowEntity = arrowItem.createArrow(world, new ItemStack(Items.ARROW), attacker);
             arrowEntity.setDamage(arrowEntity.getDamage() * bonusShotDamageMultiplier);
             // borrowed from AbstractSkeletonEntity
             double towardsX = target.getX() - attacker.getX();
             double towardsZ = target.getZ() - attacker.getZ();
-            double euclideanDist = (double)MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
+            double euclideanDist = MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
             double towardsY = target.getBodyY(0.3333333333333333D) - arrowEntity.getY() + euclideanDist * (double)0.2F;
             arrowEntity.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F,
                     1.0F);
@@ -78,7 +78,7 @@ public class ProjectileEffectHelper {
 
     private static PersistentProjectileEntity createChainReactionProjectile(World world, LivingEntity attacker, ItemStack ammoStack,
                                                                             PersistentProjectileEntity originalArrow) {
-        ArrowItem arrowItem = (ArrowItem)((ArrowItem)(ammoStack.getItem() instanceof ArrowItem ? ammoStack.getItem() : Items.ARROW));
+        ArrowItem arrowItem = (ArrowItem) (ammoStack.getItem() instanceof ArrowItem ? ammoStack.getItem() : Items.ARROW);
         PersistentProjectileEntity abstractArrowEntity = arrowItem.createArrow(world, ammoStack, attacker);
         if (attacker instanceof PlayerEntity) {
             abstractArrowEntity.setCritical(true);
@@ -123,7 +123,7 @@ public class ProjectileEffectHelper {
             Vec3d lookVector = victim.getRotationVec(1.0F);
             Vec3f vector3f = new Vec3f(lookVector);
             vector3f.rotate(quaternion);
-            projectile.setVelocity((double)vector3f.getX(), (double)vector3f.getY(), (double)vector3f.getZ(), v1, v2);
+            projectile.setVelocity(vector3f.getX(), vector3f.getY(), vector3f.getZ(), v1, v2);
             world.spawnEntity(projectile);
         }
     }
