@@ -430,18 +430,8 @@ public class EnchantmentEffects {
     public static void applyRefreshment(PlayerEntity refreshingEntity){
         int refreshmentLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(refreshingEntity, EnchantsRegistry.REFRESHMENT);
         if (refreshmentLevel > 0) {
-
-            PlayerInventory playerInventory = refreshingEntity.getInventory();
-            for (int slotID = 0; slotID < playerInventory.size(); slotID++) {
-                ItemStack currentStack = playerInventory.getStack(slotID);
-                if (currentStack.getItem() instanceof GlassBottleItem && currentStack.getCount() == 1) {
-                    ItemStack healthPotion = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.HEALING);
-                    playerInventory.setStack(slotID, healthPotion);
-                    refreshmentLevel--;
-                    if (refreshmentLevel == 0)
-                        break;
-                }
-            }
+            ItemStack healthPotion = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.HEALING);
+            InventoryHelper.mcdw$systematicReplacePotions(refreshingEntity, Items.GLASS_BOTTLE, healthPotion, refreshmentLevel);
         }
     }
 

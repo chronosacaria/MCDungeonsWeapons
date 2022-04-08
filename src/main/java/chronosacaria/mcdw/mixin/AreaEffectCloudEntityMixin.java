@@ -70,7 +70,7 @@ public class AreaEffectCloudEntityMixin implements IExclusiveAOECloud {
             if (this.exclusions.get(1)) {
                 ci.cancel();
             }
-        } else { // h is an enemy
+        } else if (this.owner != null){ // h is an enemy
             if (this.exclusions.get(2)) {
                 ci.cancel();
             }
