@@ -16,16 +16,12 @@ repositories {
         url "https://maven.jamieswhiteshirt.com/libs-release/"
     }
     maven {
-        url "https://www.cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
-    maven {
         url "https://maven.shedaniel.me/"
     }
     repositories {
-        jcenter()
+        flatDir{
+            dirs 'D:\\My Documents\\GitHub\\ForceEnchantments\\build\\libs'
+        }
     }
 
 }
@@ -44,9 +40,8 @@ dependencies {
     modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
     include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
 
-    // EnchantGiver
-    modImplementation "curse.maven:enchanthelper-434579:3347061"
-    include "curse.maven:enchanthelper-434579:3347061"
+    modImplementation files('D:\\My Documents\\GitHub\\ForceEnchantments\\build\\libs\\enchantment_force-0.1.2.jar')
+    include files('D:\\My Documents\\GitHub\\ForceEnchantments\\build\\libs\\enchantment_force-0.1.2.jar')
 
     // Cloth Config
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
