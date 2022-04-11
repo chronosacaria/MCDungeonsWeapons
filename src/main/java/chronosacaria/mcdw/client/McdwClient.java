@@ -53,7 +53,8 @@ public class McdwClient implements ClientModInitializer {
         });
 
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld,
-                                                                                       livingEntity, seed) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
+                                                                                       livingEntity, seed) ->
+                livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
     }
 
     public static void registerShortBowPredicates(McdwShortBow bow) {
@@ -67,7 +68,8 @@ public class McdwClient implements ClientModInitializer {
         });
 
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld,
-                                                                                       livingEntity, seed) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
+                                                                                       livingEntity, seed) ->
+                livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
     }
 
     public static void registerLongBowPredicates(McdwLongBow bow) {
@@ -81,7 +83,8 @@ public class McdwClient implements ClientModInitializer {
         });
 
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld,
-                                                                                       livingEntity, seed) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
+                                                                                       livingEntity, seed) ->
+                livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
     }
 
     public static void registerCrossbowPredicates(McdwCrossbow crossbow) {

@@ -11,6 +11,7 @@ import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
@@ -23,6 +24,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
@@ -30,7 +32,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 public abstract class BowItemMixin implements IBowTimings{
     private LivingEntity livingEntity;
 
-    public LivingEntity getLivingEntity() { return this.livingEntity; }
+    private LivingEntity getLivingEntity() { return this.livingEntity; }
 
     public void setLivingEntity(LivingEntity livingEntity){
         this.livingEntity = livingEntity;
@@ -182,6 +184,10 @@ public abstract class BowItemMixin implements IBowTimings{
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
             int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, livingEntity.getMainHandStack());
+
+            //int consecutiveShots = getConsecutiveShots(stack);
+
+            //new ItemCooldownManager().set(livingEntity.getMainHandStack().getItem(), 10 + (5 * consecutiveShots));
 
             return (int) (value * (1 + ((6.0f + 2.0f * accelerateLevel) / 100)));
         }

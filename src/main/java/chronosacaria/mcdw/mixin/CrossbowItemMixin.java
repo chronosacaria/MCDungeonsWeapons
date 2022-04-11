@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
@@ -109,4 +110,11 @@ public class CrossbowItemMixin {
             }
         }
     }
+
+    /*@ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/item/CrossbowItem;getPullProgress(ILnet/minecraft/item/ItemStack;)F"))
+    private int mcdw$acceleratedPullProgress(int useTicks) {
+        //return 100 * useTicks;
+        //return (int) (value * (1 + ((6.0f + 2.0f * accelerateLevel) / 100)));
+    }*/
 }
