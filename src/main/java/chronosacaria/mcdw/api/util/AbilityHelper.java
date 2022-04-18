@@ -3,6 +3,7 @@ package chronosacaria.mcdw.api.util;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
 import chronosacaria.mcdw.enums.SettingsID;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -73,5 +74,18 @@ public class AbilityHelper {
     public static float getAnimaRepairAmount(float experience, int level) {
         experience *= 0.1 * level;
         return experience;
+    }
+
+    public static boolean entityCanCrit(LivingEntity livingEntity) {
+        return !livingEntity.isHoldingOntoLadder()
+                && !livingEntity.isSwimming()
+                && !livingEntity.isOnGround()
+                && !livingEntity.hasStatusEffect(StatusEffects.SLOW_FALLING)
+                && !livingEntity.isSprinting()
+                && !livingEntity.hasVehicle()
+                && !livingEntity.hasStatusEffect(StatusEffects.BLINDNESS)
+                && livingEntity.getVelocity().y < 0
+                && !livingEntity.getBlockStateAtPos().isOf(Blocks.SCAFFOLDING)
+                && !livingEntity.getBlockStateAtPos().isOf(Blocks.VINE);
     }
 }

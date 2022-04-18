@@ -26,27 +26,29 @@ public class LivingEntityPlayerEntityMixin {
 
         if (amount > 0) {
 
+            float storedAmount = amount;
+
             if (source.getSource() instanceof LivingEntity) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.AMBUSH))
-                    amount *= EnchantmentEffects.ambushDamage(attackingEntity, victim);
+                    amount += storedAmount * EnchantmentEffects.ambushDamage(attackingEntity, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CRITICAL_HIT))
-                    amount *= EnchantmentEffects.criticalHitDamage(attackingEntity, victim);
+                    amount += storedAmount * EnchantmentEffects.criticalHitDamage(attackingEntity, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_STRIKE))
-                    amount *= EnchantmentEffects.voidStrikeDamage(attackingEntity, victim);
+                    amount += storedAmount * EnchantmentEffects.voidStrikeDamage(attackingEntity, victim);
             }
 
             if (source.getSource() instanceof PlayerEntity attackingPlayer) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ENIGMA_RESONATOR))
-                    amount *= EnchantmentEffects.enigmaResonatorDamage(attackingPlayer, victim);
+                    amount += storedAmount * EnchantmentEffects.enigmaResonatorDamage(attackingPlayer, victim);
             }
 
             if (source.getSource() instanceof PersistentProjectileEntity ppe) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ENIGMA_RESONATOR))
-                    amount *= EnchantmentEffects.enigmaShotDamage(attackingEntity, victim, ppe);
+                    amount += storedAmount * EnchantmentEffects.enigmaShotDamage(attackingEntity, victim, ppe);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GROWING))
-                    amount *= EnchantmentEffects.growingDamage(attackingEntity, victim, ppe);
+                    amount += storedAmount * EnchantmentEffects.growingDamage(attackingEntity, victim, ppe);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_SHOT))
-                    amount *= EnchantmentEffects.voidShotDamage(victim, ppe);
+                    amount += storedAmount * EnchantmentEffects.voidShotDamage(victim, ppe);
             }
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED))

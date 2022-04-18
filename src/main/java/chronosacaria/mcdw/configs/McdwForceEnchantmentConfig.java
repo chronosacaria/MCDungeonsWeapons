@@ -6,11 +6,19 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.*;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 
+import java.io.File;
+
 public class McdwForceEnchantmentConfig {
+    private static File getEnchantmentConfig(){
+        return new File(FabricLoader.getInstance().getConfigDir().toFile(), "forceEnchantments.json");
+    }
+
+
     public static void forceEnchantments() {
         if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_INNATE_ENCHANTMENTS)) {
 
@@ -38,7 +46,9 @@ public class McdwForceEnchantmentConfig {
     }
     private static void setForcedEnchant(Item item, Enchantment... enchantments) {
         // This does them at lvl 1
-        ((ItemWithEnchantmentAssigner) item).setEnchantments(enchantments);
+        if (!getEnchantmentConfig().canRead()) {
+            ((ItemWithEnchantmentAssigner) item).setEnchantments(enchantments);
+        }
     }
 
     /* Weapon Force Enchants Methods */

@@ -129,10 +129,10 @@ public class EnchantmentEffects {
             if (ambushingEntity.isInvisible() && ambushingEntity.isSneaking()) {
 
                 CleanlinessHelper.playCenteredSound(ambushee, SoundEvents.BLOCK_POINTED_DRIPSTONE_LAND, 0.5F, 1.0F);
-                return 1f + (0.15f * ambushLevel);
+                return 0.15f * ambushLevel;
             }
         }
-        return 1f;
+        return 0f;
     }
 
     public static float criticalHitDamage(LivingEntity crittingEntity, LivingEntity target) {
@@ -140,12 +140,14 @@ public class EnchantmentEffects {
         if (criticalHitLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(10 + (CONFIG_CHANCE.get(EnchantmentsID.CRITICAL_HIT) * criticalHitLevel))) {
+                if (!AbilityHelper.entityCanCrit(crittingEntity)) {
 
-                CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, 0.5F, 1.0F);
-                return 1.5f;
+                    CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, 0.5F, 1.0F);
+                    return 0.5f;
+                }
             }
         }
-        return 1f;
+        return 0f;
     }
 
     public static float voidStrikeDamage(LivingEntity voidEntity, LivingEntity target) {
@@ -154,10 +156,10 @@ public class EnchantmentEffects {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.VOID_STRIKE) + (5 * voidlevel))) {
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 0.5F, 1.0F);
-                return 2f * voidlevel;
+                return (2f * voidlevel) - 1f; // -1f accounts for change to storedAmount calc
             }
         }
-        return 1f;
+        return 0f;
     }
 
     public static float enigmaResonatorDamage(PlayerEntity resonatingEntity, LivingEntity target) {
@@ -172,10 +174,10 @@ public class EnchantmentEffects {
                         (float) (Math.log(numSouls * resonatorLevel)) /
                                 Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentStatsSettings.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
 
-                return Math.max(extraDamageMultiplier, 1f);
+                return Math.max(extraDamageMultiplier, 0f);
             }
         }
-        return 1f;
+        return 0f;
     }
 
     public static float enigmaShotDamage(LivingEntity resonatingEntity, LivingEntity target, PersistentProjectileEntity ppe) {
@@ -191,10 +193,10 @@ public class EnchantmentEffects {
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
                 float getExtraDamage = (float) (Math.log(numSouls * resonatorLevel) * 1.75F);
 
-                return Math.max(getExtraDamage, 1f);
+                return Math.max(getExtraDamage, 0f);
             }
         }
-        return 1f;
+        return 0f;
     }
 
     public static float growingDamage(LivingEntity growingEntity, LivingEntity target, PersistentProjectileEntity ppe) {
@@ -203,9 +205,9 @@ public class EnchantmentEffects {
 
             CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 0.5F, 1.0F);
             float damageModifier = 0.03F * growingEntity.distanceTo(target) * growingLevel;
-            return MathHelper.clamp(damageModifier, 1f, growingLevel + 1f);
+            return MathHelper.clamp(damageModifier, 0f, growingLevel);
         }
-        return 1f;
+        return 0f;
     }
 
     public static float voidShotDamage(LivingEntity target, PersistentProjectileEntity ppe) {
@@ -214,10 +216,10 @@ public class EnchantmentEffects {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.VOID_SHOT) + (5 * voidlevel))) {
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 0.5F, 1.0F);
-                return voidlevel + 1f;
+                return voidlevel;
             }
         }
-        return 1f;
+        return 0f;
     }
 
     public static float committedDamage(LivingEntity committedEntity, LivingEntity target) {
