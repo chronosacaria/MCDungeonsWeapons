@@ -174,7 +174,7 @@ public class EnchantmentEffects {
                         (float) (Math.log(numSouls * resonatorLevel)) /
                                 Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentStatsSettings.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
 
-                return Math.max(extraDamageMultiplier, 0f);
+                return Math.max(extraDamageMultiplier - 1, 0f);
             }
         }
         return 0f;
@@ -193,7 +193,7 @@ public class EnchantmentEffects {
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
                 float getExtraDamage = (float) (Math.log(numSouls * resonatorLevel) * 1.75F);
 
-                return Math.max(getExtraDamage, 0f);
+                return Math.max(getExtraDamage - 1, 0f);
             }
         }
         return 0f;
