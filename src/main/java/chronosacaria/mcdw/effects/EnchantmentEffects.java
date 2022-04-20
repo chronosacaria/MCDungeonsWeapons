@@ -182,7 +182,7 @@ public class EnchantmentEffects {
 
     public static float enigmaShotDamage(LivingEntity resonatingEntity, LivingEntity target, PersistentProjectileEntity ppe) {
         if (!(resonatingEntity instanceof PlayerEntity player))
-            return 1f;
+            return 0f;
         IMcdwEnchantedArrow enchantedArrow = (IMcdwEnchantedArrow) ppe;
         int resonatorLevel = enchantedArrow.getEnigmaResonatorLevel();
         if (resonatorLevel > 0) {
