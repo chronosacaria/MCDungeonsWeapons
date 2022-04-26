@@ -47,12 +47,12 @@ public class LivingEntityMixin {
             return amount;
 
         if (amount > 0) {
-
+            float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentStrength;
             if (attackingEntity instanceof TameableEntity petSource
                     && petSource.world instanceof ServerWorld serverWorld
                     && petSource.getOwner() instanceof PlayerEntity owner) {
 
-                amount *= EnchantmentEffects.huntersPromiseDamage(owner, serverWorld);
+                amount += storedAmount * EnchantmentEffects.huntersPromiseDamage(owner, serverWorld);
             }
         }
 

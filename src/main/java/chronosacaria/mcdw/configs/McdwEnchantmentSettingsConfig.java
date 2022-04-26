@@ -23,6 +23,9 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
             "the chance to trigger.")
     public LinkedHashMap<EnchantmentsID, Integer> enchantmentTriggerChanceBase = new LinkedHashMap<>();
 
+    @Comment("Overall Enchantment Strength Slider")
+    public float enchantmentStrength = 1.0f;
+
     public McdwEnchantmentSettingsConfig(){
         enableEnchantmentSettings.put(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING, false);
         enableEnchantmentSettings.put(SettingsID.LEECHING_CAN_BE_MIXED_WITH_HEALING, false);

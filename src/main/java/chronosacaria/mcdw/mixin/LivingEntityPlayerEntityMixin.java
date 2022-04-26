@@ -26,7 +26,7 @@ public class LivingEntityPlayerEntityMixin {
 
         if (amount > 0) {
 
-            float storedAmount = amount;
+            float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentStrength;
 
             if (source.getSource() instanceof LivingEntity) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.AMBUSH))

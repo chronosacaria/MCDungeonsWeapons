@@ -19,9 +19,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.item.GlassBottleItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
@@ -78,11 +76,11 @@ public class EnchantmentEffects {
 
             if (petOwnerUUID != null) {
                 if (serverWorld.getEntity(petOwnerUUID) instanceof LivingEntity) {
-                    return 1.5F;
+                    return 0.5F;
                 }
             }
         }
-        return 1f;
+        return 0f;
     }
 
     //mcdw$onDeath
