@@ -37,8 +37,7 @@ import java.util.List;
 @SuppressWarnings("ConstantConditions")
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-
-    public EntityType<SummonedBeeEntity> s_bee =
+    public EntityType<SummonedBeeEntity> mcdw$summoned_bee =
             SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
 
     @ModifyVariable(method = "damage", at = @At(value = "HEAD"), argsOnly = true)
