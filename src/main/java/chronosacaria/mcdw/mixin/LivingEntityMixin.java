@@ -114,7 +114,7 @@ public class LivingEntityMixin {
             ItemStack offHandStack = attackingPlayer.getOffHandStack();
             if (mainHandStack.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER)) {
                 offHandStack.decrement(1);
-                SummonedBeeEntity summonedBeeEntity_1 = s_bee.create(attackingPlayer.world);
+                SummonedBeeEntity summonedBeeEntity_1 = mcdw$summoned_bee.create(attackingPlayer.world);
                 if (summonedBeeEntity_1 != null) {
                     summonedBeeEntity_1.setSummoner(attackingPlayer);
                     summonedBeeEntity_1.refreshPositionAndAngles(attackingPlayer.getX(), attackingPlayer.getY() + 1, attackingPlayer.getZ(), 0, 0);
