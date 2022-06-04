@@ -40,6 +40,8 @@ public class PlayerAttackHelper {
     public static void attackTargetEntityWitCurrentOffhandItemAsSuper (PlayerEntity player, Entity target){
         if (target.isAttackable() && !target.handleAttack(player)){
             //get attack damage attribute value
+            //player.getAttributes().removeModifiers(player.getMainHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
+            //player.getAttributes().addTemporaryModifiers(player.getOffHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
             float f_attackDamage = (float)player.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
             float h_enchantmentEffectsTargetBonus;
             if (target instanceof LivingEntity){
