@@ -7,6 +7,7 @@
     "BowItemMixin",
     "CrossbowItemMixin",
     "DamageEnchantmentMixin",
+    "EnchantmentMixin",
     "EntityMixin",
     "ExperienceOrbEntityMixin",
     "ItemStackMixin",
@@ -16,6 +17,7 @@
     "ShieldPlayerEntityMixin"
   ],
   "client": [
+    "AbstractClientPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

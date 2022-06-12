@@ -1,7 +1,7 @@
 package chronosacaria.mcdw;
 
 import chronosacaria.mcdw.configs.McdwConfig;
-import chronosacaria.mcdw.configs.McdwForceEnchantmentConfig;
+import chronosacaria.mcdw.configs.McdwEnchantGiverConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enums.LongBowsID;
@@ -104,8 +104,8 @@ public class Mcdw implements ModInitializer {
         // Sounds
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);
 
-        // Force Enchantments
-        McdwForceEnchantmentConfig.forceEnchantments();
+        // EnchantGiver
+        McdwEnchantGiverConfig.appendEnchants();
 
         SummonedEntityRegistry.register();
     }
