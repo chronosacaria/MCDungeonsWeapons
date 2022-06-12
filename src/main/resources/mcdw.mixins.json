@@ -17,6 +17,7 @@
     "ShieldPlayerEntityMixin"
   ],
   "client": [
+    "AbstractClientPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
