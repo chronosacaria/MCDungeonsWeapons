@@ -11,7 +11,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
@@ -33,7 +32,7 @@ public class McdwAxe extends AxeItem {
                 String str = axesID.toString().toLowerCase(Locale.ROOT).substring(4);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
-                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+                    tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
                     i++;
                 }
                 break;

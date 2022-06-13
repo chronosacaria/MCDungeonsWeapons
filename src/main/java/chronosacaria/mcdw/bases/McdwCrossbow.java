@@ -9,7 +9,6 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.*;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
@@ -100,7 +99,7 @@ public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
                 String str = crossbowsID.toString().toLowerCase(Locale.ROOT).substring(9);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
-                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+                    tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
                     i++;
                 }
                 break;

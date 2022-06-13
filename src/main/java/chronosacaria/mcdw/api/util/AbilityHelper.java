@@ -7,10 +7,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.passive.HorseBaseEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.passive.VillagerEntity;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class AbilityHelper {
@@ -32,7 +29,7 @@ public class AbilityHelper {
     public static boolean isPetOf(LivingEntity self, LivingEntity owner){
         if (self instanceof TameableEntity pet)
             return pet.getOwner() == owner;
-        else if(self instanceof HorseBaseEntity horseBaseEntity)
+        else if(self instanceof AbstractHorseEntity horseBaseEntity)
             return GoalUtils.getOwner(horseBaseEntity) == owner;
         else
             return false;

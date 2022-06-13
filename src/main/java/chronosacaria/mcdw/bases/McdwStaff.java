@@ -18,7 +18,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
@@ -111,7 +110,7 @@ public class McdwStaff extends AxeItem {
                 String str = stavesID.toString().toLowerCase(Locale.ROOT).substring(6);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
-                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+                    tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
                     i++;
                 }
                 break;

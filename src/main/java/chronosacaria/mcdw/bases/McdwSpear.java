@@ -21,7 +21,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.Vanishable;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -107,7 +106,7 @@ public class McdwSpear extends McdwCustomWeaponBase implements Vanishable {
                 String str = spearsID.toString().toLowerCase(Locale.ROOT).substring(6);
                 String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
                 while (I18n.hasTranslation(translationKey + i)) {
-                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+                    tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
                     i++;
                 }
                 break;
