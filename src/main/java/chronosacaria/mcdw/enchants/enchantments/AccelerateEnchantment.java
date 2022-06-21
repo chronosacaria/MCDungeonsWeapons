@@ -25,6 +25,10 @@ public class AccelerateEnchantment extends RangedEnchantment {
         return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE);
     }
 
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE);
+    }
+
     @Override
     public int getMinPower(int level) {
         return 1 + level * 10;

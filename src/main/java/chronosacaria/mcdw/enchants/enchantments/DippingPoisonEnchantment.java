@@ -37,6 +37,10 @@ public class DippingPoisonEnchantment extends RangedEnchantment {
         return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DIPPING_POISON);
     }
 
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DIPPING_POISON);
+    }
+
     @Override
     public int getMinPower(int level) {
         return 1 + level * 10;

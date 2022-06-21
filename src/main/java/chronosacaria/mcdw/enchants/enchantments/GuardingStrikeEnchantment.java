@@ -26,6 +26,10 @@ public class GuardingStrikeEnchantment extends Enchantment {
         return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GUARDING_STRIKE);
     }
 
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GUARDING_STRIKE);
+    }
+
     @Override
     public int getMinPower(int level) {
         return 1 + level * 10;

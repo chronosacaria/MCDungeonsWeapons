@@ -41,6 +41,10 @@ public class DynamoEnchantment extends DamageBoostEnchantment {
         return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO);
     }
 
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO);
+    }
+
     public static void handleAddDynamoEnchantment(PlayerEntity playerEntity) {
         ItemStack mainHandStack = playerEntity.getMainHandStack();
         if (McdwEnchantmentHelper.hasEnchantment(mainHandStack, EnchantsRegistry.DYNAMO)) {
