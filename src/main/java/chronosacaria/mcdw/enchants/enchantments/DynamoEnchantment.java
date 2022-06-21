@@ -49,7 +49,6 @@ public class DynamoEnchantment extends DamageBoostEnchantment {
             int i = dynamoLevel;
             if (dynamoInstance != null) {
                 i += dynamoInstance.getAmplifier();
-                playerEntity.removeStatusEffectInternal(StatusEffectsRegistry.DYNAMO);
             } else {
                 --i;
             }
