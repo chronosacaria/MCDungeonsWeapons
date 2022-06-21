@@ -13,6 +13,7 @@ public enum EnchantmentsID {
     COMMITTED,
     CRITICAL_HIT,
     DIPPING_POISON,
+    DYNAMO,
     ECHO,
     ENIGMA_RESONATOR,
     EXPLODING,

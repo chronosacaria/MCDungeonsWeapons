@@ -10,6 +10,7 @@ import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.loottables.McdwNewLoottables;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
+import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -108,5 +109,7 @@ public class Mcdw implements ModInitializer {
         McdwEnchantGiverConfig.appendEnchants();
 
         SummonedEntityRegistry.register();
+
+        StatusEffectsRegistry.init();
     }
 }

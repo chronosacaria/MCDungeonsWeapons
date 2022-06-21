@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enchants.enchantments.DynamoEnchantment;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
@@ -24,6 +25,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
@@ -129,16 +131,11 @@ public class LivingEntityMixin {
         if(!((Object) this instanceof PlayerEntity user))
             return;
 
-        ItemStack mainHandStack = null;
-
         ItemStack poisonTippedArrow = PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW, 8), Potions.POISON);
 
-        if (user != null) {
-            mainHandStack = user.getMainHandStack();
-        }
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DIPPING_POISON)) {
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, mainHandStack) > 0)) {
-                int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, mainHandStack);
+            if (user.getMainHandStack() != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getMainHandStack()) > 0)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getMainHandStack());
                 if (user instanceof PlayerEntity) {
                     if (level > 0) {
                         List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(user.getOffHandStack());
@@ -150,6 +147,18 @@ public class LivingEntityMixin {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    @Inject(method = "jump", at = @At("HEAD"))
+    public void mcdw$onJumpEffects(CallbackInfo ci){
+        if (!((Object) this instanceof ServerPlayerEntity playerEntity))
+            return;
+
+        if (playerEntity != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, playerEntity.getMainHandStack()) > 0)) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO)) {
+                DynamoEnchantment.handleAddDynamoEnchantment(playerEntity);
             }
         }
     }

@@ -23,6 +23,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     private int chainReactionLevel = 0;
     private int chargeLevel = 0;
     private int cobwebShotLevel = 0;
+    private int dynamoLevel = 0;
     private int enigmaResonatorLevel = 0;
     private int fuseShotLevel = 0;
     private int gravityLevel = 0;
@@ -74,6 +75,14 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     public void setCobwebShotLevel(int cobwebShotLevel){
         this.cobwebShotLevel = cobwebShotLevel;
     }
+
+    @Override
+    public int getDynamoLevel() {
+        return dynamoLevel;
+    }
+
+    @Override
+    public void setDynamoLevel(int dynamoLevel) { this.dynamoLevel = dynamoLevel; }
 
     @Override
     public int getEnigmaResonatorLevel() {

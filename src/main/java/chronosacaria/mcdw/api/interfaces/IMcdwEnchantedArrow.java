@@ -14,6 +14,9 @@ public interface IMcdwEnchantedArrow {
     int getCobwebShotLevel();
     void setCobwebShotLevel(int cobwebShotLevel);
 
+    int getDynamoLevel();
+    void setDynamoLevel(int dynamoLevel);
+
     int getEnigmaResonatorLevel();
     void setEnigmaResonatorLevel(int enigmaResonatorLevel);
 

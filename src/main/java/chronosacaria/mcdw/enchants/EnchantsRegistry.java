@@ -42,6 +42,7 @@ public class EnchantsRegistry {
     public static Enchantment CHARGE;
     public static Enchantment COBWEB_SHOT;
     public static Enchantment DIPPING_POISON;
+    public static Enchantment DYNAMO;
     public static Enchantment FUSE_SHOT;
     public static Enchantment GROWING;
     public static Enchantment LEVITATION_SHOT;
@@ -122,6 +123,8 @@ public class EnchantsRegistry {
         COBWEB_SHOT = new CobwebShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                         new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         DIPPING_POISON = new DippingPoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        DYNAMO = new DynamoEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         FUSE_SHOT = new FuseShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

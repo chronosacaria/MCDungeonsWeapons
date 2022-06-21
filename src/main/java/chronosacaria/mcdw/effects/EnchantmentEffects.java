@@ -11,6 +11,7 @@ import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
+import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
@@ -235,6 +236,38 @@ public class EnchantmentEffects {
 
                 float getExtraDamage = attributeDamage * (1 - getTargetRemainingHealth) * committedMultiplier;
                 return Math.max(getExtraDamage, 0f);
+            }
+        }
+        return 0f;
+    }
+
+    public static float dynamoDamage (LivingEntity dynamoEntity) {
+        int dynamoLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(dynamoEntity, EnchantsRegistry.DYNAMO);
+        if (dynamoLevel > 0 && dynamoEntity.hasStatusEffect(StatusEffectsRegistry.DYNAMO)) {
+            StatusEffectInstance dynamoInstance = dynamoEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
+            if (dynamoInstance != null) {
+                int dynamoAmplifier = dynamoInstance.getAmplifier() + 1;
+                float attributeDamage = (float) dynamoEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                float getDynamoDamage = (float) (attributeDamage * (1 + dynamoAmplifier * 0.1));
+                dynamoEntity.removeStatusEffectInternal(StatusEffectsRegistry.DYNAMO);
+
+                return Math.max(getDynamoDamage, 0f);
+            }
+        }
+        return 0f;
+    }
+
+    public static float dynamoShotDamage (LivingEntity dynamoEntity, PersistentProjectileEntity ppe) {
+        int dynamoLevel = ((IMcdwEnchantedArrow)ppe).getDynamoLevel();
+        if (dynamoLevel > 0 && dynamoEntity.hasStatusEffect(StatusEffectsRegistry.DYNAMO)) {
+            StatusEffectInstance dynamoInstance = dynamoEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
+            if (dynamoInstance != null) {
+                int dynamoAmplifier = dynamoInstance.getAmplifier() + 1;
+                float attributeDamage = (float) dynamoEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                float getDynamoDamage = (float) (attributeDamage * (1 + dynamoAmplifier * 0.1));
+                dynamoEntity.removeStatusEffectInternal(StatusEffectsRegistry.DYNAMO);
+
+                return Math.max(getDynamoDamage, 0f);
             }
         }
         return 0f;

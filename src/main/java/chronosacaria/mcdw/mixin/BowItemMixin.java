@@ -11,7 +11,6 @@ import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
@@ -24,7 +23,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
@@ -121,6 +119,10 @@ public abstract class BowItemMixin implements IBowTimings{
         int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, stack);
         if (cobwebShotLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).setCobwebShotLevel(cobwebShotLevel);
+        }
+        int dynamoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, stack);
+        if (dynamoLevel > 0) {
+            ((IMcdwEnchantedArrow)ppe).setDynamoLevel(dynamoLevel);
         }
         int enigmaResonatorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, stack);
         if (enigmaResonatorLevel > 0) {

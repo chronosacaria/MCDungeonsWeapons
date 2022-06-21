@@ -40,6 +40,8 @@ public class LivingEntityPlayerEntityMixin {
             if (source.getSource() instanceof PlayerEntity attackingPlayer) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ENIGMA_RESONATOR))
                     amount += storedAmount * EnchantmentEffects.enigmaResonatorDamage(attackingPlayer, victim);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
+                    amount += storedAmount * EnchantmentEffects.dynamoDamage(attackingEntity);
             }
 
             if (source.getSource() instanceof PersistentProjectileEntity ppe) {
@@ -49,6 +51,8 @@ public class LivingEntityPlayerEntityMixin {
                     amount += storedAmount * EnchantmentEffects.growingDamage(attackingEntity, victim, ppe);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_SHOT))
                     amount += storedAmount * EnchantmentEffects.voidShotDamage(victim, ppe);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
+                    amount += storedAmount * EnchantmentEffects.dynamoShotDamage(attackingEntity, ppe);
             }
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED))

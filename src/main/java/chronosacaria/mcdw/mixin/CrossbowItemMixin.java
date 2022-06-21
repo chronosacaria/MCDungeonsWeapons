@@ -18,7 +18,6 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
@@ -46,6 +45,10 @@ public class CrossbowItemMixin {
             int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, crossbow);
             if (cobwebShotLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setCobwebShotLevel(cobwebShotLevel);
+            }
+            int dynamoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, crossbow);
+            if (dynamoLevel > 0) {
+                ((IMcdwEnchantedArrow)ppe).setDynamoLevel(dynamoLevel);
             }
             int enigmaResonatorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, crossbow);
             if (enigmaResonatorLevel > 0) {

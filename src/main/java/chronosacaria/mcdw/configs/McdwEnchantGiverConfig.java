@@ -61,6 +61,14 @@ public class McdwEnchantGiverConfig {
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_MASTERS_KATANA)),
                     new Identifier("mcdw:critical_hit"), 1, true);
 
+            // DYNAMO ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_GREAT_AXEBLADE)),
+                    new Identifier("mcdw:dynamo"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW)),
+                    new Identifier("mcdw:dynamo"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_ANCIENT_BOW)),
+                    new Identifier("mcdw:dynamo"), 1, true);
+
             // ECHO ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.spearItems.get(SpearsID.SPEAR_WHISPERING_SPEAR)),
                     new Identifier("mcdw:echo"), 1, true);
