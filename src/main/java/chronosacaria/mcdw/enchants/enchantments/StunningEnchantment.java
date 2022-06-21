@@ -26,12 +26,14 @@ public class StunningEnchantment extends Enchantment{
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.STUNNING);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.STUNNING)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableRandomSelection.get(EnchantmentsID.STUNNING);
     }
 
     @Override
     public boolean isAvailableForEnchantedBookOffer() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.STUNNING);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.STUNNING)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableVillageTrading.get(EnchantmentsID.STUNNING);
     }
 
     @Override

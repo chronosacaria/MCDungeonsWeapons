@@ -36,11 +36,14 @@ public class CommittedEnchantment extends DamageBoostEnchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableRandomSelection.get(EnchantmentsID.COMMITTED);
     }
 
+    @Override
     public boolean isAvailableForEnchantedBookOffer() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableVillageTrading.get(EnchantmentsID.COMMITTED);
     }
 
     @Override

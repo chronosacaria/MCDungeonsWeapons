@@ -36,11 +36,14 @@ public class CriticalHitEnchantment extends DamageBoostEnchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CRITICAL_HIT);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CRITICAL_HIT)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableRandomSelection.get(EnchantmentsID.CRITICAL_HIT);
     }
 
+    @Override
     public boolean isAvailableForEnchantedBookOffer() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CRITICAL_HIT);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CRITICAL_HIT)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableVillageTrading.get(EnchantmentsID.CRITICAL_HIT);
     }
 
     @Override

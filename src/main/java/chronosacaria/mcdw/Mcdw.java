@@ -56,6 +56,7 @@ public class Mcdw implements ModInitializer {
                     itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.COMMITTED, i)));
                     itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.CRITICAL_HIT, i)));
                     itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.DIPPING_POISON, i)));
+                    itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.DYNAMO, i)));
                     itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.ECHO, i)));
                     itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.ENIGMA_RESONATOR, i)));
                     itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(EnchantsRegistry.EXPLODING, i)));
@@ -95,21 +96,12 @@ public class Mcdw implements ModInitializer {
     public void onInitialize() {
         McdwConfig.init();
         CONFIG = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
-
         ItemsInit.init();
         McdwNewLoottables.init();
-
-        // Enchants
         EnchantsRegistry.init();
-
-        // Sounds
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);
-
-        // EnchantGiver
         McdwEnchantGiverConfig.appendEnchants();
-
         SummonedEntityRegistry.register();
-
         StatusEffectsRegistry.init();
     }
 }

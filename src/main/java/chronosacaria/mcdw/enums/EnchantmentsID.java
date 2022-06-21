@@ -35,7 +35,6 @@ public enum EnchantmentsID {
     RAMPAGING,
     REPLENISH,
     REFRESHMENT,
-    REFRESHMENT_SHOT,
     RICOCHET,
     RUSHDOWN,
     SHOCKWAVE,
