@@ -247,8 +247,8 @@ public class EnchantmentEffects {
             StatusEffectInstance dynamoInstance = dynamoEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
             if (dynamoInstance != null) {
                 int dynamoAmplifier = dynamoInstance.getAmplifier() + 1;
-                float attributeDamage = (float) dynamoEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-                float getDynamoDamage = (float) (attributeDamage * (dynamoAmplifier * 0.1));
+                float dynamoLevelModifier = (dynamoLevel - 1) * 0.25f + 1;
+                float getDynamoDamage = (float) (dynamoLevelModifier * (dynamoAmplifier * 0.1));
                 dynamoEntity.removeStatusEffect(StatusEffectsRegistry.DYNAMO);
 
                 return Math.max(getDynamoDamage, 0f);
@@ -263,8 +263,8 @@ public class EnchantmentEffects {
             StatusEffectInstance dynamoInstance = dynamoEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
             if (dynamoInstance != null) {
                 int dynamoAmplifier = dynamoInstance.getAmplifier() + 1;
-                float attributeDamage = (float) dynamoEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-                float getDynamoDamage = (float) (attributeDamage * (dynamoAmplifier * 0.1));
+                float dynamoLevelModifier = (dynamoLevel - 1) * 0.25f + 1;
+                float getDynamoDamage = (float) (dynamoLevelModifier * (dynamoAmplifier * 0.1));
                 dynamoEntity.removeStatusEffect(StatusEffectsRegistry.DYNAMO);
 
                 return Math.max(getDynamoDamage, 0f);

@@ -38,6 +38,11 @@ public class DynamoEnchantment extends DamageBoostEnchantment {
     }
 
     @Override
+    public boolean isTreasure() {
+        return true;
+    }
+
+    @Override
     public boolean isAvailableForRandomSelection() {
         return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO);
     }
@@ -49,9 +54,8 @@ public class DynamoEnchantment extends DamageBoostEnchantment {
     public static void handleAddDynamoEnchantment(PlayerEntity playerEntity) {
         ItemStack mainHandStack = playerEntity.getMainHandStack();
         if (McdwEnchantmentHelper.hasEnchantment(mainHandStack, EnchantsRegistry.DYNAMO)) {
-            int dynamoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, mainHandStack);
             StatusEffectInstance dynamoInstance = playerEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
-            int i = dynamoLevel;
+            int i = 1;
             if (dynamoInstance != null) {
                 i += dynamoInstance.getAmplifier();
             } else {
