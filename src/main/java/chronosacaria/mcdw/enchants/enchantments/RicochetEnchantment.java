@@ -29,6 +29,11 @@ public class RicochetEnchantment extends RangedEnchantment {
     }
 
     @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RICOCHET);
+    }
+
+    @Override
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
     }

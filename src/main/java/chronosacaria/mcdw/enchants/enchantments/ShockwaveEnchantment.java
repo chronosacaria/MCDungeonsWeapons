@@ -40,6 +40,11 @@ public class ShockwaveEnchantment extends AOEEnchantment {
     }
 
     @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHOCKWAVE);
+    }
+
+    @Override
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem || stack.getItem() instanceof McdwCustomWeaponBase;
     }

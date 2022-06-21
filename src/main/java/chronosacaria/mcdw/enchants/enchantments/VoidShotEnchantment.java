@@ -39,6 +39,11 @@ public class VoidShotEnchantment extends DamageBoostEnchantment {
     }
 
     @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_SHOT);
+    }
+
+    @Override
     public boolean isAcceptableItem(ItemStack stack) {
         return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
     }

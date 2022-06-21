@@ -31,6 +31,11 @@ public class SoulDevourerEnchantment extends Enchantment {
     }
 
     @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_DEVOURER);
+    }
+
+    @Override
     protected boolean canAccept (Enchantment other){
         return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
                 || !(other instanceof AnimaConduitEnchantment || other instanceof SoulSiphonEnchantment);

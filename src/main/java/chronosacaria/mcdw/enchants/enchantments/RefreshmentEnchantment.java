@@ -38,4 +38,15 @@ public class RefreshmentEnchantment extends Enchantment{
     public int getMaxPower(int level) {
         return this.getMinPower(level) + 5;
     }
+
+
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT);
+    }
+
+    @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT);
+    }
 }
