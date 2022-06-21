@@ -16,8 +16,11 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
     // Enchantment Settings
     public HashMap<SettingsID, Boolean> enableEnchantmentSettings = new HashMap<>();
 
-    @Comment("ENIGMA_RESONATOR_DIVISOR -> Higher number = lower damage")
-    public HashMap<EnchantStatsID, Float> enchantmentStatsSettings = new HashMap<>();
+    @Comment("ENIGMA_RESONATOR_DIVISOR -> Higher number = lower damage. Default value = 3.25.")
+    public HashMap<EnchantStatsID, Float> enigmaResonatorDivisor = new HashMap<>();
+
+    @Comment("Dynamo Stack Cap, Higher number = more potential damage. Default value = 20.")
+    public HashMap<EnchantStatsID, Integer> dynamoStackCap = new HashMap<>();
 
     @Comment("Enchantment Trigger Chances Base. This is not the % to occur, but the higher this number, the higher " +
             "the chance to trigger.")
@@ -33,7 +36,8 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
         enableEnchantmentSettings.put(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS, true);
         enableEnchantmentSettings.put(SettingsID.ENABLE_INNATE_ENCHANTMENTS, true);
 
-        enchantmentStatsSettings.put(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR, 3.25f);
+        enigmaResonatorDivisor.put(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR, 3.25f);
+        dynamoStackCap.put(EnchantStatsID.DYNAMO_STACK_CAP, 20);
 
         enchantmentTriggerChanceBase.put(EnchantmentsID.CHAIN_REACTION, 10);
         enchantmentTriggerChanceBase.put(EnchantmentsID.CHAINS, 20);
