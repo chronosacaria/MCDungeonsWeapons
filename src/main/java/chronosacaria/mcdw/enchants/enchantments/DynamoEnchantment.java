@@ -6,6 +6,7 @@ import chronosacaria.mcdw.bases.McdwCustomWeaponBase;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
+import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
@@ -56,7 +57,7 @@ public class DynamoEnchantment extends DamageBoostEnchantment {
             } else {
                 --i;
             }
-            i = MathHelper.clamp(i, 0, 20);
+            i = MathHelper.clamp(i, 0, Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.dynamoStackCap.get(EnchantStatsID.DYNAMO_STACK_CAP));
             StatusEffectInstance dynamoUpdateInstance = new StatusEffectInstance(StatusEffectsRegistry.DYNAMO, 120000, i, false, false, true);
             playerEntity.addStatusEffect(dynamoUpdateInstance);
         }
