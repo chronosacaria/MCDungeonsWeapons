@@ -15,8 +15,8 @@ import net.minecraft.util.registry.Registry;
 
 public class WeakeningEnchantment extends AOEEnchantment {
 
-    public WeakeningEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public WeakeningEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.WEAKENING)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("weakening"), this);
         }

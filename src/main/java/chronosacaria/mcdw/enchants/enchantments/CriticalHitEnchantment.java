@@ -16,8 +16,8 @@ import net.minecraft.util.registry.Registry;
 
 public class CriticalHitEnchantment extends DamageBoostEnchantment {
 
-    public CriticalHitEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public CriticalHitEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CRITICAL_HIT)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("critical_hit"), this);
         }

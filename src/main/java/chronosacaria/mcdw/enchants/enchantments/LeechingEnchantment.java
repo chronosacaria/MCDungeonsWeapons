@@ -15,8 +15,8 @@ import net.minecraft.util.registry.Registry;
 
 public class LeechingEnchantment extends HealingEnchantment {
 
-    public LeechingEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public LeechingEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEECHING)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("leeching"), this);
         }

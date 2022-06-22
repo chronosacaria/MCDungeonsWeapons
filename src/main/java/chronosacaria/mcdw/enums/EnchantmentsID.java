@@ -5,6 +5,7 @@ public enum EnchantmentsID {
     AMBUSH,
     ANIMA_CONDUIT,
     BONUS_SHOT,
+    BURST_BOWSTRING,
     BUZZY_BEE,
     CHAIN_REACTION,
     CHAINS,

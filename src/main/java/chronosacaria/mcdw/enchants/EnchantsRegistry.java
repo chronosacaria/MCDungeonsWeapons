@@ -38,6 +38,7 @@ public class EnchantsRegistry {
 
     public static Enchantment ACCELERATE;
     public static Enchantment BONUS_SHOT;
+    public static Enchantment BURST_BOWSTRING;
     public static Enchantment CHAIN_REACTION;
     public static Enchantment CHARGE;
     public static Enchantment COBWEB_SHOT;
@@ -115,6 +116,8 @@ public class EnchantsRegistry {
         ACCELERATE = new AccelerateEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         BONUS_SHOT = new BonusShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        BURST_BOWSTRING = new BurstBowstringEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         CHAIN_REACTION = new ChainReactionEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

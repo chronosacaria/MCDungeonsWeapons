@@ -128,6 +128,32 @@ public class ProjectileEffectHelper {
         }
     }
 
+    public static void fireBurstBowstringArrows(LivingEntity attacker, int distance, double damageMultiplier, float arrowVelocity, int numberOfArrows) {
+        World world = attacker.getEntityWorld();
+        List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class, new Box(attacker.getX() - distance, attacker.getY() - distance, attacker.getZ() - distance,
+                attacker.getX() + distance, attacker.getY() + distance, attacker.getZ() + distance), (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, attacker, attacker));
+        if (nearbyEntities.size() < 2) return;
+        nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(attacker)));
+        int amount = Math.min(numberOfArrows, nearbyEntities.size());
+        for (int i = 0; i < amount; i++) {
+            LivingEntity target = nearbyEntities.get(i);
+            ArrowItem arrowItem = (ArrowItem) Items.ARROW;
+            PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, new ItemStack(Items.ARROW), attacker);
+            persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() * damageMultiplier);
+            // borrowed from AbstractSkeletonEntity
+            double towardsX = target.getX() - attacker.getX();
+            double towardsZ = target.getZ() - attacker.getZ();
+            double euclideanDist = MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
+            double towardsY = target.getBodyY(0.3333333333333333D) - persistentProjectileEntity.getY() + euclideanDist * (double)0.2F;
+            persistentProjectileEntity.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F,
+                    1.0F);
+            setProjectileTowards(persistentProjectileEntity, towardsX, towardsY, towardsZ, 0);
+            //
+            persistentProjectileEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
+            attacker.world.spawnEntity(persistentProjectileEntity);
+        }
+    }
+
     public static void setProjectileTowards(ProjectileEntity projectileEntity, double x, double y
             , double z, float inaccuracy){
         Random random = new Random();

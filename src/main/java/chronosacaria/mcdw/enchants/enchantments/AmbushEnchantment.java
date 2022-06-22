@@ -16,8 +16,8 @@ import net.minecraft.util.registry.Registry;
 
 public class AmbushEnchantment extends DamageBoostEnchantment {
 
-    public AmbushEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public AmbushEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.AMBUSH)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("ambush"), this);
         }

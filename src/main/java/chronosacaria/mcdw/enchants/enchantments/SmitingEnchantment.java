@@ -17,8 +17,8 @@ import net.minecraft.util.registry.Registry;
 
 public class SmitingEnchantment extends AOEEnchantment {
 
-    public SmitingEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public SmitingEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SMITING)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("smiting"), this);
         }

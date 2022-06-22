@@ -15,8 +15,8 @@ import net.minecraft.util.registry.Registry;
 
 public class CobwebShotEnchantment extends RangedEnchantment {
 
-    public CobwebShotEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public CobwebShotEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COBWEB_SHOT)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("cobweb_shot"), this);
         }

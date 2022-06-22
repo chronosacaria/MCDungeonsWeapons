@@ -8,8 +8,8 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.registry.Registry;
 
 public class AccelerateEnchantment extends RangedEnchantment {
-    public AccelerateEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public AccelerateEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("accelerate"), this);
         }

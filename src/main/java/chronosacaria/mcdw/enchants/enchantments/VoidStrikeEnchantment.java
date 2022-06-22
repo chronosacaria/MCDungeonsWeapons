@@ -16,8 +16,8 @@ import net.minecraft.util.registry.Registry;
 
 public class VoidStrikeEnchantment extends DamageBoostEnchantment {
 
-    public VoidStrikeEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public VoidStrikeEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_STRIKE)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("void_strike"), this);
         }

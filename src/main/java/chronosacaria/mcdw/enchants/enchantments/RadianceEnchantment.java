@@ -14,8 +14,8 @@ import net.minecraft.util.registry.Registry;
 
 public class RadianceEnchantment extends HealingEnchantment {
 
-    public RadianceEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public RadianceEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RADIANCE)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("radiance"), this);
         }

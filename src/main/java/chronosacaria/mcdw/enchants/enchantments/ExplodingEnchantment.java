@@ -16,8 +16,8 @@ import net.minecraft.util.registry.Registry;
 
 public class ExplodingEnchantment extends AOEEnchantment {
 
-    public ExplodingEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public ExplodingEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.EXPLODING)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("exploding"), this);
         }

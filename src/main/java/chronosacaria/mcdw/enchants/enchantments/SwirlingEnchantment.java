@@ -16,8 +16,8 @@ import net.minecraft.util.registry.Registry;
 
 public class SwirlingEnchantment extends AOEEnchantment {
 
-    public SwirlingEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public SwirlingEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SWIRLING)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("swirling"), this);
         }

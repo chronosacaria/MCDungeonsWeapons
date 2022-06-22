@@ -12,8 +12,8 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.util.registry.Registry;
 
 public class RushdownEnchantment extends Enchantment {
-    public RushdownEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public RushdownEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RUSHDOWN)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("rushdown"), this);
         }

@@ -13,8 +13,8 @@ import net.minecraft.util.registry.Registry;
 
 public class StunningEnchantment extends Enchantment{
 
-    public StunningEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public StunningEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.STUNNING)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("stunning"), this);
         }

@@ -4,7 +4,6 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.enchants.enchantments.DynamoEnchantment;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
@@ -156,10 +155,11 @@ public class LivingEntityMixin {
         if (!((Object) this instanceof ServerPlayerEntity playerEntity))
             return;
 
-        if (playerEntity != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, playerEntity.getMainHandStack()) > 0)) {
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO)) {
-                DynamoEnchantment.handleAddDynamoEnchantment(playerEntity);
-            }
+        if (playerEntity != null) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BURST_BOWSTRING))
+                EnchantmentEffects.activateBurstBowstringOnJump(playerEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
+                EnchantmentEffects.handleAddDynamoEffect(playerEntity);
         }
     }
 }

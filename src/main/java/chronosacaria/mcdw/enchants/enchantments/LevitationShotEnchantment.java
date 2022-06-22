@@ -15,8 +15,8 @@ import net.minecraft.util.registry.Registry;
 
 public class LevitationShotEnchantment extends RangedEnchantment {
 
-    public LevitationShotEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public LevitationShotEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.LEVITATION_SHOT)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("levitation_shot"), this);
         }

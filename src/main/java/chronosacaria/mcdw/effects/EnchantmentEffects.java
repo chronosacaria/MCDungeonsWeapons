@@ -21,6 +21,8 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
@@ -607,6 +609,42 @@ public class EnchantmentEffects {
         if (radianceLevel > 0) {
 
             AOECloudHelper.spawnRegenCloudAtPos(shooter, true, blockHitResult.getBlockPos(), radianceLevel - 1);
+        }
+    }
+
+    // mcdw$onJumpEffects
+
+    public static void activateBurstBowstringOnJump(LivingEntity jumpingEntity) {
+        int burstBowstringLevel = 0;
+        float arrowVelocity = 0.0F;
+        if (jumpingEntity.getMainHandStack().getItem() instanceof BowItem || jumpingEntity.getMainHandStack().getItem() instanceof CrossbowItem) {
+            burstBowstringLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getMainHandStack());
+            arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(jumpingEntity.getMainHandStack());
+        } else if (jumpingEntity.getOffHandStack().getItem() instanceof BowItem || jumpingEntity.getOffHandStack().getItem() instanceof CrossbowItem) {
+            burstBowstringLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getOffHandStack());
+            arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(jumpingEntity.getOffHandStack());
+        }
+
+        if (burstBowstringLevel > 0) {
+            ItemStack arrowStack = new ItemStack(Items.ARROW);
+            if (InventoryHelper.mcdw$hasItem((PlayerEntity) jumpingEntity, arrowStack.getItem(), burstBowstringLevel)){
+                ProjectileEffectHelper.fireBurstBowstringArrows(jumpingEntity, 16, 0.4F, arrowVelocity, burstBowstringLevel);
+            }
+        }
+    }
+    public static void handleAddDynamoEffect(PlayerEntity playerEntity) {
+        ItemStack mainHandStack = playerEntity.getMainHandStack();
+        if (McdwEnchantmentHelper.hasEnchantment(mainHandStack, EnchantsRegistry.DYNAMO)) {
+            StatusEffectInstance dynamoInstance = playerEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
+            int i = 1;
+            if (dynamoInstance != null) {
+                i += dynamoInstance.getAmplifier();
+            } else {
+                --i;
+            }
+            i = MathHelper.clamp(i, 0, Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.dynamoStackCap.get(EnchantStatsID.DYNAMO_STACK_CAP));
+            StatusEffectInstance dynamoUpdateInstance = new StatusEffectInstance(StatusEffectsRegistry.DYNAMO, 120000, i, false, false, true);
+            playerEntity.addStatusEffect(dynamoUpdateInstance);
         }
     }
 }

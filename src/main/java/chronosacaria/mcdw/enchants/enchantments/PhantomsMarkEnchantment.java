@@ -12,8 +12,8 @@ import net.minecraft.util.registry.Registry;
 
 public class PhantomsMarkEnchantment extends Enchantment {
 
-    public PhantomsMarkEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public PhantomsMarkEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PHANTOMS_MARK)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("phantoms_mark"), this);
         }

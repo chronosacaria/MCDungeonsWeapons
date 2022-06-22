@@ -14,8 +14,8 @@ import net.minecraft.util.registry.Registry;
 
 public class GravityEnchantment extends AOEEnchantment {
 
-    public GravityEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public GravityEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.GRAVITY)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("gravity"), this);
         }

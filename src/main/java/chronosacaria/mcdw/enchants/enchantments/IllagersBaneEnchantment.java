@@ -15,8 +15,8 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.util.registry.Registry;
 
 public class IllagersBaneEnchantment extends Enchantment {
-    public IllagersBaneEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public IllagersBaneEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ILLAGERS_BANE)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("illagers_bane"), this);
         }

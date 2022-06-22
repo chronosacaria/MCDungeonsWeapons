@@ -16,8 +16,8 @@ import net.minecraft.util.registry.Registry;
 
 public class CommittedEnchantment extends DamageBoostEnchantment {
 
-    public CommittedEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public CommittedEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("committed"), this);
         }

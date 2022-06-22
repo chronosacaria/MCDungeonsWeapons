@@ -15,8 +15,8 @@ import net.minecraft.util.registry.Registry;
 
 public class ChainReactionEnchantment extends RangedEnchantment {
 
-    public ChainReactionEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public ChainReactionEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.CHAIN_REACTION)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("chain_reaction"), this);
         }

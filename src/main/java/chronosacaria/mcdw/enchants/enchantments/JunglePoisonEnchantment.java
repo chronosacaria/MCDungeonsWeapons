@@ -13,8 +13,8 @@ import net.minecraft.util.registry.Registry;
 
 public class JunglePoisonEnchantment extends Enchantment{
 
-    public JunglePoisonEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public JunglePoisonEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.POISONING)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("jungle_poison"), this);
         }
