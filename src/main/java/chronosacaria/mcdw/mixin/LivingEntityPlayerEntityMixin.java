@@ -35,6 +35,10 @@ public class LivingEntityPlayerEntityMixin {
                     amount += storedAmount * EnchantmentEffects.criticalHitDamage(attackingEntity, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_STRIKE))
                     amount += storedAmount * EnchantmentEffects.voidStrikeDamage(attackingEntity, victim);
+                if (!PlayerAttackHelper.isLikelyNotMeleeDamage(source)) {
+                    if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PAIN_CYCLE))
+                        amount += storedAmount * EnchantmentEffects.painCycleDamage(attackingEntity);
+                }
             }
 
             if (source.getSource() instanceof PlayerEntity attackingPlayer) {

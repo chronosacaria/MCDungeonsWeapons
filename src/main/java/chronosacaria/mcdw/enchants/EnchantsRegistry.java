@@ -20,6 +20,7 @@ public class EnchantsRegistry {
     public static Enchantment ILLAGERS_BANE;
     public static Enchantment JUNGLE_POISON;
     public static Enchantment LEECHING;
+    public static Enchantment PAIN_CYCLE;
     public static Enchantment POISON_CLOUD;
     public static Enchantment PROSPECTOR;
     public static Enchantment RADIANCE;
@@ -81,6 +82,8 @@ public class EnchantsRegistry {
         JUNGLE_POISON = new JunglePoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         LEECHING = new LeechingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        PAIN_CYCLE = new PainCycleEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         POISON_CLOUD = new PoisonCloudEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

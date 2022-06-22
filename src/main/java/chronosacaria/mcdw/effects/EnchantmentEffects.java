@@ -16,6 +16,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.Monster;
@@ -161,6 +162,23 @@ public class EnchantmentEffects {
             }
         }
         return 0f;
+    }
+
+    public static float painCycleDamage(LivingEntity painEntity) {
+        int painCycleLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(painEntity, EnchantsRegistry.PAIN_CYCLE);
+        if (painCycleLevel > 0) {
+            StatusEffectInstance painCycleInstance = painEntity.getStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
+            int i = painCycleInstance != null ? painCycleInstance.getAmplifier() + 1 : 0;
+            if (i < 5) {
+                StatusEffectInstance painCycleUpdate = new StatusEffectInstance(StatusEffectsRegistry.PAIN_CYCLE, 120000, i, false, false, true);
+                painEntity.addStatusEffect(painCycleUpdate);
+                painEntity.damage(DamageSource.MAGIC, 1);
+            } else {
+                painEntity.removeStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
+                return painCycleLevel + 1;
+            }
+        }
+        return 0;
     }
 
     public static float enigmaResonatorDamage(PlayerEntity resonatingEntity, LivingEntity target) {

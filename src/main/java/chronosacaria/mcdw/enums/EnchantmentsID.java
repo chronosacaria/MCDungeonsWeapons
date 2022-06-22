@@ -28,6 +28,7 @@ public enum EnchantmentsID {
     LEECHING,
     LEVITATION_SHOT,
     MULTI_SHOT,
+    PAIN_CYCLE,
     PHANTOMS_MARK,
     POISON_CLOUD,
     PROSPECTOR,
