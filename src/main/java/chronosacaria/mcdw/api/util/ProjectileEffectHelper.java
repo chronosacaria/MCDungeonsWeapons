@@ -135,22 +135,27 @@ public class ProjectileEffectHelper {
         if (nearbyEntities.size() < 2) return;
         nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(attacker)));
         int amount = Math.min(numberOfArrows, nearbyEntities.size());
-        for (int i = 0; i < amount; i++) {
-            LivingEntity target = nearbyEntities.get(i);
-            ArrowItem arrowItem = (ArrowItem) Items.ARROW;
-            PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, new ItemStack(Items.ARROW), attacker);
-            persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() * damageMultiplier);
-            // borrowed from AbstractSkeletonEntity
-            double towardsX = target.getX() - attacker.getX();
-            double towardsZ = target.getZ() - attacker.getZ();
-            double euclideanDist = MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
-            double towardsY = target.getBodyY(0.3333333333333333D) - persistentProjectileEntity.getY() + euclideanDist * (double)0.2F;
-            persistentProjectileEntity.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F,
-                    1.0F);
-            setProjectileTowards(persistentProjectileEntity, towardsX, towardsY, towardsZ, 0);
-            //
-            persistentProjectileEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
-            attacker.world.spawnEntity(persistentProjectileEntity);
+        if (attacker instanceof PlayerEntity attackingPlayer && InventoryHelper.mcdw$hasItem(attackingPlayer, Items.ARROW, amount)) {
+            for (int i = 0; i < amount; i++) {
+                LivingEntity target = nearbyEntities.get(i);
+                ArrowItem arrowItem = (ArrowItem) Items.ARROW;
+                PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, new ItemStack(Items.ARROW), attacker);
+                persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() * damageMultiplier);
+                // borrowed from AbstractSkeletonEntity
+                double towardsX = target.getX() - attacker.getX();
+                double towardsZ = target.getZ() - attacker.getZ();
+                double euclideanDist = MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
+                double towardsY = target.getBodyY(0.3333333333333333D) - persistentProjectileEntity.getY() + euclideanDist * (double) 0.2F;
+                persistentProjectileEntity.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F,
+                        1.0F);
+                setProjectileTowards(persistentProjectileEntity, towardsX, towardsY, towardsZ, 0);
+                //
+                persistentProjectileEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
+                attacker.world.spawnEntity(persistentProjectileEntity);
+                if (!attackingPlayer.isCreative()) {
+                    InventoryHelper.mcdw$deductAmountOfItem(attackingPlayer, Items.ARROW, 1);
+                }
+            }
         }
     }
 

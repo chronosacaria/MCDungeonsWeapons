@@ -2,7 +2,6 @@ package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
-import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
@@ -32,11 +31,6 @@ public class BurstBowstringEnchantment extends RangedEnchantment {
     protected boolean canAccept (Enchantment other) {
         return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
                 || !(other instanceof AOEEnchantment || other instanceof ChainReactionEnchantment);
-    }
-
-    @Override
-    public boolean isTreasure() {
-        return true;
     }
 
     @Override

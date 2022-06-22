@@ -197,4 +197,19 @@ public class InventoryHelper {
 
         return stackSlots;
     }
+
+    public static void mcdw$deductAmountOfItem(PlayerEntity player, Item toTake, int amount) {
+        List<Integer> stackSlots = mcdw$getSlotsWithStack(player, toTake);
+        amount = Math.min(amount, mcdw$countItem(player, toTake));
+        for (Integer stackSlot : stackSlots) {
+            ItemStack slot = player.getInventory().getStack(stackSlot);
+            int k = Math.min(slot.getCount(), amount);
+            slot.decrement(k);
+            amount -= k;
+            if (amount == 0) {
+                break;
+            }
+        }
+    }
+
 }

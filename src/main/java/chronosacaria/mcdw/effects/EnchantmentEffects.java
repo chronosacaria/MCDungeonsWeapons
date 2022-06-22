@@ -626,10 +626,7 @@ public class EnchantmentEffects {
         }
 
         if (burstBowstringLevel > 0) {
-            ItemStack arrowStack = new ItemStack(Items.ARROW);
-            if (InventoryHelper.mcdw$hasItem((PlayerEntity) jumpingEntity, arrowStack.getItem(), burstBowstringLevel)){
-                ProjectileEffectHelper.fireBurstBowstringArrows(jumpingEntity, 16, 0.4F, arrowVelocity, burstBowstringLevel);
-            }
+            ProjectileEffectHelper.fireBurstBowstringArrows(jumpingEntity, 16, 0.4F, arrowVelocity, burstBowstringLevel);
         }
     }
     public static void handleAddDynamoEffect(PlayerEntity playerEntity) {
