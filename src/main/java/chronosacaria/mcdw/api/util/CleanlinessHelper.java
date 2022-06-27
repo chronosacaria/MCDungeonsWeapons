@@ -31,10 +31,12 @@ public class CleanlinessHelper {
         mcdw$dropItem(le, item, 1);
     }
 
-    public static void mcdw$dropItem(LivingEntity le, Item item, int amount) {
+    public static void mcdw$dropItem(LivingEntity le, Item item, int amount) { mcdw$dropItem(le, new ItemStack(item, amount)); }
+
+    public static void mcdw$dropItem(LivingEntity le, ItemStack itemStack) {
         ItemEntity it = new ItemEntity(
                 le.world, le.getX(), le.getY(), le.getZ(),
-                new ItemStack(item, amount));
+                itemStack);
         le.world.spawnEntity(it);
     }
 }
