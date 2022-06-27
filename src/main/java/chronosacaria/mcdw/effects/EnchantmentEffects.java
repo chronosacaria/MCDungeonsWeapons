@@ -171,6 +171,7 @@ public class EnchantmentEffects {
             int i = painCycleInstance != null ? painCycleInstance.getAmplifier() + 1 : 0;
             if (i < 5) {
                 StatusEffectInstance painCycleUpdate = new StatusEffectInstance(StatusEffectsRegistry.PAIN_CYCLE, 120000, i, false, false, true);
+                painEntity.removeStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
                 painEntity.addStatusEffect(painCycleUpdate);
                 painEntity.damage(DamageSource.MAGIC, 1);
             } else {
