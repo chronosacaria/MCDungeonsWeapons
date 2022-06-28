@@ -39,6 +39,7 @@ public enum EnchantmentsID {
     REFRESHMENT,
     RICOCHET,
     RUSHDOWN,
+    SHADOW_SHOT,
     SHOCKWAVE,
     SMITING,
     SOUL_DEVOURER,

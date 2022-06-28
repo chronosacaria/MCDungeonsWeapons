@@ -122,6 +122,18 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyShadowShotShadowForm(LivingEntity shadowShotEntity, int duration){
+        int shadowShotLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shadowShotEntity, EnchantsRegistry.SHADOW_SHOT);
+        if (shadowShotLevel > 0) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SHADOW_SHOT))) {
+                shadowShotEntity.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.SHADOW_FORM, duration, 0, false, true, true));
+                if (shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
+                    shadowShotEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, duration, 0, false, false, false));
+                }
+            }
+        }
+    }
+
     /* LivingEntityPlayerEntityMixin */
     //mcdw$damageModifiers
     public static float ambushDamage(LivingEntity ambushingEntity, LivingEntity ambushee) {
@@ -291,6 +303,28 @@ public class EnchantmentEffects {
                 return Math.max(getDynamoDamage, 0f);
             }
         }
+        return 0f;
+    }
+
+    public static float shadowFormDamage (LivingEntity shadowShotEntity) {
+        if (shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
+            float shadowShotDamageAmplifier = 8f;
+            shadowShotEntity.removeStatusEffect(StatusEffectsRegistry.SHADOW_FORM);
+
+            return shadowShotDamageAmplifier;
+        }
+
+        return 0f;
+    }
+
+    public static float shadowFormShotDamage (LivingEntity shadowShotEntity, PersistentProjectileEntity ppe) {
+        int shadowShotLevel = ((IMcdwEnchantedArrow)ppe).getShadowShotLevel();
+        if (shadowShotLevel > 0 && shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
+            //shadowShotEntity.removeStatusEffect(StatusEffectsRegistry.SHADOW_FORM);
+
+            return 8f;
+        }
+
         return 0f;
     }
 
@@ -663,4 +697,6 @@ public class EnchantmentEffects {
             playerEntity.addStatusEffect(dynamoUpdateInstance);
         }
     }
+
+
 }

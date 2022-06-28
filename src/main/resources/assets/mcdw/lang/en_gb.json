@@ -184,6 +184,7 @@
 
   "effect.mcdw.dynamo": "Dynamo",
   "effect.mcdw.pain_cycle": "Pain Cycle",
+  "effect.mcdw.shadow_form": "Shadow Form",
 
   "enchantment.mcdw.accelerate": "Accelerate",
   "enchantment.mcdw.ambush": "Ambush",
@@ -222,6 +223,7 @@
   "enchantment.mcdw.replenish": "Replenish",
   "enchantment.mcdw.ricochet": "Ricochet",
   "enchantment.mcdw.rushdown": "Rushdown",
+  "enchantment.mcdw.shadow_shot": "Shadow Shot",
   "enchantment.mcdw.shockwave": "Shockwave",
   "enchantment.mcdw.smiting": "Smiting",
   "enchantment.mcdw.soul_devourer": "Soul Devourer",
@@ -864,6 +866,7 @@
   "enchantment.mcdw.replenish.desc": "A chance to recover an arrow upon firing.",
   "enchantment.mcdw.ricochet.desc": "The arrow bounces from target to target.",
   "enchantment.mcdw.rushdown.desc": "A chance to gain stacking speed on a kill.",
+  "enchantment.mcdw.shadow_shot.desc": "A chance to grant player Shadow Form on a kill.",
   "enchantment.mcdw.shockwave.desc": "A chance to deal explosive damage in an area of 3 blocks.",
   "enchantment.mcdw.smiting.desc": "Deals AoE damage to Undead in an area of 3 blocks.",
   "enchantment.mcdw.soul_devourer.desc": "Multiplies XP gained from a kill.",

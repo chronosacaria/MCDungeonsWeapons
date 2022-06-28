@@ -178,6 +178,7 @@
 
   "effect.mcdw.dynamo": "精力充沛",
   "effect.mcdw.pain_cycle": "痛苦循环",
+  "effect.mcdw.shadow_form": "暗影状态",
 
   "enchantment.mcdw.accelerate": "加速",
   "enchantment.mcdw.ambush": "伏击",
@@ -216,6 +217,7 @@
   "enchantment.mcdw.replenish": "箭补充",
   "enchantment.mcdw.ricochet": "反弹",
   "enchantment.mcdw.rushdown": "追逐",
+  "enchantment.mcdw.shadow_shot": "暗影射击 ",
   "enchantment.mcdw.shockwave": "冲击波",
   "enchantment.mcdw.smiting": "亡灵杀手",
   "enchantment.mcdw.soul_devourer": "灵魂吞噬者",
@@ -859,6 +861,7 @@
   "enchantment.mcdw.replenish.desc": "射箭时有几率不消耗箭矢。",
   "enchantment.mcdw.ricochet.desc": "箭矢会在目标之间弹射。",
   "enchantment.mcdw.rushdown.desc": "击败生物有几率获得加速效果，可叠加。",
+  "enchantment.mcdw.shadow_shot.desc": "此魔咒可以在击杀生物后约10%概率获得暗影状态效果，持续4秒。",
   "enchantment.mcdw.shockwave.desc": "有几率造成三格范围的爆炸效果。",
   "enchantment.mcdw.smiting.desc": "对亡灵生物造成三格范围的AoE伤害。",
   "enchantment.mcdw.soul_devourer.desc": "击败生物时有获得额外经验。",

@@ -35,6 +35,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     private int radianceLevel = 0;
     private int replenishLevel = 0;
     private int ricochetLevel = 0;
+    private int shadowShotLevel = 0;
     private int tempoTheftLevel = 0;
     private int voidShotLevel = 0;
 
@@ -195,6 +196,12 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     }
 
     @Override
+    public int getShadowShotLevel() { return shadowShotLevel; }
+
+    @Override
+    public void setShadowShotLevel(int shadowShotLevel) { this.shadowShotLevel = shadowShotLevel; }
+
+    @Override
     public int getTempoTheftLevel() {
         return tempoTheftLevel;
     }
@@ -231,6 +238,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         tag.putInt("radianceLevel", radianceLevel);
         tag.putInt("replenishLevel", replenishLevel);
         tag.putInt("ricochetLevel", ricochetLevel);
+        tag.putInt("shadowShotLevel", shadowShotLevel);
         tag.putInt("tempoTheftLevel", tempoTheftLevel);
         tag.putInt("voidShotLevel", voidShotLevel);
 
@@ -253,6 +261,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         this.radianceLevel = tag.getInt("radianceLevel");
         this.replenishLevel = tag.getInt("replenishLevel");
         this.ricochetLevel = tag.getInt("ricochetLevel");
+        this.shadowShotLevel = tag.getInt("shadowShotLevel");
         this.tempoTheftLevel = tag.getInt("tempoTheftLevel");
         this.voidShotLevel = tag.getInt("voidShotLevel");
     }

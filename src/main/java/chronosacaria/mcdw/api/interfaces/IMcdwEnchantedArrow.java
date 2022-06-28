@@ -50,6 +50,9 @@ public interface IMcdwEnchantedArrow {
     int getRicochetLevel();
     void setRicochetLevel(int ricochetLevel);
 
+    int getShadowShotLevel();
+    void setShadowShotLevel(int shadowShotLevel);
+
     int getTempoTheftLevel();
     void setTempoTheftLevel(int tempoTheftLevel);
 

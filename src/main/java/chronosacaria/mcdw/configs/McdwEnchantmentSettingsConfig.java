@@ -56,6 +56,7 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
         enchantmentTriggerChanceBase.put(EnchantmentsID.RAMPAGING, 10);
         enchantmentTriggerChanceBase.put(EnchantmentsID.REPLENISH, 3);
         enchantmentTriggerChanceBase.put(EnchantmentsID.RUSHDOWN, 10);
+        enchantmentTriggerChanceBase.put(EnchantmentsID.SHADOW_SHOT, 10);
         enchantmentTriggerChanceBase.put(EnchantmentsID.SHOCKWAVE, 10);
         enchantmentTriggerChanceBase.put(EnchantmentsID.SOUL_SIPHON, 10);
         enchantmentTriggerChanceBase.put(EnchantmentsID.STUNNING, 20);

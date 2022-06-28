@@ -92,7 +92,7 @@ public class PlayerAttackHelper {
                 boolean bl4 = false;
                 double d = (double)(player.horizontalSpeed - player.prevHorizontalSpeed);
                 if (bl_flag && !bl3_flag2 && !bl2_flag1 && player.isOnGround() && d < (double)player.getMovementSpeed()) {
-                    ItemStack itemStack = player.getStackInHand(Hand.MAIN_HAND);
+                    ItemStack itemStack = player.getStackInHand(Hand.OFF_HAND);
                     if (itemStack.getItem() instanceof SwordItem) {
                         bl4 = true;
                     }
@@ -230,7 +230,7 @@ public class PlayerAttackHelper {
                     }
 
                     EnchantmentHelper.onTargetDamaged(player, target);
-                    ItemStack itemStack2 = player.getMainHandStack();
+                    ItemStack itemStack2 = player.getOffHandStack();
                     Entity entity = target;
                     if (target instanceof EnderDragonPart) {
                         entity = ((EnderDragonPart)target).owner;
@@ -239,7 +239,7 @@ public class PlayerAttackHelper {
                     if (!player.world.isClient && !itemStack2.isEmpty() && entity instanceof LivingEntity) {
                         itemStack2.postHit((LivingEntity)entity, player);
                         if (itemStack2.isEmpty()) {
-                            player.setStackInHand(Hand.MAIN_HAND, ItemStack.EMPTY);
+                            player.setStackInHand(Hand.OFF_HAND, ItemStack.EMPTY);
                         }
                     }
 

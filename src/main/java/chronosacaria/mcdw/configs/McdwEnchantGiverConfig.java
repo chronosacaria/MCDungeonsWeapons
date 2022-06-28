@@ -235,6 +235,12 @@ public class McdwEnchantGiverConfig {
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE)),
                     new Identifier("mcdw:rushdown"), 1, false);
 
+            // SHADOW SHOT ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)),
+                    new Identifier("mcdw:shadow_shot"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)),
+                    new Identifier("mcdw:shadow_shot"), 1, true);
+
             // SHOCKWAVE ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_WHIRLWIND)),
                     new Identifier("mcdw:shockwave"), 1, true);

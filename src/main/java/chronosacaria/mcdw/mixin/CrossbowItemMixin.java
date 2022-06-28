@@ -92,6 +92,10 @@ public class CrossbowItemMixin {
             if (ricochetLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setRicochetLevel(ricochetLevel);
             }
+            int shadowShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SHADOW_SHOT, crossbow);
+            if (shadowShotLevel > 0) {
+                ((IMcdwEnchantedArrow)ppe).setShadowShotLevel(shadowShotLevel);
+            }
             int tempoTheftLevel = EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, crossbow);
             if (tempoTheftLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setTempoTheftLevel(tempoTheftLevel);
