@@ -172,6 +172,10 @@ public abstract class BowItemMixin implements IBowTimings{
         if (voidShotLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).setVoidShotLevel(voidShotLevel);
         }
+        int wildRageLevel = EnchantmentHelper.getLevel(EnchantsRegistry.WILD_RAGE, stack);
+        if (wildRageLevel > 0) {
+            ((IMcdwEnchantedArrow)ppe).setWildRageLevel(wildRageLevel);
+        }
     }
 
     @Inject(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getMaxUseTime(Lnet/minecraft/item/ItemStack;)I"))

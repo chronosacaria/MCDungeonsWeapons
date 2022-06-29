@@ -223,6 +223,7 @@
   "enchantment.mcdw.replenish": "Replenish",
   "enchantment.mcdw.ricochet": "Ricochet",
   "enchantment.mcdw.rushdown": "Rushdown",
+  "enchantment.mcdw.shadow_barb": "Shadow Barb",
   "enchantment.mcdw.shadow_shot": "Shadow Shot",
   "enchantment.mcdw.shockwave": "Shockwave",
   "enchantment.mcdw.smiting": "Smiting",
@@ -235,6 +236,7 @@
   "enchantment.mcdw.void_shot": "Void Shot",
   "enchantment.mcdw.void_strike": "Void Strike",
   "enchantment.mcdw.weakening": "Weakening",
+  "enchantment.mcdw.wild_rage": "Wild Rage",
 
   "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing",
 
@@ -867,6 +869,7 @@
   "enchantment.mcdw.replenish.desc": "A chance to recover an arrow upon firing.",
   "enchantment.mcdw.ricochet.desc": "The arrow bounces from target to target.",
   "enchantment.mcdw.rushdown.desc": "A chance to gain stacking speed on a kill.",
+  "enchantment.mcdw.shadow_barb.desc": "Firing from a crossbow will not break Shadow Form.",
   "enchantment.mcdw.shadow_shot.desc": "A chance to grant player Shadow Form on a kill.",
   "enchantment.mcdw.shockwave.desc": "A chance to deal explosive damage in an area of 3 blocks.",
   "enchantment.mcdw.smiting.desc": "Deals AoE damage to Undead in an area of 3 blocks.",
@@ -878,5 +881,6 @@
   "enchantment.mcdw.thundering.desc": "Chance to summon a lightning bolt and damage entities in a range relative to the level.",
   "enchantment.mcdw.void_strike.desc": "Deal multiplicative damage based on level of enchantment.",
   "enchantment.mcdw.void_shot.desc": "Deal multiplicative damage based on level of enchantment.",
-  "enchantment.mcdw.weakening.desc": "Chance to spawn a weakness cloud around the target."
+  "enchantment.mcdw.weakening.desc": "Chance to spawn a weakness cloud around the target.",
+  "enchantment.mcdw.wild_rage.desc": "Chance to spawn a weakness cloud around the target."
 }

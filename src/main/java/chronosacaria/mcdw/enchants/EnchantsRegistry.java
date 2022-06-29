@@ -55,6 +55,7 @@ public class EnchantsRegistry {
     public static Enchantment SHADOW_SHOT;
     public static Enchantment TEMPO_THEFT;
     public static Enchantment VOID_SHOT;
+    public static Enchantment WILD_RAGE;
 
     public static void init() {
         AMBUSH = new AmbushEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
@@ -153,6 +154,8 @@ public class EnchantsRegistry {
         TEMPO_THEFT = new TempoTheftEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         VOID_SHOT = new VoidShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        WILD_RAGE = new WildRageEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 }

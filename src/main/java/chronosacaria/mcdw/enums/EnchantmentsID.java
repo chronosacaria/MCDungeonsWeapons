@@ -51,5 +51,6 @@ public enum EnchantmentsID {
     THUNDERING,
     VOID_SHOT,
     VOID_STRIKE,
-    WEAKENING
+    WEAKENING,
+    WILD_RAGE
 }

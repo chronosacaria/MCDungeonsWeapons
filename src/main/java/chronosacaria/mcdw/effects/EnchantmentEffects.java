@@ -6,10 +6,12 @@ import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
 import chronosacaria.mcdw.enums.BowsID;
 import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.mixin.MobEntityAccessor;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import net.minecraft.block.Blocks;
@@ -19,6 +21,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -641,6 +644,15 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyWildRage(MobEntity ragingEntity, PersistentProjectileEntity ppe) {
+        int wildRageLevel = ((IMcdwEnchantedArrow)ppe).getWildRageLevel();
+        if (wildRageLevel > 0) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.WILD_RAGE) + (10 * wildRageLevel))) {
+                sendIntoWildRage(ragingEntity);
+            }
+        }
+    }
+
     // mcdw$onBlockHitTail
     public static void applyCobwebShotBlock(BlockHitResult blockHitResult, PersistentProjectileEntity ppe) {
         if (((IMcdwEnchantedArrow)ppe).getCobwebShotLevel() > 0) {
@@ -693,5 +705,9 @@ public class EnchantmentEffects {
         }
     }
 
+    // Goal Effects
+    public static void sendIntoWildRage(MobEntity mobEntity) {
+        ((MobEntityAccessor)mobEntity).targetSelector().add(0, new WildRageAttackGoal(mobEntity));
+    }
 
 }

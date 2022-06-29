@@ -5,6 +5,7 @@ import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -39,6 +40,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     private int shadowShotLevel = 0;
     private int tempoTheftLevel = 0;
     private int voidShotLevel = 0;
+    private int wildRageLevel = 0;
 
     @Override
     public int getAccelerateLevel() {
@@ -228,6 +230,12 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         this.voidShotLevel = voidShotLevel;
     }
 
+    @Override
+    public int getWildRageLevel() { return wildRageLevel; }
+
+    @Override
+    public void setWildRageLevel(int wildRageLevel) { this.wildRageLevel = wildRageLevel; }
+
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void mcdw$nbtToTag(NbtCompound tag, CallbackInfo ci){
         tag.putInt("accelerateLevel", accelerateLevel);
@@ -249,6 +257,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         tag.putInt("shadowShotLevel", shadowShotLevel);
         tag.putInt("tempoTheftLevel", tempoTheftLevel);
         tag.putInt("voidShotLevel", voidShotLevel);
+        tag.putInt("wildRageLevel", wildRageLevel);
 
     }
 
@@ -273,6 +282,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         this.shadowShotLevel = tag.getInt("shadowShotLevel");
         this.tempoTheftLevel = tag.getInt("tempoTheftLevel");
         this.voidShotLevel = tag.getInt("voidShotLevel");
+        this.wildRageLevel = tag.getInt("wildRageLevel");
     }
 
     @Inject(method = "onEntityHit", at = @At("TAIL"))
@@ -305,6 +315,8 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
                 EnchantmentEffects.applyRicochet(target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.TEMPO_THEFT))
                 EnchantmentEffects.applyTempoTheft(shooter, target, persProjEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.WILD_RAGE))
+                EnchantmentEffects.applyWildRage((MobEntity) target, persProjEntity);
         }
 
         if (persProjEntity.getOwner() instanceof PlayerEntity shooter) {

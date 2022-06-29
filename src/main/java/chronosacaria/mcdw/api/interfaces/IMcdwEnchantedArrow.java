@@ -62,4 +62,7 @@ public interface IMcdwEnchantedArrow {
     int getVoidShotLevel();
     void setVoidShotLevel(int voidShotLevel);
 
+    int getWildRageLevel();
+    void setWildRageLevel(int wildRageLevel);
+
 }

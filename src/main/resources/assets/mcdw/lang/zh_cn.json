@@ -217,6 +217,7 @@
   "enchantment.mcdw.replenish": "箭补充",
   "enchantment.mcdw.ricochet": "反弹",
   "enchantment.mcdw.rushdown": "追逐",
+  "enchantment.mcdw.shadow_barb": "暗影倒钩",
   "enchantment.mcdw.shadow_shot": "暗影射击 ",
   "enchantment.mcdw.shockwave": "冲击波",
   "enchantment.mcdw.smiting": "亡灵杀手",
@@ -229,6 +230,7 @@
   "enchantment.mcdw.void_shot": "虚空射击",
   "enchantment.mcdw.void_strike": "虚空强袭",
   "enchantment.mcdw.weakening": "虚弱",
+  "enchantment.mcdw.wild_rage": "挑衅",
 
   "subtitles.mcdw.echo_sound": "回击的削减",
 
@@ -861,6 +863,7 @@
   "enchantment.mcdw.replenish.desc": "射箭时有几率不消耗箭矢。",
   "enchantment.mcdw.ricochet.desc": "箭矢会在目标之间弹射。",
   "enchantment.mcdw.rushdown.desc": "击败生物有几率获得加速效果，可叠加。",
+  "enchantment.mcdw.shadow_barb.desc": "用弩射箭不会破坏暗影状态。",
   "enchantment.mcdw.shadow_shot.desc": "此魔咒可以在击杀生物后约10%概率获得暗影状态效果，持续4秒。",
   "enchantment.mcdw.shockwave.desc": "有几率造成三格范围的爆炸效果。",
   "enchantment.mcdw.smiting.desc": "对亡灵生物造成三格范围的AoE伤害。",
@@ -872,5 +875,6 @@
   "enchantment.mcdw.thundering.desc": "有几率对目标召唤一道闪电，对一定范围内的生物造成范围伤害，取决于魔咒等级。",
   "enchantment.mcdw.void_strike.desc": "根据魔咒等级造成多倍伤害。",
   "enchantment.mcdw.void_shot.desc": "根据魔咒等级造成多倍伤害。",
-  "enchantment.mcdw.weakening.desc": "有几率在目标周围生成虚弱之雾。"
+  "enchantment.mcdw.weakening.desc": "有几率在目标周围生成虚弱之雾。",
+  "enchantment.mcdw.wild_rage.desc": "攻击敌人有概率让其发怒，并将仇恨覆盖到所有生物上。"
   }

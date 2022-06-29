@@ -105,6 +105,10 @@ public class CrossbowItemMixin {
             if (voidShotLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setVoidShotLevel(voidShotLevel);
             }
+            int wildRageLevel = EnchantmentHelper.getLevel(EnchantsRegistry.WILD_RAGE, crossbow);
+            if (wildRageLevel > 0){
+                ((IMcdwEnchantedArrow)ppe).setWildRageLevel(wildRageLevel);
+            }
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BONUS_SHOT)) {
                 int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, crossbow);
