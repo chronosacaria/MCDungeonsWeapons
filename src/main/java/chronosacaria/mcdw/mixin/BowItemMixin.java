@@ -6,6 +6,9 @@ import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
+import chronosacaria.mcdw.bases.McdwBow;
+import chronosacaria.mcdw.bases.McdwLongBow;
+import chronosacaria.mcdw.bases.McdwShortBow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -196,9 +199,18 @@ public abstract class BowItemMixin implements IBowTimings{
     @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getPullProgress(I)F"), index = 0)
     private int mcdw$acceleratedPullProgress(int value){
         LivingEntity livingEntity = getLivingEntity();
+        ItemStack bowStack = livingEntity.getActiveItem();
+
+        if (bowStack.getItem() instanceof McdwShortBow mcdwShortBow) {
+            value /= mcdwShortBow.getDrawSpeed() / 20;
+        } else if (bowStack.getItem() instanceof McdwLongBow mcdwLongBow) {
+            value /= mcdwLongBow.getDrawSpeed() / 20;
+        } else if (bowStack.getItem() instanceof McdwBow mcdwBow) {
+            value /= mcdwBow.getDrawSpeed() / 20;
+        }
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
-            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, livingEntity.getMainHandStack());
+            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, bowStack);
             if (accelerateLevel > 0)
 
             //int consecutiveShots = getConsecutiveShots(stack);
@@ -209,7 +221,7 @@ public abstract class BowItemMixin implements IBowTimings{
         }
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
-            int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, livingEntity.getMainHandStack());
+            int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, bowStack);
             if (overchargeLevel > 0) {
                 overcharge = Math.min((value / 20) - 1, overchargeLevel);
                 value = overcharge == overchargeLevel ? value : value % 20;

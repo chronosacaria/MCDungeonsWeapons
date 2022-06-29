@@ -1,6 +1,8 @@
 package chronosacaria.mcdw.client;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.*;
+import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.render.SummonedBeeRenderer;
 import chronosacaria.mcdw.enums.*;
@@ -10,6 +12,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
@@ -48,7 +51,16 @@ public class McdwClient implements ClientModInitializer {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
-                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getDrawSpeed();
+                int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
+                    int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
+                    if (overchargeLevel > 0) {
+                        int overcharge = (int) Math.min((useTicks / bow.getDrawSpeed()) - 1, overchargeLevel);
+                        useTicks = overcharge == overchargeLevel ? useTicks : (int) (useTicks % bow.getDrawSpeed());
+                    }
+                }
+                return livingEntity.getActiveItem() != itemStack ? 0.0F :
+                        (float)(useTicks) / bow.getDrawSpeed();
             }
         });
 
@@ -63,7 +75,16 @@ public class McdwClient implements ClientModInitializer {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
-                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getDrawSpeed();
+                int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
+                    int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
+                    if (overchargeLevel > 0) {
+                        int overcharge = (int) Math.min((useTicks / bow.getDrawSpeed()) - 1, overchargeLevel);
+                        useTicks = overcharge == overchargeLevel ? useTicks : (int) (useTicks % bow.getDrawSpeed());
+                    }
+                }
+                return livingEntity.getActiveItem() != itemStack ? 0.0F :
+                        (float)(useTicks) / bow.getDrawSpeed();
             }
         });
 
@@ -78,7 +99,16 @@ public class McdwClient implements ClientModInitializer {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
-                return livingEntity.getActiveItem() != itemStack ? 0.0F : (float)(itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / bow.getDrawSpeed();
+                int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
+                    int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
+                    if (overchargeLevel > 0) {
+                        int overcharge = (int) Math.min((useTicks / bow.getDrawSpeed()) - 1, overchargeLevel);
+                        useTicks = overcharge == overchargeLevel ? useTicks : (int) (useTicks % bow.getDrawSpeed());
+                    }
+                }
+                return livingEntity.getActiveItem() != itemStack ? 0.0F :
+                        (float)(useTicks) / bow.getDrawSpeed();
             }
         });
 

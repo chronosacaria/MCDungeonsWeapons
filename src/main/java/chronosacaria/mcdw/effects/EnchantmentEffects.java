@@ -328,7 +328,7 @@ public class EnchantmentEffects {
 
     public static float overchargeDamage(PersistentProjectileEntity ppe) {
         int overchargeAmount = ((IMcdwEnchantedArrow)ppe).getOvercharge();
-        return 0;// Math.max(overchargeAmount, 0);
+        return Math.max(overchargeAmount, 0);
     }
 
     //mcdw$onApplyDamageHead
