@@ -329,8 +329,8 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.TEMPO_THEFT))
                 EnchantmentEffects.applyTempoTheft(shooter, target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.WILD_RAGE)) {
-                if (!(target instanceof EnderDragonEntity || target instanceof WardenEntity)) {
-                    EnchantmentEffects.applyWildRage((MobEntity) target, persProjEntity);
+                if (!(target instanceof EnderDragonEntity || target instanceof WardenEntity) && target instanceof MobEntity mobEntity) {
+                    EnchantmentEffects.applyWildRage(mobEntity, persProjEntity);
                 }
             }
         }

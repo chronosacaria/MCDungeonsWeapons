@@ -11,7 +11,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
@@ -46,7 +46,7 @@ public class McdwClient implements ClientModInitializer {
     }
 
     public static void registerBowPredicates(McdwBow bow) {
-        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
                                                                                    livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
@@ -64,13 +64,13 @@ public class McdwClient implements ClientModInitializer {
             }
         });
 
-        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld,
                                                                                        livingEntity, seed) ->
                 livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
     }
 
     public static void registerShortBowPredicates(McdwShortBow bow) {
-        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
                                                                                    livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
@@ -88,13 +88,13 @@ public class McdwClient implements ClientModInitializer {
             }
         });
 
-        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld,
                                                                                        livingEntity, seed) ->
                 livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
     }
 
     public static void registerLongBowPredicates(McdwLongBow bow) {
-        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
                                                                                    livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
@@ -112,13 +112,13 @@ public class McdwClient implements ClientModInitializer {
             }
         });
 
-        FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pulling"), (itemStack, clientWorld,
                                                                                        livingEntity, seed) ->
                 livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
     }
 
     public static void registerCrossbowPredicates(McdwCrossbow crossbow) {
-        FabricModelPredicateProviderRegistry.register(crossbow, new Identifier("pull"),(itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(crossbow, new Identifier("pull"),(itemStack, clientWorld,
                                                                                         livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
@@ -128,7 +128,7 @@ public class McdwClient implements ClientModInitializer {
             }
         });
 
-        FabricModelPredicateProviderRegistry.register(crossbow, new Identifier("pulling"), (itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(crossbow, new Identifier("pulling"), (itemStack, clientWorld,
                                                                                             livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
@@ -137,7 +137,7 @@ public class McdwClient implements ClientModInitializer {
             }
         });
 
-        FabricModelPredicateProviderRegistry.register(crossbow, new Identifier("charged"), (itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(crossbow, new Identifier("charged"), (itemStack, clientWorld,
                                                                                             livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
@@ -146,7 +146,7 @@ public class McdwClient implements ClientModInitializer {
             }
         });
 
-        FabricModelPredicateProviderRegistry.register(crossbow, new Identifier("firework"), (itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(crossbow, new Identifier("firework"), (itemStack, clientWorld,
                                                                                              livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
@@ -158,7 +158,7 @@ public class McdwClient implements ClientModInitializer {
     }
 
     public static void registerShieldPredicates(McdwShield shield){
-        FabricModelPredicateProviderRegistry.register(shield, new Identifier("blocking"), (itemStack, clientWorld,
+        ModelPredicateProviderRegistry.register(shield, new Identifier("blocking"), (itemStack, clientWorld,
                 livingEntity, seed) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem()
                 == itemStack ? 1.0F : 0.0F );
     }

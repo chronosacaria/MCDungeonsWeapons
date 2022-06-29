@@ -300,6 +300,10 @@ public class McdwEnchantGiverConfig {
             // WEAKENING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_NAMELESS_BLADE)),
                     new Identifier("mcdw:weakening"), 1, true);
+
+            // WILD RAGE ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_PINK_SCOUNDREL)),
+                    new Identifier("mcdw:wild_rage"), 1, true);
         }
     }
 }
