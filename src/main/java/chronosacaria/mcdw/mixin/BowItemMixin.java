@@ -17,6 +17,7 @@ import net.minecraft.item.ArrowItem;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,6 +29,9 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(BowItem.class)
 public abstract class BowItemMixin implements IBowTimings{
+
+    private int overcharge;
+
     private LivingEntity livingEntity;
 
     private LivingEntity getLivingEntity() { return this.livingEntity; }
@@ -103,6 +107,11 @@ public abstract class BowItemMixin implements IBowTimings{
         //    nbtCompound.putBoolean("mcdwHarpoon", true);
         //    ppe.writeCustomDataToNbt(nbtCompound);
         //}
+
+        // Not the level of Overcharge
+        if (overcharge > 0) {
+            ((IMcdwEnchantedArrow)ppe).setOvercharge(overcharge);
+        }
 
         int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
         if (accelerateLevel > 0) {
@@ -190,13 +199,23 @@ public abstract class BowItemMixin implements IBowTimings{
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
             int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, livingEntity.getMainHandStack());
+            if (accelerateLevel > 0)
 
             //int consecutiveShots = getConsecutiveShots(stack);
 
             //new ItemCooldownManager().set(livingEntity.getMainHandStack().getItem(), 10 + (5 * consecutiveShots));
 
-            return (int) (value * (1 + ((6.0f + 2.0f * accelerateLevel) / 100)));
+            value = (int) (value * (1 + ((6.0f + 2.0f * accelerateLevel) / 100)));
         }
+
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
+            int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, livingEntity.getMainHandStack());
+            if (overchargeLevel > 0) {
+                overcharge = Math.min((value / 20) - 1, overchargeLevel);
+                value = overcharge == overchargeLevel ? value : value % 20;
+            }
+        }
+        livingEntity.sendMessage(Text.of(String.valueOf(value)));
         return value;
     }
 }

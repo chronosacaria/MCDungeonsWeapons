@@ -326,6 +326,11 @@ public class EnchantmentEffects {
         return 0f;
     }
 
+    public static float overchargeDamage(PersistentProjectileEntity ppe) {
+        int overchargeAmount = ((IMcdwEnchantedArrow)ppe).getOvercharge();
+        return 0;// Math.max(overchargeAmount, 0);
+    }
+
     //mcdw$onApplyDamageHead
     public static void applyFreezing(LivingEntity freezerEntity, LivingEntity target) {
         int freezingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(freezerEntity, EnchantsRegistry.FREEZING);

@@ -61,6 +61,8 @@ public class LivingEntityPlayerEntityMixin {
                     amount += storedAmount * EnchantmentEffects.dynamoShotDamage(attackingEntity, ppe);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_SHOT))
                     amount += storedAmount * EnchantmentEffects.shadowFormShotDamage(attackingEntity, ppe);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE))
+                    amount += storedAmount * EnchantmentEffects.overchargeDamage(ppe);
             }
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED))

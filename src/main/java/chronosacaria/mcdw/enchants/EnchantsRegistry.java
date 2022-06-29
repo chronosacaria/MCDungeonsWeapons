@@ -48,6 +48,7 @@ public class EnchantsRegistry {
     public static Enchantment FUSE_SHOT;
     public static Enchantment GROWING;
     public static Enchantment LEVITATION_SHOT;
+    public static Enchantment OVERCHARGE;
     public static Enchantment PHANTOMS_MARK;
     public static Enchantment REPLENISH;
     public static Enchantment RICOCHET;
@@ -140,6 +141,8 @@ public class EnchantsRegistry {
         GROWING = new GrowingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         LEVITATION_SHOT = new LevitationShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        OVERCHARGE = new OverchargeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         PHANTOMS_MARK = new PhantomsMarkEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

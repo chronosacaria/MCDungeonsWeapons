@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PersistentProjectileEntity.class)
 public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedArrow {
 
+    private int overcharge = 0;
     private int accelerateLevel = 0;
     private int chainReactionLevel = 0;
     private int chargeLevel = 0;
@@ -41,6 +42,16 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     private int tempoTheftLevel = 0;
     private int voidShotLevel = 0;
     private int wildRageLevel = 0;
+
+    @Override
+    public int getOvercharge() {
+        return overcharge;
+    }
+
+    @Override
+    public void setOvercharge(int overcharge) {
+        this.overcharge = overcharge;
+    }
 
     @Override
     public int getAccelerateLevel() {

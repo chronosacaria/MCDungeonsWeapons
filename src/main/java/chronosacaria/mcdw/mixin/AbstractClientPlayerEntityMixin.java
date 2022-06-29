@@ -3,8 +3,10 @@ package chronosacaria.mcdw.mixin;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwLongBow;
 import chronosacaria.mcdw.bases.McdwShortBow;
+import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Mixin;
@@ -31,6 +33,11 @@ public class AbstractClientPlayerEntityMixin {
                     itemStack.getItem() instanceof McdwShortBow ||
                     itemStack.getItem() instanceof McdwLongBow) {
                 int i = abPlayer.getItemUseTime();
+                int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
+                if (overchargeLevel > 0) {
+                    int overcharge = Math.min((i / 20) - 1, overchargeLevel);
+                    i = overcharge == overchargeLevel ? i : i % 20;
+                }
                 float g = (float)i / 20.0F;
                 if (g > 1.0F) {
                     g = 1.0F;

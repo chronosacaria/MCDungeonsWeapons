@@ -50,4 +50,14 @@ public class DynamoEnchantment extends DamageBoostEnchantment {
         return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem || stack.getItem() instanceof McdwCustomWeaponBase
                 || stack.getItem() instanceof BowItem || stack.getItem() instanceof CrossbowItem;
     }
+
+    @Override
+    public int getMinPower(int level) {
+        return 1 + level * 10;
+    }
+
+    @Override
+    public int getMaxPower(int level) {
+        return this.getMinPower(level) + 5;
+    }
 }
