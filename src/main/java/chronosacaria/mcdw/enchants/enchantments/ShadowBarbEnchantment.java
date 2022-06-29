@@ -10,11 +10,11 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 
-public class ShadowShotEnchantment extends RangedEnchantment {
-    public ShadowShotEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+public class ShadowBarbEnchantment extends RangedEnchantment {
+    public ShadowBarbEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_SHOT)) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("shadow_shot"), this);
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_BARB)) {
+            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("shadow_barb"), this);
         }
     }
 
@@ -35,7 +35,7 @@ public class ShadowShotEnchantment extends RangedEnchantment {
 
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem().equals(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)) || stack.getItem().equals(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW));
+        return stack.getItem().equals(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW));
     }
 
     @Override

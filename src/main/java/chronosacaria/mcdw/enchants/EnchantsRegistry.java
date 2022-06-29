@@ -51,6 +51,7 @@ public class EnchantsRegistry {
     public static Enchantment PHANTOMS_MARK;
     public static Enchantment REPLENISH;
     public static Enchantment RICOCHET;
+    public static Enchantment SHADOW_BARB;
     public static Enchantment SHADOW_SHOT;
     public static Enchantment TEMPO_THEFT;
     public static Enchantment VOID_SHOT;
@@ -146,6 +147,8 @@ public class EnchantsRegistry {
         RICOCHET = new RicochetEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         SHADOW_SHOT = new ShadowShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        SHADOW_BARB = new ShadowBarbEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         TEMPO_THEFT = new TempoTheftEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

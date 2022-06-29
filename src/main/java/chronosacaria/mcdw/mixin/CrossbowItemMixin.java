@@ -92,6 +92,7 @@ public class CrossbowItemMixin {
             if (ricochetLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setRicochetLevel(ricochetLevel);
             }
+            ((IMcdwEnchantedArrow)ppe).setShadowBarbBoolean(crossbow.isOf(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)));
             int shadowShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SHADOW_SHOT, crossbow);
             if (shadowShotLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setShadowShotLevel(shadowShotLevel);

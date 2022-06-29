@@ -127,9 +127,6 @@ public class EnchantmentEffects {
         if (shadowShotLevel > 0) {
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SHADOW_SHOT))) {
                 shadowShotEntity.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.SHADOW_FORM, duration, 0, false, true, true));
-                if (shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
-                    shadowShotEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, duration, 0, false, false, false));
-                }
             }
         }
     }
@@ -308,23 +305,21 @@ public class EnchantmentEffects {
 
     public static float shadowFormDamage (LivingEntity shadowShotEntity) {
         if (shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
-            float shadowShotDamageAmplifier = 8f;
             shadowShotEntity.removeStatusEffect(StatusEffectsRegistry.SHADOW_FORM);
-
-            return shadowShotDamageAmplifier;
+            return 7f;
         }
-
         return 0f;
     }
 
     public static float shadowFormShotDamage (LivingEntity shadowShotEntity, PersistentProjectileEntity ppe) {
-        int shadowShotLevel = ((IMcdwEnchantedArrow)ppe).getShadowShotLevel();
-        if (shadowShotLevel > 0 && shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
-            //shadowShotEntity.removeStatusEffect(StatusEffectsRegistry.SHADOW_FORM);
-
-            return 8f;
+        boolean shadowBarbBoolean = ((IMcdwEnchantedArrow)ppe).getShadowBarbBoolean();
+        if (shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
+            if (!shadowBarbBoolean) {
+                shadowShotEntity.removeStatusEffect(StatusEffectsRegistry.SHADOW_FORM);
+                //TODO TRY TO FIGURE OUT HOW TO REMOVE INVISIBILITY
+            }
+            return 7f;
         }
-
         return 0f;
     }
 

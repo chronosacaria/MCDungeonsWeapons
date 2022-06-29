@@ -50,6 +50,9 @@ public interface IMcdwEnchantedArrow {
     int getRicochetLevel();
     void setRicochetLevel(int ricochetLevel);
 
+    boolean getShadowBarbBoolean();
+    void setShadowBarbBoolean(boolean shadowBarbBoolean);
+
     int getShadowShotLevel();
     void setShadowShotLevel(int shadowShotLevel);
 

@@ -35,6 +35,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     private int radianceLevel = 0;
     private int replenishLevel = 0;
     private int ricochetLevel = 0;
+    private boolean shadowBarbBoolean = false;
     private int shadowShotLevel = 0;
     private int tempoTheftLevel = 0;
     private int voidShotLevel = 0;
@@ -196,6 +197,12 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     }
 
     @Override
+    public boolean getShadowBarbBoolean() { return shadowBarbBoolean; }
+
+    @Override
+    public void setShadowBarbBoolean(boolean shadowBarbBoolean) {this.shadowBarbBoolean = shadowBarbBoolean; }
+
+    @Override
     public int getShadowShotLevel() { return shadowShotLevel; }
 
     @Override
@@ -238,6 +245,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         tag.putInt("radianceLevel", radianceLevel);
         tag.putInt("replenishLevel", replenishLevel);
         tag.putInt("ricochetLevel", ricochetLevel);
+        tag.putBoolean("shadowBarbBoolean", shadowBarbBoolean);
         tag.putInt("shadowShotLevel", shadowShotLevel);
         tag.putInt("tempoTheftLevel", tempoTheftLevel);
         tag.putInt("voidShotLevel", voidShotLevel);
@@ -261,6 +269,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         this.radianceLevel = tag.getInt("radianceLevel");
         this.replenishLevel = tag.getInt("replenishLevel");
         this.ricochetLevel = tag.getInt("ricochetLevel");
+        this.shadowBarbBoolean = tag.getBoolean("shadowBarbBoolean");
         this.shadowShotLevel = tag.getInt("shadowShotLevel");
         this.tempoTheftLevel = tag.getInt("tempoTheftLevel");
         this.voidShotLevel = tag.getInt("voidShotLevel");
@@ -322,8 +331,8 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         PersistentProjectileEntity ppe = (PersistentProjectileEntity) (Object) this;
         if (ppe.isTouchingWater()) {
             if (((IMcdwEnchantedArrow)ppe).getNautilusBoolean()) {
-                float m = 0.925f;
-                cir.setReturnValue(m);
+                float v = cir.getReturnValue() * 1.542f;
+                cir.setReturnValue(v);
             }
         }
     }
