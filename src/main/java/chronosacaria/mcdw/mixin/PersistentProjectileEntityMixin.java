@@ -5,7 +5,9 @@ import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.WardenEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -326,8 +328,11 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
                 EnchantmentEffects.applyRicochet(target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.TEMPO_THEFT))
                 EnchantmentEffects.applyTempoTheft(shooter, target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.WILD_RAGE))
-                EnchantmentEffects.applyWildRage((MobEntity) target, persProjEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.WILD_RAGE)) {
+                if (!(target instanceof EnderDragonEntity || target instanceof WardenEntity)) {
+                    EnchantmentEffects.applyWildRage((MobEntity) target, persProjEntity);
+                }
+            }
         }
 
         if (persProjEntity.getOwner() instanceof PlayerEntity shooter) {
