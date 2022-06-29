@@ -125,8 +125,8 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyShadowShotShadowForm(LivingEntity shadowShotEntity, int duration){
-        int shadowShotLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shadowShotEntity, EnchantsRegistry.SHADOW_SHOT);
+    public static void applyShadowShotShadowForm(LivingEntity shadowShotEntity, PersistentProjectileEntity ppe, int duration){
+        int shadowShotLevel = ((IMcdwEnchantedArrow)ppe).getShadowShotLevel();
         if (shadowShotLevel > 0) {
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SHADOW_SHOT))) {
                 shadowShotEntity.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.SHADOW_FORM, duration, 0, false, true, true));

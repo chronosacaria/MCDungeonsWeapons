@@ -156,11 +156,11 @@ public class LivingEntityPlayerEntityMixin {
                     EnchantmentEffects.applyRefreshment(attackingEntity);
             }
 
-            if (source.isProjectile()) {
+            if (source.getSource() instanceof PersistentProjectileEntity ppe) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT))
                     EnchantmentEffects.applyRefreshment(attackingEntity);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_SHOT))
-                    EnchantmentEffects.applyShadowShotShadowForm(attackingEntity, 80);
+                    EnchantmentEffects.applyShadowShotShadowForm(attackingEntity, ppe, 80);
             }
         }
     }
