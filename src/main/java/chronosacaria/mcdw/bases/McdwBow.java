@@ -53,10 +53,6 @@ public class McdwBow extends BowItem implements IRangedWeapon {
         return Math.max(0, drawSpeed);
     }
 
-    public ParticleEffect getArrowParticles() {
-        return type;
-    }
-
     public static float getBowArrowVelocity(ItemStack stack, int charge) {
         float bowChargeTime = getVanillaBowChargeTime(stack);
         if (bowChargeTime <= 0){
@@ -89,7 +85,7 @@ public class McdwBow extends BowItem implements IRangedWeapon {
 
     @Override
     public int getRange() {
-        return (int) maxBowRange * 2 + 10;
+        return (int) maxBowRange;
     }
 
     @Override

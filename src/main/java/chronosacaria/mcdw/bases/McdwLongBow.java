@@ -8,12 +8,10 @@ import chronosacaria.mcdw.enums.LongBowsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -23,8 +21,6 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Locale;
 import java.util.function.Predicate;
-
-import static chronosacaria.mcdw.api.util.RangedAttackHelper.getVanillaBowChargeTime;
 
 public class McdwLongBow extends BowItem implements IRangedWeapon {
 
@@ -55,78 +51,6 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
         return Math.max(0, drawSpeed);
     }
 
-    public ParticleEffect getArrowParticles() {
-        return type;
-    }
-
-    @Override
-    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
-        super.onStoppedUsing(stack, world, user, remainingUseTicks);
-        if (user instanceof PlayerEntity playerEntity) {
-            boolean bl = playerEntity.getAbilities().creativeMode
-                    || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
-            ItemStack itemStack = playerEntity.getArrowType(stack);
-            if (!itemStack.isEmpty() || bl) {
-                if (itemStack.isEmpty()) {
-                    itemStack = new ItemStack(Items.ARROW);
-                }
-
-                int i = this.getMaxUseTime(stack) - remainingUseTicks;
-                float f = getPullProgress(i);
-                if ((double) f >= 0.1D) {
-                    boolean bl2 = bl && itemStack.getItem() == Items.ARROW;
-                    if (!world.isClient) {
-                        ArrowItem arrowItem = ((ArrowItem) (itemStack.getItem() instanceof ArrowItem
-                                ? itemStack.getItem()
-                                : Items.ARROW));
-                        PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world,
-                                itemStack, playerEntity);
-
-                        persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(),
-                                playerEntity.getYaw(),
-                                0.0F, f * maxBowRange, 1.0F);
-                        if (f == 1.0F) {
-                            persistentProjectileEntity.setCritical(true);
-                        }
-
-                        // POWER ENCHANTMENT
-                        int j = EnchantmentHelper.getLevel(Enchantments.POWER, stack);
-                        if (j > 0) {
-                            persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + (double) j * 0.5D + 0.5D);
-                        }
-
-                        // PUNCH ENCHANTMENT
-                        int k = EnchantmentHelper.getLevel(Enchantments.PUNCH, stack);
-                        if (k > 0) {
-                            persistentProjectileEntity.setPunch(k);
-                        }
-
-                        // FLAME ENCHANTMENT
-                        if (EnchantmentHelper.getLevel(Enchantments.FLAME, stack) > 0) {
-                            persistentProjectileEntity.setOnFireFor(100);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
-    public static float getBowArrowVelocity(ItemStack stack, int charge) {
-        float bowChargeTime = getVanillaBowChargeTime(stack);
-        if (bowChargeTime <= 0){
-            bowChargeTime = 1;
-        }
-
-        float arrowVelocity = (float) charge / chargeTime;
-        arrowVelocity = (arrowVelocity * arrowVelocity + arrowVelocity * 2.0F) / 1.5F;
-        if (arrowVelocity > 1.0F) {
-            arrowVelocity = 1.0F;
-        }
-
-        return arrowVelocity;
-    }
-
     @Override
     public int getMaxUseTime(ItemStack stack) {
         return 72000 - (int)(drawSpeed);
@@ -144,7 +68,7 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
 
     @Override
     public int getRange() {
-        return (int) maxBowRange * 2 + 10;
+        return (int) maxBowRange;
     }
 
     @Override

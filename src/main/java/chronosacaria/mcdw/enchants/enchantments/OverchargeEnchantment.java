@@ -11,8 +11,6 @@ import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.PowerEnchantment;
 import net.minecraft.enchantment.PunchEnchantment;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.BowItem;
-import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 
