@@ -27,8 +27,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(BowItem.class)
 public abstract class BowItemMixin implements IBowTimings{
@@ -36,8 +38,6 @@ public abstract class BowItemMixin implements IBowTimings{
     private int overcharge;
 
     private LivingEntity livingEntity;
-
-    private LivingEntity getLivingEntity() { return this.livingEntity; }
 
     public void setLivingEntity(LivingEntity livingEntity){
         this.livingEntity = livingEntity;
@@ -80,36 +80,6 @@ public abstract class BowItemMixin implements IBowTimings{
     private void mcdw$applyBowEnchantmentLevel(ItemStack stack, World world, LivingEntity user, int remainingUseTicks,
                                  CallbackInfo ci, PlayerEntity playerEntity, boolean bl, ItemStack itemStack, int i, float f, boolean bl2,
                                                ArrowItem arrowItem, PersistentProjectileEntity ppe){
-        //Write MCDW enchantments to ppe
-
-        /*
-        NbtList nbtList = stack.getEnchantments();
-
-        for (NbtElement nbtElement: nbtList) {
-            NbtCompound nbtCompound = (NbtCompound) nbtElement;
-            Identifier identifier = EnchantmentHelper.getIdFromNbt(nbtCompound);
-            if (identifier != null) {
-                String test = nbtCompound.getString("id");
-                if (test.startsWith("mcdw:")) {
-                    Enchantment enchantment = Registry.ENCHANTMENT.get(identifier);
-                    int k = EnchantmentHelper.getLevelFromNbt(nbtCompound);
-                    if (k > 0) {
-
-                        playerEntity.sendMessage(Text.of(nbtCompound.asString()), false);
-                        ppe.writeCustomDataToNbt(nbtCompound);
-
-                        test = test.substring(5);
-                        playerEntity.sendMessage(Text.of(test + ", lvl: " + k), false);
-                    }
-                }
-            }
-        }*/
-
-        //if (stack.isOf(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW))) {
-        //    NbtCompound nbtCompound = new NbtCompound();
-        //    nbtCompound.putBoolean("mcdwHarpoon", true);
-        //    ppe.writeCustomDataToNbt(nbtCompound);
-        //}
 
         // Not the level of Overcharge
         if (overcharge > 0) {
@@ -198,7 +168,6 @@ public abstract class BowItemMixin implements IBowTimings{
 
     @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getPullProgress(I)F"), index = 0)
     private int mcdw$acceleratedPullProgress(int value){
-        LivingEntity livingEntity = getLivingEntity();
         ItemStack bowStack = livingEntity.getActiveItem();
 
         if (bowStack.getItem() instanceof McdwShortBow mcdwShortBow) {
@@ -227,7 +196,22 @@ public abstract class BowItemMixin implements IBowTimings{
                 value = overcharge == overchargeLevel ? value : value % 20;
             }
         }
-        livingEntity.sendMessage(Text.of(String.valueOf(value)));
         return value;
+    }
+
+    @ModifyArgs(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/projectile/PersistentProjectileEntity;setVelocity(Lnet/minecraft/entity/Entity;FFFFF)V"))
+    private void mcdw$rangeHandler(Args args) {
+        float velocity = args.get(4);
+        ItemStack bowStack = livingEntity.getActiveItem();
+
+        if (bowStack.getItem() instanceof McdwShortBow mcdwShortBow) {
+            velocity *= mcdwShortBow.getRange() / 15f;
+        } else if (bowStack.getItem() instanceof McdwLongBow mcdwLongBow) {
+            velocity *= mcdwLongBow.getRange() / 15f;
+        } else if (bowStack.getItem() instanceof McdwBow mcdwBow) {
+            velocity *= mcdwBow.getRange() / 15f;
+        }
+
+        args.set(4, velocity);
     }
 }
