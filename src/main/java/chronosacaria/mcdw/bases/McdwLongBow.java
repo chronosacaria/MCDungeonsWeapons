@@ -2,7 +2,6 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.api.interfaces.IRangedWeapon;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.LongBowsID;
 import chronosacaria.mcdw.items.ItemsInit;
@@ -22,7 +21,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.function.Predicate;
 
-public class McdwLongBow extends BowItem implements IRangedWeapon {
+public class McdwLongBow extends BowItem {
 
     public static float chargeTime = 60.0f;
 
@@ -49,11 +48,6 @@ public class McdwLongBow extends BowItem implements IRangedWeapon {
 
     public float getDrawSpeed() {
         return Math.max(0, drawSpeed);
-    }
-
-    @Override
-    public int getMaxUseTime(ItemStack stack) {
-        return 72000 - (int)(drawSpeed);
     }
 
     @Override
