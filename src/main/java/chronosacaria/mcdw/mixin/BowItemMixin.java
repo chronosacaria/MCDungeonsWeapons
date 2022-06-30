@@ -11,9 +11,11 @@ import chronosacaria.mcdw.bases.McdwLongBow;
 import chronosacaria.mcdw.bases.McdwShortBow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
@@ -179,13 +181,16 @@ public abstract class BowItemMixin implements IBowTimings{
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
             int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, bowStack);
-            if (accelerateLevel > 0)
+            if (accelerateLevel > 0) {
+                StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
+                int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;
 
-            //int consecutiveShots = getConsecutiveShots(stack);
+                StatusEffectInstance accelerateUpdateInstance =
+                        new StatusEffectInstance(StatusEffectsRegistry.ACCELERATE, 60, consecutiveShots, false, false, true);
+                livingEntity.addStatusEffect(accelerateUpdateInstance);
 
-            //new ItemCooldownManager().set(livingEntity.getMainHandStack().getItem(), 10 + (5 * consecutiveShots));
-
-            value = (int) (value * (1 + ((6.0f + 2.0f * accelerateLevel) / 100)));
+                value = (int) (value * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
+            }
         }
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {

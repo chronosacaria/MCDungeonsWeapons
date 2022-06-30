@@ -29,7 +29,7 @@ public class OverchargeEnchantment extends RangedEnchantment {
 
     @Override
     protected boolean canAccept(Enchantment other) {
-        return !(other instanceof PunchEnchantment || other instanceof PowerEnchantment);
+        return !(other instanceof PunchEnchantment || other instanceof PowerEnchantment || other instanceof AccelerateEnchantment);
     }
 
     @Override
