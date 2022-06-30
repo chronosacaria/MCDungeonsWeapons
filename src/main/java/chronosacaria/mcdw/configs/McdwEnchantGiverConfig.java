@@ -230,6 +230,8 @@ public class McdwEnchantGiverConfig {
                     new Identifier("mcdw:ricochet"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_BUBBLE_BURSTER)),
                     new Identifier("mcdw:ricochet"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_PINK_SCOUNDREL)),
+                    new Identifier("mcdw:ricochet"), 1, false);
 
             // RUSHDOWN ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE)),
