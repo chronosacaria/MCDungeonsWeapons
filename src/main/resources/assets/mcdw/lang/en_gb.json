@@ -182,6 +182,7 @@
   "item.mcdw.moreinfo.tooltip": "Hold [SHIFT] for more info",
   "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
 
+  "effect.mcde.accelerate": "Accelerate",
   "effect.mcdw.dynamo": "Dynamo",
   "effect.mcdw.pain_cycle": "Pain Cycle",
   "effect.mcdw.shadow_form": "Shadow Form",
@@ -211,6 +212,7 @@
   "enchantment.mcdw.jungle_poison": "Jungle's Poison",
   "enchantment.mcdw.leeching": "Leeching",
   "enchantment.mcdw.levitation_shot": "Levitation Shot",
+  "enchantment.mcdw.overcharge": "Overcharge",
   "enchantment.mcdw.pain_cycle": "Pain Cycle",
   "enchantment.mcdw.phantoms_mark": "Phantom's Mark",
   "enchantment.mcdw.poison_cloud": "Poison Cloud",
@@ -832,6 +834,7 @@
 
   "death.attack.electricShock": "%s was electrocuted to death.",
 
+  "enchantment.mcdw.accelerate.desc": "Increases attack speed for each consecutive shot. Resets three seconds after the attack.",
   "enchantment.mcdw.ambush.desc": "Deal extra damage whilst sneaking and invisible.",
   "enchantment.mcdw.anima_conduit.desc": "Each XP orb grants a small amount of health.",
   "enchantment.mcdw.bonus_shot.desc": "Fires an extra projectile towards a secondary target.",
@@ -856,6 +859,7 @@
   "enchantment.mcdw.jungle_poison.desc": "A chance to apply poison to target.",
   "enchantment.mcdw.leeching.desc": "Heal relative to the max health of the target upon its death.",
   "enchantment.mcdw.levitation_shot.desc": "Fire a shot that gives the levitation status effect much like a shulker bullet.",
+  "enchantment.mcdw.overcharge.desc": "Continue to hold the ranged attack button to double, triple, or quadruple charge a bow, increasing its damage each time.",
   "enchantment.mcdw.pain_cycle.desc": "Attacking drains your life to grant one stack of Pain Cycle. At 5 stacks, your pain is channeled into your next attack.",
   "enchantment.mcdw.phantoms_mark.desc": "Sets glowing on the target relative to the level of the enchantment.",
   "enchantment.mcdw.poison_cloud.desc": "A chance to spawn a poison cloud around a target.",
@@ -881,5 +885,5 @@
   "enchantment.mcdw.void_strike.desc": "Deal multiplicative damage based on level of enchantment.",
   "enchantment.mcdw.void_shot.desc": "Deal multiplicative damage based on level of enchantment.",
   "enchantment.mcdw.weakening.desc": "Chance to spawn a weakness cloud around the target.",
-  "enchantment.mcdw.wild_rage.desc": "Chance to spawn a weakness cloud around the target."
+  "enchantment.mcdw.wild_rage.desc": "Hitting an enemy has a chance to send it into a rage, making it hostile towards everyone."
 }

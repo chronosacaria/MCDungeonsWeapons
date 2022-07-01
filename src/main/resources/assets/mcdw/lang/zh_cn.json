@@ -176,6 +176,7 @@
   "item.mcdw.shield_royal_guard": "皇家卫队盾",
   "item.mcdw.shield_vanguard": "先锋盾",
 
+  "effect.mcde.accelerate": "加速",
   "effect.mcdw.dynamo": "精力充沛",
   "effect.mcdw.pain_cycle": "痛苦循环",
   "effect.mcdw.shadow_form": "暗影状态",
@@ -205,6 +206,7 @@
   "enchantment.mcdw.jungle_poison": "丛林毒药",
   "enchantment.mcdw.leeching": "吸血",
   "enchantment.mcdw.levitation_shot": "漂浮射击",
+  "enchantment.mcdw.overcharge": "多级蓄力",
   "enchantment.mcdw.pain_cycle": "痛苦循环",
   "enchantment.mcdw.phantoms_mark": "幻翼的印记",
   "enchantment.mcdw.poison_cloud": "毒雾",
@@ -827,6 +829,7 @@
 
   "death.attack.electricShock": "%s被电死了。",
 
+  "enchantment.mcdw.accelerate.desc": "连续射击会逐渐提高射击速度，3秒后重置",
   "enchantment.mcdw.ambush.desc": "潜行和隐身时造成额外伤害。",
   "enchantment.mcdw.anima_conduit.desc": "每吸收一个经验球都会回复少量生命。",
   "enchantment.mcdw.bonus_shot.desc": "射击时有几率向附近的敌人射出第二支箭矢。",
@@ -851,6 +854,7 @@
   "enchantment.mcdw.jungle_poison.desc": "有几率对目标施加中毒效果。",
   "enchantment.mcdw.leeching.desc": "击败目标后，获得基于目标最大生命值一部分的治疗。",
   "enchantment.mcdw.levitation_shot.desc": "你的射击会让目标漂浮，类似于潜影贝的效果。",
+  "enchantment.mcdw.overcharge.desc": "长按远程攻击键为弓蓄力两倍、三倍甚至四倍的伤害，每次蓄力都会提升一倍。",
   "enchantment.mcdw.pain_cycle.desc": "攻击会消耗生命以堆叠苦痛。叠加5次后，你的痛苦会爆发于下一次攻击中。",
   "enchantment.mcdw.phantoms_mark.desc": "根据魔咒等级对目标施加发光效果。",
   "enchantment.mcdw.poison_cloud.desc": "有几率在目标周围生成毒雾。",
