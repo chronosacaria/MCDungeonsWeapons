@@ -11,6 +11,7 @@ import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.PowerEnchantment;
 import net.minecraft.enchantment.PunchEnchantment;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 
@@ -46,7 +47,7 @@ public class OverchargeEnchantment extends RangedEnchantment {
 
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof McdwBow || stack.getItem() instanceof McdwLongBow || stack.getItem() instanceof McdwShortBow;
+        return stack.getItem() instanceof BowItem;
     }
 
     @Override
