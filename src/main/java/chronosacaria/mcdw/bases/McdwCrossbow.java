@@ -44,11 +44,6 @@ public class McdwCrossbow extends CrossbowItem {
     }
 
     @Override
-    public int getMaxUseTime(ItemStack stack) {
-        return getPullTime(stack) + 3 - (28 - drawSpeed);
-    }
-
-    @Override
     public boolean isUsedOnRelease(ItemStack stack){
         for (CrossbowsID crossbowsID : CrossbowsID.values())
             if (stack.isOf(ItemsInit.crossbowItems.get(crossbowsID)))

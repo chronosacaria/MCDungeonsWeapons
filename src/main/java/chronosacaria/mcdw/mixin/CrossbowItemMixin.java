@@ -9,23 +9,34 @@ import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.CrossbowsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(CrossbowItem.class)
 public class CrossbowItemMixin {
+
+    private LivingEntity livingEntity;
+
+    public void setLivingEntity(LivingEntity livingEntity){
+        this.livingEntity = livingEntity;
+    }
 
     @Inject(method = "createArrow", at = @At(value = "RETURN"), locals = LocalCapture.CAPTURE_FAILSOFT)
     private static void applyCrossbowEnchantmentLevel(World world, LivingEntity user, ItemStack crossbow, ItemStack arrow,
@@ -125,13 +136,33 @@ public class CrossbowItemMixin {
             }
         }
     }
+    
+    @Inject(method = "onStoppedUsing", at = @At(value = "HEAD"))
+    private void mcdw$livingEntityGetter(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci) {
+        this.setLivingEntity(user);
+    }
 
-    /*@ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE",
-            target = "Lnet/minecraft/item/CrossbowItem;getPullProgress(ILnet/minecraft/item/ItemStack;)F"))
+    @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/CrossbowItem;getPullProgress(ILnet/minecraft/item/ItemStack;)F"), index = 0)
     private int mcdw$acceleratedPullProgress(int useTicks) {
-        //return 100 * useTicks;
-        //return (int) (value * (1 + ((6.0f + 2.0f * accelerateLevel) / 100)));
-    }*/
+        ItemStack crossbowStack = livingEntity.getActiveItem();
+
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
+            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, crossbowStack);
+            if (accelerateLevel > 0) {
+                StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
+                int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;
+
+                useTicks = (int) (useTicks * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
+
+                if ((float)useTicks / (float)CrossbowItem.getPullTime(crossbowStack) >= 1) {
+                    StatusEffectInstance accelerateUpdateInstance =
+                            new StatusEffectInstance(StatusEffectsRegistry.ACCELERATE, 60, consecutiveShots, false, false, true);
+                    livingEntity.addStatusEffect(accelerateUpdateInstance);
+                }
+            }
+        }
+        return useTicks;
+    }
 
     @ModifyArgs(method = "shootAll", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/CrossbowItem;shoot(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/util/Hand;Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;FZFFF)V"))
     private static void mcdw$crossbowRangeHandler(Args args) {

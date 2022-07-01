@@ -11,6 +11,12 @@ public class McdwEnchantGiverConfig {
     public static void appendEnchants(){
 
         if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_INNATE_ENCHANTMENTS)) {
+            // ACCELERATE ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW)),
+                    new Identifier("mcdw:accelerate"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.shortBowItems.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW)),
+                    new Identifier("mcdw:accelerate"), 1, true);
+
             // AMBUSH ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_BACKSTABBER)),
                     new Identifier("mcdw:ambush"), 1, true);

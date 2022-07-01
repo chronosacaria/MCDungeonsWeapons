@@ -153,8 +153,18 @@ public class McdwClient implements ClientModInitializer {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
+                int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
+                    int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, itemStack);
+                    if (accelerateLevel > 0) {
+                        StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
+                        int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;
+
+                        useTicks = (int) (useTicks * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
+                    }
+                }
                 return McdwCrossbow.isCharged(itemStack) ? 0.0F :
-                        (float) (itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft()) / (float)  McdwCrossbow.getPullTime(itemStack);
+                        (float) (useTicks) / (float)  McdwCrossbow.getPullTime(itemStack);
             }
         });
 

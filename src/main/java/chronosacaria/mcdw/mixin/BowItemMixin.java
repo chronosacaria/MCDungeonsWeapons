@@ -184,12 +184,13 @@ public abstract class BowItemMixin implements IBowTimings{
             if (accelerateLevel > 0) {
                 StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
                 int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;
-
-                StatusEffectInstance accelerateUpdateInstance =
-                        new StatusEffectInstance(StatusEffectsRegistry.ACCELERATE, 60, consecutiveShots, false, false, true);
-                livingEntity.addStatusEffect(accelerateUpdateInstance);
-
                 value = (int) (value * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
+
+                if (BowItem.getPullProgress(value) >= 1) {
+                    StatusEffectInstance accelerateUpdateInstance =
+                            new StatusEffectInstance(StatusEffectsRegistry.ACCELERATE, 60, consecutiveShots, false, false, true);
+                    livingEntity.addStatusEffect(accelerateUpdateInstance);
+                }
             }
         }
 
