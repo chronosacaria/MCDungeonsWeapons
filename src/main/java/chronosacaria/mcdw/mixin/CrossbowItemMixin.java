@@ -4,6 +4,10 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
+import chronosacaria.mcdw.bases.McdwBow;
+import chronosacaria.mcdw.bases.McdwCrossbow;
+import chronosacaria.mcdw.bases.McdwLongBow;
+import chronosacaria.mcdw.bases.McdwShortBow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.CrossbowsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
@@ -18,8 +22,11 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArgs;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(CrossbowItem.class)
 public class CrossbowItemMixin {
@@ -129,4 +136,17 @@ public class CrossbowItemMixin {
         //return 100 * useTicks;
         //return (int) (value * (1 + ((6.0f + 2.0f * accelerateLevel) / 100)));
     }*/
+
+    @ModifyArgs(method = "shootAll", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/CrossbowItem;shoot(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/util/Hand;Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;FZFFF)V"))
+    private static void mcdw$crossbowRangeHandler(Args args) {
+        float velocity = args.get(7);
+        LivingEntity livingEntity = args.get(1);
+        ItemStack crossbowStack = livingEntity.getStackInHand(args.get(2));
+
+        if (crossbowStack.getItem() instanceof McdwCrossbow mcdwCrossbow) {
+            velocity *= mcdwCrossbow.getRange() / 8f;
+        }
+
+        args.set(7, velocity);
+    }
 }
