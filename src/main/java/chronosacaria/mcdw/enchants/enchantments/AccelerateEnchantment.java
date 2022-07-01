@@ -2,7 +2,6 @@ package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwBow;
-import chronosacaria.mcdw.bases.McdwCustomWeaponBase;
 import chronosacaria.mcdw.bases.McdwLongBow;
 import chronosacaria.mcdw.bases.McdwShortBow;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
@@ -11,9 +10,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.MultishotEnchantment;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
 import net.minecraft.util.registry.Registry;
 
 public class AccelerateEnchantment extends RangedEnchantment {

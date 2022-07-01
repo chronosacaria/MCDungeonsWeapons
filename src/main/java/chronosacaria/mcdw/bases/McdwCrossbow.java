@@ -17,10 +17,10 @@ import java.util.Locale;
 public class McdwCrossbow extends CrossbowItem {
 
     public final ToolMaterial material;
-    public final float drawSpeed;
+    public final int drawSpeed;
     public final float range;
 
-    public McdwCrossbow(ToolMaterial material, float drawSpeed, float range) {
+    public McdwCrossbow(ToolMaterial material, int drawSpeed, float range) {
         super(new Item.Settings().group(Mcdw.RANGED)
                 .maxCount(1)
                 .maxDamage(100 + material.getDurability())
@@ -45,7 +45,7 @@ public class McdwCrossbow extends CrossbowItem {
 
     @Override
     public int getMaxUseTime(ItemStack stack) {
-        return getPullTime(stack) + 3 - (28 - (int)(drawSpeed));
+        return getPullTime(stack) + 3 - (28 - drawSpeed);
     }
 
     @Override
@@ -54,6 +54,10 @@ public class McdwCrossbow extends CrossbowItem {
             if (stack.isOf(ItemsInit.crossbowItems.get(crossbowsID)))
                 return true;
         return false;
+    }
+
+    public int getDrawSpeed(){
+        return this.drawSpeed;
     }
 
     @Override

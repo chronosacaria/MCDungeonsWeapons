@@ -694,7 +694,7 @@ public class ItemsInit {
                         CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW).drawSpeed,
                         CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW).range);
                 //noinspection UnnecessaryDefault
-                default -> new McdwCrossbow(ToolMaterials.WOOD, 0.0f, 0.0f);
+                default -> new McdwCrossbow(ToolMaterials.WOOD, 0, 0.0f);
             };
 
             crossbowItems.put(crossbowsID, weapon);
