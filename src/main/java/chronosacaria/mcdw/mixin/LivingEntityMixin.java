@@ -132,6 +132,7 @@ public class LivingEntityMixin {
 
         ItemStack poisonTippedArrow = PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW, 8), Potions.POISON);
 
+        // TODO Make Dipping Poison less awkward to use. Currently it will not work if arrows are in the players inventory because they cannot drink a potion from their offhand if they have arrows in their inventory
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DIPPING_POISON)) {
             if (user.getMainHandStack() != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getMainHandStack()) > 0)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getMainHandStack());
