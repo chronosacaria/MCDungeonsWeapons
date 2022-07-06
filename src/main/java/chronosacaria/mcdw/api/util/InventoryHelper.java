@@ -65,11 +65,12 @@ public class InventoryHelper {
     }
 
     public static void mcdw$systematicReplacePotions(PlayerEntity player, Item toReplace, ItemStack stackReplaceTo, int count) {
+        if (count == 0)
+            return;
         // Minecraft code is dumb sometimes. Just make potions their own item gah
         PlayerInventory playerInv = player.getInventory();
 
-
-
+        mcdw$optimizeSortItemStack(player, toReplace);
         // Does the player have any empty slots? -1 means no, anything 0 or up is yes
         if (playerInv.getEmptySlot() >= 0) {
             // If we have less than we are trying to replace, just replace that many
@@ -88,21 +89,15 @@ public class InventoryHelper {
             if (count > 0)
                 mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, count);
         } else {
-            mcdw$optimizeSortItemStack(player, toReplace);
-            if (playerInv.getEmptySlot() >= 0) {
-                mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, count);
-            } else {
-                List<Integer> stackSlots = mcdw$getSlotsWithStack(player, toReplace);
-                for (int slotIndex : stackSlots) {
+            List<Integer> stackSlots = mcdw$getSlotsWithStack(player, toReplace);
+            for (int slotIndex : stackSlots) {
 
-                    int availableToReplace = playerInv.getStack(slotIndex).getCount();
+                int availableToReplace = playerInv.getStack(slotIndex).getCount();
 
-                    if (availableToReplace == 1) {
-                        playerInv.insertStack(slotIndex, stackReplaceTo);
-                        count -= availableToReplace;
-                        mcdw$optimizeSortItemStack(player, toReplace);
-                        mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, count);
-                    }
+                if (availableToReplace == 1) {
+                    playerInv.setStack(slotIndex, stackReplaceTo);
+                    count -= availableToReplace;
+                    mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, count);
                 }
             }
         }
