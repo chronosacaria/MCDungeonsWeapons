@@ -9,10 +9,11 @@ import java.util.HashMap;
 @Config(name = "mcdw_enchantments_config")
 public class McdwEnchantmentsConfig implements ConfigData {
 
+    // TODO Change nomenclature to final convention for hashmaps and subsequent usages
     // Enable or Disable Enchantments
-    public HashMap<EnchantmentsID, Boolean> enableEnchantments = new HashMap<>();
-    public HashMap<EnchantmentsID, Boolean> enableVillageTrading = new HashMap<>();
-    public HashMap<EnchantmentsID, Boolean> enableRandomSelection = new HashMap<>();
+    public final HashMap<EnchantmentsID, Boolean> enableEnchantments = new HashMap<>();
+    public final HashMap<EnchantmentsID, Boolean> enableVillageTrading = new HashMap<>();
+    public final HashMap<EnchantmentsID, Boolean> enableRandomSelection = new HashMap<>();
 
     public McdwEnchantmentsConfig(){
         for (EnchantmentsID enchantmentsID : EnchantmentsID.values())

@@ -18,17 +18,6 @@ public class SummonedBeeEntity extends BeeEntity {
         super(EntityType.BEE, world);
     }
 
-    public static DefaultAttributeContainer getAttributeContainer(){
-        return MobEntity
-                .createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 15.0D)
-                .add(EntityAttributes.GENERIC_FLYING_SPEED, 2.5D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 2.5D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5.0D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 48.0D)
-                .build();
-    }
-
     public void setSummoner(Entity user){
         summoner = user;
     }
@@ -46,6 +35,7 @@ public class SummonedBeeEntity extends BeeEntity {
         super.mobTick();
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     private boolean setBeeAttacker(LivingEntity attacker){
         if(attacker.equals(summoner)){
             return false;

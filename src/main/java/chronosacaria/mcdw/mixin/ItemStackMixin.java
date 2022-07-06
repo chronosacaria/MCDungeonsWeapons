@@ -24,7 +24,7 @@ public abstract class ItemStackMixin {
 
     // When the Mechanised Sawblade breaks, it "becomes" the Broken Sawblade
     @Inject(at = @At("HEAD"), method = "damage(ILnet/minecraft/entity/LivingEntity;Ljava/util/function/Consumer;)V")
-    public <T extends LivingEntity> void damage(int amount, T entity, Consumer<T> breakCallback, CallbackInfo ci) {
+    public <T extends LivingEntity> void mcdw$damage(int amount, T entity, Consumer<T> breakCallback, CallbackInfo ci) {
         if (this.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_MECHANIZED_SAWBLADE) && getDamage() + amount >= getMaxDamage()) {
             NbtList oldEnchantments = this.getEnchantments().copy();
             ItemStack brokenSawblade = new ItemStack(ItemsInit.swordItems.get(SwordsID.SWORD_BROKEN_SAWBLADE));

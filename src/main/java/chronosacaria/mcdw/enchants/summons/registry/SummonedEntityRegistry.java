@@ -19,7 +19,6 @@ import java.util.Map;
 public class SummonedEntityRegistry {
     public static final Map<EntityType<? extends LivingEntity>, DefaultAttributeContainer> ATTRIBUTES =
             Maps.newHashMap();
-    private static final List<EntityType<?>> SUMMONED_ENTITIES = Lists.newArrayList();
 
     public static final EntityType<SummonedBeeEntity> SUMMONED_BEE_ENTITY =
             FabricEntityTypeBuilder

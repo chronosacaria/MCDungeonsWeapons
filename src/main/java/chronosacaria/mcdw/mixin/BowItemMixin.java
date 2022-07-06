@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.api.interfaces.IBowTimings;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
@@ -34,7 +33,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(BowItem.class)
-public abstract class BowItemMixin implements IBowTimings{
+public abstract class BowItemMixin{
 
     private int overcharge;
 
@@ -87,10 +86,6 @@ public abstract class BowItemMixin implements IBowTimings{
             ((IMcdwEnchantedArrow)ppe).setOvercharge(overcharge);
         }
 
-        int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
-        if (accelerateLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setAccelerateLevel(accelerateLevel);
-        }
         int chainReactionLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, stack);
         if (chainReactionLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).setChainReactionLevel(chainReactionLevel);

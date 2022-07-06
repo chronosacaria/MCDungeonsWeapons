@@ -8,7 +8,6 @@
     "CrossbowItemMixin",
     "DamageEnchantmentMixin",
     "EnchantmentMixin",
-    "EntityMixin",
     "ExperienceOrbEntityMixin",
     "ItemStackMixin",
     "LivingEntityMixin",

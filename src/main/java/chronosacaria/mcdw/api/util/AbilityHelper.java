@@ -42,13 +42,6 @@ public class AbilityHelper {
         return (nearbyEntity instanceof VillagerEntity) || (nearbyEntity instanceof IronGolemEntity);
     }
 
-    public static boolean canHealEntity(LivingEntity healer, LivingEntity nearbyEntity){
-        return nearbyEntity != healer
-            && isAllyOf(healer, nearbyEntity)
-            && nearbyEntity.isAlive()
-            && healer.canSee(nearbyEntity);
-    }
-
     public static boolean isAllyOf(LivingEntity self, LivingEntity other) {
         return self.isTeammate(other)
             || isPetOf(self, other)

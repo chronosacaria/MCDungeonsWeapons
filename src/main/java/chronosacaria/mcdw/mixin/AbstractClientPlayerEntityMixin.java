@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 public class AbstractClientPlayerEntityMixin {
 
     @Inject(method = "getFovMultiplier", at = @At(value = "RETURN"), locals = LocalCapture.CAPTURE_FAILSOFT, cancellable = true)
-    public void customBowsZoom(CallbackInfoReturnable<Float> cir, float f) {
+    public void mcdw$customBowsZoom(CallbackInfoReturnable<Float> cir, float f) {
 
         AbstractClientPlayerEntity abPlayer = MinecraftClient.getInstance().player;
 

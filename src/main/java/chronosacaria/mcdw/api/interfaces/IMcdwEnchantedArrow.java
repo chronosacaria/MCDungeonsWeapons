@@ -3,12 +3,7 @@ package chronosacaria.mcdw.api.interfaces;
 public interface IMcdwEnchantedArrow {
 
     int getOvercharge();
-
     void setOvercharge(int overcharge);
-
-    //TODO Figure out new Accelerate code
-    int getAccelerateLevel();
-    void setAccelerateLevel(int accelerateLevel);
 
     int getChainReactionLevel();
     void setChainReactionLevel(int chainReactionLevel);

@@ -23,7 +23,7 @@ public class ModelPredicateProviderRegistryMixin {
     // This Inject allows for the visuals of Accelerate and Overcharge to work on Vanilla Bows.
     // This @link ModelPredicateProviderRegistry#method_27890 is the Bow "pull" predicate
     @Inject(method = "method_27890(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/world/ClientWorld;Lnet/minecraft/entity/LivingEntity;I)F", at = @At("HEAD"), cancellable = true)
-    private static void blackMagicFuckery(ItemStack stack, ClientWorld world, LivingEntity entity, int seed, CallbackInfoReturnable<Float> cir){
+    private static void mcdw$blackMagicFuckery(ItemStack stack, ClientWorld world, LivingEntity entity, int seed, CallbackInfoReturnable<Float> cir){
         cir.cancel();
         if (entity == null) {
             cir.setReturnValue(0.0F);
@@ -52,7 +52,7 @@ public class ModelPredicateProviderRegistryMixin {
     // This Inject allows for the visuals of Accelerate to work on Vanilla Crossbows.
     // This @link ModelPredicateProviderRegistry#method_27888 is the Crossbow "pull" predicate
     @Inject(method = "method_27888(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/world/ClientWorld;Lnet/minecraft/entity/LivingEntity;I)F", at = @At("HEAD"), cancellable = true)
-    private static void blackMagicFuckeryII(ItemStack stack, ClientWorld world, LivingEntity entity, int seed, CallbackInfoReturnable<Float> cir){
+    private static void mcdw$blackMagicFuckeryII(ItemStack stack, ClientWorld world, LivingEntity entity, int seed, CallbackInfoReturnable<Float> cir){
         cir.cancel();
         if (entity == null) {
             cir.setReturnValue(0.0F);

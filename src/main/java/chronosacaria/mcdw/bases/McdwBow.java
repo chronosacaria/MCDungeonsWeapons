@@ -25,8 +25,6 @@ import static chronosacaria.mcdw.api.util.RangedAttackHelper.getVanillaBowCharge
 
 public class McdwBow extends BowItem {
 
-    public static float chargeTime = 30.0f;
-
     public final ToolMaterial material;
     public final float drawSpeed;
     public static float maxBowRange;
@@ -58,7 +56,7 @@ public class McdwBow extends BowItem {
             bowChargeTime = 1;
         }
 
-        float arrowVelocity = (float) charge / chargeTime;
+        float arrowVelocity = (float) charge / 30;
         arrowVelocity = (arrowVelocity * arrowVelocity + arrowVelocity * 2.0F) / 3.0F;
         if (arrowVelocity > 1.0F) {
             arrowVelocity = 1.0F;

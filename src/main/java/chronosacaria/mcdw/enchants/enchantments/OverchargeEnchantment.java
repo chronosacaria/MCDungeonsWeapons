@@ -1,9 +1,6 @@
 package chronosacaria.mcdw.enchants.enchantments;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.bases.McdwBow;
-import chronosacaria.mcdw.bases.McdwLongBow;
-import chronosacaria.mcdw.bases.McdwShortBow;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.Enchantment;

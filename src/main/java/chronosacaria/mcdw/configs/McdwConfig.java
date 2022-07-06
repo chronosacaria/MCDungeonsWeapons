@@ -7,6 +7,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 
+@SuppressWarnings("CanBeFinal")
 @Config(name = Mcdw.MOD_ID)
 public class McdwConfig extends PartitioningSerializer.GlobalData {
 

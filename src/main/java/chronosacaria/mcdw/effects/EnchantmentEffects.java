@@ -45,7 +45,7 @@ import java.util.UUID;
 
 public class EnchantmentEffects {
 
-    static LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase;
+    static final LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase;
 
     /* ExperienceOrbEntityMixin */
     //mcdw$ModifyExperience

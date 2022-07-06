@@ -22,8 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PersistentProjectileEntity.class)
 public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedArrow {
 
-    private int overcharge = 0;
-    private int accelerateLevel = 0;
+    private int overcharge;
     private int chainReactionLevel = 0;
     private int chargeLevel = 0;
     private int cobwebShotLevel = 0;
@@ -53,16 +52,6 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Override
     public void setOvercharge(int overcharge) {
         this.overcharge = overcharge;
-    }
-
-    @Override
-    public int getAccelerateLevel() {
-        return accelerateLevel;
-    }
-
-    @Override
-    public void setAccelerateLevel(int accelerateLevel) {
-        this.accelerateLevel = accelerateLevel;
     }
 
     @Override
@@ -251,7 +240,6 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void mcdw$nbtToTag(NbtCompound tag, CallbackInfo ci){
-        tag.putInt("accelerateLevel", accelerateLevel);
         tag.putInt("chainReactionLevel", chainReactionLevel);
         tag.putInt("chargeLevel", chargeLevel);
         tag.putInt("cobwebShotLevel", cobwebShotLevel);
@@ -261,6 +249,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         tag.putInt("growingLevel", growingLevel);
         tag.putInt("levitationShotLevel", levitationShotLevel);
         tag.putBoolean("nautilusBoolean", nautilusBoolean);
+        tag.putInt("overchargeLevel", overcharge);
         tag.putInt("phantomsMarkLevel", phantomsMarkLevel);
         tag.putInt("poisonCloudLevel", poisonCloudLevel);
         tag.putInt("radianceLevel", radianceLevel);
@@ -276,7 +265,6 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
 
     @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
     public void mcdw$nbtFromTag(NbtCompound tag, CallbackInfo ci){
-        this.accelerateLevel = tag.getInt("accelerateLevel");
         this.chainReactionLevel = tag.getInt("chainReactionLevel");
         this.chargeLevel = tag.getInt("chargeLevel");
         this.cobwebShotLevel = tag.getInt("cobwebShotLevel");
@@ -286,6 +274,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         this.growingLevel = tag.getInt("growingLevel");
         this.levitationShotLevel = tag.getInt("levitationLevel");
         this.nautilusBoolean = tag.getBoolean("nautilusBoolean");
+        this.overcharge = tag.getInt("overchargeLevel");
         this.phantomsMarkLevel = tag.getInt("phantomsMarkLevel");
         this.poisonCloudLevel = tag.getInt("poisonCloudLevel");
         this.radianceLevel = tag.getInt("radianceLevel");
@@ -355,7 +344,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     }
 
     @Inject(method = "getDragInWater", at = @At("HEAD"), cancellable = true)
-    public void onHarpoonArrowFire(CallbackInfoReturnable<Float> cir) {
+    public void mcdw$onHarpoonArrowFire(CallbackInfoReturnable<Float> cir) {
         PersistentProjectileEntity ppe = (PersistentProjectileEntity) (Object) this;
         if (ppe.isTouchingWater()) {
             if (((IMcdwEnchantedArrow)ppe).getNautilusBoolean()) {

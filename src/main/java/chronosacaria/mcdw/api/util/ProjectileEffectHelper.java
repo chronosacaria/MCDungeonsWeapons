@@ -170,6 +170,7 @@ public class ProjectileEffectHelper {
                         random.nextGaussian() * (double)0.0075f * (double)inaccuracy);
         projectileEntity.setVelocity(vec3d);
         float f = MathHelper.sqrt((float) projectileEntity.squaredDistanceTo(vec3d));
+        //noinspection SuspiciousNameCombination
         projectileEntity.setYaw((float)(MathHelper.atan2(vec3d.x, vec3d.z) * (double)(180f / (float)Math.PI)));
         projectileEntity.setPitch((float)(MathHelper.atan2(vec3d.y, f) * (double)(180f / (float)Math.PI)));
         projectileEntity.prevYaw = projectileEntity.getYaw();

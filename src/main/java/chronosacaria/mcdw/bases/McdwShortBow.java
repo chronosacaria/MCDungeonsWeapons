@@ -26,8 +26,6 @@ import java.util.function.Predicate;
 
 public class McdwShortBow extends BowItem {
 
-    public static float chargeTime = 15.0f;
-
     public final ToolMaterial material;
     public final float drawSpeed;
     public static float maxBowRange;

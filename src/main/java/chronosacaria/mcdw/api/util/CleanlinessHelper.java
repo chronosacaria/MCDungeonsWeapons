@@ -10,7 +10,7 @@ import net.minecraft.sound.SoundEvent;
 import java.util.Random;
 
 public class CleanlinessHelper {
-    static Random random = new Random();
+    static final Random random = new Random();
 
     public static boolean percentToOccur (int chance) {
         return random.nextInt(100) <= chance;

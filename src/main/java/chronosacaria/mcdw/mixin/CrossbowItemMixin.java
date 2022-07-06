@@ -34,20 +34,16 @@ public class CrossbowItemMixin {
 
     private LivingEntity livingEntity;
 
-    public void setLivingEntity(LivingEntity livingEntity){
+    public void mcdw$setLivingEntity(LivingEntity livingEntity){
         this.livingEntity = livingEntity;
     }
 
     @Inject(method = "createArrow", at = @At(value = "RETURN"), locals = LocalCapture.CAPTURE_FAILSOFT)
-    private static void applyCrossbowEnchantmentLevel(World world, LivingEntity user, ItemStack crossbow, ItemStack arrow,
+    private static void mcdw$applyCrossbowEnchantmentLevel(World world, LivingEntity user, ItemStack crossbow, ItemStack arrow,
                                     CallbackInfoReturnable<PersistentProjectileEntity> cir, ArrowItem arrowItem,
                                     PersistentProjectileEntity ppe){
         if (CrossbowItem.isCharged(crossbow)) {
 
-            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, crossbow);
-            if (accelerateLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setAccelerateLevel(accelerateLevel);
-            }
             int chainReactionLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, crossbow);
             if (chainReactionLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setChainReactionLevel(chainReactionLevel);
@@ -139,7 +135,7 @@ public class CrossbowItemMixin {
     
     @Inject(method = "onStoppedUsing", at = @At(value = "HEAD"))
     private void mcdw$livingEntityGetter(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci) {
-        this.setLivingEntity(user);
+        this.mcdw$setLivingEntity(user);
     }
 
     @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/CrossbowItem;getPullProgress(ILnet/minecraft/item/ItemStack;)F"), index = 0)

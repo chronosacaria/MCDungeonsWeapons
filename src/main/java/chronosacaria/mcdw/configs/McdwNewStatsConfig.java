@@ -15,28 +15,28 @@ import java.util.HashMap;
 @Config(name = "mcdw_stats_config")
 public class McdwNewStatsConfig implements ConfigData {
 
-    public HashMap<SwordsID, MeleeWeaponStats> swordStats = new HashMap<>();
-    public HashMap<AxesID, MeleeWeaponStats> axeStats = new HashMap<>();
-    public HashMap<DoubleAxesID, MeleeWeaponStats> doubleAxeStats = new HashMap<>();
-    public HashMap<DaggersID, MeleeWeaponStats> daggerStats = new HashMap<>();
-    public HashMap<SoulDaggersID, MeleeWeaponStats> soulDaggerStats = new HashMap<>();
-    public HashMap<HammersID, MeleeWeaponStats> hammerStats = new HashMap<>();
-    public HashMap<GauntletsID, MeleeWeaponStats> gauntletStats = new HashMap<>();
-    public HashMap<SicklesID, MeleeWeaponStats> sickleStats = new HashMap<>();
-    public HashMap<ScythesID, MeleeWeaponStats> scytheStats = new HashMap<>();
-    public HashMap<PicksID, MeleeWeaponStats> pickStats = new HashMap<>();
-    public HashMap<GlaivesID, MeleeWeaponStats> glaiveStats = new HashMap<>();
-    public boolean doubleAttackReachOfGlaives = false;
-    public HashMap<SpearsID, MeleeWeaponStats> spearStats = new HashMap<>();
-    public boolean doubleAttackReachOfSpears = false;
-    public HashMap<StavesID, MeleeWeaponStats> staffStats = new HashMap<>();
-    public boolean doubleAttackReachOfStaves = false;
-    public HashMap<WhipsID, MeleeWeaponStats> whipStats = new HashMap<>();
-    public HashMap<BowsID, RangedWeaponStats> bowStats = new HashMap<>();
-    public HashMap<ShortBowsID, RangedWeaponStats> shortBowStats = new HashMap<>();
-    public HashMap<LongBowsID, RangedWeaponStats> longBowStats = new HashMap<>();
-    public HashMap<CrossbowsID, RangedWeaponStats> crossbowStats = new HashMap<>();
-    public HashMap<ShieldsID, ShieldStats> shieldStats = new HashMap<>();
+    public final HashMap<SwordsID, MeleeWeaponStats> swordStats = new HashMap<>();
+    public final HashMap<AxesID, MeleeWeaponStats> axeStats = new HashMap<>();
+    public final HashMap<DoubleAxesID, MeleeWeaponStats> doubleAxeStats = new HashMap<>();
+    public final HashMap<DaggersID, MeleeWeaponStats> daggerStats = new HashMap<>();
+    public final HashMap<SoulDaggersID, MeleeWeaponStats> soulDaggerStats = new HashMap<>();
+    public final HashMap<HammersID, MeleeWeaponStats> hammerStats = new HashMap<>();
+    public final HashMap<GauntletsID, MeleeWeaponStats> gauntletStats = new HashMap<>();
+    public final HashMap<SicklesID, MeleeWeaponStats> sickleStats = new HashMap<>();
+    public final HashMap<ScythesID, MeleeWeaponStats> scytheStats = new HashMap<>();
+    public final HashMap<PicksID, MeleeWeaponStats> pickStats = new HashMap<>();
+    public final HashMap<GlaivesID, MeleeWeaponStats> glaiveStats = new HashMap<>();
+    public final boolean doubleAttackReachOfGlaives = false;
+    public final HashMap<SpearsID, MeleeWeaponStats> spearStats = new HashMap<>();
+    public final boolean doubleAttackReachOfSpears = false;
+    public final HashMap<StavesID, MeleeWeaponStats> staffStats = new HashMap<>();
+    public final boolean doubleAttackReachOfStaves = false;
+    public final HashMap<WhipsID, MeleeWeaponStats> whipStats = new HashMap<>();
+    public final HashMap<BowsID, RangedWeaponStats> bowStats = new HashMap<>();
+    public final HashMap<ShortBowsID, RangedWeaponStats> shortBowStats = new HashMap<>();
+    public final HashMap<LongBowsID, RangedWeaponStats> longBowStats = new HashMap<>();
+    public final HashMap<CrossbowsID, RangedWeaponStats> crossbowStats = new HashMap<>();
+    public final HashMap<ShieldsID, ShieldStats> shieldStats = new HashMap<>();
 
 
 

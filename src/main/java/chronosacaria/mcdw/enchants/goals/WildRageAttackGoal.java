@@ -10,11 +10,6 @@ public class WildRageAttackGoal extends ActiveTargetGoal<LivingEntity> {
     }
 
     @Override
-    public boolean canStart() {
-        return super.canStart();
-    }
-
-    @Override
     public void start() {
         super.start();
         this.mob.setDespawnCounter(0);

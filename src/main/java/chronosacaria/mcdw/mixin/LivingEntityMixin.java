@@ -2,6 +2,7 @@ package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOEHelper;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
@@ -13,7 +14,6 @@ import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -38,7 +38,7 @@ import java.util.List;
 @SuppressWarnings("ConstantConditions")
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-    public EntityType<SummonedBeeEntity> mcdw$summoned_bee =
+    public final EntityType<SummonedBeeEntity> mcdw$summoned_bee =
             SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
 
     @ModifyVariable(method = "damage", at = @At(value = "HEAD"), argsOnly = true)
@@ -79,7 +79,7 @@ public class LivingEntityMixin {
     }
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applySmitingEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void mcdw$applySmitingEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         if(!(source.getAttacker() instanceof LivingEntity user))
             return;
 
@@ -106,7 +106,7 @@ public class LivingEntityMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "swingHand(Lnet/minecraft/util/Hand;)V")
-    private void swingHand(Hand hand, CallbackInfo ci) {
+    private void mcdw$swingHand(Hand hand, CallbackInfo ci) {
         if(!((Object) this instanceof PlayerEntity attackingPlayer))
             return;
 
@@ -126,27 +126,22 @@ public class LivingEntityMixin {
     }
 
     @Inject(method = "consumeItem", at = @At("HEAD"))
-    public void applyDippingPoisonPotionConsumption(CallbackInfo ci) {
+    public void mcdw$applyDippingPoisonPotionConsumption(CallbackInfo ci) {
         if(!((Object) this instanceof PlayerEntity user))
             return;
 
         ItemStack poisonTippedArrow = PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW, 8), Potions.POISON);
 
-        // TODO Make Dipping Poison less awkward to use. Currently it will not work if arrows are in the players inventory because they cannot drink a potion from their offhand if they have arrows in their inventory
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DIPPING_POISON)) {
-            if (user.getMainHandStack() != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getMainHandStack()) > 0)) {
-                int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getMainHandStack());
-                if (user instanceof PlayerEntity) {
-                    if (level > 0) {
-                        List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(user.getOffHandStack());
-                        if (potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH) {
-                            ItemEntity arrowDrop = new ItemEntity(user.world, user.getX(), user.getY(),
-                                    user.getZ(),
-                                    poisonTippedArrow);
-                            user.world.spawnEntity(arrowDrop);
-                        }
+            if (user.getOffHandStack() != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack()) > 0)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack());
+                if (level > 0) {
+                    List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(user.getMainHandStack());
+                    if (potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH) {
+                        CleanlinessHelper.mcdw$dropItem(user, poisonTippedArrow);
                     }
                 }
+
             }
         }
     }
