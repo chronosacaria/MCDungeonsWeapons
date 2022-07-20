@@ -46,11 +46,9 @@ public class Mcdw implements ModInitializer {
             .icon(() -> new ItemStack(Items.ENCHANTED_BOOK))
             .appendItems(itemStacks -> {
                 // For loop creates first 3 levels of enchanted books
-                for (Enchantment enchantment : EnchantsLists.EnchantsList) {
-                    for (int i = 1; i <= 3; i++) {
+                for (Enchantment enchantment : EnchantsLists.EnchantsList)
+                    for (int i = 1; i <= 3; i++)
                         itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, i)));
-                    }
-                }
             })
             .build();
 
