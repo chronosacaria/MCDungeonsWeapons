@@ -24,8 +24,6 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-import java.util.List;
-
 public class Mcdw implements ModInitializer {
 
     public static final String MOD_ID = "mcdw";
