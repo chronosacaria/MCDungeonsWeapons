@@ -29,19 +29,8 @@ import java.util.List;
 
 public class PlayerAttackHelper {
 
-    public static void swingArm(ServerPlayerEntity serverPlayerEntity, Entity target){
-        if (serverPlayerEntity.interactionManager.getGameMode() == GameMode.SPECTATOR){
-            serverPlayerEntity.setCameraEntity(target);
-        } else {
-            attackTargetEntityWitCurrentOffhandItemAsSuper(serverPlayerEntity, target);
-        }
-    }
-
     public static void attackTargetEntityWitCurrentOffhandItemAsSuper (PlayerEntity player, Entity target){
         if (target.isAttackable() && !target.handleAttack(player)){
-            //get attack damage attribute value
-            //player.getAttributes().removeModifiers(player.getMainHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
-            //player.getAttributes().addTemporaryModifiers(player.getOffHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
             float f_attackDamage = (float)player.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
             float h_enchantmentEffectsTargetBonus;
             if (target instanceof LivingEntity){
@@ -90,9 +79,9 @@ public class PlayerAttackHelper {
 
                 f_attackDamage += h_enchantmentEffectsTargetBonus;
                 boolean bl4 = false;
-                double d = (double)(player.horizontalSpeed - player.prevHorizontalSpeed);
+                double d = player.horizontalSpeed - player.prevHorizontalSpeed;
                 if (bl_flag && !bl3_flag2 && !bl2_flag1 && player.isOnGround() && d < (double)player.getMovementSpeed()) {
-                    ItemStack itemStack = player.getStackInHand(Hand.MAIN_HAND);
+                    ItemStack itemStack = player.getStackInHand(Hand.OFF_HAND);
                     if (itemStack.getItem() instanceof SwordItem) {
                         bl4 = true;
                     }
@@ -115,13 +104,13 @@ public class PlayerAttackHelper {
                     if (j > 0) {
                         if (target instanceof LivingEntity) {
                             ((LivingEntity)target).takeKnockback((float)j * 0.5F,
-                                    (double) MathHelper.sin(player.getYaw() * 0.017453292F),
-                                    (double)(-MathHelper.cos(player.getYaw() * 0.017453292F)));
+                                    MathHelper.sin(player.getYaw() * 0.017453292F),
+                                    -MathHelper.cos(player.getYaw() * 0.017453292F));
                         } else {
                             target.addVelocity(
-                                    (double)(-MathHelper.sin(player.getYaw() * 0.017453292F) * (float)j * 0.5F),
+                                    -MathHelper.sin(player.getYaw() * 0.017453292F) * (float)j * 0.5F,
                                     0.1D,
-                                    (double)(MathHelper.cos(player.getYaw() * 0.017453292F) * (float)j * 0.5F));
+                                    MathHelper.cos(player.getYaw() * 0.017453292F) * (float)j * 0.5F);
                         }
 
                         player.setVelocity(player.getVelocity().multiply(0.6D, 1.0D, 0.6D));
@@ -147,7 +136,7 @@ public class PlayerAttackHelper {
                                         do {
                                             if (!var19.hasNext()) {
                                                 player.world.playSound(
-                                                        (PlayerEntity)null,
+                                                        null,
                                                         player.getX(),
                                                         player.getY(),
                                                         player.getZ(),
@@ -168,10 +157,10 @@ public class PlayerAttackHelper {
                             if (player.squaredDistanceTo(livingEntity) < 9.0D) {
                                 livingEntity.takeKnockback(
                                         0.4F,
-                                        (double)MathHelper.sin(
+                                        MathHelper.sin(
                                                 player.getYaw() * 0.017453292F),
-                                        (double)(-MathHelper.cos(
-                                                player.getYaw() * 0.017453292F)));
+                                        -MathHelper.cos(
+                                                player.getYaw() * 0.017453292F));
                                 livingEntity.damage(DamageSource.player(player), m);
                             }
                         }
@@ -185,7 +174,7 @@ public class PlayerAttackHelper {
 
                     if (bl3_flag2) {
                         player.world.playSound(
-                                (PlayerEntity)null,
+                                null,
                                 player.getX(),
                                 player.getY(),
                                 player.getZ(),
@@ -199,7 +188,7 @@ public class PlayerAttackHelper {
                     if (!bl3_flag2 && !bl4) {
                         if (bl_flag) {
                             player.world.playSound(
-                                    (PlayerEntity)null,
+                                    null,
                                     player.getX(),
                                     player.getY(),
                                     player.getZ(),
@@ -209,7 +198,7 @@ public class PlayerAttackHelper {
                                     1.0F);
                         } else {
                             player.world.playSound(
-                                    (PlayerEntity)null,
+                                    null,
                                     player.getX(),
                                     player.getY(),
                                     player.getZ(),
@@ -230,7 +219,7 @@ public class PlayerAttackHelper {
                     }
 
                     EnchantmentHelper.onTargetDamaged(player, target);
-                    ItemStack itemStack2 = player.getMainHandStack();
+                    ItemStack itemStack2 = player.getOffHandStack();
                     Entity entity = target;
                     if (target instanceof EnderDragonPart) {
                         entity = ((EnderDragonPart)target).owner;
@@ -239,7 +228,7 @@ public class PlayerAttackHelper {
                     if (!player.world.isClient && !itemStack2.isEmpty() && entity instanceof LivingEntity) {
                         itemStack2.postHit((LivingEntity)entity, player);
                         if (itemStack2.isEmpty()) {
-                            player.setStackInHand(Hand.MAIN_HAND, ItemStack.EMPTY);
+                            player.setStackInHand(Hand.OFF_HAND, ItemStack.EMPTY);
                         }
                     }
 
@@ -268,7 +257,7 @@ public class PlayerAttackHelper {
                     player.addExhaustion(0.1F);
                 } else {
                     player.world.playSound(
-                            (PlayerEntity)null,
+                            null,
                             player.getX(),
                             player.getY(),
                             player.getZ(),
@@ -285,6 +274,7 @@ public class PlayerAttackHelper {
         }
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean isLikelyNotMeleeDamage(DamageSource damageSource){
         return damageSource.isFire()
                 || damageSource.isExplosive()

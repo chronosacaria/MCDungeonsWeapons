@@ -2,7 +2,6 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.api.interfaces.IRangedWeapon;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.BowsID;
 import chronosacaria.mcdw.items.ItemsInit;
@@ -25,9 +24,7 @@ import java.util.function.Predicate;
 
 import static chronosacaria.mcdw.api.util.RangedAttackHelper.getVanillaBowChargeTime;
 
-public class McdwBow extends BowItem implements IRangedWeapon {
-
-    public static float chargeTime = 30.0f;
+public class McdwBow extends BowItem {
 
     public final ToolMaterial material;
     public final float drawSpeed;
@@ -54,28 +51,19 @@ public class McdwBow extends BowItem implements IRangedWeapon {
         return Math.max(0, drawSpeed);
     }
 
-    public ParticleEffect getArrowParticles() {
-        return type;
-    }
-
     public static float getBowArrowVelocity(ItemStack stack, int charge) {
         float bowChargeTime = getVanillaBowChargeTime(stack);
         if (bowChargeTime <= 0){
             bowChargeTime = 1;
         }
 
-        float arrowVelocity = (float) charge / chargeTime;
+        float arrowVelocity = (float) charge / 30;
         arrowVelocity = (arrowVelocity * arrowVelocity + arrowVelocity * 2.0F) / 3.0F;
         if (arrowVelocity > 1.0F) {
             arrowVelocity = 1.0F;
         }
 
         return arrowVelocity;
-    }
-
-    @Override
-    public int getMaxUseTime(ItemStack stack) {
-        return 72000 - (int)(drawSpeed);
     }
 
     @Override
@@ -90,7 +78,7 @@ public class McdwBow extends BowItem implements IRangedWeapon {
 
     @Override
     public int getRange() {
-        return (int) maxBowRange * 2 + 10;
+        return (int) maxBowRange;
     }
 
     @Override

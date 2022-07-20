@@ -1,17 +1,20 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.api.interfaces.IBowTimings;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
+import chronosacaria.mcdw.bases.McdwBow;
+import chronosacaria.mcdw.bases.McdwLongBow;
+import chronosacaria.mcdw.bases.McdwShortBow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.ItemCooldownManager;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
@@ -21,18 +24,16 @@ import net.minecraft.item.Items;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(BowItem.class)
-public abstract class BowItemMixin implements IBowTimings{
-    private LivingEntity livingEntity;
+public abstract class BowItemMixin{
+    private int overcharge;
 
-    private LivingEntity getLivingEntity() { return this.livingEntity; }
+    private LivingEntity livingEntity;
 
     public void setLivingEntity(LivingEntity livingEntity){
         this.livingEntity = livingEntity;
@@ -73,43 +74,14 @@ public abstract class BowItemMixin implements IBowTimings{
     @Inject(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/projectile" +
             "/PersistentProjectileEntity;setVelocity(Lnet/minecraft/entity/Entity;FFFFF)V"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void mcdw$applyBowEnchantmentLevel(ItemStack stack, World world, LivingEntity user, int remainingUseTicks,
-                                 CallbackInfo ci, PlayerEntity playerEntity, boolean bl, ItemStack itemStack, int i, float f, boolean bl2,
+                                               CallbackInfo ci, PlayerEntity playerEntity, boolean bl, ItemStack itemStack, int i, float f, boolean bl2,
                                                ArrowItem arrowItem, PersistentProjectileEntity ppe){
-        //Write MCDW enchantments to ppe
 
-        /*
-        NbtList nbtList = stack.getEnchantments();
-
-        for (NbtElement nbtElement: nbtList) {
-            NbtCompound nbtCompound = (NbtCompound) nbtElement;
-            Identifier identifier = EnchantmentHelper.getIdFromNbt(nbtCompound);
-            if (identifier != null) {
-                String test = nbtCompound.getString("id");
-                if (test.startsWith("mcdw:")) {
-                    Enchantment enchantment = Registry.ENCHANTMENT.get(identifier);
-                    int k = EnchantmentHelper.getLevelFromNbt(nbtCompound);
-                    if (k > 0) {
-
-                        playerEntity.sendMessage(Text.of(nbtCompound.asString()), false);
-                        ppe.writeCustomDataToNbt(nbtCompound);
-
-                        test = test.substring(5);
-                        playerEntity.sendMessage(Text.of(test + ", lvl: " + k), false);
-                    }
-                }
-            }
-        }*/
-
-        //if (stack.isOf(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW))) {
-        //    NbtCompound nbtCompound = new NbtCompound();
-        //    nbtCompound.putBoolean("mcdwHarpoon", true);
-        //    ppe.writeCustomDataToNbt(nbtCompound);
-        //}
-
-        int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
-        if (accelerateLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setAccelerateLevel(accelerateLevel);
+        // Not the level of Overcharge
+        if (overcharge > 0) {
+            ((IMcdwEnchantedArrow)ppe).setOvercharge(overcharge);
         }
+
         int chainReactionLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, stack);
         if (chainReactionLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).setChainReactionLevel(chainReactionLevel);
@@ -121,6 +93,10 @@ public abstract class BowItemMixin implements IBowTimings{
         int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, stack);
         if (cobwebShotLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).setCobwebShotLevel(cobwebShotLevel);
+        }
+        int dynamoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, stack);
+        if (dynamoLevel > 0) {
+            ((IMcdwEnchantedArrow)ppe).setDynamoLevel(dynamoLevel);
         }
         int enigmaResonatorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, stack);
         if (enigmaResonatorLevel > 0) {
@@ -170,27 +146,68 @@ public abstract class BowItemMixin implements IBowTimings{
         if (voidShotLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).setVoidShotLevel(voidShotLevel);
         }
+        int wildRageLevel = EnchantmentHelper.getLevel(EnchantsRegistry.WILD_RAGE, stack);
+        if (wildRageLevel > 0) {
+            ((IMcdwEnchantedArrow)ppe).setWildRageLevel(wildRageLevel);
+        }
     }
 
     @Inject(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getMaxUseTime(Lnet/minecraft/item/ItemStack;)I"))
     private void mcdw$livingEntityGetter(ItemStack stack, World world, LivingEntity user,
-                                                int remainingUseTicks, CallbackInfo ci){
+                                         int remainingUseTicks, CallbackInfo ci){
         this.setLivingEntity(user);
     }
 
     @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getPullProgress(I)F"), index = 0)
     private int mcdw$acceleratedPullProgress(int value){
-        LivingEntity livingEntity = getLivingEntity();
+        ItemStack bowStack = livingEntity.getActiveItem();
+
+        if (bowStack.getItem() instanceof McdwShortBow mcdwShortBow) {
+            value /= mcdwShortBow.getDrawSpeed() / 20;
+        } else if (bowStack.getItem() instanceof McdwLongBow mcdwLongBow) {
+            value /= mcdwLongBow.getDrawSpeed() / 20;
+        } else if (bowStack.getItem() instanceof McdwBow mcdwBow) {
+            value /= mcdwBow.getDrawSpeed() / 20;
+        }
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
-            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, livingEntity.getMainHandStack());
+            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, bowStack);
+            if (accelerateLevel > 0) {
+                StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
+                int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;
+                value = (int) (value * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
 
-            //int consecutiveShots = getConsecutiveShots(stack);
+                if (BowItem.getPullProgress(value) >= 1) {
+                    StatusEffectInstance accelerateUpdateInstance =
+                            new StatusEffectInstance(StatusEffectsRegistry.ACCELERATE, 60, consecutiveShots, false, false, true);
+                    livingEntity.addStatusEffect(accelerateUpdateInstance);
+                }
+            }
+        }
 
-            //new ItemCooldownManager().set(livingEntity.getMainHandStack().getItem(), 10 + (5 * consecutiveShots));
-
-            return (int) (value * (1 + ((6.0f + 2.0f * accelerateLevel) / 100)));
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
+            int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, bowStack);
+            if (overchargeLevel > 0) {
+                overcharge = Math.min((value / 20) - 1, overchargeLevel);
+                value = overcharge == overchargeLevel ? value : value % 20;
+            }
         }
         return value;
+    }
+
+    @ModifyArgs(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/projectile/PersistentProjectileEntity;setVelocity(Lnet/minecraft/entity/Entity;FFFFF)V"))
+    private void mcdw$rangeHandler(Args args) {
+        float velocity = args.get(4);
+        ItemStack bowStack = livingEntity.getActiveItem();
+
+        if (bowStack.getItem() instanceof McdwShortBow mcdwShortBow) {
+            velocity *= mcdwShortBow.getRange() / 15f;
+        } else if (bowStack.getItem() instanceof McdwLongBow mcdwLongBow) {
+            velocity *= mcdwLongBow.getRange() / 15f;
+        } else if (bowStack.getItem() instanceof McdwBow mcdwBow) {
+            velocity *= mcdwBow.getRange() / 15f;
+        }
+
+        args.set(4, velocity);
     }
 }

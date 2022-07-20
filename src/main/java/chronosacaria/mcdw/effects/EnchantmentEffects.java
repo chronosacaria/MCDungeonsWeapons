@@ -6,20 +6,27 @@ import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
 import chronosacaria.mcdw.enums.BowsID;
 import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.mixin.MobEntityAccessor;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
+import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
@@ -38,7 +45,7 @@ import java.util.UUID;
 
 public class EnchantmentEffects {
 
-    static LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase;
+    static final LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase;
 
     /* ExperienceOrbEntityMixin */
     //mcdw$ModifyExperience
@@ -118,6 +125,15 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyShadowShotShadowForm(LivingEntity shadowShotEntity, PersistentProjectileEntity ppe, int duration){
+        int shadowShotLevel = ((IMcdwEnchantedArrow)ppe).getShadowShotLevel();
+        if (shadowShotLevel > 0) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SHADOW_SHOT))) {
+                shadowShotEntity.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.SHADOW_FORM, duration, 0, false, true, true));
+            }
+        }
+    }
+
     /* LivingEntityPlayerEntityMixin */
     //mcdw$damageModifiers
     public static float ambushDamage(LivingEntity ambushingEntity, LivingEntity ambushee) {
@@ -160,6 +176,24 @@ public class EnchantmentEffects {
         return 0f;
     }
 
+    public static float painCycleDamage(LivingEntity painEntity) {
+        int painCycleLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(painEntity, EnchantsRegistry.PAIN_CYCLE);
+        if (painCycleLevel > 0) {
+            StatusEffectInstance painCycleInstance = painEntity.getStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
+            int i = painCycleInstance != null ? painCycleInstance.getAmplifier() + 1 : 0;
+            if (i < 5) {
+                StatusEffectInstance painCycleUpdate = new StatusEffectInstance(StatusEffectsRegistry.PAIN_CYCLE, 120000, i, false, false, true);
+                painEntity.removeStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
+                painEntity.addStatusEffect(painCycleUpdate);
+                painEntity.damage(DamageSource.MAGIC, 1);
+            } else {
+                painEntity.removeStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
+                return painCycleLevel + 1;
+            }
+        }
+        return 0;
+    }
+
     public static float enigmaResonatorDamage(PlayerEntity resonatingEntity, LivingEntity target) {
         int resonatorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(resonatingEntity, EnchantsRegistry.ENIGMA_RESONATOR);
         if (resonatorLevel > 0) {
@@ -170,7 +204,7 @@ public class EnchantmentEffects {
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
                 float extraDamageMultiplier =
                         (float) (Math.log(numSouls * resonatorLevel + 20)) /
-                                Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentStatsSettings.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
+                                Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enigmaResonatorDivisor.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
 
                 return Math.max(extraDamageMultiplier - 1, 0f);
             }
@@ -190,7 +224,7 @@ public class EnchantmentEffects {
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
                 float getExtraDamage = (float) (Math.log(numSouls * resonatorLevel + 20))  /
-                        Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentStatsSettings.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
+                        Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enigmaResonatorDivisor.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
 
                 return Math.max(getExtraDamage - 1, 0f);
             }
@@ -238,6 +272,63 @@ public class EnchantmentEffects {
             }
         }
         return 0f;
+    }
+
+    public static float dynamoDamage (LivingEntity dynamoEntity) {
+        int dynamoLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(dynamoEntity, EnchantsRegistry.DYNAMO);
+        if (dynamoLevel > 0 && dynamoEntity.hasStatusEffect(StatusEffectsRegistry.DYNAMO)) {
+            StatusEffectInstance dynamoInstance = dynamoEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
+            if (dynamoInstance != null) {
+                int dynamoAmplifier = dynamoInstance.getAmplifier() + 1;
+                float dynamoLevelModifier = (dynamoLevel - 1) * 0.25f + 1;
+                float getDynamoDamage = (float) (dynamoLevelModifier * (dynamoAmplifier * 0.1));
+                dynamoEntity.removeStatusEffect(StatusEffectsRegistry.DYNAMO);
+
+                return Math.max(getDynamoDamage, 0f);
+            }
+        }
+        return 0f;
+    }
+
+    public static float dynamoShotDamage (LivingEntity dynamoEntity, PersistentProjectileEntity ppe) {
+        int dynamoLevel = ((IMcdwEnchantedArrow)ppe).getDynamoLevel();
+        if (dynamoLevel > 0 && dynamoEntity.hasStatusEffect(StatusEffectsRegistry.DYNAMO)) {
+            StatusEffectInstance dynamoInstance = dynamoEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
+            if (dynamoInstance != null) {
+                int dynamoAmplifier = dynamoInstance.getAmplifier() + 1;
+                float dynamoLevelModifier = (dynamoLevel - 1) * 0.25f + 1;
+                float getDynamoDamage = (float) (dynamoLevelModifier * (dynamoAmplifier * 0.1));
+                dynamoEntity.removeStatusEffect(StatusEffectsRegistry.DYNAMO);
+
+                return Math.max(getDynamoDamage, 0f);
+            }
+        }
+        return 0f;
+    }
+
+    public static float shadowFormDamage (LivingEntity shadowShotEntity) {
+        if (shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
+            shadowShotEntity.removeStatusEffect(StatusEffectsRegistry.SHADOW_FORM);
+            return 7f;
+        }
+        return 0f;
+    }
+
+    public static float shadowFormShotDamage (LivingEntity shadowShotEntity, PersistentProjectileEntity ppe) {
+        boolean shadowBarbBoolean = ((IMcdwEnchantedArrow)ppe).getShadowBarbBoolean();
+        if (shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
+            if (!shadowBarbBoolean) {
+                shadowShotEntity.removeStatusEffect(StatusEffectsRegistry.SHADOW_FORM);
+                //TODO TRY TO FIGURE OUT HOW TO REMOVE INVISIBILITY
+            }
+            return 7f;
+        }
+        return 0f;
+    }
+
+    public static float overchargeDamage(PersistentProjectileEntity ppe) {
+        int overchargeAmount = ((IMcdwEnchantedArrow)ppe).getOvercharge();
+        return Math.max(overchargeAmount, 0);
     }
 
     //mcdw$onApplyDamageHead
@@ -558,6 +649,15 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyWildRage(MobEntity ragingEntity, PersistentProjectileEntity ppe) {
+        int wildRageLevel = ((IMcdwEnchantedArrow)ppe).getWildRageLevel();
+        if (wildRageLevel > 0) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.WILD_RAGE) + (10 * wildRageLevel))) {
+                sendIntoWildRage(ragingEntity);
+            }
+        }
+    }
+
     // mcdw$onBlockHitTail
     public static void applyCobwebShotBlock(BlockHitResult blockHitResult, PersistentProjectileEntity ppe) {
         if (((IMcdwEnchantedArrow)ppe).getCobwebShotLevel() > 0) {
@@ -576,4 +676,43 @@ public class EnchantmentEffects {
             AOECloudHelper.spawnRegenCloudAtPos(shooter, true, blockHitResult.getBlockPos(), radianceLevel - 1);
         }
     }
+
+    // mcdw$onJumpEffects
+
+    public static void activateBurstBowstringOnJump(LivingEntity jumpingEntity) {
+        int burstBowstringLevel = 0;
+        float arrowVelocity = 0.0F;
+        if (jumpingEntity.getMainHandStack().getItem() instanceof BowItem || jumpingEntity.getMainHandStack().getItem() instanceof CrossbowItem) {
+            burstBowstringLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getMainHandStack());
+            arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(jumpingEntity.getMainHandStack());
+        } else if (jumpingEntity.getOffHandStack().getItem() instanceof BowItem || jumpingEntity.getOffHandStack().getItem() instanceof CrossbowItem) {
+            burstBowstringLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getOffHandStack());
+            arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(jumpingEntity.getOffHandStack());
+        }
+
+        if (burstBowstringLevel > 0) {
+            ProjectileEffectHelper.fireBurstBowstringArrows(jumpingEntity, 16, 0.4F, arrowVelocity, burstBowstringLevel);
+        }
+    }
+    public static void handleAddDynamoEffect(PlayerEntity playerEntity) {
+        ItemStack mainHandStack = playerEntity.getMainHandStack();
+        if (McdwEnchantmentHelper.hasEnchantment(mainHandStack, EnchantsRegistry.DYNAMO)) {
+            StatusEffectInstance dynamoInstance = playerEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
+            int i = 1;
+            if (dynamoInstance != null) {
+                i += dynamoInstance.getAmplifier();
+            } else {
+                --i;
+            }
+            i = MathHelper.clamp(i, 0, Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.dynamoStackCap.get(EnchantStatsID.DYNAMO_STACK_CAP));
+            StatusEffectInstance dynamoUpdateInstance = new StatusEffectInstance(StatusEffectsRegistry.DYNAMO, 120000, i, false, false, true);
+            playerEntity.addStatusEffect(dynamoUpdateInstance);
+        }
+    }
+
+    // Goal Effects
+    public static void sendIntoWildRage(MobEntity mobEntity) {
+        ((MobEntityAccessor)mobEntity).targetSelector().add(0, new WildRageAttackGoal(mobEntity));
+    }
+
 }

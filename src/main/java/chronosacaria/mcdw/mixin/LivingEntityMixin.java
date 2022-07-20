@@ -2,6 +2,7 @@ package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOEHelper;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
@@ -24,6 +25,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
@@ -37,7 +39,7 @@ import java.util.List;
 @SuppressWarnings("ConstantConditions")
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-    public EntityType<SummonedBeeEntity> mcdw$summoned_bee =
+    public final EntityType<SummonedBeeEntity> mcdw$summoned_bee =
             SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
 
     @ModifyVariable(method = "damage", at = @At(value = "HEAD"), argsOnly = true)
@@ -78,7 +80,7 @@ public class LivingEntityMixin {
     }
 
     @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void applySmitingEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
+    public void mcdw$applySmitingEnchantmentDamage(DamageSource source, float amount, CallbackInfo info) {
         if(!(source.getAttacker() instanceof LivingEntity user))
             return;
 
@@ -105,7 +107,7 @@ public class LivingEntityMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "swingHand(Lnet/minecraft/util/Hand;)V")
-    private void swingHand(Hand hand, CallbackInfo ci) {
+    private void mcdw$swingHand(Hand hand, CallbackInfo ci) {
         if(!((Object) this instanceof PlayerEntity attackingPlayer))
             return;
 
@@ -125,32 +127,36 @@ public class LivingEntityMixin {
     }
 
     @Inject(method = "consumeItem", at = @At("HEAD"))
-    public void applyDippingPoisonPotionConsumption(CallbackInfo ci) {
+    public void mcdw$applyDippingPoisonPotionConsumption(CallbackInfo ci) {
         if(!((Object) this instanceof PlayerEntity user))
             return;
 
-        ItemStack mainHandStack = null;
-
         ItemStack poisonTippedArrow = PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW, 8), Potions.POISON);
 
-        if (user != null) {
-            mainHandStack = user.getMainHandStack();
-        }
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DIPPING_POISON)) {
-            if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, mainHandStack) > 0)) {
-                int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, mainHandStack);
-                if (user instanceof PlayerEntity) {
-                    if (level > 0) {
-                        List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(user.getOffHandStack());
-                        if (potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH) {
-                            ItemEntity arrowDrop = new ItemEntity(user.world, user.getX(), user.getY(),
-                                    user.getZ(),
-                                    poisonTippedArrow);
-                            user.world.spawnEntity(arrowDrop);
-                        }
+            if (user.getOffHandStack() != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack()) > 0)) {
+                int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack());
+                if (level > 0) {
+                    List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(user.getMainHandStack());
+                    if (potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH) {
+                        CleanlinessHelper.mcdw$dropItem(user, poisonTippedArrow);
                     }
                 }
+
             }
+        }
+    }
+
+    @Inject(method = "jump", at = @At("HEAD"))
+    public void mcdw$onJumpEffects(CallbackInfo ci){
+        if (!((Object) this instanceof ServerPlayerEntity playerEntity))
+            return;
+
+        if (playerEntity != null) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BURST_BOWSTRING))
+                EnchantmentEffects.activateBurstBowstringOnJump(playerEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
+                EnchantmentEffects.handleAddDynamoEffect(playerEntity);
         }
     }
 }

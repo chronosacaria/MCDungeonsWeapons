@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.api.interfaces.IRangedWeapon;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.CrossbowsID;
 import chronosacaria.mcdw.items.ItemsInit;
@@ -16,13 +15,13 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Locale;
 
-public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
+public class McdwCrossbow extends CrossbowItem {
 
     public final ToolMaterial material;
-    public final float drawSpeed;
+    public final int drawSpeed;
     public final float range;
 
-    public McdwCrossbow(ToolMaterial material, float drawSpeed, float range) {
+    public McdwCrossbow(ToolMaterial material, int drawSpeed, float range) {
         super(new Item.Settings().group(Mcdw.RANGED)
                 .maxCount(1)
                 .maxDamage(100 + material.getDurability())
@@ -34,13 +33,7 @@ public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
     }
 
     public float getProjectileVelocity(ItemStack stack){
-        boolean fastProjectiles = shootsFasterArrows(stack);
-        if (hasProjectile(stack, Items.FIREWORK_ROCKET)){
-            if (fastProjectiles) return 3.2F;
-            else return 1.6F;
-        }
-        else if (fastProjectiles) return 4.8F;
-        else return 3.2f;
+        return hasProjectile(stack, Items.FIREWORK_ROCKET) ? 1.6F : 3.2F;
     }
 
     @Override
@@ -52,43 +45,15 @@ public class McdwCrossbow extends CrossbowItem implements IRangedWeapon {
     }
 
     @Override
-    public int getMaxUseTime(ItemStack stack) {
-        return getPullTime(stack) + 3 - (28 - (int)(drawSpeed));
+    public boolean isUsedOnRelease(ItemStack stack){
+        for (CrossbowsID crossbowsID : CrossbowsID.values())
+            if (stack.isOf(ItemsInit.crossbowItems.get(crossbowsID)))
+                return true;
+        return false;
     }
 
-
-
-    @Override
-    public boolean isUsedOnRelease(ItemStack stack){
-        return stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AZURE_SEEKER)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BABY_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BURST_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_DOOM_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_DUAL_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_FERAL_SOUL_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HEAVY_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_RAPID_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_THE_SLICER)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SOUL_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SPELLBOUND_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_COG_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARPOON_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)
-                || stack.getItem() == ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW);
+    public int getDrawSpeed(){
+        return this.drawSpeed;
     }
 
     @Override

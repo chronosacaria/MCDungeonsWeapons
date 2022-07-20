@@ -51,6 +51,8 @@
   "item.mcdw.bow_bubble_burster": "Bubble Burster",
   "item.mcdw.bow_void_bow": "Void Bow",
   "item.mcdw.bow_call_of_the_void": "Call of the Void",
+  "item.mcdw.bow_phantom_bow": "Phantom Bow",
+  "item.mcdw.bow_web_bow": "Web Bow",
 
   "item.mcdw.crossbow_the_slicer" : "The Slicer",
   "item.mcdw.crossbow_azure_seeker" : "Azure Seeker",
@@ -118,6 +120,7 @@
   "item.mcdw.sickle_frost_scythe": "Frost Scythe",
   "item.mcdw.sickle_jailors_scythe": "Jailor's Scythe",
   "item.mcdw.sickle_soul_scythe": "Soul Scythe",
+  "item.mcdw.sickle_skull_scythe": "Skull Scythe",
 
   "item.mcdw.spear_spear": "Spear",
   "item.mcdw.spear_fortune": "Fortune Spear",
@@ -125,6 +128,7 @@
   "item.mcdw.spear_glaive": "Glaive",
   "item.mcdw.spear_grave_bane": "Grave Bane",
   "item.mcdw.spear_venom_glaive": "Venom Glaive",
+  "item.mcdw.spear_cackling_broom": "Cackling Broom",
 
   "item.mcdw.staff_battlestaff": "Battlestaff",
   "item.mcdw.staff_battlestaff_of_terror": "Battlestaff of Terror",
@@ -178,15 +182,24 @@
   "item.mcdw.moreinfo.tooltip": "Hold [SHIFT] for more info",
   "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
 
+  "effect.mcde.accelerate": "Accelerate",
+  "effect.mcdw.dynamo": "Dynamo",
+  "effect.mcdw.pain_cycle": "Pain Cycle",
+  "effect.mcdw.shadow_form": "Shadow Form",
+
   "enchantment.mcdw.accelerate": "Accelerate",
   "enchantment.mcdw.ambush": "Ambush",
   "enchantment.mcdw.anima_conduit": "Anima Conduit",
   "enchantment.mcdw.bonus_shot": "Bonus Shot",
+  "enchantment.mcdw.burst_bowstring": "Burst Bowstring",
   "enchantment.mcdw.chain_reaction": "Chain Reaction",
   "enchantment.mcdw.chains": "Chains",
   "enchantment.mcdw.charge": "Charge",
+  "enchantment.mcdw.cobweb_shot": "Cobweb Shot",
   "enchantment.mcdw.committed": "Committed",
   "enchantment.mcdw.critical_hit": "Critical Hit",
+  "enchantment.mcdw.dipping_poison": "Dipping Poison",
+  "enchantment.mcdw.dynamo": "Dynamo",
   "enchantment.mcdw.echo": "Echo",
   "enchantment.mcdw.enigma_resonator": "Enigma Resonator",
   "enchantment.mcdw.exploding": "Exploding",
@@ -199,6 +212,9 @@
   "enchantment.mcdw.jungle_poison": "Jungle's Poison",
   "enchantment.mcdw.leeching": "Leeching",
   "enchantment.mcdw.levitation_shot": "Levitation Shot",
+  "enchantment.mcdw.overcharge": "Overcharge",
+  "enchantment.mcdw.pain_cycle": "Pain Cycle",
+  "enchantment.mcdw.phantoms_mark": "Phantom's Mark",
   "enchantment.mcdw.poison_cloud": "Poison Cloud",
   "enchantment.mcdw.prospector": "Prospector",
   "enchantment.mcdw.radiance": "Radiance",
@@ -209,6 +225,8 @@
   "enchantment.mcdw.replenish": "Replenish",
   "enchantment.mcdw.ricochet": "Ricochet",
   "enchantment.mcdw.rushdown": "Rushdown",
+  "enchantment.mcdw.shadow_barb": "Shadow Barb",
+  "enchantment.mcdw.shadow_shot": "Shadow Shot",
   "enchantment.mcdw.shockwave": "Shockwave",
   "enchantment.mcdw.smiting": "Smiting",
   "enchantment.mcdw.soul_devourer": "Soul Devourer",
@@ -220,6 +238,7 @@
   "enchantment.mcdw.void_shot": "Void Shot",
   "enchantment.mcdw.void_strike": "Void Strike",
   "enchantment.mcdw.weakening": "Weakening",
+  "enchantment.mcdw.wild_rage": "Wild Rage",
 
   "subtitles.mcdw.echo_sound": "Echo Enchantment Slashing",
 
@@ -434,6 +453,9 @@
   "tooltip_info_item.mcdw.grave_bane_2"       : "this glaive radiates potent magical",
   "tooltip_info_item.mcdw.grave_bane_3"       : "energy to ward off the undead.",
 
+  "tooltip_info_item.mcdw.cackling_broom_1": "Sweep your enemies off their feet",
+  "tooltip_info_item.mcdw.cackling_broom_2": "with the Cackling Broom.",
+
   "tooltip_info_item.mcdw.spear_1"            : "The spear, with its long reach",
   "tooltip_info_item.mcdw.spear_2"            : "and powerful range, is a solid",
   "tooltip_info_item.mcdw.spear_3"            : "choice of weapon.",
@@ -484,6 +506,10 @@
 
   "tooltip_info_item.mcdw.jailors_scythe_1"   : "This scythe belonged to the terror",
   "tooltip_info_item.mcdw.jailors_scythe_2"   : "of Highblock Keep, the Jailor.",
+
+  "tooltip_info_item.mcdw.skull_scythe_1": "Don't ask what unnatural creature's",
+  "tooltip_info_item.mcdw.skull_scythe_2": "bones were used to build this weapon.",
+  "tooltip_info_item.mcdw.skull_scythe_3": "You don't want to know.",
 
   "tooltip_info_item.mcdw.sickle_1"           : "A ceremonial weapon that hails",
   "tooltip_info_item.mcdw.sickle_2"           : "from the same region as the",
@@ -676,6 +702,16 @@
   "tooltip_info_item.mcdw.call_of_the_void_3": "behind that sound is another voice",
   "tooltip_info_item.mcdw.call_of_the_void_4": "in the darkness.",
 
+  "tooltip_info_item.mcdw.phantom_bow_1": "The arrows that take flight from",
+  "tooltip_info_item.mcdw.phantom_bow_2": "the Phantom Bow swoop down on",
+  "tooltip_info_item.mcdw.phantom_bow_3": "your enemies like the bow's",
+  "tooltip_info_item.mcdw.phantom_bow_4": "nightmarish namesake.",
+
+  "tooltip_info_item.mcdw.web_bow_1": "Crafted from the webs of",
+  "tooltip_info_item.mcdw.web_bow_2": "mighty spiders, the Web Bow",
+  "tooltip_info_item.mcdw.web_bow_3": "will get you out of any",
+  "tooltip_info_item.mcdw.web_bow_4": "sticky situation.",
+
   "tooltip_info_item.mcdw.auto_crossbow_1"          : "The Arch-Illager said the design",
   "tooltip_info_item.mcdw.auto_crossbow_2"          : "for this powerful crossbow came",
   "tooltip_info_item.mcdw.auto_crossbow_3"          : "to him in a vision.",
@@ -798,14 +834,19 @@
 
   "death.attack.electricShock": "%s was electrocuted to death.",
 
+  "enchantment.mcdw.accelerate.desc": "Increases attack speed for each consecutive shot. Resets three seconds after the attack.",
   "enchantment.mcdw.ambush.desc": "Deal extra damage whilst sneaking and invisible.",
   "enchantment.mcdw.anima_conduit.desc": "Each XP orb grants a small amount of health.",
   "enchantment.mcdw.bonus_shot.desc": "Fires an extra projectile towards a secondary target.",
+  "enchantment.mcdw.burst_bowstring.desc": "Shoots nearby mobs when you jump, costing one arrow per jump per level. Projectiles deal 40% of an arrow's damage.",
   "enchantment.mcdw.chain_reaction.desc": "A chance to fire extra projectiles from target hit with an arrow.",
   "enchantment.mcdw.chains.desc": "A chance to pull mobs together and slow them down.",
   "enchantment.mcdw.charge.desc": "Chance to receive the speed effect whilst attacking an enemy.",
+  "enchantment.mcdw.cobweb_shot.desc": "Cover an enemy or block in cobweb when your arrow hits its target.",
   "enchantment.mcdw.committed.desc": "A chance to deal damage relative to target's health.",
   "enchantment.mcdw.critical_hit.desc": "A chance to deal critical hit without jumping.",
+  "enchantment.mcdw.dipping_poison.desc": "Gives 8 poisoned arrows upon drinking a health potion.",
+  "enchantment.mcdw.dynamo.desc": "Increases the damage of your next attack after jumping. This effect can stack up to 20 times.",
   "enchantment.mcdw.echo.desc": "A chance to deal AoE sound damage in an area of 3 blocks.",
   "enchantment.mcdw.enigma_resonator.desc": "A chance to deal damage relative to the amount of XP the user has.",
   "enchantment.mcdw.exploding.desc": "A chance that target explodes upon death causing damage to surrounding enemies.",
@@ -818,6 +859,9 @@
   "enchantment.mcdw.jungle_poison.desc": "A chance to apply poison to target.",
   "enchantment.mcdw.leeching.desc": "Heal relative to the max health of the target upon its death.",
   "enchantment.mcdw.levitation_shot.desc": "Fire a shot that gives the levitation status effect much like a shulker bullet.",
+  "enchantment.mcdw.overcharge.desc": "Continue to hold the ranged attack button to double, triple, or quadruple charge a bow, increasing its damage each time.",
+  "enchantment.mcdw.pain_cycle.desc": "Attacking drains your life to grant one stack of Pain Cycle. At 5 stacks, your pain is channeled into your next attack.",
+  "enchantment.mcdw.phantoms_mark.desc": "Sets glowing on the target relative to the level of the enchantment.",
   "enchantment.mcdw.poison_cloud.desc": "A chance to spawn a poison cloud around a target.",
   "enchantment.mcdw.prospector.desc": "A chance to find an emerald upon killing a target.",
   "enchantment.mcdw.radiance.desc": "A chance to spawn a healing cloud around a target.",
@@ -828,8 +872,11 @@
   "enchantment.mcdw.replenish.desc": "A chance to recover an arrow upon firing.",
   "enchantment.mcdw.ricochet.desc": "The arrow bounces from target to target.",
   "enchantment.mcdw.rushdown.desc": "A chance to gain stacking speed on a kill.",
+  "enchantment.mcdw.shadow_barb.desc": "Firing from a crossbow will not break Shadow Form.",
+  "enchantment.mcdw.shadow_shot.desc": "A chance to grant player Shadow Form on a kill.",
   "enchantment.mcdw.shockwave.desc": "A chance to deal explosive damage in an area of 3 blocks.",
   "enchantment.mcdw.smiting.desc": "Deals AoE damage to Undead in an area of 3 blocks.",
+  "enchantment.mcdw.soul_devourer.desc": "Multiplies XP gained from a kill.",
   "enchantment.mcdw.soul_siphon.desc": "A chance to gain extra XP from a kill.",
   "enchantment.mcdw.stunning.desc": "Chance to nearly stop a target and cause nausea.",
   "enchantment.mcdw.swirling.desc": "Chance to hit all entities in a 1.5 block radius around the user.",
@@ -837,5 +884,6 @@
   "enchantment.mcdw.thundering.desc": "Chance to summon a lightning bolt and damage entities in a range relative to the level.",
   "enchantment.mcdw.void_strike.desc": "Deal multiplicative damage based on level of enchantment.",
   "enchantment.mcdw.void_shot.desc": "Deal multiplicative damage based on level of enchantment.",
-  "enchantment.mcdw.weakening.desc": "Chance to spawn a weakness cloud around the target."
+  "enchantment.mcdw.weakening.desc": "Chance to spawn a weakness cloud around the target.",
+  "enchantment.mcdw.wild_rage.desc": "Hitting an enemy has a chance to send it into a rage, making it hostile towards everyone."
 }

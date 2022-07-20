@@ -35,11 +35,19 @@ public class LivingEntityPlayerEntityMixin {
                     amount += storedAmount * EnchantmentEffects.criticalHitDamage(attackingEntity, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_STRIKE))
                     amount += storedAmount * EnchantmentEffects.voidStrikeDamage(attackingEntity, victim);
+                if (!PlayerAttackHelper.isLikelyNotMeleeDamage(source)) {
+                    if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PAIN_CYCLE))
+                        amount += storedAmount * EnchantmentEffects.painCycleDamage(attackingEntity);
+                }
             }
 
             if (source.getSource() instanceof PlayerEntity attackingPlayer) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ENIGMA_RESONATOR))
                     amount += storedAmount * EnchantmentEffects.enigmaResonatorDamage(attackingPlayer, victim);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
+                    amount += storedAmount * EnchantmentEffects.dynamoDamage(attackingEntity);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_SHOT))
+                    amount += storedAmount * EnchantmentEffects.shadowFormDamage(attackingEntity);
             }
 
             if (source.getSource() instanceof PersistentProjectileEntity ppe) {
@@ -49,6 +57,12 @@ public class LivingEntityPlayerEntityMixin {
                     amount += storedAmount * EnchantmentEffects.growingDamage(attackingEntity, victim, ppe);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.VOID_SHOT))
                     amount += storedAmount * EnchantmentEffects.voidShotDamage(victim, ppe);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
+                    amount += storedAmount * EnchantmentEffects.dynamoShotDamage(attackingEntity, ppe);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_SHOT))
+                    amount += storedAmount * EnchantmentEffects.shadowFormShotDamage(attackingEntity, ppe);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE))
+                    amount += storedAmount * EnchantmentEffects.overchargeDamage(ppe);
             }
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED))
@@ -142,9 +156,11 @@ public class LivingEntityPlayerEntityMixin {
                     EnchantmentEffects.applyRefreshment(attackingEntity);
             }
 
-            if (source.isProjectile()) {
+            if (source.getSource() instanceof PersistentProjectileEntity ppe) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT))
                     EnchantmentEffects.applyRefreshment(attackingEntity);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_SHOT))
+                    EnchantmentEffects.applyShadowShotShadowForm(attackingEntity, ppe, 80);
             }
         }
     }

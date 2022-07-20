@@ -11,6 +11,12 @@ public class McdwEnchantGiverConfig {
     public static void appendEnchants(){
 
         if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_INNATE_ENCHANTMENTS)) {
+            // ACCELERATE ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW)),
+                    new Identifier("mcdw:accelerate"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.shortBowItems.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW)),
+                    new Identifier("mcdw:accelerate"), 1, true);
+
             // AMBUSH ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_BACKSTABBER)),
                     new Identifier("mcdw:ambush"), 1, true);
@@ -60,6 +66,14 @@ public class McdwEnchantGiverConfig {
                     new Identifier("mcdw:critical_hit"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_MASTERS_KATANA)),
                     new Identifier("mcdw:critical_hit"), 1, true);
+
+            // DYNAMO ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_GREAT_AXEBLADE)),
+                    new Identifier("mcdw:dynamo"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW)),
+                    new Identifier("mcdw:dynamo"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_ANCIENT_BOW)),
+                    new Identifier("mcdw:dynamo"), 1, true);
 
             // ECHO ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.spearItems.get(SpearsID.SPEAR_WHISPERING_SPEAR)),
@@ -222,10 +236,22 @@ public class McdwEnchantGiverConfig {
                     new Identifier("mcdw:ricochet"), 1, true);
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_BUBBLE_BURSTER)),
                     new Identifier("mcdw:ricochet"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_PINK_SCOUNDREL)),
+                    new Identifier("mcdw:ricochet"), 1, false);
 
             // RUSHDOWN ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE)),
                     new Identifier("mcdw:rushdown"), 1, false);
+
+            // SHADOW BARB ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)),
+                    new Identifier("mcdw:shadow_barb"), 1, false);
+
+            // SHADOW SHOT ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)),
+                    new Identifier("mcdw:shadow_shot"), 1, true);
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)),
+                    new Identifier("mcdw:shadow_shot"), 1, true);
 
             // SHOCKWAVE ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_WHIRLWIND)),
@@ -282,6 +308,10 @@ public class McdwEnchantGiverConfig {
             // WEAKENING ENCHANTMENT
             EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_NAMELESS_BLADE)),
                     new Identifier("mcdw:weakening"), 1, true);
+
+            // WILD RAGE ENCHANTMENT
+            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_PINK_SCOUNDREL)),
+                    new Identifier("mcdw:wild_rage"), 1, true);
         }
     }
 }

@@ -24,8 +24,8 @@ public class AOEHelper {
     /** Returns targets of an AOE effect from 'attacker' around 'center'. This includes 'center'. */
     public static List<LivingEntity> getAoeTargets(LivingEntity center, LivingEntity attacker, float distance) {
         return center.getEntityWorld().getEntitiesByClass(LivingEntity.class,
-            new Box(center.getBlockPos()).expand(distance),
-            (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, attacker, center)
+                new Box(center.getBlockPos()).expand(distance),
+                (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, attacker, center)
         );
     }
 
@@ -68,9 +68,9 @@ public class AOEHelper {
 
     public static void electrocuteNearbyEnemies(LivingEntity user, float distance, float damageAmount, int limit) {
         user.world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER,
-            SoundCategory.WEATHER, 1.0F, 1.0F);
+                SoundCategory.WEATHER, 1.0F, 1.0F);
         user.world.playSound(null, user.getX(), user.getY(), user.getZ(),SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT,
-            SoundCategory.WEATHER, 1.0F, 1.0F);
+                SoundCategory.WEATHER, 1.0F, 1.0F);
 
         for (LivingEntity nearbyEntity : getAoeTargets(user, user, distance)) {
             electrocute(user, nearbyEntity, damageAmount);

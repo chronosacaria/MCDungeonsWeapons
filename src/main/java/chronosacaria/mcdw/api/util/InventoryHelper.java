@@ -42,43 +42,42 @@ public class InventoryHelper {
         PlayerInventory playerInv = player.getInventory();
         playerInv.getSlotWithStack(new ItemStack(toReplace));
 
-         // Try playerInv.remove(...) at some point. Needs predicate
-         if (playerInv.getEmptySlot() >= 0) { //Player has at least one empty slot
-             int hasToReplace = mcdw$countItem(player, toReplace);
-             // Can't make as many 1 for 1's as specified bc toReplace count is too low
-             if (hasToReplace < count) {
-                 mcdw$systematicReplace(player, toReplace, replaceTo, hasToReplace);
-                 return;
-             }
-             List<Integer> emptySlots = mcdw$getAllEmptySlots(player);
-             for (Integer slotIndex: emptySlots) {
-                 if (count > 0)
-                     count = mcdw$switchOutItems(player, toReplace, replaceTo, count, slotIndex);
-                 else
-                     break;
-             }
-             if (count > 0)
-                 mcdw$systematicReplace(player, toReplace, replaceTo, count);
-         } else {
-             mcdw$replaceWithoutEmptySlots(player, toReplace, replaceTo, count);
-         }
-    }
-
-    public static void mcdw$systematicReplacePotions(PlayerEntity player, Item toReplace, ItemStack stackReplaceTo, int count) {
-        // Minecraft code is dumb sometimes. Just make potions their own item gah
-        PlayerInventory playerInv = player.getInventory();
-        playerInv.getSlotWithStack(new ItemStack(toReplace));
-
         // Try playerInv.remove(...) at some point. Needs predicate
         if (playerInv.getEmptySlot() >= 0) { //Player has at least one empty slot
             int hasToReplace = mcdw$countItem(player, toReplace);
             // Can't make as many 1 for 1's as specified bc toReplace count is too low
             if (hasToReplace < count) {
-                mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, hasToReplace);
+                mcdw$systematicReplace(player, toReplace, replaceTo, hasToReplace);
                 return;
             }
             List<Integer> emptySlots = mcdw$getAllEmptySlots(player);
             for (Integer slotIndex: emptySlots) {
+                if (count > 0)
+                    count = mcdw$switchOutItems(player, toReplace, replaceTo, count, slotIndex);
+                else
+                    break;
+            }
+            if (count > 0)
+                mcdw$systematicReplace(player, toReplace, replaceTo, count);
+        } else {
+            mcdw$replaceWithoutEmptySlots(player, toReplace, replaceTo, count);
+        }
+    }
+
+    public static void mcdw$systematicReplacePotions(PlayerEntity player, Item toReplace, ItemStack stackReplaceTo, int count) {
+        if (count == 0)
+            return;
+        // Minecraft code is dumb sometimes. Just make potions their own item gah
+        PlayerInventory playerInv = player.getInventory();
+
+        mcdw$optimizeSortItemStack(player, toReplace);
+        // Does the player have any empty slots? -1 means no, anything 0 or up is yes
+        if (playerInv.getEmptySlot() >= 0) {
+            // If we have less than we are trying to replace, just replace that many
+            count = Math.min(mcdw$countItem(player, toReplace), count);
+            // Get slots in the main inventory that are empty
+            List<Integer> emptySlotList = mcdw$getAllEmptySlots(player);
+            for (Integer slotIndex : emptySlotList) {
                 if (count > 0) {
                     playerInv.setStack(slotIndex, stackReplaceTo);
                     int k = playerInv.getSlotWithStack(new ItemStack(toReplace));
@@ -90,21 +89,15 @@ public class InventoryHelper {
             if (count > 0)
                 mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, count);
         } else {
-            mcdw$optimizeSortItemStack(player, toReplace);
-            if (playerInv.getEmptySlot() >= 0) {
-                mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, count);
-            } else {
-                List<Integer> stackSlots = mcdw$getSlotsWithStack(player, toReplace);
-                for (int slotIndex : stackSlots) {
+            List<Integer> stackSlots = mcdw$getSlotsWithStack(player, toReplace);
+            for (int slotIndex : stackSlots) {
 
-                    int availableToReplace = playerInv.getStack(slotIndex).getCount();
+                int availableToReplace = playerInv.getStack(slotIndex).getCount();
 
-                    if (availableToReplace == 1) {
-                        playerInv.insertStack(slotIndex, stackReplaceTo);
-                        count -= availableToReplace;
-                        mcdw$optimizeSortItemStack(player, toReplace);
-                        mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, count);
-                    }
+                if (availableToReplace == 1) {
+                    playerInv.setStack(slotIndex, stackReplaceTo);
+                    count -= availableToReplace;
+                    mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, count);
                 }
             }
         }
@@ -134,20 +127,22 @@ public class InventoryHelper {
         PlayerInventory playerInv = player.getInventory();
         List<Integer> stackSlots = mcdw$getSlotsWithStack(player, toReplace);
 
+        int slotTakingFromIndex = 0;
+
         for (int i = 1; i < stackSlots.size(); i++) {
-            int slotTakingFrom = stackSlots.get(0);
+            int slotTakingFrom = stackSlots.get(slotTakingFromIndex);
             int availableToTake = playerInv.getStack(slotTakingFrom).getCount();
             if (availableToTake == 0)
-                break;
+                slotTakingFromIndex++;
 
             int slotToReplaceTo = stackSlots.get(i);
             int alreadyInSlotToReplaceTo = playerInv.getStack(slotToReplaceTo).getCount();
-            int addAmount = toReplace.getMaxCount() - alreadyInSlotToReplaceTo;
+            int missingFromMax = toReplace.getMaxCount() - alreadyInSlotToReplaceTo;
             // Give the proper amount of replaceTo
-            int j = Math.min(addAmount, availableToTake);
-            playerInv.insertStack(slotToReplaceTo, new ItemStack(toReplace, alreadyInSlotToReplaceTo + j));
+            int j = Math.min(missingFromMax, availableToTake);
             // Remove the same amount of toReplace
             playerInv.removeStack(slotTakingFrom, j);
+            playerInv.insertStack(slotToReplaceTo, new ItemStack(toReplace, j));
         }
     }
 
@@ -179,9 +174,9 @@ public class InventoryHelper {
         List<Integer> emptySlots = new ArrayList<>();
         PlayerInventory playerInv = player.getInventory();
         for (int i = 0; i < playerInv.main.size(); i++) {
-            ItemStack currStack = playerInv.getStack(i);
-            if (currStack.isEmpty())
+            if ((playerInv.main.get(i)).isEmpty()) {
                 emptySlots.add(i);
+            }
         }
         return emptySlots;
     }
@@ -197,4 +192,19 @@ public class InventoryHelper {
 
         return stackSlots;
     }
+
+    public static void mcdw$deductAmountOfItem(PlayerEntity player, Item toTake, int amount) {
+        List<Integer> stackSlots = mcdw$getSlotsWithStack(player, toTake);
+        amount = Math.min(amount, mcdw$countItem(player, toTake));
+        for (Integer stackSlot : stackSlots) {
+            ItemStack slot = player.getInventory().getStack(stackSlot);
+            int k = Math.min(slot.getCount(), amount);
+            slot.decrement(k);
+            amount -= k;
+            if (amount == 0) {
+                break;
+            }
+        }
+    }
+
 }

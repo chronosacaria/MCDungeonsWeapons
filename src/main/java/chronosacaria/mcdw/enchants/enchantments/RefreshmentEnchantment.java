@@ -11,8 +11,8 @@ import net.minecraft.util.registry.Registry;
 
 public class RefreshmentEnchantment extends Enchantment{
 
-    public RefreshmentEnchantment(Enchantment.Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public RefreshmentEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("refreshment"), this);
         }
@@ -37,5 +37,18 @@ public class RefreshmentEnchantment extends Enchantment{
     @Override
     public int getMaxPower(int level) {
         return this.getMinPower(level) + 5;
+    }
+
+
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableRandomSelection.get(EnchantmentsID.REFRESHMENT);
+    }
+
+    @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableVillageTrading.get(EnchantmentsID.REFRESHMENT);
     }
 }

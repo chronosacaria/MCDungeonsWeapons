@@ -5,6 +5,8 @@ import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -19,10 +21,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PersistentProjectileEntity.class)
 public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedArrow {
 
-    private int accelerateLevel = 0;
+    private int overcharge;
     private int chainReactionLevel = 0;
     private int chargeLevel = 0;
     private int cobwebShotLevel = 0;
+    private int dynamoLevel = 0;
     private int enigmaResonatorLevel = 0;
     private int fuseShotLevel = 0;
     private int gravityLevel = 0;
@@ -34,17 +37,20 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     private int radianceLevel = 0;
     private int replenishLevel = 0;
     private int ricochetLevel = 0;
+    private boolean shadowBarbBoolean = false;
+    private int shadowShotLevel = 0;
     private int tempoTheftLevel = 0;
     private int voidShotLevel = 0;
+    private int wildRageLevel = 0;
 
     @Override
-    public int getAccelerateLevel() {
-        return accelerateLevel;
+    public int getOvercharge() {
+        return overcharge;
     }
 
     @Override
-    public void setAccelerateLevel(int accelerateLevel) {
-        this.accelerateLevel = accelerateLevel;
+    public void setOvercharge(int overcharge) {
+        this.overcharge = overcharge;
     }
 
     @Override
@@ -74,6 +80,14 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     public void setCobwebShotLevel(int cobwebShotLevel){
         this.cobwebShotLevel = cobwebShotLevel;
     }
+
+    @Override
+    public int getDynamoLevel() {
+        return dynamoLevel;
+    }
+
+    @Override
+    public void setDynamoLevel(int dynamoLevel) { this.dynamoLevel = dynamoLevel; }
 
     @Override
     public int getEnigmaResonatorLevel() {
@@ -186,6 +200,18 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     }
 
     @Override
+    public boolean getShadowBarbBoolean() { return shadowBarbBoolean; }
+
+    @Override
+    public void setShadowBarbBoolean(boolean shadowBarbBoolean) {this.shadowBarbBoolean = shadowBarbBoolean; }
+
+    @Override
+    public int getShadowShotLevel() { return shadowShotLevel; }
+
+    @Override
+    public void setShadowShotLevel(int shadowShotLevel) { this.shadowShotLevel = shadowShotLevel; }
+
+    @Override
     public int getTempoTheftLevel() {
         return tempoTheftLevel;
     }
@@ -205,9 +231,14 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         this.voidShotLevel = voidShotLevel;
     }
 
+    @Override
+    public int getWildRageLevel() { return wildRageLevel; }
+
+    @Override
+    public void setWildRageLevel(int wildRageLevel) { this.wildRageLevel = wildRageLevel; }
+
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void mcdw$nbtToTag(NbtCompound tag, CallbackInfo ci){
-        tag.putInt("accelerateLevel", accelerateLevel);
         tag.putInt("chainReactionLevel", chainReactionLevel);
         tag.putInt("chargeLevel", chargeLevel);
         tag.putInt("cobwebShotLevel", cobwebShotLevel);
@@ -217,19 +248,22 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         tag.putInt("growingLevel", growingLevel);
         tag.putInt("levitationShotLevel", levitationShotLevel);
         tag.putBoolean("nautilusBoolean", nautilusBoolean);
+        tag.putInt("overchargeLevel", overcharge);
         tag.putInt("phantomsMarkLevel", phantomsMarkLevel);
         tag.putInt("poisonCloudLevel", poisonCloudLevel);
         tag.putInt("radianceLevel", radianceLevel);
         tag.putInt("replenishLevel", replenishLevel);
         tag.putInt("ricochetLevel", ricochetLevel);
+        tag.putBoolean("shadowBarbBoolean", shadowBarbBoolean);
+        tag.putInt("shadowShotLevel", shadowShotLevel);
         tag.putInt("tempoTheftLevel", tempoTheftLevel);
         tag.putInt("voidShotLevel", voidShotLevel);
+        tag.putInt("wildRageLevel", wildRageLevel);
 
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
     public void mcdw$nbtFromTag(NbtCompound tag, CallbackInfo ci){
-        this.accelerateLevel = tag.getInt("accelerateLevel");
         this.chainReactionLevel = tag.getInt("chainReactionLevel");
         this.chargeLevel = tag.getInt("chargeLevel");
         this.cobwebShotLevel = tag.getInt("cobwebShotLevel");
@@ -239,13 +273,17 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         this.growingLevel = tag.getInt("growingLevel");
         this.levitationShotLevel = tag.getInt("levitationLevel");
         this.nautilusBoolean = tag.getBoolean("nautilusBoolean");
+        this.overcharge = tag.getInt("overchargeLevel");
         this.phantomsMarkLevel = tag.getInt("phantomsMarkLevel");
         this.poisonCloudLevel = tag.getInt("poisonCloudLevel");
         this.radianceLevel = tag.getInt("radianceLevel");
         this.replenishLevel = tag.getInt("replenishLevel");
         this.ricochetLevel = tag.getInt("ricochetLevel");
+        this.shadowBarbBoolean = tag.getBoolean("shadowBarbBoolean");
+        this.shadowShotLevel = tag.getInt("shadowShotLevel");
         this.tempoTheftLevel = tag.getInt("tempoTheftLevel");
         this.voidShotLevel = tag.getInt("voidShotLevel");
+        this.wildRageLevel = tag.getInt("wildRageLevel");
     }
 
     @Inject(method = "onEntityHit", at = @At("TAIL"))
@@ -278,6 +316,11 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
                 EnchantmentEffects.applyRicochet(target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.TEMPO_THEFT))
                 EnchantmentEffects.applyTempoTheft(shooter, target, persProjEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.WILD_RAGE)) {
+                if (!(target instanceof EnderDragonEntity) && target instanceof MobEntity mobEntity) {
+                    EnchantmentEffects.applyWildRage(mobEntity, persProjEntity);
+                }
+            }
         }
 
         if (persProjEntity.getOwner() instanceof PlayerEntity shooter) {
@@ -300,12 +343,12 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     }
 
     @Inject(method = "getDragInWater", at = @At("HEAD"), cancellable = true)
-    public void onHarpoonArrowFire(CallbackInfoReturnable<Float> cir) {
+    public void mcdw$onHarpoonArrowFire(CallbackInfoReturnable<Float> cir) {
         PersistentProjectileEntity ppe = (PersistentProjectileEntity) (Object) this;
         if (ppe.isTouchingWater()) {
             if (((IMcdwEnchantedArrow)ppe).getNautilusBoolean()) {
-                float m = 0.925f;
-                cir.setReturnValue(m);
+                float v = cir.getReturnValue() * 1.542f;
+                cir.setReturnValue(v);
             }
         }
     }

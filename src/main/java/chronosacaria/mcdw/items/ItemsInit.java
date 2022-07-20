@@ -608,7 +608,7 @@ public class ItemsInit {
             McdwCrossbow weapon = switch (crossbowsID) {
                 case CROSSBOW_THE_SLICER -> new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_THE_SLICER).material),
                         CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_THE_SLICER).drawSpeed,
-                        CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW).range);
+                        CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_THE_SLICER).range);
                 case CROSSBOW_AZURE_SEEKER -> new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_AZURE_SEEKER).material),
                         CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_AZURE_SEEKER).drawSpeed,
                         CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_AZURE_SEEKER).range);
@@ -694,7 +694,7 @@ public class ItemsInit {
                         CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW).drawSpeed,
                         CONFIG.mcdwNewStatsConfig.crossbowStats.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW).range);
                 //noinspection UnnecessaryDefault
-                default -> new McdwCrossbow(ToolMaterials.WOOD, 0.0f, 0.0f);
+                default -> new McdwCrossbow(ToolMaterials.WOOD, 0, 0.0f);
             };
 
             crossbowItems.put(crossbowsID, weapon);

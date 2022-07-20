@@ -24,11 +24,11 @@ public class CombatEventHandler {
 
                 if (hitResult instanceof EntityHitResult){
                     if (mc.crosshairTarget != null && mc.interactionManager != null) {
-                            mc.interactionManager.attackEntity(player,
-                                    ((EntityHitResult)mc.crosshairTarget).getEntity());
-                        }
+                        mc.interactionManager.attackEntity(player,
+                                ((EntityHitResult)mc.crosshairTarget).getEntity());
                     }
                 }
             }
         }
     }
+}

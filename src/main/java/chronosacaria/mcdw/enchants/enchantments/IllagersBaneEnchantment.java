@@ -15,8 +15,8 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.util.registry.Registry;
 
 public class IllagersBaneEnchantment extends Enchantment {
-    public IllagersBaneEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public IllagersBaneEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ILLAGERS_BANE)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("illagers_bane"), this);
         }
@@ -44,7 +44,14 @@ public class IllagersBaneEnchantment extends Enchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ILLAGERS_BANE);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ILLAGERS_BANE)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableRandomSelection.get(EnchantmentsID.ILLAGERS_BANE);
+    }
+
+    @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ILLAGERS_BANE)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableVillageTrading.get(EnchantmentsID.ILLAGERS_BANE);
     }
 
     @Override

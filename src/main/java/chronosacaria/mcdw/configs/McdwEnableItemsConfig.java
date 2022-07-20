@@ -9,26 +9,27 @@ import java.util.HashMap;
 @Config(name = "mcdw_items_registry")
 public class McdwEnableItemsConfig implements ConfigData {
 
-    public HashMap<SwordsID, Boolean> swordsEnabled = new HashMap<>();
-    public HashMap<AxesID, Boolean> axesEnabled = new HashMap<>();
-    public HashMap<DoubleAxesID, Boolean> doubleAxesEnabled = new HashMap<>();
-    public HashMap<DaggersID, Boolean> daggersEnabled = new HashMap<>();
-    public HashMap<SoulDaggersID, Boolean> soulDaggersEnabled = new HashMap<>();
-    public HashMap<HammersID, Boolean> hammersEnabled = new HashMap<>();
-    public HashMap<GauntletsID, Boolean> gauntletsEnabled = new HashMap<>();
-    public HashMap<SicklesID, Boolean> sicklesEnabled = new HashMap<>();
-    public HashMap<ScythesID, Boolean> scythesEnabled = new HashMap<>();
-    public HashMap<PicksID, Boolean> picksEnabled = new HashMap<>();
-    public HashMap<GlaivesID, Boolean> glaivesEnabled = new HashMap<>();
-    public HashMap<SpearsID, Boolean> spearsEnabled = new HashMap<>();
-    public HashMap<StavesID, Boolean> stavesEnabled = new HashMap<>();
-    public HashMap<WhipsID, Boolean> whipsEnabled = new HashMap<>();
-    public HashMap<BowsID, Boolean> bowsEnabled = new HashMap<>();
-    public HashMap<ShortBowsID, Boolean> shortBowsEnabled = new HashMap<>();
-    public HashMap<LongBowsID, Boolean> longBowsEnabled = new HashMap<>();
-    public HashMap<CrossbowsID, Boolean> crossbowsEnabled = new HashMap<>();
-    public HashMap<ShieldsID, Boolean> shieldsEnabled = new HashMap<>();
-    public HashMap<ItemsID, Boolean> itemsEnabled = new HashMap<>();
+    // TODO Change nomenclature to final convention for hashmaps and subsequent usages
+    public final HashMap<SwordsID, Boolean> swordsEnabled = new HashMap<>();
+    public final HashMap<AxesID, Boolean> axesEnabled = new HashMap<>();
+    public final HashMap<DoubleAxesID, Boolean> doubleAxesEnabled = new HashMap<>();
+    public final HashMap<DaggersID, Boolean> daggersEnabled = new HashMap<>();
+    public final HashMap<SoulDaggersID, Boolean> soulDaggersEnabled = new HashMap<>();
+    public final HashMap<HammersID, Boolean> hammersEnabled = new HashMap<>();
+    public final HashMap<GauntletsID, Boolean> gauntletsEnabled = new HashMap<>();
+    public final HashMap<SicklesID, Boolean> sicklesEnabled = new HashMap<>();
+    public final HashMap<ScythesID, Boolean> scythesEnabled = new HashMap<>();
+    public final HashMap<PicksID, Boolean> picksEnabled = new HashMap<>();
+    public final HashMap<GlaivesID, Boolean> glaivesEnabled = new HashMap<>();
+    public final HashMap<SpearsID, Boolean> spearsEnabled = new HashMap<>();
+    public final HashMap<StavesID, Boolean> stavesEnabled = new HashMap<>();
+    public final HashMap<WhipsID, Boolean> whipsEnabled = new HashMap<>();
+    public final HashMap<BowsID, Boolean> bowsEnabled = new HashMap<>();
+    public final HashMap<ShortBowsID, Boolean> shortBowsEnabled = new HashMap<>();
+    public final HashMap<LongBowsID, Boolean> longBowsEnabled = new HashMap<>();
+    public final HashMap<CrossbowsID, Boolean> crossbowsEnabled = new HashMap<>();
+    public final HashMap<ShieldsID, Boolean> shieldsEnabled = new HashMap<>();
+    public final HashMap<ItemsID, Boolean> itemsEnabled = new HashMap<>();
 
     public McdwEnableItemsConfig() {
         for (SwordsID swordsID : SwordsID.values())
@@ -92,3 +93,4 @@ public class McdwEnableItemsConfig implements ConfigData {
             itemsEnabled.put(itemsID, true);
     }
 }
+

@@ -20,6 +20,7 @@ public class EnchantsRegistry {
     public static Enchantment ILLAGERS_BANE;
     public static Enchantment JUNGLE_POISON;
     public static Enchantment LEECHING;
+    public static Enchantment PAIN_CYCLE;
     public static Enchantment POISON_CLOUD;
     public static Enchantment PROSPECTOR;
     public static Enchantment RADIANCE;
@@ -38,18 +39,24 @@ public class EnchantsRegistry {
 
     public static Enchantment ACCELERATE;
     public static Enchantment BONUS_SHOT;
+    public static Enchantment BURST_BOWSTRING;
     public static Enchantment CHAIN_REACTION;
     public static Enchantment CHARGE;
     public static Enchantment COBWEB_SHOT;
     public static Enchantment DIPPING_POISON;
+    public static Enchantment DYNAMO;
     public static Enchantment FUSE_SHOT;
     public static Enchantment GROWING;
     public static Enchantment LEVITATION_SHOT;
+    public static Enchantment OVERCHARGE;
     public static Enchantment PHANTOMS_MARK;
     public static Enchantment REPLENISH;
     public static Enchantment RICOCHET;
+    public static Enchantment SHADOW_BARB;
+    public static Enchantment SHADOW_SHOT;
     public static Enchantment TEMPO_THEFT;
     public static Enchantment VOID_SHOT;
+    public static Enchantment WILD_RAGE;
 
     public static void init() {
         AMBUSH = new AmbushEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
@@ -79,6 +86,8 @@ public class EnchantsRegistry {
         JUNGLE_POISON = new JunglePoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         LEECHING = new LeechingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        PAIN_CYCLE = new PainCycleEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         POISON_CLOUD = new PoisonCloudEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
@@ -115,13 +124,17 @@ public class EnchantsRegistry {
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         BONUS_SHOT = new BonusShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        BURST_BOWSTRING = new BurstBowstringEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         CHAIN_REACTION = new ChainReactionEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         CHARGE = new ChargeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         COBWEB_SHOT = new CobwebShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
-                        new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         DIPPING_POISON = new DippingPoisonEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        DYNAMO = new DynamoEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         FUSE_SHOT = new FuseShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
@@ -129,15 +142,23 @@ public class EnchantsRegistry {
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         LEVITATION_SHOT = new LevitationShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        OVERCHARGE = new OverchargeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         PHANTOMS_MARK = new PhantomsMarkEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         REPLENISH = new ReplenishEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RICOCHET = new RicochetEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        SHADOW_SHOT = new ShadowShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        SHADOW_BARB = new ShadowBarbEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.CROSSBOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         TEMPO_THEFT = new TempoTheftEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         VOID_SHOT = new VoidShotEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        WILD_RAGE = new WildRageEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 }

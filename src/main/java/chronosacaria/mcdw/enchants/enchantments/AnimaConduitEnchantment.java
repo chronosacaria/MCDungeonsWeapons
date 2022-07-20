@@ -15,8 +15,8 @@ import net.minecraft.util.registry.Registry;
 
 public class AnimaConduitEnchantment extends HealingEnchantment {
 
-    public AnimaConduitEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
-        super(weight, type, slotTypes);
+    public AnimaConduitEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
+        super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT)){
             Registry.register(Registry.ENCHANTMENT,Mcdw.ID("anima_conduit"),this);
         }
@@ -35,7 +35,14 @@ public class AnimaConduitEnchantment extends HealingEnchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableRandomSelection.get(EnchantmentsID.ANIMA_CONDUIT);
+    }
+
+    @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT)
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.enableVillageTrading.get(EnchantmentsID.ANIMA_CONDUIT);
     }
 
     @Override

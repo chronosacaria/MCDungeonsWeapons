@@ -1,9 +1,8 @@
 package chronosacaria.mcdw.api.interfaces;
 
 public interface IMcdwEnchantedArrow {
-    //TODO Figure out new Accelerate code
-    int getAccelerateLevel();
-    void setAccelerateLevel(int accelerateLevel);
+    int getOvercharge();
+    void setOvercharge(int overcharge);
 
     int getChainReactionLevel();
     void setChainReactionLevel(int chainReactionLevel);
@@ -13,6 +12,9 @@ public interface IMcdwEnchantedArrow {
 
     int getCobwebShotLevel();
     void setCobwebShotLevel(int cobwebShotLevel);
+
+    int getDynamoLevel();
+    void setDynamoLevel(int dynamoLevel);
 
     int getEnigmaResonatorLevel();
     void setEnigmaResonatorLevel(int enigmaResonatorLevel);
@@ -47,10 +49,19 @@ public interface IMcdwEnchantedArrow {
     int getRicochetLevel();
     void setRicochetLevel(int ricochetLevel);
 
+    boolean getShadowBarbBoolean();
+    void setShadowBarbBoolean(boolean shadowBarbBoolean);
+
+    int getShadowShotLevel();
+    void setShadowShotLevel(int shadowShotLevel);
+
     int getTempoTheftLevel();
     void setTempoTheftLevel(int tempoTheftLevel);
 
     int getVoidShotLevel();
     void setVoidShotLevel(int voidShotLevel);
+
+    int getWildRageLevel();
+    void setWildRageLevel(int wildRageLevel);
 
 }
