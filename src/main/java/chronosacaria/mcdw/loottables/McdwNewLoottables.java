@@ -2,8 +2,6 @@ package chronosacaria.mcdw.loottables;
 
 import chronosacaria.mcdw.enums.*;
 import chronosacaria.mcdw.items.ItemsInit;
-import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
-import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;

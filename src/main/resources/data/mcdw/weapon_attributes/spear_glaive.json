@@ -1,0 +1,5 @@
+{
+  "attack_range": 3.5,
+  "parent": "bettercombat:glaive",
+  "two_handed": true
+}

@@ -2,7 +2,6 @@ package chronosacaria.mcdw.effects;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
-import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
@@ -53,8 +52,7 @@ public class EnchantmentEffects {
         int mainHandLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, playerEntity.getMainHandStack());
         int offHandLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, playerEntity.getOffHandStack());
 
-        int soulDevourerLevel = playerEntity.getOffHandStack().getItem() instanceof IOffhandAttack ?
-                mainHandLevel + offHandLevel : mainHandLevel;
+        int soulDevourerLevel = mainHandLevel + offHandLevel;
 
         if (soulDevourerLevel > 0)
             return Math.round((float) amount * (1 + ((float) soulDevourerLevel / 3f)));
