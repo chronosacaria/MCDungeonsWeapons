@@ -254,9 +254,9 @@ public class McdwNewStatsConfig implements ConfigData {
         spearStats(materialToString(ToolMaterials.IRON),5, -2.5f, SpearsID.SPEAR_WHISPERING_SPEAR);
         spearStats(materialToString(ToolMaterials.IRON),4, -2.15f, SpearsID.SPEAR_FORTUNE);
 
-        staffStats(materialToString(ToolMaterials.WOOD),0, -0.1f, StavesID.STAFF_BATTLESTAFF);
-        staffStats(materialToString(ToolMaterials.IRON),1, -0.1f, StavesID.STAFF_GROWING_STAFF);
-        staffStats(materialToString(ToolMaterials.IRON),0, -0.1f, StavesID.STAFF_BATTLESTAFF_OF_TERROR);
+        staffStats(materialToString(ToolMaterials.WOOD),2, -0.1f, StavesID.STAFF_BATTLESTAFF);
+        staffStats(materialToString(ToolMaterials.IRON),3, -0.1f, StavesID.STAFF_GROWING_STAFF);
+        staffStats(materialToString(ToolMaterials.IRON),2, -0.1f, StavesID.STAFF_BATTLESTAFF_OF_TERROR);
 
         whipStats(materialToString(ToolMaterials.IRON),2, -3.1f, WhipsID.WHIP_WHIP);
         whipStats(materialToString(ToolMaterials.IRON),5, -3.1f, WhipsID.WHIP_VINE_WHIP);
