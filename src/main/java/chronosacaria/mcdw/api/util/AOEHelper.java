@@ -67,10 +67,8 @@ public class AOEHelper {
     }
 
     public static void electrocuteNearbyEnemies(LivingEntity user, float distance, float damageAmount, int limit) {
-        user.world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER,
-            SoundCategory.WEATHER, 1.0F, 1.0F);
-        user.world.playSound(null, user.getX(), user.getY(), user.getZ(),SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT,
-            SoundCategory.WEATHER, 1.0F, 1.0F);
+        CleanlinessHelper.playCenteredSound(user, SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.WEATHER, 1f, 1f);
+        CleanlinessHelper.playCenteredSound(user, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER, 1f, 1f);
 
         for (LivingEntity nearbyEntity : getAoeTargets(user, user, distance)) {
             electrocute(user, nearbyEntity, damageAmount);

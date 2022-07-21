@@ -45,10 +45,7 @@ public class McdwCrossbow extends CrossbowItem {
 
     @Override
     public boolean isUsedOnRelease(ItemStack stack){
-        for (CrossbowsID crossbowsID : CrossbowsID.values())
-            if (stack.isOf(ItemsInit.crossbowItems.get(crossbowsID)))
-                return true;
-        return false;
+        return stack.isOf(this);
     }
 
     public int getDrawSpeed(){
