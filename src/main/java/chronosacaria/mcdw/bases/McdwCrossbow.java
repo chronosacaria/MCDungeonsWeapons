@@ -58,17 +58,12 @@ public class McdwCrossbow extends CrossbowItem {
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
-        for (CrossbowsID crossbowsID : CrossbowsID.values()) {
-            if (stack.isOf(ItemsInit.crossbowItems.get(crossbowsID))) {
-                int i = 1;
-                String str = crossbowsID.toString().toLowerCase(Locale.ROOT).substring(9);
-                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
-                while (I18n.hasTranslation(translationKey + i)) {
-                    tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
-                    i++;
-                }
-                break;
-            }
+        int i = 1;
+        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(19);
+        String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+        while (I18n.hasTranslation(translationKey + i)) {
+            tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
+            i++;
         }
     }
 }

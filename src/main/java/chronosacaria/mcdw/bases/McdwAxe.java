@@ -2,8 +2,6 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.enums.AxesID;
-import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.AxeItem;
@@ -26,19 +24,13 @@ public class McdwAxe extends AxeItem {
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
-        for (AxesID axesID : AxesID.values()) {
-            if (stack.getItem() == ItemsInit.axeItems.get(axesID)) {
-                int i = 1;
-                String str = axesID.toString().toLowerCase(Locale.ROOT).substring(4);
-                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
-                while (I18n.hasTranslation(translationKey + i)) {
-                    tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
-                    i++;
-                }
-                break;
-            }
+        int i = 1;
+        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(14);
+        String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+        while (I18n.hasTranslation(translationKey + i)) {
+            tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
+            i++;
         }
     }
-
 
 }

@@ -44,11 +44,7 @@ public class AbstractClientPlayerEntityMixin {
                     } else if (itemStack.getItem() instanceof McdwBow mcdwBow) {
                         int overcharge = (int) Math.min((i / mcdwBow.getDrawSpeed()) - 1, overchargeLevel);
                         i = overcharge == overchargeLevel ? i : (int) (i % mcdwBow.getDrawSpeed());
-                    } /* else if (itemStack.getItem() instanceof BowItem) {
-                        int overcharge = Math.min((i / BowItem.field_30855) - 1, overchargeLevel);
-                        i = overcharge == overchargeLevel ? i : i % BowItem.field_30855;
-                    } */
-                    //i /= overchargeLevel;
+                    }
                 }
                 float g = (float)i / 20.0F;
                 if (g > 1.0F) {

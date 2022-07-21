@@ -2,8 +2,6 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.enums.StavesID;
-import chronosacaria.mcdw.items.ItemsInit;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.BlockState;
@@ -100,17 +98,12 @@ public class McdwStaff extends AxeItem {
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
-        for (StavesID stavesID : StavesID.values()) {
-            if (stack.getItem() == ItemsInit.staffItems.get(stavesID)) {
-                int i = 1;
-                String str = stavesID.toString().toLowerCase(Locale.ROOT).substring(6);
-                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
-                while (I18n.hasTranslation(translationKey + i)) {
-                    tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
-                    i++;
-                }
-                break;
-            }
+        int i = 1;
+        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(16);
+        String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+        while (I18n.hasTranslation(translationKey + i)) {
+            tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
+            i++;
         }
     }
 }

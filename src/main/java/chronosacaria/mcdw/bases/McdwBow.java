@@ -93,17 +93,12 @@ public class McdwBow extends BowItem {
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
-        for (BowsID bowsID : BowsID.values()) {
-            if (stack.getItem() == ItemsInit.bowItems.get(bowsID)) {
-                int i = 1;
-                String str = bowsID.toString().toLowerCase(Locale.ROOT).substring(4);
-                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
-                while (I18n.hasTranslation(translationKey + i)) {
-                    tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
-                    i++;
-                }
-                break;
-            }
+        int i = 1;
+        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(14);
+        String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+        while (I18n.hasTranslation(translationKey + i)) {
+            tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
+            i++;
         }
         if (stack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE))
             tooltip.add(Text.translatable("tooltip_ench_item.mcdw.hunters_promise_1").formatted(Formatting.GRAY));
