@@ -1,0 +1,14 @@
+{
+  "attributes": {
+    "attack_range": 2.0,
+    "attacks": [
+      {
+        "hitbox": "FORWARD_BOX",
+        "damage_multiplier": 1,
+        "angle": 0,
+        "upswing": 0.5,
+        "animation": "bettercombat:one_handed_slam"
+      }
+    ]
+  }
+}
