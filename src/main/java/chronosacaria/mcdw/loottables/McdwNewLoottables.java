@@ -117,6 +117,7 @@ public class McdwNewLoottables {
                     addWeaponById(lootPoolBuilder, CrossbowsID.CROSSBOW_DUAL_CROSSBOW);
                     addWeaponById(lootPoolBuilder, CrossbowsID.CROSSBOW_BURST_CROSSBOW);
                     addWeaponById(lootPoolBuilder, CrossbowsID.CROSSBOW_HARPOON_CROSSBOW);
+                    tableBuilder.pool(lootPoolBuilder.build());
                 }
 
                 if (RARE_LOOT_TABLES.contains(id.toString())) {
@@ -188,7 +189,6 @@ public class McdwNewLoottables {
                     addWeaponById(lootPoolBuilder, CrossbowsID.CROSSBOW_VEILED_CROSSBOW);
                     addWeaponById(lootPoolBuilder, ShieldsID.SHIELD_VANGUARD);
                     addWeaponById(lootPoolBuilder, ShieldsID.SHIELD_ROYAL_GUARD);
-
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
 
@@ -216,7 +216,6 @@ public class McdwNewLoottables {
                     addWeaponById(lootPoolBuilder, CrossbowsID.CROSSBOW_DOOM_CROSSBOW);
                     addWeaponById(lootPoolBuilder, CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW);
                     addWeaponById(lootPoolBuilder, CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS);
-
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
             }
