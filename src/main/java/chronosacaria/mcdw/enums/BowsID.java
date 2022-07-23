@@ -1,6 +1,13 @@
 package chronosacaria.mcdw.enums;
 
-public enum BowsID {
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.Item;
+
+import java.util.EnumMap;
+import java.util.HashMap;
+
+public enum BowsID implements McdwWeaponID {
     BOW_ANCIENT_BOW,
     BOW_BONEBOW,
     BOW_BUBBLE_BOW,
@@ -30,5 +37,17 @@ public enum BowsID {
     BOW_WEB_BOW,
     BOW_WEEPING_VINE_BOW,
     BOW_WIND_BOW,
-    BOW_WINTERS_TOUCH
+    BOW_WINTERS_TOUCH;
+
+    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+        return ItemsInit.bowItems;
+    }
+
+    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+        return Mcdw.CONFIG.mcdwNewlootConfig.bowSpawnRates;
+    }
+
+    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.bowsEnabled;
+    }
 }

@@ -1,6 +1,13 @@
 package chronosacaria.mcdw.enums;
 
-public enum HammersID {
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.Item;
+
+import java.util.EnumMap;
+import java.util.HashMap;
+
+public enum HammersID implements McdwWeaponID {
     HAMMER_BONECLUB,
     HAMMER_BONE_CUDGEL,
     HAMMER_FLAIL,
@@ -8,5 +15,17 @@ public enum HammersID {
     HAMMER_GREAT_HAMMER,
     HAMMER_MACE,
     HAMMER_STORMLANDER,
-    HAMMER_SUNS_GRACE
+    HAMMER_SUNS_GRACE;
+
+    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+        return ItemsInit.hammerItems;
+    }
+
+    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+        return Mcdw.CONFIG.mcdwNewlootConfig.hammerSpawnRates;
+    }
+
+    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.hammersEnabled;
+    }
 }

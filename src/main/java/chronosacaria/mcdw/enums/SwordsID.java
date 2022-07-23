@@ -1,6 +1,13 @@
 package chronosacaria.mcdw.enums;
 
-public enum SwordsID {
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.Item;
+
+import java.util.EnumMap;
+import java.util.HashMap;
+
+public enum SwordsID implements McdwWeaponID {
     SWORD_BEESTINGER,
     SWORD_BROADSWORD,
     SWORD_BROKEN_SAWBLADE,
@@ -24,5 +31,17 @@ public enum SwordsID {
     SWORD_RAPIER,
     SWORD_SINISTER,
     SWORD_SPONGE_STRIKER,
-    SWORD_THE_STARLESS_NIGHT
+    SWORD_THE_STARLESS_NIGHT;
+
+    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+        return ItemsInit.swordItems;
+    }
+
+    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+        return Mcdw.CONFIG.mcdwNewlootConfig.swordSpawnRates;
+    }
+
+    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.swordsEnabled;
+    }
 }

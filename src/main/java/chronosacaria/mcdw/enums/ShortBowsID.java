@@ -1,8 +1,27 @@
 package chronosacaria.mcdw.enums;
 
-public enum ShortBowsID {
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.Item;
+
+import java.util.EnumMap;
+import java.util.HashMap;
+
+public enum ShortBowsID implements McdwWeaponID {
     BOW_LOVE_SPELL_BOW,
     BOW_MECHANICAL_SHORTBOW,
     BOW_PURPLE_STORM,
-    BOW_SHORTBOW
+    BOW_SHORTBOW;
+
+    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+        return ItemsInit.shortBowItems;
+    }
+
+    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+        return Mcdw.CONFIG.mcdwNewlootConfig.shortBowSpawnRates;
+    }
+
+    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.shortBowsEnabled;
+    }
 }
