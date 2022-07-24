@@ -39,7 +39,7 @@ public class ItemsInit {
 
     public static void init() {
         for (SwordsID swordsID : SwordsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.swordsEnabled.get(swordsID))
+            if (!swordsID.isEnabled())
                 continue;
 
             McdwSword weapon = new McdwSword(stringToMaterial(CONFIG.mcdwNewStatsConfig.swordStats.get(swordsID).material),
@@ -50,7 +50,7 @@ public class ItemsInit {
             registerItem(swordsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (AxesID axesID : AxesID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.axesEnabled.get(axesID))
+            if (!axesID.isEnabled())
                 continue;
 
             McdwAxe weapon = new McdwAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.axeStats.get(axesID).material),
@@ -61,7 +61,7 @@ public class ItemsInit {
             registerItem(axesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (DoubleAxesID doubleAxesID : DoubleAxesID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.doubleAxesEnabled.get(doubleAxesID))
+            if (!doubleAxesID.isEnabled())
                 continue;
 
             McdwDoubleAxe weapon = new McdwDoubleAxe(stringToMaterial(CONFIG.mcdwNewStatsConfig.doubleAxeStats.get(doubleAxesID).material),
@@ -72,7 +72,7 @@ public class ItemsInit {
             registerItem(doubleAxesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (DaggersID daggersID : DaggersID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.daggersEnabled.get(daggersID))
+            if (!daggersID.isEnabled())
                 continue;
 
             McdwDagger weapon = new McdwDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.daggerStats.get(daggersID).material),
@@ -83,7 +83,7 @@ public class ItemsInit {
             registerItem(daggersID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (SoulDaggersID soulDaggersID : SoulDaggersID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.soulDaggersEnabled.get(soulDaggersID))
+            if (!soulDaggersID.isEnabled())
                 continue;
 
             McdwSoulDagger weapon = new McdwSoulDagger(stringToMaterial(CONFIG.mcdwNewStatsConfig.soulDaggerStats.get(soulDaggersID).material),
@@ -94,7 +94,7 @@ public class ItemsInit {
             registerItem(soulDaggersID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (HammersID hammersID : HammersID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.hammersEnabled.get(hammersID))
+            if (!hammersID.isEnabled())
                 continue;
 
             McdwHammer weapon = new McdwHammer(stringToMaterial(CONFIG.mcdwNewStatsConfig.hammerStats.get(hammersID).material),
@@ -105,7 +105,7 @@ public class ItemsInit {
             registerItem(hammersID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (GauntletsID gauntletsID : GauntletsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.gauntletsEnabled.get(gauntletsID))
+            if (!gauntletsID.isEnabled())
                 continue;
 
             McdwGauntlet weapon = new McdwGauntlet(stringToMaterial(CONFIG.mcdwNewStatsConfig.gauntletStats.get(gauntletsID).material),
@@ -116,7 +116,7 @@ public class ItemsInit {
             registerItem(gauntletsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (SicklesID sicklesID : SicklesID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.sicklesEnabled.get(sicklesID))
+            if (!sicklesID.isEnabled())
                 continue;
 
             McdwSickle weapon = new McdwSickle(stringToMaterial(CONFIG.mcdwNewStatsConfig.sickleStats.get(sicklesID).material),
@@ -127,7 +127,7 @@ public class ItemsInit {
             registerItem(sicklesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (ScythesID scythesID : ScythesID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.scythesEnabled.get(scythesID))
+            if (!scythesID.isEnabled())
                 continue;
 
             McdwScythe weapon = new McdwScythe(stringToMaterial(CONFIG.mcdwNewStatsConfig.scytheStats.get(scythesID).material),
@@ -138,7 +138,7 @@ public class ItemsInit {
             registerItem(scythesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (PicksID picksID : PicksID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.picksEnabled.get(picksID))
+            if (!picksID.isEnabled())
                 continue;
 
             McdwPick weapon = new McdwPick(stringToMaterial(CONFIG.mcdwNewStatsConfig.pickStats.get(picksID).material),
@@ -149,7 +149,7 @@ public class ItemsInit {
             registerItem(picksID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (GlaivesID glaivesID : GlaivesID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.glaivesEnabled.get(glaivesID))
+            if (!glaivesID.isEnabled())
                 continue;
 
             McdwGlaive weapon = new McdwGlaive(stringToMaterial(CONFIG.mcdwNewStatsConfig.glaiveStats.get(glaivesID).material),
@@ -160,7 +160,7 @@ public class ItemsInit {
             registerItem(glaivesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (SpearsID spearsID : SpearsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.spearsEnabled.get(spearsID))
+            if (!spearsID.isEnabled())
                 continue;
 
             McdwSpear weapon = new McdwSpear(stringToMaterial(CONFIG.mcdwNewStatsConfig.spearStats.get(spearsID).material),
@@ -171,7 +171,7 @@ public class ItemsInit {
             registerItem(spearsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (StavesID stavesID : StavesID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.stavesEnabled.get(stavesID))
+            if (!stavesID.isEnabled())
                 continue;
 
             McdwStaff weapon = new McdwStaff(stringToMaterial(CONFIG.mcdwNewStatsConfig.staffStats.get(stavesID).material),
@@ -182,7 +182,7 @@ public class ItemsInit {
             registerItem(stavesID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (WhipsID whipsID : WhipsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.whipsEnabled.get(whipsID))
+            if (!whipsID.isEnabled())
                 continue;
 
             McdwWhip weapon = new McdwWhip(stringToMaterial(CONFIG.mcdwNewStatsConfig.whipStats.get(whipsID).material),
@@ -193,7 +193,7 @@ public class ItemsInit {
             registerItem(whipsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (BowsID bowsID : BowsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(bowsID))
+            if (!bowsID.isEnabled())
                 continue;
 
             McdwBow weapon = new McdwBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.bowStats.get(bowsID).material),
@@ -204,7 +204,7 @@ public class ItemsInit {
             registerItem(bowsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (ShortBowsID shortBowsID : ShortBowsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.shortBowsEnabled.get(shortBowsID))
+            if (!shortBowsID.isEnabled())
                 continue;
 
             McdwShortBow weapon = new McdwShortBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.shortBowStats.get(shortBowsID).material),
@@ -215,7 +215,7 @@ public class ItemsInit {
             registerItem(shortBowsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (LongBowsID longBowsID : LongBowsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.longBowsEnabled.get(longBowsID))
+            if (!longBowsID.isEnabled())
                 continue;
 
             McdwLongBow weapon = new McdwLongBow(stringToMaterial(CONFIG.mcdwNewStatsConfig.longBowStats.get(longBowsID).material),
@@ -226,7 +226,7 @@ public class ItemsInit {
             registerItem(longBowsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (CrossbowsID crossbowsID : CrossbowsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.crossbowsEnabled.get(crossbowsID))
+            if (!crossbowsID.isEnabled())
                 continue;
 
             McdwCrossbow weapon = new McdwCrossbow(stringToMaterial(CONFIG.mcdwNewStatsConfig.crossbowStats.get(crossbowsID).material),
@@ -237,7 +237,7 @@ public class ItemsInit {
             registerItem(crossbowsID.toString().toLowerCase(Locale.ROOT), weapon);
         }
         for (ShieldsID shieldsID : ShieldsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.shieldsEnabled.get(shieldsID))
+            if (!shieldsID.isEnabled())
                 continue;
 
             McdwShield shield = new McdwShield(stringToMaterial(CONFIG.mcdwNewStatsConfig.shieldStats.get(shieldsID).material));
