@@ -12,15 +12,15 @@ public enum SoulDaggersID implements McdwWeaponID {
     DAGGER_SOUL_KNIFE,
     SWORD_TRUTHSEEKER;
 
-    public HashMap<SoulDaggersID, Boolean> getEnabledItems(){
+    public static HashMap<SoulDaggersID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.soulDaggersEnabled;
     }
 
-    public EnumMap<SoulDaggersID, McdwSoulDagger> getItemsEnum() {
+    public static EnumMap<SoulDaggersID, McdwSoulDagger> getItemsEnum() {
         return ItemsInit.soulDaggerItems;
     }
 
-    public HashMap<SoulDaggersID, Float> getSpawnRates() {
+    public static HashMap<SoulDaggersID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates;
     }
 

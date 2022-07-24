@@ -11,15 +11,15 @@ public enum WhipsID implements McdwWeaponID {
     WHIP_VINE_WHIP,
     WHIP_WHIP;
 
-    public HashMap<WhipsID, Boolean> getEnabledItems(){
+    public static HashMap<WhipsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.whipsEnabled;
     }
 
-    public EnumMap<WhipsID, McdwWhip> getItemsEnum() {
+    public static EnumMap<WhipsID, McdwWhip> getItemsEnum() {
         return ItemsInit.whipItems;
     }
 
-    public HashMap<WhipsID, Float> getSpawnRates() {
+    public static HashMap<WhipsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.whipSpawnRates;
     }
 

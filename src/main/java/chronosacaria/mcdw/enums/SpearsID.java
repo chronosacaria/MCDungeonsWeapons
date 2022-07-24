@@ -12,15 +12,15 @@ public enum SpearsID implements McdwWeaponID {
     SPEAR_WHISPERING_SPEAR,
     SPEAR_FORTUNE;
 
-    public HashMap<SpearsID, Boolean> getEnabledItems(){
+    public static HashMap<SpearsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.spearsEnabled;
     }
 
-    public EnumMap<SpearsID, McdwSpear> getItemsEnum() {
+    public static EnumMap<SpearsID, McdwSpear> getItemsEnum() {
         return ItemsInit.spearItems;
     }
 
-    public HashMap<SpearsID, Float> getSpawnRates() {
+    public static HashMap<SpearsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.spearSpawnRates;
     }
 

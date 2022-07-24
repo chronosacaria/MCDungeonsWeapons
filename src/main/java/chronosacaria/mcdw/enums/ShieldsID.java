@@ -11,15 +11,15 @@ public enum ShieldsID implements McdwWeaponID {
     SHIELD_ROYAL_GUARD,
     SHIELD_VANGUARD;
 
-    public HashMap<ShieldsID, Boolean> getEnabledItems(){
+    public static HashMap<ShieldsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.shieldsEnabled;
     }
 
-    public EnumMap<ShieldsID, McdwShield> getItemsEnum() {
+    public static EnumMap<ShieldsID, McdwShield> getItemsEnum() {
         return ItemsInit.shieldItems;
     }
 
-    public HashMap<ShieldsID, Float> getSpawnRates() {
+    public static HashMap<ShieldsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.shieldSpawnRates;
     }
 

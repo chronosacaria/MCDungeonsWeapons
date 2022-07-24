@@ -21,15 +21,15 @@ public enum DaggersID implements McdwWeaponID {
     DAGGER_THE_END,
     DAGGER_VOID_TOUCHED_BLADE;
 
-    public HashMap<DaggersID, Boolean> getEnabledItems(){
+    public static HashMap<DaggersID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.daggersEnabled;
     }
 
-    public EnumMap<DaggersID, McdwDagger> getItemsEnum() {
+    public static EnumMap<DaggersID, McdwDagger> getItemsEnum() {
         return ItemsInit.daggerItems;
     }
 
-    public HashMap<DaggersID, Float> getSpawnRates() {
+    public static HashMap<DaggersID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.daggerSpawnRates;
     }
 

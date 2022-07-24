@@ -13,15 +13,15 @@ public enum GlaivesID implements McdwWeaponID {
     SPEAR_GRAVE_BANE,
     SPEAR_VENOM_GLAIVE;
 
-    public HashMap<GlaivesID, Boolean> getEnabledItems(){
+    public static HashMap<GlaivesID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.glaivesEnabled;
     }
 
-    public EnumMap<GlaivesID, McdwGlaive> getItemsEnum() {
+    public static EnumMap<GlaivesID, McdwGlaive> getItemsEnum() {
         return ItemsInit.glaiveItems;
     }
 
-    public HashMap<GlaivesID, Float> getSpawnRates() {
+    public static HashMap<GlaivesID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.glaiveSpawnRates;
     }
 

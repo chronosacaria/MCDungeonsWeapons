@@ -12,15 +12,15 @@ public enum DoubleAxesID implements McdwWeaponID {
     AXE_DOUBLE,
     AXE_WHIRLWIND;
 
-    public HashMap<DoubleAxesID, Boolean> getEnabledItems(){
+    public static HashMap<DoubleAxesID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.doubleAxesEnabled;
     }
 
-    public EnumMap<DoubleAxesID, McdwDoubleAxe> getItemsEnum() {
+    public static EnumMap<DoubleAxesID, McdwDoubleAxe> getItemsEnum() {
         return ItemsInit.doubleAxeItems;
     }
 
-    public HashMap<DoubleAxesID, Float> getSpawnRates() {
+    public static HashMap<DoubleAxesID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates;
     }
 

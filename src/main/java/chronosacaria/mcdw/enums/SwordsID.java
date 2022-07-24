@@ -33,15 +33,15 @@ public enum SwordsID implements McdwWeaponID {
     SWORD_SPONGE_STRIKER,
     SWORD_THE_STARLESS_NIGHT;
 
-    public HashMap<SwordsID, Boolean> getEnabledItems(){
+    public static HashMap<SwordsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.swordsEnabled;
     }
 
-    public EnumMap<SwordsID, McdwSword> getItemsEnum() {
+    public static EnumMap<SwordsID, McdwSword> getItemsEnum() {
         return ItemsInit.swordItems;
     }
 
-    public HashMap<SwordsID, Float> getSpawnRates() {
+    public static HashMap<SwordsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.swordSpawnRates;
     }
 

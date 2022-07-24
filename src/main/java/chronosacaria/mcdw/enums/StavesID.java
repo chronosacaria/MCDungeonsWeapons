@@ -12,15 +12,15 @@ public enum StavesID implements McdwWeaponID {
     STAFF_BATTLESTAFF_OF_TERROR,
     STAFF_GROWING_STAFF;
 
-    public HashMap<StavesID, Boolean> getEnabledItems(){
+    public static HashMap<StavesID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.stavesEnabled;
     }
 
-    public EnumMap<StavesID, McdwStaff> getItemsEnum() {
+    public static EnumMap<StavesID, McdwStaff> getItemsEnum() {
         return ItemsInit.staffItems;
     }
 
-    public HashMap<StavesID, Float> getSpawnRates() {
+    public static HashMap<StavesID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.staffSpawnRates;
     }
 

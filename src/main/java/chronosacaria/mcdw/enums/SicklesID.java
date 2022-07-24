@@ -13,15 +13,15 @@ public enum SicklesID implements McdwWeaponID {
     SICKLE_NIGHTMARES_BITE,
     SICKLE_SICKLE;
 
-    public HashMap<SicklesID, Boolean> getEnabledItems(){
+    public static HashMap<SicklesID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.sicklesEnabled;
     }
 
-    public EnumMap<SicklesID, McdwSickle> getItemsEnum() {
+    public static EnumMap<SicklesID, McdwSickle> getItemsEnum() {
         return ItemsInit.sickleItems;
     }
 
-    public HashMap<SicklesID, Float> getSpawnRates() {
+    public static HashMap<SicklesID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.sickleSpawnRates;
     }
 

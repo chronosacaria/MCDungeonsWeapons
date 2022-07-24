@@ -38,15 +38,15 @@ public enum CrossbowsID implements McdwWeaponID {
     CROSSBOW_VEILED_CROSSBOW,
     CROSSBOW_VOIDCALLER_CROSSBOW;
 
-    public HashMap<CrossbowsID, Boolean> getEnabledItems(){
+    public static HashMap<CrossbowsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.crossbowsEnabled;
     }
 
-    public EnumMap<CrossbowsID, McdwCrossbow> getItemsEnum() {
+    public static EnumMap<CrossbowsID, McdwCrossbow> getItemsEnum() {
         return ItemsInit.crossbowItems;
     }
 
-    public HashMap<CrossbowsID, Float> getSpawnRates() {
+    public static HashMap<CrossbowsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.crossbowSpawnRates;
     }
 

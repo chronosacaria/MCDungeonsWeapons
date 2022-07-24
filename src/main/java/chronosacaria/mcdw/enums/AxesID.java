@@ -14,15 +14,15 @@ public enum AxesID implements McdwWeaponID {
     AXE_FIREBRAND,
     AXE_HIGHLAND;
 
-    public HashMap<AxesID, Boolean> getEnabledItems(){
+    public static HashMap<AxesID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.axesEnabled;
     }
 
-    public EnumMap<AxesID, McdwAxe> getItemsEnum() {
+    public static EnumMap<AxesID, McdwAxe> getItemsEnum() {
         return ItemsInit.axeItems;
     }
 
-    public HashMap<AxesID, Float> getSpawnRates() {
+    public static HashMap<AxesID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.axeSpawnRates;
     }
 

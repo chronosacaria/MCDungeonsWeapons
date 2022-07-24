@@ -13,15 +13,15 @@ public enum PicksID implements McdwWeaponID {
     PICK_HOWLING_PICK,
     PICK_MOUNTAINEER_PICK;
 
-    public HashMap<PicksID, Boolean> getEnabledItems(){
+    public static HashMap<PicksID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.picksEnabled;
     }
 
-    public EnumMap<PicksID, McdwPick> getItemsEnum() {
+    public static EnumMap<PicksID, McdwPick> getItemsEnum() {
         return ItemsInit.pickItems;
     }
 
-    public HashMap<PicksID, Float> getSpawnRates() {
+    public static HashMap<PicksID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.pickSpawnRates;
     }
 

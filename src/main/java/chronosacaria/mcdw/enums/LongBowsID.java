@@ -12,15 +12,15 @@ public enum LongBowsID implements McdwWeaponID {
     BOW_LONGBOW,
     BOW_RED_SNAKE;
 
-    public HashMap<LongBowsID, Boolean> getEnabledItems(){
+    public static HashMap<LongBowsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.longBowsEnabled;
     }
 
-    public EnumMap<LongBowsID, McdwLongBow> getItemsEnum() {
+    public static EnumMap<LongBowsID, McdwLongBow> getItemsEnum() {
         return ItemsInit.longBowItems;
     }
 
-    public HashMap<LongBowsID, Float> getSpawnRates() {
+    public static HashMap<LongBowsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.longBowSpawnRates;
     }
 

@@ -39,15 +39,15 @@ public enum BowsID implements McdwWeaponID {
     BOW_WIND_BOW,
     BOW_WINTERS_TOUCH;
 
-    public HashMap<BowsID, Boolean> getEnabledItems(){
+    public static HashMap<BowsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.bowsEnabled;
     }
 
-    public EnumMap<BowsID, McdwBow> getItemsEnum() {
+    public static EnumMap<BowsID, McdwBow> getItemsEnum() {
         return ItemsInit.bowItems;
     }
 
-    public HashMap<BowsID, Float> getSpawnRates() {
+    public static HashMap<BowsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.bowSpawnRates;
     }
 

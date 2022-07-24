@@ -13,15 +13,15 @@ public enum ScythesID implements McdwWeaponID {
     SICKLE_SKULL_SCYTHE,
     SICKLE_SOUL_SCYTHE;
 
-    public HashMap<ScythesID, Boolean> getEnabledItems(){
+    public static HashMap<ScythesID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.scythesEnabled;
     }
 
-    public EnumMap<ScythesID, McdwScythe> getItemsEnum() {
+    public static EnumMap<ScythesID, McdwScythe> getItemsEnum() {
         return ItemsInit.scytheItems;
     }
 
-    public HashMap<ScythesID, Float> getSpawnRates() {
+    public static HashMap<ScythesID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.scytheSpawnRates;
     }
 

@@ -17,15 +17,15 @@ public enum HammersID implements McdwWeaponID {
     HAMMER_STORMLANDER,
     HAMMER_SUNS_GRACE;
 
-    public HashMap<HammersID, Boolean> getEnabledItems(){
+    public static HashMap<HammersID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.hammersEnabled;
     }
 
-    public EnumMap<HammersID, McdwHammer> getItemsEnum() {
+    public static EnumMap<HammersID, McdwHammer> getItemsEnum() {
         return ItemsInit.hammerItems;
     }
 
-    public HashMap<HammersID, Float> getSpawnRates() {
+    public static HashMap<HammersID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.hammerSpawnRates;
     }
 

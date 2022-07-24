@@ -13,15 +13,15 @@ public enum ShortBowsID implements McdwWeaponID {
     BOW_PURPLE_STORM,
     BOW_SHORTBOW;
 
-    public HashMap<ShortBowsID, Boolean> getEnabledItems(){
+    public static HashMap<ShortBowsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.shortBowsEnabled;
     }
 
-    public EnumMap<ShortBowsID, McdwShortBow> getItemsEnum() {
+    public static EnumMap<ShortBowsID, McdwShortBow> getItemsEnum() {
         return ItemsInit.shortBowItems;
     }
 
-    public HashMap<ShortBowsID, Float> getSpawnRates() {
+    public static HashMap<ShortBowsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.shortBowSpawnRates;
     }
 

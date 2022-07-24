@@ -12,15 +12,15 @@ public enum GauntletsID implements McdwWeaponID {
     GAUNTLET_MAULERS,
     GAUNTLET_SOUL_FISTS;
 
-    public HashMap<GauntletsID, Boolean> getEnabledItems(){
+    public static HashMap<GauntletsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.gauntletsEnabled;
     }
 
-    public EnumMap<GauntletsID, McdwGauntlet> getItemsEnum() {
+    public static EnumMap<GauntletsID, McdwGauntlet> getItemsEnum() {
         return ItemsInit.gauntletItems;
     }
 
-    public HashMap<GauntletsID, Float> getSpawnRates() {
+    public static HashMap<GauntletsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.gauntletSpawnRates;
     }
 
