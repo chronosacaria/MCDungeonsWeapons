@@ -2,10 +2,13 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwGauntlet;
+import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+
+import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum GauntletsID implements McdwWeaponID {
     GAUNTLET_GAUNTLET,
@@ -24,6 +27,10 @@ public enum GauntletsID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.gauntletSpawnRates;
     }
 
+    public static HashMap<GauntletsID, MeleeWeaponStats> getWeaponStats() {
+        return CONFIG.mcdwNewStatsConfig.gauntletStats;
+    }
+
     public Boolean isEnabled(){
         return getEnabledItems().get(this);
     }
@@ -36,5 +43,9 @@ public enum GauntletsID implements McdwWeaponID {
     @Override
     public Float getItemSpawnRate() {
         return getSpawnRates().get(this);
+    }
+
+    public MeleeWeaponStats getWeaponItemStats() {
+        return getWeaponStats().get(this);
     }
 }

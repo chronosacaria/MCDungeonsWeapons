@@ -2,10 +2,13 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwDoubleAxe;
+import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+
+import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum DoubleAxesID implements McdwWeaponID {
     AXE_CURSED,
@@ -24,6 +27,10 @@ public enum DoubleAxesID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates;
     }
 
+    public static HashMap<DoubleAxesID, MeleeWeaponStats> getWeaponStats() {
+        return CONFIG.mcdwNewStatsConfig.doubleAxeStats;
+    }
+
     public Boolean isEnabled(){
         return getEnabledItems().get(this);
     }
@@ -36,5 +43,9 @@ public enum DoubleAxesID implements McdwWeaponID {
     @Override
     public Float getItemSpawnRate() {
         return getSpawnRates().get(this);
+    }
+
+    public MeleeWeaponStats getWeaponItemStats() {
+        return getWeaponStats().get(this);
     }
 }

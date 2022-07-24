@@ -2,10 +2,13 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwShield;
+import chronosacaria.mcdw.configs.stats.ShieldStats;
 import chronosacaria.mcdw.items.ItemsInit;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+
+import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ShieldsID implements McdwWeaponID {
     SHIELD_ROYAL_GUARD,
@@ -23,6 +26,10 @@ public enum ShieldsID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.shieldSpawnRates;
     }
 
+    public static HashMap<ShieldsID, ShieldStats> getWeaponStats() {
+        return CONFIG.mcdwNewStatsConfig.shieldStats;
+    }
+
     public Boolean isEnabled(){
         return getEnabledItems().get(this);
     }
@@ -35,5 +42,9 @@ public enum ShieldsID implements McdwWeaponID {
     @Override
     public Float getItemSpawnRate() {
         return getSpawnRates().get(this);
+    }
+
+    public ShieldStats getWeaponItemStats() {
+        return getWeaponStats().get(this);
     }
 }

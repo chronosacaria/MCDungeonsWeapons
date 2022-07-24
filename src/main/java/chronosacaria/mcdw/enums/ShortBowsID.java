@@ -2,10 +2,13 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwShortBow;
+import chronosacaria.mcdw.configs.stats.RangedWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+
+import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ShortBowsID implements McdwWeaponID {
     BOW_LOVE_SPELL_BOW,
@@ -25,6 +28,10 @@ public enum ShortBowsID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.shortBowSpawnRates;
     }
 
+    public static HashMap<ShortBowsID, RangedWeaponStats> getWeaponStats() {
+        return CONFIG.mcdwNewStatsConfig.shortBowStats;
+    }
+
     public Boolean isEnabled(){
         return getEnabledItems().get(this);
     }
@@ -37,5 +44,9 @@ public enum ShortBowsID implements McdwWeaponID {
     @Override
     public Float getItemSpawnRate() {
         return getSpawnRates().get(this);
+    }
+
+    public RangedWeaponStats getWeaponItemStats() {
+        return getWeaponStats().get(this);
     }
 }

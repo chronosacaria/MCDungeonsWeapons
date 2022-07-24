@@ -2,10 +2,13 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwBow;
+import chronosacaria.mcdw.configs.stats.RangedWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+
+import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum BowsID implements McdwWeaponID {
     BOW_ANCIENT_BOW,
@@ -51,6 +54,10 @@ public enum BowsID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.bowSpawnRates;
     }
 
+    public static HashMap<BowsID, RangedWeaponStats> getWeaponStats() {
+        return CONFIG.mcdwNewStatsConfig.bowStats;
+    }
+
     public Boolean isEnabled(){
         return getEnabledItems().get(this);
     }
@@ -63,5 +70,9 @@ public enum BowsID implements McdwWeaponID {
     @Override
     public Float getItemSpawnRate() {
         return getSpawnRates().get(this);
+    }
+
+    public RangedWeaponStats getWeaponItemStats() {
+        return getWeaponStats().get(this);
     }
 }

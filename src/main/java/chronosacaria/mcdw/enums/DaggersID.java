@@ -2,10 +2,13 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwDagger;
+import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+
+import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum DaggersID implements McdwWeaponID {
     DAGGER_BACKSTABBER,
@@ -33,6 +36,10 @@ public enum DaggersID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.daggerSpawnRates;
     }
 
+    public static HashMap<DaggersID, MeleeWeaponStats> getWeaponStats() {
+        return CONFIG.mcdwNewStatsConfig.daggerStats;
+    }
+
     public Boolean isEnabled(){
         return getEnabledItems().get(this);
     }
@@ -45,5 +52,9 @@ public enum DaggersID implements McdwWeaponID {
     @Override
     public Float getItemSpawnRate() {
         return getSpawnRates().get(this);
+    }
+
+    public MeleeWeaponStats getWeaponItemStats() {
+        return getWeaponStats().get(this);
     }
 }
