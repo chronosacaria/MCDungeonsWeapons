@@ -14,29 +14,28 @@ import net.minecraft.world.World;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 public class ProjectileEffectHelper {
 
-    public static void riochetArrowTowardsOtherEntity (LivingEntity user, int distance,
-                                                       double bonusShotDamageMultiplier, float arrowVelocity){
+    public static void riochetArrowTowardsOtherEntity(LivingEntity user, int distance,
+                                                      double bonusShotDamageMultiplier, float arrowVelocity) {
         World world = user.getEntityWorld();
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(user.getBlockPos()).expand(distance),
                 (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, user, user));
-        if(nearbyEntities.size() < 2) return;
+        if (nearbyEntities.size() < 2) return;
         nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(user)));
         LivingEntity target = nearbyEntities.get(0);
-        if (target != null){
+        if (target != null) {
             ArrowItem arrowItem = (ArrowItem) Items.ARROW;
-            PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, new ItemStack(Items.ARROW),user);
+            PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, new ItemStack(Items.ARROW), user);
             persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() * bonusShotDamageMultiplier);
 
             double towardsX = target.getX() - user.getX();
             double towardsZ = target.getZ() - user.getZ();
             double euclideanDistance = MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
             double towardsY =
-                    target.getBodyY(0.3333333333333333D) - persistentProjectileEntity.getY() + euclideanDistance * (double)0.2F;
+                    target.getBodyY(0.3333333333333333D) - persistentProjectileEntity.getY() + euclideanDistance * (double) 0.2F;
             persistentProjectileEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f,
                     arrowVelocity * 3.0f,
                     1.0f);
@@ -48,16 +47,16 @@ public class ProjectileEffectHelper {
         }
     }
 
-    public static void fireBonusShotTowardsOtherEntity(LivingEntity attacker, int distance, double bonusShotDamageMultiplier, float arrowVelocity){
+    public static void fireBonusShotTowardsOtherEntity(LivingEntity attacker, int distance, double bonusShotDamageMultiplier, float arrowVelocity) {
         World world = attacker.getEntityWorld();
         //boolean nullListFlag = arrowEntity.hitEntities == null;
         List<LivingEntity> nearbyEntities = world.getEntitiesByClass(LivingEntity.class,
                 new Box(attacker.getX() - distance, attacker.getY() - distance, attacker.getZ() - distance,
-                attacker.getX() + distance, attacker.getY() + distance, attacker.getZ() + distance), (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, attacker, attacker));
-        if(nearbyEntities.size() < 2) return;
+                        attacker.getX() + distance, attacker.getY() + distance, attacker.getZ() + distance), (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, attacker, attacker));
+        if (nearbyEntities.size() < 2) return;
         nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(attacker)));
-        LivingEntity target =  nearbyEntities.get(0);
-        if(target != null){
+        LivingEntity target = nearbyEntities.get(0);
+        if (target != null) {
             ArrowItem arrowItem = (ArrowItem) Items.ARROW;
             PersistentProjectileEntity arrowEntity = arrowItem.createArrow(world, new ItemStack(Items.ARROW), attacker);
             arrowEntity.setDamage(arrowEntity.getDamage() * bonusShotDamageMultiplier);
@@ -65,7 +64,7 @@ public class ProjectileEffectHelper {
             double towardsX = target.getX() - attacker.getX();
             double towardsZ = target.getZ() - attacker.getZ();
             double euclideanDist = MathHelper.sqrt((float) (towardsX * towardsX + towardsZ * towardsZ));
-            double towardsY = target.getBodyY(0.3333333333333333D) - arrowEntity.getY() + euclideanDist * (double)0.2F;
+            double towardsY = target.getBodyY(0.3333333333333333D) - arrowEntity.getY() + euclideanDist * (double) 0.2F;
             arrowEntity.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F,
                     1.0F);
             setProjectileTowards(arrowEntity, towardsX, towardsY, towardsZ, 0);
@@ -87,29 +86,16 @@ public class ProjectileEffectHelper {
         abstractArrowEntity.setSound(SoundEvents.ITEM_CROSSBOW_HIT);
         abstractArrowEntity.setShotFromCrossbow(true);
         abstractArrowEntity.addScoreboardTag("ChainReactionProjectile");
-        Set<String> originalArrowTags = originalArrow.getScoreboardTags();
-        for(String tag : originalArrowTags){
-            abstractArrowEntity.addScoreboardTag(tag);
-        }
+        originalArrow.getScoreboardTags().forEach(abstractArrowEntity::addScoreboardTag);
         return abstractArrowEntity;
     }
 
     public static void fireChainReactionProjectiles(World world, LivingEntity attacker, LivingEntity victim, float v,
                                                     float v1, PersistentProjectileEntity originalArrow) {
-        for(int i = 0; i < 4; ++i) {
-            ItemStack currentProjectile = new ItemStack(Items.ARROW);
-            if (!currentProjectile.isEmpty()) {
-                if (i == 0) {
-                    fireChainReactionProjectileFromVictim(world, attacker, victim,  currentProjectile, v, v1, 45.0F,originalArrow);
-                } else if (i == 1) {
-                    fireChainReactionProjectileFromVictim(world, attacker,  victim, currentProjectile, v, v1, -45.0F, originalArrow);
-                } else if (i == 2) {
-                    fireChainReactionProjectileFromVictim(world, attacker,  victim, currentProjectile, v, v1, 135.0F, originalArrow);
-                } else {
-                    fireChainReactionProjectileFromVictim(world, attacker,  victim, currentProjectile, v, v1, -135.0F, originalArrow);
-                }
-            }
-        }
+        fireChainReactionProjectileFromVictim(world, attacker, victim, new ItemStack(Items.ARROW), v, v1, 45.0F, originalArrow);
+        fireChainReactionProjectileFromVictim(world, attacker, victim, new ItemStack(Items.ARROW), v, v1, -45.0F, originalArrow);
+        fireChainReactionProjectileFromVictim(world, attacker, victim, new ItemStack(Items.ARROW), v, v1, 135.0F, originalArrow);
+        fireChainReactionProjectileFromVictim(world, attacker, victim, new ItemStack(Items.ARROW), v, v1, -135.0F, originalArrow);
     }
 
     private static void fireChainReactionProjectileFromVictim(World world, LivingEntity attacker, LivingEntity victim
@@ -160,19 +146,19 @@ public class ProjectileEffectHelper {
     }
 
     public static void setProjectileTowards(ProjectileEntity projectileEntity, double x, double y
-            , double z, float inaccuracy){
+            , double z, float inaccuracy) {
         Random random = new Random();
-        Vec3d vec3d = (new Vec3d(x, y, z))
+        Vec3d vec3d = new Vec3d(x, y, z)
                 .normalize()
                 .add(
-                        random.nextGaussian() * (double)0.0075f * (double)inaccuracy,
-                        random.nextGaussian() * (double)0.0075f * (double)inaccuracy,
-                        random.nextGaussian() * (double)0.0075f * (double)inaccuracy);
+                        random.nextGaussian() * 0.0075d * (double) inaccuracy,
+                        random.nextGaussian() * 0.0075d * (double) inaccuracy,
+                        random.nextGaussian() * 0.0075d * (double) inaccuracy);
         projectileEntity.setVelocity(vec3d);
         float f = MathHelper.sqrt((float) projectileEntity.squaredDistanceTo(vec3d));
         //noinspection SuspiciousNameCombination
-        projectileEntity.setYaw((float)(MathHelper.atan2(vec3d.x, vec3d.z) * (double)(180f / (float)Math.PI)));
-        projectileEntity.setPitch((float)(MathHelper.atan2(vec3d.y, f) * (double)(180f / (float)Math.PI)));
+        projectileEntity.setYaw((float) (MathHelper.atan2(vec3d.x, vec3d.z) * (double) (180f / (float) Math.PI)));
+        projectileEntity.setPitch((float) (MathHelper.atan2(vec3d.y, f) * (double) (180f / (float) Math.PI)));
         projectileEntity.prevYaw = projectileEntity.getYaw();
         projectileEntity.prevPitch = projectileEntity.getPitch();
     }

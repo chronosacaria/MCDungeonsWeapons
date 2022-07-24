@@ -4,6 +4,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.collection.DefaultedList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,16 +16,7 @@ public class InventoryHelper {
     }
 
     public static boolean mcdw$hasItem(PlayerEntity playerEntity, Item item, int count) {
-        PlayerInventory playerInventory = playerEntity.getInventory();
-        for (int slotID = 0; slotID < playerInventory.size(); slotID++) {
-            ItemStack currentStack = playerInventory.getStack(slotID);
-            if (currentStack.getItem() == item) {
-                count -= currentStack.getCount();
-                if (count <= 0)
-                    return true;
-            }
-        }
-        return false;
+        return mcdw$countItem(playerEntity, item) >= count;
     }
 
     public static int mcdw$countItem(PlayerEntity playerEntity, Item item) {

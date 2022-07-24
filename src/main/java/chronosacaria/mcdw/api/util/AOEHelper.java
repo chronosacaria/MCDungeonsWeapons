@@ -21,11 +21,13 @@ import java.util.List;
 
 public class AOEHelper {
 
-    /** Returns targets of an AOE effect from 'attacker' around 'center'. This includes 'center'. */
+    /**
+     * Returns targets of an AOE effect from 'attacker' around 'center'. This includes 'center'.
+     */
     public static List<LivingEntity> getAoeTargets(LivingEntity center, LivingEntity attacker, float distance) {
         return center.getEntityWorld().getEntitiesByClass(LivingEntity.class,
-            new Box(center.getBlockPos()).expand(distance),
-            (nearbyEntity) -> AbilityHelper.isAoeTarget(nearbyEntity, attacker, center)
+                new Box(center.getBlockPos()).expand(distance),
+                nearbyEntity -> AbilityHelper.isAoeTarget(nearbyEntity, attacker, center)
         );
     }
 
@@ -41,11 +43,9 @@ public class AOEHelper {
 
     //GRAVITY BEGIN
     public static void pullInNearbyEntities(LivingEntity user, LivingEntity target, float distance) {
-        for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
-            if (nearbyEntity != target) {
-                pullTowards(nearbyEntity, target);
-            }
-        }
+        getAoeTargets(target, user, distance).stream()
+                .filter(nearbyEntity -> nearbyEntity != target)
+                .forEach(nearbyEntity -> pullTowards(nearbyEntity, target));
     } //GRAVITY END
 
     //THUNDERING BEGIN
@@ -60,7 +60,7 @@ public class AOEHelper {
         }
     }
 
-    public static void electrocute(LivingEntity attacker, LivingEntity victim, float damageAmount){
+    public static void electrocute(LivingEntity attacker, LivingEntity victim, float damageAmount) {
         createVisualLightningBoltOnEntity(victim);
         DamageSource electricShockDamageSource = new ElectricShockDamageSource(attacker).setUsesMagic();
         victim.damage(electricShockDamageSource, damageAmount);
@@ -80,9 +80,8 @@ public class AOEHelper {
 
     //EXPLODING BEGIN
     public static void causeExplosionAttack(LivingEntity user, LivingEntity target, float damageAmount, float distance) {
-        for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
-            nearbyEntity.damage(DamageSource.explosion(user), damageAmount);
-        }
+        getAoeTargets(target, user, distance)
+                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.explosion(user), damageAmount));
     } //EXPLODING END
 
     //CHAINING BEGIN
@@ -91,12 +90,12 @@ public class AOEHelper {
 
         target.addStatusEffect(chained);
 
-        for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
-            if (nearbyEntity != target) {
-                pullTowards(nearbyEntity, target);
-                nearbyEntity.addStatusEffect(chained);
-            }
-        }
+        getAoeTargets(target, user, distance).stream()
+                .filter(nearbyEntity -> nearbyEntity != target)
+                .forEach(nearbyEntity -> {
+                    pullTowards(nearbyEntity, target);
+                    nearbyEntity.addStatusEffect(chained);
+                });
     } //END CHAINING
 
     public static void causeEchoAttack(LivingEntity user, LivingEntity target, float distance, int echoLevel, float amount) {
@@ -111,24 +110,19 @@ public class AOEHelper {
     }
 
     public static void causeSwirlingAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
-        for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
-            nearbyEntity.damage(DamageSource.GENERIC, amount * 0.5F);
-        }
+        getAoeTargets(target, user, distance)
+                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC, amount * 0.5F));
     }
 
     public static void causeShockwaveAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
-        for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
-            if (nearbyEntity != target) {
-                nearbyEntity.damage(DamageSource.GENERIC, amount * 0.25f);
-            }
-        }
+        getAoeTargets(target, user, distance).stream()
+                .filter(nearbyEntity -> nearbyEntity != target)
+                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC, amount * 0.25f));
     }
 
     public static void causeSmitingAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
-        for (LivingEntity nearbyEntity : getAoeTargets(target, user, distance)) {
-            if (nearbyEntity != target && nearbyEntity.isUndead()) {
-                nearbyEntity.damage(DamageSource.MAGIC, amount * 1.25F);
-            }
-        }
+        getAoeTargets(target, user, distance).stream()
+                .filter(nearbyEntity -> nearbyEntity != target && nearbyEntity.isUndead())
+                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.MAGIC, amount * 1.25F));
     }
 }
