@@ -3,7 +3,6 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSickle;
 import chronosacaria.mcdw.items.ItemsInit;
-import net.minecraft.item.Item;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -31,7 +30,7 @@ public enum SicklesID implements McdwWeaponID {
     }
 
     @Override
-    public Item getItem() {
+    public McdwSickle getItem() {
         return getItemsEnum().get(this);
     }
 

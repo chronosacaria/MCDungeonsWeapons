@@ -3,7 +3,6 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwCrossbow;
 import chronosacaria.mcdw.items.ItemsInit;
-import net.minecraft.item.Item;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -56,7 +55,7 @@ public enum CrossbowsID implements McdwWeaponID {
     }
 
     @Override
-    public Item getItem() {
+    public McdwCrossbow getItem() {
         return getItemsEnum().get(this);
     }
 
