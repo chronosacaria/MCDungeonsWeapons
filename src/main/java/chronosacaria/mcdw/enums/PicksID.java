@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.bases.McdwPick;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.item.Item;
 
@@ -13,15 +14,29 @@ public enum PicksID implements McdwWeaponID {
     PICK_HOWLING_PICK,
     PICK_MOUNTAINEER_PICK;
 
-    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+    public HashMap<PicksID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.picksEnabled;
+    }
+
+    public EnumMap<PicksID, McdwPick> getItemsEnum() {
         return ItemsInit.pickItems;
     }
 
-    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+    public HashMap<PicksID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.pickSpawnRates;
     }
 
-    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.picksEnabled;
+    public Boolean isEnabled(){
+        return getEnabledItems().get(this);
+    }
+
+    @Override
+    public Item getItem() {
+        return getItemsEnum().get(this);
+    }
+
+    @Override
+    public Float getItemSpawnRate() {
+        return getSpawnRates().get(this);
     }
 }

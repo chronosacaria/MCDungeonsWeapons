@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.bases.McdwSword;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.item.Item;
 
@@ -33,15 +34,29 @@ public enum SwordsID implements McdwWeaponID {
     SWORD_SPONGE_STRIKER,
     SWORD_THE_STARLESS_NIGHT;
 
-    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+    public HashMap<SwordsID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.swordsEnabled;
+    }
+
+    public EnumMap<SwordsID, McdwSword> getItemsEnum() {
         return ItemsInit.swordItems;
     }
 
-    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+    public HashMap<SwordsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.swordSpawnRates;
     }
 
-    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.swordsEnabled;
+    public Boolean isEnabled(){
+        return getEnabledItems().get(this);
+    }
+
+    @Override
+    public Item getItem() {
+        return getItemsEnum().get(this);
+    }
+
+    @Override
+    public Float getItemSpawnRate() {
+        return getSpawnRates().get(this);
     }
 }

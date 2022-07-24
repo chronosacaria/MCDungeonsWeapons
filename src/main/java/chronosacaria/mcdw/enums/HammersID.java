@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.bases.McdwHammer;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.item.Item;
 
@@ -17,15 +18,29 @@ public enum HammersID implements McdwWeaponID {
     HAMMER_STORMLANDER,
     HAMMER_SUNS_GRACE;
 
-    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+    public HashMap<HammersID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.hammersEnabled;
+    }
+
+    public EnumMap<HammersID, McdwHammer> getItemsEnum() {
         return ItemsInit.hammerItems;
     }
 
-    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+    public HashMap<HammersID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.hammerSpawnRates;
     }
 
-    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.hammersEnabled;
+    public Boolean isEnabled(){
+        return getEnabledItems().get(this);
+    }
+
+    @Override
+    public Item getItem() {
+        return getItemsEnum().get(this);
+    }
+
+    @Override
+    public Float getItemSpawnRate() {
+        return getSpawnRates().get(this);
     }
 }

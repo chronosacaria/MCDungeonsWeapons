@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.bases.McdwCrossbow;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.item.Item;
 
@@ -38,15 +39,29 @@ public enum CrossbowsID implements McdwWeaponID {
     CROSSBOW_VEILED_CROSSBOW,
     CROSSBOW_VOIDCALLER_CROSSBOW;
 
-    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+    public HashMap<CrossbowsID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.crossbowsEnabled;
+    }
+
+    public EnumMap<CrossbowsID, McdwCrossbow> getItemsEnum() {
         return ItemsInit.crossbowItems;
     }
 
-    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+    public HashMap<CrossbowsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.crossbowSpawnRates;
     }
 
-    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.crossbowsEnabled;
+    public Boolean isEnabled(){
+        return getEnabledItems().get(this);
+    }
+
+    @Override
+    public Item getItem() {
+        return getItemsEnum().get(this);
+    }
+
+    @Override
+    public Float getItemSpawnRate() {
+        return getSpawnRates().get(this);
     }
 }

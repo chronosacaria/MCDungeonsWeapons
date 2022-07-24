@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.bases.McdwWhip;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.item.Item;
 
@@ -11,15 +12,29 @@ public enum WhipsID implements McdwWeaponID {
     WHIP_VINE_WHIP,
     WHIP_WHIP;
 
-    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+    public HashMap<WhipsID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.whipsEnabled;
+    }
+
+    public EnumMap<WhipsID, McdwWhip> getItemsEnum() {
         return ItemsInit.whipItems;
     }
 
-    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+    public HashMap<WhipsID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.whipSpawnRates;
     }
 
-    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.whipsEnabled;
+    public Boolean isEnabled(){
+        return getEnabledItems().get(this);
+    }
+
+    @Override
+    public Item getItem() {
+        return getItemsEnum().get(this);
+    }
+
+    @Override
+    public Float getItemSpawnRate() {
+        return getSpawnRates().get(this);
     }
 }

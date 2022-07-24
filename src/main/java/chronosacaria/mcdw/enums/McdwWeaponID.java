@@ -7,9 +7,15 @@ import java.util.HashMap;
 
 public interface McdwWeaponID {
 
+    HashMap<? extends Enum<?>, Boolean> getEnabledItems();
+
     EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum();
 
     HashMap<? extends Enum<?>, Float> getSpawnRates();
 
-    HashMap<? extends Enum<?>, Boolean> getEnabledItems();
+    Boolean isEnabled();
+
+    Item getItem();
+
+    Float getItemSpawnRate();
 }

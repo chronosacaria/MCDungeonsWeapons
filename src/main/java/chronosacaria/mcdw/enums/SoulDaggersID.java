@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.bases.McdwSoulDagger;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.item.Item;
 
@@ -12,15 +13,29 @@ public enum SoulDaggersID implements McdwWeaponID {
     DAGGER_SOUL_KNIFE,
     SWORD_TRUTHSEEKER;
 
-    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+    public HashMap<SoulDaggersID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.soulDaggersEnabled;
+    }
+
+    public EnumMap<SoulDaggersID, McdwSoulDagger> getItemsEnum() {
         return ItemsInit.soulDaggerItems;
     }
 
-    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+    public HashMap<SoulDaggersID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates;
     }
 
-    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.soulDaggersEnabled;
+    public Boolean isEnabled(){
+        return getEnabledItems().get(this);
+    }
+
+    @Override
+    public Item getItem() {
+        return getItemsEnum().get(this);
+    }
+
+    @Override
+    public Float getItemSpawnRate() {
+        return getSpawnRates().get(this);
     }
 }

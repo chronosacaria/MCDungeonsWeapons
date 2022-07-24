@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.bases.McdwDoubleAxe;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.item.Item;
 
@@ -12,15 +13,29 @@ public enum DoubleAxesID implements McdwWeaponID {
     AXE_DOUBLE,
     AXE_WHIRLWIND;
 
-    public EnumMap<? extends Enum<?>, ? extends Item> getItemsEnum() {
+    public HashMap<DoubleAxesID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.doubleAxesEnabled;
+    }
+
+    public EnumMap<DoubleAxesID, McdwDoubleAxe> getItemsEnum() {
         return ItemsInit.doubleAxeItems;
     }
 
-    public HashMap<? extends Enum<?>, Float> getSpawnRates() {
+    public HashMap<DoubleAxesID, Float> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates;
     }
 
-    public HashMap<? extends Enum<?>, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.doubleAxesEnabled;
+    public Boolean isEnabled(){
+        return getEnabledItems().get(this);
+    }
+
+    @Override
+    public Item getItem() {
+        return getItemsEnum().get(this);
+    }
+
+    @Override
+    public Float getItemSpawnRate() {
+        return getSpawnRates().get(this);
     }
 }
