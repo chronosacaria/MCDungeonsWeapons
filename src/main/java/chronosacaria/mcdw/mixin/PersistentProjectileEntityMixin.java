@@ -314,7 +314,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RADIANCE))
                 EnchantmentEffects.applyRadianceShot(shooter, target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RICOCHET))
-                EnchantmentEffects.applyRicochet(target, persProjEntity);
+                EnchantmentEffects.applyRicochet(shooter, target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.TEMPO_THEFT))
                 EnchantmentEffects.applyTempoTheft(shooter, target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.WILD_RAGE)) {

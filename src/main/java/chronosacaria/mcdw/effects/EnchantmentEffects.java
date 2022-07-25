@@ -620,14 +620,14 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyRicochet(LivingEntity target, PersistentProjectileEntity ppe) {
+    public static void applyRicochet(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
         int ricochetLevel = ((IMcdwEnchantedArrow) ppe).getRicochetLevel();
         if (ricochetLevel > 0) {
 
             float damageMultiplier = 0.03F + (ricochetLevel * 0.07F);
             float arrowVelocity = McdwBow.maxBowRange;
             if (arrowVelocity > 0.1F)
-                ProjectileEffectHelper.riochetArrowTowardsOtherEntity(target, 10, damageMultiplier, arrowVelocity);
+                ProjectileEffectHelper.ricochetArrowTowardsOtherEntity(shooter, target, 10, damageMultiplier, arrowVelocity);
         }
     }
 

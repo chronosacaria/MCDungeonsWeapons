@@ -17,12 +17,12 @@ import java.util.List;
 
 public class ProjectileEffectHelper {
 
-    public static void riochetArrowTowardsOtherEntity(LivingEntity damagedEntity, int distance, double bonusShotDamageMultiplier, float arrowVelocity) {
+    public static void ricochetArrowTowardsOtherEntity(LivingEntity shooter, LivingEntity damagedEntity, int distance, double bonusShotDamageMultiplier, float arrowVelocity) {
         List<LivingEntity> nearbyEntities = getSecondaryTargets(damagedEntity, distance);
         if (!nearbyEntities.isEmpty()) {
             PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(damagedEntity, nearbyEntities.get(0));
             arrowEntity.setDamage(arrowEntity.getDamage() * bonusShotDamageMultiplier);
-            arrowEntity.setVelocity(damagedEntity, damagedEntity.getPitch(), damagedEntity.getYaw(), 0.0F, arrowVelocity * 3.0F, 1.0F);
+            arrowEntity.setOwner(shooter);
             damagedEntity.world.spawnEntity(arrowEntity);
         }
     }
