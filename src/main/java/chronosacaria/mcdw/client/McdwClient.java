@@ -6,7 +6,6 @@ import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.render.SummonedBeeRenderer;
 import chronosacaria.mcdw.enums.*;
-import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -19,6 +18,8 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
+import java.util.Arrays;
+
 @Environment(EnvType.CLIENT)
 public class McdwClient implements ClientModInitializer {
 
@@ -27,30 +28,16 @@ public class McdwClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(SummonedEntityRegistry.SUMMONED_BEE_ENTITY, SummonedBeeRenderer::new);
 
-        for (BowsID itemID : BowsID.values()) {
-            registerBowPredicates(ItemsInit.bowItems.get(itemID));
-        }
-
-        for (ShortBowsID itemID : ShortBowsID.values()) {
-            registerShortBowPredicates(ItemsInit.shortBowItems.get(itemID));
-        }
-
-        for (LongBowsID itemID : LongBowsID.values()) {
-            registerLongBowPredicates(ItemsInit.longBowItems.get(itemID));
-        }
-
-        for (CrossbowsID itemID : CrossbowsID.values()) {
-            registerCrossbowPredicates(ItemsInit.crossbowItems.get(itemID));
-        }
-
-        for (ShieldsID itemID : ShieldsID.values()){
-            registerShieldPredicates(ItemsInit.shieldItems.get(itemID));
-        }
+        Arrays.stream(BowsID.values()).forEach(bowsID -> registerBowPredicates(bowsID.getItem()));
+        Arrays.stream(ShortBowsID.values()).forEach(shortBowsID -> registerShortBowPredicates(shortBowsID.getItem()));
+        Arrays.stream(LongBowsID.values()).forEach(longBowsID -> registerLongBowPredicates(longBowsID.getItem()));
+        Arrays.stream(CrossbowsID.values()).forEach(crossbowsID -> registerCrossbowPredicates(crossbowsID.getItem()));
+        Arrays.stream(ShieldsID.values()).forEach(shieldsID -> registerShieldPredicates(shieldsID.getItem()));
     }
 
     public static void registerBowPredicates(McdwBow bow) {
-        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
-                                                                                   livingEntity, seed) -> {
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"), (itemStack, clientWorld,
+                                                                                    livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
@@ -72,7 +59,7 @@ public class McdwClient implements ClientModInitializer {
                     }
                 }
                 return livingEntity.getActiveItem() != itemStack ? 0.0F :
-                        (float)(useTicks) / bow.getDrawSpeed();
+                        (float) useTicks / bow.getDrawSpeed();
             }
         });
 
@@ -82,8 +69,8 @@ public class McdwClient implements ClientModInitializer {
     }
 
     public static void registerShortBowPredicates(McdwShortBow bow) {
-        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
-                                                                                   livingEntity, seed) -> {
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"), (itemStack, clientWorld,
+                                                                                    livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
@@ -105,7 +92,7 @@ public class McdwClient implements ClientModInitializer {
                     }
                 }
                 return livingEntity.getActiveItem() != itemStack ? 0.0F :
-                        (float)(useTicks) / bow.getDrawSpeed();
+                        (float) useTicks / bow.getDrawSpeed();
             }
         });
 
@@ -115,8 +102,8 @@ public class McdwClient implements ClientModInitializer {
     }
 
     public static void registerLongBowPredicates(McdwLongBow bow) {
-        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
-                                                                                   livingEntity, seed) -> {
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"), (itemStack, clientWorld,
+                                                                                    livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
@@ -138,7 +125,7 @@ public class McdwClient implements ClientModInitializer {
                     }
                 }
                 return livingEntity.getActiveItem() != itemStack ? 0.0F :
-                        (float)(useTicks) / bow.getDrawSpeed();
+                        (float) useTicks / bow.getDrawSpeed();
             }
         });
 
@@ -148,8 +135,8 @@ public class McdwClient implements ClientModInitializer {
     }
 
     public static void registerCrossbowPredicates(McdwCrossbow crossbow) {
-        ModelPredicateProviderRegistry.register(crossbow, new Identifier("pull"),(itemStack, clientWorld,
-                                                                                        livingEntity, seed) -> {
+        ModelPredicateProviderRegistry.register(crossbow, new Identifier("pull"), (itemStack, clientWorld,
+                                                                                         livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
@@ -164,7 +151,7 @@ public class McdwClient implements ClientModInitializer {
                     }
                 }
                 return McdwCrossbow.isCharged(itemStack) ? 0.0F :
-                        (float) (useTicks) / (float)  McdwCrossbow.getPullTime(itemStack);
+                        (float) useTicks / (float) McdwCrossbow.getPullTime(itemStack);
             }
         });
 
@@ -197,9 +184,10 @@ public class McdwClient implements ClientModInitializer {
         });
     }
 
-    public static void registerShieldPredicates(McdwShield shield){
-        ModelPredicateProviderRegistry.register(shield, new Identifier("blocking"), (itemStack, clientWorld,
-                livingEntity, seed) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem()
-                == itemStack ? 1.0F : 0.0F );
+    public static void registerShieldPredicates(McdwShield shield) {
+        ModelPredicateProviderRegistry.register(shield, new Identifier("blocking"),
+                (itemStack, clientWorld, livingEntity, seed) -> livingEntity != null && livingEntity.isUsingItem() &&
+                        livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F
+        );
     }
 }
