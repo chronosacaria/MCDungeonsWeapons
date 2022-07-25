@@ -38,11 +38,11 @@ public class ProjectileEffectHelper {
         }
     }
 
-    private static PersistentProjectileEntity createChainReactionProjectile(World world, LivingEntity source, ItemStack ammoStack,
+    private static PersistentProjectileEntity createChainReactionProjectile(World world, LivingEntity attacker, ItemStack ammoStack,
                                                                             PersistentProjectileEntity originalArrow) {
         ArrowItem arrowItem = (ArrowItem) (ammoStack.getItem() instanceof ArrowItem ? ammoStack.getItem() : Items.ARROW);
-        PersistentProjectileEntity abstractArrowEntity = arrowItem.createArrow(world, ammoStack, source);
-        if (source instanceof PlayerEntity) {
+        PersistentProjectileEntity abstractArrowEntity = arrowItem.createArrow(world, ammoStack, attacker);
+        if (attacker instanceof PlayerEntity) {
             abstractArrowEntity.setCritical(true);
         }
 
@@ -53,23 +53,23 @@ public class ProjectileEffectHelper {
         return abstractArrowEntity;
     }
 
-    public static void fireChainReactionProjectiles(World world, LivingEntity source, LivingEntity attacker, float v,
+    public static void fireChainReactionProjectiles(World world, LivingEntity attacker, LivingEntity target, float v,
                                                     float v1, PersistentProjectileEntity originalArrow) {
-        fireChainReactionProjectileFromVictim(world, source, attacker, new ItemStack(Items.ARROW), v, v1, 45.0F, originalArrow);
-        fireChainReactionProjectileFromVictim(world, source, attacker, new ItemStack(Items.ARROW), v, v1, -45.0F, originalArrow);
-        fireChainReactionProjectileFromVictim(world, source, attacker, new ItemStack(Items.ARROW), v, v1, 135.0F, originalArrow);
-        fireChainReactionProjectileFromVictim(world, source, attacker, new ItemStack(Items.ARROW), v, v1, -135.0F, originalArrow);
+        fireChainReactionProjectileFromTarget(world, attacker, target, new ItemStack(Items.ARROW), v, v1, 45.0F, originalArrow);
+        fireChainReactionProjectileFromTarget(world, attacker, target, new ItemStack(Items.ARROW), v, v1, -45.0F, originalArrow);
+        fireChainReactionProjectileFromTarget(world, attacker, target, new ItemStack(Items.ARROW), v, v1, 135.0F, originalArrow);
+        fireChainReactionProjectileFromTarget(world, attacker, target, new ItemStack(Items.ARROW), v, v1, -135.0F, originalArrow);
     }
 
-    private static void fireChainReactionProjectileFromVictim(World world, LivingEntity source, LivingEntity attacker
+    private static void fireChainReactionProjectileFromTarget(World world, LivingEntity attacker, LivingEntity target
             , ItemStack projectileStack, float v1, float v2, float centerOffset, PersistentProjectileEntity originalArrow) {
         if (!world.isClient) {
             PersistentProjectileEntity projectile;
-            projectile = createChainReactionProjectile(world, source, projectileStack, originalArrow);
+            projectile = createChainReactionProjectile(world, attacker, projectileStack, originalArrow);
             projectile.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
-            Vec3d upVector = attacker.getOppositeRotationVector(1.0F);
+            Vec3d upVector = target.getOppositeRotationVector(1.0F);
             Quaternion quaternion = new Quaternion(new Vec3f(upVector), centerOffset, true);
-            Vec3d lookVector = attacker.getRotationVec(1.0F);
+            Vec3d lookVector = target.getRotationVec(1.0F);
             Vec3f vector3f = new Vec3f(lookVector);
             vector3f.rotate(quaternion);
             projectile.setVelocity(vector3f.getX(), vector3f.getY(), vector3f.getZ(), v1, v2);
