@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ProjectileEffectHelper {
 
-    public static void ricochetArrowTowardsOtherEntity(LivingEntity shooter, LivingEntity damagedEntity, int distance, double bonusShotDamageMultiplier, float arrowVelocity) {
+    public static void ricochetArrowTowardsOtherEntity(LivingEntity shooter, LivingEntity damagedEntity, int distance, double bonusShotDamageMultiplier) {
         List<LivingEntity> nearbyEntities = getSecondaryTargets(damagedEntity, distance);
         if (!nearbyEntities.isEmpty()) {
             PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(damagedEntity, nearbyEntities.get(0));
@@ -27,19 +27,16 @@ public class ProjectileEffectHelper {
         }
     }
 
-    public static void fireBonusShotTowardsOtherEntity(LivingEntity attacker, int distance, double bonusShotDamageMultiplier, float arrowVelocity) {
+    public static void fireBonusShotTowardsOtherEntity(LivingEntity attacker, int distance, double bonusShotDamageMultiplier) {
         List<LivingEntity> nearbyEntities = getSecondaryTargets(attacker, distance);
         if (!nearbyEntities.isEmpty()) {
             PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(attacker, nearbyEntities.get(0));
             arrowEntity.setDamage(arrowEntity.getDamage() * bonusShotDamageMultiplier);
-            arrowEntity.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F, 1.0F);
-            arrowEntity.addScoreboardTag("BonusProjectile");
             attacker.world.spawnEntity(arrowEntity);
         }
     }
 
-    private static PersistentProjectileEntity createChainReactionProjectile(World world, LivingEntity attacker, ItemStack ammoStack,
-                                                                            PersistentProjectileEntity originalArrow) {
+    private static PersistentProjectileEntity createChainReactionProjectile(World world, LivingEntity attacker, ItemStack ammoStack) {
         ArrowItem arrowItem = (ArrowItem) (ammoStack.getItem() instanceof ArrowItem ? ammoStack.getItem() : Items.ARROW);
         PersistentProjectileEntity abstractArrowEntity = arrowItem.createArrow(world, ammoStack, attacker);
         if (attacker instanceof PlayerEntity) {
@@ -48,24 +45,20 @@ public class ProjectileEffectHelper {
 
         abstractArrowEntity.setSound(SoundEvents.ITEM_CROSSBOW_HIT);
         abstractArrowEntity.setShotFromCrossbow(true);
-        abstractArrowEntity.addScoreboardTag("ChainReactionProjectile");
-        originalArrow.getScoreboardTags().forEach(abstractArrowEntity::addScoreboardTag);
         return abstractArrowEntity;
     }
 
     public static void fireChainReactionProjectiles(World world, LivingEntity attacker, LivingEntity chainReactionProjectileSource, float v,
-                                                    float v1, PersistentProjectileEntity originalArrow) {
-        fireChainReactionProjectileFromTarget(world, attacker, chainReactionProjectileSource, new ItemStack(Items.ARROW), v, v1, 45.0F, originalArrow);
-        fireChainReactionProjectileFromTarget(world, attacker, chainReactionProjectileSource, new ItemStack(Items.ARROW), v, v1, -45.0F, originalArrow);
-        fireChainReactionProjectileFromTarget(world, attacker, chainReactionProjectileSource, new ItemStack(Items.ARROW), v, v1, 135.0F, originalArrow);
-        fireChainReactionProjectileFromTarget(world, attacker, chainReactionProjectileSource, new ItemStack(Items.ARROW), v, v1, -135.0F, originalArrow);
+                                                    float v1) {
+        for (int i = 0 ; i < 4 ; i++)
+            fireChainReactionProjectileFromTarget(world, attacker, chainReactionProjectileSource, new ItemStack(Items.ARROW), v, v1, -135.0F + (90.0f * i));
     }
 
     private static void fireChainReactionProjectileFromTarget(World world, LivingEntity attacker, LivingEntity target
-            , ItemStack projectileStack, float v1, float v2, float centerOffset, PersistentProjectileEntity originalArrow) {
+            , ItemStack projectileStack, float v1, float v2, float centerOffset) {
         if (!world.isClient) {
             PersistentProjectileEntity projectile;
-            projectile = createChainReactionProjectile(world, attacker, projectileStack, originalArrow);
+            projectile = createChainReactionProjectile(world, attacker, projectileStack);
             projectile.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
             Vec3d upVector = target.getOppositeRotationVector(1.0F);
             Quaternion quaternion = new Quaternion(new Vec3f(upVector), centerOffset, true);
@@ -73,11 +66,12 @@ public class ProjectileEffectHelper {
             Vec3f vector3f = new Vec3f(lookVector);
             vector3f.rotate(quaternion);
             projectile.setVelocity(vector3f.getX(), vector3f.getY(), vector3f.getZ(), v1, v2);
+            projectile.setOwner(target);
             world.spawnEntity(projectile);
         }
     }
 
-    public static void fireBurstBowstringArrows(LivingEntity attacker, int distance, double damageMultiplier, float arrowVelocity, int numberOfArrows) {
+    public static void fireBurstBowstringArrows(LivingEntity attacker, int distance, double damageMultiplier, int numberOfArrows) {
         if (attacker instanceof PlayerEntity attackingPlayer) {
             int availableArrows = Math.min(InventoryHelper.mcdw$countItem(attackingPlayer, Items.ARROW), numberOfArrows);
             if (availableArrows < 1) return; //Avoid area lookup
@@ -87,7 +81,6 @@ public class ProjectileEffectHelper {
                 LivingEntity target = nearbyEntities.get(i);
                 PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(attacker, target);
                 arrowEntity.setDamage(arrowEntity.getDamage() * damageMultiplier);
-                arrowEntity.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F, 1.0F);
                 attacker.world.spawnEntity(arrowEntity);
 
                 if (!attackingPlayer.isCreative()) {

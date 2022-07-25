@@ -126,8 +126,8 @@ public class CrossbowItemMixin {
                     float damageMultiplier = 0.1F + ((bonusShotLevel - 1) * 0.07F);
 
                     float arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(crossbow);
-                    ProjectileEffectHelper.fireBonusShotTowardsOtherEntity(user, 10, damageMultiplier,
-                            arrowVelocity);
+                    ProjectileEffectHelper.fireBonusShotTowardsOtherEntity(user, 10, damageMultiplier
+                    );
                 }
             }
         }

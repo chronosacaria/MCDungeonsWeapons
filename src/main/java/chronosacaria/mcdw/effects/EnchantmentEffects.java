@@ -535,7 +535,7 @@ public class EnchantmentEffects {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHAIN_REACTION) * chainReactionLevel)){
                 ProjectileEffectHelper.fireChainReactionProjectiles(target.getEntityWorld(), target, shooter,
-                        3.15F,1.0F, ppe);
+                        3.15F,1.0F);
             }
         }
     }
@@ -627,7 +627,7 @@ public class EnchantmentEffects {
             float damageMultiplier = 0.03F + (ricochetLevel * 0.07F);
             float arrowVelocity = McdwBow.maxBowRange;
             if (arrowVelocity > 0.1F)
-                ProjectileEffectHelper.ricochetArrowTowardsOtherEntity(shooter, target, 10, damageMultiplier, arrowVelocity);
+                ProjectileEffectHelper.ricochetArrowTowardsOtherEntity(shooter, target, 10, damageMultiplier);
         }
     }
 
@@ -680,18 +680,12 @@ public class EnchantmentEffects {
     // mcdw$onJumpEffects
 
     public static void activateBurstBowstringOnJump(LivingEntity jumpingEntity) {
-        int burstBowstringLevel = 0;
-        float arrowVelocity = 0.0F;
-        if (jumpingEntity.getMainHandStack().getItem() instanceof BowItem || jumpingEntity.getMainHandStack().getItem() instanceof CrossbowItem) {
-            burstBowstringLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getMainHandStack());
-            arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(jumpingEntity.getMainHandStack());
-        } else if (jumpingEntity.getOffHandStack().getItem() instanceof BowItem || jumpingEntity.getOffHandStack().getItem() instanceof CrossbowItem) {
-            burstBowstringLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getOffHandStack());
-            arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(jumpingEntity.getOffHandStack());
-        }
+        int burstBowstringLevel =
+                Math.max(EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getMainHandStack()),
+                        EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getOffHandStack()));
 
         if (burstBowstringLevel > 0) {
-            ProjectileEffectHelper.fireBurstBowstringArrows(jumpingEntity, 16, 0.4F, arrowVelocity, burstBowstringLevel);
+            ProjectileEffectHelper.fireBurstBowstringArrows(jumpingEntity, 16, 0.4F, burstBowstringLevel);
         }
     }
     public static void handleAddDynamoEffect(PlayerEntity playerEntity) {

@@ -51,7 +51,7 @@ public abstract class BowItemMixin{
                 float damageMultiplier = 0.03F + (bonusShotLevel * 0.07F);
                 float arrowVelocity = RangedAttackHelper.getVanillaOrModdedBowArrowVelocity(stack, remainingUseTicks);
                 if (arrowVelocity >= 0.1F){
-                    ProjectileEffectHelper.fireBonusShotTowardsOtherEntity(user, 10, damageMultiplier, arrowVelocity);
+                    ProjectileEffectHelper.fireBonusShotTowardsOtherEntity(user, 10, damageMultiplier);
                 }
             }
         }
