@@ -17,24 +17,24 @@ import java.util.List;
 
 public class ProjectileEffectHelper {
 
-    public static void riochetArrowTowardsOtherEntity(LivingEntity source, int distance, double bonusShotDamageMultiplier, float arrowVelocity) {
-        List<LivingEntity> nearbyEntities = getSecondaryTargets(source, distance);
+    public static void riochetArrowTowardsOtherEntity(LivingEntity damagedEntity, int distance, double bonusShotDamageMultiplier, float arrowVelocity) {
+        List<LivingEntity> nearbyEntities = getSecondaryTargets(damagedEntity, distance);
         if (!nearbyEntities.isEmpty()) {
-            PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(source, nearbyEntities.get(0));
+            PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(damagedEntity, nearbyEntities.get(0));
             arrowEntity.setDamage(arrowEntity.getDamage() * bonusShotDamageMultiplier);
-            arrowEntity.setVelocity(source, source.getPitch(), source.getYaw(), 0.0F, arrowVelocity * 3.0F, 1.0F);
-            source.world.spawnEntity(arrowEntity);
+            arrowEntity.setVelocity(damagedEntity, damagedEntity.getPitch(), damagedEntity.getYaw(), 0.0F, arrowVelocity * 3.0F, 1.0F);
+            damagedEntity.world.spawnEntity(arrowEntity);
         }
     }
 
-    public static void fireBonusShotTowardsOtherEntity(LivingEntity source, int distance, double bonusShotDamageMultiplier, float arrowVelocity) {
-        List<LivingEntity> nearbyEntities = getSecondaryTargets(source, distance);
+    public static void fireBonusShotTowardsOtherEntity(LivingEntity attacker, int distance, double bonusShotDamageMultiplier, float arrowVelocity) {
+        List<LivingEntity> nearbyEntities = getSecondaryTargets(attacker, distance);
         if (!nearbyEntities.isEmpty()) {
-            PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(source, nearbyEntities.get(0));
+            PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(attacker, nearbyEntities.get(0));
             arrowEntity.setDamage(arrowEntity.getDamage() * bonusShotDamageMultiplier);
-            arrowEntity.setVelocity(source, source.getPitch(), source.getYaw(), 0.0F, arrowVelocity * 3.0F, 1.0F);
+            arrowEntity.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F, 1.0F);
             arrowEntity.addScoreboardTag("BonusProjectile");
-            source.world.spawnEntity(arrowEntity);
+            attacker.world.spawnEntity(arrowEntity);
         }
     }
 
@@ -53,23 +53,23 @@ public class ProjectileEffectHelper {
         return abstractArrowEntity;
     }
 
-    public static void fireChainReactionProjectiles(World world, LivingEntity source, LivingEntity target, float v,
+    public static void fireChainReactionProjectiles(World world, LivingEntity source, LivingEntity attacker, float v,
                                                     float v1, PersistentProjectileEntity originalArrow) {
-        fireChainReactionProjectileFromVictim(world, source, target, new ItemStack(Items.ARROW), v, v1, 45.0F, originalArrow);
-        fireChainReactionProjectileFromVictim(world, source, target, new ItemStack(Items.ARROW), v, v1, -45.0F, originalArrow);
-        fireChainReactionProjectileFromVictim(world, source, target, new ItemStack(Items.ARROW), v, v1, 135.0F, originalArrow);
-        fireChainReactionProjectileFromVictim(world, source, target, new ItemStack(Items.ARROW), v, v1, -135.0F, originalArrow);
+        fireChainReactionProjectileFromVictim(world, source, attacker, new ItemStack(Items.ARROW), v, v1, 45.0F, originalArrow);
+        fireChainReactionProjectileFromVictim(world, source, attacker, new ItemStack(Items.ARROW), v, v1, -45.0F, originalArrow);
+        fireChainReactionProjectileFromVictim(world, source, attacker, new ItemStack(Items.ARROW), v, v1, 135.0F, originalArrow);
+        fireChainReactionProjectileFromVictim(world, source, attacker, new ItemStack(Items.ARROW), v, v1, -135.0F, originalArrow);
     }
 
-    private static void fireChainReactionProjectileFromVictim(World world, LivingEntity source, LivingEntity target
+    private static void fireChainReactionProjectileFromVictim(World world, LivingEntity source, LivingEntity attacker
             , ItemStack projectileStack, float v1, float v2, float centerOffset, PersistentProjectileEntity originalArrow) {
         if (!world.isClient) {
             PersistentProjectileEntity projectile;
             projectile = createChainReactionProjectile(world, source, projectileStack, originalArrow);
             projectile.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
-            Vec3d upVector = target.getOppositeRotationVector(1.0F);
+            Vec3d upVector = attacker.getOppositeRotationVector(1.0F);
             Quaternion quaternion = new Quaternion(new Vec3f(upVector), centerOffset, true);
-            Vec3d lookVector = target.getRotationVec(1.0F);
+            Vec3d lookVector = attacker.getRotationVec(1.0F);
             Vec3f vector3f = new Vec3f(lookVector);
             vector3f.rotate(quaternion);
             projectile.setVelocity(vector3f.getX(), vector3f.getY(), vector3f.getZ(), v1, v2);
@@ -77,18 +77,18 @@ public class ProjectileEffectHelper {
         }
     }
 
-    public static void fireBurstBowstringArrows(LivingEntity source, int distance, double damageMultiplier, float arrowVelocity, int numberOfArrows) {
-        if (source instanceof PlayerEntity attackingPlayer) {
+    public static void fireBurstBowstringArrows(LivingEntity attacker, int distance, double damageMultiplier, float arrowVelocity, int numberOfArrows) {
+        if (attacker instanceof PlayerEntity attackingPlayer) {
             int availableArrows = Math.min(InventoryHelper.mcdw$countItem(attackingPlayer, Items.ARROW), numberOfArrows);
             if (availableArrows < 1) return; //Avoid area lookup
 
-            List<LivingEntity> nearbyEntities = getSecondaryTargets(source, distance);
+            List<LivingEntity> nearbyEntities = getSecondaryTargets(attacker, distance);
             for (int i = 0; i < Math.min(availableArrows, nearbyEntities.size()); i++) {
                 LivingEntity target = nearbyEntities.get(i);
-                PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(source, target);
+                PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(attacker, target);
                 arrowEntity.setDamage(arrowEntity.getDamage() * damageMultiplier);
-                arrowEntity.setVelocity(source, source.getPitch(), source.getYaw(), 0.0F, arrowVelocity * 3.0F, 1.0F);
-                source.world.spawnEntity(arrowEntity);
+                arrowEntity.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, arrowVelocity * 3.0F, 1.0F);
+                attacker.world.spawnEntity(arrowEntity);
 
                 if (!attackingPlayer.isCreative()) {
                     InventoryHelper.mcdw$deductAmountOfItem(attackingPlayer, Items.ARROW, 1);
