@@ -49,4 +49,13 @@ public enum ShortBowsID implements McdwWeaponID {
     public RangedWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    @Override
+    public McdwShortBow makeWeapon() {
+        McdwShortBow mcdwShortBow = new McdwShortBow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+                this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range);
+
+        getItemsEnum().put(this, mcdwShortBow);
+        return mcdwShortBow;
+    }
 }

@@ -74,4 +74,13 @@ public enum CrossbowsID implements McdwWeaponID {
     public RangedWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    @Override
+    public McdwCrossbow makeWeapon() {
+        McdwCrossbow mcdwCrossbow = new McdwCrossbow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+                this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range);
+
+        getItemsEnum().put(this, mcdwCrossbow);
+        return mcdwCrossbow;
+    }
 }

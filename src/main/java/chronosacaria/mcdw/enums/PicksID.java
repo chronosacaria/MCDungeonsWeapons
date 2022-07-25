@@ -49,4 +49,13 @@ public enum PicksID implements McdwWeaponID {
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    @Override
+    public McdwPick makeWeapon() {
+        McdwPick mcdwPick = new McdwPick(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+
+        getItemsEnum().put(this, mcdwPick);
+        return mcdwPick;
+    }
 }

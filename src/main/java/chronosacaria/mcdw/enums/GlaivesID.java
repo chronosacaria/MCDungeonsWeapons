@@ -49,4 +49,13 @@ public enum GlaivesID implements McdwWeaponID {
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    @Override
+    public McdwGlaive makeWeapon() {
+        McdwGlaive mcdwGlaive = new McdwGlaive(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+
+        getItemsEnum().put(this, mcdwGlaive);
+        return mcdwGlaive;
+    }
 }

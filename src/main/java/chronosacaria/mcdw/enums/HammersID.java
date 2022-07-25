@@ -53,4 +53,13 @@ public enum HammersID implements McdwWeaponID {
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    @Override
+    public McdwHammer makeWeapon() {
+        McdwHammer mcdwHammer = new McdwHammer(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+
+        getItemsEnum().put(this, mcdwHammer);
+        return mcdwHammer;
+    }
 }

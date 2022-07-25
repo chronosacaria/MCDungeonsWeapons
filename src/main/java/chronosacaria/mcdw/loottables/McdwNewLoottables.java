@@ -70,7 +70,7 @@ public class McdwNewLoottables {
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
             }
-            if (EntityType.WITCH.getLootTableId().equals(id) && source.isBuiltin()) {
+            if (EntityType.WITCH.getLootTableId().equals(id) && source.isBuiltin()) { //Java cares about my id but not my ego ;-;
                 if (GlaivesID.SPEAR_CACKLING_BROOM.isEnabled()) {
                     LootPool.Builder lootPoolBuilder = LootPool.builder();
                     addItemDrop(lootPoolBuilder, ItemsInit.glaiveItems.get(GlaivesID.SPEAR_CACKLING_BROOM), 1, 0.2F);

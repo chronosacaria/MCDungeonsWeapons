@@ -49,4 +49,13 @@ public enum SicklesID implements McdwWeaponID {
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    @Override
+    public McdwSickle makeWeapon() {
+        McdwSickle mcdwSickle = new McdwSickle(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+
+        getItemsEnum().put(this, mcdwSickle);
+        return mcdwSickle;
+    }
 }

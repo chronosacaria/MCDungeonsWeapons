@@ -48,4 +48,13 @@ public enum SpearsID implements McdwWeaponID {
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    @Override
+    public McdwSpear makeWeapon() {
+        McdwSpear mcdwSpear = new McdwSpear(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+
+        getItemsEnum().put(this, mcdwSpear);
+        return mcdwSpear;
+    }
 }

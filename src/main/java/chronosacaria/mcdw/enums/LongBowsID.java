@@ -48,4 +48,13 @@ public enum LongBowsID implements McdwWeaponID {
     public RangedWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    @Override
+    public McdwLongBow makeWeapon() {
+        McdwLongBow mcdwLongBow = new McdwLongBow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+                this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range);
+
+        getItemsEnum().put(this, mcdwLongBow);
+        return mcdwLongBow;
+    }
 }

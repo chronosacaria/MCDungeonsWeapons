@@ -1,6 +1,6 @@
 package chronosacaria.mcdw.configs.stats;
 
-public class MeleeWeaponStats {
+public class MeleeWeaponStats extends McdwWeaponStats {
     public String material;
     public int damage;
     public float attackSpeed;

@@ -1,6 +1,6 @@
 package chronosacaria.mcdw.configs.stats;
 
-public class RangedWeaponStats {
+public class RangedWeaponStats extends McdwWeaponStats {
     public String material;
     public int drawSpeed;
     public float range;

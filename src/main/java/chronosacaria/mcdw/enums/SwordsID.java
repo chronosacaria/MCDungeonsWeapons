@@ -69,4 +69,12 @@ public enum SwordsID implements McdwWeaponID {
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    public McdwSword makeWeapon() {
+        McdwSword mcdwSword = new McdwSword(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+
+        getItemsEnum().put(this, mcdwSword);
+        return mcdwSword;
+    }
 }

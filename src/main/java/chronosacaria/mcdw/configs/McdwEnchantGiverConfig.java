@@ -3,15 +3,11 @@ package chronosacaria.mcdw.configs;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.*;
-import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import wraith.enchant_giver.EnchantsList;
-
-import java.util.Arrays;
 
 public class McdwEnchantGiverConfig {
     public static void appendEnchants(){

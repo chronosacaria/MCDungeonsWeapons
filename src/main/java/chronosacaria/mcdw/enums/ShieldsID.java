@@ -47,4 +47,12 @@ public enum ShieldsID implements McdwWeaponID {
     public ShieldStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    @Override
+    public McdwShield makeWeapon() {
+        McdwShield mcdwShield = new McdwShield(ItemsInit.stringToMaterial(this.getWeaponItemStats().material));
+
+        getItemsEnum().put(this, mcdwShield);
+        return mcdwShield;
+    }
 }

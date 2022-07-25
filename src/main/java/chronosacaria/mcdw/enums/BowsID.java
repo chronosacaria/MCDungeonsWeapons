@@ -75,4 +75,13 @@ public enum BowsID implements McdwWeaponID {
     public RangedWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
+
+    @Override
+    public McdwBow makeWeapon() {
+        McdwBow mcdwBow = new McdwBow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+                this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range);
+
+        getItemsEnum().put(this, mcdwBow);
+        return mcdwBow;
+    }
 }
