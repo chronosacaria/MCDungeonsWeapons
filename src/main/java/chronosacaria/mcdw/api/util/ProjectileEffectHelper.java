@@ -53,12 +53,12 @@ public class ProjectileEffectHelper {
         return abstractArrowEntity;
     }
 
-    public static void fireChainReactionProjectiles(World world, LivingEntity attacker, LivingEntity target, float v,
+    public static void fireChainReactionProjectiles(World world, LivingEntity attacker, LivingEntity chainReactionProjectileSource, float v,
                                                     float v1, PersistentProjectileEntity originalArrow) {
-        fireChainReactionProjectileFromTarget(world, attacker, target, new ItemStack(Items.ARROW), v, v1, 45.0F, originalArrow);
-        fireChainReactionProjectileFromTarget(world, attacker, target, new ItemStack(Items.ARROW), v, v1, -45.0F, originalArrow);
-        fireChainReactionProjectileFromTarget(world, attacker, target, new ItemStack(Items.ARROW), v, v1, 135.0F, originalArrow);
-        fireChainReactionProjectileFromTarget(world, attacker, target, new ItemStack(Items.ARROW), v, v1, -135.0F, originalArrow);
+        fireChainReactionProjectileFromTarget(world, attacker, chainReactionProjectileSource, new ItemStack(Items.ARROW), v, v1, 45.0F, originalArrow);
+        fireChainReactionProjectileFromTarget(world, attacker, chainReactionProjectileSource, new ItemStack(Items.ARROW), v, v1, -45.0F, originalArrow);
+        fireChainReactionProjectileFromTarget(world, attacker, chainReactionProjectileSource, new ItemStack(Items.ARROW), v, v1, 135.0F, originalArrow);
+        fireChainReactionProjectileFromTarget(world, attacker, chainReactionProjectileSource, new ItemStack(Items.ARROW), v, v1, -135.0F, originalArrow);
     }
 
     private static void fireChainReactionProjectileFromTarget(World world, LivingEntity attacker, LivingEntity target

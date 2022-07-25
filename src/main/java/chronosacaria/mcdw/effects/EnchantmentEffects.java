@@ -534,7 +534,7 @@ public class EnchantmentEffects {
         if (chainReactionLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHAIN_REACTION) * chainReactionLevel)){
-                ProjectileEffectHelper.fireChainReactionProjectiles(target.getEntityWorld(), shooter, target,
+                ProjectileEffectHelper.fireChainReactionProjectiles(target.getEntityWorld(), target, shooter,
                         3.15F,1.0F, ppe);
             }
         }
