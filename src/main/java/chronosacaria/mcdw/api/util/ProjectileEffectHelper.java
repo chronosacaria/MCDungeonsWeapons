@@ -57,8 +57,7 @@ public class ProjectileEffectHelper {
     private static void fireChainReactionProjectileFromTarget(World world, LivingEntity attacker, LivingEntity target
             , ItemStack projectileStack, float v1, float v2, float centerOffset) {
         if (!world.isClient) {
-            PersistentProjectileEntity projectile;
-            projectile = createChainReactionProjectile(world, attacker, projectileStack);
+            PersistentProjectileEntity projectile = createChainReactionProjectile(world, attacker, projectileStack);
             projectile.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
             Vec3d upVector = target.getOppositeRotationVector(1.0F);
             Quaternion quaternion = new Quaternion(new Vec3f(upVector), centerOffset, true);
