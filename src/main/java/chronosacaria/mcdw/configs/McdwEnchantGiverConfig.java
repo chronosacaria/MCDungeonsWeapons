@@ -214,7 +214,7 @@ public class McdwEnchantGiverConfig {
         }
     }
 
-    private static void addInnateEnchant(McdwWeaponID weaponID, Enchantment enchantment, Boolean replace) {
+    private static void addInnateEnchant(IMcdwWeaponID weaponID, Enchantment enchantment, Boolean replace) {
         addInnateEnchant(weaponID.getItem(), enchantment, replace);
     }
 

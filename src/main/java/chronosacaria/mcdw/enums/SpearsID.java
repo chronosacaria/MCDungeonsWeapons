@@ -2,18 +2,30 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSpear;
+import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum SpearsID implements McdwWeaponID {
-    SPEAR_SPEAR,
-    SPEAR_WHISPERING_SPEAR,
-    SPEAR_FORTUNE;
+public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
+    SPEAR_SPEAR(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -2.5f),
+    SPEAR_WHISPERING_SPEAR(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),5, -2.5f),
+    SPEAR_FORTUNE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),4, -2.15f);
+
+    private final String material;
+    private final int damage;
+    private final float attackSpeed;
+
+    SpearsID(String material, int damage, float attackSpeed) {
+        this.material = material;
+        this.damage = damage;
+        this.attackSpeed = attackSpeed;
+    }
 
     public static HashMap<SpearsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.spearsEnabled;
@@ -27,7 +39,7 @@ public enum SpearsID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.spearSpawnRates;
     }
 
-    public static HashMap<SpearsID, MeleeWeaponStats> getWeaponStats() {
+    public static HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.spearStats;
     }
 
@@ -45,8 +57,30 @@ public enum SpearsID implements McdwWeaponID {
         return getSpawnRates().get(this);
     }
 
+    @Override
+    public HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.spearStats;
+    }
+
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
+    }
+
+    @Override
+    public MeleeWeaponStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.spearStats.get(this);
+    }
+
+    public int getDamage(){
+        return damage;
+    }
+
+    public String getMaterial(){
+        return material;
+    }
+
+    public float getAttackSpeed(){
+        return attackSpeed;
     }
 
     @Override

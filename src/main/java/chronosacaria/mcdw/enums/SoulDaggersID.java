@@ -2,18 +2,30 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSoulDagger;
+import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum SoulDaggersID implements McdwWeaponID {
-    DAGGER_ETERNAL_KNIFE,
-    DAGGER_SOUL_KNIFE,
-    SWORD_TRUTHSEEKER;
+public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
+    DAGGER_ETERNAL_KNIFE(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE),4, -0.9f),
+    DAGGER_SOUL_KNIFE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.1f),
+    SWORD_TRUTHSEEKER(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE),3, -1.5f);
+
+    private final String material;
+    private final int damage;
+    private final float attackSpeed;
+
+    SoulDaggersID(String material, int damage, float attackSpeed) {
+        this.material = material;
+        this.damage = damage;
+        this.attackSpeed = attackSpeed;
+    }
 
     public static HashMap<SoulDaggersID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.soulDaggersEnabled;
@@ -27,7 +39,7 @@ public enum SoulDaggersID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates;
     }
 
-    public static HashMap<SoulDaggersID, MeleeWeaponStats> getWeaponStats() {
+    public static HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.soulDaggerStats;
     }
 
@@ -45,8 +57,30 @@ public enum SoulDaggersID implements McdwWeaponID {
         return getSpawnRates().get(this);
     }
 
+    @Override
+    public HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.soulDaggerStats;
+    }
+
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
+    }
+
+    @Override
+    public MeleeWeaponStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.soulDaggerStats.get(this);
+    }
+
+    public int getDamage(){
+        return damage;
+    }
+
+    public String getMaterial(){
+        return material;
+    }
+
+    public float getAttackSpeed(){
+        return attackSpeed;
     }
 
     @Override

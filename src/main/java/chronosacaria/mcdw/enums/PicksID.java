@@ -2,19 +2,31 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwPick;
+import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum PicksID implements McdwWeaponID {
-    PICK_DIAMOND_PICKAXE_VAR,
-    PICK_HAILING_PINNACLE,
-    PICK_HOWLING_PICK,
-    PICK_MOUNTAINEER_PICK;
+public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
+    PICK_DIAMOND_PICKAXE_VAR(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),1, -2.8f),
+    PICK_HAILING_PINNACLE(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),1, -2.8f),
+    PICK_HOWLING_PICK(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -2.8f),
+    PICK_MOUNTAINEER_PICK(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -2.8f);
+
+    private final String material;
+    private final int damage;
+    private final float attackSpeed;
+
+    PicksID(String material, int damage, float attackSpeed) {
+        this.material = material;
+        this.damage = damage;
+        this.attackSpeed = attackSpeed;
+    }
 
     public static HashMap<PicksID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.picksEnabled;
@@ -28,7 +40,7 @@ public enum PicksID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.pickSpawnRates;
     }
 
-    public static HashMap<PicksID, MeleeWeaponStats> getWeaponStats() {
+    public static HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.pickStats;
     }
 
@@ -46,8 +58,30 @@ public enum PicksID implements McdwWeaponID {
         return getSpawnRates().get(this);
     }
 
+    @Override
+    public HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.pickStats;
+    }
+
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
+    }
+
+    @Override
+    public MeleeWeaponStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.pickStats.get(this);
+    }
+
+    public int getDamage(){
+        return damage;
+    }
+
+    public String getMaterial(){
+        return material;
+    }
+
+    public float getAttackSpeed(){
+        return attackSpeed;
     }
 
     @Override

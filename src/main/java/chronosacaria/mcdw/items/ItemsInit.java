@@ -38,7 +38,7 @@ public class ItemsInit {
     public static final EnumMap<ItemsID, BeeStingerItem> mcdwItems = new EnumMap<>(ItemsID.class);
 
     public static void init() {
-        for (McdwWeaponID mcdwWeaponID : McdwWeaponID.values()) {
+        for (IMcdwWeaponID mcdwWeaponID : IMcdwWeaponID.values()) {
             if (mcdwWeaponID.isEnabled()) {
                 Item weapon = mcdwWeaponID.makeWeapon();
                 registerItem(mcdwWeaponID.toString().toLowerCase(Locale.ROOT), weapon);

@@ -2,20 +2,32 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwAxe;
+import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum AxesID implements McdwWeaponID {
-    AXE_ANCHOR,
-    AXE_AXE,
-    AXE_ENCRUSTED_ANCHOR,
-    AXE_FIREBRAND,
-    AXE_HIGHLAND;
+public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
+    AXE_ANCHOR(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),6, -3.1f),
+    AXE_AXE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),6, -3.1f),
+    AXE_ENCRUSTED_ANCHOR(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),5, -3.1f),
+    AXE_FIREBRAND(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),5, -2.9f),
+    AXE_HIGHLAND(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),6, -3.1f);
+
+    private final String material;
+    private final int damage;
+    private final float attackSpeed;
+
+    AxesID(String material, int damage, float attackSpeed) {
+        this.material = material;
+        this.damage = damage;
+        this.attackSpeed = attackSpeed;
+    }
 
     public static HashMap<AxesID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.axesEnabled;
@@ -29,7 +41,7 @@ public enum AxesID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.axeSpawnRates;
     }
 
-    public static HashMap<AxesID, MeleeWeaponStats> getWeaponStats() {
+    public static HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.axeStats;
     }
 
@@ -47,8 +59,30 @@ public enum AxesID implements McdwWeaponID {
         return getSpawnRates().get(this);
     }
 
+    @Override
+    public HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.axeStats;
+    }
+
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
+    }
+
+    @Override
+    public MeleeWeaponStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.axeStats.get(this);
+    }
+
+    public int getDamage(){
+        return damage;
+    }
+
+    public String getMaterial(){
+        return material;
+    }
+
+    public float getAttackSpeed(){
+        return attackSpeed;
     }
 
     @Override

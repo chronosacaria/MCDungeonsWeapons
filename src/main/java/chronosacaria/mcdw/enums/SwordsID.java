@@ -2,39 +2,51 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSword;
+import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum SwordsID implements McdwWeaponID {
-    SWORD_BEESTINGER,
-    SWORD_BROADSWORD,
-    SWORD_BROKEN_SAWBLADE,
-    SWORD_CLAYMORE,
-    SWORD_CORAL_BLADE,
-    SWORD_CUTLASS,
-    SWORD_DANCERS_SWORD,
-    SWORD_DARK_KATANA,
-    SWORD_DIAMOND_SWORD_VAR,
-    SWORD_FREEZING_FOIL,
-    SWORD_FROST_SLAYER,
-    SWORD_GREAT_AXEBLADE,
-    SWORD_HAWKBRAND,
-    SWORD_HEARTSTEALER,
-    SWORD_IRON_SWORD_VAR,
-    SWORD_KATANA,
-    SWORD_MASTERS_KATANA,
-    SWORD_MECHANIZED_SAWBLADE,
-    SWORD_NAMELESS_BLADE,
-    SWORD_OBSIDIAN_CLAYMORE,
-    SWORD_RAPIER,
-    SWORD_SINISTER,
-    SWORD_SPONGE_STRIKER,
-    SWORD_THE_STARLESS_NIGHT;
+public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
+    SWORD_BEESTINGER(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),0, -0.9f),
+    SWORD_BROADSWORD(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 4, -3.0f),
+    SWORD_BROKEN_SAWBLADE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -2.4f),
+    SWORD_CLAYMORE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 5, -3.0f),
+    SWORD_CORAL_BLADE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -2.4f),
+    SWORD_CUTLASS(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -2.7f),
+    SWORD_DANCERS_SWORD(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.0f),
+    SWORD_DARK_KATANA(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE),2, -1.15f),
+    SWORD_DIAMOND_SWORD_VAR(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),3, -2.4f),
+    SWORD_FREEZING_FOIL(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),0, -0.9f),
+    SWORD_FROST_SLAYER(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND), 5, -3.0f),
+    SWORD_GREAT_AXEBLADE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 6, -3.0f),
+    SWORD_HAWKBRAND(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),5, -2.0f),
+    SWORD_HEARTSTEALER(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND), 4, -3.0f),
+    SWORD_IRON_SWORD_VAR(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -2.4f),
+    SWORD_KATANA(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.5f),
+    SWORD_MASTERS_KATANA(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),1, -1.1f),
+    SWORD_MECHANIZED_SAWBLADE(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),3, -2.4f),
+    SWORD_NAMELESS_BLADE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.7f),
+    SWORD_OBSIDIAN_CLAYMORE(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE), 6, -3.0f),
+    SWORD_RAPIER(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),0, -0.9f),
+    SWORD_SINISTER(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),5, -2.0f),
+    SWORD_SPONGE_STRIKER(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),3, -2.4f),
+    SWORD_THE_STARLESS_NIGHT(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE), 8, -3.0f);
+
+    private final String material;
+    private final int damage;
+    private final float attackSpeed;
+
+    SwordsID(String material, int damage, float attackSpeed) {
+        this.material = material;
+        this.damage = damage;
+        this.attackSpeed = attackSpeed;
+    }
 
     public static HashMap<SwordsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.swordsEnabled;
@@ -48,7 +60,7 @@ public enum SwordsID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.swordSpawnRates;
     }
 
-    public static HashMap<SwordsID, MeleeWeaponStats> getWeaponStats() {
+    public static HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.swordStats;
     }
 
@@ -66,8 +78,30 @@ public enum SwordsID implements McdwWeaponID {
         return getSpawnRates().get(this);
     }
 
+    @Override
+    public HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.swordStats;
+    }
+
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
+    }
+
+    @Override
+    public MeleeWeaponStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.swordStats.get(this);
+    }
+
+    public int getDamage(){
+        return damage;
+    }
+
+    public String getMaterial(){
+        return material;
+    }
+
+    public float getAttackSpeed(){
+        return attackSpeed;
     }
 
     public McdwSword makeWeapon() {

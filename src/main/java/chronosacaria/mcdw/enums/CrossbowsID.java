@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum CrossbowsID implements McdwWeaponID {
+public enum CrossbowsID implements IMcdwWeaponID {
     CROSSBOW_AUTO_CROSSBOW,
     CROSSBOW_AZURE_SEEKER,
     CROSSBOW_BABY_CROSSBOW,

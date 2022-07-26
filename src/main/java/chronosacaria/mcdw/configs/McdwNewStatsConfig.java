@@ -9,80 +9,37 @@ import me.shedaniel.autoconfig.annotation.Config;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 @SuppressWarnings({"UnusedReturnValue", "SameParameterValue"})
 @Config(name = "mcdw_stats_config")
 public class McdwNewStatsConfig implements ConfigData {
 
-    public final HashMap<SwordsID, MeleeWeaponStats> swordStats = new HashMap<>();
-    public final HashMap<AxesID, MeleeWeaponStats> axeStats = new HashMap<>();
-    public final HashMap<DoubleAxesID, MeleeWeaponStats> doubleAxeStats = new HashMap<>();
-    public final HashMap<DaggersID, MeleeWeaponStats> daggerStats = new HashMap<>();
-    public final HashMap<SoulDaggersID, MeleeWeaponStats> soulDaggerStats = new HashMap<>();
-    public final HashMap<HammersID, MeleeWeaponStats> hammerStats = new HashMap<>();
-    public final HashMap<GauntletsID, MeleeWeaponStats> gauntletStats = new HashMap<>();
-    public final HashMap<SicklesID, MeleeWeaponStats> sickleStats = new HashMap<>();
-    public final HashMap<ScythesID, MeleeWeaponStats> scytheStats = new HashMap<>();
-    public final HashMap<PicksID, MeleeWeaponStats> pickStats = new HashMap<>();
-    public final HashMap<GlaivesID, MeleeWeaponStats> glaiveStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> swordStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> axeStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> doubleAxeStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> daggerStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> soulDaggerStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> hammerStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> gauntletStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> sickleStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> scytheStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> pickStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> glaiveStats = new HashMap<>();
     public final boolean doubleAttackReachOfGlaives = false;
-    public final HashMap<SpearsID, MeleeWeaponStats> spearStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> spearStats = new HashMap<>();
     public final boolean doubleAttackReachOfSpears = false;
-    public final HashMap<StavesID, MeleeWeaponStats> staffStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> staffStats = new HashMap<>();
     public final boolean doubleAttackReachOfStaves = false;
-    public final HashMap<WhipsID, MeleeWeaponStats> whipStats = new HashMap<>();
+    public final HashMap<IMeleeWeaponID, MeleeWeaponStats> whipStats = new HashMap<>();
     public final HashMap<BowsID, RangedWeaponStats> bowStats = new HashMap<>();
     public final HashMap<ShortBowsID, RangedWeaponStats> shortBowStats = new HashMap<>();
     public final HashMap<LongBowsID, RangedWeaponStats> longBowStats = new HashMap<>();
     public final HashMap<CrossbowsID, RangedWeaponStats> crossbowStats = new HashMap<>();
     public final HashMap<ShieldsID, ShieldStats> shieldStats = new HashMap<>();
 
-
-
     // convenience methods:
-    protected MeleeWeaponStats swordStats(String material, int damage, float attackSpeed, SwordsID swordsID){
-        return swordStats.get(swordsID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats axeStats(String material, int damage, float attackSpeed, AxesID axesID){
-        return axeStats.get(axesID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats doubleAxeStats(String material, int damage, float attackSpeed, DoubleAxesID doubleAxesID){
-        return doubleAxeStats.get(doubleAxesID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats daggerStats(String material, int damage, float attackSpeed, DaggersID daggersID){
-        return daggerStats.get(daggersID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats soulDaggerStats(String material, int damage, float attackSpeed, SoulDaggersID soulDaggersID){
-        return soulDaggerStats.get(soulDaggersID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats hammerStats(String material, int damage, float attackSpeed, HammersID hammersID){
-        return hammerStats.get(hammersID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats gauntletStats(String material, int damage, float attackSpeed, GauntletsID gauntletsID){
-        return gauntletStats.get(gauntletsID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats sickleStats(String material, int damage, float attackSpeed, SicklesID sicklesID){
-        return sickleStats.get(sicklesID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats scytheStats(String material, int damage, float attackSpeed, ScythesID scythesID){
-        return scytheStats.get(scythesID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats pickStats(String material, int damage, float attackSpeed, PicksID picksID){
-        return pickStats.get(picksID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats glaiveStats(String material, int damage, float attackSpeed, GlaivesID glaivesID){
-        return glaiveStats.get(glaivesID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats spearStats(String material, int damage, float attackSpeed, SpearsID spearsID){
-        return spearStats.get(spearsID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats staffStats(String material, int damage, float attackSpeed, StavesID stavesID){
-        return staffStats.get(stavesID).meleeWeaponStats(material, damage, attackSpeed);
-    }
-    protected MeleeWeaponStats whipStats(String material, int damage, float attackSpeed, WhipsID whipsID){
-        return whipStats.get(whipsID).meleeWeaponStats(material, damage, attackSpeed);
-    }
     protected RangedWeaponStats bowStats(String material, int drawSpeed, float range, BowsID bowsID){
         return bowStats.get(bowsID).rangedWeaponStats(material, drawSpeed, range);
     }
@@ -99,167 +56,25 @@ public class McdwNewStatsConfig implements ConfigData {
         return shieldStats.get(shieldsID).shieldStats(material);
     }
 
+    protected MeleeWeaponStats meleeWeaponStats(String material, int damage, float attackSpeed, IMeleeWeaponID iMeleeWeaponID) {
+        return iMeleeWeaponID.getWeaponItemStats(this).meleeWeaponStats(material, damage, attackSpeed);
+    }
+    protected MeleeWeaponStats advancedMeleeWeaponStats(IMeleeWeaponID iMeleeWeaponID) {
+        return meleeWeaponStats(iMeleeWeaponID.getMaterial(), iMeleeWeaponID.getDamage(), iMeleeWeaponID.getAttackSpeed(), iMeleeWeaponID);
+    }
+
     public McdwNewStatsConfig() {
-        for (SwordsID swordsID : SwordsID.values())
-            swordStats.put(swordsID, new MeleeWeaponStats());
+        Arrays.stream(BowsID.values()).forEach(bowsID -> bowStats.put(bowsID, new RangedWeaponStats()));
+        Arrays.stream(ShortBowsID.values()).forEach(shortBowsID -> shortBowStats.put(shortBowsID, new RangedWeaponStats()));
+        Arrays.stream(LongBowsID.values()).forEach(longBowsID -> longBowStats.put(longBowsID, new RangedWeaponStats()));
+        Arrays.stream(CrossbowsID.values()).forEach(crossbowsID -> crossbowStats.put(crossbowsID, new RangedWeaponStats()));
+        Arrays.stream(ShieldsID.values()).forEach(shieldsID -> shieldStats.put(shieldsID, new ShieldStats()));
 
-        for (AxesID axesID : AxesID.values())
-            axeStats.put(axesID, new MeleeWeaponStats());
+        Arrays.stream(IMeleeWeaponID.values()).forEach(iMeleeWeaponID ->
+                iMeleeWeaponID.getWeaponStats(this).put(iMeleeWeaponID, new MeleeWeaponStats()));
 
-        for (DoubleAxesID doubleAxesID : DoubleAxesID.values())
-            doubleAxeStats.put(doubleAxesID, new MeleeWeaponStats());
-
-        for (DaggersID daggersID : DaggersID.values())
-            daggerStats.put(daggersID, new MeleeWeaponStats());
-
-        for (SoulDaggersID soulDaggersID : SoulDaggersID.values())
-            soulDaggerStats.put(soulDaggersID, new MeleeWeaponStats());
-
-        for (HammersID hammersID : HammersID.values())
-            hammerStats.put(hammersID, new MeleeWeaponStats());
-
-        for (GauntletsID gauntletsID : GauntletsID.values())
-            gauntletStats.put(gauntletsID, new MeleeWeaponStats());
-
-        for (SicklesID sicklesID : SicklesID.values())
-            sickleStats.put(sicklesID, new MeleeWeaponStats());
-
-        for (ScythesID scythesID : ScythesID.values())
-            scytheStats.put(scythesID, new MeleeWeaponStats());
-
-        for (PicksID picksID : PicksID.values())
-            pickStats.put(picksID, new MeleeWeaponStats());
-
-        for (GlaivesID glaivesID : GlaivesID.values())
-            glaiveStats.put(glaivesID, new MeleeWeaponStats());
-
-        for (SpearsID spearsID : SpearsID.values())
-            spearStats.put(spearsID, new MeleeWeaponStats());
-
-        for (StavesID stavesID : StavesID.values())
-            staffStats.put(stavesID, new MeleeWeaponStats());
-
-        for (WhipsID whipsID : WhipsID.values())
-            whipStats.put(whipsID, new MeleeWeaponStats());
-
-        for (BowsID bowsID : BowsID.values())
-            bowStats.put(bowsID, new RangedWeaponStats());
-
-        for (ShortBowsID shortBowsID : ShortBowsID.values())
-            shortBowStats.put(shortBowsID, new RangedWeaponStats());
-
-        for (LongBowsID longBowsID : LongBowsID.values())
-            longBowStats.put(longBowsID, new RangedWeaponStats());
-
-        for (CrossbowsID crossbowsID : CrossbowsID.values())
-            crossbowStats.put(crossbowsID, new RangedWeaponStats());
-
-        for (ShieldsID shieldsID : ShieldsID.values())
-            shieldStats.put(shieldsID, new ShieldStats());
-
-        swordStats(materialToString(ToolMaterials.IRON), 5, -3.0f, SwordsID.SWORD_CLAYMORE);
-        swordStats(materialToString(ToolMaterials.IRON), 4, -3.0f, SwordsID.SWORD_BROADSWORD);
-        swordStats(materialToString(ToolMaterials.DIAMOND), 5, -3.0f, SwordsID.SWORD_FROST_SLAYER);
-        swordStats(materialToString(ToolMaterials.DIAMOND), 4, -3.0f, SwordsID.SWORD_HEARTSTEALER);
-        swordStats(materialToString(ToolMaterials.IRON), 6, -3.0f, SwordsID.SWORD_GREAT_AXEBLADE);
-        swordStats(materialToString(ToolMaterials.NETHERITE), 6, -3.0f, SwordsID.SWORD_OBSIDIAN_CLAYMORE);
-        swordStats(materialToString(ToolMaterials.NETHERITE), 8, -3.0f,SwordsID.SWORD_THE_STARLESS_NIGHT);
-
-        swordStats(materialToString(ToolMaterials.IRON),0, -0.9f, SwordsID.SWORD_RAPIER);
-        swordStats(materialToString(ToolMaterials.IRON),0, -0.9f, SwordsID.SWORD_BEESTINGER);
-        swordStats(materialToString(ToolMaterials.IRON),0, -0.9f, SwordsID.SWORD_FREEZING_FOIL);
-
-        swordStats(materialToString(ToolMaterials.IRON),3, -2.7f, SwordsID.SWORD_CUTLASS);
-        swordStats(materialToString(ToolMaterials.IRON),1, -1.7f, SwordsID.SWORD_NAMELESS_BLADE);
-        swordStats(materialToString(ToolMaterials.IRON),1, -1.0f, SwordsID.SWORD_DANCERS_SWORD);
-
-        swordStats(materialToString(ToolMaterials.IRON),1, -1.5f, SwordsID.SWORD_KATANA);
-        swordStats(materialToString(ToolMaterials.DIAMOND),1, -1.1f, SwordsID.SWORD_MASTERS_KATANA);
-        swordStats(materialToString(ToolMaterials.NETHERITE),2, -1.15f,SwordsID.SWORD_DARK_KATANA);
-
-        swordStats(materialToString(ToolMaterials.IRON),3, -2.4f, SwordsID.SWORD_IRON_SWORD_VAR);
-        swordStats(materialToString(ToolMaterials.DIAMOND),3, -2.4f, SwordsID.SWORD_DIAMOND_SWORD_VAR);
-        swordStats(materialToString(ToolMaterials.IRON),5, -2.0f, SwordsID.SWORD_HAWKBRAND);
-        swordStats(materialToString(ToolMaterials.IRON),5, -2.0f, SwordsID.SWORD_SINISTER);
-
-        swordStats(materialToString(ToolMaterials.IRON),3, -2.4f, SwordsID.SWORD_BROKEN_SAWBLADE);
-        swordStats(materialToString(ToolMaterials.DIAMOND),3, -2.4f, SwordsID.SWORD_MECHANIZED_SAWBLADE);
-
-        swordStats(materialToString(ToolMaterials.IRON),3, -2.4f, SwordsID.SWORD_CORAL_BLADE);
-        swordStats(materialToString(ToolMaterials.DIAMOND),3, -2.4f, SwordsID.SWORD_SPONGE_STRIKER);
-
-        axeStats(materialToString(ToolMaterials.IRON),6, -3.1f, AxesID.AXE_AXE);
-        axeStats(materialToString(ToolMaterials.DIAMOND),5, -2.9f, AxesID.AXE_FIREBRAND);
-        axeStats(materialToString(ToolMaterials.IRON),6, -3.1f, AxesID.AXE_HIGHLAND);
-
-        axeStats(materialToString(ToolMaterials.IRON),6, -3.1f, AxesID.AXE_ANCHOR);
-        axeStats(materialToString(ToolMaterials.DIAMOND),5, -3.1f, AxesID.AXE_ENCRUSTED_ANCHOR);
-
-        doubleAxeStats(materialToString(ToolMaterials.IRON),6, -3.1f, DoubleAxesID.AXE_DOUBLE);
-        doubleAxeStats(materialToString(ToolMaterials.IRON),7, -3.1f, DoubleAxesID.AXE_CURSED);
-        doubleAxeStats(materialToString(ToolMaterials.IRON),6, -2.9f, DoubleAxesID.AXE_WHIRLWIND);
-
-        daggerStats(materialToString(ToolMaterials.IRON),1, -1.3f, DaggersID.DAGGER_DAGGER);
-        daggerStats(materialToString(ToolMaterials.IRON),1, -1.0f, DaggersID.DAGGER_FANGS_OF_FROST);
-        daggerStats(materialToString(ToolMaterials.IRON),1, -1.0f, DaggersID.DAGGER_MOON);
-        daggerStats(materialToString(ToolMaterials.IRON),1, -1.3f, DaggersID.DAGGER_SHEAR_DAGGER);
-        daggerStats(materialToString(ToolMaterials.DIAMOND),3, -1.2f, DaggersID.DAGGER_BACKSTABBER);
-        daggerStats(materialToString(ToolMaterials.NETHERITE),4, -1.0f, DaggersID.DAGGER_SWIFT_STRIKER);
-        daggerStats(materialToString(ToolMaterials.DIAMOND),4, -1.2f, DaggersID.DAGGER_VOID_TOUCHED_BLADE);
-        daggerStats(materialToString(ToolMaterials.NETHERITE),4, -1.2f, DaggersID.DAGGER_THE_BEGINNING);
-        daggerStats(materialToString(ToolMaterials.NETHERITE),4, -1.2f, DaggersID.DAGGER_THE_END);
-
-        daggerStats(materialToString(ToolMaterials.IRON),2, -1.3f, DaggersID.DAGGER_TEMPEST_KNIFE);
-        daggerStats(materialToString(ToolMaterials.IRON),3, -1.3f, DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE);
-        daggerStats(materialToString(ToolMaterials.DIAMOND),3, -1.3f, DaggersID.DAGGER_CHILL_GALE_KNIFE);
-
-        soulDaggerStats(materialToString(ToolMaterials.IRON),1, -1.1f, SoulDaggersID.DAGGER_SOUL_KNIFE);
-        soulDaggerStats(materialToString(ToolMaterials.NETHERITE),4, -0.9f, SoulDaggersID.DAGGER_ETERNAL_KNIFE);
-        soulDaggerStats(materialToString(ToolMaterials.NETHERITE),3, -1.5f, SoulDaggersID.SWORD_TRUTHSEEKER);
-
-        hammerStats(materialToString(ToolMaterials.IRON),4, -3.0f,HammersID.HAMMER_GREAT_HAMMER);
-        hammerStats(materialToString(ToolMaterials.DIAMOND),5, -3.0f,HammersID.HAMMER_STORMLANDER);
-        hammerStats(materialToString(ToolMaterials.DIAMOND),5, -3.0f,HammersID.HAMMER_GRAVITY);
-        hammerStats(materialToString(ToolMaterials.IRON),4, -2.9f,HammersID.HAMMER_MACE);
-        hammerStats(materialToString(ToolMaterials.IRON),5, -2.9f,HammersID.HAMMER_FLAIL);
-        hammerStats(materialToString(ToolMaterials.DIAMOND),4, -2.5f,HammersID.HAMMER_SUNS_GRACE);
-        hammerStats(materialToString(ToolMaterials.IRON),5, -3.1f,HammersID.HAMMER_BONECLUB);
-        hammerStats(materialToString(ToolMaterials.DIAMOND),5, -3.1f,HammersID.HAMMER_BONE_CUDGEL);
-
-        gauntletStats(materialToString(ToolMaterials.IRON),0, -1.4f, GauntletsID.GAUNTLET_GAUNTLET);
-        gauntletStats(materialToString(ToolMaterials.DIAMOND),0, -1.4f, GauntletsID.GAUNTLET_MAULERS);
-        gauntletStats(materialToString(ToolMaterials.NETHERITE),0, -1.4f, GauntletsID.GAUNTLET_SOUL_FISTS);
-
-        sickleStats(materialToString(ToolMaterials.IRON),1, -1.9f, SicklesID.SICKLE_SICKLE);
-        sickleStats(materialToString(ToolMaterials.IRON),3, -1.9f, SicklesID.SICKLE_NIGHTMARES_BITE);
-        sickleStats(materialToString(ToolMaterials.IRON),2, -1.9f, SicklesID.SICKLE_LAST_LAUGH_GOLD);
-        sickleStats(materialToString(ToolMaterials.IRON),2, -1.9f, SicklesID.SICKLE_LAST_LAUGH_SILVER);
-
-        scytheStats(materialToString(ToolMaterials.IRON),4, -2.25f, ScythesID.SICKLE_JAILORS_SCYTHE);
-        scytheStats(materialToString(ToolMaterials.DIAMOND),3, -2.25f, ScythesID.SICKLE_SOUL_SCYTHE);
-        scytheStats(materialToString(ToolMaterials.DIAMOND),4, -2.5f, ScythesID.SICKLE_FROST_SCYTHE);
-        scytheStats(materialToString(ToolMaterials.DIAMOND),4, -2.5f, ScythesID.SICKLE_SKULL_SCYTHE);
-
-        pickStats(materialToString(ToolMaterials.DIAMOND),1, -2.8f, PicksID.PICK_DIAMOND_PICKAXE_VAR);
-        pickStats(materialToString(ToolMaterials.IRON),1, -2.8f, PicksID.PICK_MOUNTAINEER_PICK);
-        pickStats(materialToString(ToolMaterials.IRON),1, -2.8f, PicksID.PICK_HOWLING_PICK);
-        pickStats(materialToString(ToolMaterials.DIAMOND),1, -2.8f, PicksID.PICK_HAILING_PINNACLE);
-
-        glaiveStats(materialToString(ToolMaterials.IRON),3, -2.7f, GlaivesID.SPEAR_GLAIVE);
-        glaiveStats(materialToString(ToolMaterials.IRON),5, -2.4f, GlaivesID.SPEAR_GRAVE_BANE);
-        glaiveStats(materialToString(ToolMaterials.IRON),5, -2.5f, GlaivesID.SPEAR_VENOM_GLAIVE);
-        glaiveStats(materialToString(ToolMaterials.IRON),5, -2.4f, GlaivesID.SPEAR_CACKLING_BROOM);
-
-        spearStats(materialToString(ToolMaterials.IRON),3, -2.5f, SpearsID.SPEAR_SPEAR);
-        spearStats(materialToString(ToolMaterials.IRON),5, -2.5f, SpearsID.SPEAR_WHISPERING_SPEAR);
-        spearStats(materialToString(ToolMaterials.IRON),4, -2.15f, SpearsID.SPEAR_FORTUNE);
-
-        staffStats(materialToString(ToolMaterials.WOOD),2, -0.1f, StavesID.STAFF_BATTLESTAFF);
-        staffStats(materialToString(ToolMaterials.IRON),3, -0.1f, StavesID.STAFF_GROWING_STAFF);
-        staffStats(materialToString(ToolMaterials.IRON),2, -0.1f, StavesID.STAFF_BATTLESTAFF_OF_TERROR);
-
-        whipStats(materialToString(ToolMaterials.IRON),2, -3.1f, WhipsID.WHIP_WHIP);
-        whipStats(materialToString(ToolMaterials.IRON),5, -3.1f, WhipsID.WHIP_VINE_WHIP);
+        // Stats Hash Assign
+        Arrays.stream(IMeleeWeaponID.values()).forEach(this::advancedMeleeWeaponStats);
 
         bowStats(materialToString(ToolMaterials.NETHERITE),14, 18f, BowsID.BOW_ANCIENT_BOW);
         bowStats(materialToString(ToolMaterials.STONE),16, 12f, BowsID.BOW_BONEBOW);
@@ -335,7 +150,7 @@ public class McdwNewStatsConfig implements ConfigData {
         shieldStats(materialToString(ToolMaterials.DIAMOND), ShieldsID.SHIELD_VANGUARD);
     }
 
-    private static String materialToString(ToolMaterial toolMaterial) {
+    public static String materialToString(ToolMaterial toolMaterial) {
         if (toolMaterial == ToolMaterials.WOOD)
             return "wood";
         else if (toolMaterial == ToolMaterials.STONE)

@@ -2,19 +2,31 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwScythe;
+import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum ScythesID implements McdwWeaponID {
-    SICKLE_FROST_SCYTHE,
-    SICKLE_JAILORS_SCYTHE,
-    SICKLE_SKULL_SCYTHE,
-    SICKLE_SOUL_SCYTHE;
+public enum ScythesID implements IMcdwWeaponID, IMeleeWeaponID {
+    SICKLE_FROST_SCYTHE(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),4, -2.5f),
+    SICKLE_JAILORS_SCYTHE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),4, -2.25f),
+    SICKLE_SKULL_SCYTHE(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),4, -2.5f),
+    SICKLE_SOUL_SCYTHE(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),3, -2.25f);
+
+    private final String material;
+    private final int damage;
+    private final float attackSpeed;
+
+    ScythesID(String material, int damage, float attackSpeed) {
+        this.material = material;
+        this.damage = damage;
+        this.attackSpeed = attackSpeed;
+    }
 
     public static HashMap<ScythesID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.scythesEnabled;
@@ -28,7 +40,7 @@ public enum ScythesID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.scytheSpawnRates;
     }
 
-    public static HashMap<ScythesID, MeleeWeaponStats> getWeaponStats() {
+    public static HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.scytheStats;
     }
 
@@ -46,8 +58,30 @@ public enum ScythesID implements McdwWeaponID {
         return getSpawnRates().get(this);
     }
 
+    @Override
+    public HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.scytheStats;
+    }
+
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
+    }
+
+    @Override
+    public MeleeWeaponStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.scytheStats.get(this);
+    }
+
+    public int getDamage(){
+        return damage;
+    }
+
+    public String getMaterial(){
+        return material;
+    }
+
+    public float getAttackSpeed(){
+        return attackSpeed;
     }
 
     @Override

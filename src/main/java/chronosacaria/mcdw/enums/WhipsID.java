@@ -2,17 +2,29 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwWhip;
+import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum WhipsID implements McdwWeaponID {
-    WHIP_VINE_WHIP,
-    WHIP_WHIP;
+public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
+    WHIP_VINE_WHIP(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),5, -3.1f),
+    WHIP_WHIP(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),2, -3.1f);
+
+    private final String material;
+    private final int damage;
+    private final float attackSpeed;
+
+    WhipsID(String material, int damage, float attackSpeed) {
+        this.material = material;
+        this.damage = damage;
+        this.attackSpeed = attackSpeed;
+    }
 
     public static HashMap<WhipsID, Boolean> getEnabledItems(){
         return Mcdw.CONFIG.mcdwEnableItemsConfig.whipsEnabled;
@@ -26,7 +38,7 @@ public enum WhipsID implements McdwWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.whipSpawnRates;
     }
 
-    public static HashMap<WhipsID, MeleeWeaponStats> getWeaponStats() {
+    public static HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.whipStats;
     }
 
@@ -44,8 +56,30 @@ public enum WhipsID implements McdwWeaponID {
         return getSpawnRates().get(this);
     }
 
+    @Override
+    public HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.whipStats;
+    }
+
     public MeleeWeaponStats getWeaponItemStats() {
         return getWeaponStats().get(this);
+    }
+
+    @Override
+    public MeleeWeaponStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.whipStats.get(this);
+    }
+
+    public int getDamage(){
+        return damage;
+    }
+
+    public String getMaterial(){
+        return material;
+    }
+
+    public float getAttackSpeed(){
+        return attackSpeed;
     }
 
     @Override

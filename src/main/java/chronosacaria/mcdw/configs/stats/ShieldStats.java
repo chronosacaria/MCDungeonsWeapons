@@ -1,6 +1,6 @@
 package chronosacaria.mcdw.configs.stats;
 
-public class ShieldStats extends McdwWeaponStats {
+public class ShieldStats {
     public String material;
 
     public ShieldStats shieldStats (String material) {

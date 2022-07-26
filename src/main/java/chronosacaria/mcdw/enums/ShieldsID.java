@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum ShieldsID implements McdwWeaponID {
+public enum ShieldsID implements IMcdwWeaponID {
     SHIELD_ROYAL_GUARD,
     SHIELD_VANGUARD;
 

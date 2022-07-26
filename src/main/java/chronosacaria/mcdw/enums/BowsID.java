@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum BowsID implements McdwWeaponID {
+public enum BowsID implements IMcdwWeaponID {
     BOW_ANCIENT_BOW,
     BOW_BONEBOW,
     BOW_BUBBLE_BOW,
