@@ -43,10 +43,11 @@ public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.hammerSpawnRates;
     }
 
-    public static HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> getWeaponStats() {
+    public static HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.hammerStats;
     }
 
+    @Override
     public Boolean isEnabled(){
         return getEnabledItems().get(this);
     }
@@ -62,27 +63,31 @@ public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.hammerStats;
     }
 
-    public IMeleeWeaponID.MeleeStats getWeaponItemStats() {
+    @Override
+    public MeleeStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
 
     @Override
-    public IMeleeWeaponID.MeleeStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public MeleeStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.hammerStats.get(this);
     }
 
-    public int getDamage(){
-        return damage;
-    }
-
+    @Override
     public String getMaterial(){
         return material;
     }
 
+    @Override
+    public int getDamage(){
+        return damage;
+    }
+
+    @Override
     public float getAttackSpeed(){
         return attackSpeed;
     }

@@ -68,6 +68,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
         return CONFIG.mcdwNewStatsConfig.crossbowStats;
     }
 
+    @Override
     public Boolean isEnabled(){
         return getEnabledItems().get(this);
     }
@@ -87,6 +88,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
         return mcdwNewStatsConfig.crossbowStats;
     }
 
+    @Override
     public RangedStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }

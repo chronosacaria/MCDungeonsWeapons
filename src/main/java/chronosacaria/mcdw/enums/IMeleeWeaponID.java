@@ -10,16 +10,14 @@ public interface IMeleeWeaponID extends IMcdwWeaponID {
         return IMcdwWeaponID.meleeValues();
     }
 
-    HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig);
+    HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
-    IMeleeWeaponID.MeleeStats getWeaponItemStats();
+    MeleeStats getWeaponItemStats();
 
-    IMeleeWeaponID.MeleeStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig);
-
-    int getDamage();
+    MeleeStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
     String getMaterial();
-
+    int getDamage();
     float getAttackSpeed();
 
     class MeleeStats {
@@ -35,11 +33,3 @@ public interface IMeleeWeaponID extends IMcdwWeaponID {
         }
     }
 }
-
-/* Put in McdwNewStatsConfig.java to eventually replace for loop hell :( not working now */
-
-/* Arrays.stream(IMeleeWeaponID.values()).forEach(iMeleeWeaponID ->
-        {
-            iMeleeWeaponID.getWeaponStats(this).put(iMeleeWeaponID, new MeleeWeaponStats());
-
-        }); */

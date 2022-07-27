@@ -17,9 +17,7 @@ public interface IRangedWeaponID extends IMcdwWeaponID {
     IRangedWeaponID.RangedStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
     String getMaterial();
-
     int getDrawSpeed();
-
     float getRange();
 
     class RangedStats {

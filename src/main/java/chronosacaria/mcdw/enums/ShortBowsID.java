@@ -43,6 +43,7 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
         return CONFIG.mcdwNewStatsConfig.shortBowStats;
     }
 
+    @Override
     public Boolean isEnabled(){
         return getEnabledItems().get(this);
     }
@@ -62,6 +63,7 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
         return mcdwNewStatsConfig.shortBowStats;
     }
 
+    @Override
     public RangedStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
