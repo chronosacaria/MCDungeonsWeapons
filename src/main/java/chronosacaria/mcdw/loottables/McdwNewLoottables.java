@@ -63,53 +63,36 @@ public class McdwNewLoottables {
 
     public static void init() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
-            if (EntityType.BEE.getLootTableId().equals(id) && source.isBuiltin()) {
-                if (CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(ItemsID.ITEM_BEE_STINGER)) {
-                    LootPool.Builder lootPoolBuilder = LootPool.builder();
+            LootPool.Builder lootPoolBuilder = LootPool.builder();
+
+            if (EntityType.BEE.getLootTableId().equals(id) && source.isBuiltin())
+                if (CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(ItemsID.ITEM_BEE_STINGER))
                     addItemDrop(lootPoolBuilder, ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER), 1, 1f);
-                    tableBuilder.pool(lootPoolBuilder.build());
-                }
-            }
-            if (EntityType.WITCH.getLootTableId().equals(id) && source.isBuiltin()) { //Java cares about my id but not my ego ;-;
-                if (GlaivesID.SPEAR_CACKLING_BROOM.isEnabled()) {
-                    LootPool.Builder lootPoolBuilder = LootPool.builder();
+
+            if (EntityType.WITCH.getLootTableId().equals(id) && source.isBuiltin())
+                if (GlaivesID.SPEAR_CACKLING_BROOM.isEnabled())
                     addItemDrop(lootPoolBuilder, GlaivesID.SPEAR_CACKLING_BROOM.getItem(), 1, 0.2F);
-                    tableBuilder.pool(lootPoolBuilder.build());
-                }
-            }
-            if (EntityType.WITHER.getLootTableId().equals(id) && source.isBuiltin()) {
-                if (BowsID.BOW_ANCIENT_BOW.isEnabled()) {
-                    LootPool.Builder lootPoolBuilder = LootPool.builder();
+
+            if (EntityType.WITHER.getLootTableId().equals(id) && source.isBuiltin())
+                if (BowsID.BOW_ANCIENT_BOW.isEnabled())
                     addItemDrop(lootPoolBuilder, BowsID.BOW_ANCIENT_BOW.getItem(), 1, 0.1F);
-                    tableBuilder.pool(lootPoolBuilder.build());
-                }
-            }
 
             if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
-                if (COMMON_LOOT_TABLES.contains(id.toString())) {
-                    LootPool.Builder lootPoolBuilder = LootPool.builder();
+
+                if (COMMON_LOOT_TABLES.contains(id.toString()))
                     COMMON_LOOT_POOL.forEach(lootId -> addWeaponById(lootPoolBuilder, lootId));
-                    tableBuilder.pool(lootPoolBuilder.build());
-                }
 
-                if (UNCOMMON_LOOT_TABLES.contains(id.toString())) {
-                    LootPool.Builder lootPoolBuilder = LootPool.builder();
+                if (UNCOMMON_LOOT_TABLES.contains(id.toString()))
                     UNCOMMON_LOOT_POOL.forEach(lootId -> addWeaponById(lootPoolBuilder, lootId));
-                    tableBuilder.pool(lootPoolBuilder.build());
-                }
 
-                if (RARE_LOOT_TABLES.contains(id.toString())) {
-                    LootPool.Builder lootPoolBuilder = LootPool.builder();
+                if (RARE_LOOT_TABLES.contains(id.toString()))
                     RARE_LOOT_POOL.forEach(lootID -> addWeaponById(lootPoolBuilder, lootID));
-                    tableBuilder.pool(lootPoolBuilder.build());
-                }
 
-                if (EPIC_LOOT_TABLES.contains(id.toString())) {
-                    LootPool.Builder lootPoolBuilder = LootPool.builder();
+                if (EPIC_LOOT_TABLES.contains(id.toString()))
                     EPIC_LOOT_POOL.forEach(lootID -> addWeaponById(lootPoolBuilder, lootID));
-                    tableBuilder.pool(lootPoolBuilder.build());
-                }
             }
+
+            tableBuilder.pool(lootPoolBuilder.build());
         }));
     }
 
