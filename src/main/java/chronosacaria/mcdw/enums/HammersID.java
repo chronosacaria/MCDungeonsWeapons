@@ -3,7 +3,6 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwHammer;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.item.ToolMaterials;
 
@@ -44,7 +43,7 @@ public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.hammerSpawnRates;
     }
 
-    public static HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats() {
+    public static HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.hammerStats;
     }
 
@@ -63,16 +62,16 @@ public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.hammerStats;
     }
 
-    public MeleeWeaponStats getWeaponItemStats() {
+    public IMeleeWeaponID.MeleeStats getWeaponItemStats() {
         return getWeaponStats().get(this);
     }
 
     @Override
-    public MeleeWeaponStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public IMeleeWeaponID.MeleeStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.hammerStats.get(this);
     }
 

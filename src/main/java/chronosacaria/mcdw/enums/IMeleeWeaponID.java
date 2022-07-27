@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
 
 import java.util.HashMap;
 
@@ -11,17 +10,30 @@ public interface IMeleeWeaponID extends IMcdwWeaponID {
         return IMcdwWeaponID.meleeValues();
     }
 
-    HashMap<IMeleeWeaponID, MeleeWeaponStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig);
+    HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
-    MeleeWeaponStats getWeaponItemStats();
+    IMeleeWeaponID.MeleeStats getWeaponItemStats();
 
-    MeleeWeaponStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig);
+    IMeleeWeaponID.MeleeStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
     int getDamage();
 
     String getMaterial();
 
     float getAttackSpeed();
+
+    class MeleeStats {
+        String material;
+        int damage;
+        float attackSpeed;
+
+        public MeleeStats meleeStats(String material, int damage, float attackSpeed) {
+            this.material = material;
+            this.damage = damage;
+            this.attackSpeed = attackSpeed;
+            return this;
+        }
+    }
 }
 
 /* Put in McdwNewStatsConfig.java to eventually replace for loop hell :( not working now */

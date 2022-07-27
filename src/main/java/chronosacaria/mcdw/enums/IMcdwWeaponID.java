@@ -8,8 +8,7 @@ import java.util.stream.Stream;
 public interface IMcdwWeaponID {
 
     static IMcdwWeaponID[] values() {
-        List<IMcdwWeaponID[]> arrayFather = List.of(meleeValues(), BowsID.values(), ShortBowsID.values(),
-                LongBowsID.values(), CrossbowsID.values(), ShieldsID.values());
+        List<IMcdwWeaponID[]> arrayFather = List.of(meleeValues(), rangedValues(), ShieldsID.values());
 
         return arrayFather.stream().flatMap(Stream::of).toArray(IMcdwWeaponID[]::new);
     }
@@ -21,6 +20,13 @@ public interface IMcdwWeaponID {
                 WhipsID.values());
 
         return arrayFather.stream().flatMap(Stream::of).toArray(IMeleeWeaponID[]::new);
+    }
+
+    static IRangedWeaponID[] rangedValues() {
+        List<IRangedWeaponID[]> arrayFather = List.of(BowsID.values(), ShortBowsID.values(),
+                LongBowsID.values(), CrossbowsID.values());
+
+        return arrayFather.stream().flatMap(Stream::of).toArray(IRangedWeaponID[]::new);
     }
 
     Boolean isEnabled();
