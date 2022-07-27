@@ -10,6 +10,7 @@ import chronosacaria.mcdw.enums.ShieldsID;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.loottables.McdwNewLoottables;
+import chronosacaria.mcdw.registry.CompatRegistry;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import me.shedaniel.autoconfig.AutoConfig;
@@ -65,5 +66,6 @@ public class Mcdw implements ModInitializer {
         McdwEnchantGiverConfig.appendEnchants();
         SummonedEntityRegistry.register();
         StatusEffectsRegistry.init();
+        CompatRegistry.init();
     }
 }

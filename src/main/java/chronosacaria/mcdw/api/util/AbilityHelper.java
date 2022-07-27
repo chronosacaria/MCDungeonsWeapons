@@ -65,7 +65,7 @@ public class AbilityHelper {
     }
 
     public static float getAnimaRepairAmount(float experience, int level) {
-        experience *= 0.1 * level;
+        experience *= 0.2 * level;
         return experience;
     }
 

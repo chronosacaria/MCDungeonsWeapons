@@ -51,8 +51,7 @@ public class EnchantmentEffects {
         int mainHandLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, playerEntity.getMainHandStack());
         int offHandLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_DEVOURER, playerEntity.getOffHandStack());
 
-        int soulDevourerLevel = playerEntity.getOffHandStack().getItem() instanceof IOffhandAttack ?
-                mainHandLevel + offHandLevel : mainHandLevel;
+        int soulDevourerLevel = mainHandLevel + offHandLevel;
 
         if (soulDevourerLevel > 0)
             return Math.round((float) amount * (1 + ((float) soulDevourerLevel / 3f)));
@@ -66,7 +65,7 @@ public class EnchantmentEffects {
             if (missingHealth > 0) {
                 float i = Math.min(AbilityHelper.getAnimaRepairAmount(amount, animaLevel), missingHealth);
                 playerEntity.heal(i);
-                amount -= (int) (i * 10);
+                amount -= (int) (i * 5);
                 return Math.max(amount, 0);
             }
         }
