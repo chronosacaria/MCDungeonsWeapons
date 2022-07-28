@@ -28,6 +28,7 @@ public enum EnchantmentsID {
     LEECHING,
     LEVITATION_SHOT,
     MULTI_SHOT,
+    OVERCHARGE,
     PAIN_CYCLE,
     PHANTOMS_MARK,
     POISON_CLOUD,
@@ -39,6 +40,8 @@ public enum EnchantmentsID {
     REFRESHMENT,
     RICOCHET,
     RUSHDOWN,
+    SHADOW_BARB,
+    SHADOW_SHOT,
     SHOCKWAVE,
     SMITING,
     SOUL_DEVOURER,
@@ -49,5 +52,6 @@ public enum EnchantmentsID {
     THUNDERING,
     VOID_SHOT,
     VOID_STRIKE,
-    WEAKENING
+    WEAKENING,
+    WILD_RAGE
 }

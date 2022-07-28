@@ -10,32 +10,31 @@ import java.util.HashMap;
 
 @Config(name = "mcdw_loot_config")
 public class McdwNewLootConfig implements ConfigData {
-    public HashMap<SettingsID, Boolean> weaponsEnabledInLootTables = new HashMap<>();
-
-    public HashMap<SettingsID, ArrayList<String>> commonLootTables = new HashMap<>();
-    public HashMap<SettingsID, ArrayList<String>> uncommonLootTables = new HashMap<>();
-    public HashMap<SettingsID, ArrayList<String>> rareLootTables = new HashMap<>();
-    public HashMap<SettingsID, ArrayList<String>> epicLootTables = new HashMap<>();
-
-    public HashMap<AxesID, Float> axeSpawnRates = new HashMap<>();
-    public HashMap<DaggersID, Float> daggerSpawnRates = new HashMap<>();
-    public HashMap<DoubleAxesID, Float> doubleAxeSpawnRates = new HashMap<>();
-    public HashMap<GauntletsID, Float> gauntletSpawnRates = new HashMap<>();
-    public HashMap<GlaivesID, Float> glaiveSpawnRates = new HashMap<>();
-    public HashMap<HammersID, Float> hammerSpawnRates = new HashMap<>();
-    public HashMap<PicksID, Float> pickSpawnRates = new HashMap<>();
-    public HashMap<ScythesID, Float> scytheSpawnRates = new HashMap<>();
-    public HashMap<SicklesID, Float> sickleSpawnRates = new HashMap<>();
-    public HashMap<SoulDaggersID, Float> soulDaggerSpawnRates = new HashMap<>();
-    public HashMap<SpearsID, Float> spearSpawnRates = new HashMap<>();
-    public HashMap<StavesID, Float> staffSpawnRates = new HashMap<>();
-    public HashMap<SwordsID, Float> swordSpawnRates = new HashMap<>();
-    public HashMap<WhipsID, Float> whipSpawnRates = new HashMap<>();
-    public HashMap<BowsID, Float> bowSpawnRates = new HashMap<>();
-    public HashMap<LongBowsID, Float> longBowSpawnRates = new HashMap<>();
-    public HashMap<ShortBowsID, Float> shortBowSpawnRates = new HashMap<>();
-    public HashMap<CrossbowsID, Float> crossbowSpawnRates = new HashMap<>();
-    public HashMap<ShieldsID, Float> shieldSpawnRates = new HashMap<>();
+    // TODO Change nomenclature to final convention for hashmaps and subsequent usages
+    public final HashMap<SettingsID, Boolean> weaponsEnabledInLootTables = new HashMap<>();
+    public final HashMap<SettingsID, ArrayList<String>> commonLootTables = new HashMap<>();
+    public final HashMap<SettingsID, ArrayList<String>> uncommonLootTables = new HashMap<>();
+    public final HashMap<SettingsID, ArrayList<String>> rareLootTables = new HashMap<>();
+    public final HashMap<SettingsID, ArrayList<String>> epicLootTables = new HashMap<>();
+    public final HashMap<AxesID, Float> axeSpawnRates = new HashMap<>();
+    public final HashMap<DaggersID, Float> daggerSpawnRates = new HashMap<>();
+    public final HashMap<DoubleAxesID, Float> doubleAxeSpawnRates = new HashMap<>();
+    public final HashMap<GauntletsID, Float> gauntletSpawnRates = new HashMap<>();
+    public final HashMap<GlaivesID, Float> glaiveSpawnRates = new HashMap<>();
+    public final HashMap<HammersID, Float> hammerSpawnRates = new HashMap<>();
+    public final HashMap<PicksID, Float> pickSpawnRates = new HashMap<>();
+    public final HashMap<ScythesID, Float> scytheSpawnRates = new HashMap<>();
+    public final HashMap<SicklesID, Float> sickleSpawnRates = new HashMap<>();
+    public final HashMap<SoulDaggersID, Float> soulDaggerSpawnRates = new HashMap<>();
+    public final HashMap<SpearsID, Float> spearSpawnRates = new HashMap<>();
+    public final HashMap<StavesID, Float> staffSpawnRates = new HashMap<>();
+    public final HashMap<SwordsID, Float> swordSpawnRates = new HashMap<>();
+    public final HashMap<WhipsID, Float> whipSpawnRates = new HashMap<>();
+    public final HashMap<BowsID, Float> bowSpawnRates = new HashMap<>();
+    public final HashMap<LongBowsID, Float> longBowSpawnRates = new HashMap<>();
+    public final HashMap<ShortBowsID, Float> shortBowSpawnRates = new HashMap<>();
+    public final HashMap<CrossbowsID, Float> crossbowSpawnRates = new HashMap<>();
+    public final HashMap<ShieldsID, Float> shieldSpawnRates = new HashMap<>();
 
     public McdwNewLootConfig(){
         weaponsEnabledInLootTables.put(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES, true);

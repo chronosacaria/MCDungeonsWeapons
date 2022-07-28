@@ -1,6 +1,16 @@
 package chronosacaria.mcdw.enums;
 
-public enum CrossbowsID {
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.bases.McdwCrossbow;
+import chronosacaria.mcdw.configs.stats.RangedWeaponStats;
+import chronosacaria.mcdw.items.ItemsInit;
+
+import java.util.EnumMap;
+import java.util.HashMap;
+
+import static chronosacaria.mcdw.Mcdw.CONFIG;
+
+public enum CrossbowsID implements McdwWeaponID {
     CROSSBOW_AUTO_CROSSBOW,
     CROSSBOW_AZURE_SEEKER,
     CROSSBOW_BABY_CROSSBOW,
@@ -29,5 +39,39 @@ public enum CrossbowsID {
     CROSSBOW_SPELLBOUND_CROSSBOW,
     CROSSBOW_THE_SLICER,
     CROSSBOW_VEILED_CROSSBOW,
-    CROSSBOW_VOIDCALLER_CROSSBOW
+    CROSSBOW_VOIDCALLER_CROSSBOW;
+
+    public static HashMap<CrossbowsID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.crossbowsEnabled;
+    }
+
+    public static EnumMap<CrossbowsID, McdwCrossbow> getItemsEnum() {
+        return ItemsInit.crossbowItems;
+    }
+
+    public static HashMap<CrossbowsID, Float> getSpawnRates() {
+        return Mcdw.CONFIG.mcdwNewlootConfig.crossbowSpawnRates;
+    }
+
+    public static HashMap<CrossbowsID, RangedWeaponStats> getWeaponStats() {
+        return CONFIG.mcdwNewStatsConfig.crossbowStats;
+    }
+
+    public Boolean isEnabled(){
+        return getEnabledItems().get(this);
+    }
+
+    @Override
+    public McdwCrossbow getItem() {
+        return getItemsEnum().get(this);
+    }
+
+    @Override
+    public Float getItemSpawnRate() {
+        return getSpawnRates().get(this);
+    }
+
+    public RangedWeaponStats getWeaponItemStats() {
+        return getWeaponStats().get(this);
+    }
 }

@@ -13,21 +13,22 @@ import java.util.LinkedHashMap;
 @Config(name = "mcdw_enchantment_settings_config")
 public class McdwEnchantmentSettingsConfig implements ConfigData {
 
+    // TODO Change nomenclature to final convention for hashmaps and subsequent usages
     // Enchantment Settings
-    public HashMap<SettingsID, Boolean> enableEnchantmentSettings = new HashMap<>();
+    public final HashMap<SettingsID, Boolean> enableEnchantmentSettings = new HashMap<>();
 
     @Comment("ENIGMA_RESONATOR_DIVISOR -> Higher number = lower damage. Default value = 3.25.")
-    public HashMap<EnchantStatsID, Float> enigmaResonatorDivisor = new HashMap<>();
+    public final HashMap<EnchantStatsID, Float> enigmaResonatorDivisor = new HashMap<>();
 
     @Comment("Dynamo Stack Cap, Higher number = more potential damage. Default value = 20.")
-    public HashMap<EnchantStatsID, Integer> dynamoStackCap = new HashMap<>();
+    public final HashMap<EnchantStatsID, Integer> dynamoStackCap = new HashMap<>();
 
     @Comment("Enchantment Trigger Chances Base. This is not the % to occur, but the higher this number, the higher " +
             "the chance to trigger.")
-    public LinkedHashMap<EnchantmentsID, Integer> enchantmentTriggerChanceBase = new LinkedHashMap<>();
+    public final LinkedHashMap<EnchantmentsID, Integer> enchantmentTriggerChanceBase = new LinkedHashMap<>();
 
     @Comment("Overall Enchantment Strength Slider")
-    public float enchantmentStrength = 1.0f;
+    public final float enchantmentStrength = 1.0f;
 
     public McdwEnchantmentSettingsConfig(){
         enableEnchantmentSettings.put(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING, false);
@@ -56,6 +57,7 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
         enchantmentTriggerChanceBase.put(EnchantmentsID.RAMPAGING, 10);
         enchantmentTriggerChanceBase.put(EnchantmentsID.REPLENISH, 3);
         enchantmentTriggerChanceBase.put(EnchantmentsID.RUSHDOWN, 10);
+        enchantmentTriggerChanceBase.put(EnchantmentsID.SHADOW_SHOT, 10);
         enchantmentTriggerChanceBase.put(EnchantmentsID.SHOCKWAVE, 10);
         enchantmentTriggerChanceBase.put(EnchantmentsID.SOUL_SIPHON, 10);
         enchantmentTriggerChanceBase.put(EnchantmentsID.STUNNING, 20);
@@ -64,6 +66,7 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
         enchantmentTriggerChanceBase.put(EnchantmentsID.VOID_SHOT, 25);
         enchantmentTriggerChanceBase.put(EnchantmentsID.VOID_STRIKE, 15);
         enchantmentTriggerChanceBase.put(EnchantmentsID.WEAKENING, 30);
+        enchantmentTriggerChanceBase.put(EnchantmentsID.WILD_RAGE, 10);
 
     }
 }

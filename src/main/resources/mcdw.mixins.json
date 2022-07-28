@@ -8,16 +8,17 @@
     "CrossbowItemMixin",
     "DamageEnchantmentMixin",
     "EnchantmentMixin",
-    "EntityMixin",
     "ExperienceOrbEntityMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
     "LivingEntityPlayerEntityMixin",
+    "MobEntityAccessor",
     "PersistentProjectileEntityMixin",
     "ShieldPlayerEntityMixin"
   ],
   "client": [
-    "AbstractClientPlayerEntityMixin"
+    "AbstractClientPlayerEntityMixin",
+    "ModelPredicateProviderRegistryMixin"
   ],
   "injectors": {
     "defaultRequire": 1

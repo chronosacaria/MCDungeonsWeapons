@@ -46,6 +46,8 @@ public class LivingEntityPlayerEntityMixin {
                     amount += storedAmount * EnchantmentEffects.enigmaResonatorDamage(attackingPlayer, victim);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
                     amount += storedAmount * EnchantmentEffects.dynamoDamage(attackingEntity);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_SHOT))
+                    amount += storedAmount * EnchantmentEffects.shadowFormDamage(attackingEntity);
             }
 
             if (source.getSource() instanceof PersistentProjectileEntity ppe) {
@@ -57,6 +59,10 @@ public class LivingEntityPlayerEntityMixin {
                     amount += storedAmount * EnchantmentEffects.voidShotDamage(victim, ppe);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
                     amount += storedAmount * EnchantmentEffects.dynamoShotDamage(attackingEntity, ppe);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_SHOT))
+                    amount += storedAmount * EnchantmentEffects.shadowFormShotDamage(attackingEntity, ppe);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE))
+                    amount += storedAmount * EnchantmentEffects.overchargeDamage(ppe);
             }
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.COMMITTED))
@@ -150,9 +156,11 @@ public class LivingEntityPlayerEntityMixin {
                     EnchantmentEffects.applyRefreshment(attackingEntity);
             }
 
-            if (source.isProjectile()) {
+            if (source.getSource() instanceof PersistentProjectileEntity ppe) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.REFRESHMENT))
                     EnchantmentEffects.applyRefreshment(attackingEntity);
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_SHOT))
+                    EnchantmentEffects.applyShadowShotShadowForm(attackingEntity, ppe, 80);
             }
         }
     }

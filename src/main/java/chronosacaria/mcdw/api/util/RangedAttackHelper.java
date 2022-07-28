@@ -19,17 +19,14 @@ public class RangedAttackHelper {
         }
         float arrowVelocity = (float) charge / bowChargeTime;
         arrowVelocity = (arrowVelocity * arrowVelocity + arrowVelocity * 2.0F) / 3.0F;
-        if (arrowVelocity > 1.0F){
-            arrowVelocity = 1.0F;
-        }
-        return arrowVelocity;
+        return Math.min(arrowVelocity, 1.0F);
     }
 
     public static float getVanillaBowChargeTime(ItemStack stack){
         int quickChargeLevel = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
         //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
 
-        float bowChargeTime = McdwBow.chargeTime * (Math.max(20.0F - 5 * quickChargeLevel, 0));
+        float bowChargeTime = 30 * (Math.max(20.0F - 5 * quickChargeLevel, 0));
         long lastFiredtime = (long)(McdwBow.getPullProgress(22) * (Math.max(20.0F - 5 * quickChargeLevel, 0)));
 
         if (/*accelerateLevel > 0 &&*/ lastFiredtime > 0){
@@ -43,7 +40,7 @@ public class RangedAttackHelper {
         int quickChargeLevel = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
         //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
 
-        float bowChargeTime = McdwShortBow.chargeTime * (Math.max(10.0F - 5 * quickChargeLevel, 0));
+        float bowChargeTime = 15 * (Math.max(10.0F - 5 * quickChargeLevel, 0));
         long lastFiredtime = (long)(McdwShortBow.getPullProgress(11) * (Math.max(10.0F - 5 * quickChargeLevel, 0)));
 
         if (/*accelerateLevel > 0 &&*/ lastFiredtime > 0){
@@ -56,8 +53,8 @@ public class RangedAttackHelper {
 
     public static float getVanillaOrModdedCrossbowArrowVelocity(ItemStack stack){
         float arrowVelocity;
-        if (stack.getItem() instanceof McdwCrossbow){
-            arrowVelocity = ((McdwCrossbow)stack.getItem()).getProjectileVelocity(stack);
+        if (stack.getItem() instanceof McdwCrossbow mcdwCrossbow){
+            arrowVelocity = mcdwCrossbow.getProjectileVelocity(stack);
         } else {
             arrowVelocity = hasProjectile(stack, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
         }
@@ -67,7 +64,7 @@ public class RangedAttackHelper {
     public static float getVanillaOrModdedBowArrowVelocity(ItemStack stack, int charge){
         float arrowVelocity;
         if (stack.getItem() instanceof McdwBow){
-            arrowVelocity = ((McdwBow)stack.getItem()).getBowArrowVelocity(stack, charge);
+            arrowVelocity = McdwBow.getBowArrowVelocity(stack, charge);
         } else {
             arrowVelocity = getVanillaArrowVelocity(stack, charge);
         }

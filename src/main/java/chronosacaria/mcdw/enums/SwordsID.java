@@ -1,6 +1,16 @@
 package chronosacaria.mcdw.enums;
 
-public enum SwordsID {
+import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.bases.McdwSword;
+import chronosacaria.mcdw.configs.stats.MeleeWeaponStats;
+import chronosacaria.mcdw.items.ItemsInit;
+
+import java.util.EnumMap;
+import java.util.HashMap;
+
+import static chronosacaria.mcdw.Mcdw.CONFIG;
+
+public enum SwordsID implements McdwWeaponID {
     SWORD_BEESTINGER,
     SWORD_BROADSWORD,
     SWORD_BROKEN_SAWBLADE,
@@ -24,5 +34,39 @@ public enum SwordsID {
     SWORD_RAPIER,
     SWORD_SINISTER,
     SWORD_SPONGE_STRIKER,
-    SWORD_THE_STARLESS_NIGHT
+    SWORD_THE_STARLESS_NIGHT;
+
+    public static HashMap<SwordsID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.swordsEnabled;
+    }
+
+    public static EnumMap<SwordsID, McdwSword> getItemsEnum() {
+        return ItemsInit.swordItems;
+    }
+
+    public static HashMap<SwordsID, Float> getSpawnRates() {
+        return Mcdw.CONFIG.mcdwNewlootConfig.swordSpawnRates;
+    }
+
+    public static HashMap<SwordsID, MeleeWeaponStats> getWeaponStats() {
+        return CONFIG.mcdwNewStatsConfig.swordStats;
+    }
+
+    public Boolean isEnabled(){
+        return getEnabledItems().get(this);
+    }
+
+    @Override
+    public McdwSword getItem() {
+        return getItemsEnum().get(this);
+    }
+
+    @Override
+    public Float getItemSpawnRate() {
+        return getSpawnRates().get(this);
+    }
+
+    public MeleeWeaponStats getWeaponItemStats() {
+        return getWeaponStats().get(this);
+    }
 }

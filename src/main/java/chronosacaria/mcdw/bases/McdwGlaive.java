@@ -2,11 +2,8 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.enums.GlaivesID;
-import chronosacaria.mcdw.items.ItemsInit;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
@@ -45,9 +42,6 @@ public class McdwGlaive extends SwordItem {
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool" +
                 " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
-                Mcdw.CONFIG.mcdwNewStatsConfig.doubleAttackReachOfGlaives ? 2 : 1,
-                EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
     }
 
@@ -99,17 +93,12 @@ public class McdwGlaive extends SwordItem {
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
-        for (GlaivesID glaivesID : GlaivesID.values()) {
-            if (stack.getItem() == ItemsInit.glaiveItems.get(glaivesID)) {
-                int i = 1;
-                String str = glaivesID.toString().toLowerCase(Locale.ROOT).substring(6);
-                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
-                while (I18n.hasTranslation(translationKey + i)) {
-                    tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
-                    i++;
-                }
-                break;
-            }
+        int i = 1;
+        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(16);
+        String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+        while (I18n.hasTranslation(translationKey + i)) {
+            tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
+            i++;
         }
     }
 }

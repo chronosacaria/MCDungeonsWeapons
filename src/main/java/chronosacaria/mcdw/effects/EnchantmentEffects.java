@@ -7,10 +7,12 @@ import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.blocks.BlocksInit;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
 import chronosacaria.mcdw.enums.BowsID;
 import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.mixin.MobEntityAccessor;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import net.minecraft.block.Blocks;
@@ -20,6 +22,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -43,7 +46,7 @@ import java.util.UUID;
 
 public class EnchantmentEffects {
 
-    static LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase;
+    static final LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase;
 
     /* ExperienceOrbEntityMixin */
     //mcdw$ModifyExperience
@@ -123,6 +126,15 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyShadowShotShadowForm(LivingEntity shadowShotEntity, PersistentProjectileEntity ppe, int duration){
+        int shadowShotLevel = ((IMcdwEnchantedArrow)ppe).getShadowShotLevel();
+        if (shadowShotLevel > 0) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SHADOW_SHOT))) {
+                shadowShotEntity.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.SHADOW_FORM, duration, 0, false, true, true));
+            }
+        }
+    }
+
     /* LivingEntityPlayerEntityMixin */
     //mcdw$damageModifiers
     public static float ambushDamage(LivingEntity ambushingEntity, LivingEntity ambushee) {
@@ -172,6 +184,7 @@ public class EnchantmentEffects {
             int i = painCycleInstance != null ? painCycleInstance.getAmplifier() + 1 : 0;
             if (i < 5) {
                 StatusEffectInstance painCycleUpdate = new StatusEffectInstance(StatusEffectsRegistry.PAIN_CYCLE, 120000, i, false, false, true);
+                painEntity.removeStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
                 painEntity.addStatusEffect(painCycleUpdate);
                 painEntity.damage(DamageSource.MAGIC, 1);
             } else {
@@ -292,6 +305,31 @@ public class EnchantmentEffects {
             }
         }
         return 0f;
+    }
+
+    public static float shadowFormDamage (LivingEntity shadowShotEntity) {
+        if (shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
+            shadowShotEntity.removeStatusEffect(StatusEffectsRegistry.SHADOW_FORM);
+            return 7f;
+        }
+        return 0f;
+    }
+
+    public static float shadowFormShotDamage (LivingEntity shadowShotEntity, PersistentProjectileEntity ppe) {
+        boolean shadowBarbBoolean = ((IMcdwEnchantedArrow)ppe).getShadowBarbBoolean();
+        if (shadowShotEntity.hasStatusEffect(StatusEffectsRegistry.SHADOW_FORM)) {
+            if (!shadowBarbBoolean) {
+                shadowShotEntity.removeStatusEffect(StatusEffectsRegistry.SHADOW_FORM);
+                //TODO TRY TO FIGURE OUT HOW TO REMOVE INVISIBILITY
+            }
+            return 7f;
+        }
+        return 0f;
+    }
+
+    public static float overchargeDamage(PersistentProjectileEntity ppe) {
+        int overchargeAmount = ((IMcdwEnchantedArrow)ppe).getOvercharge();
+        return Math.max(overchargeAmount, 0);
     }
 
     //mcdw$onApplyDamageHead
@@ -498,7 +536,7 @@ public class EnchantmentEffects {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHAIN_REACTION) * chainReactionLevel)){
                 ProjectileEffectHelper.fireChainReactionProjectiles(target.getEntityWorld(), target, shooter,
-                        3.15F,1.0F, ppe);
+                        3.15F,1.0F);
             }
         }
     }
@@ -583,14 +621,14 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void applyRicochet(LivingEntity target, PersistentProjectileEntity ppe) {
+    public static void applyRicochet(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
         int ricochetLevel = ((IMcdwEnchantedArrow) ppe).getRicochetLevel();
         if (ricochetLevel > 0) {
 
             float damageMultiplier = 0.03F + (ricochetLevel * 0.07F);
             float arrowVelocity = McdwBow.maxBowRange;
             if (arrowVelocity > 0.1F)
-                ProjectileEffectHelper.riochetArrowTowardsOtherEntity(target, 10, damageMultiplier, arrowVelocity);
+                ProjectileEffectHelper.ricochetArrowTowardsOtherEntity(shooter, target, 10, damageMultiplier);
         }
     }
 
@@ -609,6 +647,15 @@ public class EnchantmentEffects {
         if (tempoTheftLevel > 0) {
 
             AbilityHelper.stealSpeedFromTarget(tempoEntity, target, tempoTheftLevel);
+        }
+    }
+
+    public static void applyWildRage(MobEntity ragingEntity, PersistentProjectileEntity ppe) {
+        int wildRageLevel = ((IMcdwEnchantedArrow)ppe).getWildRageLevel();
+        if (wildRageLevel > 0) {
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.WILD_RAGE) + (10 * wildRageLevel))) {
+                sendIntoWildRage(ragingEntity);
+            }
         }
     }
 
@@ -634,18 +681,12 @@ public class EnchantmentEffects {
     // mcdw$onJumpEffects
 
     public static void activateBurstBowstringOnJump(LivingEntity jumpingEntity) {
-        int burstBowstringLevel = 0;
-        float arrowVelocity = 0.0F;
-        if (jumpingEntity.getMainHandStack().getItem() instanceof BowItem || jumpingEntity.getMainHandStack().getItem() instanceof CrossbowItem) {
-            burstBowstringLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getMainHandStack());
-            arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(jumpingEntity.getMainHandStack());
-        } else if (jumpingEntity.getOffHandStack().getItem() instanceof BowItem || jumpingEntity.getOffHandStack().getItem() instanceof CrossbowItem) {
-            burstBowstringLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getOffHandStack());
-            arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(jumpingEntity.getOffHandStack());
-        }
+        int burstBowstringLevel =
+                Math.max(EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getMainHandStack()),
+                        EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getOffHandStack()));
 
         if (burstBowstringLevel > 0) {
-            ProjectileEffectHelper.fireBurstBowstringArrows(jumpingEntity, 16, 0.4F, arrowVelocity, burstBowstringLevel);
+            ProjectileEffectHelper.fireBurstBowstringArrows(jumpingEntity, 16, 0.4F, burstBowstringLevel);
         }
     }
     public static void handleAddDynamoEffect(PlayerEntity playerEntity) {
@@ -663,4 +704,10 @@ public class EnchantmentEffects {
             playerEntity.addStatusEffect(dynamoUpdateInstance);
         }
     }
+
+    // Goal Effects
+    public static void sendIntoWildRage(MobEntity mobEntity) {
+        ((MobEntityAccessor)mobEntity).targetSelector().add(0, new WildRageAttackGoal(mobEntity));
+    }
+
 }
