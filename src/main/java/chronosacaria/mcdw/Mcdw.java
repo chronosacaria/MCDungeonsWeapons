@@ -1,5 +1,6 @@
 package chronosacaria.mcdw;
 
+import chronosacaria.mcdw.blocks.BlocksInit;
 import chronosacaria.mcdw.configs.McdwConfig;
 import chronosacaria.mcdw.configs.McdwEnchantGiverConfig;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
@@ -103,5 +104,6 @@ public class Mcdw implements ModInitializer {
         McdwEnchantGiverConfig.appendEnchants();
         SummonedEntityRegistry.register();
         StatusEffectsRegistry.init();
+        BlocksInit.init();
     }
 }

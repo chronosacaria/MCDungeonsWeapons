@@ -5,6 +5,7 @@ import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.bases.McdwBow;
+import chronosacaria.mcdw.blocks.BlocksInit;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.BowsID;
 import chronosacaria.mcdw.enums.EnchantStatsID;
@@ -518,7 +519,7 @@ public class EnchantmentEffects {
             BlockPos targetPos = target.getBlockPos();
 
             if (targetWorld.getBlockState(targetPos) == Blocks.AIR.getDefaultState())
-                targetWorld.setBlockState(targetPos, Blocks.COBWEB.getDefaultState());
+                targetWorld.setBlockState(targetPos, BlocksInit.TEMP_COBWEB_BLOCK.getDefaultState());
         }
     }
 
@@ -618,7 +619,7 @@ public class EnchantmentEffects {
             Direction side = blockHitResult.getSide();
 
             if (ppeWorld.getBlockState(blockHitResult.getBlockPos().offset(side)) == Blocks.AIR.getDefaultState())
-                ppeWorld.setBlockState(blockHitResult.getBlockPos().offset(side), Blocks.COBWEB.getDefaultState());
+                ppeWorld.setBlockState(blockHitResult.getBlockPos().offset(side), BlocksInit.TEMP_COBWEB_BLOCK.getDefaultState());
         }
     }
 

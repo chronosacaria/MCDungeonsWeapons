@@ -1,15 +1,20 @@
 package chronosacaria.mcdw.client;
 
 import chronosacaria.mcdw.bases.*;
+import chronosacaria.mcdw.blocks.BlocksInit;
+import chronosacaria.mcdw.blocks.McdwTempCobwebBlock;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.render.SummonedBeeRenderer;
 import chronosacaria.mcdw.enums.*;
 import chronosacaria.mcdw.items.ItemsInit;
+import com.sun.jna.platform.unix.X11;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
@@ -40,6 +45,9 @@ public class McdwClient implements ClientModInitializer {
         for (ShieldsID itemID : ShieldsID.values()){
             registerShieldPredicates(ItemsInit.shieldItems.get(itemID));
         }
+
+        BlockRenderLayerMap.INSTANCE.putBlock(BlocksInit.TEMP_COBWEB_BLOCK, RenderLayer.getCutout());
+
     }
 
     public static void registerBowPredicates(McdwBow bow) {
