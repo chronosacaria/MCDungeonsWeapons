@@ -7,15 +7,16 @@ import me.shedaniel.autoconfig.annotation.Config;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Config(name = "mcdw_loot_config")
 public class McdwNewLootConfig implements ConfigData {
     // TODO Change nomenclature to final convention for hashmaps and subsequent usages
     public final HashMap<SettingsID, Boolean> weaponsEnabledInLootTables = new HashMap<>();
-    public final HashMap<SettingsID, ArrayList<String>> commonLootTables = new HashMap<>();
-    public final HashMap<SettingsID, ArrayList<String>> uncommonLootTables = new HashMap<>();
-    public final HashMap<SettingsID, ArrayList<String>> rareLootTables = new HashMap<>();
-    public final HashMap<SettingsID, ArrayList<String>> epicLootTables = new HashMap<>();
+    public final HashMap<SettingsID, String[]> commonLootTables = new HashMap<>();
+    public final HashMap<SettingsID, String[]> uncommonLootTables = new HashMap<>();
+    public final HashMap<SettingsID, String[]> rareLootTables = new HashMap<>();
+    public final HashMap<SettingsID, String[]> epicLootTables = new HashMap<>();
     public final HashMap<AxesID, Float> axeSpawnRates = new HashMap<>();
     public final HashMap<DaggersID, Float> daggerSpawnRates = new HashMap<>();
     public final HashMap<DoubleAxesID, Float> doubleAxeSpawnRates = new HashMap<>();
@@ -42,36 +43,36 @@ public class McdwNewLootConfig implements ConfigData {
         /* LOOT TABLES */
 
         // COMMON
-        commonLootTables.put(SettingsID.COMMON_LOOT_TABLES, Lists.newArrayList(
+        commonLootTables.put(SettingsID.COMMON_LOOT_TABLES, new String[] {
                 "minecraft:chests/abandoned_mineshaft",
                 "minecraft:chests/shipwreck_supply",
                 "minecraft:chests/shipwreck_treasure",
                 "minecraft:chests/desert_pyramid",
-                "minecraft:chests/village/village_weaponsmith"));
+                "minecraft:chests/village/village_weaponsmith"});
 
         //UNCOMMON
-        uncommonLootTables.put(SettingsID.UNCOMMON_LOOT_TABLES, Lists.newArrayList(
+        uncommonLootTables.put(SettingsID.UNCOMMON_LOOT_TABLES, new String[] {
                 "minecraft:chests/jungle_temple",
                 "minecraft:chests/nether_bridge",
                 "minecraft:chests/bastion_bridge",
                 "minecraft:chests/bastion_other",
-                "minecraft:chests/bastion_treasure"));
+                "minecraft:chests/bastion_treasure"});
 
         //RARE
-        rareLootTables.put(SettingsID.RARE_LOOT_TABLES, Lists.newArrayList(
+        rareLootTables.put(SettingsID.RARE_LOOT_TABLES, new String[] {
                 "minecraft:chests/underwater_ruin_small",
                 "minecraft:chests/underwater_ruin_big",
                 "minecraft:chests/ruined_portal",
                 "minecraft:chests/simple_dungeon",
                 "minecraft:chests/igloo_chest",
-                "minecraft:chests/pillager_outpost"));
+                "minecraft:chests/pillager_outpost"});
 
         //EPIC
-        epicLootTables.put(SettingsID.EPIC_LOOT_TABLES, Lists.newArrayList(
+        epicLootTables.put(SettingsID.EPIC_LOOT_TABLES, new String[] {
                 "minecraft:chests/stronghold_corridor",
                 "minecraft:chests/stronghold_crossing",
                 "minecraft:chests/stronghold_library",
-                "minecraft:chests/end_city_treasure"));
+                "minecraft:chests/end_city_treasure"});
 
         /* SPAWN RATES */
 
@@ -116,7 +117,7 @@ public class McdwNewLootConfig implements ConfigData {
         hammerSpawnRates.put(HammersID.HAMMER_GRAVITY, 0.05f);
         hammerSpawnRates.put(HammersID.HAMMER_MACE, 0.1f);
         hammerSpawnRates.put(HammersID.HAMMER_FLAIL, 0.05f);
-        hammerSpawnRates.put(HammersID.HAMMER_SUNS_GRACE, 0.00f);
+        hammerSpawnRates.put(HammersID.HAMMER_SUNS_GRACE, 0.05f);
         hammerSpawnRates.put(HammersID.HAMMER_BONECLUB, 0.1f);
         hammerSpawnRates.put(HammersID.HAMMER_BONE_CUDGEL, 0.05f);
 

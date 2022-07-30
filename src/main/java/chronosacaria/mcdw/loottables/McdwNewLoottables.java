@@ -17,13 +17,13 @@ import static chronosacaria.mcdw.Mcdw.CONFIG;
 public class McdwNewLoottables {
 
     public static final ArrayList<String> COMMON_LOOT_TABLES =
-            new ArrayList<>(CONFIG.mcdwNewlootConfig.commonLootTables.get(SettingsID.COMMON_LOOT_TABLES));
+            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.commonLootTables.get(SettingsID.COMMON_LOOT_TABLES)));
     public static final ArrayList<String> UNCOMMON_LOOT_TABLES =
-            new ArrayList<>(CONFIG.mcdwNewlootConfig.uncommonLootTables.get(SettingsID.UNCOMMON_LOOT_TABLES));
+            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.uncommonLootTables.get(SettingsID.UNCOMMON_LOOT_TABLES)));
     public static final ArrayList<String> RARE_LOOT_TABLES =
-            new ArrayList<>(CONFIG.mcdwNewlootConfig.rareLootTables.get(SettingsID.RARE_LOOT_TABLES));
+            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.rareLootTables.get(SettingsID.RARE_LOOT_TABLES)));
     public static final ArrayList<String> EPIC_LOOT_TABLES =
-            new ArrayList<>(CONFIG.mcdwNewlootConfig.epicLootTables.get(SettingsID.EPIC_LOOT_TABLES));
+            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.epicLootTables.get(SettingsID.EPIC_LOOT_TABLES)));
 
     static List<IMcdwWeaponID> COMMON_LOOT_POOL = List.of(AxesID.AXE_ANCHOR, AxesID.AXE_AXE, DaggersID.DAGGER_DAGGER, DoubleAxesID.AXE_DOUBLE, GauntletsID.GAUNTLET_GAUNTLET,
             GlaivesID.SPEAR_GLAIVE, HammersID.HAMMER_GREAT_HAMMER, HammersID.HAMMER_MACE, LongBowsID.BOW_LONGBOW, PicksID.PICK_HOWLING_PICK, PicksID.PICK_MOUNTAINEER_PICK,
