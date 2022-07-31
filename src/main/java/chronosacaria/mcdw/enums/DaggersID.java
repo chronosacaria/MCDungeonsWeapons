@@ -43,7 +43,7 @@ public enum DaggersID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.daggerItems;
     }
 
-    public static HashMap<DaggersID, Float> getSpawnRates() {
+    public static HashMap<DaggersID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.daggerSpawnRates;
     }
 
@@ -62,7 +62,7 @@ public enum DaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

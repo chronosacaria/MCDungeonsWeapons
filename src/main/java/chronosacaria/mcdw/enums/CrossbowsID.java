@@ -60,7 +60,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
         return ItemsInit.crossbowItems;
     }
 
-    public static HashMap<CrossbowsID, Float> getSpawnRates() {
+    public static HashMap<CrossbowsID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.crossbowSpawnRates;
     }
 
@@ -79,7 +79,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

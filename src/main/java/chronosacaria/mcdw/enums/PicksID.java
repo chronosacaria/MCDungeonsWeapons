@@ -35,7 +35,7 @@ public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.pickItems;
     }
 
-    public static HashMap<PicksID, Float> getSpawnRates() {
+    public static HashMap<PicksID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.pickSpawnRates;
     }
 
@@ -54,7 +54,7 @@ public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

@@ -33,7 +33,7 @@ public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.whipItems;
     }
 
-    public static HashMap<WhipsID, Float> getSpawnRates() {
+    public static HashMap<WhipsID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.whipSpawnRates;
     }
 
@@ -52,7 +52,7 @@ public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

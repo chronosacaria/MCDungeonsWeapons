@@ -22,7 +22,7 @@ public enum ShieldsID implements IMcdwWeaponID {
         return ItemsInit.shieldItems;
     }
 
-    public static HashMap<ShieldsID, Float> getSpawnRates() {
+    public static HashMap<ShieldsID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.shieldSpawnRates;
     }
 
@@ -40,7 +40,7 @@ public enum ShieldsID implements IMcdwWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

@@ -61,7 +61,7 @@ public enum BowsID implements IMcdwWeaponID, IRangedWeaponID {
         return ItemsInit.bowItems;
     }
 
-    public static HashMap<BowsID, Float> getSpawnRates() {
+    public static HashMap<BowsID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.bowSpawnRates;
     }
 
@@ -80,7 +80,7 @@ public enum BowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

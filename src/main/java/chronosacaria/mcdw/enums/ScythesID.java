@@ -35,7 +35,7 @@ public enum ScythesID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.scytheItems;
     }
 
-    public static HashMap<ScythesID, Float> getSpawnRates() {
+    public static HashMap<ScythesID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.scytheSpawnRates;
     }
 
@@ -54,7 +54,7 @@ public enum ScythesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

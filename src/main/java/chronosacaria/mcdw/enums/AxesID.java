@@ -36,7 +36,7 @@ public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.axeItems;
     }
 
-    public static HashMap<AxesID, Float> getSpawnRates() {
+    public static HashMap<AxesID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.axeSpawnRates;
     }
 
@@ -55,7 +55,7 @@ public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

@@ -35,7 +35,7 @@ public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.sickleItems;
     }
 
-    public static HashMap<SicklesID, Float> getSpawnRates() {
+    public static HashMap<SicklesID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.sickleSpawnRates;
     }
 
@@ -54,7 +54,7 @@ public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

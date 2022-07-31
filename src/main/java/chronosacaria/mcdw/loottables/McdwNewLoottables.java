@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,21 +64,32 @@ public class McdwNewLoottables {
 
     public static void init() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
-            LootPool.Builder lootPoolBuilder = LootPool.builder();
 
             if (EntityType.BEE.getLootTableId().equals(id) && source.isBuiltin())
-                if (CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(ItemsID.ITEM_BEE_STINGER))
+                if (CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(ItemsID.ITEM_BEE_STINGER)) {
+                    LootPool.Builder lootPoolBuilder = LootPool.builder();
                     addItemDrop(lootPoolBuilder, ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER), 1, 1f);
+                    tableBuilder.pool(lootPoolBuilder.build());
+                }
 
             if (EntityType.WITCH.getLootTableId().equals(id) && source.isBuiltin())
-                if (GlaivesID.SPEAR_CACKLING_BROOM.isEnabled())
+                if (GlaivesID.SPEAR_CACKLING_BROOM.isEnabled()) {
+                    LootPool.Builder lootPoolBuilder = LootPool.builder();
                     addItemDrop(lootPoolBuilder, GlaivesID.SPEAR_CACKLING_BROOM.getItem(), 1, 0.2F);
+                    tableBuilder.pool(lootPoolBuilder.build());
+                }
 
             if (EntityType.WITHER.getLootTableId().equals(id) && source.isBuiltin())
-                if (BowsID.BOW_ANCIENT_BOW.isEnabled())
+                if (BowsID.BOW_ANCIENT_BOW.isEnabled()) {
+                    LootPool.Builder lootPoolBuilder = LootPool.builder();
                     addItemDrop(lootPoolBuilder, BowsID.BOW_ANCIENT_BOW.getItem(), 1, 0.1F);
+                    tableBuilder.pool(lootPoolBuilder.build());
+                }
 
             if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+                LootPool.Builder lootPoolBuilder = LootPool.builder();
+                lootPoolBuilder.rolls(BinomialLootNumberProvider.create(1, CONFIG.mcdwNewlootConfig.findWeaponChance));
+                lootPoolBuilder.bonusRolls(ConstantLootNumberProvider.create(CONFIG.mcdwNewlootConfig.bonusRollsWithLuck));
 
                 if (COMMON_LOOT_TABLES.contains(id.toString()))
                     COMMON_LOOT_POOL.forEach(lootId -> addWeaponById(lootPoolBuilder, lootId));
@@ -90,15 +102,14 @@ public class McdwNewLoottables {
 
                 if (EPIC_LOOT_TABLES.contains(id.toString()))
                     EPIC_LOOT_POOL.forEach(lootID -> addWeaponById(lootPoolBuilder, lootID));
-            }
 
-            tableBuilder.pool(lootPoolBuilder.build());
+                tableBuilder.pool(lootPoolBuilder.build());
+            }
         }));
     }
 
-    public static void addWeapon(LootPool.Builder poolBuilder, Item weapon, float p) {
-        poolBuilder.rolls(BinomialLootNumberProvider.create(1, p));
-        poolBuilder.with(ItemEntry.builder(weapon).build());
+    public static void addWeapon(LootPool.Builder poolBuilder, Item weapon, int weight) {
+        poolBuilder.with(ItemEntry.builder(weapon).weight(weight));
     }
 
     public static void addWeaponById(LootPool.Builder poolBuilder, IMcdwWeaponID mcdwWeaponID) {
@@ -108,6 +119,6 @@ public class McdwNewLoottables {
 
     public static void addItemDrop(LootPool.Builder poolBuilder, Item item, int n, float p) {
         poolBuilder.rolls(BinomialLootNumberProvider.create(n, p));
-        poolBuilder.with(ItemEntry.builder(item).build());
+        poolBuilder.with(ItemEntry.builder(item));
     }
 }

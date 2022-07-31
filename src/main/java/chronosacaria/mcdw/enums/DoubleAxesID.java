@@ -34,7 +34,7 @@ public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.doubleAxeItems;
     }
 
-    public static HashMap<DoubleAxesID, Float> getSpawnRates() {
+    public static HashMap<DoubleAxesID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates;
     }
 
@@ -53,7 +53,7 @@ public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

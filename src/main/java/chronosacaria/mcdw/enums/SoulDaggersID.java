@@ -34,7 +34,7 @@ public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.soulDaggerItems;
     }
 
-    public static HashMap<SoulDaggersID, Float> getSpawnRates() {
+    public static HashMap<SoulDaggersID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates;
     }
 
@@ -53,7 +53,7 @@ public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

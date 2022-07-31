@@ -34,7 +34,7 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.spearItems;
     }
 
-    public static HashMap<SpearsID, Float> getSpawnRates() {
+    public static HashMap<SpearsID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.spearSpawnRates;
     }
 
@@ -53,7 +53,7 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

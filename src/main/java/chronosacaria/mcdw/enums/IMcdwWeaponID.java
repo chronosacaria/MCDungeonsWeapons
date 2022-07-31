@@ -33,7 +33,7 @@ public interface IMcdwWeaponID {
 
     Item getItem();
 
-    Float getItemSpawnRate();
+    Integer getItemSpawnRate();
 
     Item makeWeapon();
 }

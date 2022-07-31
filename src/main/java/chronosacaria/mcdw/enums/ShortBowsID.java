@@ -35,7 +35,7 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
         return ItemsInit.shortBowItems;
     }
 
-    public static HashMap<ShortBowsID, Float> getSpawnRates() {
+    public static HashMap<ShortBowsID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.shortBowSpawnRates;
     }
 
@@ -54,7 +54,7 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

@@ -34,7 +34,7 @@ public enum GauntletsID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.gauntletItems;
     }
 
-    public static HashMap<GauntletsID, Float> getSpawnRates() {
+    public static HashMap<GauntletsID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.gauntletSpawnRates;
     }
 
@@ -53,7 +53,7 @@ public enum GauntletsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 

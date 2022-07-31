@@ -35,7 +35,7 @@ public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
         return ItemsInit.glaiveItems;
     }
 
-    public static HashMap<GlaivesID, Float> getSpawnRates() {
+    public static HashMap<GlaivesID, Integer> getSpawnRates() {
         return Mcdw.CONFIG.mcdwNewlootConfig.glaiveSpawnRates;
     }
 
@@ -54,7 +54,7 @@ public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public Float getItemSpawnRate() {
+    public Integer getItemSpawnRate() {
         return getSpawnRates().get(this);
     }
 
