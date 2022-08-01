@@ -1,8 +1,8 @@
 package chronosacaria.mcdw.configs;
 
-import chronosacaria.mcdw.configs.stats.ShieldStats;
 import chronosacaria.mcdw.enums.IMeleeWeaponID;
 import chronosacaria.mcdw.enums.IRangedWeaponID;
+import chronosacaria.mcdw.enums.IShieldID;
 import chronosacaria.mcdw.enums.ShieldsID;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
@@ -37,13 +37,9 @@ public class McdwNewStatsConfig implements ConfigData {
     public final HashMap<IRangedWeaponID, IRangedWeaponID.RangedStats> shortBowStats = new HashMap<>();
     public final HashMap<IRangedWeaponID, IRangedWeaponID.RangedStats> longBowStats = new HashMap<>();
     public final HashMap<IRangedWeaponID, IRangedWeaponID.RangedStats> crossbowStats = new HashMap<>();
-    public final HashMap<ShieldsID, ShieldStats> shieldStats = new HashMap<>();
+    public final HashMap<IShieldID, IShieldID.ShieldStats> shieldStats = new HashMap<>();
 
-    // convenience methods:
-    protected ShieldStats shieldStats(String material, ShieldsID shieldsID){
-        return shieldStats.get(shieldsID).shieldStats(material);
-    }
-
+    // Stats Convenience Methods
     protected IMeleeWeaponID.MeleeStats meleeWeaponStats(String material, int damage, float attackSpeed, IMeleeWeaponID iMeleeWeaponID) {
         return iMeleeWeaponID.getWeaponItemStats(this).meleeStats(material, damage, attackSpeed);
     }
@@ -58,20 +54,25 @@ public class McdwNewStatsConfig implements ConfigData {
         return rangedWeaponStats(iRangedWeaponID.getMaterial(), iRangedWeaponID.getDrawSpeed(), iRangedWeaponID.getRange(), iRangedWeaponID);
     }
 
+    protected IShieldID.ShieldStats shieldStats(String material, IShieldID iShieldID) {
+        return iShieldID.getWeaponItemStats(this).shieldStats(material);
+    }
+    protected IShieldID.ShieldStats advancedShieldStats(IShieldID iShieldID) {
+        return shieldStats(iShieldID.getMaterial(), iShieldID);
+    }
+
     public McdwNewStatsConfig() {
 
         Arrays.stream(IMeleeWeaponID.values()).forEach(iMeleeWeaponID ->
                 iMeleeWeaponID.getWeaponStats(this).put(iMeleeWeaponID, new IMeleeWeaponID.MeleeStats()));
         Arrays.stream(IRangedWeaponID.values()).forEach(iRangedWeaponID ->
                 iRangedWeaponID.getWeaponStats(this).put(iRangedWeaponID, new IRangedWeaponID.RangedStats()));
-        Arrays.stream(ShieldsID.values()).forEach(shieldsID -> shieldStats.put(shieldsID, new ShieldStats()));
+        Arrays.stream(ShieldsID.values()).forEach(shieldsID -> shieldStats.put(shieldsID, new IShieldID.ShieldStats()));
 
         // Stats Hash Assign
         Arrays.stream(IMeleeWeaponID.values()).forEach(this::advancedMeleeWeaponStats);
         Arrays.stream(IRangedWeaponID.values()).forEach(this::advancedRangedWeaponStats);
-
-        shieldStats(materialToString(ToolMaterials.DIAMOND), ShieldsID.SHIELD_ROYAL_GUARD);
-        shieldStats(materialToString(ToolMaterials.DIAMOND), ShieldsID.SHIELD_VANGUARD);
+        Arrays.stream(ShieldsID.values()).forEach(this::advancedShieldStats);
     }
 
     public static String materialToString(ToolMaterial toolMaterial) {
