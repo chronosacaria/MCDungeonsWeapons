@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwAxe;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,17 +13,17 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
-    AXE_ANCHOR(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),6, -3.1f),
-    AXE_AXE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),6, -3.1f),
-    AXE_ENCRUSTED_ANCHOR(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),5, -3.1f),
-    AXE_FIREBRAND(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),5, -2.9f),
-    AXE_HIGHLAND(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),6, -3.1f);
+    AXE_ANCHOR(ToolMaterials.IRON,6, -3.1f),
+    AXE_AXE(ToolMaterials.IRON,6, -3.1f),
+    AXE_ENCRUSTED_ANCHOR(ToolMaterials.DIAMOND,5, -3.1f),
+    AXE_FIREBRAND(ToolMaterials.DIAMOND,5, -2.9f),
+    AXE_HIGHLAND(ToolMaterials.IRON,6, -3.1f);
 
-    private final String material;
+    private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
 
-    AxesID(String material, int damage, float attackSpeed) {
+    AxesID(ToolMaterial material, int damage, float attackSpeed) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
@@ -75,7 +76,7 @@ public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public String getMaterial(){
+    public ToolMaterial getMaterial(){
         return material;
     }
 

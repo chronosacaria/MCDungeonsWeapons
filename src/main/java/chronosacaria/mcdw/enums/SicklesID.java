@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSickle;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,16 +13,16 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
-    SICKLE_LAST_LAUGH_GOLD(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),2, -1.9f),
-    SICKLE_LAST_LAUGH_SILVER(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),2, -1.9f),
-    SICKLE_NIGHTMARES_BITE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -1.9f),
-    SICKLE_SICKLE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.9f);
+    SICKLE_LAST_LAUGH_GOLD(ToolMaterials.IRON,2, -1.9f),
+    SICKLE_LAST_LAUGH_SILVER(ToolMaterials.IRON,2, -1.9f),
+    SICKLE_NIGHTMARES_BITE(ToolMaterials.IRON,3, -1.9f),
+    SICKLE_SICKLE(ToolMaterials.IRON,1, -1.9f);
 
-    private final String material;
+    private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
 
-    SicklesID(String material, int damage, float attackSpeed) {
+    SicklesID(ToolMaterial material, int damage, float attackSpeed) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
@@ -74,7 +75,7 @@ public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public String getMaterial(){
+    public ToolMaterial getMaterial(){
         return material;
     }
 

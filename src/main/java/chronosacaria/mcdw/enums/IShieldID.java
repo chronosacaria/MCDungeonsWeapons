@@ -1,6 +1,8 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 
 import java.util.HashMap;
 
@@ -12,7 +14,7 @@ public interface IShieldID extends IMcdwWeaponID {
 
     ShieldStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
-    String getMaterial();
+    ToolMaterial getMaterial();
 
     class ShieldStats {
         String material;

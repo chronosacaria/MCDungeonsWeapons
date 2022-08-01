@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwStaff;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,15 +13,15 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum StavesID implements IMcdwWeaponID, IMeleeWeaponID {
-    STAFF_BATTLESTAFF(McdwNewStatsConfig.materialToString(ToolMaterials.WOOD),2, -0.1f),
-    STAFF_BATTLESTAFF_OF_TERROR(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),2, -0.1f),
-    STAFF_GROWING_STAFF(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -0.1f);
+    STAFF_BATTLESTAFF(ToolMaterials.WOOD,2, -0.1f),
+    STAFF_BATTLESTAFF_OF_TERROR(ToolMaterials.IRON,2, -0.1f),
+    STAFF_GROWING_STAFF(ToolMaterials.IRON,3, -0.1f);
 
-    private final String material;
+    private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
 
-    StavesID(String material, int damage, float attackSpeed) {
+    StavesID(ToolMaterial material, int damage, float attackSpeed) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
@@ -73,7 +74,7 @@ public enum StavesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public String getMaterial(){
+    public ToolMaterial getMaterial(){
         return material;
     }
 

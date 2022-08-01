@@ -12,24 +12,24 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum DaggersID implements IMcdwWeaponID, IMeleeWeaponID {
-    DAGGER_BACKSTABBER(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),3, -1.2f),
-    DAGGER_CHILL_GALE_KNIFE(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),3, -1.3f),
-    DAGGER_DAGGER(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.3f),
-    DAGGER_FANGS_OF_FROST(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.0f),
-    DAGGER_MOON(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.0f),
-    DAGGER_RESOLUTE_TEMPEST_KNIFE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -1.3f),
-    DAGGER_SHEAR_DAGGER(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.3f),
-    DAGGER_SWIFT_STRIKER(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE),4, -1.0f),
-    DAGGER_TEMPEST_KNIFE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),2, -1.3f),
-    DAGGER_THE_BEGINNING(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE),4, -1.2f),
-    DAGGER_THE_END(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE),4, -1.2f),
-    DAGGER_VOID_TOUCHED_BLADE(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),4, -1.2f);
+    DAGGER_BACKSTABBER(ToolMaterials.DIAMOND,3, -1.2f),
+    DAGGER_CHILL_GALE_KNIFE(ToolMaterials.DIAMOND,3, -1.3f),
+    DAGGER_DAGGER(ToolMaterials.IRON,1, -1.3f),
+    DAGGER_FANGS_OF_FROST(ToolMaterials.IRON,1, -1.0f),
+    DAGGER_MOON(ToolMaterials.IRON,1, -1.0f),
+    DAGGER_RESOLUTE_TEMPEST_KNIFE(ToolMaterials.IRON,3, -1.3f),
+    DAGGER_SHEAR_DAGGER(ToolMaterials.IRON,1, -1.3f),
+    DAGGER_SWIFT_STRIKER(ToolMaterials.NETHERITE,4, -1.0f),
+    DAGGER_TEMPEST_KNIFE(ToolMaterials.IRON,2, -1.3f),
+    DAGGER_THE_BEGINNING(ToolMaterials.NETHERITE,4, -1.2f),
+    DAGGER_THE_END(ToolMaterials.NETHERITE,4, -1.2f),
+    DAGGER_VOID_TOUCHED_BLADE(ToolMaterials.DIAMOND,4, -1.2f);
 
-    private final String material;
+    private final ToolMaterials material;
     private final int damage;
     private final float attackSpeed;
 
-    DaggersID(String material, int damage, float attackSpeed) {
+    DaggersID(ToolMaterials material, int damage, float attackSpeed) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
@@ -82,7 +82,7 @@ public enum DaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public String getMaterial(){
+    public ToolMaterials getMaterial(){
         return material;
     }
 

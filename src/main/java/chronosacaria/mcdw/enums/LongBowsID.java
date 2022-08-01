@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwLongBow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,15 +13,15 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
-    BOW_GUARDIAN_BOW(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND), 30, 19f),
-    BOW_LONGBOW(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 25, 17f),
-    BOW_RED_SNAKE(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND), 30, 18f);
+    BOW_GUARDIAN_BOW(ToolMaterials.DIAMOND, 30, 19f),
+    BOW_LONGBOW(ToolMaterials.IRON, 25, 17f),
+    BOW_RED_SNAKE(ToolMaterials.DIAMOND, 30, 18f);
 
-    public final String material;
+    public final ToolMaterial material;
     public final int drawSpeed;
     public final float range;
 
-    LongBowsID(String material, int drawSpeed, float range) {
+    LongBowsID(ToolMaterial material, int drawSpeed, float range) {
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.range = range;
@@ -73,7 +74,7 @@ public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public String getMaterial() {
+    public ToolMaterial getMaterial() {
         return material;
     }
 

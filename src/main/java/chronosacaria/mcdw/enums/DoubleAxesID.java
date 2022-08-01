@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwDoubleAxe;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,15 +13,15 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
-    AXE_CURSED(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),7, -3.1f),
-    AXE_DOUBLE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),6, -3.1f),
-    AXE_WHIRLWIND(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),6, -2.9f);
+    AXE_CURSED(ToolMaterials.IRON,7, -3.1f),
+    AXE_DOUBLE(ToolMaterials.IRON,6, -3.1f),
+    AXE_WHIRLWIND(ToolMaterials.IRON,6, -2.9f);
 
-    private final String material;
+    private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
 
-    DoubleAxesID(String material, int damage, float attackSpeed) {
+    DoubleAxesID(ToolMaterial material, int damage, float attackSpeed) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
@@ -73,7 +74,7 @@ public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public String getMaterial(){
+    public ToolMaterial getMaterial(){
         return material;
     }
 

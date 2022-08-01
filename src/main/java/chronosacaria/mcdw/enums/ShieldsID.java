@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwShield;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,12 +13,12 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ShieldsID implements IMcdwWeaponID, IShieldID {
-    SHIELD_ROYAL_GUARD(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND)),
-    SHIELD_VANGUARD(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND));
+    SHIELD_ROYAL_GUARD(ToolMaterials.DIAMOND),
+    SHIELD_VANGUARD(ToolMaterials.DIAMOND);
 
-    private final String material;
+    private final ToolMaterial material;
 
-    ShieldsID(String material) {
+    ShieldsID(ToolMaterial material) {
         this.material = material;
     }
 
@@ -53,7 +54,7 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
 
     @Override
     public HashMap<IShieldID, ShieldStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
-        return CONFIG.mcdwNewStatsConfig.shieldStats;
+        return mcdwNewStatsConfig.shieldStats;
     }
 
     public ShieldStats getWeaponItemStats() {
@@ -62,11 +63,11 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
 
     @Override
     public ShieldStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
-        return getWeaponStats().get(this);
+        return getWeaponStats(mcdwNewStatsConfig).get(this);
     }
 
     @Override
-    public String getMaterial() {
+    public ToolMaterial getMaterial() {
         return material;
     }
 

@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwWhip;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,14 +13,14 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
-    WHIP_VINE_WHIP(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),5, -3.1f),
-    WHIP_WHIP(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),2, -3.1f);
+    WHIP_VINE_WHIP(ToolMaterials.IRON,5, -3.1f),
+    WHIP_WHIP(ToolMaterials.IRON,2, -3.1f);
 
-    private final String material;
+    private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
 
-    WhipsID(String material, int damage, float attackSpeed) {
+    WhipsID(ToolMaterial material, int damage, float attackSpeed) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
@@ -72,7 +73,7 @@ public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public String getMaterial(){
+    public ToolMaterial getMaterial(){
         return material;
     }
 

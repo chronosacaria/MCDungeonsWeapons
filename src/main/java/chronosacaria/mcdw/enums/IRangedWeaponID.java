@@ -1,6 +1,8 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 
 import java.util.HashMap;
 
@@ -16,7 +18,7 @@ public interface IRangedWeaponID extends IMcdwWeaponID {
 
     IRangedWeaponID.RangedStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
-    String getMaterial();
+    ToolMaterial getMaterial();
     int getDrawSpeed();
     float getRange();
 

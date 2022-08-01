@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwShortBow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,16 +13,16 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
-    BOW_LOVE_SPELL_BOW(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 9, 8f),
-    BOW_MECHANICAL_SHORTBOW(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 9, 9f),
-    BOW_PURPLE_STORM(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 9, 8f),
-    BOW_SHORTBOW(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 9, 8f);
+    BOW_LOVE_SPELL_BOW(ToolMaterials.IRON, 9, 8f),
+    BOW_MECHANICAL_SHORTBOW(ToolMaterials.IRON, 9, 9f),
+    BOW_PURPLE_STORM(ToolMaterials.IRON, 9, 8f),
+    BOW_SHORTBOW(ToolMaterials.IRON, 9, 8f);
 
-    public final String material;
+    public final ToolMaterial material;
     public final int drawSpeed;
     public final float range;
 
-    ShortBowsID(String material, int drawSpeed, float range) {
+    ShortBowsID(ToolMaterial material, int drawSpeed, float range) {
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.range = range;
@@ -74,7 +75,7 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public String getMaterial() {
+    public ToolMaterial getMaterial() {
         return material;
     }
 

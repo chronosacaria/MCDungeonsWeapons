@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwGauntlet;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,15 +13,15 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum GauntletsID implements IMcdwWeaponID, IMeleeWeaponID {
-    GAUNTLET_GAUNTLET(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),0, -1.4f),
-    GAUNTLET_MAULERS(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),0, -1.4f),
-    GAUNTLET_SOUL_FISTS(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE),0, -1.4f);
+    GAUNTLET_GAUNTLET(ToolMaterials.IRON,0, -1.4f),
+    GAUNTLET_MAULERS(ToolMaterials.DIAMOND,0, -1.4f),
+    GAUNTLET_SOUL_FISTS(ToolMaterials.NETHERITE,0, -1.4f);
 
-    private final String material;
+    private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
 
-    GauntletsID(String material, int damage, float attackSpeed) {
+    GauntletsID(ToolMaterial material, int damage, float attackSpeed) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
@@ -73,7 +74,7 @@ public enum GauntletsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public String getMaterial(){
+    public ToolMaterial getMaterial(){
         return material;
     }
 

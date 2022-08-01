@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwGlaive;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,16 +13,16 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
-    SPEAR_CACKLING_BROOM(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),5, -2.4f),
-    SPEAR_GLAIVE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -2.7f),
-    SPEAR_GRAVE_BANE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),5, -2.4f),
-    SPEAR_VENOM_GLAIVE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),5, -2.5f);
+    SPEAR_CACKLING_BROOM(ToolMaterials.IRON,5, -2.4f),
+    SPEAR_GLAIVE(ToolMaterials.IRON,3, -2.7f),
+    SPEAR_GRAVE_BANE(ToolMaterials.IRON,5, -2.4f),
+    SPEAR_VENOM_GLAIVE(ToolMaterials.IRON,5, -2.5f);
 
-    private final String material;
+    private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
 
-    GlaivesID(String material, int damage, float attackSpeed) {
+    GlaivesID(ToolMaterial material, int damage, float attackSpeed) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
@@ -74,7 +75,7 @@ public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public String getMaterial(){
+    public ToolMaterial getMaterial(){
         return material;
     }
 

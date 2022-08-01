@@ -44,21 +44,21 @@ public class McdwNewStatsConfig implements ConfigData {
         return iMeleeWeaponID.getWeaponItemStats(this).meleeStats(material, damage, attackSpeed);
     }
     protected IMeleeWeaponID.MeleeStats advancedMeleeWeaponStats(IMeleeWeaponID iMeleeWeaponID) {
-        return meleeWeaponStats(iMeleeWeaponID.getMaterial(), iMeleeWeaponID.getDamage(), iMeleeWeaponID.getAttackSpeed(), iMeleeWeaponID);
+        return meleeWeaponStats(materialToString(iMeleeWeaponID.getMaterial()), iMeleeWeaponID.getDamage(), iMeleeWeaponID.getAttackSpeed(), iMeleeWeaponID);
     }
 
     protected IRangedWeaponID.RangedStats rangedWeaponStats(String material, int drawSpeed, float range, IRangedWeaponID iRangedWeaponID) {
         return iRangedWeaponID.getWeaponItemStats(this).rangedStats(material, drawSpeed, range);
     }
     protected IRangedWeaponID.RangedStats advancedRangedWeaponStats(IRangedWeaponID iRangedWeaponID) {
-        return rangedWeaponStats(iRangedWeaponID.getMaterial(), iRangedWeaponID.getDrawSpeed(), iRangedWeaponID.getRange(), iRangedWeaponID);
+        return rangedWeaponStats(materialToString(iRangedWeaponID.getMaterial()), iRangedWeaponID.getDrawSpeed(), iRangedWeaponID.getRange(), iRangedWeaponID);
     }
 
     protected IShieldID.ShieldStats shieldStats(String material, IShieldID iShieldID) {
         return iShieldID.getWeaponItemStats(this).shieldStats(material);
     }
     protected IShieldID.ShieldStats advancedShieldStats(IShieldID iShieldID) {
-        return shieldStats(iShieldID.getMaterial(), iShieldID);
+        return shieldStats(materialToString(iShieldID.getMaterial()), iShieldID);
     }
 
     public McdwNewStatsConfig() {
@@ -75,7 +75,7 @@ public class McdwNewStatsConfig implements ConfigData {
         Arrays.stream(ShieldsID.values()).forEach(this::advancedShieldStats);
     }
 
-    public static String materialToString(ToolMaterial toolMaterial) {
+    private static String materialToString(ToolMaterial toolMaterial) {
         if (toolMaterial == ToolMaterials.WOOD)
             return "wood";
         else if (toolMaterial == ToolMaterials.STONE)

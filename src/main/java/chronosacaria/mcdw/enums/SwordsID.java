@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSword;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.EnumMap;
@@ -12,36 +13,36 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
-    SWORD_BEESTINGER(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),0, -0.9f),
-    SWORD_BROADSWORD(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 4, -3.0f),
-    SWORD_BROKEN_SAWBLADE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -2.4f),
-    SWORD_CLAYMORE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 5, -3.0f),
-    SWORD_CORAL_BLADE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -2.4f),
-    SWORD_CUTLASS(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -2.7f),
-    SWORD_DANCERS_SWORD(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.0f),
-    SWORD_DARK_KATANA(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE),2, -1.15f),
-    SWORD_DIAMOND_SWORD_VAR(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),3, -2.4f),
-    SWORD_FREEZING_FOIL(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),0, -0.9f),
-    SWORD_FROST_SLAYER(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND), 5, -3.0f),
-    SWORD_GREAT_AXEBLADE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON), 6, -3.0f),
-    SWORD_HAWKBRAND(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),5, -2.0f),
-    SWORD_HEARTSTEALER(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND), 4, -3.0f),
-    SWORD_IRON_SWORD_VAR(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),3, -2.4f),
-    SWORD_KATANA(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.5f),
-    SWORD_MASTERS_KATANA(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),1, -1.1f),
-    SWORD_MECHANIZED_SAWBLADE(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),3, -2.4f),
-    SWORD_NAMELESS_BLADE(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),1, -1.7f),
-    SWORD_OBSIDIAN_CLAYMORE(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE), 6, -3.0f),
-    SWORD_RAPIER(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),0, -0.9f),
-    SWORD_SINISTER(McdwNewStatsConfig.materialToString(ToolMaterials.IRON),5, -2.0f),
-    SWORD_SPONGE_STRIKER(McdwNewStatsConfig.materialToString(ToolMaterials.DIAMOND),3, -2.4f),
-    SWORD_THE_STARLESS_NIGHT(McdwNewStatsConfig.materialToString(ToolMaterials.NETHERITE), 8, -3.0f);
+    SWORD_BEESTINGER(ToolMaterials.IRON,0, -0.9f),
+    SWORD_BROADSWORD(ToolMaterials.IRON, 4, -3.0f),
+    SWORD_BROKEN_SAWBLADE(ToolMaterials.IRON,3, -2.4f),
+    SWORD_CLAYMORE(ToolMaterials.IRON, 5, -3.0f),
+    SWORD_CORAL_BLADE(ToolMaterials.IRON,3, -2.4f),
+    SWORD_CUTLASS(ToolMaterials.IRON,3, -2.7f),
+    SWORD_DANCERS_SWORD(ToolMaterials.IRON,1, -1.0f),
+    SWORD_DARK_KATANA(ToolMaterials.NETHERITE,2, -1.15f),
+    SWORD_DIAMOND_SWORD_VAR(ToolMaterials.DIAMOND,3, -2.4f),
+    SWORD_FREEZING_FOIL(ToolMaterials.IRON,0, -0.9f),
+    SWORD_FROST_SLAYER(ToolMaterials.DIAMOND, 5, -3.0f),
+    SWORD_GREAT_AXEBLADE(ToolMaterials.IRON, 6, -3.0f),
+    SWORD_HAWKBRAND(ToolMaterials.IRON,5, -2.0f),
+    SWORD_HEARTSTEALER(ToolMaterials.DIAMOND, 4, -3.0f),
+    SWORD_IRON_SWORD_VAR(ToolMaterials.IRON,3, -2.4f),
+    SWORD_KATANA(ToolMaterials.IRON,1, -1.5f),
+    SWORD_MASTERS_KATANA(ToolMaterials.DIAMOND,1, -1.1f),
+    SWORD_MECHANIZED_SAWBLADE(ToolMaterials.DIAMOND,3, -2.4f),
+    SWORD_NAMELESS_BLADE(ToolMaterials.IRON,1, -1.7f),
+    SWORD_OBSIDIAN_CLAYMORE(ToolMaterials.NETHERITE, 6, -3.0f),
+    SWORD_RAPIER(ToolMaterials.IRON,0, -0.9f),
+    SWORD_SINISTER(ToolMaterials.IRON,5, -2.0f),
+    SWORD_SPONGE_STRIKER(ToolMaterials.DIAMOND,3, -2.4f),
+    SWORD_THE_STARLESS_NIGHT(ToolMaterials.NETHERITE, 8, -3.0f);
 
-    private final String material;
+    private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
 
-    SwordsID(String material, int damage, float attackSpeed) {
+    SwordsID(ToolMaterial material, int damage, float attackSpeed) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
@@ -94,7 +95,7 @@ public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public String getMaterial(){
+    public ToolMaterial getMaterial(){
         return material;
     }
 
