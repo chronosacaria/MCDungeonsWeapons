@@ -6,7 +6,7 @@
   "display": {
     "head": {
       "rotation": [ 0, 0, 0 ],
-      "translation": [ 2, 4, -0.5],
+      "translation": [ 2, 4, 0.5],
       "scale":[ 1, 1, 0.5 ]
 	}
   }
