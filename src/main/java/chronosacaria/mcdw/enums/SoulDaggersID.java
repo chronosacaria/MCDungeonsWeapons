@@ -39,7 +39,7 @@ public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates;
     }
 
-    public static HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats() {
+    public static HashMap<SoulDaggersID, MeleeStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.soulDaggerStats;
     }
 
@@ -59,7 +59,7 @@ public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public HashMap<SoulDaggersID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.soulDaggerStats;
     }
 

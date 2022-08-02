@@ -40,7 +40,7 @@ public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.glaiveSpawnRates;
     }
 
-    public static HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats() {
+    public static HashMap<GlaivesID, MeleeStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.glaiveStats;
     }
 
@@ -60,7 +60,7 @@ public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public HashMap<GlaivesID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.glaiveStats;
     }
 

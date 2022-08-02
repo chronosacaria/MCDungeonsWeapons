@@ -34,7 +34,7 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
         return Mcdw.CONFIG.mcdwNewlootConfig.shieldSpawnRates;
     }
 
-    public static HashMap<IShieldID, ShieldStats> getWeaponStats() {
+    public static HashMap<ShieldsID, ShieldStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.shieldStats;
     }
 
@@ -53,7 +53,7 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
     }
 
     @Override
-    public HashMap<IShieldID, ShieldStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public HashMap<ShieldsID, ShieldStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.shieldStats;
     }
 

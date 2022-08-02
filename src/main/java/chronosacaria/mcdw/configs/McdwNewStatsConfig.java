@@ -1,9 +1,6 @@
 package chronosacaria.mcdw.configs;
 
-import chronosacaria.mcdw.enums.IMeleeWeaponID;
-import chronosacaria.mcdw.enums.IRangedWeaponID;
-import chronosacaria.mcdw.enums.IShieldID;
-import chronosacaria.mcdw.enums.ShieldsID;
+import chronosacaria.mcdw.enums.*;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import net.minecraft.item.ToolMaterial;
@@ -16,28 +13,28 @@ import java.util.HashMap;
 @Config(name = "mcdw_stats_config")
 public class McdwNewStatsConfig implements ConfigData {
 
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> swordStats = new HashMap<>();
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> axeStats = new HashMap<>();
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> doubleAxeStats = new HashMap<>();
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> daggerStats = new HashMap<>();
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> soulDaggerStats = new HashMap<>();
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> hammerStats = new HashMap<>();
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> gauntletStats = new HashMap<>();
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> sickleStats = new HashMap<>();
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> scytheStats = new HashMap<>();
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> pickStats = new HashMap<>();
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> glaiveStats = new HashMap<>();
+    public final HashMap<SwordsID, IMeleeWeaponID.MeleeStats> swordStats = new HashMap<>();
+    public final HashMap<AxesID, IMeleeWeaponID.MeleeStats> axeStats = new HashMap<>();
+    public final HashMap<DoubleAxesID, IMeleeWeaponID.MeleeStats> doubleAxeStats = new HashMap<>();
+    public final HashMap<DaggersID, IMeleeWeaponID.MeleeStats> daggerStats = new HashMap<>();
+    public final HashMap<SoulDaggersID, IMeleeWeaponID.MeleeStats> soulDaggerStats = new HashMap<>();
+    public final HashMap<HammersID, IMeleeWeaponID.MeleeStats> hammerStats = new HashMap<>();
+    public final HashMap<GauntletsID, IMeleeWeaponID.MeleeStats> gauntletStats = new HashMap<>();
+    public final HashMap<SicklesID, IMeleeWeaponID.MeleeStats> sickleStats = new HashMap<>();
+    public final HashMap<ScythesID, IMeleeWeaponID.MeleeStats> scytheStats = new HashMap<>();
+    public final HashMap<PicksID, IMeleeWeaponID.MeleeStats> pickStats = new HashMap<>();
+    public final HashMap<GlaivesID, IMeleeWeaponID.MeleeStats> glaiveStats = new HashMap<>();
     public final boolean doubleAttackReachOfGlaives = false;
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> spearStats = new HashMap<>();
+    public final HashMap<SpearsID, IMeleeWeaponID.MeleeStats> spearStats = new HashMap<>();
     public final boolean doubleAttackReachOfSpears = false;
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> staffStats = new HashMap<>();
+    public final HashMap<StavesID, IMeleeWeaponID.MeleeStats> staffStats = new HashMap<>();
     public final boolean doubleAttackReachOfStaves = false;
-    public final HashMap<IMeleeWeaponID, IMeleeWeaponID.MeleeStats> whipStats = new HashMap<>();
-    public final HashMap<IRangedWeaponID, IRangedWeaponID.RangedStats> bowStats = new HashMap<>();
-    public final HashMap<IRangedWeaponID, IRangedWeaponID.RangedStats> shortBowStats = new HashMap<>();
-    public final HashMap<IRangedWeaponID, IRangedWeaponID.RangedStats> longBowStats = new HashMap<>();
-    public final HashMap<IRangedWeaponID, IRangedWeaponID.RangedStats> crossbowStats = new HashMap<>();
-    public final HashMap<IShieldID, IShieldID.ShieldStats> shieldStats = new HashMap<>();
+    public final HashMap<WhipsID, IMeleeWeaponID.MeleeStats> whipStats = new HashMap<>();
+    public final HashMap<BowsID, IRangedWeaponID.RangedStats> bowStats = new HashMap<>();
+    public final HashMap<ShortBowsID, IRangedWeaponID.RangedStats> shortBowStats = new HashMap<>();
+    public final HashMap<LongBowsID, IRangedWeaponID.RangedStats> longBowStats = new HashMap<>();
+    public final HashMap<CrossbowsID, IRangedWeaponID.RangedStats> crossbowStats = new HashMap<>();
+    public final HashMap<ShieldsID, IShieldID.ShieldStats> shieldStats = new HashMap<>();
 
     // Stats Convenience Methods
     protected IMeleeWeaponID.MeleeStats meleeWeaponStats(String material, int damage, float attackSpeed, IMeleeWeaponID iMeleeWeaponID) {
@@ -63,11 +60,44 @@ public class McdwNewStatsConfig implements ConfigData {
 
     public McdwNewStatsConfig() {
 
-        Arrays.stream(IMeleeWeaponID.values()).forEach(iMeleeWeaponID ->
-                iMeleeWeaponID.getWeaponStats(this).put(iMeleeWeaponID, new IMeleeWeaponID.MeleeStats()));
-        Arrays.stream(IRangedWeaponID.values()).forEach(iRangedWeaponID ->
-                iRangedWeaponID.getWeaponStats(this).put(iRangedWeaponID, new IRangedWeaponID.RangedStats()));
-        Arrays.stream(ShieldsID.values()).forEach(shieldsID -> shieldStats.put(shieldsID, new IShieldID.ShieldStats()));
+        for (SwordsID swordsID : SwordsID.values())
+            swordStats.put(swordsID, new IMeleeWeaponID.MeleeStats());
+        for (AxesID axesID : AxesID.values())
+            axeStats.put(axesID, new IMeleeWeaponID.MeleeStats());
+        for (DoubleAxesID doubleAxesID : DoubleAxesID.values())
+            doubleAxeStats.put(doubleAxesID, new IMeleeWeaponID.MeleeStats());
+        for (DaggersID daggersID : DaggersID.values())
+            daggerStats.put(daggersID, new IMeleeWeaponID.MeleeStats());
+        for (SoulDaggersID soulDaggersID : SoulDaggersID.values())
+            soulDaggerStats.put(soulDaggersID, new IMeleeWeaponID.MeleeStats());
+        for (HammersID hammersID : HammersID.values())
+            hammerStats.put(hammersID, new IMeleeWeaponID.MeleeStats());
+        for (GauntletsID gauntletsID : GauntletsID.values())
+            gauntletStats.put(gauntletsID, new IMeleeWeaponID.MeleeStats());
+        for (SicklesID sicklesID : SicklesID.values())
+            sickleStats.put(sicklesID, new IMeleeWeaponID.MeleeStats());
+        for (ScythesID scythesID : ScythesID.values())
+            scytheStats.put(scythesID, new IMeleeWeaponID.MeleeStats());
+        for (PicksID picksID : PicksID.values())
+            pickStats.put(picksID, new IMeleeWeaponID.MeleeStats());
+        for (GlaivesID glaivesID : GlaivesID.values())
+            glaiveStats.put(glaivesID, new IMeleeWeaponID.MeleeStats());
+        for (SpearsID spearsID : SpearsID.values())
+            spearStats.put(spearsID, new IMeleeWeaponID.MeleeStats());
+        for (StavesID stavesID : StavesID.values())
+            staffStats.put(stavesID, new IMeleeWeaponID.MeleeStats());
+        for (WhipsID whipsID : WhipsID.values())
+            whipStats.put(whipsID, new IMeleeWeaponID.MeleeStats());
+        for (BowsID bowsID : BowsID.values())
+            bowStats.put(bowsID, new IRangedWeaponID.RangedStats());
+        for (ShortBowsID shortBowsID : ShortBowsID.values())
+            shortBowStats.put(shortBowsID, new IRangedWeaponID.RangedStats());
+        for (LongBowsID longBowsID : LongBowsID.values())
+            longBowStats.put(longBowsID, new IRangedWeaponID.RangedStats());
+        for (CrossbowsID crossbowsID : CrossbowsID.values())
+            crossbowStats.put(crossbowsID, new IRangedWeaponID.RangedStats());
+        for (ShieldsID shieldsID : ShieldsID.values())
+            shieldStats.put(shieldsID, new IShieldID.ShieldStats());
 
         // Stats Hash Assign
         Arrays.stream(IMeleeWeaponID.values()).forEach(this::advancedMeleeWeaponStats);

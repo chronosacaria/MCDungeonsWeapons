@@ -65,7 +65,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.crossbowSpawnRates;
     }
 
-    public static HashMap<IRangedWeaponID, RangedStats> getWeaponStats() {
+    public static HashMap<CrossbowsID, RangedStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.crossbowStats;
     }
 
@@ -85,7 +85,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public HashMap<IRangedWeaponID, RangedStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public HashMap<CrossbowsID, RangedStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.crossbowStats;
     }
 

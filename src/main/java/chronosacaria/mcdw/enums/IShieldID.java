@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public interface IShieldID extends IMcdwWeaponID {
 
-    HashMap<IShieldID, ShieldStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig);
+    HashMap<ShieldsID, ShieldStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
     ShieldStats getWeaponItemStats();
 

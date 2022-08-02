@@ -38,7 +38,7 @@ public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.whipSpawnRates;
     }
 
-    public static HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats() {
+    public static HashMap<WhipsID, MeleeStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.whipStats;
     }
 
@@ -58,7 +58,7 @@ public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public HashMap<WhipsID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.whipStats;
     }
 

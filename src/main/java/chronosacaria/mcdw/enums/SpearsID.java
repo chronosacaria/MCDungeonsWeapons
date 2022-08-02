@@ -39,7 +39,7 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.spearSpawnRates;
     }
 
-    public static HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats() {
+    public static HashMap<SpearsID, MeleeStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.spearStats;
     }
 
@@ -59,7 +59,7 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
-    public HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public HashMap<SpearsID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.spearStats;
     }
 

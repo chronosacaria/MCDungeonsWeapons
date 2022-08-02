@@ -12,7 +12,7 @@ public interface IMeleeWeaponID extends IMcdwWeaponID {
         return IMcdwWeaponID.meleeValues();
     }
 
-    HashMap<IMeleeWeaponID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig);
+    HashMap<? extends IMeleeWeaponID, MeleeStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
     MeleeStats getWeaponItemStats();
 

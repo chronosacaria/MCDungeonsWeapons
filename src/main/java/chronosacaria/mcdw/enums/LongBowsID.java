@@ -39,7 +39,7 @@ public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
         return Mcdw.CONFIG.mcdwNewlootConfig.longBowSpawnRates;
     }
 
-    public static HashMap<IRangedWeaponID, RangedStats> getWeaponStats() {
+    public static HashMap<LongBowsID, RangedStats> getWeaponStats() {
         return CONFIG.mcdwNewStatsConfig.longBowStats;
     }
 
@@ -59,7 +59,7 @@ public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public HashMap<IRangedWeaponID, RangedStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+    public HashMap<LongBowsID, RangedStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
         return mcdwNewStatsConfig.longBowStats;
     }
 

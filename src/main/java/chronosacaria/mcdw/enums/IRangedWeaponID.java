@@ -12,7 +12,7 @@ public interface IRangedWeaponID extends IMcdwWeaponID {
         return IMcdwWeaponID.rangedValues();
     }
 
-    HashMap<IRangedWeaponID, IRangedWeaponID.RangedStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig);
+    HashMap<? extends IRangedWeaponID, IRangedWeaponID.RangedStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
     IRangedWeaponID.RangedStats getWeaponItemStats();
 
