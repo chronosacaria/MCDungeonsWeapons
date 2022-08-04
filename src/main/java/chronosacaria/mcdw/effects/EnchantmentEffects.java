@@ -74,12 +74,14 @@ public class EnchantmentEffects {
     /* LivingEntityMixin */
     //mcdw$damageModifiers
     public static float huntersPromiseDamage(PlayerEntity owner, ServerWorld serverWorld) {
-        if (owner.getMainHandStack().getItem() == ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE).asItem()) {
-            UUID petOwnerUUID = owner.getUuid();
+        if (Mcdw.CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_HUNTERS_PROMISE)) {
+            if (owner.getMainHandStack().getItem() == ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE).asItem()) {
+                UUID petOwnerUUID = owner.getUuid();
 
-            if (petOwnerUUID != null) {
-                if (serverWorld.getEntity(petOwnerUUID) instanceof LivingEntity) {
-                    return 0.5F;
+                if (petOwnerUUID != null) {
+                    if (serverWorld.getEntity(petOwnerUUID) instanceof LivingEntity) {
+                        return 0.5F;
+                    }
                 }
             }
         }
