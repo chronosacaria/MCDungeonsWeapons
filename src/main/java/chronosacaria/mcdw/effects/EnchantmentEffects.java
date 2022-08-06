@@ -9,7 +9,6 @@ import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
 import chronosacaria.mcdw.enums.BowsID;
 import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
-import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.mixin.MobEntityAccessor;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;

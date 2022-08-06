@@ -2,7 +2,6 @@ package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.ToolMaterials;
 
 import java.util.HashMap;
 

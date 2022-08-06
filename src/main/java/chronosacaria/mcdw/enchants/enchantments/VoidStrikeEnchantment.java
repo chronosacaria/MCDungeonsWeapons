@@ -6,6 +6,7 @@ import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
+import net.minecraft.enchantment.DamageEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
@@ -31,7 +32,7 @@ public class VoidStrikeEnchantment extends DamageBoostEnchantment {
     @Override
     protected boolean canAccept (Enchantment other){
         return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
-                || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
+                || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment || other instanceof DamageEnchantment);
     }
 
     @Override
