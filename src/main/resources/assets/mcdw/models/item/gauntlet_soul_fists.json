@@ -39,6 +39,10 @@
 			"rotation": [-90, 45, 90],
 			"translation": [-4.5, 5, 0],
 			"scale": [1.75, 1.75, 1.75]
+		},
+		"ground": {
+			"translation": [ 0, 2, 0 ],
+			"scale": [ 0.75, 0.75, 0.5 ]
 		}
 	},
 	"groups": [

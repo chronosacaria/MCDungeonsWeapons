@@ -48,8 +48,8 @@
 			"scale": [1.36, 1.36, 0.68]
 		},
 		"ground": {
-			"translation": [0, 1.75, 0],
-			"scale": [1, 1, 0.5]
+			"translation": [ 0, 2, 0 ],
+			"scale": [ 0.75, 0.75, 0.5 ]
 		},
 		"gui": {
 			"translation": [0.25, 0.5, 0],

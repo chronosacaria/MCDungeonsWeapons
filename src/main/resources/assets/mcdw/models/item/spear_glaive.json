@@ -9,7 +9,8 @@
       "scale":[ 1.05, 1.05, 1 ]
     },
     "ground": {
-      "scale": [ 1, 1, 0.5 ]
+      "translation": [ 0, 2, 0 ],
+      "scale": [ 0.75, 0.75, 0.5 ]
     },
     "thirdperson_righthand": {
       "rotation": [ 0, -90, 55 ],
