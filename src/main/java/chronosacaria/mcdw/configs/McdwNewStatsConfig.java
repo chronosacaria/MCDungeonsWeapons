@@ -3,6 +3,7 @@ package chronosacaria.mcdw.configs;
 import chronosacaria.mcdw.enums.*;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
+import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -23,12 +24,17 @@ public class McdwNewStatsConfig implements ConfigData {
     public final HashMap<SicklesID, IMeleeWeaponID.MeleeStats> sickleStats = new HashMap<>();
     public final HashMap<ScythesID, IMeleeWeaponID.MeleeStats> scytheStats = new HashMap<>();
     public final HashMap<PicksID, IMeleeWeaponID.MeleeStats> pickStats = new HashMap<>();
+    @Comment("This value is ignored if Better Combat is installed! Default: 1.0")
+    public final double extraAttackReachOfGlaives = 1.0D;
     public final HashMap<GlaivesID, IMeleeWeaponID.MeleeStats> glaiveStats = new HashMap<>();
-    public final boolean doubleAttackReachOfGlaives = false;
+    @Comment("This value is ignored if Better Combat is installed! Default: 1.0")
+    public final double extraAttackReachOfSpears = 1.0D;
     public final HashMap<SpearsID, IMeleeWeaponID.MeleeStats> spearStats = new HashMap<>();
-    public final boolean doubleAttackReachOfSpears = false;
+    @Comment("This value is ignored if Better Combat is installed! Default: 1.0")
+    public final double extraAttackReachOfStaves = 1.0D;
     public final HashMap<StavesID, IMeleeWeaponID.MeleeStats> staffStats = new HashMap<>();
-    public final boolean doubleAttackReachOfStaves = false;
+    @Comment("This value is ignored if Better Combat is installed! Default: 1.5")
+    public final double extraAttackReachOfWhips = 1.5D;
     public final HashMap<WhipsID, IMeleeWeaponID.MeleeStats> whipStats = new HashMap<>();
     public final HashMap<BowsID, IRangedWeaponID.RangedStats> bowStats = new HashMap<>();
     public final HashMap<ShortBowsID, IRangedWeaponID.RangedStats> shortBowStats = new HashMap<>();

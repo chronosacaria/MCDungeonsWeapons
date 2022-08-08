@@ -4,6 +4,8 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
@@ -37,12 +39,19 @@ public class McdwWhip extends McdwCustomWeaponBase implements Vanishable {
                 new Item.Settings().group(Mcdw.WEAPONS).rarity(RarityHelper.fromToolMaterial(material)));
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
-        //this.typeSupplier = typeSupplier;
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID,
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool" +
-                " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID,
+                "Tool modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
+        if (!FabricLoader.getInstance().isModLoaded("bettercombat")) {
+            builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Attack range",
+                    Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfWhips,
+                    EntityAttributeModifier.Operation.ADDITION));
+            builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
+                    Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfWhips,
+                    EntityAttributeModifier.Operation.ADDITION));
+        }
         this.attributeModifiers = builder.build();
     }
 
