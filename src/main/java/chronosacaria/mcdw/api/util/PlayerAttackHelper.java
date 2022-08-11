@@ -1,5 +1,6 @@
 package chronosacaria.mcdw.api.util;
 
+import chronosacaria.mcdw.configs.FeatureFlags;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
@@ -29,7 +30,11 @@ import java.util.List;
 
 public class PlayerAttackHelper {
 
-    public static void attackTargetEntityWitCurrentOffhandItemAsSuper (PlayerEntity player, Entity target){
+    public static void attackTargetEntityWitCurrentOffhandItemAsSuper(PlayerEntity player, Entity target){
+        if (!FeatureFlags.isDualWieldingEnabled) {
+            return;
+        }
+
         if (target.isAttackable() && !target.handleAttack(player)){
             float f_attackDamage = (float)player.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
             float h_enchantmentEffectsTargetBonus;

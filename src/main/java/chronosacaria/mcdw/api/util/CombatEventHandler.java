@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
+import chronosacaria.mcdw.configs.FeatureFlags;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -13,7 +14,8 @@ public class CombatEventHandler {
         MinecraftClient mc = MinecraftClient.getInstance();
         PlayerEntity player = mc.player;
         HitResult hitResult = mc.crosshairTarget;
-        if (MinecraftClient.getInstance().world != null
+        if (FeatureFlags.isDualWieldingEnabled
+                && MinecraftClient.getInstance().world != null
                 && MinecraftClient.getInstance().currentScreen == null
                 && !MinecraftClient.getInstance().isPaused()
                 && player != null
