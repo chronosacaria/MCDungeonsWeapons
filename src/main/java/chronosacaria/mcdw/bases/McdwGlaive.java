@@ -6,6 +6,7 @@ import chronosacaria.mcdw.enums.GlaivesID;
 import chronosacaria.mcdw.items.ItemsInit;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
@@ -45,6 +46,9 @@ public class McdwGlaive extends SwordItem {
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool" +
                 " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
+                1,
+                EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
     }
 
