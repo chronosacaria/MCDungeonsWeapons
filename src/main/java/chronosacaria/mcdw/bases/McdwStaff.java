@@ -3,10 +3,10 @@ package chronosacaria.mcdw.bases;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.StavesID;
+import chronosacaria.mcdw.integeration.EntityRangeAttributeIntegration;
 import chronosacaria.mcdw.items.ItemsInit;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
@@ -44,9 +44,7 @@ public class McdwStaff extends AxeItem {
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool" +
                 " modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
-                0.75,
-                EntityAttributeModifier.Operation.ADDITION));
+        EntityRangeAttributeIntegration.addRange(0.75F, builder);
         this.attributeModifiers = builder.build();
     }
 

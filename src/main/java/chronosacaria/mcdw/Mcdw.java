@@ -1,5 +1,6 @@
 package chronosacaria.mcdw;
 
+import chronosacaria.mcdw.configs.FeatureFlags;
 import chronosacaria.mcdw.configs.McdwConfig;
 import chronosacaria.mcdw.configs.McdwEnchantGiverConfig;
 import chronosacaria.mcdw.enchants.EnchantsLists;
@@ -57,6 +58,7 @@ public class Mcdw implements ModInitializer {
     public void onInitialize() {
         McdwConfig.init();
         CONFIG = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
+        FeatureFlags.init();
 
         ItemsInit.init();
         McdwNewLoottables.init();
