@@ -1,6 +1,7 @@
 {
   "attributes": {
     "attack_range": 3,
+    "category": "whip",
     "attacks": [
       {
         "hitbox": "FORWARD_BOX",

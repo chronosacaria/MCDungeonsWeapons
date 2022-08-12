@@ -3,6 +3,7 @@
     "attack_range": 2.8,
     "two_handed": true,
     "pose": "bettercombat:pose_two_handed_katana",
+    "category": "club",
     "attacks": [
       {
         "hitbox": "HORIZONTAL_PLANE",
