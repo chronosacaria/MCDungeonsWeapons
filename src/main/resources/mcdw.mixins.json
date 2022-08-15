@@ -17,8 +17,8 @@
     "ShieldPlayerEntityMixin"
   ],
   "client": [
-    "AbstractClientPlayerEntityMixin",
-    "ModelPredicateProviderRegistryMixin"
+    "client.AbstractClientPlayerEntityMixin",
+    "client.ModelPredicateProviderRegistryMixin"
   ],
   "injectors": {
     "defaultRequire": 1

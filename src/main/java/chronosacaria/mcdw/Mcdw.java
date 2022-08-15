@@ -10,6 +10,7 @@ import chronosacaria.mcdw.enums.ShieldsID;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import chronosacaria.mcdw.loottables.McdwNewLoottables;
+import chronosacaria.mcdw.networking.OffhandAttackPacket;
 import chronosacaria.mcdw.registry.CompatRegistry;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
@@ -60,6 +61,7 @@ public class Mcdw implements ModInitializer {
         McdwConfig.init();
         CONFIG = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
         ItemsInit.init();
+        OffhandAttackPacket.init();
         McdwNewLoottables.init();
         EnchantsRegistry.init();
         Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);
