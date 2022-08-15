@@ -67,14 +67,20 @@ public class LivingEntityMixin {
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR))
                 EnchantmentEffects.applyProspector(attackingEntity, victim);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR))
+                EnchantmentEffects.applyProspectorFromOffHand(attackingEntity, victim);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RUSHDOWN))
                 EnchantmentEffects.applyRushdown(attackingEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RUSHDOWN))
+                EnchantmentEffects.applyRushdownFromOffHand(attackingEntity);
         }
 
         if (source.getAttacker() instanceof PlayerEntity attackingPlayer) {
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_SIPHON))
                 EnchantmentEffects.applySoulSiphon(attackingPlayer);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_SIPHON))
+                EnchantmentEffects.applySoulSiphonFromOffHand(attackingPlayer);
         }
     }
 
@@ -95,6 +101,33 @@ public class LivingEntityMixin {
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack) > 0
                             && !(EnchantmentHelper.getLevel(Enchantments.SMITE, mainHandStack) > 0))) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack);
+                        if (target.isUndead()) {
+                            AOEHelper.causeSmitingAttack(user, target,
+                                    3.0f * level, amount);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
+    public void mcdw$applySmitingEnchantmentDamageFromOffHand(DamageSource source, float amount, CallbackInfo info) {
+        if(!(source.getAttacker() instanceof LivingEntity user))
+            return;
+
+        LivingEntity target = (LivingEntity) (Object) this;
+
+        if(target instanceof PlayerEntity) return;
+
+        if (source.getSource() instanceof LivingEntity) {
+            if (amount > 0) {
+                ItemStack offHandStack = user.getOffHandStack();
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SMITING)) {
+
+                    if (offHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, offHandStack) > 0
+                            && !(EnchantmentHelper.getLevel(Enchantments.SMITE, offHandStack) > 0))) {
+                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, offHandStack);
                         if (target.isUndead()) {
                             AOEHelper.causeSmitingAttack(user, target,
                                     3.0f * level, amount);
@@ -156,6 +189,8 @@ public class LivingEntityMixin {
                 EnchantmentEffects.activateBurstBowstringOnJump(playerEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
                 EnchantmentEffects.handleAddDynamoEffect(playerEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
+                EnchantmentEffects.handleAddDynamoEffectFromOffHand(playerEntity);
         }
     }
 }

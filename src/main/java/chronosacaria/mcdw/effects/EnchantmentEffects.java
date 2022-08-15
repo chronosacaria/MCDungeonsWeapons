@@ -57,7 +57,21 @@ public class EnchantmentEffects {
     }
 
     public static int animaConduitExperience(PlayerEntity playerEntity, int amount) {
-        int animaLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(playerEntity, EnchantsRegistry.ANIMA_CONDUIT);
+        int animaLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, playerEntity.getMainHandStack());
+        if (animaLevel > 0) {
+            float missingHealth = playerEntity.getMaxHealth() - playerEntity.getHealth();
+            if (missingHealth > 0) {
+                float i = Math.min(AbilityHelper.getAnimaRepairAmount(amount, animaLevel), missingHealth);
+                playerEntity.heal(i);
+                amount -= (int) (i * 5);
+                return Math.max(amount, 0);
+            }
+        }
+        return amount;
+    }
+
+    public static int animaConduitExperienceFromOffHand(PlayerEntity playerEntity, int amount) {
+        int animaLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ANIMA_CONDUIT, playerEntity.getOffHandStack());
         if (animaLevel > 0) {
             float missingHealth = playerEntity.getMaxHealth() - playerEntity.getHealth();
             if (missingHealth > 0) {
@@ -89,7 +103,19 @@ public class EnchantmentEffects {
 
     //mcdw$onDeath
     public static void applyProspector(LivingEntity prospectingEntity, LivingEntity victim) {
-        int prospectorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(prospectingEntity, EnchantsRegistry.PROSPECTOR);
+        int prospectorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PROSPECTOR, prospectingEntity.getMainHandStack());
+        if (prospectorLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.PROSPECTOR) * prospectorLevel)) {
+                if (victim instanceof Monster){
+                    CleanlinessHelper.mcdw$dropItem(victim, Items.EMERALD);
+                }
+            }
+        }
+    }
+
+    public static void applyProspectorFromOffHand(LivingEntity prospectingEntity, LivingEntity victim) {
+        int prospectorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PROSPECTOR, prospectingEntity.getOffHandStack());
         if (prospectorLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.PROSPECTOR) * prospectorLevel)) {
@@ -101,7 +127,19 @@ public class EnchantmentEffects {
     }
 
     public static void applyRushdown(LivingEntity rushingEntity) {
-        int rushdownLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(rushingEntity, EnchantsRegistry.RUSHDOWN);
+        int rushdownLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RUSHDOWN, rushingEntity.getMainHandStack());
+        if (rushdownLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RUSHDOWN))) {
+                StatusEffectInstance rushdown = new StatusEffectInstance(StatusEffects.SPEED, 100 * rushdownLevel, 2,
+                        false, false);
+                rushingEntity.addStatusEffect(rushdown);
+            }
+        }
+    }
+
+    public static void applyRushdownFromOffHand(LivingEntity rushingEntity) {
+        int rushdownLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RUSHDOWN, rushingEntity.getOffHandStack());
         if (rushdownLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RUSHDOWN))) {
@@ -113,7 +151,17 @@ public class EnchantmentEffects {
     }
 
     public static void applySoulSiphon(PlayerEntity siphoningEntity) {
-        int soulLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(siphoningEntity, EnchantsRegistry.SOUL_SIPHON);
+        int soulLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_SIPHON, siphoningEntity.getMainHandStack());
+        if (soulLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SOUL_SIPHON))) {
+                siphoningEntity.addExperience(3 * soulLevel);
+            }
+        }
+    }
+
+    public static void applySoulSiphonFromOffHand(PlayerEntity siphoningEntity) {
+        int soulLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SOUL_SIPHON, siphoningEntity.getOffHandStack());
         if (soulLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SOUL_SIPHON))) {
@@ -134,7 +182,20 @@ public class EnchantmentEffects {
     /* LivingEntityPlayerEntityMixin */
     //mcdw$damageModifiers
     public static float ambushDamage(LivingEntity ambushingEntity, LivingEntity ambushee) {
-        int ambushLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(ambushingEntity, EnchantsRegistry.AMBUSH);
+        int ambushLevel = EnchantmentHelper.getLevel(EnchantsRegistry.AMBUSH, ambushingEntity.getMainHandStack());
+        if (ambushLevel > 0) {
+
+            if (ambushingEntity.isInvisible() && ambushingEntity.isSneaking()) {
+
+                CleanlinessHelper.playCenteredSound(ambushee, SoundEvents.BLOCK_POINTED_DRIPSTONE_LAND, 0.5F, 1.0F);
+                return 0.15f * ambushLevel;
+            }
+        }
+        return 0f;
+    }
+
+    public static float ambushDamageFromOffHand(LivingEntity ambushingEntity, LivingEntity ambushee) {
+        int ambushLevel = EnchantmentHelper.getLevel(EnchantsRegistry.AMBUSH, ambushingEntity.getOffHandStack());
         if (ambushLevel > 0) {
 
             if (ambushingEntity.isInvisible() && ambushingEntity.isSneaking()) {
@@ -147,7 +208,22 @@ public class EnchantmentEffects {
     }
 
     public static float criticalHitDamage(LivingEntity crittingEntity, LivingEntity target) {
-        int criticalHitLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(crittingEntity, EnchantsRegistry.CRITICAL_HIT);
+        int criticalHitLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, crittingEntity.getMainHandStack());
+        if (criticalHitLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(10 + (CONFIG_CHANCE.get(EnchantmentsID.CRITICAL_HIT) * criticalHitLevel))) {
+                if (!AbilityHelper.entityCanCrit(crittingEntity)) {
+
+                    CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, 0.5F, 1.0F);
+                    return 0.5f;
+                }
+            }
+        }
+        return 0f;
+    }
+
+    public static float criticalHitDamageFromOffHand(LivingEntity crittingEntity, LivingEntity target) {
+        int criticalHitLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CRITICAL_HIT, crittingEntity.getOffHandStack());
         if (criticalHitLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(10 + (CONFIG_CHANCE.get(EnchantmentsID.CRITICAL_HIT) * criticalHitLevel))) {
@@ -162,7 +238,19 @@ public class EnchantmentEffects {
     }
 
     public static float voidStrikeDamage(LivingEntity voidEntity, LivingEntity target) {
-        int voidlevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(voidEntity, EnchantsRegistry.VOID_STRIKE);
+        int voidlevel = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_STRIKE, voidEntity.getMainHandStack());
+        if (voidlevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.VOID_STRIKE) + (5 * voidlevel))) {
+                CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 0.5F, 1.0F);
+                return (2f * voidlevel) - 1f; // -1f accounts for change to storedAmount calc
+            }
+        }
+        return 0f;
+    }
+
+    public static float voidStrikeDamageFromOffHand(LivingEntity voidEntity, LivingEntity target) {
+        int voidlevel = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_STRIKE, voidEntity.getOffHandStack());
         if (voidlevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.VOID_STRIKE) + (5 * voidlevel))) {
@@ -174,7 +262,25 @@ public class EnchantmentEffects {
     }
 
     public static float painCycleDamage(LivingEntity painEntity) {
-        int painCycleLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(painEntity, EnchantsRegistry.PAIN_CYCLE);
+        int painCycleLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PAIN_CYCLE, painEntity.getMainHandStack());
+        if (painCycleLevel > 0) {
+            StatusEffectInstance painCycleInstance = painEntity.getStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
+            int i = painCycleInstance != null ? painCycleInstance.getAmplifier() + 1 : 0;
+            if (i < 5) {
+                StatusEffectInstance painCycleUpdate = new StatusEffectInstance(StatusEffectsRegistry.PAIN_CYCLE, 120000, i, false, false, true);
+                painEntity.removeStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
+                painEntity.addStatusEffect(painCycleUpdate);
+                painEntity.damage(DamageSource.MAGIC, 1);
+            } else {
+                painEntity.removeStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
+                return painCycleLevel + 1;
+            }
+        }
+        return 0;
+    }
+
+    public static float painCycleDamageFromOffHand(LivingEntity painEntity) {
+        int painCycleLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PAIN_CYCLE, painEntity.getOffHandStack());
         if (painCycleLevel > 0) {
             StatusEffectInstance painCycleInstance = painEntity.getStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
             int i = painCycleInstance != null ? painCycleInstance.getAmplifier() + 1 : 0;
@@ -192,7 +298,25 @@ public class EnchantmentEffects {
     }
 
     public static float enigmaResonatorDamage(PlayerEntity resonatingEntity, LivingEntity target) {
-        int resonatorLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(resonatingEntity, EnchantsRegistry.ENIGMA_RESONATOR);
+        int resonatorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, resonatingEntity.getMainHandStack());
+        if (resonatorLevel > 0) {
+
+            int numSouls = resonatingEntity.experienceLevel;
+            if (numSouls > 0) {
+
+                CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
+                float extraDamageMultiplier =
+                        (float) (Math.log(numSouls * resonatorLevel + 20)) /
+                                Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enigmaResonatorDivisor.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
+
+                return Math.max(extraDamageMultiplier - 1, 0f);
+            }
+        }
+        return 0f;
+    }
+
+    public static float enigmaResonatorDamageFromOffHand(PlayerEntity resonatingEntity, LivingEntity target) {
+        int resonatorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, resonatingEntity.getOffHandStack());
         if (resonatorLevel > 0) {
 
             int numSouls = resonatingEntity.experienceLevel;
@@ -253,7 +377,26 @@ public class EnchantmentEffects {
     }
 
     public static float committedDamage(LivingEntity committedEntity, LivingEntity target) {
-        int committedLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(committedEntity, EnchantsRegistry.COMMITTED);
+        int committedLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COMMITTED, committedEntity.getMainHandStack());
+        if (committedLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.COMMITTED))) {
+
+                CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_GENERIC_EXPLODE, 0.5F, 1.0F);
+
+                float getTargetRemainingHealth = MathHelper.clamp(target.getHealth() / target.getMaxHealth(), 0, 1);
+                float attributeDamage = (float) committedEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                float committedMultiplier = 0.2F * committedLevel;
+
+                float getExtraDamage = attributeDamage * (1 - getTargetRemainingHealth) * committedMultiplier;
+                return Math.max(getExtraDamage, 0f);
+            }
+        }
+        return 0f;
+    }
+
+    public static float committedDamageFromOffHand(LivingEntity committedEntity, LivingEntity target) {
+        int committedLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COMMITTED, committedEntity.getOffHandStack());
         if (committedLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.COMMITTED))) {
@@ -272,7 +415,23 @@ public class EnchantmentEffects {
     }
 
     public static float dynamoDamage (LivingEntity dynamoEntity) {
-        int dynamoLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(dynamoEntity, EnchantsRegistry.DYNAMO);
+        int dynamoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, dynamoEntity.getMainHandStack());
+        if (dynamoLevel > 0 && dynamoEntity.hasStatusEffect(StatusEffectsRegistry.DYNAMO)) {
+            StatusEffectInstance dynamoInstance = dynamoEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
+            if (dynamoInstance != null) {
+                int dynamoAmplifier = dynamoInstance.getAmplifier() + 1;
+                float dynamoLevelModifier = (dynamoLevel - 1) * 0.25f + 1;
+                float getDynamoDamage = (float) (dynamoLevelModifier * (dynamoAmplifier * 0.1));
+                dynamoEntity.removeStatusEffect(StatusEffectsRegistry.DYNAMO);
+
+                return Math.max(getDynamoDamage, 0f);
+            }
+        }
+        return 0f;
+    }
+
+    public static float dynamoDamageFromOffHand (LivingEntity dynamoEntity) {
+        int dynamoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, dynamoEntity.getOffHandStack());
         if (dynamoLevel > 0 && dynamoEntity.hasStatusEffect(StatusEffectsRegistry.DYNAMO)) {
             StatusEffectInstance dynamoInstance = dynamoEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
             if (dynamoInstance != null) {
@@ -330,7 +489,17 @@ public class EnchantmentEffects {
 
     //mcdw$onApplyDamageHead
     public static void applyFreezing(LivingEntity freezerEntity, LivingEntity target) {
-        int freezingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(freezerEntity, EnchantsRegistry.FREEZING);
+        int freezingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, freezerEntity.getMainHandStack());
+        if (freezingLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.FREEZING) + (10 * freezingLevel))) {
+                AbilityHelper.causeFreezing(target, 100);
+            }
+        }
+    }
+
+    public static void applyFreezingFromOffHand(LivingEntity freezerEntity, LivingEntity target) {
+        int freezingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.FREEZING, freezerEntity.getOffHandStack());
         if (freezingLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.FREEZING) + (10 * freezingLevel))) {
@@ -340,7 +509,18 @@ public class EnchantmentEffects {
     }
 
     public static void applyPoisoning(LivingEntity poisoningEntity, LivingEntity target) {
-        int poisoningLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(poisoningEntity, EnchantsRegistry.JUNGLE_POISON);
+        int poisoningLevel = EnchantmentHelper.getLevel(EnchantsRegistry.JUNGLE_POISON, poisoningEntity.getMainHandStack());
+        if (poisoningLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.POISONING))) {
+                StatusEffectInstance poison = new StatusEffectInstance(StatusEffects.POISON, 60, poisoningLevel - 1);
+                target.addStatusEffect(poison);
+            }
+        }
+    }
+
+    public static void applyPoisoningFromOffHand(LivingEntity poisoningEntity, LivingEntity target) {
+        int poisoningLevel = EnchantmentHelper.getLevel(EnchantsRegistry.JUNGLE_POISON, poisoningEntity.getOffHandStack());
         if (poisoningLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.POISONING))) {
@@ -351,7 +531,18 @@ public class EnchantmentEffects {
     }
 
     public static void applyPoisonCloud(LivingEntity poisoningEntity, LivingEntity target) {
-        int poisoningLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(poisoningEntity, EnchantsRegistry.POISON_CLOUD);
+        int poisoningLevel = EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, poisoningEntity.getMainHandStack());
+        if (poisoningLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.POISON_CLOUD))) {
+                AOECloudHelper.spawnPickyStatusCloud(poisoningEntity, target, StatusEffects.POISON,
+                        60, poisoningLevel - 1, true, true, false);
+            }
+        }
+    }
+
+    public static void applyPoisonCloudFromOffHand(LivingEntity poisoningEntity, LivingEntity target) {
+        int poisoningLevel = EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, poisoningEntity.getOffHandStack());
         if (poisoningLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.POISON_CLOUD))) {
@@ -362,7 +553,18 @@ public class EnchantmentEffects {
     }
 
     public static void applyRadianceCloud(LivingEntity radiantEntity) {
-        int radianceLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(radiantEntity, EnchantsRegistry.RADIANCE);
+        int radianceLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, radiantEntity.getMainHandStack());
+        if (radianceLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RADIANCE))) {
+                AOECloudHelper.spawnPickyStatusCloud(radiantEntity, radiantEntity, StatusEffects.REGENERATION,
+                        100, radianceLevel - 1, false, false, true);
+            }
+        }
+    }
+
+    public static void applyRadianceCloudFromOffHand(LivingEntity radiantEntity) {
+        int radianceLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, radiantEntity.getOffHandStack());
         if (radianceLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RADIANCE))) {
@@ -373,7 +575,22 @@ public class EnchantmentEffects {
     }
 
     public static void applyShockwave(LivingEntity shockwaveEntity, LivingEntity target, float amount) {
-        int shockwaveLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(shockwaveEntity, EnchantsRegistry.SHOCKWAVE);
+        int shockwaveLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SHOCKWAVE, shockwaveEntity.getMainHandStack());
+        if (shockwaveLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SHOCKWAVE) + (15 * shockwaveLevel))) {
+                AOEHelper.causeShockwaveAttack(shockwaveEntity, target,
+                        3.0f, amount);
+
+                CleanlinessHelper.playCenteredSound(target,
+                        SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER,
+                        0.5f, 1.0f);
+            }
+        }
+    }
+
+    public static void applyShockwaveFromOffHand(LivingEntity shockwaveEntity, LivingEntity target, float amount) {
+        int shockwaveLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SHOCKWAVE, shockwaveEntity.getOffHandStack());
         if (shockwaveLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SHOCKWAVE) + (15 * shockwaveLevel))) {
@@ -388,7 +605,17 @@ public class EnchantmentEffects {
     }
 
     public static void applyStunning(LivingEntity stunningEntity, LivingEntity target) {
-        int stunningLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(stunningEntity, EnchantsRegistry.STUNNING);
+        int stunningLevel = EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, stunningEntity.getMainHandStack());
+        if (stunningLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.STUNNING) + (15 * stunningLevel))) {
+                target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 10));
+                target.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 60, 1));
+            }
+        }
+    }
+    public static void applyStunningFromOffHand(LivingEntity stunningEntity, LivingEntity target) {
+        int stunningLevel = EnchantmentHelper.getLevel(EnchantsRegistry.STUNNING, stunningEntity.getOffHandStack());
         if (stunningLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.STUNNING) + (15 * stunningLevel))) {
@@ -399,7 +626,19 @@ public class EnchantmentEffects {
     }
 
     public static void applyThundering(LivingEntity thunderingEntity, float amount) {
-        int thunderingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(thunderingEntity, EnchantsRegistry.THUNDERING);
+        int thunderingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, thunderingEntity.getMainHandStack());
+        if (thunderingLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.THUNDERING))) {
+                AOEHelper.electrocuteNearbyEnemies(thunderingEntity,
+                        5 * thunderingLevel, amount,
+                        Integer.MAX_VALUE);
+            }
+        }
+    }
+
+    public static void applyThunderingFromOffHand(LivingEntity thunderingEntity, float amount) {
+        int thunderingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, thunderingEntity.getOffHandStack());
         if (thunderingLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.THUNDERING))) {
@@ -411,7 +650,17 @@ public class EnchantmentEffects {
     }
 
     public static void applyWeakeningCloud(LivingEntity weakeningEntity, LivingEntity target) {
-        int weakeningLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(weakeningEntity, EnchantsRegistry.WEAKENING);
+        int weakeningLevel = EnchantmentHelper.getLevel(EnchantsRegistry.WEAKENING, weakeningEntity.getMainHandStack());
+        if (weakeningLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.WEAKENING))) {
+                AOECloudHelper.spawnPickyStatusCloud(weakeningEntity, target, StatusEffects.WEAKNESS,
+                        60, weakeningLevel - 1, true, true, false);
+            }
+        }
+    }
+    public static void applyWeakeningCloudFromOffHand(LivingEntity weakeningEntity, LivingEntity target) {
+        int weakeningLevel = EnchantmentHelper.getLevel(EnchantsRegistry.WEAKENING, weakeningEntity.getOffHandStack());
         if (weakeningLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.WEAKENING))) {
@@ -422,7 +671,20 @@ public class EnchantmentEffects {
     }
 
     public static void applySwirling(LivingEntity swirlingEntity, LivingEntity target, float amount) {
-        int swirlingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(swirlingEntity, EnchantsRegistry.SWIRLING);
+        int swirlingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SWIRLING, swirlingEntity.getMainHandStack());
+        if (swirlingLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SWIRLING) + (15 * swirlingLevel))) {
+                AOEHelper.causeSwirlingAttack(swirlingEntity, swirlingEntity,
+                        1.5f, amount);
+
+                CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 0.5F, 1.0F);
+            }
+        }
+    }
+
+    public static void applySwirlingFromOffHand(LivingEntity swirlingEntity, LivingEntity target, float amount) {
+        int swirlingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SWIRLING, swirlingEntity.getOffHandStack());
         if (swirlingLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SWIRLING) + (15 * swirlingLevel))) {
@@ -435,7 +697,16 @@ public class EnchantmentEffects {
     }
 
     public static void applyChains(LivingEntity chainingEntity, LivingEntity target) {
-        int chainsLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(chainingEntity, EnchantsRegistry.CHAINS);
+        int chainsLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, chainingEntity.getMainHandStack());
+        if (chainsLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHAINS)))
+                AOEHelper.chainNearbyEntities(chainingEntity, target, 1.5F * chainsLevel, chainsLevel);
+        }
+    }
+
+    public static void applyChainsFromOffHand(LivingEntity chainingEntity, LivingEntity target) {
+        int chainsLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAINS, chainingEntity.getOffHandStack());
         if (chainsLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHAINS)))
@@ -444,7 +715,18 @@ public class EnchantmentEffects {
     }
 
     public static void applyGravity(LivingEntity gravityEntity, LivingEntity target) {
-        int gravityLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(gravityEntity, EnchantsRegistry.GRAVITY);
+        int gravityLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, gravityEntity.getMainHandStack());
+        if (gravityLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.GRAVITY))) {
+                AOEHelper.pullInNearbyEntities(gravityEntity, target,
+                        (gravityLevel + 1) * 3);
+            }
+        }
+    }
+
+    public static void applyGravityFromOffHand(LivingEntity gravityEntity, LivingEntity target) {
+        int gravityLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, gravityEntity.getOffHandStack());
         if (gravityLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.GRAVITY))) {
@@ -456,7 +738,19 @@ public class EnchantmentEffects {
 
     //mcdw$onApplyDamageTail
     public static void echoDamage(LivingEntity echoEntity, LivingEntity target, float amount) {
-        int echoLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(echoEntity, EnchantsRegistry.ECHO);
+        int echoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ECHO, echoEntity.getMainHandStack());
+        if (echoLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.ECHO) + (15 * echoLevel))) {
+                AOEHelper.causeEchoAttack(echoEntity, target,
+                        3.0f,
+                        echoLevel, amount);
+                CleanlinessHelper.playCenteredSound(echoEntity, McdwSoundEvents.ECHO_SOUND_EVENT, 0.5F, 1.0F);
+            }
+        }
+    }
+    public static void echoDamageFromOffHand(LivingEntity echoEntity, LivingEntity target, float amount) {
+        int echoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ECHO, echoEntity.getOffHandStack());
         if (echoLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.ECHO) + (15 * echoLevel))) {
@@ -470,7 +764,22 @@ public class EnchantmentEffects {
 
     //mcdw$onDeath
     public static void explodingDamage(LivingEntity exploderEntity, LivingEntity target) {
-        int explodingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(exploderEntity, EnchantsRegistry.EXPLODING);
+        int explodingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, exploderEntity.getMainHandStack());
+        if (explodingLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.EXPLODING))) {
+
+                CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_GENERIC_EXPLODE, 0.5F, 1.0F);
+                AOECloudHelper.spawnExplosionCloud(exploderEntity, target, 3.0F);
+
+                float explodingDamage = target.getMaxHealth() * 0.2f * explodingLevel;
+                AOEHelper.causeExplosionAttack(exploderEntity, target, explodingDamage, 3.0F);
+            }
+        }
+    }
+
+    public static void explodingDamageFromOffHand(LivingEntity exploderEntity, LivingEntity target) {
+        int explodingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.EXPLODING, exploderEntity.getOffHandStack());
         if (explodingLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.EXPLODING))) {
@@ -485,7 +794,19 @@ public class EnchantmentEffects {
     }
 
     public static void applyRampaging(LivingEntity rampagingEntity) {
-        int rampagingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(rampagingEntity, EnchantsRegistry.RAMPAGING);
+        int rampagingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RAMPAGING, rampagingEntity.getMainHandStack());
+        if (rampagingLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RAMPAGING))) {
+                StatusEffectInstance rampage = new StatusEffectInstance(StatusEffects.HASTE, rampagingLevel * 100, 2,
+                        false, false);
+                rampagingEntity.addStatusEffect(rampage);
+            }
+        }
+    }
+
+    public static void applyRampagingFromOffHand(LivingEntity rampagingEntity) {
+        int rampagingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RAMPAGING, rampagingEntity.getOffHandStack());
         if (rampagingLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.RAMPAGING))) {
@@ -497,7 +818,16 @@ public class EnchantmentEffects {
     }
 
     public static void applyGuardingStrike(LivingEntity guardingEntity) {
-        int guardingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(guardingEntity, EnchantsRegistry.GUARDING_STRIKE);
+        int guardingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GUARDING_STRIKE, guardingEntity.getMainHandStack());
+        if (guardingLevel > 0) {
+
+            StatusEffectInstance shield = new StatusEffectInstance(StatusEffects.RESISTANCE, 20 + (20 * guardingLevel), 2);
+            guardingEntity.addStatusEffect(shield);
+        }
+    }
+
+    public static void applyGuardingStrikeFromOffHand(LivingEntity guardingEntity) {
+        int guardingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GUARDING_STRIKE, guardingEntity.getOffHandStack());
         if (guardingLevel > 0) {
 
             StatusEffectInstance shield = new StatusEffectInstance(StatusEffects.RESISTANCE, 20 + (20 * guardingLevel), 2);
@@ -506,9 +836,8 @@ public class EnchantmentEffects {
     }
 
     public static void applyLeeching(LivingEntity leechingEntity, LivingEntity target) {
-        int leechingLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(leechingEntity, EnchantsRegistry.LEECHING);
+        int leechingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.LEECHING, leechingEntity.getMainHandStack());
         if (leechingLevel > 0) {
-
             if (leechingEntity.getHealth() < leechingEntity.getMaxHealth()) {
                 float healthRegained = (0.2F + 0.2F * leechingLevel) * target.getMaxHealth();
                 leechingEntity.heal(healthRegained);
@@ -516,8 +845,25 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyLeechingFromOffHand(LivingEntity leechingEntity, LivingEntity target) {
+        int leechingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.LEECHING, leechingEntity.getOffHandStack());
+        if (leechingLevel > 0) {
+            if (leechingEntity.getHealth() < leechingEntity.getMaxHealth()) {
+                float healthRegained = (0.2F + 0.2F * leechingLevel) * target.getMaxHealth();
+                leechingEntity.heal(healthRegained);
+            }
+        }
+    }
     public static void applyRefreshment(PlayerEntity refreshingEntity){
-        int refreshmentLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(refreshingEntity, EnchantsRegistry.REFRESHMENT);
+        int refreshmentLevel = EnchantmentHelper.getLevel(EnchantsRegistry.REFRESHMENT, refreshingEntity.getMainHandStack());
+        if (refreshmentLevel > 0) {
+            ItemStack healthPotion = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.HEALING);
+            InventoryHelper.mcdw$systematicReplacePotions(refreshingEntity, Items.GLASS_BOTTLE, healthPotion, refreshmentLevel);
+        }
+    }
+
+    public static void applyRefreshmentFromOffHand(PlayerEntity refreshingEntity){
+        int refreshmentLevel = EnchantmentHelper.getLevel(EnchantsRegistry.REFRESHMENT, refreshingEntity.getOffHandStack());
         if (refreshmentLevel > 0) {
             ItemStack healthPotion = PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.HEALING);
             InventoryHelper.mcdw$systematicReplacePotions(refreshingEntity, Items.GLASS_BOTTLE, healthPotion, refreshmentLevel);
@@ -688,6 +1034,22 @@ public class EnchantmentEffects {
     public static void handleAddDynamoEffect(PlayerEntity playerEntity) {
         ItemStack mainHandStack = playerEntity.getMainHandStack();
         if (McdwEnchantmentHelper.hasEnchantment(mainHandStack, EnchantsRegistry.DYNAMO)) {
+            StatusEffectInstance dynamoInstance = playerEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
+            int i = 1;
+            if (dynamoInstance != null) {
+                i += dynamoInstance.getAmplifier();
+            } else {
+                --i;
+            }
+            i = MathHelper.clamp(i, 0, Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.dynamoStackCap.get(EnchantStatsID.DYNAMO_STACK_CAP));
+            StatusEffectInstance dynamoUpdateInstance = new StatusEffectInstance(StatusEffectsRegistry.DYNAMO, 120000, i, false, false, true);
+            playerEntity.addStatusEffect(dynamoUpdateInstance);
+        }
+    }
+
+    public static void handleAddDynamoEffectFromOffHand(PlayerEntity playerEntity) {
+        ItemStack offHandStack = playerEntity.getOffHandStack();
+        if (McdwEnchantmentHelper.hasEnchantment(offHandStack, EnchantsRegistry.DYNAMO)) {
             StatusEffectInstance dynamoInstance = playerEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
             int i = 1;
             if (dynamoInstance != null) {
