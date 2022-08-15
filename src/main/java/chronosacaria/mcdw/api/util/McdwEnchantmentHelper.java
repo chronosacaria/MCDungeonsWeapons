@@ -12,15 +12,20 @@ public class McdwEnchantmentHelper {
 
     public static int mcdwEnchantmentLevel(LivingEntity livingEntity, Enchantment enchantment) {
         //ItemStack mainHandStack = livingEntity.getMainHandStack();
-        ItemStack handStack;
+        ItemStack mainHandStack;
+        ItemStack offhandStack;
         //if (livingEntity instanceof PlayerEntity)
-        //    handStack = livingEntity.getStackInHand(livingEntity.preferredHand);
+        //    mainHandStack = livingEntity.getStackInHand(livingEntity.preferredHand);
         //else
-            handStack = livingEntity.getMainHandStack();
+            mainHandStack = livingEntity.getMainHandStack();
+            offhandStack = livingEntity.getOffHandStack();
         // Instead of always mainhand, check for which hand was used, and apply that below
-        if (handStack != null)
-            return EnchantmentHelper.getLevel(enchantment, handStack);
+        if (mainHandStack != null)
+            return EnchantmentHelper.getLevel(enchantment, mainHandStack);
+        if (offhandStack != null)
+            return EnchantmentHelper.getLevel(enchantment, offhandStack);
         return 0;
+
     }
 
 }
