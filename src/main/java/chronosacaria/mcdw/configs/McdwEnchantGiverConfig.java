@@ -3,6 +3,7 @@ package chronosacaria.mcdw.configs;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.*;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
@@ -223,6 +224,8 @@ public class McdwEnchantGiverConfig {
     }
 
     private static void addInnateEnchant(Item item, Enchantment enchantment, int level, Boolean replace) {
-        EnchantsList.addEnchant(Registry.ITEM.getId(item), Registry.ENCHANTMENT.getId(enchantment), level, replace);
+        if (!FabricLoader.getInstance().getConfigDir().resolve("enchant_giver/enchants.json").toFile().exists()) {
+            EnchantsList.addEnchant(Registry.ITEM.getId(item), Registry.ENCHANTMENT.getId(enchantment), level, replace);
+        }
     }
 }
