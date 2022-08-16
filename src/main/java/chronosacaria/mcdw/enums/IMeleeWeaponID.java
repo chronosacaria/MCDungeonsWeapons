@@ -20,16 +20,19 @@ public interface IMeleeWeaponID extends IMcdwWeaponID {
     ToolMaterial getMaterial();
     int getDamage();
     float getAttackSpeed();
+    String[] getRepairIngredient();
 
     class MeleeStats {
         String material;
         int damage;
         float attackSpeed;
+        String[] repairIngredient;
 
-        public MeleeStats meleeStats(String material, int damage, float attackSpeed) {
+        public MeleeStats meleeStats(String material, int damage, float attackSpeed, String[] repairIngredient) {
             this.material = material;
             this.damage = damage;
             this.attackSpeed = attackSpeed;
+            this.repairIngredient = repairIngredient;
             return this;
         }
     }

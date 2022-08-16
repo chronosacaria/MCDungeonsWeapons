@@ -13,19 +13,21 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
-    PICK_DIAMOND_PICKAXE_VAR(ToolMaterials.DIAMOND,1, -2.8f),
-    PICK_HAILING_PINNACLE(ToolMaterials.DIAMOND,1, -2.8f),
-    PICK_HOWLING_PICK(ToolMaterials.IRON,1, -2.8f),
-    PICK_MOUNTAINEER_PICK(ToolMaterials.IRON,1, -2.8f);
+    PICK_DIAMOND_PICKAXE_VAR(ToolMaterials.DIAMOND,1, -2.8f, "minecraft:diamond"),
+    PICK_HAILING_PINNACLE(ToolMaterials.DIAMOND,1, -2.8f, "minecraft:diamond"),
+    PICK_HOWLING_PICK(ToolMaterials.IRON,1, -2.8f, "minecraft:iron_ingot"),
+    PICK_MOUNTAINEER_PICK(ToolMaterials.IRON,1, -2.8f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
+    private final String[] repairIngredient;
 
-    PicksID(ToolMaterial material, int damage, float attackSpeed) {
+    PicksID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<PicksID, Boolean> getEnabledItems(){
@@ -90,9 +92,14 @@ public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwPick makeWeapon() {
         McdwPick mcdwPick = new McdwPick(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwPick);
         return mcdwPick;

@@ -13,19 +13,21 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
-    SPEAR_CACKLING_BROOM(ToolMaterials.IRON,5, -2.4f),
-    SPEAR_GLAIVE(ToolMaterials.IRON,3, -2.7f),
-    SPEAR_GRAVE_BANE(ToolMaterials.IRON,5, -2.4f),
-    SPEAR_VENOM_GLAIVE(ToolMaterials.IRON,5, -2.5f);
+    SPEAR_CACKLING_BROOM(ToolMaterials.IRON,5, -2.4f, "minecraft:iron_ingot"),
+    SPEAR_GLAIVE(ToolMaterials.IRON,3, -2.7f, "minecraft:iron_ingot"),
+    SPEAR_GRAVE_BANE(ToolMaterials.IRON,5, -2.4f, "minecraft:iron_ingot"),
+    SPEAR_VENOM_GLAIVE(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
+    private final String[] repairIngredient;
 
-    GlaivesID(ToolMaterial material, int damage, float attackSpeed) {
+    GlaivesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<GlaivesID, Boolean> getEnabledItems(){
@@ -90,9 +92,14 @@ public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwGlaive makeWeapon() {
         McdwGlaive mcdwGlaive = new McdwGlaive(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwGlaive);
         return mcdwGlaive;

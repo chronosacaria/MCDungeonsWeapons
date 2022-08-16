@@ -13,20 +13,22 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
-    AXE_ANCHOR(ToolMaterials.IRON,6, -3.1f),
-    AXE_AXE(ToolMaterials.IRON,6, -3.1f),
-    AXE_ENCRUSTED_ANCHOR(ToolMaterials.DIAMOND,5, -3.1f),
-    AXE_FIREBRAND(ToolMaterials.DIAMOND,5, -2.9f),
-    AXE_HIGHLAND(ToolMaterials.IRON,6, -3.1f);
+    AXE_ANCHOR(ToolMaterials.IRON,6, -3.1f, "minecraft:iron_ingot"),
+    AXE_AXE(ToolMaterials.IRON,6, -3.1f, "minecraft:iron_ingot"),
+    AXE_ENCRUSTED_ANCHOR(ToolMaterials.DIAMOND,5, -3.1f, "minecraft:diamond"),
+    AXE_FIREBRAND(ToolMaterials.DIAMOND,5, -2.9f, "minecraft:diamond"),
+    AXE_HIGHLAND(ToolMaterials.IRON,6, -3.1f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
+    private final String[] repairIngredient;
 
-    AxesID(ToolMaterial material, int damage, float attackSpeed) {
+    AxesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<AxesID, Boolean> getEnabledItems(){
@@ -91,9 +93,14 @@ public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwAxe makeWeapon() {
         McdwAxe mcdwAxe = new McdwAxe(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwAxe);
         return mcdwAxe;

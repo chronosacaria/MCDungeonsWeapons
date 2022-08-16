@@ -14,6 +14,7 @@ import java.util.HashMap;
 @Config(name = "mcdw_stats_config")
 public class McdwNewStatsConfig implements ConfigData {
 
+    @Comment("Can use the following tags as repair ingredient -- minecraft:planks, minecraft:stone_crafting_materials. Other tags do not work.")
     public final HashMap<SwordsID, IMeleeWeaponID.MeleeStats> swordStats = new HashMap<>();
     public final HashMap<AxesID, IMeleeWeaponID.MeleeStats> axeStats = new HashMap<>();
     public final HashMap<DoubleAxesID, IMeleeWeaponID.MeleeStats> doubleAxeStats = new HashMap<>();
@@ -43,25 +44,25 @@ public class McdwNewStatsConfig implements ConfigData {
     public final HashMap<ShieldsID, IShieldID.ShieldStats> shieldStats = new HashMap<>();
 
     // Stats Convenience Methods
-    protected IMeleeWeaponID.MeleeStats meleeWeaponStats(String material, int damage, float attackSpeed, IMeleeWeaponID iMeleeWeaponID) {
-        return iMeleeWeaponID.getWeaponItemStats(this).meleeStats(material, damage, attackSpeed);
+    protected IMeleeWeaponID.MeleeStats meleeWeaponStats(String material, int damage, float attackSpeed, String[] repairIngredient, IMeleeWeaponID iMeleeWeaponID) {
+        return iMeleeWeaponID.getWeaponItemStats(this).meleeStats(material, damage, attackSpeed, repairIngredient);
     }
     protected IMeleeWeaponID.MeleeStats advancedMeleeWeaponStats(IMeleeWeaponID iMeleeWeaponID) {
-        return meleeWeaponStats(materialToString(iMeleeWeaponID.getMaterial()), iMeleeWeaponID.getDamage(), iMeleeWeaponID.getAttackSpeed(), iMeleeWeaponID);
+        return meleeWeaponStats(materialToString(iMeleeWeaponID.getMaterial()), iMeleeWeaponID.getDamage(), iMeleeWeaponID.getAttackSpeed(), iMeleeWeaponID.getRepairIngredient(), iMeleeWeaponID);
     }
 
-    protected IRangedWeaponID.RangedStats rangedWeaponStats(String material, int drawSpeed, float range, IRangedWeaponID iRangedWeaponID) {
-        return iRangedWeaponID.getWeaponItemStats(this).rangedStats(material, drawSpeed, range);
+    protected IRangedWeaponID.RangedStats rangedWeaponStats(String material, int drawSpeed, float range, String[] repairIngredient, IRangedWeaponID iRangedWeaponID) {
+        return iRangedWeaponID.getWeaponItemStats(this).rangedStats(material, drawSpeed, range, repairIngredient);
     }
     protected IRangedWeaponID.RangedStats advancedRangedWeaponStats(IRangedWeaponID iRangedWeaponID) {
-        return rangedWeaponStats(materialToString(iRangedWeaponID.getMaterial()), iRangedWeaponID.getDrawSpeed(), iRangedWeaponID.getRange(), iRangedWeaponID);
+        return rangedWeaponStats(materialToString(iRangedWeaponID.getMaterial()), iRangedWeaponID.getDrawSpeed(), iRangedWeaponID.getRange(), iRangedWeaponID.getRepairIngredient(), iRangedWeaponID);
     }
 
-    protected IShieldID.ShieldStats shieldStats(String material, IShieldID iShieldID) {
-        return iShieldID.getWeaponItemStats(this).shieldStats(material);
+    protected IShieldID.ShieldStats shieldStats(String material, String[] repairIngredient, IShieldID iShieldID) {
+        return iShieldID.getWeaponItemStats(this).shieldStats(material, repairIngredient);
     }
     protected IShieldID.ShieldStats advancedShieldStats(IShieldID iShieldID) {
-        return shieldStats(materialToString(iShieldID.getMaterial()), iShieldID);
+        return shieldStats(materialToString(iShieldID.getMaterial()), iShieldID.getRepairIngredient(), iShieldID);
     }
 
     public McdwNewStatsConfig() {

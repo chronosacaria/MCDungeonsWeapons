@@ -13,23 +13,25 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
-    HAMMER_BONECLUB(ToolMaterials.IRON,5, -3.1f),
-    HAMMER_BONE_CUDGEL(ToolMaterials.DIAMOND,5, -3.1f),
-    HAMMER_FLAIL(ToolMaterials.IRON,5, -2.9f),
-    HAMMER_GRAVITY(ToolMaterials.DIAMOND,5, -3.0f),
-    HAMMER_GREAT_HAMMER(ToolMaterials.IRON,4, -3.0f),
-    HAMMER_MACE(ToolMaterials.IRON,4, -2.9f),
-    HAMMER_STORMLANDER(ToolMaterials.DIAMOND,5, -3.0f),
-    HAMMER_SUNS_GRACE(ToolMaterials.DIAMOND,4, -2.5f);
+    HAMMER_BONECLUB(ToolMaterials.IRON,5, -3.1f, "minecraft:iron_ingot"),
+    HAMMER_BONE_CUDGEL(ToolMaterials.DIAMOND,5, -3.1f, "minecraft:diamond"),
+    HAMMER_FLAIL(ToolMaterials.IRON,5, -2.9f, "minecraft:iron_ingot"),
+    HAMMER_GRAVITY(ToolMaterials.DIAMOND,5, -3.0f, "minecraft:diamond"),
+    HAMMER_GREAT_HAMMER(ToolMaterials.IRON,4, -3.0f, "minecraft:iron_ingot"),
+    HAMMER_MACE(ToolMaterials.IRON,4, -2.9f, "minecraft:iron_ingot"),
+    HAMMER_STORMLANDER(ToolMaterials.DIAMOND,5, -3.0f, "minecraft:diamond"),
+    HAMMER_SUNS_GRACE(ToolMaterials.DIAMOND,4, -2.5f, "minecraft:diamond");
 
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
+    private final String[] repairIngredient;
 
-    HammersID(ToolMaterial material, int damage, float attackSpeed) {
+    HammersID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<HammersID, Boolean> getEnabledItems(){
@@ -94,9 +96,14 @@ public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwHammer makeWeapon() {
         McdwHammer mcdwHammer = new McdwHammer(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwHammer);
         return mcdwHammer;

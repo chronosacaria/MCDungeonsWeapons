@@ -13,13 +13,15 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ShieldsID implements IMcdwWeaponID, IShieldID {
-    SHIELD_ROYAL_GUARD(ToolMaterials.DIAMOND),
-    SHIELD_VANGUARD(ToolMaterials.DIAMOND);
+    SHIELD_ROYAL_GUARD(ToolMaterials.DIAMOND, "minecraft:iron_ingot", "minecraft:gold_ingot"),
+    SHIELD_VANGUARD(ToolMaterials.DIAMOND, "minecraft:planks", "minecraft:iron_ingot");
 
     private final ToolMaterial material;
+    private final String[] repairIngredient;
 
-    ShieldsID(ToolMaterial material) {
+    ShieldsID(ToolMaterial material, String... repairIngredient) {
         this.material = material;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<ShieldsID, Boolean> getEnabledItems(){
@@ -72,8 +74,13 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwShield makeWeapon() {
-        McdwShield mcdwShield = new McdwShield(ItemsInit.stringToMaterial(this.getWeaponItemStats().material));
+        McdwShield mcdwShield = new McdwShield(ItemsInit.stringToMaterial(this.getWeaponItemStats().material), this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwShield);
         return mcdwShield;

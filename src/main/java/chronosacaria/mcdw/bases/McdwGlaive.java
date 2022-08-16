@@ -19,26 +19,33 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.tag.ItemTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class McdwGlaive extends SwordItem {
-
+    String[] repairIngredient;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     private final ToolMaterial material;
     private final float attackDamage;
 
-    public McdwGlaive(ToolMaterial material, int attackDamage, float attackSpeed) {
+    public McdwGlaive(ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().group(Mcdw.WEAPONS).rarity(RarityHelper.fromToolMaterial(material)));
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
+        this.repairIngredient = repairIngredient;
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID,
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
@@ -63,11 +70,6 @@ public class McdwGlaive extends SwordItem {
     @Override
     public int getEnchantability(){
         return this.material.getEnchantability();
-    }
-
-    @Override
-    public boolean canRepair(ItemStack stack, ItemStack ingredient){
-        return this.material.getRepairIngredient().test(ingredient) || super.canRepair(stack, ingredient);
     }
 
     @Override
@@ -98,6 +100,25 @@ public class McdwGlaive extends SwordItem {
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot equipmentSlot){
         return equipmentSlot == EquipmentSlot.MAINHAND ? attributeModifiers :
                 super.getAttributeModifiers(equipmentSlot);
+    }
+
+    @Override
+    public boolean canRepair(ItemStack stack, ItemStack ingredient) {
+        List<Item> potentialIngredients = new ArrayList<>(List.of());
+        AtomicBoolean isWood = new AtomicBoolean(false);
+        AtomicBoolean isStone = new AtomicBoolean(false);
+        Arrays.stream(repairIngredient).toList().forEach(repIngredient -> {
+            if (repIngredient.contentEquals("minecraft:planks"))
+                isWood.set(true);
+            else if (repIngredient.contentEquals("minecraft:stone_crafting_materials"))
+                isStone.set(true);
+            potentialIngredients.add(
+                    Registry.ITEM.get(new Identifier(repIngredient)));
+        });
+
+        return potentialIngredients.contains(ingredient.getItem())
+                || (isWood.get() && ingredient.isIn(ItemTags.PLANKS)
+                || (isStone.get() && ingredient.isIn(ItemTags.STONE_CRAFTING_MATERIALS)));
     }
 
     @Override

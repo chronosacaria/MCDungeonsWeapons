@@ -13,18 +13,20 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
-    BOW_GUARDIAN_BOW(ToolMaterials.DIAMOND, 30, 19f),
-    BOW_LONGBOW(ToolMaterials.IRON, 25, 17f),
-    BOW_RED_SNAKE(ToolMaterials.DIAMOND, 30, 18f);
+    BOW_GUARDIAN_BOW(ToolMaterials.DIAMOND, 30, 19f, "minecraft:diamond"),
+    BOW_LONGBOW(ToolMaterials.IRON, 25, 17f, "minecraft:planks"),
+    BOW_RED_SNAKE(ToolMaterials.DIAMOND, 30, 18f, "minecraft:diamond");
 
     public final ToolMaterial material;
     public final int drawSpeed;
     public final float range;
+    private final String[] repairIngredient;
 
-    LongBowsID(ToolMaterial material, int drawSpeed, float range) {
+    LongBowsID(ToolMaterial material, int drawSpeed, float range, String... repairIngredient) {
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.range = range;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<LongBowsID, Boolean> getEnabledItems(){
@@ -89,9 +91,14 @@ public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwLongBow makeWeapon() {
         McdwLongBow mcdwLongBow = new McdwLongBow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range);
+                this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwLongBow);
         return mcdwLongBow;

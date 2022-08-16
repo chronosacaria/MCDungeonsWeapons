@@ -13,18 +13,20 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
-    SPEAR_SPEAR(ToolMaterials.IRON,3, -2.5f),
-    SPEAR_WHISPERING_SPEAR(ToolMaterials.IRON,5, -2.5f),
-    SPEAR_FORTUNE(ToolMaterials.IRON,4, -2.15f);
+    SPEAR_SPEAR(ToolMaterials.IRON,3, -2.5f, "minecraft:iron_ingot"),
+    SPEAR_WHISPERING_SPEAR(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot"),
+    SPEAR_FORTUNE(ToolMaterials.IRON,4, -2.15f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
+    private final String[] repairIngredient;
 
-    SpearsID(ToolMaterial material, int damage, float attackSpeed) {
+    SpearsID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<SpearsID, Boolean> getEnabledItems(){
@@ -89,9 +91,14 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwSpear makeWeapon() {
         McdwSpear mcdwSpear = new McdwSpear(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwSpear);
         return mcdwSpear;

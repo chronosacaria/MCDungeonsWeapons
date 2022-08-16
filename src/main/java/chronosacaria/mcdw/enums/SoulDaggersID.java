@@ -13,18 +13,21 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
-    DAGGER_ETERNAL_KNIFE(ToolMaterials.NETHERITE,4, -0.9f),
-    DAGGER_SOUL_KNIFE(ToolMaterials.IRON,1, -1.1f),
-    SWORD_TRUTHSEEKER(ToolMaterials.NETHERITE,3, -1.5f);
+    DAGGER_ETERNAL_KNIFE(ToolMaterials.NETHERITE,4, -0.9f, "minecraft:netherite_scrap"),
+    DAGGER_SOUL_KNIFE(ToolMaterials.IRON,1, -1.1f, "minecraft:iron_ingot"),
+    SWORD_TRUTHSEEKER(ToolMaterials.NETHERITE,3, -1.5f, "minecraft:netherite_scrap");
 
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
+    private final String[] repairIngredient;
 
-    SoulDaggersID(ToolMaterial material, int damage, float attackSpeed) {
+
+    SoulDaggersID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<SoulDaggersID, Boolean> getEnabledItems(){
@@ -89,9 +92,14 @@ public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwSoulDagger makeWeapon() {
         McdwSoulDagger mcdwSoulDagger = new McdwSoulDagger(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwSoulDagger);
         return mcdwSoulDagger;

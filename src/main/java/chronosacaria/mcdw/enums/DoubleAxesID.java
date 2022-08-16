@@ -13,18 +13,20 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
-    AXE_CURSED(ToolMaterials.IRON,7, -3.1f),
-    AXE_DOUBLE(ToolMaterials.IRON,6, -3.1f),
-    AXE_WHIRLWIND(ToolMaterials.IRON,6, -2.9f);
+    AXE_CURSED(ToolMaterials.IRON,7, -3.1f, "minecraft:iron_ingot"),
+    AXE_DOUBLE(ToolMaterials.IRON,6, -3.1f, "minecraft:iron_ingot"),
+    AXE_WHIRLWIND(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
+    private final String[] repairIngredient;
 
-    DoubleAxesID(ToolMaterial material, int damage, float attackSpeed) {
+    DoubleAxesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<DoubleAxesID, Boolean> getEnabledItems(){
@@ -89,9 +91,14 @@ public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwDoubleAxe makeWeapon() {
         McdwDoubleAxe mcdwDoubleAxe = new McdwDoubleAxe(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwDoubleAxe);
         return mcdwDoubleAxe;

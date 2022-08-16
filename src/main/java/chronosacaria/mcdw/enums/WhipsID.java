@@ -13,17 +13,18 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
-    WHIP_VINE_WHIP(ToolMaterials.IRON,5, -3.1f),
-    WHIP_WHIP(ToolMaterials.IRON,2, -3.1f);
+    WHIP_VINE_WHIP(ToolMaterials.IRON,5, -3.1f, "minecraft:iron_ingot"),
+    WHIP_WHIP(ToolMaterials.IRON,2, -3.1f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
-
-    WhipsID(ToolMaterial material, int damage, float attackSpeed) {
+    private final String[] repairIngredient;
+    WhipsID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<WhipsID, Boolean> getEnabledItems(){
@@ -88,9 +89,14 @@ public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwWhip makeWeapon() {
         McdwWhip mcdwWhip = new McdwWhip(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwWhip);
         return mcdwWhip;

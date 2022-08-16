@@ -15,11 +15,15 @@ public interface IShieldID extends IMcdwWeaponID {
 
     ToolMaterial getMaterial();
 
+    String[] getRepairIngredient();
+
     class ShieldStats {
         String material;
+        String[] repairIngredient;
 
-        public ShieldStats shieldStats(String material) {
+        public ShieldStats shieldStats(String material, String[] repairIngredient) {
             this.material = material;
+            this.repairIngredient = repairIngredient;
             return this;
         }
     }

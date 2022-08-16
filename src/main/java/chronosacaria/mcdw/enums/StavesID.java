@@ -13,18 +13,20 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum StavesID implements IMcdwWeaponID, IMeleeWeaponID {
-    STAFF_BATTLESTAFF(ToolMaterials.WOOD,2, -0.1f),
-    STAFF_BATTLESTAFF_OF_TERROR(ToolMaterials.IRON,2, -0.1f),
-    STAFF_GROWING_STAFF(ToolMaterials.IRON,3, -0.1f);
+    STAFF_BATTLESTAFF(ToolMaterials.WOOD,2, -0.1f, "minecraft:planks"),
+    STAFF_BATTLESTAFF_OF_TERROR(ToolMaterials.IRON,2, -0.1f, "minecraft:iron_ingot"),
+    STAFF_GROWING_STAFF(ToolMaterials.IRON,3, -0.1f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
     private final float attackSpeed;
+    private final String[] repairIngredient;
 
-    StavesID(ToolMaterial material, int damage, float attackSpeed) {
+    StavesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
         this.attackSpeed = attackSpeed;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<StavesID, Boolean> getEnabledItems(){
@@ -89,9 +91,14 @@ public enum StavesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwStaff makeWeapon() {
         McdwStaff mcdwStaff = new McdwStaff(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed);
+                this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwStaff);
         return mcdwStaff;

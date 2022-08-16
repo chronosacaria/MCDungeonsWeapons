@@ -13,19 +13,21 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
-    BOW_LOVE_SPELL_BOW(ToolMaterials.IRON, 9, 8f),
-    BOW_MECHANICAL_SHORTBOW(ToolMaterials.IRON, 9, 9f),
-    BOW_PURPLE_STORM(ToolMaterials.IRON, 9, 8f),
-    BOW_SHORTBOW(ToolMaterials.IRON, 9, 8f);
+    BOW_LOVE_SPELL_BOW(ToolMaterials.IRON, 9, 8f, "minecraft:iron_ingot"),
+    BOW_MECHANICAL_SHORTBOW(ToolMaterials.IRON, 9, 9f, "minecraft:iron_ingot"),
+    BOW_PURPLE_STORM(ToolMaterials.IRON, 9, 8f, "minecraft:iron_ingot"),
+    BOW_SHORTBOW(ToolMaterials.IRON, 9, 8f, "minecraft:planks");
 
     public final ToolMaterial material;
     public final int drawSpeed;
     public final float range;
+    private final String[] repairIngredient;
 
-    ShortBowsID(ToolMaterial material, int drawSpeed, float range) {
+    ShortBowsID(ToolMaterial material, int drawSpeed, float range, String... repairIngredient) {
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.range = range;
+        this.repairIngredient = repairIngredient;
     }
 
     public static HashMap<ShortBowsID, Boolean> getEnabledItems(){
@@ -90,9 +92,14 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
+    public String[] getRepairIngredient() {
+        return repairIngredient;
+    }
+
+    @Override
     public McdwShortBow makeWeapon() {
         McdwShortBow mcdwShortBow = new McdwShortBow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
-                this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range);
+                this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwShortBow);
         return mcdwShortBow;

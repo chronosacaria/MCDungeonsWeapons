@@ -20,16 +20,19 @@ public interface IRangedWeaponID extends IMcdwWeaponID {
     ToolMaterial getMaterial();
     int getDrawSpeed();
     float getRange();
+    String[] getRepairIngredient();
 
     class RangedStats {
         public String material;
         public int drawSpeed;
         public float range;
+        String[] repairIngredient;
 
-        public RangedStats rangedStats(String material, int drawSpeed, float range) {
+        public RangedStats rangedStats(String material, int drawSpeed, float range, String[] repairIngredient) {
             this.material = material;
             this.drawSpeed = drawSpeed;
             this.range = range;
+            this.repairIngredient = repairIngredient;
             return this;
         }
     }
