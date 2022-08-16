@@ -10,6 +10,7 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.SweepingEnchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.dragon.EnderDragonPart;
@@ -110,8 +111,16 @@ public class PlayerAttackHelper {
             }
 
                 /* f */
-                //TODO This attackDamage is only getting from mainHand
+                // Begin Oof
+                playerEntity.getAttributes().removeModifiers(playerEntity.getMainHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
+                playerEntity.getAttributes().addTemporaryModifiers(playerEntity.getOffHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
+
                 float attackDamage = (float) playerEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+
+                playerEntity.getAttributes().removeModifiers(playerEntity.getOffHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
+                playerEntity.getAttributes().addTemporaryModifiers(playerEntity.getMainHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
+                // End Oof
+
                 /* g */
                 float enchantedAttackDamage = target instanceof LivingEntity ? EnchantmentHelper.getAttackDamage(playerEntity.getOffHandStack(), ((LivingEntity) target).getGroup())
                         : EnchantmentHelper.getAttackDamage(playerEntity.getOffHandStack(), EntityGroup.DEFAULT);
