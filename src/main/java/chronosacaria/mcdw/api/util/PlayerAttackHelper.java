@@ -1,9 +1,7 @@
 package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
-import chronosacaria.mcdw.enums.DaggersID;
-import chronosacaria.mcdw.enums.SicklesID;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.networking.OffhandAttackPacket;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
@@ -17,12 +15,15 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.decoration.ArmorStandEntity;
+import net.minecraft.entity.effect.StatusEffectUtil;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.packet.s2c.play.EntityAnimationS2CPacket;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerChunkManager;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -50,6 +51,35 @@ public class PlayerAttackHelper {
                 || damageSource.name.equals("player");
     }
 
+    public void swingOffHand(LivingEntity livingEntity, Hand hand) {
+        this.swingOffHand(livingEntity, hand, false);
+    }
+
+    public void swingOffHand(LivingEntity livingEntity, Hand hand, boolean fromServerPlayer) {
+        if (!livingEntity.handSwinging || livingEntity.handSwingTicks >= this.getOffHandSwingDuration(livingEntity) / 2 || livingEntity.handSwingTicks < 0) {
+            livingEntity.handSwingTicks = -1;
+            livingEntity.handSwinging = true;
+            livingEntity.preferredHand = hand;
+            if (livingEntity.world instanceof ServerWorld) {
+                EntityAnimationS2CPacket entityAnimationS2CPacket = new EntityAnimationS2CPacket(livingEntity, hand == Hand.OFF_HAND ? 0: 3);
+                ServerChunkManager serverChunkManager = ((ServerWorld) livingEntity.world).getChunkManager();
+                if (fromServerPlayer) {
+                    serverChunkManager.sendToNearbyPlayers(livingEntity, entityAnimationS2CPacket);
+                } else {
+                    serverChunkManager.sendToOtherNearbyPlayers(livingEntity, entityAnimationS2CPacket);
+                }
+            }
+        }
+    }
+
+    private int getOffHandSwingDuration(LivingEntity livingEntity) {
+        if (StatusEffectUtil.hasHaste(livingEntity)) {
+            return 6 - (1 + StatusEffectUtil.getHasteAmplifier(livingEntity));
+        } else {
+            return livingEntity.hasStatusEffect(StatusEffects.MINING_FATIGUE) ? 6 + (1 + livingEntity.getStatusEffect(StatusEffects.MINING_FATIGUE).getAmplifier()) * 2 : 6;
+        }
+    }
+
     public static void checkForOffhandAttack() {
         if (!FabricLoader.getInstance().isModLoaded("dualwielding") || !FabricLoader.getInstance().isModLoaded("bettercombat")) {
             MinecraftClient mc = MinecraftClient.getInstance();
@@ -60,12 +90,10 @@ public class PlayerAttackHelper {
                     && !MinecraftClient.getInstance().isPaused()
                     && player != null
                     && !player.isBlocking()) {
-                ItemStack offhand = player.getOffHandStack();
-                if (offhand.getItem() instanceof IOffhandAttack) {
-                    if (hitResult instanceof EntityHitResult) {
-                        if (mc.crosshairTarget != null && mc.interactionManager != null && mc.getNetworkHandler() != null) {
-                            mc.getNetworkHandler().sendPacket(OffhandAttackPacket.offhandAttackPacket(((EntityHitResult) mc.crosshairTarget).getEntity()));
-                        }
+
+                if (hitResult instanceof EntityHitResult) {
+                    if (mc.crosshairTarget != null && mc.interactionManager != null && mc.getNetworkHandler() != null) {
+                        mc.getNetworkHandler().sendPacket(OffhandAttackPacket.offhandAttackPacket(((EntityHitResult) mc.crosshairTarget).getEntity()));
                     }
                 }
             }
@@ -80,13 +108,9 @@ public class PlayerAttackHelper {
             if (target.handleAttack(playerEntity)) {
                 return;
             }
-            if (playerEntity.getOffHandStack().getItem() == playerEntity.getMainHandStack().getItem()
-                    || (playerEntity.getMainHandStack().getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_BEGINNING) && playerEntity.getOffHandStack().getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_END))
-                    || (playerEntity.getMainHandStack().getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_END) && playerEntity.getOffHandStack().getItem() == ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_BEGINNING))
-                    || (playerEntity.getMainHandStack().getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_LAST_LAUGH_GOLD) && playerEntity.getOffHandStack().getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_LAST_LAUGH_SILVER))
-                    || (playerEntity.getMainHandStack().getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_LAST_LAUGH_SILVER) && playerEntity.getOffHandStack().getItem() == ItemsInit.sickleItems.get(SicklesID.SICKLE_LAST_LAUGH_GOLD))) {
 
                 /* f */
+                //TODO This attackDamage is only getting from mainHand
                 float attackDamage = (float) playerEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                 /* g */
                 float enchantedAttackDamage = target instanceof LivingEntity ? EnchantmentHelper.getAttackDamage(playerEntity.getOffHandStack(), ((LivingEntity) target).getGroup())
@@ -96,7 +120,8 @@ public class PlayerAttackHelper {
                 float offhandCooledAttackStrength = playerEntity.getAttackCooldownProgress(0.5f);
                 enchantedAttackDamage *= offhandCooledAttackStrength;
 
-                target.damage(DamageSource.player(playerEntity), attackDamage);
+                //target.damage(DamageSource.player(playerEntity), attackDamage);
+                target.damage(OffHandDamageSource.player(playerEntity), attackDamage);
                 playerEntity.getOffHandStack().damage(1, playerEntity, (entity) -> entity.sendToolBreakStatus(Hand.OFF_HAND));
 
                 //((IDualWielding) playerEntity).resetLastOffhandAttackTicks();
@@ -111,15 +136,7 @@ public class PlayerAttackHelper {
                     int knockbackLevel = 0;
                     knockbackLevel += EnchantmentHelper.getLevel(Enchantments.KNOCKBACK, offhandStackInHand);
                     if (playerEntity.isSprinting() && offhandCooldownProgressBoolean) {
-                        playerEntity.world.playSound(
-                                null,
-                                playerEntity.getX(),
-                                playerEntity.getY(),
-                                playerEntity.getZ(),
-                                SoundEvents.ENTITY_PLAYER_ATTACK_KNOCKBACK,
-                                playerEntity.getSoundCategory(),
-                                1.0F,
-                                1.0F);
+                        CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_KNOCKBACK, 1.0f, 1.0f);
                         ++knockbackLevel;
                         applyEnchantmentBoolean = true;
                     }
@@ -180,15 +197,7 @@ public class PlayerAttackHelper {
                                         -MathHelper.cos(playerEntity.getYaw() * ((float) Math.PI / 180)));
                                 livingEntity.damage(DamageSource.player(playerEntity), sweepingEdgeMultiplierTimesDamage);
                             }
-                            playerEntity.world.playSound(
-                                    null,
-                                    playerEntity.getX(),
-                                    playerEntity.getY(),
-                                    playerEntity.getZ(),
-                                    SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP,
-                                    playerEntity.getSoundCategory(),
-                                    1.0f,
-                                    1.0f);
+                            CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
                             /* Offhand Sweeping Particles */
                             // Insert Code Here
                         }
@@ -199,39 +208,15 @@ public class PlayerAttackHelper {
                             target.setVelocity(targetVelocity);
                         }
                         if (playerIsDealingCriticalDamage) {
-                            playerEntity.world.playSound(
-                                    null,
-                                    playerEntity.getX(),
-                                    playerEntity.getY(),
-                                    playerEntity.getZ(),
-                                    SoundEvents.ENTITY_PLAYER_ATTACK_CRIT,
-                                    playerEntity.getSoundCategory(),
-                                    1.0f,
-                                    1.0f);
+                            CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, 1.0f, 1.0f);
                             playerEntity.addCritParticles(target);
                         }
 
                         if (!playerIsDealingCriticalDamage && !bl4) {
                             if (offhandCooldownProgressBoolean) {
-                                playerEntity.world.playSound(
-                                        null,
-                                        playerEntity.getX(),
-                                        playerEntity.getY(),
-                                        playerEntity.getZ(),
-                                        SoundEvents.ENTITY_PLAYER_ATTACK_STRONG,
-                                        playerEntity.getSoundCategory(),
-                                        1.0f,
-                                        1.0f);
+                                CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_STRONG, 1.0f, 1.0f);
                             } else {
-                                playerEntity.world.playSound(
-                                        null,
-                                        playerEntity.getX(),
-                                        playerEntity.getY(),
-                                        playerEntity.getZ(),
-                                        SoundEvents.ENTITY_PLAYER_ATTACK_WEAK,
-                                        playerEntity.getSoundCategory(),
-                                        1.0f,
-                                        1.0f);
+                                CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_WEAK, 1.0f, 1.0f);
                             }
                         }
 
@@ -282,21 +267,13 @@ public class PlayerAttackHelper {
                         }
                         playerEntity.addExhaustion(0.1f);
                     } else {
-                        playerEntity.world.playSound(
-                                null,
-                                playerEntity.getX(),
-                                playerEntity.getY(),
-                                playerEntity.getZ(),
-                                SoundEvents.ENTITY_PLAYER_ATTACK_NODAMAGE,
-                                playerEntity.getSoundCategory(),
-                                1.0f,
-                                1.0f);
+                        CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_NODAMAGE, 1.0f, 1.0f);
                         if (bl5) {
                             target.extinguish();
                         }
                     }
                 }
             }
-        }
+
     }
 }

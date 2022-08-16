@@ -3,6 +3,7 @@ package chronosacaria.mcdw.mixin;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
+import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
@@ -62,25 +63,20 @@ public class LivingEntityMixin {
     @Inject(method = "onDeath", at = @At("HEAD"))
     private void mcdw$onDeath(DamageSource source, CallbackInfo ci) {
         LivingEntity victim = (LivingEntity) (Object) this;
+        boolean isOffHandAttack = source instanceof OffHandDamageSource;
 
         if (source.getAttacker() instanceof LivingEntity attackingEntity) {
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR))
-                EnchantmentEffects.applyProspector(attackingEntity, victim);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR))
-                EnchantmentEffects.applyProspectorFromOffHand(attackingEntity, victim);
+                EnchantmentEffects.applyProspector(attackingEntity, victim, isOffHandAttack);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RUSHDOWN))
-                EnchantmentEffects.applyRushdown(attackingEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RUSHDOWN))
-                EnchantmentEffects.applyRushdownFromOffHand(attackingEntity);
+                EnchantmentEffects.applyRushdown(attackingEntity, isOffHandAttack);
         }
 
         if (source.getAttacker() instanceof PlayerEntity attackingPlayer) {
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_SIPHON))
-                EnchantmentEffects.applySoulSiphon(attackingPlayer);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_SIPHON))
-                EnchantmentEffects.applySoulSiphonFromOffHand(attackingPlayer);
+                EnchantmentEffects.applySoulSiphon(attackingPlayer, isOffHandAttack);
         }
     }
 
@@ -189,8 +185,6 @@ public class LivingEntityMixin {
                 EnchantmentEffects.activateBurstBowstringOnJump(playerEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
                 EnchantmentEffects.handleAddDynamoEffect(playerEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
-                EnchantmentEffects.handleAddDynamoEffectFromOffHand(playerEntity);
         }
     }
 }

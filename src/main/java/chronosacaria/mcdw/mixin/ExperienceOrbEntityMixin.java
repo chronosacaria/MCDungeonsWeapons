@@ -2,6 +2,7 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.ExperienceOrbEntity;
@@ -38,9 +39,12 @@ public class ExperienceOrbEntityMixin {
 
    @ModifyArg(method = "onPlayerCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;addExperience(I)V"))
     public int mcdw$RepairPlayer(int experience){
-        PlayerEntity playerEntity = mcdw$getPlayerEntity();
+
+       PlayerEntity playerEntity = mcdw$getPlayerEntity();
+       boolean isOffHandAttack = playerEntity.getRecentDamageSource() instanceof OffHandDamageSource;
+
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT))
-            return EnchantmentEffects.animaConduitExperience(playerEntity, experience);
+            return EnchantmentEffects.animaConduitExperience(playerEntity, experience, isOffHandAttack);
         return experience;
     }
 

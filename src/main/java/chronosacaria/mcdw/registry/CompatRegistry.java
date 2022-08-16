@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.registry;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import com.blamejared.clumps.api.events.ClumpsEvents;
@@ -13,12 +14,14 @@ public class CompatRegistry {
             ClumpsEvents.VALUE_EVENT.register(event -> {
                 int amount = event.getValue();
                 PlayerEntity playerEntity = event.getPlayer();
+                boolean isOffHandAttack = playerEntity.getRecentDamageSource() instanceof OffHandDamageSource;
+
 
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_DEVOURER))
                     amount = EnchantmentEffects.soulDevourerExperience(playerEntity, amount);
 
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT))
-                    amount = EnchantmentEffects.animaConduitExperience(playerEntity, amount);
+                    amount = EnchantmentEffects.animaConduitExperience(playerEntity, amount, isOffHandAttack);
 
                 event.setValue(amount);
                 return null;

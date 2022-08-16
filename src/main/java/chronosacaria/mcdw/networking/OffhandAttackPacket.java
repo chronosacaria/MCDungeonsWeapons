@@ -1,15 +1,14 @@
 package chronosacaria.mcdw.networking;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.PlayerAttackHelper;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 
 public class OffhandAttackPacket {
@@ -25,10 +24,11 @@ public class OffhandAttackPacket {
     public static void init() {
         ServerPlayNetworking.registerGlobalReceiver(OFFHAND_ATTACK_PACKET, (server, player, handler, buffer, sender) -> {
             int offhandAttackedEntityId = buffer.readInt();
+            Entity entity = ((ServerWorld) player.world).getDragonPart(offhandAttackedEntityId);
             server.execute(() -> {
                 player.updateLastActionTime();
-                if (player.world.getEntityById(offhandAttackedEntityId) != null) {
-                    PlayerAttackHelper.offhandAttack(player, player.world.getEntityById(offhandAttackedEntityId));
+                if (entity != null) {
+                    PlayerAttackHelper.offhandAttack(player, ((ServerWorld) player.world).getDragonPart(offhandAttackedEntityId));
                 }
             });
         });
