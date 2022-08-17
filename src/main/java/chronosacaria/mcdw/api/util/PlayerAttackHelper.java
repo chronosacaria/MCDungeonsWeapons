@@ -1,5 +1,6 @@
 package chronosacaria.mcdw.api.util;
 
+import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.networking.OffhandAttackPacket;
@@ -110,40 +111,40 @@ public class PlayerAttackHelper {
                 return;
             }
 
+            ItemStack offhandStack = playerEntity.getOffHandStack();
+
                 /* f */
                 // Begin Oof
                 playerEntity.getAttributes().removeModifiers(playerEntity.getMainHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
-                playerEntity.getAttributes().addTemporaryModifiers(playerEntity.getOffHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
+                playerEntity.getAttributes().addTemporaryModifiers(offhandStack.getAttributeModifiers(EquipmentSlot.MAINHAND));
 
                 float attackDamage = (float) playerEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
 
-                playerEntity.getAttributes().removeModifiers(playerEntity.getOffHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
+                playerEntity.getAttributes().removeModifiers(offhandStack.getAttributeModifiers(EquipmentSlot.MAINHAND));
                 playerEntity.getAttributes().addTemporaryModifiers(playerEntity.getMainHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
                 // End Oof
 
                 /* g */
-                float enchantedAttackDamage = target instanceof LivingEntity ? EnchantmentHelper.getAttackDamage(playerEntity.getOffHandStack(), ((LivingEntity) target).getGroup())
-                        : EnchantmentHelper.getAttackDamage(playerEntity.getOffHandStack(), EntityGroup.DEFAULT);
+                float enchantedAttackDamage = target instanceof LivingEntity livingTarget ? EnchantmentHelper.getAttackDamage(offhandStack, livingTarget.getGroup())
+                        : EnchantmentHelper.getAttackDamage(offhandStack, EntityGroup.DEFAULT);
                 /* h */
-                //float offhandCooledAttackStrength = ((IDualWielding) playerEntity).getOffhandAttackCooldownProgress(0.5F);
-                float offhandCooledAttackStrength = playerEntity.getAttackCooldownProgress(0.5f);
+                float offhandCooledAttackStrength = ((IDualWielding) playerEntity).getAttackCooldownProgress(0.5F);
+                //float offhandCooledAttackStrength = playerEntity.getAttackCooldownProgress(0.5f);
                 enchantedAttackDamage *= offhandCooledAttackStrength;
 
-                //target.damage(DamageSource.player(playerEntity), attackDamage);
                 target.damage(OffHandDamageSource.player(playerEntity), attackDamage);
-                playerEntity.getOffHandStack().damage(1, playerEntity, (entity) -> entity.sendToolBreakStatus(Hand.OFF_HAND));
+                offhandStack.damage(1, playerEntity, (entity) -> entity.sendToolBreakStatus(Hand.OFF_HAND));
 
-                //((IDualWielding) playerEntity).resetLastOffhandAttackTicks();
+                ((IDualWielding) playerEntity).resetLastAttackedOffhandTicks();
 
                 if ((attackDamage *= 0.2f + offhandCooledAttackStrength * offhandCooledAttackStrength * 0.5f) > 0.0f || enchantedAttackDamage > 0.0f) {
-                    ItemStack offhandStackInHand = playerEntity.getStackInHand(Hand.OFF_HAND);
                     /* bl */
                     boolean offhandCooldownProgressBoolean = offhandCooledAttackStrength > 0.9f;
                     /* bl2 */
                     boolean applyEnchantmentBoolean = false;
                     /* i */
                     int knockbackLevel = 0;
-                    knockbackLevel += EnchantmentHelper.getLevel(Enchantments.KNOCKBACK, offhandStackInHand);
+                    knockbackLevel += EnchantmentHelper.getLevel(Enchantments.KNOCKBACK, offhandStack);
                     if (playerEntity.isSprinting() && offhandCooldownProgressBoolean) {
                         CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_KNOCKBACK, 1.0f, 1.0f);
                         ++knockbackLevel;
@@ -162,7 +163,7 @@ public class PlayerAttackHelper {
                     double playerCurrentHorizontalSpeed = playerEntity.horizontalSpeed - playerEntity.prevHorizontalSpeed;
                     if (offhandCooldownProgressBoolean && !playerIsDealingCriticalDamage && !applyEnchantmentBoolean
                             && playerEntity.isOnGround() && playerCurrentHorizontalSpeed < (double) playerEntity.getMovementSpeed()
-                            && offhandStackInHand.getItem() instanceof IOffhandAttack) {
+                            && offhandStack.getItem() instanceof IOffhandAttack) {
                         bl4 = true;
                     }
 
@@ -170,21 +171,20 @@ public class PlayerAttackHelper {
                     float targetHealth = 0.0f;
                     boolean bl5 = false;
                     /* k */
-                    int fireAspectLevel = EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, offhandStackInHand);
-                    if (target instanceof LivingEntity) {
-                        targetHealth = ((LivingEntity) target).getHealth();
-                        if (fireAspectLevel > 0 && !target.isOnFire()) {
+                    int fireAspectLevel = EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, offhandStack);
+                    if (target instanceof LivingEntity livingTarget) {
+                        targetHealth = livingTarget.getHealth();
+                        if (fireAspectLevel > 0 && !livingTarget.isOnFire()) {
                             bl5 = true;
-                            target.setOnFireFor(1);
+                            livingTarget.setOnFireFor(1);
                         }
                     }
 
                     Vec3d targetVelocity = target.getVelocity();
-                    boolean bl6 = target.damage(DamageSource.player(playerEntity), attackDamage);
-                    if (bl6) {
+                    if (target.damage(OffHandDamageSource.player(playerEntity), attackDamage)) {
                         if (knockbackLevel > 0) {
-                            if (target instanceof LivingEntity) {
-                                ((LivingEntity) target).takeKnockback((float) knockbackLevel * 0.5f, MathHelper.sin(playerEntity.getYaw() * ((float) Math.PI / 180)),
+                            if (target instanceof LivingEntity livingTarget) {
+                                livingTarget.takeKnockback((float) knockbackLevel * 0.5f, MathHelper.sin(playerEntity.getYaw() * ((float) Math.PI / 180)),
                                         -MathHelper.cos(playerEntity.getYaw() * ((float) Math.PI / 180)));
                             } else {
                                 target.addVelocity(-MathHelper.sin(playerEntity.getYaw() * ((float) Math.PI / 180)) * (float) knockbackLevel * 0.5f, 0.1,
@@ -195,7 +195,7 @@ public class PlayerAttackHelper {
                         }
 
                         if (bl4) {
-                            float sweepingEdgeMultiplierTimesDamage = 1.0f + SweepingEnchantment.getMultiplier(EnchantmentHelper.getLevel(Enchantments.SWEEPING, offhandStackInHand)) * attackDamage;
+                            float sweepingEdgeMultiplierTimesDamage = 1.0f + SweepingEnchantment.getMultiplier(EnchantmentHelper.getLevel(Enchantments.SWEEPING, offhandStack)) * attackDamage;
                             List<LivingEntity> sweptEntities = playerEntity.world.getNonSpectatingEntities(LivingEntity.class, target.getBoundingBox().expand(1.0, 0.25, 1.0));
                             for (LivingEntity livingEntity : sweptEntities) {
                                 if (livingEntity == playerEntity || livingEntity == target || playerEntity.isTeammate(livingEntity)
@@ -219,14 +219,10 @@ public class PlayerAttackHelper {
                         if (playerIsDealingCriticalDamage) {
                             CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, 1.0f, 1.0f);
                             playerEntity.addCritParticles(target);
-                        }
-
-                        if (!playerIsDealingCriticalDamage && !bl4) {
-                            if (offhandCooldownProgressBoolean) {
-                                CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_STRONG, 1.0f, 1.0f);
-                            } else {
-                                CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_WEAK, 1.0f, 1.0f);
-                            }
+                        } else if (!bl4) {
+                            CleanlinessHelper.playCenteredSound(playerEntity,
+                                    offhandCooldownProgressBoolean ? SoundEvents.ENTITY_PLAYER_ATTACK_STRONG : SoundEvents.ENTITY_PLAYER_ATTACK_WEAK,
+                                    1.0f, 1.0f);
                         }
 
                         if (enchantedAttackDamage > 0.0f) {
@@ -234,35 +230,34 @@ public class PlayerAttackHelper {
                         }
 
                         playerEntity.onAttacking(target);
-                        if (target instanceof LivingEntity) {
-                            EnchantmentHelper.onUserDamaged((LivingEntity) target, playerEntity);
+                        if (target instanceof LivingEntity livingTarget) {
+                            EnchantmentHelper.onUserDamaged(livingTarget, playerEntity);
                         }
 
                         EnchantmentHelper.onTargetDamaged(playerEntity, target);
-                        ItemStack offhandStack = playerEntity.getOffHandStack();
                         Entity targetedEntity = target;
-                        if (target instanceof EnderDragonPart) {
-                            targetedEntity = ((EnderDragonPart) target).owner;
+                        if (target instanceof EnderDragonPart enderDragonPartTarget) {
+                            targetedEntity = enderDragonPartTarget.owner;
                         }
 
-                        if (!playerEntity.world.isClient && !offhandStack.isEmpty() && targetedEntity instanceof LivingEntity) {
-                            offhandStack.postHit((LivingEntity) targetedEntity, playerEntity);
+                        if (!playerEntity.world.isClient && !offhandStack.isEmpty() && targetedEntity instanceof LivingEntity livingTarget) {
+                            offhandStack.postHit(livingTarget, playerEntity);
                             if (offhandStack.isEmpty()) {
                                 playerEntity.setStackInHand(Hand.OFF_HAND, ItemStack.EMPTY);
                             }
                         }
 
-                        if (target instanceof LivingEntity) {
+                        if (target instanceof LivingEntity livingTarget) {
                             /* m */
-                            float targetCurrentHealth = targetHealth - ((LivingEntity) target).getHealth();
+                            float targetCurrentHealth = targetHealth - livingTarget.getHealth();
                             playerEntity.increaseStat(Stats.DAMAGE_DEALT, Math.round(targetCurrentHealth * 10.0f));
                             if (fireAspectLevel > 0) {
                                 target.setOnFireFor(fireAspectLevel * 4);
                             }
 
-                            if (playerEntity.world instanceof ServerWorld && targetCurrentHealth > 2.0f) {
+                            if (playerEntity.world instanceof ServerWorld playerServerWorld && targetCurrentHealth > 2.0f) {
                                 int particleCount = (int) ((double) targetCurrentHealth * 0.5);
-                                ((ServerWorld) playerEntity.world).spawnParticles(
+                                playerServerWorld.spawnParticles(
                                         ParticleTypes.DAMAGE_INDICATOR,
                                         target.getX(),
                                         target.getBodyY(0.5),

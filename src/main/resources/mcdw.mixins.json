@@ -14,6 +14,7 @@
     "LivingEntityPlayerEntityMixin",
     "MobEntityAccessor",
     "PersistentProjectileEntityMixin",
+    "PlayerMixin",
     "ShieldPlayerEntityMixin"
   ],
   "client": [
