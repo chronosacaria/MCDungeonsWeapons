@@ -1,18 +1,14 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
-import com.mojang.authlib.GameProfile;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.encryption.PlayerPublicKey;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -20,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerMixin extends LivingEntity implements IDualWielding {
 
+    @Unique
     private int lastAttackedOffhandTicks = 0;
 
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, World world) {
@@ -46,16 +43,4 @@ public abstract class PlayerMixin extends LivingEntity implements IDualWielding 
         ++this.lastAttackedOffhandTicks;
     }
 
-
-    private float getAttackSpeed() {
-        this.getAttributes().removeModifiers(this.getMainHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
-        this.getAttributes().addTemporaryModifiers(this.getOffHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
-
-        float attackSpeed = (float) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED);
-
-        this.getAttributes().removeModifiers(this.getOffHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
-        this.getAttributes().addTemporaryModifiers(this.getMainHandStack().getAttributeModifiers(EquipmentSlot.MAINHAND));
-
-        return attackSpeed;
-    }
 }
