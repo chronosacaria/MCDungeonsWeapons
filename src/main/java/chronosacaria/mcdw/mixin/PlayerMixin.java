@@ -28,11 +28,11 @@ public abstract class PlayerMixin extends LivingEntity implements IDualWielding 
 
     @Override
     public float getOffhandAttackCooldownProgressPerTick() {
-        return (float)(1.0D / this.getAttackSpeed() * 20.0D);
+        return (float)(1.0D / this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED) * 20.0D);
     }
 
     @Override
-    public float getAttackCooldownProgress(float baseTime) {
+    public float getOffhandAttackCooldownProgress(float baseTime) {
         return MathHelper.clamp(((float)this.lastAttackedOffhandTicks + baseTime) / this.getOffhandAttackCooldownProgressPerTick(), 0.0F, 1.0F);
     }
 

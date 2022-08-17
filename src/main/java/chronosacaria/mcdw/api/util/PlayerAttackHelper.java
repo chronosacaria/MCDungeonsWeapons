@@ -128,7 +128,7 @@ public class PlayerAttackHelper {
                 float enchantedAttackDamage = target instanceof LivingEntity livingTarget ? EnchantmentHelper.getAttackDamage(offhandStack, livingTarget.getGroup())
                         : EnchantmentHelper.getAttackDamage(offhandStack, EntityGroup.DEFAULT);
                 /* h */
-                float offhandCooledAttackStrength = ((IDualWielding) playerEntity).getAttackCooldownProgress(0.5F);
+                float offhandCooledAttackStrength = ((IDualWielding) playerEntity).getOffhandAttackCooldownProgress(0.5F);
                 //float offhandCooledAttackStrength = playerEntity.getAttackCooldownProgress(0.5f);
                 enchantedAttackDamage *= offhandCooledAttackStrength;
 

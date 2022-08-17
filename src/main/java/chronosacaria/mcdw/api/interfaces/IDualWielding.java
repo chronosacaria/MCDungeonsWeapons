@@ -6,7 +6,7 @@ public interface IDualWielding {
 
     float getOffhandAttackCooldownProgressPerTick();
 
-    float getAttackCooldownProgress(float baseTime);
+    float getOffhandAttackCooldownProgress(float baseTime);
 
     void resetLastAttackedOffhandTicks();
 }
