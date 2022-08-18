@@ -13,30 +13,30 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
-    SWORD_BEESTINGER(ToolMaterials.IRON,0, -1.14F, "minecraft:iron_ingot"),
-    SWORD_BROADSWORD(ToolMaterials.IRON, 4, -3.23f, "minecraft:iron_ingot"),
+    SWORD_BEESTINGER(ToolMaterials.IRON,-1, -1.14F, "minecraft:iron_ingot"),
+    SWORD_BROADSWORD(ToolMaterials.IRON, 7, -3.23f, "minecraft:iron_ingot"),
     SWORD_BROKEN_SAWBLADE(ToolMaterials.IRON,3, -2.4f, "minecraft:iron_ingot"),
-    SWORD_CLAYMORE(ToolMaterials.IRON, 5, -3.23f, "minecraft:iron_ingot"),
+    SWORD_CLAYMORE(ToolMaterials.IRON, 7, -3.23f, "minecraft:iron_ingot"),
     SWORD_CORAL_BLADE(ToolMaterials.IRON,3, -2.4f, "minecraft:iron_ingot"),
-    SWORD_CUTLASS(ToolMaterials.IRON,3, -2.3f, "minecraft:iron_ingot"),
-    SWORD_DANCERS_SWORD(ToolMaterials.IRON,1, -1.14f, "minecraft:iron_ingot"),
-    SWORD_DARK_KATANA(ToolMaterials.NETHERITE,2, -2.9f, "minecraft:netherite_scrap"),
+    SWORD_CUTLASS(ToolMaterials.IRON,2, -2.3f, "minecraft:iron_ingot"),
+    SWORD_DANCERS_SWORD(ToolMaterials.IRON,3, -2.3f, "minecraft:iron_ingot"),
+    SWORD_DARK_KATANA(ToolMaterials.NETHERITE,4, -2.9f, "minecraft:netherite_scrap"),
     SWORD_DIAMOND_SWORD_VAR(ToolMaterials.DIAMOND,3, -2.4f, "minecraft:diamond"),
-    SWORD_FREEZING_FOIL(ToolMaterials.IRON,0, -1.14f, "minecraft:iron_ingot"),
-    SWORD_FROST_SLAYER(ToolMaterials.DIAMOND, 5, -3.23f, "minecraft:diamond"),
-    SWORD_GREAT_AXEBLADE(ToolMaterials.IRON, 6, -3.23f, "minecraft:iron_ingot"),
-    SWORD_HAWKBRAND(ToolMaterials.IRON,5, -2.9f, "minecraft:iron_ingot"),
-    SWORD_HEARTSTEALER(ToolMaterials.DIAMOND, 4, -3.23f, "minecraft:diamond"),
+    SWORD_FREEZING_FOIL(ToolMaterials.IRON,-1, -1.14f, "minecraft:iron_ingot"),
+    SWORD_FROST_SLAYER(ToolMaterials.DIAMOND, 6, -3.23f, "minecraft:diamond"),
+    SWORD_GREAT_AXEBLADE(ToolMaterials.IRON, 7, -3.23f, "minecraft:iron_ingot"),
+    SWORD_HAWKBRAND(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot"),
+    SWORD_HEARTSTEALER(ToolMaterials.DIAMOND, 6, -3.23f, "minecraft:diamond"),
     SWORD_IRON_SWORD_VAR(ToolMaterials.IRON,3, -2.4f, "minecraft:iron_ingot"),
-    SWORD_KATANA(ToolMaterials.IRON,1, -2.9f, "minecraft:iron_ingot"),
-    SWORD_MASTERS_KATANA(ToolMaterials.DIAMOND,1, -2.9f, "minecraft:diamond"),
+    SWORD_KATANA(ToolMaterials.IRON,5, -2.9f, "minecraft:iron_ingot"),
+    SWORD_MASTERS_KATANA(ToolMaterials.DIAMOND,5, -2.9f, "minecraft:diamond"),
     SWORD_MECHANIZED_SAWBLADE(ToolMaterials.DIAMOND,3, -2.4f, "minecraft:diamond"),
-    SWORD_NAMELESS_BLADE(ToolMaterials.IRON,1, -2.3f, "minecraft:iron_ingot"),
-    SWORD_OBSIDIAN_CLAYMORE(ToolMaterials.NETHERITE, 6, -3.23f, "minecraft:netherite_scrap"),
-    SWORD_RAPIER(ToolMaterials.IRON,0, -1.14f, "minecraft:iron_ingot"),
-    SWORD_SINISTER(ToolMaterials.IRON,5, -2.4f, "minecraft:iron_ingot"),
+    SWORD_NAMELESS_BLADE(ToolMaterials.IRON,4, -2.3f, "minecraft:iron_ingot"),
+    SWORD_OBSIDIAN_CLAYMORE(ToolMaterials.NETHERITE, 6, -3.3f, "minecraft:netherite_scrap"),
+    SWORD_RAPIER(ToolMaterials.IRON,-1, -1.14f, "minecraft:iron_ingot"),
+    SWORD_SINISTER(ToolMaterials.IRON,4, -2.4f, "minecraft:iron_ingot"),
     SWORD_SPONGE_STRIKER(ToolMaterials.DIAMOND,3, -2.4f, "minecraft:diamond"),
-    SWORD_THE_STARLESS_NIGHT(ToolMaterials.NETHERITE, 8, -3.23f, "minecraft:netherite_scrap");
+    SWORD_THE_STARLESS_NIGHT(ToolMaterials.NETHERITE, 6, -3.3f, "minecraft:netherite_scrap");
 
     private final ToolMaterial material;
     private final int damage;

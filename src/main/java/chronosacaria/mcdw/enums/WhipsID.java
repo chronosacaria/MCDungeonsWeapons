@@ -13,8 +13,8 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
-    WHIP_VINE_WHIP(ToolMaterials.IRON,5, -3.1f, "minecraft:iron_ingot"),
-    WHIP_WHIP(ToolMaterials.IRON,2, -3.1f, "minecraft:iron_ingot");
+    WHIP_VINE_WHIP(ToolMaterials.IRON,6, -3.1f, "minecraft:iron_ingot"),
+    WHIP_WHIP(ToolMaterials.IRON,5, -3.1f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;

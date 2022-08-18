@@ -14,8 +14,8 @@ import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum StavesID implements IMcdwWeaponID, IMeleeWeaponID {
     STAFF_BATTLESTAFF(ToolMaterials.WOOD,2, -2.63f, "minecraft:planks"),
-    STAFF_BATTLESTAFF_OF_TERROR(ToolMaterials.IRON,2, -2.63f, "minecraft:iron_ingot"),
-    STAFF_GROWING_STAFF(ToolMaterials.IRON,3, -2.63f, "minecraft:iron_ingot");
+    STAFF_BATTLESTAFF_OF_TERROR(ToolMaterials.IRON,5, -2.63f, "minecraft:iron_ingot"),
+    STAFF_GROWING_STAFF(ToolMaterials.IRON,5, -2.63f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;

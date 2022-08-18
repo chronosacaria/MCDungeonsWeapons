@@ -14,7 +14,7 @@ import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     DAGGER_ETERNAL_KNIFE(ToolMaterials.NETHERITE,4, -2.8f, "minecraft:netherite_scrap"),
-    DAGGER_SOUL_KNIFE(ToolMaterials.IRON,1, -2.8f, "minecraft:iron_ingot"),
+    DAGGER_SOUL_KNIFE(ToolMaterials.IRON,4, -2.8f, "minecraft:iron_ingot"),
     SWORD_TRUTHSEEKER(ToolMaterials.NETHERITE,3, -2.8f, "minecraft:netherite_scrap");
 
     private final ToolMaterial material;

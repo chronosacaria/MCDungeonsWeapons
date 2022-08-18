@@ -14,9 +14,9 @@ import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
     SPEAR_CACKLING_BROOM(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
-    SPEAR_GLAIVE(ToolMaterials.IRON,3, -3f, "minecraft:iron_ingot"),
-    SPEAR_GRAVE_BANE(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
-    SPEAR_VENOM_GLAIVE(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot");
+    SPEAR_GLAIVE(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
+    SPEAR_GRAVE_BANE(ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot"),
+    SPEAR_VENOM_GLAIVE(ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;

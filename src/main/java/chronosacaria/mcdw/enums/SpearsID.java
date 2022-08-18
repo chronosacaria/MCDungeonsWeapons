@@ -13,7 +13,7 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
-    SPEAR_SPEAR(ToolMaterials.IRON,3, -2.5f, "minecraft:iron_ingot"),
+    SPEAR_SPEAR(ToolMaterials.IRON,4, -2.5f, "minecraft:iron_ingot"),
     SPEAR_WHISPERING_SPEAR(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot"),
     SPEAR_FORTUNE(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot");
 
