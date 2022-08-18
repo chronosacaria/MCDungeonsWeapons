@@ -39,32 +39,26 @@ public class InGameHudMixin extends DrawableHelper{
 
     @Inject(method = "renderCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getAttackCooldownProgress(F)F", shift = At.Shift.AFTER))
     private void renderOffhandCrosshair(MatrixStack matrices, CallbackInfo ci) {
-        float o = ((IDualWielding) this.client.player).getOffhandAttackCooldownProgress(1.0F);
-        if (o < 1.0F) {
-            int u = (int) (o * 17.0F);
-            RenderSystem.setShaderTexture(0, new Identifier("mcdw:textures/gui/cooldown_indicator_1.png"));
-            DrawableHelper.drawTexture(matrices, this.scaledWidth / 2 - 8, this.scaledHeight / 2 - 7 + 16, 0.0F, 0.0F, u, 4, 16, 16);
-        }
 
-        //if (this.client.options.getAttackIndicator().getValue() == AttackIndicator.CROSSHAIR) {
-        //    float offhandAttackCooldownProgress = ((IDualWielding) this.client.player).getOffhandAttackCooldownProgress(0.0f);
-        //    boolean bl = false;
-        //    if (this.client.targetedEntity != null && this.client.targetedEntity instanceof LivingEntity && offhandAttackCooldownProgress >= 1.0f) {
-        //        bl = ((IDualWielding) this.client.player).getOffhandAttackCooldownProgressPerTick() > 5.0f;
-        //        bl &= this.client.targetedEntity.isAlive();
-        //    }
-        //    int height = this.scaledHeight / 2 - 7 + 16;
-        //    int width = this.scaledWidth / 2 - 8;
-        //    if (bl) {
-        //        //RenderSystem.setShaderTexture(2, new Identifier(Mcdw.MOD_ID, "textures/gui/cooldown_indicator_2"));
-        //        DrawableHelper.drawTexture(matrices, width, height, 68, 94, 16, 4, 16, 16);
-        //    } else if (offhandAttackCooldownProgress < 1.0f) {
-        //        int l = (int) (offhandAttackCooldownProgress * 17.0f);
-        //        //RenderSystem.setShaderTexture(0, new Identifier(Mcdw.MOD_ID, "textures/gui/cooldown_indicator_0"));
-        //        DrawableHelper.drawTexture(matrices, width, height, 36, 94, l, 4, 16, 4);
-        //        //RenderSystem.setShaderTexture(1, new Identifier(Mcdw.MOD_ID, "textures/gui/cooldown_indicator_1"));
-        //        DrawableHelper.drawTexture(matrices, width, height, 52, 94, l, 4, 16, 4);
-        //    }
-        //}
+        if (this.client.options.getAttackIndicator().getValue() == AttackIndicator.CROSSHAIR) {
+            float offhandAttackCooldownProgress = ((IDualWielding) this.client.player).getOffhandAttackCooldownProgress(0.0f);
+            boolean bl = false;
+            if (this.client.targetedEntity != null && this.client.targetedEntity instanceof LivingEntity && offhandAttackCooldownProgress >= 1.0f) {
+                bl = ((IDualWielding) this.client.player).getOffhandAttackCooldownProgressPerTick() > 5.0f;
+                bl &= this.client.targetedEntity.isAlive();
+            }
+            int height = this.scaledHeight / 2 - 7 + 16;
+            int width = this.scaledWidth / 2 - 8;
+            if (bl) {
+                //RenderSystem.setShaderTexture(2, new Identifier(Mcdw.MOD_ID, "textures/gui/cooldown_indicator_2"));
+                DrawableHelper.drawTexture(matrices, width, height, 68, 94, 16, 4, 256, 256);
+            } else if (offhandAttackCooldownProgress < 1.0f) {
+                int l = (int) (offhandAttackCooldownProgress * 17.0f);
+                //RenderSystem.setShaderTexture(0, new Identifier(Mcdw.MOD_ID, "textures/gui/cooldown_indicator_0"));
+                DrawableHelper.drawTexture(matrices, width, height, 36, 94, 16, 4, 256, 256);
+                //RenderSystem.setShaderTexture(1, new Identifier(Mcdw.MOD_ID, "textures/gui/cooldown_indicator_1"));
+                DrawableHelper.drawTexture(matrices, width, height, 52, 94, l, 4, 256, 256);
+            }
+        }
     }
 }
