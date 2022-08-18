@@ -10,13 +10,13 @@ import net.minecraft.util.registry.Registry;
 
 public class ParticlesInit {
 
-    public static final DefaultParticleType OFFHAND_SWEEPING_PARTICLE = FabricParticleTypes.simple(true);
+    public static final DefaultParticleType OFFHAND_SWEEP_PARTICLE = FabricParticleTypes.simple(true);
 
     public static void initializeOnServer() {
-        Registry.register(Registry.PARTICLE_TYPE, new Identifier(Mcdw.MOD_ID, "offhand_sweeping_particle"), OFFHAND_SWEEPING_PARTICLE);
+        Registry.register(Registry.PARTICLE_TYPE, new Identifier(Mcdw.MOD_ID, "offhand_sweep"), OFFHAND_SWEEP_PARTICLE);
     }
 
     public static void initializeOnClient() {
-        ParticleFactoryRegistry.getInstance().register(OFFHAND_SWEEPING_PARTICLE, SweepAttackParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(OFFHAND_SWEEP_PARTICLE, SweepAttackParticle.Factory::new);
     }
 }

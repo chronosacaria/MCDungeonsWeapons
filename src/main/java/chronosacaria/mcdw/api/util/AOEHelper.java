@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -29,6 +30,12 @@ public class AOEHelper {
                 new Box(center.getBlockPos()).expand(distance),
                 nearbyEntity -> AbilityHelper.isAoeTarget(nearbyEntity, attacker, center)
         );
+    }
+
+    public static boolean satisfySweepConditions(LivingEntity attackingEntity, Entity targetEntity, LivingEntity collateralEntity, float distanceToCollateral) {
+        return collateralEntity != attackingEntity && collateralEntity != targetEntity && !attackingEntity.isTeammate(collateralEntity)
+                && !(collateralEntity instanceof ArmorStandEntity armorStand && armorStand.isMarker())
+                && attackingEntity.distanceTo(collateralEntity) < distanceToCollateral;
     }
 
     public static void pullTowards(Entity self, Entity target) {
