@@ -2,6 +2,7 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
+import chronosacaria.mcdw.configs.CompatibilityFlags;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
@@ -53,7 +54,7 @@ public class McdwSpear extends McdwCustomWeaponBase implements Vanishable {
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID,
                 "Tool modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        if (!FabricLoader.getInstance().isModLoaded("bettercombat")) {
+        if (CompatibilityFlags.isReachEntityAttributeEnabled) {
             builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Attack range",
                     Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfSpears,
                     EntityAttributeModifier.Operation.ADDITION));

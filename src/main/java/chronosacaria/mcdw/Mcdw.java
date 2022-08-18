@@ -1,5 +1,6 @@
 package chronosacaria.mcdw;
 
+import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.configs.McdwConfig;
 import chronosacaria.mcdw.configs.McdwEnchantGiverConfig;
 import chronosacaria.mcdw.enchants.EnchantsLists;
@@ -58,12 +59,9 @@ public class Mcdw implements ModInitializer {
 
     public static McdwConfig CONFIG;
 
-    public static boolean noOffhandConflicts() {
-        return  !FabricLoader.getInstance().isModLoaded("dualwielding") && !FabricLoader.getInstance().isModLoaded("bettercombat");
-    }
-
     @Override
     public void onInitialize() {
+        CompatibilityFlags.init();
         McdwConfig.init();
         CONFIG = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
         ParticlesInit.initializeOnServer();

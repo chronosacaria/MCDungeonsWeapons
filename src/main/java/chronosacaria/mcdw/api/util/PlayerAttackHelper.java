@@ -3,6 +3,7 @@ package chronosacaria.mcdw.api.util;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
+import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.networking.OffhandAttackPacket;
 import chronosacaria.mcdw.particles.ParticlesInit;
@@ -80,7 +81,7 @@ public class PlayerAttackHelper {
     }
 
     public static void checkForOffhandAttack() {
-        if (Mcdw.noOffhandConflicts()) {
+        if (CompatibilityFlags.isOffHandAttackEnabled) {
             MinecraftClient mc = MinecraftClient.getInstance();
             PlayerEntity player = mc.player;
             if (mc.world != null
@@ -104,7 +105,7 @@ public class PlayerAttackHelper {
     }
 
     public static void offhandAttack(PlayerEntity playerEntity, Entity target) {
-        if (Mcdw.noOffhandConflicts()) {
+        if (CompatibilityFlags.isOffHandAttackEnabled) {
             if (!target.isAttackable())
                 if (target.handleAttack(playerEntity))
                     return;
