@@ -13,10 +13,10 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
-    SPEAR_CACKLING_BROOM(ToolMaterials.IRON,5, -2.4f, "minecraft:iron_ingot"),
-    SPEAR_GLAIVE(ToolMaterials.IRON,3, -2.7f, "minecraft:iron_ingot"),
-    SPEAR_GRAVE_BANE(ToolMaterials.IRON,5, -2.4f, "minecraft:iron_ingot"),
-    SPEAR_VENOM_GLAIVE(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot");
+    SPEAR_CACKLING_BROOM(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
+    SPEAR_GLAIVE(ToolMaterials.IRON,3, -3f, "minecraft:iron_ingot"),
+    SPEAR_GRAVE_BANE(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
+    SPEAR_VENOM_GLAIVE(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;

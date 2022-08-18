@@ -13,10 +13,10 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ScythesID implements IMcdwWeaponID, IMeleeWeaponID {
-    SICKLE_FROST_SCYTHE(ToolMaterials.DIAMOND,4, -2.5f, "minecraft:diamond"),
-    SICKLE_JAILORS_SCYTHE(ToolMaterials.IRON,4, -2.25f, "minecraft:iron_ingot"),
-    SICKLE_SKULL_SCYTHE(ToolMaterials.DIAMOND,4, -2.5f, "minecraft:diamond"),
-    SICKLE_SOUL_SCYTHE(ToolMaterials.DIAMOND,3, -2.25f, "minecraft:diamond");
+    SICKLE_FROST_SCYTHE(ToolMaterials.DIAMOND,4, -2.86f, "minecraft:diamond"),
+    SICKLE_JAILORS_SCYTHE(ToolMaterials.IRON,4, -2.86f, "minecraft:iron_ingot"),
+    SICKLE_SKULL_SCYTHE(ToolMaterials.DIAMOND,4, -2.86f, "minecraft:diamond"),
+    SICKLE_SOUL_SCYTHE(ToolMaterials.DIAMOND,3, -2.86f, "minecraft:diamond");
 
     private final ToolMaterial material;
     private final int damage;
