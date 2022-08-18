@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 public interface IOffhandAttack {
     default TypedActionResult<ItemStack> useOffhand(World world, PlayerEntity player, Hand hand) {
 
-
         if (hand == Hand.OFF_HAND && world.isClient && (player.getOffHandStack().getItem() instanceof IOffhandAttack && (player.getOffHandStack().isOf(player.getMainHandStack().getItem())
                 || (player.getMainHandStack().isOf(DaggersID.DAGGER_THE_BEGINNING.getItem()) && player.getOffHandStack().isOf(DaggersID.DAGGER_THE_END.getItem()))
                 || (player.getMainHandStack().isOf(DaggersID.DAGGER_THE_END.getItem()) && player.getOffHandStack().isOf(DaggersID.DAGGER_THE_BEGINNING.getItem()))

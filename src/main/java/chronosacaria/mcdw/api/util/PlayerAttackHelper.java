@@ -1,11 +1,11 @@
 package chronosacaria.mcdw.api.util;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.networking.OffhandAttackPacket;
 import chronosacaria.mcdw.particles.ParticlesInit;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -31,7 +31,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
@@ -81,19 +80,18 @@ public class PlayerAttackHelper {
     }
 
     public static void checkForOffhandAttack() {
-        if (!FabricLoader.getInstance().isModLoaded("dualwielding") || !FabricLoader.getInstance().isModLoaded("bettercombat")) {
+        if (Mcdw.noOffhandConflicts()) {
             MinecraftClient mc = MinecraftClient.getInstance();
             PlayerEntity player = mc.player;
-            HitResult hitResult = mc.crosshairTarget;
-            if (MinecraftClient.getInstance().world != null
-                    && MinecraftClient.getInstance().currentScreen == null
-                    && !MinecraftClient.getInstance().isPaused()
+            if (mc.world != null
+                    && mc.currentScreen == null
+                    && !mc.isPaused()
                     && player != null
                     && !player.isBlocking()) {
 
-                if (hitResult instanceof EntityHitResult) {
-                    if (mc.crosshairTarget != null && mc.interactionManager != null && mc.getNetworkHandler() != null) {
-                        mc.getNetworkHandler().sendPacket(OffhandAttackPacket.offhandAttackPacket(((EntityHitResult) mc.crosshairTarget).getEntity()));
+                if (mc.crosshairTarget instanceof EntityHitResult entityHitResult) {
+                    if (mc.interactionManager != null && mc.getNetworkHandler() != null) {
+                        mc.getNetworkHandler().sendPacket(OffhandAttackPacket.offhandAttackPacket(entityHitResult.getEntity()));
                     }
                 }
             }
@@ -106,7 +104,7 @@ public class PlayerAttackHelper {
     }
 
     public static void offhandAttack(PlayerEntity playerEntity, Entity target) {
-        if (!FabricLoader.getInstance().isModLoaded("dualwielding") && !FabricLoader.getInstance().isModLoaded("bettercombat")) {
+        if (Mcdw.noOffhandConflicts()) {
             if (!target.isAttackable())
                 if (target.handleAttack(playerEntity))
                     return;
