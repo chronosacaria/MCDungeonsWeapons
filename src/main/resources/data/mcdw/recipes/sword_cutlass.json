@@ -1,8 +1,8 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        " I#",
-        "C# ",
+        " II",
+        "CI ",
         "/C "
     ],
     "key": {
@@ -11,9 +11,6 @@
         },
         "I": {
             "item": "minecraft:iron_ingot"
-        },
-        "#": {
-            "item": "minecraft:iron_block"
         },
         "/": {
             "item": "minecraft:stick"

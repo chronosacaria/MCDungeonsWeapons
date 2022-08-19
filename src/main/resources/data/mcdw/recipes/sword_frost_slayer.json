@@ -13,7 +13,7 @@
             "item": "minecraft:packed_ice"
         },
         "#": {
-            "item": "minecraft:iron_block"
+            "item": "minecraft:iron_ingot"
         },
         "/": {
             "item": "mcdw:sword_claymore"

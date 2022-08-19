@@ -7,7 +7,7 @@
     ],
     "key": {
         "#": {
-            "item": "minecraft:iron_block"
+            "item": "minecraft:iron_ingot"
         },
         "/": {
             "item": "minecraft:blaze_rod"
