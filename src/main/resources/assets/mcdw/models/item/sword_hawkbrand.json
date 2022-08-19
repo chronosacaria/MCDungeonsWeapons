@@ -1,5 +1,5 @@
 {
-  "parent": "mcdw:item/model_sword",
+  "parent": "mcdw:item/model_claymore",
   "textures": {
 	  "layer0": "mcdw:item/sword_hawkbrand"
   },  
