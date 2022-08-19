@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "mcdw:item/model_hammer",
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "mcdw:item/hammer_bone_cudgel",
@@ -78,9 +79,8 @@
 			"translation": [9.5, 0.5, -7.25]
 		},
 		"ground": {
-			"rotation": [0, 0, 45],
-			"translation": [0, 3.25, 0],
-			"scale": [0.5, 0.5, 0.5]
+			"translation": [ 0, 2, 0 ],
+			"scale": [ 0.4, 0.4, 0.5 ]
 		},
 		"gui": {
 			"rotation": [0, 0, -45],

@@ -6,8 +6,8 @@
 	"gui_light": "front",
 	"display": {
 		"ground": {
-			"translation": [0, 2, 0],
-			"scale": [1.25, 1.25, 0.75]
+			"translation": [ 0, 2, 0 ],
+			"scale": [ 1.0, 1.0, 0.5 ]
 		},
 		"gui": {
 			"translation": [-0.5, -0.5, 0],

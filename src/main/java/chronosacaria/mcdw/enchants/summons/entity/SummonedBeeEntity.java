@@ -20,13 +20,13 @@ public class SummonedBeeEntity extends BeeEntity {
     }
 
     protected void mobTick(){
-        if(summoner instanceof PlayerEntity){
-            if(((PlayerEntity)summoner).getAttacker() != null){
-                this.setBeeAttacker(((PlayerEntity)summoner).getAttacker());
+        if(summoner instanceof PlayerEntity summoningPlayer){
+            if(summoningPlayer.getAttacker() != null){
+                this.setBeeAttacker(summoningPlayer.getAttacker());
             }
 
-            if (((PlayerEntity)summoner).getAttacking() != null){
-                this.setBeeAttacker(((PlayerEntity)summoner).getAttacking());
+            if (summoningPlayer.getAttacking() != null){
+                this.setBeeAttacker(summoningPlayer.getAttacking());
             }
         }
         super.mobTick();
@@ -41,21 +41,6 @@ public class SummonedBeeEntity extends BeeEntity {
         return true;
     }
     public boolean tryAttack(Entity target) {
-
-        if(target.equals(summoner)) {
-            return false;
-        }
-        else if (this.hasStung()){
-
-            return false;
-
-        }
-        else {
-
-            return super.tryAttack(target);
-
-        }
-
+        return !target.equals(summoner) && !this.hasStung() && super.tryAttack(target);
     }
-
 }

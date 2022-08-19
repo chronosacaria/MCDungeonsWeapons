@@ -5,6 +5,7 @@ import net.minecraft.enchantment.Enchantment;
 import java.util.List;
 
 public class EnchantsLists {
+
     public static List<Enchantment> EnchantsList = List.of(EnchantsRegistry.ACCELERATE, EnchantsRegistry.AMBUSH, EnchantsRegistry.ANIMA_CONDUIT,
             EnchantsRegistry.BONUS_SHOT, EnchantsRegistry.BURST_BOWSTRING, EnchantsRegistry.CHAIN_REACTION, EnchantsRegistry.CHAINS,
             EnchantsRegistry.CHARGE, EnchantsRegistry.COBWEB_SHOT, EnchantsRegistry.COMMITTED, EnchantsRegistry.CRITICAL_HIT,

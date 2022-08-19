@@ -6,7 +6,7 @@ import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.render.SummonedBeeRenderer;
 import chronosacaria.mcdw.enums.*;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.particles.ParticlesInit;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -19,6 +19,8 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
+import java.util.Arrays;
+
 @Environment(EnvType.CLIENT)
 public class McdwClient implements ClientModInitializer {
 
@@ -26,36 +28,23 @@ public class McdwClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         EntityRendererRegistry.register(SummonedEntityRegistry.SUMMONED_BEE_ENTITY, SummonedBeeRenderer::new);
+        ParticlesInit.initializeOnClient();
 
-        for (BowsID itemID : BowsID.values()) {
-            registerBowPredicates(ItemsInit.bowItems.get(itemID));
-        }
-
-        for (ShortBowsID itemID : ShortBowsID.values()) {
-            registerShortBowPredicates(ItemsInit.shortBowItems.get(itemID));
-        }
-
-        for (LongBowsID itemID : LongBowsID.values()) {
-            registerLongBowPredicates(ItemsInit.longBowItems.get(itemID));
-        }
-
-        for (CrossbowsID itemID : CrossbowsID.values()) {
-            registerCrossbowPredicates(ItemsInit.crossbowItems.get(itemID));
-        }
-
-        for (ShieldsID itemID : ShieldsID.values()){
-            registerShieldPredicates(ItemsInit.shieldItems.get(itemID));
-        }
+        Arrays.stream(BowsID.values()).forEach(bowsID -> registerBowPredicates(bowsID.getItem()));
+        Arrays.stream(ShortbowsID.values()).forEach(shortBowsID -> registerShortBowPredicates(shortBowsID.getItem()));
+        Arrays.stream(LongbowsID.values()).forEach(longBowsID -> registerLongBowPredicates(longBowsID.getItem()));
+        Arrays.stream(CrossbowsID.values()).forEach(crossbowsID -> registerCrossbowPredicates(crossbowsID.getItem()));
+        Arrays.stream(ShieldsID.values()).forEach(shieldsID -> registerShieldPredicates(shieldsID.getItem()));
     }
 
     public static void registerBowPredicates(McdwBow bow) {
-        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
-                                                                             livingEntity, seed) -> {
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"), (itemStack, clientWorld,
+                                                                              livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
                 int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
                     int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, itemStack);
                     if (accelerateLevel > 0) {
                         StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
@@ -64,7 +53,7 @@ public class McdwClient implements ClientModInitializer {
                         useTicks = (int) (useTicks * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
                     }
                 }
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.OVERCHARGE)) {
                     int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
                     if (overchargeLevel > 0) {
                         int overcharge = (int) Math.min((useTicks / bow.getDrawSpeed()) - 1, overchargeLevel);
@@ -72,7 +61,7 @@ public class McdwClient implements ClientModInitializer {
                     }
                 }
                 return livingEntity.getActiveItem() != itemStack ? 0.0F :
-                        (float)(useTicks) / bow.getDrawSpeed();
+                        (float) useTicks / bow.getDrawSpeed();
             }
         });
 
@@ -81,14 +70,14 @@ public class McdwClient implements ClientModInitializer {
                 livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
     }
 
-    public static void registerShortBowPredicates(McdwShortBow bow) {
-        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
-                                                                             livingEntity, seed) -> {
+    public static void registerShortBowPredicates(McdwShortbow bow) {
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"), (itemStack, clientWorld,
+                                                                              livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
                 int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
                     int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, itemStack);
                     if (accelerateLevel > 0) {
                         StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
@@ -97,7 +86,7 @@ public class McdwClient implements ClientModInitializer {
                         useTicks = (int) (useTicks * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
                     }
                 }
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.OVERCHARGE)) {
                     int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
                     if (overchargeLevel > 0) {
                         int overcharge = (int) Math.min((useTicks / bow.getDrawSpeed()) - 1, overchargeLevel);
@@ -105,7 +94,7 @@ public class McdwClient implements ClientModInitializer {
                     }
                 }
                 return livingEntity.getActiveItem() != itemStack ? 0.0F :
-                        (float)(useTicks) / bow.getDrawSpeed();
+                        (float) useTicks / bow.getDrawSpeed();
             }
         });
 
@@ -114,14 +103,14 @@ public class McdwClient implements ClientModInitializer {
                 livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
     }
 
-    public static void registerLongBowPredicates(McdwLongBow bow) {
-        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"),(itemStack, clientWorld,
-                                                                             livingEntity, seed) -> {
+    public static void registerLongBowPredicates(McdwLongbow bow) {
+        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"), (itemStack, clientWorld,
+                                                                              livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
                 int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
                     int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, itemStack);
                     if (accelerateLevel > 0) {
                         StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
@@ -130,7 +119,7 @@ public class McdwClient implements ClientModInitializer {
                         useTicks = (int) (useTicks * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
                     }
                 }
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.OVERCHARGE)) {
                     int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
                     if (overchargeLevel > 0) {
                         int overcharge = (int) Math.min((useTicks / bow.getDrawSpeed()) - 1, overchargeLevel);
@@ -138,7 +127,7 @@ public class McdwClient implements ClientModInitializer {
                     }
                 }
                 return livingEntity.getActiveItem() != itemStack ? 0.0F :
-                        (float)(useTicks) / bow.getDrawSpeed();
+                        (float) useTicks / bow.getDrawSpeed();
             }
         });
 
@@ -148,13 +137,13 @@ public class McdwClient implements ClientModInitializer {
     }
 
     public static void registerCrossbowPredicates(McdwCrossbow crossbow) {
-        ModelPredicateProviderRegistry.register(crossbow, new Identifier("pull"),(itemStack, clientWorld,
-                                                                                  livingEntity, seed) -> {
+        ModelPredicateProviderRegistry.register(crossbow, new Identifier("pull"), (itemStack, clientWorld,
+                                                                                   livingEntity, seed) -> {
             if (livingEntity == null) {
                 return 0.0F;
             } else {
                 int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
                     int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, itemStack);
                     if (accelerateLevel > 0) {
                         StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
@@ -164,7 +153,7 @@ public class McdwClient implements ClientModInitializer {
                     }
                 }
                 return McdwCrossbow.isCharged(itemStack) ? 0.0F :
-                        (float) (useTicks) / (float)  McdwCrossbow.getPullTime(itemStack);
+                        (float) useTicks / (float) McdwCrossbow.getPullTime(itemStack);
             }
         });
 
@@ -197,9 +186,10 @@ public class McdwClient implements ClientModInitializer {
         });
     }
 
-    public static void registerShieldPredicates(McdwShield shield){
-        ModelPredicateProviderRegistry.register(shield, new Identifier("blocking"), (itemStack, clientWorld,
-                                                                                     livingEntity, seed) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getActiveItem()
-                == itemStack ? 1.0F : 0.0F );
+    public static void registerShieldPredicates(McdwShield shield) {
+        ModelPredicateProviderRegistry.register(shield, new Identifier("blocking"),
+                (itemStack, clientWorld, livingEntity, seed) -> livingEntity != null && livingEntity.isUsingItem() &&
+                        livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F
+        );
     }
 }

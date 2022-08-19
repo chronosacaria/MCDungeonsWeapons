@@ -12,14 +12,20 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.particle.ParticleEffect;
+import net.minecraft.tag.ItemTags;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.UseAction;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Predicate;
 
 import static chronosacaria.mcdw.api.util.RangedAttackHelper.getVanillaBowChargeTime;
@@ -30,12 +36,9 @@ public class McdwBow extends BowItem {
     public final float drawSpeed;
     public static float maxBowRange;
     private final ParticleEffect type;
+    String[] repairIngredient;
 
-    public McdwBow(ToolMaterial material, float drawSpeed, float maxBowRangePar) {
-        this(material, drawSpeed, maxBowRangePar, null);
-    }
-
-    public McdwBow(ToolMaterial material, float drawSpeed, float maxBowRangePar, ParticleEffect particles) {
+    public McdwBow(ToolMaterial material, float drawSpeed, float maxBowRangePar, String[] repairIngredient) {
         super(new Item.Settings().group(Mcdw.RANGED)
                 .maxCount(1)
                 .maxDamage(100 + material.getDurability())
@@ -43,8 +46,9 @@ public class McdwBow extends BowItem {
         );
         this.material = material;
         this.drawSpeed = drawSpeed;
+        this.repairIngredient = repairIngredient;
         maxBowRange = maxBowRangePar;
-        type = particles;
+        type = null;
     }
 
     public float getDrawSpeed() {
@@ -88,23 +92,32 @@ public class McdwBow extends BowItem {
 
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
-        return this.material.getRepairIngredient().test(ingredient) || super.canRepair(stack, ingredient);
+        List<Item> potentialIngredients = new ArrayList<>(List.of());
+        AtomicBoolean isWood = new AtomicBoolean(false);
+        AtomicBoolean isStone = new AtomicBoolean(false);
+        Arrays.stream(repairIngredient).toList().forEach(repIngredient -> {
+            if (repIngredient.contentEquals("minecraft:planks"))
+                isWood.set(true);
+            else if (repIngredient.contentEquals("minecraft:stone_crafting_materials"))
+                isStone.set(true);
+            potentialIngredients.add(
+                    Registry.ITEM.get(new Identifier(repIngredient)));
+        });
+
+        return potentialIngredients.contains(ingredient.getItem())
+                || (isWood.get() && ingredient.isIn(ItemTags.PLANKS)
+                || (isStone.get() && ingredient.isIn(ItemTags.STONE_CRAFTING_MATERIALS)));
     }
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
-        for (BowsID bowsID : BowsID.values()) {
-            if (stack.getItem() == ItemsInit.bowItems.get(bowsID)) {
-                int i = 1;
-                String str = bowsID.toString().toLowerCase(Locale.ROOT).substring(4);
-                String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
-                while (I18n.hasTranslation(translationKey + i)) {
-                    tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
-                    i++;
-                }
-                break;
-            }
+        int i = 1;
+        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(14);
+        String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+        while (I18n.hasTranslation(translationKey + i)) {
+            tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
+            i++;
         }
         if (stack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE))
             tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.hunters_promise_1").formatted(Formatting.GRAY));

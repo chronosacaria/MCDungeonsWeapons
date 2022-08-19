@@ -2,7 +2,7 @@ package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwCrossbow;
-import chronosacaria.mcdw.bases.McdwShortBow;
+import chronosacaria.mcdw.bases.McdwShortbow;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
@@ -19,10 +19,7 @@ public class RangedAttackHelper {
         }
         float arrowVelocity = (float) charge / bowChargeTime;
         arrowVelocity = (arrowVelocity * arrowVelocity + arrowVelocity * 2.0F) / 3.0F;
-        if (arrowVelocity > 1.0F){
-            arrowVelocity = 1.0F;
-        }
-        return arrowVelocity;
+        return Math.min(arrowVelocity, 1.0F);
     }
 
     public static float getVanillaBowChargeTime(ItemStack stack){
@@ -44,7 +41,7 @@ public class RangedAttackHelper {
         //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
 
         float bowChargeTime = 15 * (Math.max(10.0F - 5 * quickChargeLevel, 0));
-        long lastFiredtime = (long)(McdwShortBow.getPullProgress(11) * (Math.max(10.0F - 5 * quickChargeLevel, 0)));
+        long lastFiredtime = (long)(McdwShortbow.getPullProgress(11) * (Math.max(10.0F - 5 * quickChargeLevel, 0)));
 
         if (/*accelerateLevel > 0 &&*/ lastFiredtime > 0){
             return Math.max(bowChargeTime - 5 * quickChargeLevel, 0);
@@ -56,8 +53,8 @@ public class RangedAttackHelper {
 
     public static float getVanillaOrModdedCrossbowArrowVelocity(ItemStack stack){
         float arrowVelocity;
-        if (stack.getItem() instanceof McdwCrossbow){
-            arrowVelocity = ((McdwCrossbow)stack.getItem()).getProjectileVelocity(stack);
+        if (stack.getItem() instanceof McdwCrossbow mcdwCrossbow){
+            arrowVelocity = mcdwCrossbow.getProjectileVelocity(stack);
         } else {
             arrowVelocity = hasProjectile(stack, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
         }

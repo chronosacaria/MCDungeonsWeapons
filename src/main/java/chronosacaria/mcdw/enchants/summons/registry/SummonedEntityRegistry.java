@@ -32,5 +32,4 @@ public class SummonedEntityRegistry {
         Registry.register(Registry.ENTITY_TYPE, Mcdw.ID(name), entity);
         ATTRIBUTES.put(entity, MobEntity.createMobAttributes().build());
     }
-
 }

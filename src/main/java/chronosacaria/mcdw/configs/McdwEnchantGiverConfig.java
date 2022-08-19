@@ -1,317 +1,231 @@
 package chronosacaria.mcdw.configs;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.*;
-import chronosacaria.mcdw.items.ItemsInit;
-import net.minecraft.util.Identifier;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Item;
 import net.minecraft.util.registry.Registry;
 import wraith.enchant_giver.EnchantsList;
 
 public class McdwEnchantGiverConfig {
     public static void appendEnchants(){
 
-        if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_INNATE_ENCHANTMENTS)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.ENABLE_INNATE_ENCHANTMENTS)) {
             // ACCELERATE ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW)),
-                    new Identifier("mcdw:accelerate"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.shortBowItems.get(ShortBowsID.BOW_MECHANICAL_SHORTBOW)),
-                    new Identifier("mcdw:accelerate"), 1, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_AUTO_CROSSBOW, EnchantsRegistry.ACCELERATE, true);
+            addInnateEnchant(ShortbowsID.BOW_MECHANICAL_SHORTBOW, EnchantsRegistry.ACCELERATE, true);
 
             // AMBUSH ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_BACKSTABBER)),
-                    new Identifier("mcdw:ambush"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_SWIFT_STRIKER)),
-                    new Identifier("mcdw:ambush"), 1, false);
+            addInnateEnchant(DaggersID.DAGGER_BACKSTABBER, EnchantsRegistry.AMBUSH, true);
+            addInnateEnchant(DaggersID.DAGGER_SWIFT_STRIKER, EnchantsRegistry.AMBUSH, false);
 
             // BONUS SHOT ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_AUTO_CROSSBOW)),
-                    new Identifier("mcdw:bonus_shot"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW)),
-                    new Identifier("mcdw:bonus_shot"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_HAUNTED_BOW)),
-                    new Identifier("minecraft:bonus_shot"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_TWIN_BOW)),
-                    new Identifier("minecraft:bonus_shot"), 1, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_AUTO_CROSSBOW, EnchantsRegistry.BONUS_SHOT, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW, EnchantsRegistry.BONUS_SHOT, true);
+            addInnateEnchant(BowsID.BOW_HAUNTED_BOW, EnchantsRegistry.BONUS_SHOT, true);
+            addInnateEnchant(BowsID.BOW_TWIN_BOW, EnchantsRegistry.BONUS_SHOT, true);
 
             // CHAINS ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.hammerItems.get(HammersID.HAMMER_FLAIL)),
-                    new Identifier("mcdw:chains"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.scytheItems.get(ScythesID.SICKLE_JAILORS_SCYTHE)),
-                    new Identifier("mcdw:chains"), 1, true);
+            addInnateEnchant(HammersID.HAMMER_FLAIL, EnchantsRegistry.CHAINS, true);
+            addInnateEnchant(ScythesID.SICKLE_JAILORS_SCYTHE, EnchantsRegistry.CHAINS, true);
 
             // CHAIN REACTION ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_FIREBOLT_THROWER)),
-                    new Identifier("mcdw:chain_reaction"), 1, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_FIREBOLT_THROWER, EnchantsRegistry.CHAIN_REACTION, true);
 
             // CHARGE ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_BURST_GALE_BOW)),
-                    new Identifier("mcdw:charge"), 1, true);
+            addInnateEnchant(BowsID.BOW_BURST_GALE_BOW, EnchantsRegistry.CHARGE, true);
 
             // COBWEB SHOT ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_WEB_BOW)),
-                    new Identifier("mcdw:cobweb_shot"), 1, true);
+            addInnateEnchant(BowsID.BOW_WEB_BOW, EnchantsRegistry.COBWEB_SHOT, true);
 
             // COMMITTED ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.soulDaggerItems.get(SoulDaggersID.SWORD_TRUTHSEEKER)),
-                    new Identifier("mcdw:committed"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.staffItems.get(StavesID.STAFF_GROWING_STAFF)),
-                    new Identifier("mcdw:committed"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE)),
-                    new Identifier("mcdw:committed"), 1, false);
+            addInnateEnchant(SoulDaggersID.SWORD_TRUTHSEEKER, EnchantsRegistry.COMMITTED, true);
+            addInnateEnchant(StavesID.STAFF_GROWING_STAFF, EnchantsRegistry.COMMITTED, true);
+            addInnateEnchant(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE, EnchantsRegistry.COMMITTED, false);
 
             // CRITICAL HIT ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_HAWKBRAND)),
-                    new Identifier("mcdw:critical_hit"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_SINISTER)),
-                    new Identifier("mcdw:critical_hit"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_MASTERS_KATANA)),
-                    new Identifier("mcdw:critical_hit"), 1, true);
+            addInnateEnchant(SwordsID.SWORD_HAWKBRAND, EnchantsRegistry.CRITICAL_HIT, true);
+            addInnateEnchant(SwordsID.SWORD_SINISTER, EnchantsRegistry.CRITICAL_HIT, true);
+            addInnateEnchant(SwordsID.SWORD_MASTERS_KATANA, EnchantsRegistry.CRITICAL_HIT, true);
 
             // DYNAMO ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_GREAT_AXEBLADE)),
-                    new Identifier("mcdw:dynamo"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW)),
-                    new Identifier("mcdw:dynamo"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_ANCIENT_BOW)),
-                    new Identifier("mcdw:dynamo"), 1, true);
+            addInnateEnchant(SwordsID.SWORD_GREAT_AXEBLADE, EnchantsRegistry.DYNAMO, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW, EnchantsRegistry.DYNAMO, true);
+            addInnateEnchant(BowsID.BOW_ANCIENT_BOW, EnchantsRegistry.DYNAMO, true);
 
             // ECHO ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.spearItems.get(SpearsID.SPEAR_WHISPERING_SPEAR)),
-                    new Identifier("mcdw:echo"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_SWIFT_STRIKER)),
-                    new Identifier("mcdw:echo"), 1, false);
+            addInnateEnchant(SpearsID.SPEAR_WHISPERING_SPEAR, EnchantsRegistry.ECHO, true);
+            addInnateEnchant(DaggersID.DAGGER_SWIFT_STRIKER, EnchantsRegistry.ECHO, false);
 
             // ENIGMA RESONATOR ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_MOON)),
-                    new Identifier("mcdw:enigma_resonator"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.gauntletItems.get(GauntletsID.GAUNTLET_SOUL_FISTS)),
-                    new Identifier("mcdw:enigma_resonator"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_SPONGE_STRIKER)),
-                    new Identifier("mcdw:enigma_resonator"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_FERAL_SOUL_CROSSBOW)),
-                    new Identifier("mcdw:enigma_resonator"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW)),
-                    new Identifier("mcdw:enigma_resonator"), 1, true);
+            addInnateEnchant(DaggersID.DAGGER_MOON, EnchantsRegistry.ENIGMA_RESONATOR, true);
+            addInnateEnchant(GauntletsID.GAUNTLET_SOUL_FISTS, EnchantsRegistry.ENIGMA_RESONATOR, true);
+            addInnateEnchant(SwordsID.SWORD_SPONGE_STRIKER, EnchantsRegistry.ENIGMA_RESONATOR, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_FERAL_SOUL_CROSSBOW, EnchantsRegistry.ENIGMA_RESONATOR, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW, EnchantsRegistry.ENIGMA_RESONATOR, true);
 
             // EXPLODING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_CURSED)),
-                    new Identifier("mcdw:exploding"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.staffItems.get(StavesID.STAFF_BATTLESTAFF_OF_TERROR)),
-                    new Identifier("mcdw:exploding"), 1, true);
+            addInnateEnchant(DoubleAxesID.AXE_CURSED, EnchantsRegistry.EXPLODING, true);
+            addInnateEnchant(StavesID.STAFF_BATTLESTAFF_OF_TERROR, EnchantsRegistry.EXPLODING, true);
 
             // FIRE ASPECT ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.axeItems.get(AxesID.AXE_FIREBRAND)),
-                    new Identifier("minecraft:fire_aspect"), 1, true);
+            addInnateEnchant(AxesID.AXE_FIREBRAND, Enchantments.FIRE_ASPECT, true);
 
             // FREEZING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_FANGS_OF_FROST)),
-                    new Identifier("mcdw:freezing"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.scytheItems.get(ScythesID.SICKLE_FROST_SCYTHE)),
-                    new Identifier("mcdw:freezing"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_FREEZING_FOIL)),
-                    new Identifier("mcdw:freezing"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_CHILL_GALE_KNIFE)),
-                    new Identifier("mcdw:freezing"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_FROST_SLAYER)),
-                    new Identifier("mcdw:freezing"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.scytheItems.get(ScythesID.SICKLE_SKULL_SCYTHE)),
-                    new Identifier("mcdw:freezing"), 1, true);
+            addInnateEnchant(DaggersID.DAGGER_FANGS_OF_FROST, EnchantsRegistry.FREEZING, true);
+            addInnateEnchant(ScythesID.SICKLE_FROST_SCYTHE, EnchantsRegistry.FREEZING, true);
+            addInnateEnchant(SwordsID.SWORD_FREEZING_FOIL, EnchantsRegistry.FREEZING, true);
+            addInnateEnchant(DaggersID.DAGGER_CHILL_GALE_KNIFE, EnchantsRegistry.FREEZING, true);
+            addInnateEnchant(SwordsID.SWORD_FROST_SLAYER, EnchantsRegistry.FREEZING, true);
+            addInnateEnchant(ScythesID.SICKLE_SKULL_SCYTHE, EnchantsRegistry.FREEZING, true);
 
             // FUSE SHOT ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW)),
-                    new Identifier("mcdw:fuse_shot"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.longBowItems.get(LongBowsID.BOW_RED_SNAKE)),
-                    new Identifier("mcdw:fuse_shot"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_CALL_OF_THE_VOID)),
-                    new Identifier("mcdw:fuse_shot"), 1, false);
+            addInnateEnchant(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW, EnchantsRegistry.FUSE_SHOT, true);
+            addInnateEnchant(LongbowsID.BOW_RED_SNAKE, EnchantsRegistry.FUSE_SHOT, true);
+            addInnateEnchant(BowsID.BOW_CALL_OF_THE_VOID, EnchantsRegistry.FUSE_SHOT, false);
 
             // GRAVITY ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.hammerItems.get(HammersID.HAMMER_GRAVITY)),
-                    new Identifier("mcdw:gravity"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW)),
-                    new Identifier("mcdw:gravity"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW)),
-                    new Identifier("mcdw:gravity"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.axeItems.get(AxesID.AXE_ENCRUSTED_ANCHOR)),
-                    new Identifier("mcdw:gravity"), 1, true);
+            addInnateEnchant(HammersID.HAMMER_GRAVITY, EnchantsRegistry.GRAVITY, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW, EnchantsRegistry.GRAVITY, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW, EnchantsRegistry.GRAVITY, true);
+            addInnateEnchant(AxesID.AXE_ENCRUSTED_ANCHOR, EnchantsRegistry.GRAVITY, true);
 
             // GROWING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_BONEBOW)),
-                    new Identifier("mcdw:growing"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_BABY_CROSSBOW)),
-                    new Identifier("mcdw:growing"), 1, true);
+            addInnateEnchant(BowsID.BOW_BONEBOW, EnchantsRegistry.GROWING, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_BABY_CROSSBOW, EnchantsRegistry.GROWING, true);
 
             // ILLAGER'S BANE ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.hammerItems.get(HammersID.HAMMER_BONE_CUDGEL)),
-                    new Identifier("mcdw:illagers_bane"), 1, true);
+            addInnateEnchant(HammersID.HAMMER_BONE_CUDGEL, EnchantsRegistry.ILLAGERS_BANE, true);
 
             // JUNGLE'S POISON ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.whipItems.get(WhipsID.WHIP_VINE_WHIP)),
-                    new Identifier("mcdw:jungle_poison"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.axeItems.get(AxesID.AXE_ENCRUSTED_ANCHOR)),
-                    new Identifier("mcdw:jungle_poison"), 1, false);
+            addInnateEnchant(WhipsID.WHIP_VINE_WHIP, EnchantsRegistry.JUNGLE_POISON, true);
+            addInnateEnchant(AxesID.AXE_ENCRUSTED_ANCHOR, EnchantsRegistry.JUNGLE_POISON, false);
 
             // LEECHING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_HEARTSTEALER)),
-                    new Identifier("mcdw:leeching"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_BEGINNING)),
-                    new Identifier("mcdw:leeching"), 1, true);
+            addInnateEnchant(SwordsID.SWORD_HEARTSTEALER, EnchantsRegistry.LEECHING, true);
+            addInnateEnchant(DaggersID.DAGGER_THE_BEGINNING, EnchantsRegistry.LEECHING, true);
 
             // LOOTING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.spearItems.get(SpearsID.SPEAR_FORTUNE)),
-                    new Identifier("minecraft:looting"), 1, true);
+            addInnateEnchant(SpearsID.SPEAR_FORTUNE, Enchantments.LOOTING, true);
 
             // MULTISHOT ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_LOST_SOULS)),
-                    new Identifier("minecraft:multishot"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_HARP_CROSSBOW)),
-                    new Identifier("minecraft:multishot"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW)),
-                    new Identifier("minecraft:multishot"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW)),
-                    new Identifier("minecraft:multishot"), 1, true);
+            addInnateEnchant(BowsID.BOW_LOST_SOULS, Enchantments.MULTISHOT, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_HARP_CROSSBOW, Enchantments.MULTISHOT, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_SCATTER_CROSSBOW, Enchantments.MULTISHOT, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW, Enchantments.MULTISHOT, true);
 
             // PHANTOM'S MARK ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_PHANTOM_BOW)),
-                    new Identifier("mcdw:phantoms_mark"), 1, true);
+            addInnateEnchant(BowsID.BOW_PHANTOM_BOW, EnchantsRegistry.PHANTOMS_MARK, true);
 
             // PIERCING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_THE_SLICER)),
-                    new Identifier("minecraft:piercing"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS)),
-                    new Identifier("minecraft:piercing"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)),
-                    new Identifier("minecraft:piercing"), 1, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_THE_SLICER, Enchantments.PIERCING, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS, Enchantments.PIERCING, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW, Enchantments.PIERCING, true);
 
             // POISON CLOUD ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.sickleItems.get(SicklesID.SICKLE_NIGHTMARES_BITE)),
-                    new Identifier("mcdw:poison_cloud"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.glaiveItems.get(GlaivesID.SPEAR_VENOM_GLAIVE)),
-                    new Identifier("mcdw:poison_cloud"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_GREEN_MENACE)),
-                    new Identifier("mcdw:poison_cloud"), 1, true);
+            addInnateEnchant(SicklesID.SICKLE_NIGHTMARES_BITE, EnchantsRegistry.POISON_CLOUD, true);
+            addInnateEnchant(GlaivesID.SPEAR_VENOM_GLAIVE, EnchantsRegistry.POISON_CLOUD, true);
+            addInnateEnchant(BowsID.BOW_GREEN_MENACE, EnchantsRegistry.POISON_CLOUD, true);
 
             // POWER ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_MASTERS_BOW)),
-                    new Identifier("minecraft:power"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_ELITE_POWER_BOW)),
-                    new Identifier("minecraft:power"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_PHANTOM_BOW)),
-                    new Identifier("minecraft:power"), 1, false);
+            addInnateEnchant(BowsID.BOW_MASTERS_BOW, Enchantments.POWER, true);
+            addInnateEnchant(BowsID.BOW_ELITE_POWER_BOW, Enchantments.POWER, true);
+            addInnateEnchant(BowsID.BOW_PHANTOM_BOW, Enchantments.POWER, false);
 
             // PROSPECTOR ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.sickleItems.get(SicklesID.SICKLE_LAST_LAUGH_GOLD)),
-                    new Identifier("mcdw:prospector"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.sickleItems.get(SicklesID.SICKLE_LAST_LAUGH_SILVER)),
-                    new Identifier("mcdw:prospector"), 1, true);
+            addInnateEnchant(SicklesID.SICKLE_LAST_LAUGH_GOLD, EnchantsRegistry.PROSPECTOR, true);
+            addInnateEnchant(SicklesID.SICKLE_LAST_LAUGH_SILVER, EnchantsRegistry.PROSPECTOR, true);
 
             // PUNCH ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_DOOM_CROSSBOW)),
-                    new Identifier("minecraft:punch"), 1, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_DOOM_CROSSBOW, Enchantments.PUNCH, true);
 
             // RADIANCE ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.hammerItems.get(HammersID.HAMMER_SUNS_GRACE)),
-                    new Identifier("mcdw:radiance"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_SABREWING)),
-                    new Identifier("mcdw:radiance"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.shortBowItems.get(ShortBowsID.BOW_LOVE_SPELL_BOW)),
-                    new Identifier("mcdw:radiance"), 1, true);
+            addInnateEnchant(HammersID.HAMMER_SUNS_GRACE, EnchantsRegistry.RADIANCE, true);
+            addInnateEnchant(BowsID.BOW_SABREWING, EnchantsRegistry.RADIANCE, true);
+            addInnateEnchant(ShortbowsID.BOW_LOVE_SPELL_BOW, EnchantsRegistry.RADIANCE, true);
 
             // RAMPAGING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_DANCERS_SWORD)),
-                    new Identifier("mcdw:rampaging"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.gauntletItems.get(GauntletsID.GAUNTLET_MAULERS)),
-                    new Identifier("mcdw:rampaging"), 1, true);
+            addInnateEnchant(SwordsID.SWORD_DANCERS_SWORD, EnchantsRegistry.RAMPAGING, true);
+            addInnateEnchant(GauntletsID.GAUNTLET_MAULERS, EnchantsRegistry.RAMPAGING, true);
 
             // REPLENISH ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE)),
-                    new Identifier("mcdw:replenish"), 1, true);
+            addInnateEnchant(BowsID.BOW_HUNTERS_PROMISE, EnchantsRegistry.REPLENISH, true);
 
             // RICOCHET ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW)),
-                    new Identifier("mcdw:ricochet"), 1, false);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW)),
-                    new Identifier("mcdw:ricochet"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_ECHO_OF_THE_VALLEY)),
-                    new Identifier("mcdw:ricochet"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_BUBBLE_BURSTER)),
-                    new Identifier("mcdw:ricochet"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_PINK_SCOUNDREL)),
-                    new Identifier("mcdw:ricochet"), 1, false);
+            addInnateEnchant(CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW, EnchantsRegistry.RICOCHET, false);
+            addInnateEnchant(CrossbowsID.CROSSBOW_SLAYER_CROSSBOW, EnchantsRegistry.RICOCHET, true);
+            addInnateEnchant(BowsID.BOW_ECHO_OF_THE_VALLEY, EnchantsRegistry.RICOCHET, true);
+            addInnateEnchant(BowsID.BOW_BUBBLE_BURSTER, EnchantsRegistry.RICOCHET, true);
+            addInnateEnchant(BowsID.BOW_PINK_SCOUNDREL, EnchantsRegistry.RICOCHET, false);
 
             // RUSHDOWN ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE)),
-                    new Identifier("mcdw:rushdown"), 1, false);
+            addInnateEnchant(DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE, EnchantsRegistry.RUSHDOWN, false);
 
             // SHADOW BARB ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)),
-                    new Identifier("mcdw:shadow_barb"), 1, false);
+            addInnateEnchant(CrossbowsID.CROSSBOW_VEILED_CROSSBOW, EnchantsRegistry.SHADOW_BARB, false);
 
             // SHADOW SHOT ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)),
-                    new Identifier("mcdw:shadow_shot"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)),
-                    new Identifier("mcdw:shadow_shot"), 1, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW, EnchantsRegistry.SHADOW_SHOT, true);
+            addInnateEnchant(CrossbowsID.CROSSBOW_VEILED_CROSSBOW, EnchantsRegistry.SHADOW_SHOT, true);
 
             // SHOCKWAVE ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.doubleAxeItems.get(DoubleAxesID.AXE_WHIRLWIND)),
-                    new Identifier("mcdw:shockwave"), 1, true);
+            addInnateEnchant(DoubleAxesID.AXE_WHIRLWIND, EnchantsRegistry.SHOCKWAVE, true);
 
             // SMITING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.glaiveItems.get(GlaivesID.SPEAR_GRAVE_BANE)),
-                    new Identifier("mcdw:smiting"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_DARK_KATANA)),
-                    new Identifier("mcdw:smiting"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.glaiveItems.get(GlaivesID.SPEAR_CACKLING_BROOM)),
-                    new Identifier("mcdw:smiting"), 1, true);
+            addInnateEnchant(GlaivesID.SPEAR_GRAVE_BANE, EnchantsRegistry.SMITING, true);
+            addInnateEnchant(SwordsID.SWORD_DARK_KATANA, EnchantsRegistry.SMITING, true);
+            addInnateEnchant(GlaivesID.SPEAR_CACKLING_BROOM, EnchantsRegistry.SMITING, true);
 
             // SOUL DEVOURER ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.scytheItems.get(ScythesID.SICKLE_SOUL_SCYTHE)),
-                    new Identifier("mcdw:soul_devourer"), 1, true);
+            addInnateEnchant(ScythesID.SICKLE_SOUL_SCYTHE, EnchantsRegistry.SOUL_DEVOURER, true);
 
             // SOUL SIPHON ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.soulDaggerItems.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE)),
-                    new Identifier("mcdw:soul_siphon"), 1, true);
+            addInnateEnchant(SoulDaggersID.DAGGER_ETERNAL_KNIFE, EnchantsRegistry.SOUL_SIPHON, true);
 
             // STUNNING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.axeItems.get(AxesID.AXE_HIGHLAND)),
-                    new Identifier("mcdw:stunning"), 1, true);
+            addInnateEnchant(AxesID.AXE_HIGHLAND, EnchantsRegistry.STUNNING, true);
 
             // SWIRLING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_SHEAR_DAGGER)),
-                    new Identifier("mcdw:swirling"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_BROADSWORD)),
-                    new Identifier("mcdw:swirling"), 1, true);
+            addInnateEnchant(DaggersID.DAGGER_SHEAR_DAGGER, EnchantsRegistry.SWIRLING, true);
+            addInnateEnchant(SwordsID.SWORD_BROADSWORD, EnchantsRegistry.SWIRLING, true);
 
             // TEMPO THEFT ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_NOCTURNAL_BOW)),
-                    new Identifier("mcdw:tempo_theft"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_SHIVERING_BOW)),
-                    new Identifier("mcdw:tempo_theft"), 1, true);
+            addInnateEnchant(BowsID.BOW_NOCTURNAL_BOW, EnchantsRegistry.TEMPO_THEFT, true);
+            addInnateEnchant(BowsID.BOW_SHIVERING_BOW, EnchantsRegistry.TEMPO_THEFT, true);
 
             // THUNDERING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.hammerItems.get(HammersID.HAMMER_STORMLANDER)),
-                    new Identifier("mcdw:thundering"), 1, true);
+            addInnateEnchant(HammersID.HAMMER_STORMLANDER, EnchantsRegistry.THUNDERING, true);
 
             // VOID SHOT ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_VOID_BOW)),
-                    new Identifier("mcdw:void_shot"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_CALL_OF_THE_VOID)),
-                    new Identifier("mcdw:void_shot"), 1, false);
+            addInnateEnchant(BowsID.BOW_VOID_BOW, EnchantsRegistry.VOID_SHOT, true);
+            addInnateEnchant(BowsID.BOW_CALL_OF_THE_VOID, EnchantsRegistry.VOID_SHOT, false);
 
             // VOID STRIKE ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_VOID_TOUCHED_BLADE)),
-                    new Identifier("mcdw:void_strike"), 1, true);
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.daggerItems.get(DaggersID.DAGGER_THE_END)),
-                    new Identifier("mcdw:void_strike"), 1, true);
+            addInnateEnchant(DaggersID.DAGGER_VOID_TOUCHED_BLADE, EnchantsRegistry.VOID_STRIKE, true);
+            addInnateEnchant(DaggersID.DAGGER_THE_END, EnchantsRegistry.VOID_STRIKE, true);
 
             // WEAKENING ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.swordItems.get(SwordsID.SWORD_NAMELESS_BLADE)),
-                    new Identifier("mcdw:weakening"), 1, true);
+            addInnateEnchant(SwordsID.SWORD_NAMELESS_BLADE, EnchantsRegistry.WEAKENING, true);
 
             // WILD RAGE ENCHANTMENT
-            EnchantsList.addEnchant(Registry.ITEM.getId(ItemsInit.bowItems.get(BowsID.BOW_PINK_SCOUNDREL)),
-                    new Identifier("mcdw:wild_rage"), 1, true);
+            addInnateEnchant(BowsID.BOW_PINK_SCOUNDREL, EnchantsRegistry.WILD_RAGE, true);
+        }
+    }
+
+    private static void addInnateEnchant(IMcdwWeaponID weaponID, Enchantment enchantment, Boolean replace) {
+        addInnateEnchant(weaponID.getItem(), enchantment, replace);
+    }
+
+    private static void addInnateEnchant(Item item, Enchantment enchantment, Boolean replace) {
+        addInnateEnchant(item, enchantment, 1, replace);
+    }
+
+    private static void addInnateEnchant(Item item, Enchantment enchantment, int level, Boolean replace) {
+        if (!FabricLoader.getInstance().getConfigDir().resolve("enchant_giver/enchants.json").toFile().exists()) {
+            EnchantsList.addEnchant(Registry.ITEM.getId(item), Registry.ENCHANTMENT.getId(enchantment), level, replace);
         }
     }
 }

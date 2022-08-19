@@ -2,13 +2,10 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         "II ",
-        "#A ",
+        "IA ",
         " / "
     ],
     "key": {
-        "#": {
-            "item": "minecraft:iron_block"
-        },
         "/": {
             "item": "minecraft:stick"
         },

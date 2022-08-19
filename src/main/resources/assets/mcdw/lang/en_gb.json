@@ -182,7 +182,7 @@
   "item.mcdw.moreinfo.tooltip": "Hold [SHIFT] for more info",
   "item.mcdw.item_bee_stinger.tooltip2": "I feel like I could use this for something.",
 
-  "effect.mcde.accelerate": "Accelerate",
+  "effect.mcdw.accelerate": "Accelerate",
   "effect.mcdw.dynamo": "Dynamo",
   "effect.mcdw.pain_cycle": "Pain Cycle",
   "effect.mcdw.shadow_form": "Shadow Form",
@@ -828,6 +828,7 @@
   "tooltip_info_item.mcdw.veiled_crossbow_3": "to go unnoticed (and undefeated).",
 
   "tooltip_info_item.mcdw.gap": " ",
+  "tooltip_note_item.mcdw.dualwield": "Dual Wield",
   "tooltip_note_item.mcdw.longbow": "Longbow",
   "tooltip_note_item.mcdw.shortbow": "Shortbow",
 

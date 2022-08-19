@@ -63,5 +63,4 @@ public interface IMcdwEnchantedArrow {
 
     int getWildRageLevel();
     void setWildRageLevel(int wildRageLevel);
-
 }

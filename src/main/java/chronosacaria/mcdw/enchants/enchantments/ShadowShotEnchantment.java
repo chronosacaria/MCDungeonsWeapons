@@ -13,7 +13,7 @@ import net.minecraft.util.registry.Registry;
 public class ShadowShotEnchantment extends RangedEnchantment {
     public ShadowShotEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_SHOT)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SHADOW_SHOT)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("shadow_shot"), this);
         }
     }

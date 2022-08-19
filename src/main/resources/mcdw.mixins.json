@@ -14,11 +14,13 @@
     "LivingEntityPlayerEntityMixin",
     "MobEntityAccessor",
     "PersistentProjectileEntityMixin",
+    "PlayerEntityMixin",
     "ShieldPlayerEntityMixin"
   ],
   "client": [
-    "AbstractClientPlayerEntityMixin",
-    "ModelPredicateProviderRegistryMixin"
+    "client.AbstractClientPlayerEntityMixin",
+    "client.InGameHudMixin",
+    "client.ModelPredicateProviderRegistryMixin"
   ],
   "injectors": {
     "defaultRequire": 1

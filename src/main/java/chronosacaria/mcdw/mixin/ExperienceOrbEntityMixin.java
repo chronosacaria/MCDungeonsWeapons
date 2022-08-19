@@ -1,7 +1,7 @@
-
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.ExperienceOrbEntity;
@@ -30,7 +30,7 @@ public class ExperienceOrbEntityMixin {
         mcdw$setPlayerEntity(playerEntity);
         int amount = args.get(1);
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_DEVOURER))
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SOUL_DEVOURER))
             amount = EnchantmentEffects.soulDevourerExperience(playerEntity, amount);
 
         args.set(1, amount);
@@ -38,9 +38,12 @@ public class ExperienceOrbEntityMixin {
 
     @ModifyArg(method = "onPlayerCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;addExperience(I)V"))
     public int mcdw$RepairPlayer(int experience){
+
         PlayerEntity playerEntity = mcdw$getPlayerEntity();
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT))
-            return EnchantmentEffects.animaConduitExperience(playerEntity, experience);
+        boolean isOffHandAttack = playerEntity.getRecentDamageSource() instanceof OffHandDamageSource;
+
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ANIMA_CONDUIT))
+            return EnchantmentEffects.animaConduitExperience(playerEntity, experience, isOffHandAttack);
         return experience;
     }
 

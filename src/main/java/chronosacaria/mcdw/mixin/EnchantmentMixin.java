@@ -50,4 +50,3 @@ public abstract class EnchantmentMixin {
         return false;
     }
 }
-

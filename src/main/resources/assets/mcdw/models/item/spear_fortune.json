@@ -12,8 +12,12 @@
 		},
 		"head": {
 			"rotation": [ 0, 0, 180 ],
-			"translation": [ -1, 1, -0.5],
+			"translation": [ -1, 1, 0.5],
 			"scale":[ 1, 1, 0.5 ]
+		},
+		"ground": {
+			"translation": [ 0, 2, 0 ],
+			"scale": [ 0.75, 0.75, 0.5 ]
 		}
 	}
 }

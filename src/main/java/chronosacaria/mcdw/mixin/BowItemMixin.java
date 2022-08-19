@@ -6,8 +6,8 @@ import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.bases.McdwBow;
-import chronosacaria.mcdw.bases.McdwLongBow;
-import chronosacaria.mcdw.bases.McdwShortBow;
+import chronosacaria.mcdw.bases.McdwLongbow;
+import chronosacaria.mcdw.bases.McdwShortbow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
@@ -34,6 +34,7 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(BowItem.class)
 public abstract class BowItemMixin{
+
     private int overcharge;
 
     private LivingEntity livingEntity;
@@ -44,17 +45,17 @@ public abstract class BowItemMixin{
 
     @Inject(method = "onStoppedUsing", at = @At("HEAD"))
     public void mcdw$onStoppedUsingBow(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BONUS_SHOT)){
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BONUS_SHOT)){
             if (McdwEnchantmentHelper.hasEnchantment(stack, EnchantsRegistry.BONUS_SHOT)){
                 int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
                 float damageMultiplier = 0.03F + (bonusShotLevel * 0.07F);
                 float arrowVelocity = RangedAttackHelper.getVanillaOrModdedBowArrowVelocity(stack, remainingUseTicks);
                 if (arrowVelocity >= 0.1F){
-                    ProjectileEffectHelper.fireBonusShotTowardsOtherEntity(user, 10, damageMultiplier, arrowVelocity);
+                    ProjectileEffectHelper.fireBonusShotTowardsOtherEntity(user, 10, damageMultiplier);
                 }
             }
         }
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.MULTI_SHOT)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.MULTI_SHOT)) {
             int multiShotLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(user, Enchantments.MULTISHOT);
             if (multiShotLevel > 0) {
                 ArrowItem arrowitem = (ArrowItem) (stack.getItem() instanceof ArrowItem ? stack.getItem() : Items.ARROW);
@@ -165,15 +166,15 @@ public abstract class BowItemMixin{
     private int mcdw$acceleratedPullProgress(int value){
         ItemStack bowStack = livingEntity.getActiveItem();
 
-        if (bowStack.getItem() instanceof McdwShortBow mcdwShortBow) {
+        if (bowStack.getItem() instanceof McdwShortbow mcdwShortBow) {
             value /= mcdwShortBow.getDrawSpeed() / 20;
-        } else if (bowStack.getItem() instanceof McdwLongBow mcdwLongBow) {
+        } else if (bowStack.getItem() instanceof McdwLongbow mcdwLongBow) {
             value /= mcdwLongBow.getDrawSpeed() / 20;
         } else if (bowStack.getItem() instanceof McdwBow mcdwBow) {
             value /= mcdwBow.getDrawSpeed() / 20;
         }
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
             int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, bowStack);
             if (accelerateLevel > 0) {
                 StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
@@ -188,7 +189,7 @@ public abstract class BowItemMixin{
             }
         }
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.OVERCHARGE)) {
             int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, bowStack);
             if (overchargeLevel > 0) {
                 overcharge = Math.min((value / 20) - 1, overchargeLevel);
@@ -203,9 +204,9 @@ public abstract class BowItemMixin{
         float velocity = args.get(4);
         ItemStack bowStack = livingEntity.getActiveItem();
 
-        if (bowStack.getItem() instanceof McdwShortBow mcdwShortBow) {
+        if (bowStack.getItem() instanceof McdwShortbow mcdwShortBow) {
             velocity *= mcdwShortBow.getRange() / 15f;
-        } else if (bowStack.getItem() instanceof McdwLongBow mcdwLongBow) {
+        } else if (bowStack.getItem() instanceof McdwLongbow mcdwLongBow) {
             velocity *= mcdwLongBow.getRange() / 15f;
         } else if (bowStack.getItem() instanceof McdwBow mcdwBow) {
             velocity *= mcdwBow.getRange() / 15f;

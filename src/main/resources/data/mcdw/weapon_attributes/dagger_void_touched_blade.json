@@ -1,3 +1,6 @@
 {
-    "parent": "mcdw:weapon_attributes_mcdw_dagger"
+    "parent": "bettercombat:dagger",
+    "attributes": {
+        "category": "end_dagger"
+    }
 }
