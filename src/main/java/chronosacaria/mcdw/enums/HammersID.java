@@ -13,13 +13,13 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
-    HAMMER_BONECLUB(ToolMaterials.IRON,9, -3.23f, "minecraft:iron_ingot"),
-    HAMMER_BONE_CUDGEL(ToolMaterials.DIAMOND,9, -3.23f, "minecraft:diamond"),
+    HAMMER_BONECLUB(ToolMaterials.IRON,7, -3.2f, "minecraft:bone_block"),
+    HAMMER_BONE_CUDGEL(ToolMaterials.NETHERITE,7, -3.2f, "minecraft:netherite_scrap"),
     HAMMER_FLAIL(ToolMaterials.IRON,5, -2.8f, "minecraft:iron_ingot"),
-    HAMMER_GRAVITY(ToolMaterials.DIAMOND,8, -3.23f, "minecraft:diamond"),
-    HAMMER_GREAT_HAMMER(ToolMaterials.IRON,8, -3.23f, "minecraft:iron_ingot"),
+    HAMMER_GRAVITY(ToolMaterials.DIAMOND,6, -3.2f, "minecraft:diamond"),
+    HAMMER_GREAT_HAMMER(ToolMaterials.IRON,6, -3.2f, "minecraft:iron_ingot"),
     HAMMER_MACE(ToolMaterials.IRON,5, -2.8f, "minecraft:iron_ingot"),
-    HAMMER_STORMLANDER(ToolMaterials.DIAMOND,8, -3.23f, "minecraft:diamond"),
+    HAMMER_STORMLANDER(ToolMaterials.DIAMOND,7, -3.2f, "minecraft:diamond"),
     HAMMER_SUNS_GRACE(ToolMaterials.DIAMOND,4, -2.8f, "minecraft:diamond");
 
     private final ToolMaterial material;
