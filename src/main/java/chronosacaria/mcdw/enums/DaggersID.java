@@ -12,18 +12,18 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum DaggersID implements IMcdwWeaponID, IMeleeWeaponID {
-    DAGGER_BACKSTABBER(ToolMaterials.DIAMOND,3, -1.2f, "minecraft:diamond"),
-    DAGGER_CHILL_GALE_KNIFE(ToolMaterials.DIAMOND,3, -1.3f, "minecraft:diamond"),
-    DAGGER_DAGGER(ToolMaterials.IRON,1, -1.3f, "minecraft:iron_ingot"),
-    DAGGER_FANGS_OF_FROST(ToolMaterials.IRON,1, -1.0f, "minecraft:iron_ingot"),
-    DAGGER_MOON(ToolMaterials.IRON,1, -1.0f, "minecraft:iron_ingot"),
-    DAGGER_RESOLUTE_TEMPEST_KNIFE(ToolMaterials.IRON,3, -1.3f, "minecraft:iron_ingot"),
-    DAGGER_SHEAR_DAGGER(ToolMaterials.IRON,1, -1.3f, "minecraft:iron_ingot"),
-    DAGGER_SWIFT_STRIKER(ToolMaterials.NETHERITE,4, -1.0f, "minecraft:netherite_scrap"),
-    DAGGER_TEMPEST_KNIFE(ToolMaterials.IRON,2, -1.3f, "minecraft:iron_ingot"),
-    DAGGER_THE_BEGINNING(ToolMaterials.NETHERITE,4, -1.2f, "minecraft:netherite_scrap"),
-    DAGGER_THE_END(ToolMaterials.NETHERITE,4, -1.2f, "minecraft:netherite_scrap"),
-    DAGGER_VOID_TOUCHED_BLADE(ToolMaterials.DIAMOND,4, -1.2f, "minecraft:diamond");
+    DAGGER_BACKSTABBER(ToolMaterials.DIAMOND,1, -1.7f, "minecraft:diamond"),
+    DAGGER_CHILL_GALE_KNIFE(ToolMaterials.DIAMOND,2, -2.2f, "minecraft:diamond"),
+    DAGGER_DAGGER(ToolMaterials.IRON,1, -1.5f, "minecraft:iron_ingot"),
+    DAGGER_FANGS_OF_FROST(ToolMaterials.IRON,1, -1.5f, "minecraft:iron_ingot"),
+    DAGGER_MOON(ToolMaterials.IRON,1, -1.5f, "minecraft:iron_ingot"),
+    DAGGER_RESOLUTE_TEMPEST_KNIFE(ToolMaterials.IRON,2, -2.2f, "minecraft:iron_ingot"),
+    DAGGER_SHEAR_DAGGER(ToolMaterials.IRON,0, -1.5f, "minecraft:iron_ingot"),
+    DAGGER_SWIFT_STRIKER(ToolMaterials.NETHERITE,1, -1.7f, "minecraft:netherite_scrap"),
+    DAGGER_TEMPEST_KNIFE(ToolMaterials.IRON,2, -2.2f, "minecraft:iron_ingot"),
+    DAGGER_THE_BEGINNING(ToolMaterials.NETHERITE,1, -1.8f, "minecraft:netherite_scrap"),
+    DAGGER_THE_END(ToolMaterials.NETHERITE,1, -1.8f, "minecraft:netherite_scrap"),
+    DAGGER_VOID_TOUCHED_BLADE(ToolMaterials.DIAMOND,1, -1.8f, "minecraft:diamond");
 
     private final ToolMaterials material;
     private final int damage;

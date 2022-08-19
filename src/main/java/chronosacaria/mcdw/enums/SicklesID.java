@@ -13,10 +13,10 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
-    SICKLE_LAST_LAUGH_GOLD(ToolMaterials.IRON,2, -1.9f, "minecraft:iron_ingot"),
-    SICKLE_LAST_LAUGH_SILVER(ToolMaterials.IRON,2, -1.9f, "minecraft:iron_ingot"),
-    SICKLE_NIGHTMARES_BITE(ToolMaterials.IRON,3, -1.9f, "minecraft:iron_ingot"),
-    SICKLE_SICKLE(ToolMaterials.IRON,1, -1.9f, "minecraft:iron_ingot");
+    SICKLE_LAST_LAUGH_GOLD(ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
+    SICKLE_LAST_LAUGH_SILVER(ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
+    SICKLE_NIGHTMARES_BITE(ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
+    SICKLE_SICKLE(ToolMaterials.IRON,1, -2.1f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
