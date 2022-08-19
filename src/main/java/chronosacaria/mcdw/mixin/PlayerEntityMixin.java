@@ -1,10 +1,15 @@
 package chronosacaria.mcdw.mixin;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,8 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements IDualWielding {
 
-    @Unique
-    private int lastAttackedOffhandTicks = 0;
+    private static final TrackedData<Integer> LAST_ATTACKED_OFFHAND_TICKS = DataTracker.registerData(PlayerEntityMixin.class, TrackedDataHandlerRegistry.INTEGER);
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -30,17 +34,42 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
 
     @Override
     public float getOffhandAttackCooldownProgress(float baseTime) {
-        return MathHelper.clamp(((float)this.lastAttackedOffhandTicks + baseTime) / this.getOffhandAttackCooldownProgressPerTick(), 0.0F, 1.0F);
+        return MathHelper.clamp(((float)getOffhandAttackedTicks() + baseTime) / this.getOffhandAttackCooldownProgressPerTick(), 0.0F, 1.0F);
     }
 
     @Override
     public void resetLastAttackedOffhandTicks() {
-        this.lastAttackedOffhandTicks = 0;
+        setOffhandAttackedTicks(0);
     }
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getMainHandStack()Lnet/minecraft/item/ItemStack;"))
     public void tick(CallbackInfo ci) {
-        ++this.lastAttackedOffhandTicks;
+        if (Mcdw.noOffhandConflicts())
+            setOffhandAttackedTicks(getOffhandAttackedTicks() + 1);
+    }
+
+    @Inject(method = "initDataTracker", at = @At("TAIL"))
+    protected void injectInitDataTracker(CallbackInfo ci) {
+        dataTracker.startTracking(LAST_ATTACKED_OFFHAND_TICKS, 0);
+    }
+
+    @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
+    public void injectWriteCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
+        nbt.putInt("Devotion", getOffhandAttackedTicks());
+    }
+
+    @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
+    public void injectReadCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
+        setOffhandAttackedTicks(nbt.getInt("Devotion"));
+    }
+
+    @Override
+    public int getOffhandAttackedTicks() { return dataTracker.get(LAST_ATTACKED_OFFHAND_TICKS); }
+
+    @Override
+    public void setOffhandAttackedTicks(int lastAttackedOffhandTicks) {
+        if (lastAttackedOffhandTicks >= 0)
+            dataTracker.set(LAST_ATTACKED_OFFHAND_TICKS, lastAttackedOffhandTicks);
     }
 
 }

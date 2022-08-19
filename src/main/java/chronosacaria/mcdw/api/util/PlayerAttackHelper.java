@@ -31,6 +31,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
@@ -89,16 +90,16 @@ public class PlayerAttackHelper {
                     && player != null
                     && !player.isBlocking()) {
 
-                if (mc.crosshairTarget instanceof EntityHitResult entityHitResult) {
-                    if (mc.interactionManager != null && mc.getNetworkHandler() != null) {
-                        mc.getNetworkHandler().sendPacket(OffhandAttackPacket.offhandAttackPacket(entityHitResult.getEntity()));
-                    }
+                if (mc.interactionManager != null && mc.getNetworkHandler() != null) {
+                    mc.getNetworkHandler().sendPacket(mc.crosshairTarget instanceof EntityHitResult entityHitResult
+                            ? OffhandAttackPacket.offhandAttackPacket(entityHitResult.getEntity())
+                            : OffhandAttackPacket.offhandMissPacket());
                 }
             }
         }
     }
 
-    private static void switchModifiers(PlayerEntity player, ItemStack switchFrom, ItemStack switchTo) {
+    public static void switchModifiers(PlayerEntity player, ItemStack switchFrom, ItemStack switchTo) {
         player.getAttributes().removeModifiers(switchFrom.getAttributeModifiers(EquipmentSlot.MAINHAND));
         player.getAttributes().addTemporaryModifiers(switchTo.getAttributeModifiers(EquipmentSlot.MAINHAND));
     }

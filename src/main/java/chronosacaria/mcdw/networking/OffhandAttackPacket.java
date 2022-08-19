@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.networking;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.util.PlayerAttackHelper;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -14,11 +15,17 @@ import net.minecraft.util.Identifier;
 public class OffhandAttackPacket {
 
     public static final Identifier OFFHAND_ATTACK_PACKET = new Identifier(Mcdw.MOD_ID, "offhand_attack_entity");
+    public static final Identifier OFFHAND_MISS_PACKET = new Identifier(Mcdw.MOD_ID, "offhand_miss_entity");
 
     public static Packet<?> offhandAttackPacket(Entity entity) {
         PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
         buf.writeInt(entity.getId());
         return ClientPlayNetworking.createC2SPacket(OFFHAND_ATTACK_PACKET, buf);
+    }
+
+    public static Packet<?> offhandMissPacket() {
+        PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
+        return ClientPlayNetworking.createC2SPacket(OFFHAND_MISS_PACKET, buf);
     }
 
     public static void init() {
@@ -32,5 +39,9 @@ public class OffhandAttackPacket {
                 }
             });
         });
+
+        ServerPlayNetworking.registerGlobalReceiver(OFFHAND_MISS_PACKET, (server, player, handler, buffer, sender) ->
+                server.execute(() -> ((IDualWielding) player).resetLastAttackedOffhandTicks())
+        );
     }
 }
