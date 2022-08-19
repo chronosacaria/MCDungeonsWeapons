@@ -12,14 +12,14 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum DaggersID implements IMcdwWeaponID, IMeleeWeaponID {
-    DAGGER_BACKSTABBER(ToolMaterials.DIAMOND,0, -1.7f, "minecraft:diamond"),
-    DAGGER_CHILL_GALE_KNIFE(ToolMaterials.DIAMOND,3, -2.2f, "minecraft:diamond"),
-    DAGGER_DAGGER(ToolMaterials.IRON,0, -1.5f, "minecraft:iron_ingot"),
-    DAGGER_FANGS_OF_FROST(ToolMaterials.IRON,0, -1.5f, "minecraft:iron_ingot"),
-    DAGGER_MOON(ToolMaterials.IRON,0, -1.5f, "minecraft:iron_ingot"),
+    DAGGER_BACKSTABBER(ToolMaterials.DIAMOND,1, -1.7f, "minecraft:diamond"),
+    DAGGER_CHILL_GALE_KNIFE(ToolMaterials.DIAMOND,2, -2.2f, "minecraft:diamond"),
+    DAGGER_DAGGER(ToolMaterials.IRON,1, -1.5f, "minecraft:iron_ingot"),
+    DAGGER_FANGS_OF_FROST(ToolMaterials.IRON,1, -1.5f, "minecraft:iron_ingot"),
+    DAGGER_MOON(ToolMaterials.IRON,1, -1.5f, "minecraft:iron_ingot"),
     DAGGER_RESOLUTE_TEMPEST_KNIFE(ToolMaterials.IRON,2, -2.2f, "minecraft:iron_ingot"),
     DAGGER_SHEAR_DAGGER(ToolMaterials.IRON,0, -1.5f, "minecraft:iron_ingot"),
-    DAGGER_SWIFT_STRIKER(ToolMaterials.NETHERITE,0, -1.7f, "minecraft:netherite_scrap"),
+    DAGGER_SWIFT_STRIKER(ToolMaterials.NETHERITE,1, -1.7f, "minecraft:netherite_scrap"),
     DAGGER_TEMPEST_KNIFE(ToolMaterials.IRON,2, -2.2f, "minecraft:iron_ingot"),
     DAGGER_THE_BEGINNING(ToolMaterials.NETHERITE,1, -1.8f, "minecraft:netherite_scrap"),
     DAGGER_THE_END(ToolMaterials.NETHERITE,1, -1.8f, "minecraft:netherite_scrap"),
