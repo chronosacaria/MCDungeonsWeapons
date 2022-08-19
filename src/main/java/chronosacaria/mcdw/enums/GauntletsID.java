@@ -13,9 +13,9 @@ import java.util.HashMap;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum GauntletsID implements IMcdwWeaponID, IMeleeWeaponID {
-    GAUNTLET_GAUNTLET(ToolMaterials.IRON,0, -1.53f, "minecraft:iron_ingot"),
-    GAUNTLET_MAULERS(ToolMaterials.DIAMOND,1, -1.53f, "minecraft:diamond"),
-    GAUNTLET_SOUL_FISTS(ToolMaterials.NETHERITE,0, -1.53f, "minecraft:netherite_scrap");
+    GAUNTLET_GAUNTLET(ToolMaterials.IRON,0, -1.5f, "minecraft:iron_ingot"),
+    GAUNTLET_MAULERS(ToolMaterials.DIAMOND,1, -1.5f, "minecraft:diamond"),
+    GAUNTLET_SOUL_FISTS(ToolMaterials.NETHERITE,0, -1.5f, "minecraft:netherite_scrap");
 
     private final ToolMaterial material;
     private final int damage;
