@@ -1,6 +1,5 @@
 package chronosacaria.mcdw.api.util;
 
-import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
@@ -18,15 +17,12 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffectUtil;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.packet.s2c.play.EntityAnimationS2CPacket;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerChunkManager;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -83,7 +79,7 @@ public class PlayerAttackHelper {
     */
 
     public static void checkForOffhandAttack() {
-        if (CompatibilityFlags.isOffHandAttackEnabled) {
+        if (CompatibilityFlags.noOffhandConflicts) {
             MinecraftClient mc = MinecraftClient.getInstance();
             PlayerEntity player = mc.player;
             if (mc.world != null
@@ -107,7 +103,7 @@ public class PlayerAttackHelper {
     }
 
     public static void offhandAttack(PlayerEntity playerEntity, Entity target) {
-        if (CompatibilityFlags.isOffHandAttackEnabled) {
+        if (CompatibilityFlags.noOffhandConflicts) {
             if (!target.isAttackable())
                 if (target.handleAttack(playerEntity))
                     return;

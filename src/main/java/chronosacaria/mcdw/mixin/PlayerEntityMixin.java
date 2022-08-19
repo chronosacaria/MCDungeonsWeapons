@@ -1,7 +1,7 @@
 package chronosacaria.mcdw.mixin;
 
-import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
+import chronosacaria.mcdw.configs.CompatibilityFlags;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -43,38 +43,38 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getMainHandStack()Lnet/minecraft/item/ItemStack;"))
     public void tick(CallbackInfo ci) {
-        if (Mcdw.noOffhandConflicts())
+        if (CompatibilityFlags.noOffhandConflicts)
             setOffhandAttackedTicks(getOffhandAttackedTicks() + 1);
     }
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
     protected void injectInitDataTracker(CallbackInfo ci) {
-        if (Mcdw.noOffhandConflicts())
+        if (CompatibilityFlags.noOffhandConflicts)
             dataTracker.startTracking(LAST_ATTACKED_OFFHAND_TICKS, 0);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void injectWriteCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
-        if (Mcdw.noOffhandConflicts())
+        if (CompatibilityFlags.noOffhandConflicts)
             nbt.putInt("Devotion", getOffhandAttackedTicks());
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     public void injectReadCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
-        if (Mcdw.noOffhandConflicts())
+        if (CompatibilityFlags.noOffhandConflicts)
             setOffhandAttackedTicks(nbt.getInt("Devotion"));
     }
 
     @Override
     public int getOffhandAttackedTicks() {
-        if (Mcdw.noOffhandConflicts())
+        if (CompatibilityFlags.noOffhandConflicts)
             return dataTracker.get(LAST_ATTACKED_OFFHAND_TICKS);
         return 0;
     }
 
     @Override
     public void setOffhandAttackedTicks(int lastAttackedOffhandTicks) {
-        if (Mcdw.noOffhandConflicts()) {
+        if (CompatibilityFlags.noOffhandConflicts) {
             if (lastAttackedOffhandTicks >= 0)
                 dataTracker.set(LAST_ATTACKED_OFFHAND_TICKS, lastAttackedOffhandTicks);
         }

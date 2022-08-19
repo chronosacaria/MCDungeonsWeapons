@@ -1,9 +1,9 @@
 package chronosacaria.mcdw.mixin.client;
 
-import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.PlayerAttackHelper;
+import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.enums.DaggersID;
 import chronosacaria.mcdw.enums.SicklesID;
 import net.fabricmc.api.EnvType;
@@ -50,7 +50,7 @@ public class InGameHudMixin extends DrawableHelper{
 
     @Inject(method = "renderCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getAttackCooldownProgress(F)F", shift = At.Shift.AFTER))
     private void renderOffhandCrosshair(MatrixStack matrices, CallbackInfo ci) {
-        if (Mcdw.noOffhandConflicts()) {
+        if (CompatibilityFlags.noOffhandConflicts) {
             PlayerEntity player = client.player;
             if (player == null)
                 return;
