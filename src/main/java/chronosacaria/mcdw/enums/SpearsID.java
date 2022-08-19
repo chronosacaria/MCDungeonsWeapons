@@ -30,7 +30,7 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<SpearsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.spearsEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.SPEARS_ENABLED;
     }
 
     public static EnumMap<SpearsID, McdwSpear> getItemsEnum() {
@@ -38,7 +38,7 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<SpearsID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.spearSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.SPEAR_SPAWN_RATES;
     }
 
     public static HashMap<SpearsID, MeleeStats> getWeaponStats() {

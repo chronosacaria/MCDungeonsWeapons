@@ -57,7 +57,7 @@ public enum BowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     public static HashMap<BowsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.bowsEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.BOWS_ENABLED;
     }
 
     public static EnumMap<BowsID, McdwBow> getItemsEnum() {
@@ -65,7 +65,7 @@ public enum BowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     public static HashMap<BowsID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.bowSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.BOW_SPAWN_RATES;
     }
 
     public static HashMap<BowsID, RangedStats> getWeaponStats() {

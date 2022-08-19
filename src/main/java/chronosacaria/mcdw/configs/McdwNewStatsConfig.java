@@ -38,8 +38,8 @@ public class McdwNewStatsConfig implements ConfigData {
     public final double extraAttackReachOfWhips = 1.5D;
     public final HashMap<WhipsID, IMeleeWeaponID.MeleeStats> whipStats = new HashMap<>();
     public final HashMap<BowsID, IRangedWeaponID.RangedStats> bowStats = new HashMap<>();
-    public final HashMap<ShortBowsID, IRangedWeaponID.RangedStats> shortBowStats = new HashMap<>();
-    public final HashMap<LongBowsID, IRangedWeaponID.RangedStats> longBowStats = new HashMap<>();
+    public final HashMap<ShortbowsID, IRangedWeaponID.RangedStats> shortbowStats = new HashMap<>();
+    public final HashMap<LongbowsID, IRangedWeaponID.RangedStats> longbowStats = new HashMap<>();
     public final HashMap<CrossbowsID, IRangedWeaponID.RangedStats> crossbowStats = new HashMap<>();
     public final HashMap<ShieldsID, IShieldID.ShieldStats> shieldStats = new HashMap<>();
 
@@ -97,10 +97,10 @@ public class McdwNewStatsConfig implements ConfigData {
             whipStats.put(whipsID, new IMeleeWeaponID.MeleeStats());
         for (BowsID bowsID : BowsID.values())
             bowStats.put(bowsID, new IRangedWeaponID.RangedStats());
-        for (ShortBowsID shortBowsID : ShortBowsID.values())
-            shortBowStats.put(shortBowsID, new IRangedWeaponID.RangedStats());
-        for (LongBowsID longBowsID : LongBowsID.values())
-            longBowStats.put(longBowsID, new IRangedWeaponID.RangedStats());
+        for (ShortbowsID shortBowsID : ShortbowsID.values())
+            shortbowStats.put(shortBowsID, new IRangedWeaponID.RangedStats());
+        for (LongbowsID longBowsID : LongbowsID.values())
+            longbowStats.put(longBowsID, new IRangedWeaponID.RangedStats());
         for (CrossbowsID crossbowsID : CrossbowsID.values())
             crossbowStats.put(crossbowsID, new IRangedWeaponID.RangedStats());
         for (ShieldsID shieldsID : ShieldsID.values())

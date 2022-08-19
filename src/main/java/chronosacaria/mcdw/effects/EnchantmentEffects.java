@@ -42,7 +42,7 @@ import java.util.UUID;
 
 public class EnchantmentEffects {
 
-    static final LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentTriggerChanceBase;
+    static final LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENCHANTMENT_TRIGGER_BASE_CHANCE;
 
     private static int mcdw$getEnchantmentLevel(Enchantment enchantment, LivingEntity enchantedEntity, boolean isOffHandStack) {
         return EnchantmentHelper.getLevel(enchantment, isOffHandStack ? enchantedEntity.getOffHandStack() : enchantedEntity.getMainHandStack());
@@ -79,7 +79,7 @@ public class EnchantmentEffects {
     /* LivingEntityMixin */
     //mcdw$damageModifiers
     public static float huntersPromiseDamage(PlayerEntity owner, ServerWorld serverWorld) {
-        if (Mcdw.CONFIG.mcdwEnableItemsConfig.bowsEnabled.get(BowsID.BOW_HUNTERS_PROMISE)) {
+        if (Mcdw.CONFIG.mcdwEnableItemsConfig.BOWS_ENABLED.get(BowsID.BOW_HUNTERS_PROMISE)) {
             if (owner.getMainHandStack().isOf(BowsID.BOW_HUNTERS_PROMISE.getItem())) {
                 UUID petOwnerUUID = owner.getUuid();
 
@@ -214,7 +214,7 @@ public class EnchantmentEffects {
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
                 float extraDamageMultiplier =
                         (float) (Math.log(numSouls * resonatorLevel + 20)) /
-                                Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enigmaResonatorDivisor.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
+                                Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENIGMA_RESONATOR_DIVISOR.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
 
                 return Math.max(extraDamageMultiplier - 1, 0f);
             }
@@ -234,7 +234,7 @@ public class EnchantmentEffects {
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.PARTICLE_SOUL_ESCAPE, 0.5F, 1.0F);
                 float getExtraDamage = (float) (Math.log(numSouls * resonatorLevel + 20))  /
-                        Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enigmaResonatorDivisor.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
+                        Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENIGMA_RESONATOR_DIVISOR.get(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR);
 
                 return Math.max(getExtraDamage - 1, 0f);
             }
@@ -719,7 +719,7 @@ public class EnchantmentEffects {
             } else {
                 --i;
             }
-            i = MathHelper.clamp(i, 0, Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.dynamoStackCap.get(EnchantStatsID.DYNAMO_STACK_CAP));
+            i = MathHelper.clamp(i, 0, Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.DYNAMO_STACK_CAP.get(EnchantStatsID.DYNAMO_STACK_CAP));
             StatusEffectInstance dynamoUpdateInstance = new StatusEffectInstance(StatusEffectsRegistry.DYNAMO, 120000, i, false, false, true);
             playerEntity.addStatusEffect(dynamoUpdateInstance);
         }

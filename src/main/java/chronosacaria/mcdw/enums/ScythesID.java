@@ -31,7 +31,7 @@ public enum ScythesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<ScythesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.scythesEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.SCYTHES_ENABLED;
     }
 
     public static EnumMap<ScythesID, McdwScythe> getItemsEnum() {
@@ -39,7 +39,7 @@ public enum ScythesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<ScythesID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.scytheSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.SCYTHE_SPAWN_RATES;
     }
 
     public static HashMap<ScythesID, MeleeStats> getWeaponStats() {

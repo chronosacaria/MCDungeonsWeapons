@@ -56,7 +56,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     public static HashMap<CrossbowsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.crossbowsEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.CROSSBOWS_ENABLED;
     }
 
     public static EnumMap<CrossbowsID, McdwCrossbow> getItemsEnum() {
@@ -64,7 +64,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     public static HashMap<CrossbowsID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.crossbowSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.CROSSBOW_SPAWN_RATES;
     }
 
     public static HashMap<CrossbowsID, RangedStats> getWeaponStats() {

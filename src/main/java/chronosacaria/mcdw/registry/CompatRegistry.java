@@ -17,10 +17,10 @@ public class CompatRegistry {
                 boolean isOffHandAttack = playerEntity.getRecentDamageSource() instanceof OffHandDamageSource;
 
 
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_DEVOURER))
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SOUL_DEVOURER))
                     amount = EnchantmentEffects.soulDevourerExperience(playerEntity, amount);
 
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ANIMA_CONDUIT))
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ANIMA_CONDUIT))
                     amount = EnchantmentEffects.animaConduitExperience(playerEntity, amount, isOffHandAttack);
 
                 event.setValue(amount);

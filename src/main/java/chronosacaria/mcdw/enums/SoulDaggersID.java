@@ -31,7 +31,7 @@ public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<SoulDaggersID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.soulDaggersEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.SOUL_DAGGERS_ENABLED;
     }
 
     public static EnumMap<SoulDaggersID, McdwSoulDagger> getItemsEnum() {
@@ -39,7 +39,7 @@ public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<SoulDaggersID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.soulDaggerSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.SOUL_DAGGER_SPAWN_RATES;
     }
 
     public static HashMap<SoulDaggersID, MeleeStats> getWeaponStats() {

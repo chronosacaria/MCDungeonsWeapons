@@ -32,7 +32,7 @@ public class ModelPredicateProviderRegistryMixin {
             cir.setReturnValue(0.0F);
         } else {
             int useTicks = stack.getMaxUseTime() - entity.getItemUseTimeLeft();
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
                 int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
                 if (accelerateLevel > 0) {
                     StatusEffectInstance accelerateInstance = entity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
@@ -40,7 +40,7 @@ public class ModelPredicateProviderRegistryMixin {
                     useTicks = (int) (useTicks * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
                 }
             }
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.OVERCHARGE)) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.OVERCHARGE)) {
                 int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, stack);
                 if (overchargeLevel > 0) {
                     int overcharge = Math.min((useTicks / 20) - 1, overchargeLevel);
@@ -61,7 +61,7 @@ public class ModelPredicateProviderRegistryMixin {
             cir.setReturnValue(0.0F);
         } else {
             int useTicks = stack.getMaxUseTime() - entity.getItemUseTimeLeft();
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.ACCELERATE)) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
                 int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
                 if (accelerateLevel > 0) {
                     StatusEffectInstance accelerateInstance = entity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);

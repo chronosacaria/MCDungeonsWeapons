@@ -25,7 +25,7 @@ import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Predicate;
 
-public class McdwLongBow extends BowItem {
+public class McdwLongbow extends BowItem {
 
     public final ToolMaterial material;
     public final float drawSpeed;
@@ -33,7 +33,7 @@ public class McdwLongBow extends BowItem {
     private final ParticleEffect type;
     String[] repairIngredient;
 
-    public McdwLongBow(ToolMaterial material, float drawSpeed, float maxBowRangePar, String[] repairIngredient) {
+    public McdwLongbow(ToolMaterial material, float drawSpeed, float maxBowRangePar, String[] repairIngredient) {
         super(new Item.Settings().group(Mcdw.RANGED)
                 .maxCount(1)
                 .maxDamage(material.getDurability())

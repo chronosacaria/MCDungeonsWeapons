@@ -51,7 +51,7 @@ public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<SwordsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.swordsEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.SWORDS_ENABLED;
     }
 
     public static EnumMap<SwordsID, McdwSword> getItemsEnum() {
@@ -59,7 +59,7 @@ public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<SwordsID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.swordSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.SWORD_SPAWN_RATES;
     }
 
     public static HashMap<SwordsID, MeleeStats> getWeaponStats() {

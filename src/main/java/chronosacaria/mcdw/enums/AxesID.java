@@ -32,7 +32,7 @@ public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<AxesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.axesEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.AXES_ENABLED;
     }
 
     public static EnumMap<AxesID, McdwAxe> getItemsEnum() {
@@ -40,7 +40,7 @@ public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<AxesID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.axeSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.AXE_SPAWN_RATES;
     }
 
     public static HashMap<AxesID, MeleeStats> getWeaponStats() {

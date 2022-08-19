@@ -1,8 +1,8 @@
 package chronosacaria.mcdw.mixin.client;
 
 import chronosacaria.mcdw.bases.McdwBow;
-import chronosacaria.mcdw.bases.McdwLongBow;
-import chronosacaria.mcdw.bases.McdwShortBow;
+import chronosacaria.mcdw.bases.McdwLongbow;
+import chronosacaria.mcdw.bases.McdwShortbow;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -33,15 +33,15 @@ public class AbstractClientPlayerEntityMixin {
         ItemStack itemStack = abPlayer.getActiveItem();
         if (abPlayer.isUsingItem()) {
             if (itemStack.getItem() instanceof McdwBow ||
-                    itemStack.getItem() instanceof McdwShortBow ||
-                    itemStack.getItem() instanceof McdwLongBow) {
+                    itemStack.getItem() instanceof McdwShortbow ||
+                    itemStack.getItem() instanceof McdwLongbow) {
                 int i = abPlayer.getItemUseTime();
                 int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
                 if (overchargeLevel > 0) {
-                    if (itemStack.getItem() instanceof McdwShortBow mcdwShortBow) {
+                    if (itemStack.getItem() instanceof McdwShortbow mcdwShortBow) {
                         int overcharge = (int) Math.min((i / mcdwShortBow.getDrawSpeed()) - 1, overchargeLevel);
                         i = overcharge == overchargeLevel ? i : (int) (i % mcdwShortBow.getDrawSpeed());
-                    } else if (itemStack.getItem() instanceof McdwLongBow mcdwLongBow) {
+                    } else if (itemStack.getItem() instanceof McdwLongbow mcdwLongBow) {
                         int overcharge = (int) Math.min((i / mcdwLongBow.getDrawSpeed()) - 1, overchargeLevel);
                         i = overcharge == overchargeLevel ? i : (int) (i % mcdwLongBow.getDrawSpeed());
                     } else if (itemStack.getItem() instanceof McdwBow mcdwBow) {

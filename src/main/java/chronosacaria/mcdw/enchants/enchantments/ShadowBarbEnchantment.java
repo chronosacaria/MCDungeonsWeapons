@@ -13,7 +13,7 @@ import net.minecraft.util.registry.Registry;
 public class ShadowBarbEnchantment extends RangedEnchantment {
     public ShadowBarbEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SHADOW_BARB)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SHADOW_BARB)) {
             Registry.register(Registry.ENCHANTMENT, Mcdw.ID("shadow_barb"), this);
         }
     }

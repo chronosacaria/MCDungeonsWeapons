@@ -30,7 +30,7 @@ public enum GauntletsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<GauntletsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.gauntletsEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.GAUNTLETS_ENABLED;
     }
 
     public static EnumMap<GauntletsID, McdwGauntlet> getItemsEnum() {
@@ -38,7 +38,7 @@ public enum GauntletsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<GauntletsID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.gauntletSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.GAUNTLET_SPAWN_RATES;
     }
 
     public static HashMap<GauntletsID, MeleeStats> getWeaponStats() {

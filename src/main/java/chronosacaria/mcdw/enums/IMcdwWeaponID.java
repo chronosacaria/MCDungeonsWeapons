@@ -23,8 +23,8 @@ public interface IMcdwWeaponID {
     }
 
     static IRangedWeaponID[] rangedValues() {
-        List<IRangedWeaponID[]> arrayFather = List.of(BowsID.values(), ShortBowsID.values(),
-                LongBowsID.values(), CrossbowsID.values());
+        List<IRangedWeaponID[]> arrayFather = List.of(BowsID.values(), ShortbowsID.values(),
+                LongbowsID.values(), CrossbowsID.values());
 
         return arrayFather.stream().flatMap(Stream::of).toArray(IRangedWeaponID[]::new);
     }

@@ -31,7 +31,7 @@ public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<PicksID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.picksEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.PICKS_ENABLED;
     }
 
     public static EnumMap<PicksID, McdwPick> getItemsEnum() {
@@ -39,7 +39,7 @@ public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<PicksID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.pickSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.PICK_SPAWN_RATES;
     }
 
     public static HashMap<PicksID, MeleeStats> getWeaponStats() {

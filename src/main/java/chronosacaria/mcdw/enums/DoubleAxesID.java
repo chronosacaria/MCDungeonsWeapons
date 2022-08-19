@@ -30,7 +30,7 @@ public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<DoubleAxesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.doubleAxesEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.DOUBLE_AXES_ENABLED;
     }
 
     public static EnumMap<DoubleAxesID, McdwDoubleAxe> getItemsEnum() {
@@ -38,7 +38,7 @@ public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<DoubleAxesID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.doubleAxeSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.DOUBLE_AXE_SPAWN_RATES;
     }
 
     public static HashMap<DoubleAxesID, MeleeStats> getWeaponStats() {

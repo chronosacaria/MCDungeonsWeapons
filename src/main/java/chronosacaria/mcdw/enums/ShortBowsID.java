@@ -1,7 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.bases.McdwShortBow;
+import chronosacaria.mcdw.bases.McdwShortbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.item.ToolMaterial;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
+public enum ShortbowsID implements IMcdwWeaponID, IRangedWeaponID {
     BOW_LOVE_SPELL_BOW(ToolMaterials.IRON, 9, 8f, "minecraft:iron_ingot"),
     BOW_MECHANICAL_SHORTBOW(ToolMaterials.IRON, 9, 9f, "minecraft:iron_ingot"),
     BOW_PURPLE_STORM(ToolMaterials.IRON, 9, 8f, "minecraft:iron_ingot"),
@@ -23,27 +23,27 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
     public final float range;
     private final String[] repairIngredient;
 
-    ShortBowsID(ToolMaterial material, int drawSpeed, float range, String... repairIngredient) {
+    ShortbowsID(ToolMaterial material, int drawSpeed, float range, String... repairIngredient) {
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.range = range;
         this.repairIngredient = repairIngredient;
     }
 
-    public static HashMap<ShortBowsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.shortBowsEnabled;
+    public static HashMap<ShortbowsID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.SHORTBOWS_ENABLED;
     }
 
-    public static EnumMap<ShortBowsID, McdwShortBow> getItemsEnum() {
-        return ItemsInit.shortBowItems;
+    public static EnumMap<ShortbowsID, McdwShortbow> getItemsEnum() {
+        return ItemsInit.shortbowItems;
     }
 
-    public static HashMap<ShortBowsID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.shortBowSpawnRates;
+    public static HashMap<ShortbowsID, Integer> getSpawnRates() {
+        return Mcdw.CONFIG.mcdwNewlootConfig.SHORTBOW_SPAWN_RATES;
     }
 
-    public static HashMap<ShortBowsID, RangedStats> getWeaponStats() {
-        return CONFIG.mcdwNewStatsConfig.shortBowStats;
+    public static HashMap<ShortbowsID, RangedStats> getWeaponStats() {
+        return CONFIG.mcdwNewStatsConfig.shortbowStats;
     }
 
     @Override
@@ -52,7 +52,7 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public McdwShortBow getItem() {
+    public McdwShortbow getItem() {
         return getItemsEnum().get(this);
     }
 
@@ -62,8 +62,8 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public HashMap<ShortBowsID, RangedStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
-        return mcdwNewStatsConfig.shortBowStats;
+    public HashMap<ShortbowsID, RangedStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.shortbowStats;
     }
 
     @Override
@@ -73,7 +73,7 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
 
     @Override
     public RangedStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
-        return mcdwNewStatsConfig.shortBowStats.get(this);
+        return mcdwNewStatsConfig.shortbowStats.get(this);
     }
 
     @Override
@@ -97,11 +97,11 @@ public enum ShortBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public McdwShortBow makeWeapon() {
-        McdwShortBow mcdwShortBow = new McdwShortBow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+    public McdwShortbow makeWeapon() {
+        McdwShortbow mcdwShortbow = new McdwShortbow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
 
-        getItemsEnum().put(this, mcdwShortBow);
-        return mcdwShortBow;
+        getItemsEnum().put(this, mcdwShortbow);
+        return mcdwShortbow;
     }
 }

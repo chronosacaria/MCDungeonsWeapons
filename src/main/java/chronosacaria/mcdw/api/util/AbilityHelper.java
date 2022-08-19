@@ -59,7 +59,7 @@ public class AbilityHelper {
     private static boolean isUnaffectedByAoe(LivingEntity entity) {
         if (entity instanceof PlayerEntity player) {
             if (player.isCreative()) return true;
-            return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS);
+            return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS);
         }
         return false;
     }

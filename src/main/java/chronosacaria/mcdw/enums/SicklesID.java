@@ -31,7 +31,7 @@ public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<SicklesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.sicklesEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.SICKLES_ENABLED;
     }
 
     public static EnumMap<SicklesID, McdwSickle> getItemsEnum() {
@@ -39,7 +39,7 @@ public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<SicklesID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.sickleSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.SICKLE_SPAWN_RATES;
     }
 
     public static HashMap<SicklesID, MeleeStats> getWeaponStats() {

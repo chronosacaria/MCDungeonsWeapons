@@ -67,15 +67,15 @@ public class LivingEntityMixin {
 
         if (source.getAttacker() instanceof LivingEntity attackingEntity) {
 
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.PROSPECTOR))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.PROSPECTOR))
                 EnchantmentEffects.applyProspector(attackingEntity, victim, isOffHandAttack);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.RUSHDOWN))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.RUSHDOWN))
                 EnchantmentEffects.applyRushdown(attackingEntity, isOffHandAttack);
         }
 
         if (source.getAttacker() instanceof PlayerEntity attackingPlayer) {
 
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SOUL_SIPHON))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SOUL_SIPHON))
                 EnchantmentEffects.applySoulSiphon(attackingPlayer, isOffHandAttack);
         }
     }
@@ -92,7 +92,7 @@ public class LivingEntityMixin {
         if (source.getSource() instanceof LivingEntity) {
             if (amount > 0) {
                 ItemStack mainHandStack = user.getMainHandStack();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SMITING)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SMITING)) {
 
                     if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack) > 0
                             && !(EnchantmentHelper.getLevel(Enchantments.SMITE, mainHandStack) > 0))) {
@@ -119,7 +119,7 @@ public class LivingEntityMixin {
         if (source.getSource() instanceof LivingEntity) {
             if (amount > 0) {
                 ItemStack offHandStack = user.getOffHandStack();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.SMITING)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SMITING)) {
 
                     if (offHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, offHandStack) > 0
                             && !(EnchantmentHelper.getLevel(Enchantments.SMITE, offHandStack) > 0))) {
@@ -139,7 +139,7 @@ public class LivingEntityMixin {
         if(!((Object) this instanceof PlayerEntity attackingPlayer))
             return;
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BUZZY_BEE)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BUZZY_BEE)) {
             ItemStack mainHandStack = attackingPlayer.getMainHandStack();
             ItemStack offHandStack = attackingPlayer.getOffHandStack();
             if (mainHandStack.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER)) {
@@ -161,7 +161,7 @@ public class LivingEntityMixin {
 
         ItemStack poisonTippedArrow = PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW, 8), Potions.POISON);
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DIPPING_POISON)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.DIPPING_POISON)) {
             if (user.getOffHandStack() != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack()) > 0)) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack());
                 if (level > 0) {
@@ -181,9 +181,9 @@ public class LivingEntityMixin {
             return;
 
         if (playerEntity != null) {
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.BURST_BOWSTRING))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BURST_BOWSTRING))
                 EnchantmentEffects.activateBurstBowstringOnJump(playerEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.enableEnchantments.get(EnchantmentsID.DYNAMO))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.DYNAMO))
                 EnchantmentEffects.handleAddDynamoEffect(playerEntity);
         }
     }

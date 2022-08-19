@@ -5,7 +5,7 @@ import chronosacaria.mcdw.configs.McdwEnchantGiverConfig;
 import chronosacaria.mcdw.enchants.EnchantsLists;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
-import chronosacaria.mcdw.enums.LongBowsID;
+import chronosacaria.mcdw.enums.LongbowsID;
 import chronosacaria.mcdw.enums.ShieldsID;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemsInit;
@@ -41,7 +41,7 @@ public class Mcdw implements ModInitializer {
             () -> new ItemStack(ItemsInit.swordItems.get(SwordsID.SWORD_HEARTSTEALER)));
     public static final ItemGroup RANGED = FabricItemGroupBuilder.build(
             Mcdw.ID("weapons/bows"),
-            () -> new ItemStack(ItemsInit.longBowItems.get(LongBowsID.BOW_LONGBOW)));
+            () -> new ItemStack(ItemsInit.longbowItems.get(LongbowsID.BOW_LONGBOW)));
     public static final ItemGroup SHIELDS = FabricItemGroupBuilder.build(
             Mcdw.ID("weapons/shields"),
             () -> new ItemStack(ItemsInit.shieldItems.get(ShieldsID.SHIELD_ROYAL_GUARD)));

@@ -1,7 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.bases.McdwLongBow;
+import chronosacaria.mcdw.bases.McdwLongbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.item.ToolMaterial;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
+public enum LongbowsID implements IMcdwWeaponID, IRangedWeaponID {
     BOW_GUARDIAN_BOW(ToolMaterials.DIAMOND, 30, 19f, "minecraft:diamond"),
     BOW_LONGBOW(ToolMaterials.IRON, 25, 17f, "minecraft:planks"),
     BOW_RED_SNAKE(ToolMaterials.DIAMOND, 30, 18f, "minecraft:diamond");
@@ -22,27 +22,27 @@ public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
     public final float range;
     private final String[] repairIngredient;
 
-    LongBowsID(ToolMaterial material, int drawSpeed, float range, String... repairIngredient) {
+    LongbowsID(ToolMaterial material, int drawSpeed, float range, String... repairIngredient) {
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.range = range;
         this.repairIngredient = repairIngredient;
     }
 
-    public static HashMap<LongBowsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.longBowsEnabled;
+    public static HashMap<LongbowsID, Boolean> getEnabledItems(){
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.LONGBOWS_ENABLED;
     }
 
-    public static EnumMap<LongBowsID, McdwLongBow> getItemsEnum() {
-        return ItemsInit.longBowItems;
+    public static EnumMap<LongbowsID, McdwLongbow> getItemsEnum() {
+        return ItemsInit.longbowItems;
     }
 
-    public static HashMap<LongBowsID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.longBowSpawnRates;
+    public static HashMap<LongbowsID, Integer> getSpawnRates() {
+        return Mcdw.CONFIG.mcdwNewlootConfig.LONGBOW_SPAWN_RATES;
     }
 
-    public static HashMap<LongBowsID, RangedStats> getWeaponStats() {
-        return CONFIG.mcdwNewStatsConfig.longBowStats;
+    public static HashMap<LongbowsID, RangedStats> getWeaponStats() {
+        return CONFIG.mcdwNewStatsConfig.longbowStats;
     }
 
     @Override
@@ -51,7 +51,7 @@ public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public McdwLongBow getItem() {
+    public McdwLongbow getItem() {
         return getItemsEnum().get(this);
     }
 
@@ -61,8 +61,8 @@ public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public HashMap<LongBowsID, RangedStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
-        return mcdwNewStatsConfig.longBowStats;
+    public HashMap<LongbowsID, RangedStats> getWeaponStats(McdwNewStatsConfig mcdwNewStatsConfig) {
+        return mcdwNewStatsConfig.longbowStats;
     }
 
     @Override
@@ -72,7 +72,7 @@ public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
 
     @Override
     public RangedStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig) {
-        return mcdwNewStatsConfig.longBowStats.get(this);
+        return mcdwNewStatsConfig.longbowStats.get(this);
     }
 
     @Override
@@ -96,11 +96,11 @@ public enum LongBowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
-    public McdwLongBow makeWeapon() {
-        McdwLongBow mcdwLongBow = new McdwLongBow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+    public McdwLongbow makeWeapon() {
+        McdwLongbow mcdwLongbow = new McdwLongbow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
 
-        getItemsEnum().put(this, mcdwLongBow);
-        return mcdwLongBow;
+        getItemsEnum().put(this, mcdwLongbow);
+        return mcdwLongbow;
     }
 }

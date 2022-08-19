@@ -30,7 +30,7 @@ public enum StavesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<StavesID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.stavesEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.STAVES_ENABLED;
     }
 
     public static EnumMap<StavesID, McdwStaff> getItemsEnum() {
@@ -38,7 +38,7 @@ public enum StavesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static HashMap<StavesID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.staffSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.STAFF_SPAWN_RATES;
     }
 
     public static HashMap<StavesID, MeleeStats> getWeaponStats() {

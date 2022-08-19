@@ -25,7 +25,7 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
     }
 
     public static HashMap<ShieldsID, Boolean> getEnabledItems(){
-        return Mcdw.CONFIG.mcdwEnableItemsConfig.shieldsEnabled;
+        return Mcdw.CONFIG.mcdwEnableItemsConfig.SHIELDS_ENABLED;
     }
 
     public static EnumMap<ShieldsID, McdwShield> getItemsEnum() {
@@ -33,7 +33,7 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
     }
 
     public static HashMap<ShieldsID, Integer> getSpawnRates() {
-        return Mcdw.CONFIG.mcdwNewlootConfig.shieldSpawnRates;
+        return Mcdw.CONFIG.mcdwNewlootConfig.SHIELD_SPAWN_RATES;
     }
 
     public static HashMap<ShieldsID, ShieldStats> getWeaponStats() {

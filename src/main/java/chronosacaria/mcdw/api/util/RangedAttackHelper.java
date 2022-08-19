@@ -2,7 +2,7 @@ package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwCrossbow;
-import chronosacaria.mcdw.bases.McdwShortBow;
+import chronosacaria.mcdw.bases.McdwShortbow;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
@@ -41,7 +41,7 @@ public class RangedAttackHelper {
         //int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, stack);
 
         float bowChargeTime = 15 * (Math.max(10.0F - 5 * quickChargeLevel, 0));
-        long lastFiredtime = (long)(McdwShortBow.getPullProgress(11) * (Math.max(10.0F - 5 * quickChargeLevel, 0)));
+        long lastFiredtime = (long)(McdwShortbow.getPullProgress(11) * (Math.max(10.0F - 5 * quickChargeLevel, 0)));
 
         if (/*accelerateLevel > 0 &&*/ lastFiredtime > 0){
             return Math.max(bowChargeTime - 5 * quickChargeLevel, 0);

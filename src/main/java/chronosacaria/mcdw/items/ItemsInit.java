@@ -31,8 +31,8 @@ public class ItemsInit {
     public static final EnumMap<StavesID, McdwStaff> staffItems = new EnumMap<>(StavesID.class);
     public static final EnumMap<WhipsID, McdwWhip> whipItems = new EnumMap<>(WhipsID.class);
     public static final EnumMap<BowsID, McdwBow> bowItems = new EnumMap<>(BowsID.class);
-    public static final EnumMap<ShortBowsID, McdwShortBow> shortBowItems = new EnumMap<>(ShortBowsID.class);
-    public static final EnumMap<LongBowsID, McdwLongBow> longBowItems = new EnumMap<>(LongBowsID.class);
+    public static final EnumMap<ShortbowsID, McdwShortbow> shortbowItems = new EnumMap<>(ShortbowsID.class);
+    public static final EnumMap<LongbowsID, McdwLongbow> longbowItems = new EnumMap<>(LongbowsID.class);
     public static final EnumMap<CrossbowsID, McdwCrossbow> crossbowItems = new EnumMap<>(CrossbowsID.class);
     public static final EnumMap<ShieldsID, McdwShield> shieldItems = new EnumMap<>(ShieldsID.class);
     public static final EnumMap<ItemsID, BeeStingerItem> mcdwItems = new EnumMap<>(ItemsID.class);
@@ -46,7 +46,7 @@ public class ItemsInit {
         }
 
         for (ItemsID itemsID : ItemsID.values()) {
-            if (!CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(itemsID))
+            if (!CONFIG.mcdwEnableItemsConfig.ITEMS_ENABLED.get(itemsID))
                 continue;
 
             BeeStingerItem beeStingerItem = new BeeStingerItem(new Item.Settings().group(ItemGroup.MISC).maxCount(64));

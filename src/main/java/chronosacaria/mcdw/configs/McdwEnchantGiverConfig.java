@@ -13,10 +13,10 @@ import wraith.enchant_giver.EnchantsList;
 public class McdwEnchantGiverConfig {
     public static void appendEnchants(){
 
-        if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enableEnchantmentSettings.get(SettingsID.ENABLE_INNATE_ENCHANTMENTS)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.ENABLE_INNATE_ENCHANTMENTS)) {
             // ACCELERATE ENCHANTMENT
             addInnateEnchant(CrossbowsID.CROSSBOW_AUTO_CROSSBOW, EnchantsRegistry.ACCELERATE, true);
-            addInnateEnchant(ShortBowsID.BOW_MECHANICAL_SHORTBOW, EnchantsRegistry.ACCELERATE, true);
+            addInnateEnchant(ShortbowsID.BOW_MECHANICAL_SHORTBOW, EnchantsRegistry.ACCELERATE, true);
 
             // AMBUSH ENCHANTMENT
             addInnateEnchant(DaggersID.DAGGER_BACKSTABBER, EnchantsRegistry.AMBUSH, true);
@@ -84,7 +84,7 @@ public class McdwEnchantGiverConfig {
 
             // FUSE SHOT ENCHANTMENT
             addInnateEnchant(CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW, EnchantsRegistry.FUSE_SHOT, true);
-            addInnateEnchant(LongBowsID.BOW_RED_SNAKE, EnchantsRegistry.FUSE_SHOT, true);
+            addInnateEnchant(LongbowsID.BOW_RED_SNAKE, EnchantsRegistry.FUSE_SHOT, true);
             addInnateEnchant(BowsID.BOW_CALL_OF_THE_VOID, EnchantsRegistry.FUSE_SHOT, false);
 
             // GRAVITY ENCHANTMENT
@@ -145,7 +145,7 @@ public class McdwEnchantGiverConfig {
             // RADIANCE ENCHANTMENT
             addInnateEnchant(HammersID.HAMMER_SUNS_GRACE, EnchantsRegistry.RADIANCE, true);
             addInnateEnchant(BowsID.BOW_SABREWING, EnchantsRegistry.RADIANCE, true);
-            addInnateEnchant(ShortBowsID.BOW_LOVE_SPELL_BOW, EnchantsRegistry.RADIANCE, true);
+            addInnateEnchant(ShortbowsID.BOW_LOVE_SPELL_BOW, EnchantsRegistry.RADIANCE, true);
 
             // RAMPAGING ENCHANTMENT
             addInnateEnchant(SwordsID.SWORD_DANCERS_SWORD, EnchantsRegistry.RAMPAGING, true);

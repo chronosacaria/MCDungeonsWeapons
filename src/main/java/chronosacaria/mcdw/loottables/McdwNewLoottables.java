@@ -18,17 +18,17 @@ import static chronosacaria.mcdw.Mcdw.CONFIG;
 public class McdwNewLoottables {
 
     public static final ArrayList<String> COMMON_LOOT_TABLES =
-            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.commonLootTables.get(SettingsID.COMMON_LOOT_TABLES)));
+            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.COMMON_LOOT_TABLES.get(SettingsID.COMMON_LOOT_TABLES)));
     public static final ArrayList<String> UNCOMMON_LOOT_TABLES =
-            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.uncommonLootTables.get(SettingsID.UNCOMMON_LOOT_TABLES)));
+            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.UNCOMMON_LOOT_TABLES.get(SettingsID.UNCOMMON_LOOT_TABLES)));
     public static final ArrayList<String> RARE_LOOT_TABLES =
-            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.rareLootTables.get(SettingsID.RARE_LOOT_TABLES)));
+            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.RARE_LOOT_TABLES.get(SettingsID.RARE_LOOT_TABLES)));
     public static final ArrayList<String> EPIC_LOOT_TABLES =
-            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.epicLootTables.get(SettingsID.EPIC_LOOT_TABLES)));
+            new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.EPIC_LOOT_TABLES.get(SettingsID.EPIC_LOOT_TABLES)));
 
     static List<IMcdwWeaponID> COMMON_LOOT_POOL = List.of(AxesID.AXE_ANCHOR, AxesID.AXE_AXE, DaggersID.DAGGER_DAGGER, DoubleAxesID.AXE_DOUBLE, GauntletsID.GAUNTLET_GAUNTLET,
-            GlaivesID.SPEAR_GLAIVE, HammersID.HAMMER_GREAT_HAMMER, HammersID.HAMMER_MACE, LongBowsID.BOW_LONGBOW, PicksID.PICK_HOWLING_PICK, PicksID.PICK_MOUNTAINEER_PICK,
-            ShortBowsID.BOW_SHORTBOW, SicklesID.SICKLE_SICKLE, SpearsID.SPEAR_SPEAR, StavesID.STAFF_BATTLESTAFF, SwordsID.SWORD_CUTLASS, SwordsID.SWORD_IRON_SWORD_VAR,
+            GlaivesID.SPEAR_GLAIVE, HammersID.HAMMER_GREAT_HAMMER, HammersID.HAMMER_MACE, LongbowsID.BOW_LONGBOW, PicksID.PICK_HOWLING_PICK, PicksID.PICK_MOUNTAINEER_PICK,
+            ShortbowsID.BOW_SHORTBOW, SicklesID.SICKLE_SICKLE, SpearsID.SPEAR_SPEAR, StavesID.STAFF_BATTLESTAFF, SwordsID.SWORD_CUTLASS, SwordsID.SWORD_IRON_SWORD_VAR,
             SwordsID.SWORD_KATANA, SwordsID.SWORD_RAPIER);
 
     static List<IMcdwWeaponID> UNCOMMON_LOOT_POOL = List.of(BowsID.BOW_BONEBOW, BowsID.BOW_BUBBLE_BOW, BowsID.BOW_HUNTERS_PROMISE, BowsID.BOW_HUNTING_BOW, BowsID.BOW_MASTERS_BOW,
@@ -49,9 +49,9 @@ public class McdwNewLoottables {
             CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW, CrossbowsID.CROSSBOW_SPELLBOUND_CROSSBOW, CrossbowsID.CROSSBOW_VEILED_CROSSBOW, CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW,
             DaggersID.DAGGER_CHILL_GALE_KNIFE, DaggersID.DAGGER_FANGS_OF_FROST, DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE, DaggersID.DAGGER_SHEAR_DAGGER,
             DaggersID.DAGGER_TEMPEST_KNIFE, DoubleAxesID.AXE_WHIRLWIND, GauntletsID.GAUNTLET_MAULERS, GlaivesID.SPEAR_GRAVE_BANE, GlaivesID.SPEAR_VENOM_GLAIVE,
-            HammersID.HAMMER_FLAIL, LongBowsID.BOW_GUARDIAN_BOW, LongBowsID.BOW_RED_SNAKE, PicksID.PICK_DIAMOND_PICKAXE_VAR, PicksID.PICK_HAILING_PINNACLE,
-            ScythesID.SICKLE_FROST_SCYTHE, ShieldsID.SHIELD_ROYAL_GUARD, ShieldsID.SHIELD_VANGUARD, ShortBowsID.BOW_LOVE_SPELL_BOW, ShortBowsID.BOW_MECHANICAL_SHORTBOW,
-            ShortBowsID.BOW_PURPLE_STORM, SicklesID.SICKLE_LAST_LAUGH_GOLD, SicklesID.SICKLE_LAST_LAUGH_GOLD, SicklesID.SICKLE_LAST_LAUGH_SILVER, SpearsID.SPEAR_FORTUNE,
+            HammersID.HAMMER_FLAIL, LongbowsID.BOW_GUARDIAN_BOW, LongbowsID.BOW_RED_SNAKE, PicksID.PICK_DIAMOND_PICKAXE_VAR, PicksID.PICK_HAILING_PINNACLE,
+            ScythesID.SICKLE_FROST_SCYTHE, ShieldsID.SHIELD_ROYAL_GUARD, ShieldsID.SHIELD_VANGUARD, ShortbowsID.BOW_LOVE_SPELL_BOW, ShortbowsID.BOW_MECHANICAL_SHORTBOW,
+            ShortbowsID.BOW_PURPLE_STORM, SicklesID.SICKLE_LAST_LAUGH_GOLD, SicklesID.SICKLE_LAST_LAUGH_GOLD, SicklesID.SICKLE_LAST_LAUGH_SILVER, SpearsID.SPEAR_FORTUNE,
             SpearsID.SPEAR_WHISPERING_SPEAR, StavesID.STAFF_BATTLESTAFF_OF_TERROR, StavesID.STAFF_GROWING_STAFF, SwordsID.SWORD_BEESTINGER, SwordsID.SWORD_CORAL_BLADE,
             SwordsID.SWORD_DANCERS_SWORD, SwordsID.SWORD_FREEZING_FOIL, SwordsID.SWORD_FROST_SLAYER, SwordsID.SWORD_GREAT_AXEBLADE, SwordsID.SWORD_HAWKBRAND,
             SwordsID.SWORD_HEARTSTEALER, SwordsID.SWORD_MASTERS_KATANA, SwordsID.SWORD_SPONGE_STRIKER);
@@ -67,7 +67,7 @@ public class McdwNewLoottables {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
 
             if (EntityType.BEE.getLootTableId().equals(id) && source.isBuiltin())
-                if (CONFIG.mcdwEnableItemsConfig.itemsEnabled.get(ItemsID.ITEM_BEE_STINGER)) {
+                if (CONFIG.mcdwEnableItemsConfig.ITEMS_ENABLED.get(ItemsID.ITEM_BEE_STINGER)) {
                     LootPool.Builder lootPoolBuilder = LootPool.builder();
                     addItemDrop(lootPoolBuilder, ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER), 1, 1f);
                     tableBuilder.pool(lootPoolBuilder.build());
@@ -87,7 +87,7 @@ public class McdwNewLoottables {
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
 
-            if (CONFIG.mcdwNewlootConfig.weaponsEnabledInLootTables.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
+            if (CONFIG.mcdwNewlootConfig.WEAPONS_ENABLED_IN_LOOTTABLES.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
                 LootPool.Builder lootPoolBuilder = LootPool.builder();
                 lootPoolBuilder.rolls(BinomialLootNumberProvider.create(1, CONFIG.mcdwNewlootConfig.findWeaponChance));
                 lootPoolBuilder.bonusRolls(ConstantLootNumberProvider.create(CONFIG.mcdwNewlootConfig.bonusRollsWithLuck));
