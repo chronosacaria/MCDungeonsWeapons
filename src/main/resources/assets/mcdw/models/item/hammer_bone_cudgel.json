@@ -63,12 +63,12 @@
 	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [0, 90, -180],
-			"translation": [0.25, -11.75, 2.25]
+			"rotation": [0, 90, 0],
+			"translation": [0.25, 7.5, 2.25]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [0, 90, -180],
-			"translation": [0.25, -11.75, 2.25]
+			"rotation": [0, 90, 0],
+			"translation": [0.25, 7.5, 2.25]
 		},
 		"firstperson_righthand": {
 			"rotation": [20, 90, 0],
