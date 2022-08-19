@@ -1,5 +1,6 @@
 package chronosacaria.mcdw.mixin.client;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.util.PlayerAttackHelper;
 import net.fabricmc.api.EnvType;
@@ -47,31 +48,35 @@ public class InGameHudMixin extends DrawableHelper{
 
     @Inject(method = "renderCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getAttackCooldownProgress(F)F", shift = At.Shift.AFTER))
     private void renderOffhandCrosshair(MatrixStack matrices, CallbackInfo ci) {
-        GameOptions gameOptions = this.client.options;
-        if (gameOptions.getPerspective().isFirstPerson()) {
-            if (this.client.interactionManager.getCurrentGameMode() != GameMode.SPECTATOR || mcdw$shouldRenderSpectatorCrosshair(this.client.crosshairTarget)) {
-                if (this.client.options.getAttackIndicator().getValue() == AttackIndicator.CROSSHAIR) {
-                    PlayerEntity player = client.player;
-                    if (player == null)
-                        return;
-                    PlayerAttackHelper.switchModifiers(player, player.getMainHandStack(), player.getOffHandStack());
-                    float offhandAttackCooldownProgress = ((IDualWielding) player).getOffhandAttackCooldownProgress(0.0f);
-                    boolean bl = false;
-                    if (this.client.targetedEntity != null && this.client.targetedEntity instanceof LivingEntity && offhandAttackCooldownProgress >= 1.0f) {
-                        bl = ((IDualWielding) player).getOffhandAttackCooldownProgressPerTick() > 5.0f;
-                        bl &= this.client.targetedEntity.isAlive();
+        if (Mcdw.noOffhandConflicts()) {
+            GameOptions gameOptions = this.client.options;
+            if (gameOptions.getPerspective().isFirstPerson()) {
+                if (this.client.interactionManager != null) {
+                    if (this.client.interactionManager.getCurrentGameMode() != GameMode.SPECTATOR || mcdw$shouldRenderSpectatorCrosshair(this.client.crosshairTarget)) {
+                        if (this.client.options.getAttackIndicator().getValue() == AttackIndicator.CROSSHAIR) {
+                            PlayerEntity player = client.player;
+                            if (player == null)
+                                return;
+                            PlayerAttackHelper.switchModifiers(player, player.getMainHandStack(), player.getOffHandStack());
+                            float offhandAttackCooldownProgress = ((IDualWielding) player).getOffhandAttackCooldownProgress(0.0f);
+                            boolean bl = false;
+                            if (this.client.targetedEntity != null && this.client.targetedEntity instanceof LivingEntity && offhandAttackCooldownProgress >= 1.0f) {
+                                bl = ((IDualWielding) player).getOffhandAttackCooldownProgressPerTick() > 5.0f;
+                                bl &= this.client.targetedEntity.isAlive();
+                            }
+                            PlayerAttackHelper.switchModifiers(player, player.getOffHandStack(), player.getMainHandStack());
+                            int height = this.scaledHeight / 2 - 7 + 16;
+                            int width = this.scaledWidth / 2 - 8;
+                            if (bl) {
+                                DrawableHelper.drawTexture(matrices, width, height + 8, 68, 94, 16, 16, 256, 256);
+                            } else if (offhandAttackCooldownProgress < 1.0f) {
+                                int l = (int) (offhandAttackCooldownProgress * 17.0f);
+                                DrawableHelper.drawTexture(matrices, width, height + 8, 36, 94, 16, 4, 256, 256);
+                                DrawableHelper.drawTexture(matrices, width, height + 8, 52, 94, l, 4, 256, 256);
+                            }
+                            player.sendMessage(Text.of(String.valueOf(offhandAttackCooldownProgress)), true);
+                        }
                     }
-                    PlayerAttackHelper.switchModifiers(player, player.getOffHandStack(), player.getMainHandStack());
-                    int height = this.scaledHeight / 2 - 7 + 16;
-                    int width = this.scaledWidth / 2 - 8;
-                    if (bl) {
-                        DrawableHelper.drawTexture(matrices, width, height + 8, 68, 94, 16, 16, 256, 256);
-                    } else if (offhandAttackCooldownProgress < 1.0f) {
-                        int l = (int) (offhandAttackCooldownProgress * 17.0f);
-                        DrawableHelper.drawTexture(matrices, width, height + 8, 36, 94, 16, 4, 256, 256);
-                        DrawableHelper.drawTexture(matrices, width, height + 8, 52, 94, l, 4, 256, 256);
-                    }
-                    player.sendMessage(Text.of(String.valueOf(offhandAttackCooldownProgress)), true);
                 }
             }
         }
@@ -82,7 +87,7 @@ public class InGameHudMixin extends DrawableHelper{
             return false;
         } else if (hitResult.getType() == HitResult.Type.ENTITY) {
             return ((EntityHitResult)hitResult).getEntity() instanceof NamedScreenHandlerFactory;
-        } else if (hitResult.getType() == HitResult.Type.BLOCK) {
+        } else if (hitResult.getType() == HitResult.Type.BLOCK && this.client.world != null) {
             BlockPos blockPos = ((BlockHitResult)hitResult).getBlockPos();
             World world = this.client.world;
             return world.getBlockState(blockPos).createScreenHandlerFactory(world, blockPos) != null;

@@ -13,7 +13,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -29,12 +28,12 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
 
     @Override
     public float getOffhandAttackCooldownProgressPerTick() {
-        return (float)(1.0D / this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED) * 20.0D);
+        return (float) (1.0D / this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED) * 20.0D);
     }
 
     @Override
     public float getOffhandAttackCooldownProgress(float baseTime) {
-        return MathHelper.clamp(((float)getOffhandAttackedTicks() + baseTime) / this.getOffhandAttackCooldownProgressPerTick(), 0.0F, 1.0F);
+        return MathHelper.clamp(((float) getOffhandAttackedTicks() + baseTime) / this.getOffhandAttackCooldownProgressPerTick(), 0.0F, 1.0F);
     }
 
     @Override
@@ -50,26 +49,35 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
     protected void injectInitDataTracker(CallbackInfo ci) {
-        dataTracker.startTracking(LAST_ATTACKED_OFFHAND_TICKS, 0);
+        if (Mcdw.noOffhandConflicts())
+            dataTracker.startTracking(LAST_ATTACKED_OFFHAND_TICKS, 0);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void injectWriteCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
-        nbt.putInt("Devotion", getOffhandAttackedTicks());
+        if (Mcdw.noOffhandConflicts())
+            nbt.putInt("Devotion", getOffhandAttackedTicks());
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     public void injectReadCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
-        setOffhandAttackedTicks(nbt.getInt("Devotion"));
+        if (Mcdw.noOffhandConflicts())
+            setOffhandAttackedTicks(nbt.getInt("Devotion"));
     }
 
     @Override
-    public int getOffhandAttackedTicks() { return dataTracker.get(LAST_ATTACKED_OFFHAND_TICKS); }
+    public int getOffhandAttackedTicks() {
+        if (Mcdw.noOffhandConflicts())
+            return dataTracker.get(LAST_ATTACKED_OFFHAND_TICKS);
+        return 0;
+    }
 
     @Override
     public void setOffhandAttackedTicks(int lastAttackedOffhandTicks) {
-        if (lastAttackedOffhandTicks >= 0)
-            dataTracker.set(LAST_ATTACKED_OFFHAND_TICKS, lastAttackedOffhandTicks);
+        if (Mcdw.noOffhandConflicts()) {
+            if (lastAttackedOffhandTicks >= 0)
+                dataTracker.set(LAST_ATTACKED_OFFHAND_TICKS, lastAttackedOffhandTicks);
+        }
     }
 
 }

@@ -31,7 +31,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
@@ -51,6 +50,7 @@ public class PlayerAttackHelper {
                 || damageSource.name.equals("player");
     }
 
+    /* Can you see me on severs?
     public void swingOffHand(LivingEntity livingEntity, Hand hand) {
         this.swingOffHand(livingEntity, hand, false);
     }
@@ -79,6 +79,7 @@ public class PlayerAttackHelper {
             return livingEntity.hasStatusEffect(StatusEffects.MINING_FATIGUE) ? 6 + (1 + livingEntity.getStatusEffect(StatusEffects.MINING_FATIGUE).getAmplifier()) * 2 : 6;
         }
     }
+    */
 
     public static void checkForOffhandAttack() {
         if (Mcdw.noOffhandConflicts()) {
