@@ -14,10 +14,10 @@ import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
     AXE_ANCHOR(ToolMaterials.IRON,8, -3.4f, "minecraft:iron_ingot"),
-    AXE_AXE(ToolMaterials.IRON,4, -2.86f, "minecraft:iron_ingot"),
-    AXE_ENCRUSTED_ANCHOR(ToolMaterials.DIAMOND,9, -3.4f, "minecraft:diamond"),
-    AXE_FIREBRAND(ToolMaterials.DIAMOND,4, -2.86f, "minecraft:diamond"),
-    AXE_HIGHLAND(ToolMaterials.IRON,4, -2.86f, "minecraft:iron_ingot");
+    AXE_AXE(ToolMaterials.IRON,6, -3.1f, "minecraft:iron_ingot"),
+    AXE_ENCRUSTED_ANCHOR(ToolMaterials.DIAMOND,8, -3.4f, "minecraft:diamond"),
+    AXE_FIREBRAND(ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),
+    AXE_HIGHLAND(ToolMaterials.IRON,4, -2.9f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
