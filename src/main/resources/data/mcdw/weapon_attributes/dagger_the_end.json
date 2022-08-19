@@ -1,0 +1,6 @@
+{
+    "parent": "bettercombat:dagger",
+    "attributes": {
+        "category": "end_dagger"
+    }
+}
