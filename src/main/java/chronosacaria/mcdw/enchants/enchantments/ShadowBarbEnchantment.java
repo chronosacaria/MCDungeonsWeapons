@@ -35,7 +35,7 @@ public class ShadowBarbEnchantment extends RangedEnchantment {
 
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem().equals(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW));
+        return stack.getItem().equals(ItemsInit.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW));
     }
 
     @Override

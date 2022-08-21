@@ -34,7 +34,7 @@ public enum StavesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<StavesID, McdwStaff> getItemsEnum() {
-        return ItemsInit.staffItems;
+        return ItemsInit.STAFF_ITEMS;
     }
 
     public static HashMap<StavesID, Integer> getSpawnRates() {

@@ -43,7 +43,7 @@ public enum DaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<DaggersID, McdwDagger> getItemsEnum() {
-        return ItemsInit.daggerItems;
+        return ItemsInit.DAGGER_ITEMS;
     }
 
     public static HashMap<DaggersID, Integer> getSpawnRates() {

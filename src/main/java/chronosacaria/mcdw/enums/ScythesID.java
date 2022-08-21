@@ -35,7 +35,7 @@ public enum ScythesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<ScythesID, McdwScythe> getItemsEnum() {
-        return ItemsInit.scytheItems;
+        return ItemsInit.SCYTHE_ITEMS;
     }
 
     public static HashMap<ScythesID, Integer> getSpawnRates() {

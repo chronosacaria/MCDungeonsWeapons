@@ -60,7 +60,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     public static EnumMap<CrossbowsID, McdwCrossbow> getItemsEnum() {
-        return ItemsInit.crossbowItems;
+        return ItemsInit.CROSSBOW_ITEMS;
     }
 
     public static HashMap<CrossbowsID, Integer> getSpawnRates() {

@@ -56,7 +56,7 @@ public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<SwordsID, McdwSword> getItemsEnum() {
-        return ItemsInit.swordItems;
+        return ItemsInit.SWORD_ITEMS;
     }
 
     public static HashMap<SwordsID, Integer> getSpawnRates() {

@@ -34,7 +34,7 @@ public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<DoubleAxesID, McdwDoubleAxe> getItemsEnum() {
-        return ItemsInit.doubleAxeItems;
+        return ItemsInit.DOUBLE_AXE_ITEMS;
     }
 
     public static HashMap<DoubleAxesID, Integer> getSpawnRates() {

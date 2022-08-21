@@ -35,7 +35,7 @@ public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<SicklesID, McdwSickle> getItemsEnum() {
-        return ItemsInit.sickleItems;
+        return ItemsInit.SICKLE_ITEMS;
     }
 
     public static HashMap<SicklesID, Integer> getSpawnRates() {

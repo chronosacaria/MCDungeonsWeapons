@@ -81,7 +81,7 @@ public class CrossbowItemMixin {
                 ((IMcdwEnchantedArrow)ppe).setLevitationShotLevel(levitationShotLevel);
             }
             // For Drag in Water for Nautilus Crossbow
-            ((IMcdwEnchantedArrow)ppe).setNautilusBoolean(crossbow.isOf(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)));
+            ((IMcdwEnchantedArrow)ppe).setNautilusBoolean(crossbow.isOf(ItemsInit.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)));
             int phantomsMarkLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PHANTOMS_MARK, crossbow);
             if (phantomsMarkLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setPhantomsMarkLevel(phantomsMarkLevel);
@@ -102,7 +102,7 @@ public class CrossbowItemMixin {
             if (ricochetLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setRicochetLevel(ricochetLevel);
             }
-            ((IMcdwEnchantedArrow)ppe).setShadowBarbBoolean(crossbow.isOf(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)));
+            ((IMcdwEnchantedArrow)ppe).setShadowBarbBoolean(crossbow.isOf(ItemsInit.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)));
             int shadowShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SHADOW_SHOT, crossbow);
             if (shadowShotLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setShadowShotLevel(shadowShotLevel);

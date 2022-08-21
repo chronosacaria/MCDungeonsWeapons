@@ -32,7 +32,7 @@ public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<WhipsID, McdwWhip> getItemsEnum() {
-        return ItemsInit.whipItems;
+        return ItemsInit.WHIP_ITEMS;
     }
 
     public static HashMap<WhipsID, Integer> getSpawnRates() {

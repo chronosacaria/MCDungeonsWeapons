@@ -118,7 +118,7 @@ public class McdwBow extends BowItem {
             tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
             i++;
         }
-        if (stack.getItem() == ItemsInit.bowItems.get(BowsID.BOW_HUNTERS_PROMISE))
+        if (stack.getItem() == ItemsInit.BOW_ITEMS.get(BowsID.BOW_HUNTERS_PROMISE))
             tooltip.add(Text.translatable("tooltip_ench_item.mcdw.hunters_promise_1").formatted(Formatting.GRAY));
     }
 }

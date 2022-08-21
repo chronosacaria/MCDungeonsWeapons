@@ -39,7 +39,7 @@ public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<HammersID, McdwHammer> getItemsEnum() {
-        return ItemsInit.hammerItems;
+        return ItemsInit.HAMMER_ITEMS;
     }
 
     public static HashMap<HammersID, Integer> getSpawnRates() {

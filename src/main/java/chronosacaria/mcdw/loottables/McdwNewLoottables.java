@@ -69,7 +69,7 @@ public class McdwNewLoottables {
             if (EntityType.BEE.getLootTableId().equals(id) && source.isBuiltin())
                 if (CONFIG.mcdwEnableItemsConfig.ITEMS_ENABLED.get(ItemsID.ITEM_BEE_STINGER)) {
                     LootPool.Builder lootPoolBuilder = LootPool.builder();
-                    addItemDrop(lootPoolBuilder, ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER), 1, 1f);
+                    addItemDrop(lootPoolBuilder, ItemsInit.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER), 1, 1f);
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
 

@@ -36,7 +36,7 @@ public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<AxesID, McdwAxe> getItemsEnum() {
-        return ItemsInit.axeItems;
+        return ItemsInit.AXE_ITEMS;
     }
 
     public static HashMap<AxesID, Integer> getSpawnRates() {

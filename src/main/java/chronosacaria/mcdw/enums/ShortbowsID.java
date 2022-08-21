@@ -35,7 +35,7 @@ public enum ShortbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     public static EnumMap<ShortbowsID, McdwShortbow> getItemsEnum() {
-        return ItemsInit.shortbowItems;
+        return ItemsInit.SHORTBOW_ITEMS;
     }
 
     public static HashMap<ShortbowsID, Integer> getSpawnRates() {

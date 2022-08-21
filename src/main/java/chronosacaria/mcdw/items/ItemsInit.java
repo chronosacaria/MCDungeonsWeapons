@@ -16,26 +16,26 @@ import static chronosacaria.mcdw.Mcdw.ID;
 
 public class ItemsInit {
 
-    public static final EnumMap<SwordsID, McdwSword> swordItems = new EnumMap<>(SwordsID.class);
-    public static final EnumMap<AxesID, McdwAxe> axeItems = new EnumMap<>(AxesID.class);
-    public static final EnumMap<DoubleAxesID, McdwDoubleAxe> doubleAxeItems = new EnumMap<>(DoubleAxesID.class);
-    public static final EnumMap<DaggersID, McdwDagger> daggerItems = new EnumMap<>(DaggersID.class);
-    public static final EnumMap<SoulDaggersID, McdwSoulDagger> soulDaggerItems = new EnumMap<>(SoulDaggersID.class);
-    public static final EnumMap<HammersID, McdwHammer> hammerItems = new EnumMap<>(HammersID.class);
-    public static final EnumMap<GauntletsID, McdwGauntlet> gauntletItems = new EnumMap<>(GauntletsID.class);
-    public static final EnumMap<SicklesID, McdwSickle> sickleItems = new EnumMap<>(SicklesID.class);
-    public static final EnumMap<ScythesID, McdwScythe> scytheItems = new EnumMap<>(ScythesID.class);
-    public static final EnumMap<PicksID, McdwPick> pickItems = new EnumMap<>(PicksID.class);
-    public static final EnumMap<GlaivesID, McdwGlaive> glaiveItems = new EnumMap<>(GlaivesID.class);
-    public static final EnumMap<SpearsID, McdwSpear> spearItems = new EnumMap<>(SpearsID.class);
-    public static final EnumMap<StavesID, McdwStaff> staffItems = new EnumMap<>(StavesID.class);
-    public static final EnumMap<WhipsID, McdwWhip> whipItems = new EnumMap<>(WhipsID.class);
-    public static final EnumMap<BowsID, McdwBow> bowItems = new EnumMap<>(BowsID.class);
-    public static final EnumMap<ShortbowsID, McdwShortbow> shortbowItems = new EnumMap<>(ShortbowsID.class);
-    public static final EnumMap<LongbowsID, McdwLongbow> longbowItems = new EnumMap<>(LongbowsID.class);
-    public static final EnumMap<CrossbowsID, McdwCrossbow> crossbowItems = new EnumMap<>(CrossbowsID.class);
-    public static final EnumMap<ShieldsID, McdwShield> shieldItems = new EnumMap<>(ShieldsID.class);
-    public static final EnumMap<ItemsID, BeeStingerItem> mcdwItems = new EnumMap<>(ItemsID.class);
+    public static final EnumMap<SwordsID, McdwSword> SWORD_ITEMS = new EnumMap<>(SwordsID.class);
+    public static final EnumMap<AxesID, McdwAxe> AXE_ITEMS = new EnumMap<>(AxesID.class);
+    public static final EnumMap<DoubleAxesID, McdwDoubleAxe> DOUBLE_AXE_ITEMS = new EnumMap<>(DoubleAxesID.class);
+    public static final EnumMap<DaggersID, McdwDagger> DAGGER_ITEMS = new EnumMap<>(DaggersID.class);
+    public static final EnumMap<SoulDaggersID, McdwSoulDagger> SOUL_DAGGER_ITEMS = new EnumMap<>(SoulDaggersID.class);
+    public static final EnumMap<HammersID, McdwHammer> HAMMER_ITEMS = new EnumMap<>(HammersID.class);
+    public static final EnumMap<GauntletsID, McdwGauntlet> GAUNTLET_ITEMS = new EnumMap<>(GauntletsID.class);
+    public static final EnumMap<SicklesID, McdwSickle> SICKLE_ITEMS = new EnumMap<>(SicklesID.class);
+    public static final EnumMap<ScythesID, McdwScythe> SCYTHE_ITEMS = new EnumMap<>(ScythesID.class);
+    public static final EnumMap<PicksID, McdwPick> PICK_ITEMS = new EnumMap<>(PicksID.class);
+    public static final EnumMap<GlaivesID, McdwGlaive> GLAIVE_ITEMS = new EnumMap<>(GlaivesID.class);
+    public static final EnumMap<SpearsID, McdwSpear> SPEAR_ITEMS = new EnumMap<>(SpearsID.class);
+    public static final EnumMap<StavesID, McdwStaff> STAFF_ITEMS = new EnumMap<>(StavesID.class);
+    public static final EnumMap<WhipsID, McdwWhip> WHIP_ITEMS = new EnumMap<>(WhipsID.class);
+    public static final EnumMap<BowsID, McdwBow> BOW_ITEMS = new EnumMap<>(BowsID.class);
+    public static final EnumMap<ShortbowsID, McdwShortbow> SHORTBOW_ITEMS = new EnumMap<>(ShortbowsID.class);
+    public static final EnumMap<LongbowsID, McdwLongbow> LONGBOW_ITEMS = new EnumMap<>(LongbowsID.class);
+    public static final EnumMap<CrossbowsID, McdwCrossbow> CROSSBOW_ITEMS = new EnumMap<>(CrossbowsID.class);
+    public static final EnumMap<ShieldsID, McdwShield> SHIELD_ITEMS = new EnumMap<>(ShieldsID.class);
+    public static final EnumMap<ItemsID, BeeStingerItem> MCDW_ITEMS = new EnumMap<>(ItemsID.class);
 
     public static void init() {
         for (IMcdwWeaponID mcdwWeaponID : IMcdwWeaponID.values()) {
@@ -51,7 +51,7 @@ public class ItemsInit {
 
             BeeStingerItem beeStingerItem = new BeeStingerItem(new Item.Settings().group(ItemGroup.MISC).maxCount(64));
 
-            mcdwItems.put(itemsID, beeStingerItem);
+            MCDW_ITEMS.put(itemsID, beeStingerItem);
             registerItem(itemsID.toString().toLowerCase(Locale.ROOT), beeStingerItem);
         }
     }

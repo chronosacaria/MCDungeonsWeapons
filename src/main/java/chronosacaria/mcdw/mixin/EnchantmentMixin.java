@@ -35,7 +35,7 @@ public abstract class EnchantmentMixin {
                 && this.type.equals(EnchantmentTarget.WEAPON)){
             cir.setReturnValue(true);
         }
-        if (stack.isOf(ItemsInit.daggerItems.get(DaggersID.DAGGER_SWIFT_STRIKER))
+        if (stack.isOf(ItemsInit.DAGGER_ITEMS.get(DaggersID.DAGGER_SWIFT_STRIKER))
                 && mcdw$isEnchantment(EnchantsRegistry.ECHO, EnchantsRegistry.AMBUSH)){
             cir.setReturnValue(true);
         }

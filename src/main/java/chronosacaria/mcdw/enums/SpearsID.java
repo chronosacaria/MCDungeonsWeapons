@@ -34,7 +34,7 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<SpearsID, McdwSpear> getItemsEnum() {
-        return ItemsInit.spearItems;
+        return ItemsInit.SPEAR_ITEMS;
     }
 
     public static HashMap<SpearsID, Integer> getSpawnRates() {

@@ -51,17 +51,17 @@ public class McdwSoulDagger extends SwordItem {
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
-        if (stack.getItem() == ItemsInit.soulDaggerItems.get(SoulDaggersID.DAGGER_SOUL_KNIFE)) {
+        if (stack.getItem() == ItemsInit.SOUL_DAGGER_ITEMS.get(SoulDaggersID.DAGGER_SOUL_KNIFE)) {
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.soul_knife_1").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.soul_knife_2").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.soul_knife_3").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemsInit.soulDaggerItems.get(SoulDaggersID.SWORD_TRUTHSEEKER)) {
+        if (stack.getItem() == ItemsInit.SOUL_DAGGER_ITEMS.get(SoulDaggersID.SWORD_TRUTHSEEKER)) {
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.truthseeker_1").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.truthseeker_2").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.truthseeker_3").formatted(Formatting.ITALIC));
         }
-        if (stack.getItem() == ItemsInit.soulDaggerItems.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE)) {
+        if (stack.getItem() == ItemsInit.SOUL_DAGGER_ITEMS.get(SoulDaggersID.DAGGER_ETERNAL_KNIFE)) {
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.eternal_knife_1").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.eternal_knife_2").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.eternal_knife_3").formatted(Formatting.ITALIC));

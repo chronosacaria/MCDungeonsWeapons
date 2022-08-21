@@ -61,7 +61,7 @@ public enum BowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     public static EnumMap<BowsID, McdwBow> getItemsEnum() {
-        return ItemsInit.bowItems;
+        return ItemsInit.BOW_ITEMS;
     }
 
     public static HashMap<BowsID, Integer> getSpawnRates() {
