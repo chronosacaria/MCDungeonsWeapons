@@ -2,7 +2,6 @@ package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
-import chronosacaria.mcdw.api.util.McdwEnchantmentHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.bases.McdwBow;
@@ -20,7 +19,6 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -46,8 +44,8 @@ public abstract class BowItemMixin{
     @Inject(method = "onStoppedUsing", at = @At("HEAD"))
     public void mcdw$onStoppedUsingBow(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BONUS_SHOT)){
-            if (McdwEnchantmentHelper.hasEnchantment(stack, EnchantsRegistry.BONUS_SHOT)){
-                int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
+            int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
+            if (bonusShotLevel > 0){
                 float damageMultiplier = 0.03F + (bonusShotLevel * 0.07F);
                 float arrowVelocity = RangedAttackHelper.getVanillaOrModdedBowArrowVelocity(stack, remainingUseTicks);
                 if (arrowVelocity >= 0.1F){
@@ -56,20 +54,18 @@ public abstract class BowItemMixin{
             }
         }
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.MULTI_SHOT)) {
-            int multiShotLevel = McdwEnchantmentHelper.mcdwEnchantmentLevel(user, Enchantments.MULTISHOT);
+            int multiShotLevel = EnchantmentHelper.getLevel(Enchantments.MULTISHOT, stack);
             if (multiShotLevel > 0) {
-                ArrowItem arrowitem = (ArrowItem) (stack.getItem() instanceof ArrowItem ? stack.getItem() : Items.ARROW);
-                PersistentProjectileEntity persistentProjectileEntity = arrowitem.createArrow(world, stack, user);
+                PersistentProjectileEntity projectile = ProjectileEffectHelper.createAbstractArrow(user);
                 LivingEntity target = user.getAttacking();
-                if (!(target == null)) { // \/\/ Taken from AbstractSkeletonEntity
+                if (target != null) { // \/\/ Taken from AbstractSkeletonEntity
                     double d = target.getX() - user.getX();
-                    double e = target.getBodyY(0.3333333333333333D) - persistentProjectileEntity.getY();
+                    double e = target.getBodyY(0.3333333333333333D) - projectile.getY();
                     double f = target.getZ() - user.getZ();
                     double g = MathHelper.sqrt((float) (d * d + f * f));
-                    persistentProjectileEntity.setVelocity(d, e + g * 0.20000000298023224D, f, 1.6F, (float) (14 - user.world.getDifficulty().getId() * 4));
-                    persistentProjectileEntity.pickupType =
-                            PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
-                    world.spawnEntity(persistentProjectileEntity);
+                    projectile.setVelocity(d, e + g * 0.20000000298023224D, f, 1.6F, (float) (14 - user.world.getDifficulty().getId() * 4));
+                    projectile.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
+                    world.spawnEntity(projectile);
                 }
             }
         }

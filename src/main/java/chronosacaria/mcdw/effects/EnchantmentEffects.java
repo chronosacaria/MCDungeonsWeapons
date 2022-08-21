@@ -814,7 +814,7 @@ public class EnchantmentEffects {
     public static void handleAddDynamoEffect(PlayerEntity playerEntity) {
         ItemStack mainHandStack = playerEntity.getMainHandStack();
         ItemStack offHandStack = playerEntity.getOffHandStack();
-        if (McdwEnchantmentHelper.hasEnchantment(mainHandStack, EnchantsRegistry.DYNAMO) || McdwEnchantmentHelper.hasEnchantment(offHandStack, EnchantsRegistry.DYNAMO)) {
+        if (Math.max(EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, mainHandStack), EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, offHandStack)) > 0) {
             StatusEffectInstance dynamoInstance = playerEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
             int i = 1;
             if (dynamoInstance != null) {

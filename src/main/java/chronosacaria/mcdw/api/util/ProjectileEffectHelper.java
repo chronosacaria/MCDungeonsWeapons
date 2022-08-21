@@ -8,7 +8,10 @@ import net.minecraft.item.ArrowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.*;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Quaternion;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
 
 import java.util.Collections;
@@ -27,7 +30,7 @@ public class ProjectileEffectHelper {
         }
     }
 
-    private static PersistentProjectileEntity createAbstractArrow(LivingEntity attacker) {
+    public static PersistentProjectileEntity createAbstractArrow(LivingEntity attacker) {
         return ((ArrowItem) Items.ARROW).createArrow(attacker.getEntityWorld(), new ItemStack(Items.ARROW), attacker);
     }
 
