@@ -192,22 +192,24 @@ public class LivingEntityMixin {
     }
 
     @Inject(method = "applyDamage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setHealth(F)V"))
-    public void overwhammer(DamageSource source, float amount, CallbackInfo ci) {
+    public void applySharedPainDamage(DamageSource source, float amount, CallbackInfo ci) {
         if (source.getSource() instanceof PlayerEntity player) {
             int sharedPainLevel = EnchantmentEffects.mcdw$getEnchantmentLevel(EnchantsRegistry.SHARED_PAIN, player, false);
             if (sharedPainLevel <= 0) return;
-            if ((Object) this instanceof LivingEntity target) {
-                float targetHealth = target.getHealth() - amount;
-                if (targetHealth < 0) {
-                    float overkillDamage = Math.abs(targetHealth);
-                    List<LivingEntity> nearbyEntities = AOEHelper.getAoeTargets(target, target, 6);
-                    if (nearbyEntities.size() == 0) {
-                        if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.SHARED_PAIN_CAN_DAMAGE_USER)) {
-                            player.damage(DamageSource.MAGIC, overkillDamage);
-                        }
-                    } else {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SHARED_PAIN)) {
+                if ((Object) this instanceof LivingEntity target) {
+                    float targetHealth = target.getHealth() - amount;
+                    if (targetHealth < 0) {
+                        float overkillDamage = Math.abs(targetHealth);
+                        List<LivingEntity> nearbyEntities = AOEHelper.getAoeTargets(target, target, 6);
+                        if (nearbyEntities.size() == 0) {
+                            if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.SHARED_PAIN_CAN_DAMAGE_USER)) {
+                                player.damage(DamageSource.MAGIC, overkillDamage);
+                            }
+                        } else {
                             nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(target)));
                             nearbyEntities.get(0).damage(DamageSource.MAGIC, overkillDamage);
+                        }
                     }
                 }
             }
