@@ -1,6 +1,6 @@
 package chronosacaria.mcdw.api.interfaces;
 
-import chronosacaria.mcdw.api.util.PlayerAttackHelper;
+import chronosacaria.mcdw.client.OffhandAttackChecker;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.enums.DaggersID;
 import chronosacaria.mcdw.enums.SicklesID;
@@ -19,7 +19,7 @@ public interface IOffhandAttack {
                     || (player.getMainHandStack().isOf(DaggersID.DAGGER_THE_END.getItem()) && player.getOffHandStack().isOf(DaggersID.DAGGER_THE_BEGINNING.getItem()))
                     || (player.getMainHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_GOLD.getItem()) && player.getOffHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_SILVER.getItem()))
                     || (player.getMainHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_SILVER.getItem()) && player.getOffHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_GOLD.getItem()))))) {
-                PlayerAttackHelper.checkForOffhandAttack();
+                OffhandAttackChecker.checkForOffhandAttack();
                 ItemStack offhand = player.getStackInHand(hand);
                 return new TypedActionResult<>(ActionResult.SUCCESS, offhand);
             }

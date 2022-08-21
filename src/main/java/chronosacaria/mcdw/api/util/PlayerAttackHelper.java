@@ -4,9 +4,7 @@ import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.damagesource.OffHandDamageSource;
-import chronosacaria.mcdw.networking.OffhandAttackPacket;
 import chronosacaria.mcdw.particles.ParticlesInit;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.SweepingEnchantment;
@@ -26,7 +24,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
-import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
@@ -76,25 +73,6 @@ public class PlayerAttackHelper {
         }
     }
     */
-
-    public static void checkForOffhandAttack() {
-        if (CompatibilityFlags.noOffhandConflicts) {
-            MinecraftClient mc = MinecraftClient.getInstance();
-            PlayerEntity player = mc.player;
-            if (mc.world != null
-                    && mc.currentScreen == null
-                    && !mc.isPaused()
-                    && player != null
-                    && !player.isBlocking()) {
-
-                if (mc.interactionManager != null && mc.getNetworkHandler() != null) {
-                    mc.getNetworkHandler().sendPacket(mc.crosshairTarget instanceof EntityHitResult entityHitResult
-                            ? OffhandAttackPacket.offhandAttackPacket(entityHitResult.getEntity())
-                            : OffhandAttackPacket.offhandMissPacket());
-                }
-            }
-        }
-    }
 
     public static void switchModifiers(PlayerEntity player, ItemStack switchFrom, ItemStack switchTo) {
         player.getAttributes().removeModifiers(switchFrom.getAttributeModifiers(EquipmentSlot.MAINHAND));
