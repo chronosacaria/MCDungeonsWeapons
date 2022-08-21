@@ -35,7 +35,7 @@ public class OffhandAttackPacket {
             server.execute(() -> {
                 player.updateLastActionTime();
                 if (entity != null) {
-                    PlayerAttackHelper.offhandAttack(player, ((ServerWorld) player.world).getDragonPart(offhandAttackedEntityId));
+                    PlayerAttackHelper.offhandAttack(player, entity);
                 }
             });
         });
