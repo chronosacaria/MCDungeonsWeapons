@@ -1,7 +1,6 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
@@ -98,7 +97,7 @@ public class LivingEntityMixin {
                             && !(EnchantmentHelper.getLevel(Enchantments.SMITE, mainHandStack) > 0))) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack);
                         if (target.isUndead()) {
-                            AOEHelper.causeSmitingAttack(user, target,
+                            EnchantmentEffects.causeSmitingAttack(user, target,
                                     3.0f * level, amount);
                         }
                     }
@@ -125,7 +124,7 @@ public class LivingEntityMixin {
                             && !(EnchantmentHelper.getLevel(Enchantments.SMITE, offHandStack) > 0))) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, offHandStack);
                         if (target.isUndead()) {
-                            AOEHelper.causeSmitingAttack(user, target,
+                            EnchantmentEffects.causeSmitingAttack(user, target,
                                     3.0f * level, amount);
                         }
                     }

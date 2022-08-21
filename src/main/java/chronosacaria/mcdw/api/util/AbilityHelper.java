@@ -3,7 +3,6 @@ package chronosacaria.mcdw.api.util;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.goals.GoalUtils;
 import chronosacaria.mcdw.enums.SettingsID;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
