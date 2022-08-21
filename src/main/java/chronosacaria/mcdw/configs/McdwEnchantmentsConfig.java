@@ -21,10 +21,12 @@ public class McdwEnchantmentsConfig implements ConfigData {
         for (EnchantmentsID enchantmentsID : EnchantmentsID.values())
             ENABLE_VILLAGER_TRADING.put(enchantmentsID, true);
         ENABLE_VILLAGER_TRADING.replace(EnchantmentsID.DYNAMO, false);
+        ENABLE_VILLAGER_TRADING.replace(EnchantmentsID.SHARED_PAIN, false);
 
         for (EnchantmentsID enchantmentsID : EnchantmentsID.values())
             ENABLE_RANDOM_SELECTION.put(enchantmentsID, true);
         ENABLE_RANDOM_SELECTION.replace(EnchantmentsID.BURST_BOWSTRING, false);
         ENABLE_RANDOM_SELECTION.replace(EnchantmentsID.DYNAMO, false);
+        ENABLE_RANDOM_SELECTION.replace(EnchantmentsID.SHARED_PAIN, false);
     }
 }

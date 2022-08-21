@@ -58,7 +58,7 @@ public class ProjectileEffectHelper {
         }
     }
 
-    private static List<LivingEntity> getSecondaryTargets(LivingEntity source, double distance) {
+    public static List<LivingEntity> getSecondaryTargets(LivingEntity source, double distance) {
         List<LivingEntity> nearbyEntities = AOEHelper.getAoeTargets(source, source, (float) distance);
         if (nearbyEntities.size() < 2) return Collections.emptyList();
 
