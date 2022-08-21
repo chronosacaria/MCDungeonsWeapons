@@ -56,13 +56,13 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void injectWriteCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
-            nbt.putInt("Devotion", getOffhandAttackedTicks());
+            nbt.putInt("LastAttackedOffhandTicks", getOffhandAttackedTicks());
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     public void injectReadCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
-            setOffhandAttackedTicks(nbt.getInt("Devotion"));
+            setOffhandAttackedTicks(nbt.getInt("LastAttackedOffhandTicks"));
     }
 
     @Override
