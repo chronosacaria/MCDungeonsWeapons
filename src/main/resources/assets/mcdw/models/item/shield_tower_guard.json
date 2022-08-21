@@ -47,6 +47,14 @@
 		}
 	],
 	"gui_light": "front",
+	"overrides": [
+		{
+			"predicate": {
+				"blocking": 1
+			},
+			"model": "mcdw:item/shield_tower_guard_blocking"
+		}
+	],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [-180, 0, -180],

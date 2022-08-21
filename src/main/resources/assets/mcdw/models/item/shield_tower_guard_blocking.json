@@ -2,7 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "mcdw:item/shields/shield_tower_guard"
+		"0": "mcdw:item/shields/shield_tower_guard",
+		"particle": "mcdw:item/shields/shield_tower_guard"
 	},
 	"elements": [
 		{
@@ -48,19 +49,20 @@
 	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [-180, 0, -180],
-			"translation": [3.5, -3, 4]
+			"rotation": [-152, -50, -180],
+			"translation": [3.5, -1.5, -2]
 		},
 		"thirdperson_lefthand": {
-			"translation": [3.5, -3, 4]
+			"rotation": [-152, 130, -180],
+			"translation": [3.5, -1.5, -2]
 		},
 		"firstperson_righthand": {
 			"rotation": [5, -90, 0],
-			"translation": [-4, -8.5, -2.75]
+			"translation": [-4, -5.5, -2.75]
 		},
 		"firstperson_lefthand": {
 			"rotation": [5, 90, 0],
-			"translation": [-4, -8.5, -2.75]
+			"translation": [-4, -5.5, -2.75]
 		},
 		"ground": {
 			"translation": [1.75, 1.75, 0],
@@ -73,7 +75,8 @@
 		},
 		"head": {
 			"rotation": [0, 90, 0],
-			"translation": [-9.75, -11, -6.75]
+			"translation": [-9.75, -11, -6.75],
+			"scale":[ 1, 1, 1 ]
 		},
 		"fixed": {
 			"rotation": [0, -90, 0],
