@@ -136,9 +136,8 @@ public class PlayerAttackHelper {
                     ++knockbackLevel;
                 }
 
-                boolean playerShouldCrit = isMostlyCharged && playerEntity.fallDistance > 0.0f
-                        && !playerEntity.isOnGround() && !playerEntity.isClimbing() && !playerEntity.isTouchingWater()
-                        && !playerEntity.hasStatusEffect(StatusEffects.BLINDNESS) && !playerEntity.hasVehicle() && target instanceof LivingEntity;
+                boolean playerShouldCrit = isMostlyCharged && AbilityHelper.entityCanCrit(playerEntity)
+                        && target instanceof LivingEntity;
                 if (playerShouldCrit && !playerEntity.isSprinting()) {
                     attackDamage *= 1.5f;
                 }

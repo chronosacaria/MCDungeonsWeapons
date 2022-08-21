@@ -70,15 +70,12 @@ public class AbilityHelper {
     }
 
     public static boolean entityCanCrit(LivingEntity livingEntity) {
-        return !livingEntity.isHoldingOntoLadder()
-                && !livingEntity.isSwimming()
+        return !livingEntity.isClimbing()
+                && !livingEntity.isTouchingWater()
                 && !livingEntity.isOnGround()
-                && !livingEntity.hasStatusEffect(StatusEffects.SLOW_FALLING)
                 && !livingEntity.isSprinting()
                 && !livingEntity.hasVehicle()
                 && !livingEntity.hasStatusEffect(StatusEffects.BLINDNESS)
-                && livingEntity.getVelocity().y < 0
-                && !livingEntity.getBlockStateAtPos().isOf(Blocks.SCAFFOLDING)
-                && !livingEntity.getBlockStateAtPos().isOf(Blocks.VINE);
+                && livingEntity.fallDistance > 0;
     }
 }
