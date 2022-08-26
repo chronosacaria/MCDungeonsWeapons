@@ -13,6 +13,7 @@ import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.mixin.MobEntityAccessor;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -50,7 +51,13 @@ public class EnchantmentEffects {
     static final LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENCHANTMENT_TRIGGER_BASE_CHANCE;
 
     public static int mcdw$getEnchantmentLevel(Enchantment enchantment, LivingEntity enchantedEntity, boolean isOffHandStack) {
-        return EnchantmentHelper.getLevel(enchantment, isOffHandStack ? enchantedEntity.getOffHandStack() : enchantedEntity.getMainHandStack());
+        if (FabricLoader.getInstance().isModLoaded("bettercombat")) {
+            // Better Combat can figure out if the hit was done by offhand
+            return EnchantmentHelper.getEquipmentLevel(enchantment, enchantedEntity);
+        } else {
+            // We know if the hit was done by offhand
+            return EnchantmentHelper.getLevel(enchantment, isOffHandStack ? enchantedEntity.getOffHandStack() : enchantedEntity.getMainHandStack());
+        }
     }
 
     /* ExperienceOrbEntityMixin */
