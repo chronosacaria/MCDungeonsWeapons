@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:string"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stick"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_fermented_spider_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:fermented_spider_eye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cobweb": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:cobweb"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_base_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:bow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mcdw:bow_web_bow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_string",
+      "has_stick",
+      "has_fermented_spider_eye",
+      "has_cobweb",
+      "has_base_bow",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mcdw:bow_web_bow"
+    ]
+  }
+}

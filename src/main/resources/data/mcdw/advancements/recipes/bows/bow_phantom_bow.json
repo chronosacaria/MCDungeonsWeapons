@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:string"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_phantom_membrane": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:phantom_membrane"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_emerald": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:emerald"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_bone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:bone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_base_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:bow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mcdw:bow_phantom_bow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_string",
+      "has_phantom_membrane",
+      "has_emerald",
+      "has_bone",
+      "has_base_bow",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mcdw:bow_phantom_bow"
+    ]
+  }
+}
