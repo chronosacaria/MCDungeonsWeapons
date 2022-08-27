@@ -1,0 +1,60 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_leather": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:leather"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_bone": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:bone"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_base": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "mcdw:gauntlet_gauntlet"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+            "conditions": {
+                "recipe": "mcdw:gauntlet_maulers"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+        }
+    },
+    "requirements": [
+        [
+            "has_leather",
+            "has_bone",
+            "has_base",
+            "has_the_recipe"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "mcdw:gauntlet_maulers"
+        ]
+    }
+}
