@@ -10,6 +10,7 @@ import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.ItemsID;
+import chronosacaria.mcdw.enums.SettingsID;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -33,7 +34,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+import java.util.Comparator;
 import java.util.List;
 
 @SuppressWarnings("ConstantConditions")
@@ -98,7 +101,7 @@ public class LivingEntityMixin {
                             && !(EnchantmentHelper.getLevel(Enchantments.SMITE, mainHandStack) > 0))) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack);
                         if (target.isUndead()) {
-                            AOEHelper.causeSmitingAttack(user, target,
+                            EnchantmentEffects.causeSmitingAttack(user, target,
                                     3.0f * level, amount);
                         }
                     }
@@ -125,7 +128,7 @@ public class LivingEntityMixin {
                             && !(EnchantmentHelper.getLevel(Enchantments.SMITE, offHandStack) > 0))) {
                         int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, offHandStack);
                         if (target.isUndead()) {
-                            AOEHelper.causeSmitingAttack(user, target,
+                            EnchantmentEffects.causeSmitingAttack(user, target,
                                     3.0f * level, amount);
                         }
                     }
@@ -142,7 +145,7 @@ public class LivingEntityMixin {
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BUZZY_BEE)) {
             ItemStack mainHandStack = attackingPlayer.getMainHandStack();
             ItemStack offHandStack = attackingPlayer.getOffHandStack();
-            if (mainHandStack.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsInit.mcdwItems.get(ItemsID.ITEM_BEE_STINGER)) {
+            if (mainHandStack.getItem() == ItemsInit.SWORD_ITEMS.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsInit.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER)) {
                 offHandStack.decrement(1);
                 SummonedBeeEntity summonedBeeEntity_1 = mcdw$summoned_bee.create(attackingPlayer.world);
                 if (summonedBeeEntity_1 != null) {
@@ -185,6 +188,31 @@ public class LivingEntityMixin {
                 EnchantmentEffects.activateBurstBowstringOnJump(playerEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.DYNAMO))
                 EnchantmentEffects.handleAddDynamoEffect(playerEntity);
+        }
+    }
+
+    @Inject(method = "applyDamage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setHealth(F)V"))
+    public void applySharedPainDamage(DamageSource source, float amount, CallbackInfo ci) {
+        if (source.getSource() instanceof PlayerEntity player) {
+            int sharedPainLevel = EnchantmentEffects.mcdw$getEnchantmentLevel(EnchantsRegistry.SHARED_PAIN, player, false);
+            if (sharedPainLevel <= 0) return;
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SHARED_PAIN)) {
+                if ((Object) this instanceof LivingEntity target) {
+                    float targetHealth = target.getHealth() - amount;
+                    if (targetHealth < 0) {
+                        float overkillDamage = Math.abs(targetHealth);
+                        List<LivingEntity> nearbyEntities = AOEHelper.getAoeTargets(target, target, 6);
+                        if (nearbyEntities.size() == 0) {
+                            if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.SHARED_PAIN_CAN_DAMAGE_USER)) {
+                                player.damage(DamageSource.MAGIC, overkillDamage);
+                            }
+                        } else {
+                            nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(target)));
+                            nearbyEntities.get(0).damage(DamageSource.MAGIC, overkillDamage);
+                        }
+                    }
+                }
+            }
         }
     }
 }

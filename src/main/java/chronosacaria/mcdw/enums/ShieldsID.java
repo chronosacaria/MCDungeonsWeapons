@@ -14,6 +14,7 @@ import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ShieldsID implements IMcdwWeaponID, IShieldID {
     SHIELD_ROYAL_GUARD(ToolMaterials.DIAMOND, "minecraft:iron_ingot", "minecraft:gold_ingot"),
+    SHIELD_TOWER_GUARD(ToolMaterials.DIAMOND, "minecraft:iron_ingot", "minecraft:gold_ingot", "minecraft:copper_ingot"),
     SHIELD_VANGUARD(ToolMaterials.DIAMOND, "minecraft:planks", "minecraft:iron_ingot");
 
     private final ToolMaterial material;
@@ -29,7 +30,7 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
     }
 
     public static EnumMap<ShieldsID, McdwShield> getItemsEnum() {
-        return ItemsInit.shieldItems;
+        return ItemsInit.SHIELD_ITEMS;
     }
 
     public static HashMap<ShieldsID, Integer> getSpawnRates() {

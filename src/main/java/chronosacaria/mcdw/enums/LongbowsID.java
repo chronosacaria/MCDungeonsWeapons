@@ -34,7 +34,7 @@ public enum LongbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     public static EnumMap<LongbowsID, McdwLongbow> getItemsEnum() {
-        return ItemsInit.longbowItems;
+        return ItemsInit.LONGBOW_ITEMS;
     }
 
     public static HashMap<LongbowsID, Integer> getSpawnRates() {

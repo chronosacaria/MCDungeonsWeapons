@@ -2,8 +2,6 @@ package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.RarityHelper;
-import chronosacaria.mcdw.enums.CrossbowsID;
-import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.*;

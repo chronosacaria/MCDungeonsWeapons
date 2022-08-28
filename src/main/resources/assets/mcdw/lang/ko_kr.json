@@ -144,6 +144,7 @@
   "item.mcdw.gauntlet_soul_fists": "영혼의 주먹",
 
   "item.mcdw.shield_royal_guard": "로얄 가드 방패",
+  "item.mcdw.shield_tower_guard": "타워 가드 방패",
   "item.mcdw.shield_vanguard": "선봉대 방패",
 
   "item.mcdw.item_bee_stinger": "꿀벌 침",
@@ -177,6 +178,7 @@
   "enchantment.mcdw.replenish": "보충",
   "enchantment.mcdw.ricochet": "도탄",
   "enchantment.mcdw.rushdown": "추적",
+  "enchantment.mcdw.shared_pain": "피해 공유",
   "enchantment.mcdw.shockwave": "충격파",
   "enchantment.mcdw.smiting": "강타",
   "enchantment.mcdw.soul_siphon": "영혼 흡수",
@@ -229,21 +231,21 @@
   "tooltip_info_item.mcdw.heartstealer_2"     : "한 명에게 오징어 해안 정복을",
   "tooltip_info_item.mcdw.heartstealer_3"     : "치하하는 의미로 하사된 무기입니다.",
   "tooltip_info_item.mcdw.heartstealer_4"     : "이 룬블레이드는",
-  "tooltip_info_item.mcdw.heartstealer_5"     : "어둠의 마법이 깃들어 있습니다. ", 
+  "tooltip_info_item.mcdw.heartstealer_5"     : "어둠의 마법이 깃들어 있습니다. ",
 
   "tooltip_info_item.mcdw.cutlass_1"          : "이 굽은 칼은",
   "tooltip_info_item.mcdw.cutlass_2"          : "오징어 해안의 전사들이 사용하며",
   "tooltip_info_item.mcdw.cutlass_3"          : "뛰어난 전투 솜씨가 필요합니다.",
 
   "tooltip_info_item.mcdw.dancers_sword_1"    : "전투를 죽음의 춤으로 생각하는",
-  "tooltip_info_item.mcdw.dancers_sword_2"    : "전사들은 양날 검을 선호합니다.", 
+  "tooltip_info_item.mcdw.dancers_sword_2"    : "전사들은 양날 검을 선호합니다.",
 
   "tooltip_info_item.mcdw.nameless_blade_1"   : "이 죽음의 검에 얽힌 이야기는 모래알",
   "tooltip_info_item.mcdw.nameless_blade_2"   : "같은 무한한 시간 속에 잊혀졌습니다.",
 
   "tooltip_info_item.mcdw.katana_1"           : "전문적인 전사와 투사에게",
   "tooltip_info_item.mcdw.katana_2"           : "맞는 칼입니다. 칼날은 정확한 피해를",
-  "tooltip_info_item.mcdw.katana_3"           : "입힐 수 있도록 만들어졌습니다.", 
+  "tooltip_info_item.mcdw.katana_3"           : "입힐 수 있도록 만들어졌습니다.",
 
   "tooltip_info_item.mcdw.masters_katana_1"   : "달인의 카타나는 세대에",
   "tooltip_info_item.mcdw.masters_katana_2"   : "걸쳐 등장하며, 당대 영웅에게",
@@ -258,7 +260,7 @@
   "tooltip_info_item.mcdw.beestinger_1"       : "꿀벌의 미늘에서 영감을 얻은 빠른 칼,",
   "tooltip_info_item.mcdw.beestinger_2"       : "꿀벌 침은 친절한 꿀벌을",
   "tooltip_info_item.mcdw.beestinger_3"       : "싸움에 끌어 들여 아군으로",
-  "tooltip_info_item.mcdw.beestinger_4"       : "함께 싸우게 만들 수 있습니다.",  
+  "tooltip_info_item.mcdw.beestinger_4"       : "함께 싸우게 만들 수 있습니다.",
   "tooltip_ench_item.mcdw.beestinger_1"       : "바쁜 꿀벌",
 
   "tooltip_info_item.mcdw.freezing_foil_1"    : "이 바늘 모양의 칼날은 만지면",
@@ -383,7 +385,7 @@
 
 
   "tooltip_info_item.mcdw.jailors_scythe_1"   : "하이블록 요새에서 공포의",
-  "tooltip_info_item.mcdw.jailors_scythe_2"   : "대상인 간수가 소유한 대낫입니다.", 
+  "tooltip_info_item.mcdw.jailors_scythe_2"   : "대상인 간수가 소유한 대낫입니다.",
 
   "tooltip_info_item.mcdw.sickle_1"           : "사막 사원이",
   "tooltip_info_item.mcdw.sickle_2"           : "있는 지역에서 온",
@@ -405,7 +407,7 @@
   "tooltip_info_item.mcdw.battlestaff_2"      : "대비할 수 있는 완벽하게",
   "tooltip_info_item.mcdw.battlestaff_3"      : "균형 잡힌 지팡이입니다.",
 
-  "tooltip_info_item.mcdw.battlestaff_of_terror_1": "이 지팡이는", 
+  "tooltip_info_item.mcdw.battlestaff_of_terror_1": "이 지팡이는",
   "tooltip_info_item.mcdw.battlestaff_of_terror_2": "폭발 효과로 전투에서",
   "tooltip_info_item.mcdw.battlestaff_of_terror_3": "상대를 압도합니다.",
 
@@ -421,7 +423,7 @@
   "tooltip_info_item.mcdw.vine_whip_2"        : "건장한 채찍으로, 닿는 모든 것을",
   "tooltip_info_item.mcdw.vine_whip_3"        : "중독시킬 수 있습니다.",
   "tooltip_info_item.mcdw.vine_whip_4"        : "본인이 긁히지 않도록",
-  "tooltip_info_item.mcdw.vine_whip_5"        : "조심하세요!", 
+  "tooltip_info_item.mcdw.vine_whip_5"        : "조심하세요!",
 
   "tooltip_info_item.mcdw.tempest_knife_1"    : "이 칼은 산 꼭대기",
   "tooltip_info_item.mcdw.tempest_knife_2"    : "사이를 가르는 바람처럼",
@@ -488,7 +490,7 @@
 
   "tooltip_info_item.mcdw.power_bow_1"        : "강력 활이 강력한 이유에 대한",
   "tooltip_info_item.mcdw.power_bow_2"        : "질문은 오랫동안 식견 있는",
-  "tooltip_info_item.mcdw.power_bow_3"        : "사람들을 혼란스럽게 했습니다.", 
+  "tooltip_info_item.mcdw.power_bow_3"        : "사람들을 혼란스럽게 했습니다.",
 
   "tooltip_info_item.mcdw.purple_storm_1"     : "아름다운 빛깔에 따라",
   "tooltip_info_item.mcdw.purple_storm_2"     : "보라색 폭풍이라 이름 지은 이 전설의",
@@ -502,7 +504,7 @@
   "tooltip_info_item.mcdw.sabrewing_2"        : "만든 이 활은 정의를 원하는",
   "tooltip_info_item.mcdw.sabrewing_3"        : "사람의 손에 딱 맞습니다.",
 
-  "tooltip_info_item.mcdw.shortbow_1"         : "도둑과 악당이 선호하는", 
+  "tooltip_info_item.mcdw.shortbow_1"         : "도둑과 악당이 선호하는",
   "tooltip_info_item.mcdw.shortbow_2"         : "무기인 단궁은 날렵하며",
   "tooltip_info_item.mcdw.shortbow_3"         : "단거리에서 살상력이 뛰어납니다.",
 
@@ -561,7 +563,7 @@
 
   "tooltip_info_item.mcdw.auto_crossbow_1"          : "우민왕은 환상 속에서",
   "tooltip_info_item.mcdw.auto_crossbow_2"          : "이 강력한 석궁의 제조법을",
-  "tooltip_info_item.mcdw.auto_crossbow_3"          : "발견했다고 말했습니다.", 
+  "tooltip_info_item.mcdw.auto_crossbow_3"          : "발견했다고 말했습니다.",
 
   "tooltip_info_item.mcdw.azure_seeker_1"           : "파란색에 소리가,",
   "tooltip_info_item.mcdw.azure_seeker_2"           : "있다면 아마 푸른 수색자의",

@@ -62,9 +62,9 @@ public class McdwSword extends SwordItem {
             tooltip.add(new TranslatableText(translationKey + i).formatted(Formatting.ITALIC));
             i++;
         }
-        if (stack.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_BEESTINGER))
+        if (stack.getItem() == ItemsInit.SWORD_ITEMS.get(SwordsID.SWORD_BEESTINGER))
             tooltip.add(new TranslatableText("tooltip_ench_item.mcdw.beestinger_1").formatted(Formatting.GRAY));
-        if (stack.getItem() == ItemsInit.swordItems.get(SwordsID.SWORD_DIAMOND_SWORD_VAR)){
+        if (stack.getItem() == ItemsInit.SWORD_ITEMS.get(SwordsID.SWORD_DIAMOND_SWORD_VAR)){
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.diamond_sword_1").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.diamond_sword_2").formatted(Formatting.ITALIC));
             tooltip.add(new TranslatableText("tooltip_info_item.mcdw.diamond_sword_3").formatted(Formatting.ITALIC));

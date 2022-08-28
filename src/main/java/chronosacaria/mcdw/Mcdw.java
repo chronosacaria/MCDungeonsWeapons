@@ -38,13 +38,13 @@ public class Mcdw implements ModInitializer {
 
     public static final ItemGroup WEAPONS = FabricItemGroupBuilder.build(
             Mcdw.ID("weapons"),
-            () -> new ItemStack(ItemsInit.swordItems.get(SwordsID.SWORD_HEARTSTEALER)));
+            () -> new ItemStack(ItemsInit.SWORD_ITEMS.get(SwordsID.SWORD_HEARTSTEALER)));
     public static final ItemGroup RANGED = FabricItemGroupBuilder.build(
             Mcdw.ID("weapons/bows"),
-            () -> new ItemStack(ItemsInit.longbowItems.get(LongbowsID.BOW_LONGBOW)));
+            () -> new ItemStack(ItemsInit.LONGBOW_ITEMS.get(LongbowsID.BOW_LONGBOW)));
     public static final ItemGroup SHIELDS = FabricItemGroupBuilder.build(
             Mcdw.ID("weapons/shields"),
-            () -> new ItemStack(ItemsInit.shieldItems.get(ShieldsID.SHIELD_ROYAL_GUARD)));
+            () -> new ItemStack(ItemsInit.SHIELD_ITEMS.get(ShieldsID.SHIELD_ROYAL_GUARD)));
     public static final ItemGroup ENCHANTMENTS = FabricItemGroupBuilder.create(
                     Mcdw.ID("enchants"))
             .icon(() -> new ItemStack(Items.ENCHANTED_BOOK))

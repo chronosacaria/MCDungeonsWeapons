@@ -35,7 +35,7 @@ public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<SoulDaggersID, McdwSoulDagger> getItemsEnum() {
-        return ItemsInit.soulDaggerItems;
+        return ItemsInit.SOUL_DAGGER_ITEMS;
     }
 
     public static HashMap<SoulDaggersID, Integer> getSpawnRates() {

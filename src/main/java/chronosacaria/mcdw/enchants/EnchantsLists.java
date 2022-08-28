@@ -14,8 +14,9 @@ public class EnchantsLists {
             EnchantsRegistry.GUARDING_STRIKE, EnchantsRegistry.JUNGLE_POISON, EnchantsRegistry.LEECHING, EnchantsRegistry.LEVITATION_SHOT,
             EnchantsRegistry.OVERCHARGE, EnchantsRegistry.PAIN_CYCLE, EnchantsRegistry.PHANTOMS_MARK, EnchantsRegistry.POISON_CLOUD,
             EnchantsRegistry.PROSPECTOR, EnchantsRegistry.RADIANCE, EnchantsRegistry.RAMPAGING, EnchantsRegistry.REFRESHMENT, EnchantsRegistry.REPLENISH,
-            EnchantsRegistry.RICOCHET, EnchantsRegistry.RUSHDOWN, EnchantsRegistry.SHADOW_BARB, EnchantsRegistry.SHADOW_SHOT, EnchantsRegistry.SHOCKWAVE,
-            EnchantsRegistry.SMITING, EnchantsRegistry.SOUL_DEVOURER, EnchantsRegistry.SOUL_SIPHON, EnchantsRegistry.STUNNING, EnchantsRegistry.SWIRLING,
-            EnchantsRegistry.TEMPO_THEFT, EnchantsRegistry.THUNDERING, EnchantsRegistry.VOID_SHOT, EnchantsRegistry.VOID_STRIKE, EnchantsRegistry.WEAKENING,
-            EnchantsRegistry.WILD_RAGE);
+            EnchantsRegistry.RICOCHET, EnchantsRegistry.RUSHDOWN, EnchantsRegistry.SHADOW_BARB, EnchantsRegistry.SHADOW_SHOT, EnchantsRegistry.SHARED_PAIN,
+            EnchantsRegistry.SHOCKWAVE, EnchantsRegistry.SMITING, EnchantsRegistry.SOUL_DEVOURER, EnchantsRegistry.SOUL_SIPHON, EnchantsRegistry.STUNNING,
+            EnchantsRegistry.SWIRLING, EnchantsRegistry.TEMPO_THEFT, EnchantsRegistry.THUNDERING, EnchantsRegistry.VOID_SHOT, EnchantsRegistry.VOID_STRIKE,
+            EnchantsRegistry.WEAKENING, EnchantsRegistry.WILD_RAGE);
+
 }

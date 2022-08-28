@@ -1,0 +1,86 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_string": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:string"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_bone_block": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:bone_block"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_ghast_tear": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:ghast_tear"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_wither_skeleton_skull": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:wither_skeleton_skull"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_base_bow": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "mcdw:bow_soul_bow"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+            "conditions": {
+                "recipe": "mcdw:bow_lost_souls"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+        }
+    },
+    "requirements": [
+        [
+            "has_string",
+            "has_bone_block",
+            "has_ghast_tear",
+            "has_wither_skeleton_skull",
+            "has_base_bow",
+            "has_the_recipe"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "mcdw:bow_lost_souls"
+        ]
+    }
+}

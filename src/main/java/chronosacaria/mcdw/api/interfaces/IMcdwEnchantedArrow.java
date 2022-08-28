@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.api.interfaces;
 
 public interface IMcdwEnchantedArrow {
+
     int getOvercharge();
     void setOvercharge(int overcharge);
 
@@ -63,4 +64,5 @@ public interface IMcdwEnchantedArrow {
 
     int getWildRageLevel();
     void setWildRageLevel(int wildRageLevel);
+
 }

@@ -1,0 +1,86 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_gold_ingot": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:gold_ingot"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_prismarine_shard": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:prismarine_shard"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_string": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:string"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_prismarine_crystals": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:prismarine_crystals"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_base_bow": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "mcdw:bow_bubble_bow"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+            "conditions": {
+                "recipe": "mcdw:bow_bubble_burster"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+        }
+    },
+    "requirements": [
+        [
+            "has_gold_ingot",
+            "has_prismarine_shard",
+            "has_string",
+            "has_prismarine_crystals",
+            "has_base_bow",
+            "has_the_recipe"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "mcdw:bow_bubble_burster"
+        ]
+    }
+}

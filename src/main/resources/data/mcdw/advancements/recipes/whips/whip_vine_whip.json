@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_leather": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:leather"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_lilac": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:lilac"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:string"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_vine": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:vine"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_base": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mcdw:whip_whip"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mcdw:whip_vine_whip"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_leather",
+      "has_lilac",
+      "has_string",
+      "has_vine",
+      "has_base",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mcdw:whip_vine_whip"
+    ]
+  }
+}

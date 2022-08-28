@@ -1,0 +1,86 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_water_bucket": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:water_bucket"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_prismarine_shard": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:prismarine_shard"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_string": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:string"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_prismarine_crystals": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:prismarine_crystals"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_bow": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:bow"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+            "conditions": {
+                "recipe": "mcdw:bow_bubble_bow"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+        }
+    },
+    "requirements": [
+        [
+            "has_water_bucket",
+            "has_prismarine_shard",
+            "has_string",
+            "has_prismarine_crystals",
+            "has_bow",
+            "has_the_recipe"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "mcdw:bow_bubble_bow"
+        ]
+    }
+}

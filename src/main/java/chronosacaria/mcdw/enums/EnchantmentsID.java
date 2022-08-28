@@ -42,6 +42,7 @@ public enum EnchantmentsID {
     RUSHDOWN,
     SHADOW_BARB,
     SHADOW_SHOT,
+    SHARED_PAIN,
     SHOCKWAVE,
     SMITING,
     SOUL_DEVOURER,

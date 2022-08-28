@@ -1,0 +1,73 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_gold_block": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:gold_block"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_gold_ingot": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:gold_ingot"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_prismarine_crystals": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:prismarine_crystals"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_base": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "mcdw:crossbow_harpoon_crossbow"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+            "conditions": {
+                "recipe": "mcdw:crossbow_nautical_crossbow"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+        }
+    },
+    "requirements": [
+        [
+            "has_gold_block",
+            "has_gold_ingot",
+            "has_prismarine_crystals",
+            "has_base",
+            "has_the_recipe"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "mcdw:crossbow_nautical_crossbow"
+        ]
+    }
+}

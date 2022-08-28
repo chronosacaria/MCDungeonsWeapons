@@ -174,6 +174,7 @@
   "item.mcdw.gauntlet_soul_fists": "灵魂拳套",
 
   "item.mcdw.shield_royal_guard": "皇家卫队盾",
+  "item.mcdw.shield_tower_guard": "高塔守卫盾",
   "item.mcdw.shield_vanguard": "先锋盾",
 
   "effect.mcdw.accelerate": "加速",
@@ -221,6 +222,7 @@
   "enchantment.mcdw.rushdown": "追逐",
   "enchantment.mcdw.shadow_barb": "暗影倒钩",
   "enchantment.mcdw.shadow_shot": "暗影射击 ",
+  "enchantment.mcdw.shared_pain": "伤害共享",
   "enchantment.mcdw.shockwave": "冲击波",
   "enchantment.mcdw.smiting": "亡灵杀手",
   "enchantment.mcdw.soul_devourer": "灵魂吞噬者",
@@ -881,4 +883,4 @@
   "enchantment.mcdw.void_shot.desc": "根据魔咒等级造成多倍伤害。",
   "enchantment.mcdw.weakening.desc": "有几率在目标周围生成虚弱之雾。",
   "enchantment.mcdw.wild_rage.desc": "攻击敌人有概率让其发怒，并将仇恨覆盖到所有生物上。"
-  }
+}

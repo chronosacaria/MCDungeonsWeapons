@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_poisonous_potato": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:poisonous_potato"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_vine": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:vine"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_base": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mcdw:spear_glaive"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mcdw:spear_venom_glaive"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_poisonous_potato",
+      "has_vine",
+      "has_base",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mcdw:spear_venom_glaive"
+    ]
+  }
+}

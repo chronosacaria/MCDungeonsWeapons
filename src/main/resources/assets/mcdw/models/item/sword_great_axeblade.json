@@ -1,35 +1,9 @@
 {
-	"parent": "mcdw:item/model_broadsword",
+	"parent": "mcdw:item/model_claymore",
 	"textures": {
 		"layer0": "mcdw:item/sword_great_axeblade"
 	},
-	"gui_light": "front",
 	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, -90, 55],
-			"translation": [0, 8.25, 0.5],
-			"scale": [1.7, 1.7, 0.85]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [0, 90, -55],
-			"translation": [0, 8.5, 0.5],
-			"scale": [1.7, 1.7, 0.85]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, -90, 25],
-			"translation": [1.13, 4.2, 1.13],
-			"scale": [1.36, 1.36, 0.68]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 90, -25],
-			"translation": [1.13, 4.2, 1.13],
-			"scale": [1.36, 1.36, 0.68]
-		},
-		"fixed": {
-			"rotation": [0, 180, 0],
-			"translation": [0, 0, -0.25],
-			"scale": [2, 2, 1]
-		},  
 		"head": {
 			"rotation": [ 0, 0, 0 ],
 			"translation": [ 0, 2, 0],
@@ -38,6 +12,26 @@
 		"ground": {
 			"translation": [ 0, 2, 0 ],
 			"scale": [ 0.75, 0.75, 0.5 ]
+		},
+		"thirdperson_righthand": {
+			"rotation": [ 0, -90, 55 ],
+			"translation": [ 0, 9, 0 ],
+			"scale": [ 2, 2, 0.85 ]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [ 0, 90, -55 ],
+			"translation": [ 0, 9, 0 ],
+			"scale": [ 2, 2, 0.85 ]
+		},
+		"firstperson_righthand": {
+			"rotation": [ 0, -90, 25 ],
+			"translation": [ 1.13, 6.2, 1.13 ],
+			"scale": [ 1.5, 1.5, 0.68 ]
+		},
+		"firstperson_lefthand": {
+			"rotation": [ 0, 90, -25 ],
+			"translation": [ 1.13, 6.2, 1.13 ],
+			"scale": [ 1.5, 1.5, 0.68 ]
 		}
 	}
 }

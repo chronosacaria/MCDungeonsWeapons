@@ -1,8 +1,8 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "NCB",
-        "CcS",
+        "NNB",
+        "NcS",
         "BSS"
     ],
     "key": {
@@ -13,9 +13,6 @@
             "item": "minecraft:string"
         },
         "N": {
-            "item": "minecraft:nether_star"
-        },
-        "C": {
             "item": "minecraft:nether_star"
         },
         "B": {

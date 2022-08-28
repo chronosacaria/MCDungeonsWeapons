@@ -12,6 +12,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 
+@SuppressWarnings("deprecation")
 public class OffhandAttackPacket {
 
     public static final Identifier OFFHAND_ATTACK_PACKET = new Identifier(Mcdw.MOD_ID, "offhand_attack_entity");
@@ -35,7 +36,7 @@ public class OffhandAttackPacket {
             server.execute(() -> {
                 player.updateLastActionTime();
                 if (entity != null) {
-                    PlayerAttackHelper.offhandAttack(player, ((ServerWorld) player.world).getDragonPart(offhandAttackedEntityId));
+                    PlayerAttackHelper.offhandAttack(player, entity);
                 }
             });
         });

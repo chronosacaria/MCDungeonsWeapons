@@ -35,7 +35,7 @@ public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<GlaivesID, McdwGlaive> getItemsEnum() {
-        return ItemsInit.glaiveItems;
+        return ItemsInit.GLAIVE_ITEMS;
     }
 
     public static HashMap<GlaivesID, Integer> getSpawnRates() {

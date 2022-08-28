@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GIG",
+        "GCG",
+        "GGG"
+    ],
+    "key": {
+        "C": {
+            "item": "minecraft:copper_ingot"
+        },
+        "G": {
+            "item": "minecraft:gold_ingot"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:shield_tower_guard",
+        "count": 1
+    }
+}

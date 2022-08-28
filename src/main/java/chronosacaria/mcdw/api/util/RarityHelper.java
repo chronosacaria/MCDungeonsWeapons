@@ -8,8 +8,8 @@ public class RarityHelper {
     public static Rarity fromToolMaterial(ToolMaterial material){
         return
                 material == ToolMaterials.NETHERITE ? Rarity.EPIC :
-                material == ToolMaterials.DIAMOND ? Rarity.RARE :
-                material == ToolMaterials.GOLD ? Rarity.UNCOMMON :
-                material == ToolMaterials.IRON ? Rarity.UNCOMMON : Rarity.COMMON;
+                        material == ToolMaterials.DIAMOND ? Rarity.RARE :
+                                material == ToolMaterials.GOLD ? Rarity.UNCOMMON :
+                                        material == ToolMaterials.IRON ? Rarity.UNCOMMON : Rarity.COMMON;
     }
 }

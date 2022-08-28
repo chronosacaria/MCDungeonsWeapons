@@ -24,8 +24,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class McdwAxe extends AxeItem {
     String[] repairIngredient;
-
-    public McdwAxe(ToolMaterial material, float attackDamage, float attackSpeed, String[] repairIngredient) {
+    public McdwAxe(ToolMaterial material, float attackDamage, float attackSpeed, String[] repairIngredient){
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().group(Mcdw.WEAPONS).rarity(RarityHelper.fromToolMaterial(material)));
         this.repairIngredient = repairIngredient;

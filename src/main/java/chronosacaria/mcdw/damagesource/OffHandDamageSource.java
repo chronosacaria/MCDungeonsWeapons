@@ -13,4 +13,5 @@ public class OffHandDamageSource extends EntityDamageSource {
     public static DamageSource player(PlayerEntity attacker) {
         return new OffHandDamageSource("player", attacker);
     }
+
 }

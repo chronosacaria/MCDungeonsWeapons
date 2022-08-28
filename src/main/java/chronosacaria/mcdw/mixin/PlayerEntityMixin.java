@@ -1,10 +1,17 @@
 package chronosacaria.mcdw.mixin;
 
+import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
+import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
+import chronosacaria.mcdw.damagesource.OffHandDamageSource;
+import chronosacaria.mcdw.effects.EnchantmentEffects;
+import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -16,6 +23,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
+import java.util.Comparator;
+import java.util.List;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements IDualWielding {
@@ -56,13 +67,13 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void injectWriteCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
-            nbt.putInt("Devotion", getOffhandAttackedTicks());
+            nbt.putInt("LastAttackedOffhandTicks", getOffhandAttackedTicks());
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     public void injectReadCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
-            setOffhandAttackedTicks(nbt.getInt("Devotion"));
+            setOffhandAttackedTicks(nbt.getInt("LastAttackedOffhandTicks"));
     }
 
     @Override
@@ -79,4 +90,5 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
                 dataTracker.set(LAST_ATTACKED_OFFHAND_TICKS, lastAttackedOffhandTicks);
         }
     }
+
 }

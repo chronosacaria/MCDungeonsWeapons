@@ -34,7 +34,7 @@ public enum GauntletsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<GauntletsID, McdwGauntlet> getItemsEnum() {
-        return ItemsInit.gauntletItems;
+        return ItemsInit.GAUNTLET_ITEMS;
     }
 
     public static HashMap<GauntletsID, Integer> getSpawnRates() {

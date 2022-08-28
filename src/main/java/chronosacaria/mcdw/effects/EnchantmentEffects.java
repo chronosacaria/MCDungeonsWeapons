@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.util.*;
 import chronosacaria.mcdw.bases.McdwBow;
+import chronosacaria.mcdw.damagesource.ElectricShockDamageSource;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
 import chronosacaria.mcdw.enums.BowsID;
@@ -12,9 +13,13 @@ import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.mixin.MobEntityAccessor;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -35,6 +40,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.LinkedHashMap;
@@ -44,8 +50,14 @@ public class EnchantmentEffects {
 
     static final LinkedHashMap<EnchantmentsID, Integer> CONFIG_CHANCE = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENCHANTMENT_TRIGGER_BASE_CHANCE;
 
-    private static int mcdw$getEnchantmentLevel(Enchantment enchantment, LivingEntity enchantedEntity, boolean isOffHandStack) {
-        return EnchantmentHelper.getLevel(enchantment, isOffHandStack ? enchantedEntity.getOffHandStack() : enchantedEntity.getMainHandStack());
+    public static int mcdw$getEnchantmentLevel(Enchantment enchantment, LivingEntity enchantedEntity, boolean isOffHandStack) {
+        if (FabricLoader.getInstance().isModLoaded("bettercombat")) {
+            // Better Combat can figure out if the hit was done by offhand
+            return EnchantmentHelper.getEquipmentLevel(enchantment, enchantedEntity);
+        } else {
+            // We know if the hit was done by offhand
+            return EnchantmentHelper.getLevel(enchantment, isOffHandStack ? enchantedEntity.getOffHandStack() : enchantedEntity.getMainHandStack());
+        }
     }
 
     /* ExperienceOrbEntityMixin */
@@ -393,7 +405,7 @@ public class EnchantmentEffects {
         if (shockwaveLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SHOCKWAVE) + (15 * shockwaveLevel))) {
-                AOEHelper.causeShockwaveAttack(shockwaveEntity, target,
+                causeShockwaveAttack(shockwaveEntity, target,
                         3.0f, amount);
 
                 CleanlinessHelper.playCenteredSound(target,
@@ -401,6 +413,18 @@ public class EnchantmentEffects {
                         0.5f, 1.0f);
             }
         }
+    }
+
+    public static void causeShockwaveAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
+        AOEHelper.getAoeTargets(target, user, distance).stream()
+                .filter(nearbyEntity -> nearbyEntity != target)
+                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC, amount * 0.25f));
+    }
+
+    public static void causeSmitingAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
+        AOEHelper.getAoeTargets(target, user, distance).stream()
+                .filter(nearbyEntity -> nearbyEntity != target && nearbyEntity.isUndead())
+                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.MAGIC, amount * 1.25F));
     }
 
     public static void applyStunning(LivingEntity stunningEntity, LivingEntity target, boolean isOffHandStack) {
@@ -420,10 +444,39 @@ public class EnchantmentEffects {
         if (thunderingLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.THUNDERING))) {
-                AOEHelper.electrocuteNearbyEnemies(thunderingEntity,
+                electrocuteNearbyEnemies(thunderingEntity,
                         5 * thunderingLevel, amount,
                         Integer.MAX_VALUE);
             }
+        }
+    }
+
+    public static void createVisualLightningBoltOnEntity(Entity target) {
+        World world = target.getEntityWorld();
+        LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);
+
+        if (lightningEntity != null) {
+            lightningEntity.refreshPositionAfterTeleport(target.getX(), target.getY(), target.getZ());
+            lightningEntity.setCosmetic(true);
+            world.spawnEntity(lightningEntity);
+        }
+    }
+
+    public static void electrocute(LivingEntity attacker, LivingEntity victim, float damageAmount) {
+        createVisualLightningBoltOnEntity(victim);
+        DamageSource electricShockDamageSource = new ElectricShockDamageSource(attacker).setUsesMagic();
+        victim.damage(electricShockDamageSource, damageAmount);
+    }
+
+    public static void electrocuteNearbyEnemies(LivingEntity user, float distance, float damageAmount, int limit) {
+        CleanlinessHelper.playCenteredSound(user, SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.WEATHER, 1f, 1f);
+        CleanlinessHelper.playCenteredSound(user, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER, 1f, 1f);
+
+        for (LivingEntity nearbyEntity : AOEHelper.getAoeTargets(user, user, distance)) {
+            electrocute(user, nearbyEntity, damageAmount);
+
+            limit--;
+            if (limit <= 0) break;
         }
     }
 
@@ -445,12 +498,17 @@ public class EnchantmentEffects {
         if (swirlingLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.SWIRLING) + (15 * swirlingLevel))) {
-                AOEHelper.causeSwirlingAttack(swirlingEntity, swirlingEntity,
+                causeSwirlingAttack(swirlingEntity, swirlingEntity,
                         1.5f, amount);
 
                 CleanlinessHelper.playCenteredSound(target, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 0.5F, 1.0F);
             }
         }
+    }
+
+    public static void causeSwirlingAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
+        AOEHelper.getAoeTargets(target, user, distance)
+                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC, amount * 0.5F));
     }
 
     public static void applyChains(LivingEntity chainingEntity, LivingEntity target, boolean isOffHandStack) {
@@ -459,8 +517,21 @@ public class EnchantmentEffects {
         if (chainsLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHAINS)))
-                AOEHelper.chainNearbyEntities(chainingEntity, target, 1.5F * chainsLevel, chainsLevel);
+                chainNearbyEntities(chainingEntity, target, 1.5F * chainsLevel, chainsLevel);
         }
+    }
+
+    public static void chainNearbyEntities(LivingEntity user, LivingEntity target, float distance, int timeMultiplier) {
+        StatusEffectInstance chained = new StatusEffectInstance(StatusEffects.SLOWNESS, 100 * timeMultiplier, 100);
+
+        target.addStatusEffect(chained);
+
+        AOEHelper.getAoeTargets(target, user, distance).stream()
+                .filter(nearbyEntity -> nearbyEntity != target)
+                .forEach(nearbyEntity -> {
+                    pullTowards(nearbyEntity, target);
+                    nearbyEntity.addStatusEffect(chained);
+                });
     }
 
     public static void applyGravity(LivingEntity gravityEntity, LivingEntity target, boolean isOffHandStack) {
@@ -469,11 +540,29 @@ public class EnchantmentEffects {
         if (gravityLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.GRAVITY))) {
-                AOEHelper.pullInNearbyEntities(gravityEntity, target,
+                pullInNearbyEntities(gravityEntity, target,
                         (gravityLevel + 1) * 3);
             }
         }
     }
+
+    public static void pullTowards(Entity self, Entity target) {
+        if (self instanceof PlayerEntity && ((PlayerEntity) self).getAbilities().creativeMode) return;
+
+        double motionX = MathHelper.clamp((target.getX() - self.getX()) * 0.15f, -5, 5);
+        double motionZ = MathHelper.clamp((target.getZ() - self.getZ()) * 0.15f, -5, 5);
+        Vec3d vec3d = new Vec3d(motionX, 0, motionZ);
+
+        self.setVelocity(vec3d);
+    }
+
+    public static void pullInNearbyEntities(LivingEntity user, LivingEntity target, float distance) {
+        AOEHelper.getAoeTargets(target, user, distance).stream()
+                .filter(nearbyEntity -> nearbyEntity != target)
+                .forEach(nearbyEntity -> pullTowards(nearbyEntity, target));
+    }
+
+
 
     //mcdw$onApplyDamageTail
     public static void echoDamage(LivingEntity echoEntity, LivingEntity target, float amount, boolean isOffHandStack) {
@@ -482,10 +571,21 @@ public class EnchantmentEffects {
         if (echoLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.ECHO) + (15 * echoLevel))) {
-                AOEHelper.causeEchoAttack(echoEntity, target,
+                causeEchoAttack(echoEntity, target,
                         3.0f,
                         echoLevel, amount);
                 CleanlinessHelper.playCenteredSound(echoEntity, McdwSoundEvents.ECHO_SOUND_EVENT, 0.5F, 1.0F);
+            }
+        }
+    }
+
+    public static void causeEchoAttack(LivingEntity user, LivingEntity target, float distance, int echoLevel, float amount) {
+        for (LivingEntity nearbyEntity : AOEHelper.getAoeTargets(target, user, distance)) {
+            if (nearbyEntity != target) {
+                nearbyEntity.damage(DamageSource.GENERIC, amount);
+
+                echoLevel--;
+                if (echoLevel <= 0) break;
             }
         }
     }
@@ -501,9 +601,14 @@ public class EnchantmentEffects {
                 AOECloudHelper.spawnExplosionCloud(exploderEntity, target, 3.0F);
 
                 float explodingDamage = target.getMaxHealth() * 0.2f * explodingLevel;
-                AOEHelper.causeExplosionAttack(exploderEntity, target, explodingDamage, 3.0F);
+                causeExplosionAttack(exploderEntity, target, explodingDamage, 3.0F);
             }
         }
+    }
+
+    public static void causeExplosionAttack(LivingEntity user, LivingEntity target, float damageAmount, float distance) {
+        AOEHelper.getAoeTargets(target, user, distance)
+                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.explosion(user), damageAmount));
     }
 
     public static void applyRampaging(LivingEntity rampagingEntity, boolean isOffHandStack) {
@@ -554,7 +659,7 @@ public class EnchantmentEffects {
         if (chainReactionLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHAIN_REACTION) * chainReactionLevel)){
-                ProjectileEffectHelper.fireChainReactionProjectiles(target.getEntityWorld(), target, shooter,
+                ProjectileEffectHelper.fireChainReactionProjectileFromTarget(target.getEntityWorld(), target, shooter,
                         3.15F,1.0F);
             }
         }
@@ -590,7 +695,7 @@ public class EnchantmentEffects {
                 AOECloudHelper.spawnExplosionCloud(shooter, target, 3.0F);
                 float f = (float) ppe.getVelocity().length();
                 int fuseShotDamage = MathHelper.ceil(MathHelper.clamp((double) f * ppe.getDamage(), 0.0D, 2.147483647E9D));
-                AOEHelper.causeExplosionAttack(shooter, target, fuseShotDamage, 3.0F);
+                causeExplosionAttack(shooter, target, fuseShotDamage, 3.0F);
             }
         }
     }
@@ -600,7 +705,7 @@ public class EnchantmentEffects {
         if (gravityLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.GRAVITY))) {
-                AOEHelper.pullInNearbyEntities(shooter, target, (gravityLevel + 1) * 3);
+                pullInNearbyEntities(shooter, target, (gravityLevel + 1) * 3);
             }
         }
     }
@@ -647,7 +752,7 @@ public class EnchantmentEffects {
             float damageMultiplier = 0.03F + (ricochetLevel * 0.07F);
             float arrowVelocity = McdwBow.maxBowRange;
             if (arrowVelocity > 0.1F)
-                ProjectileEffectHelper.ricochetArrowTowardsOtherEntity(shooter, target, 10, damageMultiplier);
+                ProjectileEffectHelper.spawnExtraArrows(shooter, target, 1, 10, damageMultiplier);
         }
     }
 
@@ -705,13 +810,18 @@ public class EnchantmentEffects {
                         EnchantmentHelper.getLevel(EnchantsRegistry.BURST_BOWSTRING, jumpingEntity.getOffHandStack()));
 
         if (burstBowstringLevel > 0) {
-            ProjectileEffectHelper.fireBurstBowstringArrows(jumpingEntity, 16, 0.4F, burstBowstringLevel);
+            if (jumpingEntity instanceof PlayerEntity attackingPlayer) {
+                int availableArrows = Math.min(InventoryHelper.mcdw$countItem(attackingPlayer, Items.ARROW), burstBowstringLevel);
+                if (availableArrows < 1) return; //Avoid area lookup
+
+                ProjectileEffectHelper.spawnExtraArrows(jumpingEntity, jumpingEntity, availableArrows, 16, 0.4F);
+            }
         }
     }
     public static void handleAddDynamoEffect(PlayerEntity playerEntity) {
         ItemStack mainHandStack = playerEntity.getMainHandStack();
         ItemStack offHandStack = playerEntity.getOffHandStack();
-        if (McdwEnchantmentHelper.hasEnchantment(mainHandStack, EnchantsRegistry.DYNAMO) || McdwEnchantmentHelper.hasEnchantment(offHandStack, EnchantsRegistry.DYNAMO)) {
+        if (Math.max(EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, mainHandStack), EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, offHandStack)) > 0) {
             StatusEffectInstance dynamoInstance = playerEntity.getStatusEffect(StatusEffectsRegistry.DYNAMO);
             int i = 1;
             if (dynamoInstance != null) {

@@ -35,7 +35,7 @@ public class ShadowShotEnchantment extends RangedEnchantment {
 
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem().equals(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)) || stack.getItem().equals(ItemsInit.crossbowItems.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW));
+        return stack.getItem().equals(ItemsInit.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)) || stack.getItem().equals(ItemsInit.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW));
     }
 
     @Override

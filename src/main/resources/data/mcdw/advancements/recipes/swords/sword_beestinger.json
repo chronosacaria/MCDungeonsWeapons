@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bee_stinger": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mcdw:item_bee_stinger"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_iron_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_nugget"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_gold_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:gold_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stick"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_base": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mcdw:sword_rapier"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mcdw:sword_beestinger"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_bee_stinger",
+      "has_iron_nugget",
+      "has_gold_ingot",
+      "has_stick",
+      "has_base",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mcdw:sword_beestinger"
+    ]
+  }
+}

@@ -352,4 +352,5 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
             }
         }
     }
+
 }

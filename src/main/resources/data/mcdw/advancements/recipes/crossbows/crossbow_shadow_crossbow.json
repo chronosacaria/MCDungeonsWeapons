@@ -1,0 +1,86 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_string": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:string"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_diamond": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:diamond"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_purpur_block": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:purpur_block"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_amethyst_shard": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:amethyst_shard"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_base": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:crossbow"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+            "conditions": {
+                "recipe": "mcdw:crossbow_shadow_crossbow"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+        }
+    },
+    "requirements": [
+        [
+            "has_string",
+            "has_diamond",
+            "has_purpur_block",
+            "has_amethyst_shard",
+            "has_base",
+            "has_the_recipe"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "mcdw:crossbow_shadow_crossbow"
+        ]
+    }
+}

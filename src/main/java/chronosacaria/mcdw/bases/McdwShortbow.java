@@ -1,4 +1,3 @@
-
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;

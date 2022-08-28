@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         " //",
-        "/IS",
+        "/ S",
         " //"
     ],
     "key": {
@@ -11,9 +11,6 @@
         },
         "S": {
             "item": "minecraft:string"
-        },
-        "I": {
-            "item": "minecraft:iron_ingot"
         }
     },
     "result": {

@@ -27,6 +27,7 @@ public class EnchantsRegistry {
     public static Enchantment RAMPAGING;
     public static Enchantment REFRESHMENT;
     public static Enchantment RUSHDOWN;
+    public static Enchantment SHARED_PAIN;
     public static Enchantment SHOCKWAVE;
     public static Enchantment SMITING;
     public static Enchantment SOUL_DEVOURER;
@@ -100,6 +101,8 @@ public class EnchantsRegistry {
         REFRESHMENT = new RefreshmentEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         RUSHDOWN = new RushdownEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
+                new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        SHARED_PAIN = new SharedPainEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         SHOCKWAVE = new ShockwaveEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});

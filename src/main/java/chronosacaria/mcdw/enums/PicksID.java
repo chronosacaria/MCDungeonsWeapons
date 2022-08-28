@@ -35,7 +35,7 @@ public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<PicksID, McdwPick> getItemsEnum() {
-        return ItemsInit.pickItems;
+        return ItemsInit.PICK_ITEMS;
     }
 
     public static HashMap<PicksID, Integer> getSpawnRates() {

@@ -1,0 +1,60 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_gold_ingot": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:gold_ingot"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_bone": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:bone"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_string": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:string"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+            "conditions": {
+                "recipe": "mcdw:bow_bonebow"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+        }
+    },
+    "requirements": [
+        [
+            "has_string",
+            "has_bone",
+            "has_gold_ingot",
+            "has_the_recipe"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "mcdw:bow_bonebow"
+        ]
+    }
+}

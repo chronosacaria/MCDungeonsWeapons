@@ -36,8 +36,7 @@ public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
     SWORD_RAPIER(ToolMaterials.IRON,0, -1.14f, "minecraft:iron_ingot"),
     SWORD_SINISTER(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot"),
     SWORD_SPONGE_STRIKER(ToolMaterials.DIAMOND,3, -2.4f, "minecraft:diamond"),
-    //TODO Change damage back to 6 upon implementation of SharedPainEnchantment
-    SWORD_THE_STARLESS_NIGHT(ToolMaterials.NETHERITE, 7, -3.3f, "minecraft:netherite_scrap");
+    SWORD_THE_STARLESS_NIGHT(ToolMaterials.NETHERITE, 6, -3.3f, "minecraft:netherite_scrap");
 
     private final ToolMaterial material;
     private final int damage;
@@ -56,7 +55,7 @@ public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<SwordsID, McdwSword> getItemsEnum() {
-        return ItemsInit.swordItems;
+        return ItemsInit.SWORD_ITEMS;
     }
 
     public static HashMap<SwordsID, Integer> getSpawnRates() {
