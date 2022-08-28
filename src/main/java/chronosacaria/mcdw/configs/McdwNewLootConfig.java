@@ -264,6 +264,7 @@ public class McdwNewLootConfig implements ConfigData {
 
         //SHIELDS
         SHIELD_SPAWN_RATES.put(ShieldsID.SHIELD_ROYAL_GUARD, 5);
+        SHIELD_SPAWN_RATES.put(ShieldsID.SHIELD_TOWER_GUARD, 5);
         SHIELD_SPAWN_RATES.put(ShieldsID.SHIELD_VANGUARD, 5);
     }
 
