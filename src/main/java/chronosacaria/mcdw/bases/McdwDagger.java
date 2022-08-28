@@ -3,6 +3,7 @@ package chronosacaria.mcdw.bases;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.RarityHelper;
+import chronosacaria.mcdw.configs.CompatibilityFlags;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.player.PlayerEntity;
@@ -67,7 +68,9 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
             tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
             i++;
         }
-        tooltip.add(Text.translatable("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-        tooltip.add(Text.translatable("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
+        if (CompatibilityFlags.noOffhandConflicts) {
+            tooltip.add(Text.translatable("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(Text.translatable("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
+        }
     }
 }
