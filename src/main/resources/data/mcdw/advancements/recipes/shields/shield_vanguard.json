@@ -29,11 +29,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              {
-                "tag": "minecraft:gold_ingot"
-              }
-            ]
+            "tag": "minecraft:planks"
           }
         ]
       },

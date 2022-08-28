@@ -41,11 +41,7 @@
             "conditions": {
                 "items": [
                     {
-                        "items": [
-                            {
-                                "tag": "minecraft:planks"
-                            }
-                        ]
+                        "tag": "minecraft:planks"
                     }
                 ]
             },

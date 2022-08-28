@@ -37,7 +37,7 @@
             },
             "trigger": "minecraft:inventory_changed"
         },
-        "hsa_amethyst_shard": {
+        "has_amethyst_shard": {
             "conditions": {
                 "items": [
                     {

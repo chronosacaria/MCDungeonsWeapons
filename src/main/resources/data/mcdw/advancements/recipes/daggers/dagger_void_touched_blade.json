@@ -25,7 +25,7 @@
             },
             "trigger": "minecraft:inventory_changed"
         },
-        "has_obsidian_shard": {
+        "has_obsidian": {
             "conditions": {
                 "items": [
                     {
