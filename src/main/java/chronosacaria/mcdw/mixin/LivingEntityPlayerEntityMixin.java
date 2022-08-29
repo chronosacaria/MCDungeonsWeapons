@@ -1,14 +1,10 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.api.util.PlayerAttackHelper;
-import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
-import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
-import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,14 +12,8 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
-
-import java.util.Comparator;
-import java.util.List;
 
 @Mixin({LivingEntity.class, PlayerEntity.class})
 public class LivingEntityPlayerEntityMixin {
