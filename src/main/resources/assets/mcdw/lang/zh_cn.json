@@ -871,6 +871,7 @@
   "enchantment.mcdw.rushdown.desc": "击败生物有几率获得加速效果，可叠加。",
   "enchantment.mcdw.shadow_barb.desc": "用弩射箭不会破坏暗影状态。",
   "enchantment.mcdw.shadow_shot.desc": "此魔咒可以在击杀生物后约10%概率获得暗影状态效果，持续4秒。",
+  "enchantment.mcdw.shared_pain.desc": "如果玩家过度杀死生物，剩余的伤害将给予附近的生物（如果有的话）。",
   "enchantment.mcdw.shockwave.desc": "有几率造成三格范围的爆炸效果。",
   "enchantment.mcdw.smiting.desc": "对亡灵生物造成三格范围的AoE伤害。",
   "enchantment.mcdw.soul_devourer.desc": "击败生物时有获得额外经验。",
