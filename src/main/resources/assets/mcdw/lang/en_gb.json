@@ -877,6 +877,7 @@
   "enchantment.mcdw.shadow_barb.desc": "Firing from a crossbow will not break Shadow Form.",
   "enchantment.mcdw.shadow_shot.desc": "A chance to grant player Shadow Form on a kill.",
   "enchantment.mcdw.shockwave.desc": "A chance to deal explosive damage in an area of 3 blocks.",
+  "enchantment.mcdw.shared_pain.desc": "If a player overkills a mob, the leftover damage will be dealt to a nearby mob, if present.",
   "enchantment.mcdw.smiting.desc": "Deals AoE damage to Undead in an area of 3 blocks.",
   "enchantment.mcdw.soul_devourer.desc": "Multiplies XP gained from a kill.",
   "enchantment.mcdw.soul_siphon.desc": "A chance to gain extra XP from a kill.",
