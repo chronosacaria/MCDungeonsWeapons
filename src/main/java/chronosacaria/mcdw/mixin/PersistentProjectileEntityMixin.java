@@ -342,12 +342,13 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
             EnchantmentEffects.applyRadianceShotBlock(blockHitResult, shooter, persProjEntity);
     }
 
-    @Inject(method = "getDragInWater", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getDragInWater", at = @At("RETURN"), cancellable = true)
     public void mcdw$onHarpoonArrowFire(CallbackInfoReturnable<Float> cir) {
         PersistentProjectileEntity ppe = (PersistentProjectileEntity) (Object) this;
         if (ppe.isTouchingWater()) {
             if (((IMcdwEnchantedArrow)ppe).getNautilusBoolean()) {
-                float v = cir.getReturnValue() * 1.542f;
+                float normDrag = cir.getReturnValueF();
+                float v = (cir.getReturnValue() == null ? 0.6F : normDrag) * 1.542f;
                 cir.setReturnValue(v);
             }
         }

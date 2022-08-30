@@ -1,5 +1,5 @@
 {
-  "parent": "item/crossbow",
+  "parent": "item/generated",
   "textures": {
     "layer0": "mcdw:item/crossbows/nautical_crossbow"
   },

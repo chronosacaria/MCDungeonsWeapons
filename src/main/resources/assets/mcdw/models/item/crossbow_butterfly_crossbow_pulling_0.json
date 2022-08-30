@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "mcdw:item/crossbow_butterfly_crossbow",
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "mcdw:item/crossbows/butterfly_crossbow_pulling_0",

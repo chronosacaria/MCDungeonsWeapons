@@ -1,5 +1,5 @@
 {
-  "parent": "item/crossbow",
+  "parent": "mcdw:item/crossbow_azure_seeker",
   "textures": {
     "layer0": "mcdw:item/crossbows/azure_seeker_arrow"
   },

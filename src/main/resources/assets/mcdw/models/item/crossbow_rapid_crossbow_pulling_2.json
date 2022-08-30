@@ -1,5 +1,6 @@
 {
 	"texture_size": [32, 32],
+	"parent": "mcdw:item/crossbow_rapid_crossbow",
 	"textures": {
 		"0": "mcdw:item/crossbows/rapid_crossbow_pulling_2",
 		"particle": "mcdw:item/crossbows/rapid_crossbow_pulling_2"

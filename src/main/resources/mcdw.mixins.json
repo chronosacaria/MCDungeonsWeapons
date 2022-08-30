@@ -20,7 +20,8 @@
   "client": [
     "client.AbstractClientPlayerEntityMixin",
     "client.InGameHudMixin",
-    "client.ModelPredicateProviderRegistryMixin"
+    "client.ModelPredicateProviderRegistryMixin",
+    "client.PlayerEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
