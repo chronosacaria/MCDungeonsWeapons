@@ -1,5 +1,6 @@
 {
 	"texture_size": [64, 64],
+	"parent": "mcdw:item/crossbow_rapid_crossbow",
 	"textures": {
 		"0": "mcdw:item/crossbows/rapid_crossbow_firework",
 		"particle": "mcdw:item/crossbows/rapid_crossbow_firework"
@@ -461,13 +462,13 @@
 			"scale": [0.9, 0.9, 0.9]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, 35, -90],
-			"translation": [1.65, 1.5, -2.5],
+			"rotation": [0, 45, -90],
+			"translation": [-9, 0, -2.5],
 			"scale": [0.9, 0.9, 0.9]
 		},
 		"firstperson_lefthand": {
 			"rotation": [-180, -125, -90],
-			"translation": [1.7, 1.5, -2.5],
+			"translation": [-9, 0, -2.5],
 			"scale": [0.9, 0.9, 0.9]
 		},
 		"ground": {
@@ -476,14 +477,6 @@
 		},
 		"gui": {
 			"rotation": [0, 90, 0]
-		},
-		"head": {
-			"rotation": [ 90, 0, 270 ],
-			"translation": [ -1, 3.5, 0],
-			"scale":[ 0.55, 0.55, 0.5 ]
-		},
-		"fixed": {
-			"rotation": [0, -90, 0]
 		}
 	},
 	"groups": [

@@ -1,5 +1,6 @@
 {
 	"texture_size": [64, 64],
+	"parent": "mcdw:item/crossbow_butterfly_crossbow",
 	"textures": {
 		"0": "mcdw:item/crossbows/butterfly_crossbow_pulling_1",
 		"particle": "mcdw:item/crossbows/butterfly_crossbow_pulling_1"
