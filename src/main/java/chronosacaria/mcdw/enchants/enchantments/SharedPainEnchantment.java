@@ -47,12 +47,12 @@ public class SharedPainEnchantment extends Enchantment {
 
     @Override
     public int getMinPower(int level) {
-        return 50000;
+        return 0;
     }
 
     @Override
     public int getMaxPower(int level) {
-        return this.getMinPower(level) + 5;
+        return this.getMinPower(level);
     }
 
 }
