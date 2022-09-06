@@ -11,6 +11,7 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
@@ -25,6 +26,8 @@ public class McdwNewLoottables {
             new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.RARE_LOOT_TABLES.get(SettingsID.RARE_LOOT_TABLES)));
     public static final ArrayList<String> EPIC_LOOT_TABLES =
             new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.EPIC_LOOT_TABLES.get(SettingsID.EPIC_LOOT_TABLES)));
+    public static final ArrayList<String> NETHER_TABLES =
+            new ArrayList<>(List.of("minecraft:chests/nether_bridge", "minecraft:chests/bastion_bridge", "minecraft:chests/bastion_other", "minecraft:chests/bastion_treasure"));
 
     static List<IMcdwWeaponID> COMMON_LOOT_POOL = List.of(AxesID.AXE_ANCHOR, AxesID.AXE_AXE, DaggersID.DAGGER_DAGGER, DoubleAxesID.AXE_DOUBLE, GauntletsID.GAUNTLET_GAUNTLET,
             GlaivesID.SPEAR_GLAIVE, HammersID.HAMMER_GREAT_HAMMER, HammersID.HAMMER_MACE, LongbowsID.BOW_LONGBOW, PicksID.PICK_HOWLING_PICK, PicksID.PICK_MOUNTAINEER_PICK,
@@ -56,7 +59,6 @@ public class McdwNewLoottables {
             SwordsID.SWORD_DANCERS_SWORD, SwordsID.SWORD_FREEZING_FOIL, SwordsID.SWORD_FROST_SLAYER, SwordsID.SWORD_GREAT_AXEBLADE, SwordsID.SWORD_HAWKBRAND,
             SwordsID.SWORD_HEARTSTEALER, SwordsID.SWORD_MASTERS_KATANA, SwordsID.SWORD_SPONGE_STRIKER);
 
-    // TODO: Find way to reasonably get Pride of the Piglins into a Nether Loot Table
     static List<IMcdwWeaponID> EPIC_LOOT_POOL = List.of(BowsID.BOW_ANCIENT_BOW, BowsID.BOW_HAUNTED_BOW, BowsID.BOW_LOST_SOULS, CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW,
             CrossbowsID.CROSSBOW_DOOM_CROSSBOW, CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS, DaggersID.DAGGER_BACKSTABBER, DaggersID.DAGGER_SWIFT_STRIKER,
             DaggersID.DAGGER_THE_BEGINNING, DaggersID.DAGGER_THE_END, DaggersID.DAGGER_VOID_TOUCHED_BLADE, GauntletsID.GAUNTLET_SOUL_FISTS, HammersID.HAMMER_GRAVITY,
@@ -104,6 +106,14 @@ public class McdwNewLoottables {
 
                 if (EPIC_LOOT_TABLES.contains(id.toString()))
                     EPIC_LOOT_POOL.forEach(lootID -> addWeaponById(lootPoolBuilder, lootID));
+
+                if (NETHER_TABLES.contains(id.toString())) {
+                    if (Arrays.stream(lootPoolBuilder.build().entries).noneMatch(lootPoolEntry ->
+                            lootPoolEntry.equals(ItemEntry.builder(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS.getItem())
+                                    .weight(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS.getItemSpawnRate()).build()))) {
+                        addWeaponById(lootPoolBuilder, CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS);
+                    }
+                }
 
                 tableBuilder.pool(lootPoolBuilder.build());
             }
