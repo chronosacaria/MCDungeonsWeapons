@@ -850,7 +850,7 @@
   "enchantment.mcdw.dipping_poison.desc": "Gives 8 poisoned arrows upon drinking a health potion.",
   "enchantment.mcdw.dynamo.desc": "Increases the damage of your next attack after jumping. This effect can stack up to 20 times.",
   "enchantment.mcdw.echo.desc": "A chance to deal AoE sound damage in an area of 3 blocks.",
-  "enchantment.mcdw.enigma_resonator.desc": "A chance to deal damage relative to the amount of XP the user has.",
+  "enchantment.mcdw.enigma_resonator.desc": "Deals damage relative to the amount of XP the user has.",
   "enchantment.mcdw.exploding.desc": "A chance that target explodes upon death causing damage to surrounding enemies.",
   "enchantment.mcdw.freezing.desc": "A chance to slow target and gives them mining fatigue.",
   "enchantment.mcdw.fuse_shot.desc": "A chance that arrow explodes on impact.",

@@ -845,7 +845,7 @@
   "enchantment.mcdw.dipping_poison.desc": "使用治疗药水后给予几支毒箭。",
   "enchantment.mcdw.dynamo.desc": "跳后提升下次攻击伤害。",
   "enchantment.mcdw.echo.desc": "有几率造成三格范围的AoE伤害。",
-  "enchantment.mcdw.enigma_resonator.desc": "有几率造成基于玩家经验值的额外伤害。",
+  "enchantment.mcdw.enigma_resonator.desc": "造成基于玩家经验值的额外伤害。",
   "enchantment.mcdw.exploding.desc": "目标死亡后会发生爆炸，造成范围伤害。",
   "enchantment.mcdw.freezing.desc": "有几率减速目标并对其施加挖掘疲劳。",
   "enchantment.mcdw.fuse_shot.desc": "命中时箭矢有几率爆炸。",
