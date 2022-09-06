@@ -6,8 +6,8 @@ import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 
 import java.util.ArrayList;
@@ -89,7 +89,8 @@ public class McdwNewLoottables {
 
             if (CONFIG.mcdwNewlootConfig.WEAPONS_ENABLED_IN_LOOTTABLES.get(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES)) {
                 LootPool.Builder lootPoolBuilder = LootPool.builder();
-                lootPoolBuilder.rolls(BinomialLootNumberProvider.create(1, CONFIG.mcdwNewlootConfig.findWeaponChance));
+                lootPoolBuilder.rolls(ConstantLootNumberProvider.create(1));
+                lootPoolBuilder.conditionally(RandomChanceLootCondition.builder(CONFIG.mcdwNewlootConfig.findWeaponChance));
                 lootPoolBuilder.bonusRolls(ConstantLootNumberProvider.create(CONFIG.mcdwNewlootConfig.bonusRollsWithLuck));
 
                 if (COMMON_LOOT_TABLES.contains(id.toString()))
@@ -119,7 +120,8 @@ public class McdwNewLoottables {
     }
 
     public static void addItemDrop(LootPool.Builder poolBuilder, Item item, int n, float p) {
-        poolBuilder.rolls(BinomialLootNumberProvider.create(n, p));
+        poolBuilder.rolls(ConstantLootNumberProvider.create(n));
+        poolBuilder.conditionally(RandomChanceLootCondition.builder(p));
         poolBuilder.with(ItemEntry.builder(item));
     }
 }
