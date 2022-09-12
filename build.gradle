@@ -27,6 +27,13 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
     repositories {
         flatDir{
             dirs 'localdeps'
@@ -60,6 +67,9 @@ dependencies {
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
+
+    // Projectile Damage
+    modImplementation "maven.modrinth:projectile-damage-attribute:${project.projectile_damage_version}-fabric"
 
 }
 

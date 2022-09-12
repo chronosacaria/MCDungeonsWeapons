@@ -81,6 +81,11 @@ public enum LongbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
+    public float getAttackDamage() {
+        return 6;
+    }
+
+    @Override
     public int getDrawSpeed() {
         return drawSpeed;
     }

@@ -18,18 +18,21 @@ public interface IRangedWeaponID extends IMcdwWeaponID {
     IRangedWeaponID.RangedStats getWeaponItemStats(McdwNewStatsConfig mcdwNewStatsConfig);
 
     ToolMaterial getMaterial();
+    float getAttackDamage();
     int getDrawSpeed();
     float getRange();
     String[] getRepairIngredient();
 
     class RangedStats {
         public String material;
+        public float attackDamage;
         public int drawSpeed;
         public float range;
         String[] repairIngredient;
 
-        public RangedStats rangedStats(String material, int drawSpeed, float range, String[] repairIngredient) {
+        public RangedStats rangedStats(String material, float attackDamage, int drawSpeed, float range, String[] repairIngredient) {
             this.material = material;
+            this.attackDamage = attackDamage;
             this.drawSpeed = drawSpeed;
             this.range = range;
             this.repairIngredient = repairIngredient;

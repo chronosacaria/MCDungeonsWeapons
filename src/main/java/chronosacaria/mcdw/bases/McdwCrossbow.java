@@ -11,6 +11,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.projectiledamage.api.IProjectileWeapon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +26,7 @@ public class McdwCrossbow extends CrossbowItem {
     public final float range;
     String[] repairIngredient;
 
-    public McdwCrossbow(ToolMaterial material, int drawSpeed, float range, String[] repairIngredient) {
+    public McdwCrossbow(ToolMaterial material, float attackDamage, int drawSpeed, float range, String[] repairIngredient) {
         super(new Item.Settings().group(Mcdw.RANGED)
                 .maxCount(1)
                 .maxDamage(100 + material.getDurability())
@@ -35,6 +36,7 @@ public class McdwCrossbow extends CrossbowItem {
         this.drawSpeed = drawSpeed;
         this.range = range;
         this.repairIngredient = repairIngredient;
+        ((IProjectileWeapon)this).setProjectileDamage(attackDamage);
     }
 
     public float getProjectileVelocity(ItemStack stack){

@@ -19,6 +19,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.projectiledamage.api.IProjectileWeapon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,7 +38,7 @@ public class McdwBow extends BowItem {
     private final ParticleEffect type;
     String[] repairIngredient;
 
-    public McdwBow(ToolMaterial material, float drawSpeed, float maxBowRangePar, String[] repairIngredient) {
+    public McdwBow(ToolMaterial material, float attackDamage, float drawSpeed, float maxBowRangePar, String[] repairIngredient) {
         super(new Item.Settings().group(Mcdw.RANGED)
                 .maxCount(1)
                 .maxDamage(100 + material.getDurability())
@@ -48,6 +49,7 @@ public class McdwBow extends BowItem {
         this.repairIngredient = repairIngredient;
         maxBowRange = maxBowRangePar;
         type = null;
+        ((IProjectileWeapon)this).setProjectileDamage(attackDamage);
     }
 
     public float getDrawSpeed() {

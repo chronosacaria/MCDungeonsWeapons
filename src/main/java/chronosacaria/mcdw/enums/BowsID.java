@@ -108,6 +108,11 @@ public enum BowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
+    public float getAttackDamage() {
+        return 6;
+    }
+
+    @Override
     public int getDrawSpeed() {
         return drawSpeed;
     }
@@ -124,7 +129,7 @@ public enum BowsID implements IMcdwWeaponID, IRangedWeaponID {
 
     @Override
     public McdwBow makeWeapon() {
-        McdwBow mcdwBow = new McdwBow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwBow mcdwBow = new McdwBow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material), this.getWeaponItemStats().attackDamage,
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwBow);
