@@ -13,6 +13,8 @@
   "item.mcdw.axe_highland": "산악 도끼",
   "item.mcdw.axe_whirlwind": "회오리",
   "item.mcdw.axe_firebrand": "파이어브랜드",
+  "item.mcdw.axe_anchor": "닻",
+  "item.mcdw.axe_encrusted_anchor": "뒤덮인 닻",
 
   "item.mcdw.bow_bonebow": "뼈 활",
   "item.mcdw.bow_twin_bow": "트윈 활",
@@ -45,6 +47,12 @@
   "item.mcdw.bow_burst_gale_bow": "버스트 게일 활",
   "item.mcdw.bow_weeping_vine_bow": "수양 덩굴 활",
   "item.mcdw.bow_twisting_vine_bow": "꼬인 포도 나무 활",
+  "item.mcdw.bow_bubble_bow": "버블 활",
+  "item.mcdw.bow_bubble_burster": "버블 버스터",
+  "item.mcdw.bow_void_bow": "공허 활",
+  "item.mcdw.bow_call_of_the_void": "공허의 부름",
+  "item.mcdw.bow_phantom_bow": "팬텀 활",
+  "item.mcdw.bow_web_bow": "거미줄 활",
 
   "item.mcdw.crossbow_the_slicer" : "슬라이서",
   "item.mcdw.crossbow_azure_seeker" : "푸른 수색자",
@@ -69,6 +77,12 @@
   "item.mcdw.crossbow_burst_crossbow" : "버스트 석궁",
   "item.mcdw.crossbow_soul_hunter_crossbow" : "영혼 헌터 석궁",
   "item.mcdw.crossbow_corrupted_crossbow" : "손상된 석궁",
+  "item.mcdw.crossbow_cog_crossbow": "톱니 석궁",
+  "item.mcdw.crossbow_pride_of_the_piglins": "피글린의 긍지",
+  "item.mcdw.crossbow_harpoon_crossbow": "작살 석궁",
+  "item.mcdw.crossbow_nautical_crossbow": "해상 석궁",
+  "item.mcdw.crossbow_shadow_crossbow": "그림자 석궁",
+  "item.mcdw.crossbow_veiled_crossbow": "베일에 가려진 석궁",
 
   "item.mcdw.dagger_dagger": "단검",
   "item.mcdw.dagger_fangs_of_frost": "서리 송곳니",
@@ -79,18 +93,25 @@
   "item.mcdw.dagger_chill_gale_knife": "차가운 강풍의 나이프",
   "item.mcdw.dagger_resolute_tempest_knife": "불굴의 폭풍우 칼",
   "item.mcdw.dagger_shear_dagger": "깎아지른듯한 단검",
+  "item.mcdw.dagger_backstabber": "습격자",
+  "item.mcdw.dagger_swift_striker": "신속한 공격수",
+  "item.mcdw.dagger_void_touched_blade": "공허에 닿은 칼",
+  "item.mcdw.dagger_the_beginning": "개벽",
+  "item.mcdw.dagger_the_end": "종말",
 
+  "item.mcdw.hammer_mace": "메이스",
   "item.mcdw.hammer_flail": "철퇴",
   "item.mcdw.hammer_gravity": "중력 망치",
   "item.mcdw.hammer_great_hammer": "대형 망치",
   "item.mcdw.hammer_stormlander": "스톰랜더",
   "item.mcdw.hammer_suns_grace": "태양의 은총",
+  "item.mcdw.hammer_boneclub": "뼈 몽둥이",
+  "item.mcdw.hammer_bone_cudgel": "뼈 곤봉",
 
   "item.mcdw.pick_diamond_pickaxe_var": "다이아몬드 곡괭이",
   "item.mcdw.pick_mountaineer_pick": "산악인의 곡괭이",
   "item.mcdw.pick_howling_pick": "울부짖는 곡괭이",
   "item.mcdw.pick_hailing_pinnacle": "쏟아지는 첨탑",
-
 
   "item.mcdw.sickle_sickle": "낫",
   "item.mcdw.sickle_nightmares_bite": "악몽의 이빨",
@@ -99,6 +120,7 @@
   "item.mcdw.sickle_frost_scythe": "얼음 대낫",
   "item.mcdw.sickle_jailors_scythe": "간수의 대낫",
   "item.mcdw.sickle_soul_scythe": "영혼의 대낫",
+  "item.mcdw.sickle_skull_scythe": "해골 대낫",
 
   "item.mcdw.spear_spear": "창",
   "item.mcdw.spear_fortune": "운명의 창",
@@ -106,6 +128,7 @@
   "item.mcdw.spear_glaive": "글레이브",
   "item.mcdw.spear_grave_bane": "언데드 퇴치자",
   "item.mcdw.spear_venom_glaive": "베놈 글레이브",
+  "item.mcdw.spear_cackling_broom": "꼬꼬댁 빗자루",
 
   "item.mcdw.staff_battlestaff": "지팡이",
   "item.mcdw.staff_battlestaff_of_terror": "공포의 지팡이",
@@ -114,6 +137,7 @@
   "item.mcdw.sword_iron_sword_var": "검",
   "item.mcdw.sword_diamond_sword_var": "다이아몬드 검",
   "item.mcdw.sword_hawkbrand": "호크브랜드",
+  "item.mcdw.sword_sinister": "사악한 검",
 
   "item.mcdw.sword_rapier": "레이피어",
   "item.mcdw.sword_beestinger": "꿀벌 침",
@@ -124,6 +148,8 @@
   "item.mcdw.sword_heartstealer": "하트스틸러",
   "item.mcdw.sword_great_axeblade": "큰 도끼날",
   "item.mcdw.sword_frost_slayer": "서리 학살자",
+  "item.mcdw.sword_obsidian_claymore": "흑요석 클레이모어",
+  "item.mcdw.sword_the_starless_night": "별 없는 밤",
 
   "item.mcdw.sword_cutlass": "커틀러스",
   "item.mcdw.sword_dancers_sword": "댄서의 검",
@@ -132,9 +158,14 @@
   "item.mcdw.sword_katana": "카타나",
   "item.mcdw.sword_masters_katana": "달인의 카타나",
   "item.mcdw.sword_dark_katana": "어둠의 카타나",
-
+	
+  "item.mcdw.sword_broken_sawblade": "부서진 톱날",
+  "item.mcdw.sword_mechanized_sawblade": "기계화 톱날",
+  
   "item.mcdw.sword_truthseeker": "진실 탐색기",
-  "item.mcdw.sword_sinister": "사악한 검",
+  
+  "item.mcdw.sword_coral_blade": "산호 블레이드",
+  "item.mcdw.sword_sponge_striker": "스폰지 스트라이커",
 
   "item.mcdw.whip_whip": "채찍",
   "item.mcdw.whip_vine_whip": "덩굴 채찍",
@@ -152,14 +183,24 @@
   "item.mcdw.moreinfo.tooltip": "[SHIFT]를 눌려 자세한 정보를 볼 수 있습니다.",
   "item.mcdw.item_bee_stinger.tooltip2": "어딘가 사용할 수 있을 것 같습니다.",
 
-  "enchantment.mcdw.accelerate": "곡예사",
+  "effect.mcdw.accelerate": "가속",
+  "effect.mcdw.dynamo": "디나모",
+  "effect.mcdw.pain_cycle": "페인 사이클",
+  "effect.mcdw.shadow_form": "쉐도우 폼",
+  
+  "enchantment.mcdw.accelerate": "가속",
+  "enchantment.mcdw.ambush": "매복",
   "enchantment.mcdw.anima_conduit": "정신 도관",
   "enchantment.mcdw.bonus_shot": "보너스 공격",
+  "enchantment.mcdw.burst_bowstring": "버스트 활 시위",
   "enchantment.mcdw.chain_reaction": "사슬 반응",
   "enchantment.mcdw.chains": "사슬",
   "enchantment.mcdw.charge": "충전",
+  "enchantment.mcdw.cobweb_shot": "거미줄 샷",
   "enchantment.mcdw.committed": "추가 사격",
   "enchantment.mcdw.critical_hit": "치명타",
+  "enchantment.mcdw.dipping_poison": "디핑 포이즌",
+  "enchantment.mcdw.dynamo": "디나모",
   "enchantment.mcdw.echo": "메아리",
   "enchantment.mcdw.enigma_resonator": "수수께기의 공명기",
   "enchantment.mcdw.exploding": "폭발",
@@ -167,26 +208,39 @@
   "enchantment.mcdw.fuse_shot": "융합 샷",
   "enchantment.mcdw.gravity": "중력",
   "enchantment.mcdw.growing": "성장",
+  "enchantment.mcdw.guarding_strike": "일격 방어",
   "enchantment.mcdw.illagers_bane": "우민 살인자",
   "enchantment.mcdw.jungle_poison": "정글의 독",
   "enchantment.mcdw.leeching": "흡혈",
+  "enchantment.mcdw.levitation_shot": "공중 부양 샷",
+  "enchantment.mcdw.overcharge": "과충전",
+  "enchantment.mcdw.pain_cycle": "페인 사이클",
+  "enchantment.mcdw.phantoms_mark": "팬텀 마스크",
   "enchantment.mcdw.poison_cloud": "독구름",
   "enchantment.mcdw.prospector": "탐사자",
   "enchantment.mcdw.radiance": "광휘",
   "enchantment.mcdw.radiance_shot": "래디언스 샷",
   "enchantment.mcdw.rampaging": "광란",
+  "enchantment.mcdw.refreshment": "피로 회복",
+  "enchantment.mcdw.refreshment_shot": "피로 회복 샷",
   "enchantment.mcdw.replenish": "보충",
   "enchantment.mcdw.ricochet": "도탄",
   "enchantment.mcdw.rushdown": "추적",
+  "enchantment.mcdw.shadow_barb": "그림자 미늘",
+  "enchantment.mcdw.shadow_shot": "그림자 샷",
   "enchantment.mcdw.shared_pain": "피해 공유",
   "enchantment.mcdw.shockwave": "충격파",
   "enchantment.mcdw.smiting": "강타",
+  "enchantment.mcdw.soul_devourer": "영혼 포식자",
   "enchantment.mcdw.soul_siphon": "영혼 흡수",
   "enchantment.mcdw.stunning": "기절",
   "enchantment.mcdw.swirling": "소용돌이",
   "enchantment.mcdw.tempo_theft": "템포 훔치기",
   "enchantment.mcdw.thundering": "천둥",
+  "enchantment.mcdw.void_shot": "공허 샷",
+  "enchantment.mcdw.void_strike": "공허의 타격",
   "enchantment.mcdw.weakening": "약화",
+  "enchantment.mcdw.wild_rage": "야생의 분노",
 
   "subtitles.mcdw.echo_sound": "메아리 소리는 날카롭습니다",
 
@@ -206,6 +260,11 @@
   "tooltip_info_item.mcdw.highland_3"         : "위험하지만 효자손으로도",
   "tooltip_info_item.mcdw.highland_4"         : "쓸 수 있습니다.",
 
+  "tooltip_info_item.mcdw.anchor_1"           : "닻을 휘두를 수 있을 만큼",
+  "tooltip_info_item.mcdw.anchor_2"           : "강한 자들은 전설의",
+  "tooltip_info_item.mcdw.anchor_3"           : "해양 전사들의 전통을",
+  "tooltip_info_item.mcdw.anchor_4"           : "따릅니다.",
+  
   "tooltip_info_item.mcdw.claymore_1"         : "들 수 없을 만큼",
   "tooltip_info_item.mcdw.claymore_2"         : "거대해 보이지만",
   "tooltip_info_item.mcdw.claymore_3"         : "전사의 손에 편하게",
@@ -233,6 +292,14 @@
   "tooltip_info_item.mcdw.heartstealer_4"     : "이 룬블레이드는",
   "tooltip_info_item.mcdw.heartstealer_5"     : "어둠의 마법이 깃들어 있습니다. ", 
 
+  "tooltip_info_item.mcdw.obsidian_claymore_1": "두꺼운 셜커 껍데기조차",
+  "tooltip_info_item.mcdw.obsidian_claymore_2": "품격있고 쉽게 쪼갤 수 있는",
+  "tooltip_info_item.mcdw.obsidian_claymore_3": "거대한 칼입니다.",
+
+  "tooltip_info_item.mcdw.the_starless_night_1": "별 없는 밤은 칠흑처럼 검은 칼날",
+  "tooltip_info_item.mcdw.the_starless_night_2": "속에서 맴도는 고통의 메아리로",
+  "tooltip_info_item.mcdw.the_starless_night_3": "괴로워합니다.",
+  
   "tooltip_info_item.mcdw.cutlass_1"          : "이 굽은 칼은",
   "tooltip_info_item.mcdw.cutlass_2"          : "오징어 해안의 전사들이 사용하며",
   "tooltip_info_item.mcdw.cutlass_3"          : "뛰어난 전투 솜씨가 필요합니다.",
@@ -281,6 +348,28 @@
   "tooltip_info_item.mcdw.hawkbrand_2"        : "증명된 전사가 사용하는",
   "tooltip_info_item.mcdw.hawkbrand_3"        : "전설의 검입니다.",
 
+  "tooltip_info_item.mcdw.sinister_1"        : "으스스한 밤을 마주하는",
+  "tooltip_info_item.mcdw.sinister_2"        : "이들에게 이끌린 사악한 검은",
+  "tooltip_info_item.mcdw.sinister_3"        : "울부 짖으며",
+  "tooltip_info_item.mcdw.sinister_4"        : "밤을 지새웁니다.",
+
+  "tooltip_info_item.mcdw.broken_sawblade_1"      : "부서진 톱날은 시간이 지나면서",
+  "tooltip_info_item.mcdw.broken_sawblade_2"      : "부서졌지만 여전히",
+  "tooltip_info_item.mcdw.broken_sawblade_3"      : "상당히 날카롭습니다.",
+
+  "tooltip_info_item.mcdw.mechanized_sawblade_1"  : "기계화 톱날은 네더의 불로",
+  "tooltip_info_item.mcdw.mechanized_sawblade_2"  : "단조되어 계속",
+  "tooltip_info_item.mcdw.mechanized_sawblade_3"  : "빛나고 있습니다.",
+
+  "tooltip_info_item.mcdw.coral_blade_1"          : "산호 블레이드는",
+  "tooltip_info_item.mcdw.coral_blade_2"          : "날카로운 정확도로",
+  "tooltip_info_item.mcdw.coral_blade_3"          : "적을 관통합니다.",
+
+  "tooltip_info_item.mcdw.sponge_striker_1"       : "무색으로 쓸모없어",
+  "tooltip_info_item.mcdw.sponge_striker_2"       : "보이지만 전투 중에",
+  "tooltip_info_item.mcdw.sponge_striker_3"       : "에너지를 흡수하여",
+  "tooltip_info_item.mcdw.sponge_striker_4"       : "강력한 폭발을 방출합니다.",
+  
   "tooltip_info_item.mcdw.double_1"           : "야만적인 투사들에게",
   "tooltip_info_item.mcdw.double_2"           : "어울리는 파괴적인 무기입니다.",
 
@@ -320,6 +409,26 @@
   "tooltip_info_item.mcdw.shear_dagger_2"     : "이 깎아지른듯한 단검을 휘둘러",
   "tooltip_info_item.mcdw.shear_dagger_3"     : "야만적인 결과를 얻을 수 있습니다.",
 
+  "tooltip_info_item.mcdw.backstabber_1"      : "도둑과 암살자들이",
+  "tooltip_info_item.mcdw.backstabber_2"      : "선호하는 칼인 습격자는",
+  "tooltip_info_item.mcdw.backstabber_3"      : "모든 도적단의 필수 무기입니다.",
+
+  "tooltip_info_item.mcdw.swift_striker_1"    : "승리를 향한 가장 확실한 길은",
+  "tooltip_info_item.mcdw.swift_striker_2"    : "눈에 띄지 않고 공격해야 함을 아는",
+  "tooltip_info_item.mcdw.swift_striker_3"    : "사람들을 위한 칼입니다.",
+
+  "tooltip_info_item.mcdw.void_touched_blade_1"    : "엔드에 갇혀 수많은 세월을",
+  "tooltip_info_item.mcdw.void_touched_blade_2"    : "보내 불안한 의도가",
+  "tooltip_info_item.mcdw.void_touched_blade_3"    : "담겨 있는 칼입니다.",
+
+  "tooltip_info_item.mcdw.the_beginning_1"    : "엔드 세계에서 불운한 탐험을 했던 생존자들이",
+  "tooltip_info_item.mcdw.the_beginning_2"    : "만들어낸 이 칼은 쌍둥이인 종말과 함께",
+  "tooltip_info_item.mcdw.the_beginning_3"    : "어두운 비밀을 지니고 있습니다.",
+
+  "tooltip_info_item.mcdw.the_end_1"    : "엔드 세계에서 불운한 탐험을 했던 생존자들이",
+  "tooltip_info_item.mcdw.the_end_2"    : "만들어낸 이 칼은 쌍둥이인 개벽과 함께",
+  "tooltip_info_item.mcdw.the_end_3"    : "어두운 비밀을 지니고 있습니다.",
+  
   "tooltip_info_item.mcdw.soul_knife_1"       : "의식용 나이프로서",
   "tooltip_info_item.mcdw.soul_knife_2"       : "마법 에너지를 사용해",
   "tooltip_info_item.mcdw.soul_knife_3"       : "영혼들의 분노를 답고 있습니다.",
@@ -339,6 +448,9 @@
   "tooltip_info_item.mcdw.grave_bane_2"       : "이 글레이브는 언데드를 물리치는",
   "tooltip_info_item.mcdw.grave_bane_3"       : "잠재적인 마법 에너지를 발산합니다.",
 
+  "tooltip_info_item.mcdw.cackling_broom_1"   : "꼬꼬댁거리는 빗자루로",
+  "tooltip_info_item.mcdw.cackling_broom_2"   : "적들의 발을 쓸어버리세요.",
+  
   "tooltip_info_item.mcdw.spear_1"            : "이 창은 먼 거리에도",
   "tooltip_info_item.mcdw.spear_2"            : "닿아 넓은 범위에 쓸 수",
   "tooltip_info_item.mcdw.spear_3"            : "있는 유일한 무기입니다.",
@@ -351,6 +463,10 @@
   "tooltip_info_item.mcdw.whispering_spear_2" : "창은 소유자의 정신을 조종하는",
   "tooltip_info_item.mcdw.whispering_spear_3" : "영혼이 잠식하고 있다고 합니다.",
 
+  "tooltip_info_item.mcdw.mace_1"            : "메이스는 잔혹한 전쟁의 도구로",
+  "tooltip_info_item.mcdw.mace_2"            : "기교는 부족하지만 힘으로",
+  "tooltip_info_item.mcdw.mace_3"            : "그것을 만회합니다.",
+  
   "tooltip_info_item.mcdw.flail_1"            : "이 고대 무기는 공포의",
   "tooltip_info_item.mcdw.flail_2"            : "금속 공을 피하지 못한 자들에게",
   "tooltip_info_item.mcdw.flail_3"            : "엄청난 타격 피해를 줍니다.",
@@ -370,6 +486,13 @@
   "tooltip_info_item.mcdw.stormlander_2"      : "힘이 담긴 스톰랜더는",
   "tooltip_info_item.mcdw.stormlander_3"      : "우민의 보물입니다.",
 
+  "tooltip_info_item.mcdw.boneclub_1"         : "뼈 몽둥이를 휘두리는 사람들은",
+  "tooltip_info_item.mcdw.boneclub_2"         : "문제 해결에 대해 어렵지 않은 접근법을 선호합니다.",
+
+  "tooltip_info_item.mcdw.bone_cudgel_1"      : "뼈 곤봉은 고대의 보물로 여겨질 만큼",
+  "tooltip_info_item.mcdw.bone_cudgel_2"      : "오래된 무기이지만,",
+  "tooltip_info_item.mcdw.bone_cudgel_3"      : "현대의 기준으로도 여전히 위협적인 무기입니다.",
+  
   "tooltip_info_item.mcdw.diamond_pick_1"     : "가장 강력한 재료 중 하나인",
   "tooltip_info_item.mcdw.diamond_pick_2"     : "다이아몬드는 곡괭이를 만들기",
   "tooltip_info_item.mcdw.diamond_pick_3"     : "위한 최상의 선택입니다.",
@@ -383,10 +506,13 @@
   "tooltip_info_item.mcdw.frost_scythe_3"     : "만지면 얼어붙어 녹지",
   "tooltip_info_item.mcdw.frost_scythe_4"     : "않을 것만 같습니다.",
 
-
   "tooltip_info_item.mcdw.jailors_scythe_1"   : "하이블록 요새에서 공포의",
   "tooltip_info_item.mcdw.jailors_scythe_2"   : "대상인 간수가 소유한 대낫입니다.", 
 
+  "tooltip_info_item.mcdw.skull_scythe_1"   : "이 무기를 만들기 위해",
+  "tooltip_info_item.mcdw.skull_scythe_2"   : "어떤 비정상적인 생명체의 뼈를 사용했는지는 묻지 마세요.",
+  "tooltip_info_item.mcdw.skull_scythe_3"   : "알고 싶지 않을 겁니다.",
+  
   "tooltip_info_item.mcdw.sickle_1"           : "사막 사원이",
   "tooltip_info_item.mcdw.sickle_2"           : "있는 지역에서 온",
   "tooltip_info_item.mcdw.sickle_3"           : "제례용 무기입니다.",
@@ -463,6 +589,7 @@
   "tooltip_info_item.mcdw.hunters_promise_1"  : "마법에 걸린 이 활은",
   "tooltip_info_item.mcdw.hunters_promise_2"  : "헌터와 동물 동료의",
   "tooltip_info_item.mcdw.hunters_promise_3"  : "연대를 강화합니다.",
+  "tooltip_ench_item.mcdw.hunters_promise_1"  : "헌터의 동반자",
 
   "tooltip_info_item.mcdw.hunting_bow_1"      : "마법에 걸린 이 활은",
   "tooltip_info_item.mcdw.hunting_bow_2"      : "헌터와 동물 동료의",
@@ -516,7 +643,6 @@
   "tooltip_info_item.mcdw.soul_bow_2"         : "벡스의 아름다움과",
   "tooltip_info_item.mcdw.soul_bow_3"         : "분노로 어른거립니다.",
 
-
   "tooltip_info_item.mcdw.green_menace_1"     : "녹색 위협에서 발사된",
   "tooltip_info_item.mcdw.green_menace_2"     : "화살은 짙은 안개 속에서도",
   "tooltip_info_item.mcdw.green_menace_3"     : "항상 목표 대상을 맞힙니다.",
@@ -552,15 +678,43 @@
   "tooltip_info_item.mcdw.burst_gale_bow_2"     : "바람의 힘을 담은",
   "tooltip_info_item.mcdw.burst_gale_bow_3"     : "활입니다.",
 
-  "tooltip_info_item.mcdw.twisting_vine_bow_1"  : "This bow writhes within your",
-  "tooltip_info_item.mcdw.twisting_vine_bow_2"  : "grasp as if trying to wrap its",
-  "tooltip_info_item.mcdw.twisting_vine_bow_3"  : "tendrils around everything",
-  "tooltip_info_item.mcdw.twisting_vine_bow_4"  : "in its path.",
+  "tooltip_info_item.mcdw.twisting_vine_bow_1"  : "길에 있는 모든 것을",
+  "tooltip_info_item.mcdw.twisting_vine_bow_2"  : "활의 덩굴손으로 모든 것을",
+  "tooltip_info_item.mcdw.twisting_vine_bow_3"  : "감싸려는 것처럼 당신의 손에서",
+  "tooltip_info_item.mcdw.twisting_vine_bow_4"  : "비틀거리는 활입니다.",
 
-  "tooltip_info_item.mcdw.weeping_vine_bow_1"  : "The Weeping Vine Bow's toxic",
-  "tooltip_info_item.mcdw.weeping_vine_bow_2"  : "vines create a poisonous haze",
-  "tooltip_info_item.mcdw.weeping_vine_bow_3"  : "on the battlefield.",
+  "tooltip_info_item.mcdw.weeping_vine_bow_1"  : "수양 동굴 활의 독성 덩굴은",
+  "tooltip_info_item.mcdw.weeping_vine_bow_2"  : "전장에 독이 가득한 안개를",
+  "tooltip_info_item.mcdw.weeping_vine_bow_3"  : "만들어냅니다.",
 
+  "tooltip_info_item.mcdw.bubble_bow_1"        : "충전된 샷에서 목표물을",
+  "tooltip_info_item.mcdw.bubble_bow_2"        : "거품으로 가둬버리는",
+  "tooltip_info_item.mcdw.bubble_bow_3"        : "버블 활을 사용해서",
+  "tooltip_info_item.mcdw.bubble_bow_4"        : "골칫거리들을 날려버리세요.",
+
+  "tooltip_info_item.mcdw.bubble_burster_1"    : "버블 버스터는 적들에게",
+  "tooltip_info_item.mcdw.bubble_burster_2"    : "버블 트러블의 연쇄 효과를",
+  "tooltip_info_item.mcdw.bubble_burster_3"    : "만들어냅니다.",
+
+  "tooltip_info_item.mcdw.void_bow_1"          : "공허 활의 실을 당기면",
+  "tooltip_info_item.mcdw.void_bow_2"          : "불안한 침묵이 전장에",
+  "tooltip_info_item.mcdw.void_bow_3"          : "울려 퍼집니다.",
+
+  "tooltip_info_item.mcdw.call_of_the_void_1"  : "이 활의 깊숙한 내면에서",
+  "tooltip_info_item.mcdw.call_of_the_void_2"  : "공허의 속삭임을 느낄 수 있지만,",
+  "tooltip_info_item.mcdw.call_of_the_void_3"  : "그 소리의 뒤편에는 어둠 속에",
+  "tooltip_info_item.mcdw.call_of_the_void_4"  : "또 다른 목소리가 존재합니다.",
+
+  "tooltip_info_item.mcdw.phantom_bow_1"       : "팬텀 활로 쏜 화살은",
+  "tooltip_info_item.mcdw.phantom_bow_2"       : "활의 악몽 같은",
+  "tooltip_info_item.mcdw.phantom_bow_3"       : "이름처럼 적에게",
+  "tooltip_info_item.mcdw.phantom_bow_4"       : "들이닥칩니다.",
+
+  "tooltip_info_item.mcdw.web_bow_1"           : "강력한 거미줄로 만들어진",
+  "tooltip_info_item.mcdw.web_bow_2"           : "거미줄 활은 어떠한",
+  "tooltip_info_item.mcdw.web_bow_3"           : "끈적거리는 상황에서도",
+  "tooltip_info_item.mcdw.web_bow_4"           : "당신을 구해줄 겁니다.",
+  
   "tooltip_info_item.mcdw.auto_crossbow_1"          : "우민왕은 환상 속에서",
   "tooltip_info_item.mcdw.auto_crossbow_2"          : "이 강력한 석궁의 제조법을",
   "tooltip_info_item.mcdw.auto_crossbow_3"          : "발견했다고 말했습니다.", 
@@ -581,10 +735,10 @@
   "tooltip_info_item.mcdw.butterfly_crossbow_2"     : "더 빠르게 움직여 화살이 눈에",
   "tooltip_info_item.mcdw.butterfly_crossbow_3"     : "띄기도 전에 적을 쓰러뜨립니다.",
 
-  "tooltip_info_item.mcdw.cog_crossbow_1"           : "The gears of this ancient Cog",
-  "tooltip_info_item.mcdw.cog_crossbow_2"           : "Crossbow still turn up smoothly,",
-  "tooltip_info_item.mcdw.cog_crossbow_3"           : "making it a reliable weapon choice",
-  "tooltip_info_item.mcdw.cog_crossbow_4"           : "to this day.",
+  "tooltip_info_item.mcdw.cog_crossbow_1"           : "이 고대 톱니 석궁의 부품은",
+  "tooltip_info_item.mcdw.cog_crossbow_2"           : "여전히 부드럽게 돌아가",
+  "tooltip_info_item.mcdw.cog_crossbow_3"           : "오늘날까지 신뢰할 수 있는",
+  "tooltip_info_item.mcdw.cog_crossbow_4"           : "무기가 되었습니다.",
 
   "tooltip_info_item.mcdw.corrupted_crossbow_1"     : "이 석궁에는 미묘하지만 ",
   "tooltip_info_item.mcdw.corrupted_crossbow_2"     : "타락한 힘이 있어 도둑과",
@@ -613,6 +767,10 @@
   "tooltip_info_item.mcdw.harp_crossbow_2"          : "치명적인 무기 하프 석궁은",
   "tooltip_info_item.mcdw.harp_crossbow_3"          : "파티의 핵심입니다.",
 
+  "tooltip_info_item.mcdw.harpoon_crossbow_1"       : "작살 석궁은 강력한 힘으로",
+  "tooltip_info_item.mcdw.harpoon_crossbow_2"       : "바람과 물을 가르며 날아가는",
+  "tooltip_info_item.mcdw.harpoon_crossbow_3"       : "작살을 발사합니다.",
+  
   "tooltip_info_item.mcdw.heavy_crossbow_1"         : "무거운 석궁은 원거리에",
   "tooltip_info_item.mcdw.heavy_crossbow_2"         : "피해를 입히는 위험한 존재이자",
   "tooltip_info_item.mcdw.heavy_crossbow_3"         : "진정한 위협입니다.",
@@ -625,9 +783,12 @@
   "tooltip_info_item.mcdw.lightning_harp_crossbow_2": "더하자 발사음이",
   "tooltip_info_item.mcdw.lightning_harp_crossbow_3": "완전히 바뀌었습니다.",
 
-  "tooltip_info_item.mcdw.pride_of_the_piglins_1"   : "Found in the farthest reaches",
-  "tooltip_info_item.mcdw.pride_of_the_piglins_2"   : "of the Nether, the Pride of the",
-  "tooltip_info_item.mcdw.pride_of_the_piglins_3"   : "Piglins is both vintage and vicious.",
+  "tooltip_info_item.mcdw.nautical_crossbow_1"      : "많은 작살을 사용할 수 있는데",
+  "tooltip_info_item.mcdw.nautical_crossbow_2"      : "어째서 한 명의 적을 작살로 공격하는가!",
+  
+  "tooltip_info_item.mcdw.pride_of_the_piglins_1"   : "네더의 가장 먼 곳에서 발견되는",
+  "tooltip_info_item.mcdw.pride_of_the_piglins_2"   : "피글린의 긍지는",
+  "tooltip_info_item.mcdw.pride_of_the_piglins_3"   : "빈티지하면서도 악랄합니다.",
 
   "tooltip_info_item.mcdw.rapid_crossbow_1"         : "새로운 장전 기술 덕분에",
   "tooltip_info_item.mcdw.rapid_crossbow_2"         : "이 석궁은 이전보다 더 빠르게",
@@ -637,6 +798,10 @@
   "tooltip_info_item.mcdw.scatter_crossbow_2"       : "발사할 수 있도록 개조된 이 석궁은",
   "tooltip_info_item.mcdw.scatter_crossbow_3"       : "꽤 괜찮은 악기이기도 합니다.",
 
+  "tooltip_info_item.mcdw.shadow_crossbow_1"        : "그림자 석궁을 사용하려는 사람은",
+  "tooltip_info_item.mcdw.shadow_crossbow_2"        : "사용하기 전에 완전한 어둠 속에서",
+  "tooltip_info_item.mcdw.shadow_crossbow_3"        : "먼저 훈련을 받아야 합니다.",
+  
   "tooltip_info_item.mcdw.slayer_crossbow_1"        : "슬레이어의 석궁은 수많은 전설적인",
   "tooltip_info_item.mcdw.slayer_crossbow_2"        : "헌터가 소중히 여기는 가보입니다.",
 
@@ -657,6 +822,10 @@
   "tooltip_info_item.mcdw.spellbound_crossbow_1"    : "마법에 걸린 적들은",
   "tooltip_info_item.mcdw.spellbound_crossbow_2"    : "이 석궁의 마법에 특히 취약합니다.",
 
+  "tooltip_info_item.mcdw.veiled_crossbow_1"        : "베일에 가려진 석궁은 그림자 속에 가려져 있어",
+  "tooltip_info_item.mcdw.veiled_crossbow_2"        : "눈에 띄지 않으면서도 지고 싶지 않은",
+  "tooltip_info_item.mcdw.veiled_crossbow_3"        : "사람들에게 완벽한 무기입니다.",
+  
   "tooltip_info_item.mcdw.voidcaller_crossbow_1"    : "이 무기는 이 세계와",
   "tooltip_info_item.mcdw.voidcaller_crossbow_2"    : "다음 세계 사이에 갇힌",
   "tooltip_info_item.mcdw.voidcaller_crossbow_3"    : "영혼을 부릅니다.",
@@ -666,5 +835,59 @@
   "tooltip_note_item.mcdw.longbow": "장궁",
   "tooltip_note_item.mcdw.shortbow": "단궁",
 
-  "death.attack.electricShock": "%s was electrocuted to death."
+  "death.attack.electricShock": "%s는(은) 감전사했습니다.",
+  
+  "enchantment.mcdw.accelerate.desc": "연속 공격 시 공격 속도가 증가합니다. 공격 3초 후 효과가 사라집니다.",
+  "enchantment.mcdw.ambush.desc": "은신하고 보이지 않는 동안 추가 공격력을 가집니다.",
+  "enchantment.mcdw.anima_conduit.desc": "경험치 오브는 약간의 체력을 회복시킵니다.",
+  "enchantment.mcdw.bonus_shot.desc": "두 번째 대상을 향해 추가로 발사체가 발사됩니다.",
+  "enchantment.mcdw.burst_bowstring.desc": "주변 몬스터를 쏘고 점프하면 레벨당 화살 한 개를 발사합니다. 발사체는 화살의 40%만큼의 공격력을 가집니다.",
+  "enchantment.mcdw.chain_reaction.desc": "일정 확률로 화살을 쏜 대상에게 추가 발사체를 발사합니다.",
+  "enchantment.mcdw.chains.desc": "일정 확률로 몬스터들을 끌어당겨 느려지게 만듭니다.",
+  "enchantment.mcdw.charge.desc": "적을 공격하는 동안 일정 확률로 이동 속도 효과를 받습니다.",
+  "enchantment.mcdw.cobweb_shot.desc": "화살이 대상에게 명중하면 거미줄로 적을 덮어버리거나 차단합니다.",
+  "enchantment.mcdw.committed.desc": "일정 확률로 대상의 체력과 관련된 공격을 입힙니다.",
+  "enchantment.mcdw.critical_hit.desc": "일정 확률로 점프하지 않아도 치명타 공격을 가합니다.",
+  "enchantment.mcdw.dipping_poison.desc": "치유 물약을 마시면 독 화살 8개를 줍니다.",
+  "enchantment.mcdw.dynamo.desc": "점프하면 다음 공격의 공격력이 증가합니다. 효과 중첩은 20번까지 가능합니다.",
+  "enchantment.mcdw.echo.desc": "일정 확률로 3블록 내 광역 음파 피해를 가합니다.",
+  "enchantment.mcdw.enigma_resonator.desc": "일정 확률로 사용자가 가진 경험치 양에 비례하여 피해를 입힙니다.",
+  "enchantment.mcdw.exploding.desc": "일정 확률로 대상이 죽으면 폭발하여 주변 적에게 피해를 입힙니다.",
+  "enchantment.mcdw.freezing.desc": "일정 확률로 대상을 느리게 만들고 채굴 피로 효과를 부여합니다.",
+  "enchantment.mcdw.fuse_shot.desc": "일정 확률로 화살이 충돌하면 폭발합니다.",
+  "enchantment.mcdw.gravity.desc": "일정 확률로 대상을 끌어당겨 던집니다. 던지는 거리는 레벨이 비례합니다.",
+  "enchantment.mcdw.growing.desc": "대상과의 거리가 멀어질수록 추가 피해를 입힙니다.",
+  "enchantment.mcdw.guarding_strike.desc": "몬스터를 죽이면 상태 저항 효과를 얻습니다.",
+  "enchantment.mcdw.illagers_bane.desc": "우민에게 추가 피해를 입힙니다.",
+  "enchantment.mcdw.jungle_poison.desc": "일정 확률로 대상을 독에 중독시킵니다.",
+  "enchantment.mcdw.leeching.desc": "대상을 죽이면 대상의 최대 체력에 비례하여 체력을 회복합니다.",
+  "enchantment.mcdw.levitation_shot.desc": "셜커 탄알처럼 공중 부양 상태 효과를 주는 화살을 발사합니다.",
+  "enchantment.mcdw.overcharge.desc": "원거리 공격 버튼을 계속 누르고 있으면 네 번까지 중첩되어 공격력이 증가합니다.",
+  "enchantment.mcdw.pain_cycle.desc": "공격할 때마다 페인 사이클이 중첩되면서 사용자의 체력을 흡수합니다. 5번 중첩되면 다음 공격 시 지금까지 흡수당한 체력만큼 피해를 전달합니다.",
+  "enchantment.mcdw.phantoms_mark.desc": "마법 부여 레벨에 비례하여 대상을 빛나게 만듭니다.",
+  "enchantment.mcdw.poison_cloud.desc": "일정 확률로 대상의 주변에 독 구름을 소환합니다.",
+  "enchantment.mcdw.prospector.desc": "대상을 죽이면 일정 확률로 에메랄드를 발견합니다.",
+  "enchantment.mcdw.radiance.desc": "일정 확률로 대상 주변에 치유 구름을 소환합니다.",
+  "enchantment.mcdw.radiance_shot.desc": "일정 확률로 화살에 맞은 대상 주변에 치유 구름을 소환합니다.",
+  "enchantment.mcdw.rampaging.desc": "적을 죽이면 일정 확률로 중첩 가능한 성급함 효과를 받습니다.",
+  "enchantment.mcdw.refreshment.desc": "근접 무기로 적을 죽이면 유리병이 치유 물약으로 다시 채워집니다.",
+  "enchantment.mcdw.refreshment_shot.desc": "원거리 무기로 적을 죽이면 유리병이 치유 물약으로 다시 채워집니다.",
+  "enchantment.mcdw.replenish.desc": "화살을 쏘면 일정 확률로 화살을 회수합니다.",
+  "enchantment.mcdw.ricochet.desc": "화살이 다른 대상으로 튕깁니다.",
+  "enchantment.mcdw.rushdown.desc": "적을 죽이면 일정 확률로 중첩 가능한 이동 속도 효과를 받습니다.",
+  "enchantment.mcdw.shadow_barb.desc": "석궁으로 발사한 화살은 쉐도우 폼을 깨지 않습니다.",
+  "enchantment.mcdw.shadow_shot.desc": "적을 죽이면 일정 확률로 플레이어에게 쉐도우 폼이 적용됩니다.",
+  "enchantment.mcdw.shared_pain.desc": "플레이어게 몬스터의 체력보다 높은 피해량으로 몬스터를 죽이면, 주변 몬스터에게 남은 피해량만큼 피해를 입힙니다.",
+  "enchantment.mcdw.shockwave.desc": "일정 확률로 3블록 내에 폭발 피해를 입힙니다.",
+  "enchantment.mcdw.smiting.desc": "3블록 내 언데드에게 광역 피해를 입힙니다.",
+  "enchantment.mcdw.soul_devourer.desc": "적을 죽여 얻는 경험치가 증가합니다.",
+  "enchantment.mcdw.soul_siphon.desc": "적을 죽이면 일정 확률로 추가 경험치를 획득합니다.",
+  "enchantment.mcdw.stunning.desc": "일정 확률로 대상을 거의 멈추게 만들고 멀미를 유발합니다.",
+  "enchantment.mcdw.swirling.desc": "일정 확률로 사용자 주변 1.5 블록 내에 있는 모든 엔티티를 공격합니다.",
+  "enchantment.mcdw.tempo_theft.desc": "대상의 이동 속도를 훔쳐 대상을 느려지게 만들고 자신의 이동 속도는 빠르게 만듭니다.",
+  "enchantment.mcdw.thundering.desc": "일정 확률로 번개를 소환하여 레벨에 비례하여 범위 내 엔티티들에게 피해를 입힙니다.",
+  "enchantment.mcdw.void_strike.desc": "마법 부여 레벨에 따라 곱연산으로 공격력이 증가합니다.",
+  "enchantment.mcdw.void_shot.desc": "마법 부여 레벨에 따라 곱연산으로 공격력이 증가합니다.",
+  "enchantment.mcdw.weakening.desc": "일정 확률로 대상의 주변에 쇠약 구름을 소환합니다.",
+  "enchantment.mcdw.wild_rage.desc": "적을 공격하면 일정 확률로 분노를 일으켜 모든 것을 적대하도록 만듭니다."
 }
