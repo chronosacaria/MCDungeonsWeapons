@@ -1,0 +1,70 @@
+name: Bug Report
+description: Create a report to help us improve
+title: '[Bug Report]: '
+labels:
+  - Maybe a bug? Maybe not?
+assignees:
+  - chronosacaria
+  - Kluzzio
+body:
+  - type: textarea
+    attributes:
+      label: Describe the bug; What happened?
+      description: A clear and concise description of what the problem is.
+      placeholder: 1. Go to '...'
+      2. Click on '....'
+      3. Scroll down to '....'
+      4. See error
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you want to happen.
+      placeholder: [...] should happen instead.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Describe alternatives you've considered
+      description: A clear and concise description of what you want to happen.
+      placeholder: I have considered [...]
+  - type: input
+    id: version
+    attributes:
+      label: Mod Version
+      description: Which version are you using?
+      placeholder: 0.0.0
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+        label: Minecraft Launcher
+        options:
+          - Vanilla
+          - MultiMC
+          - CurseForge
+          - GDLauncher
+          - Other
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Operating System
+      options:
+        - Windows
+        - MacOS
+        - Linux
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: modpack
+    attributes:
+      label: Modpack
+      description: What Modpack are you using?
+      placeholder: Medieval MC [FABRIC] 1.19.2 v5.5
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about the feature request here.
