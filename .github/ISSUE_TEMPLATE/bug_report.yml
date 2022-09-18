@@ -36,13 +36,13 @@ body:
       required: true
   - type: dropdown
     attributes:
-        label: Minecraft Launcher
-        options:
-          - Vanilla
-          - MultiMC
-          - CurseForge
-          - GDLauncher
-          - Other
+      label: Minecraft Launcher
+      options:
+        - Vanilla
+        - MultiMC
+        - CurseForge
+        - GDLauncher
+        - Other
     validations:
       required: true
   - type: dropdown
