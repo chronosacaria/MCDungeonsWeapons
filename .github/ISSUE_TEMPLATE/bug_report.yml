@@ -21,11 +21,6 @@ body:
       placeholder: [...] should happen instead.
     validations:
       required: true
-  - type: textarea
-    attributes:
-      label: Describe alternatives you've considered
-      description: A clear and concise description of what you want to happen.
-      placeholder: I have considered [...]
   - type: input
     id: version
     attributes:
