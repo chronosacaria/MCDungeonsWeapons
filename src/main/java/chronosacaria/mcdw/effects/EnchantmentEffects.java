@@ -10,6 +10,7 @@ import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
 import chronosacaria.mcdw.enums.BowsID;
 import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.mixin.CreeperEntityAccessor;
 import chronosacaria.mcdw.mixin.MobEntityAccessor;
 import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
@@ -23,8 +24,10 @@ import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
@@ -452,12 +455,16 @@ public class EnchantmentEffects {
     }
 
     public static void createVisualLightningBoltOnEntity(Entity target) {
+        TrackedData<Boolean> charged = CreeperEntityAccessor.getCHARGED();
         World world = target.getEntityWorld();
         LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);
 
         if (lightningEntity != null) {
             lightningEntity.refreshPositionAfterTeleport(target.getX(), target.getY(), target.getZ());
             lightningEntity.setCosmetic(true);
+            if (target instanceof CreeperEntity creeperEntity) {
+                creeperEntity.getDataTracker().set(charged, true);
+            }
             world.spawnEntity(lightningEntity);
         }
     }

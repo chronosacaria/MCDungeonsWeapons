@@ -5,6 +5,7 @@
   "mixins": [
     "AreaEffectCloudEntityMixin",
     "BowItemMixin",
+    "CreeperEntityAccessor",
     "CrossbowItemMixin",
     "DamageEnchantmentMixin",
     "EnchantmentHelperMixin",
