@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "mcdw:shield_royal_guard",
-    "mcdw:shield_vanguard"
+    "mcdw:shield_vanguard",
+    "mcdw:shield_tower_guard"
   ]
 }
