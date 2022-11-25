@@ -27,7 +27,7 @@ public class McdwShortbow extends BowItem {
 
     public final ToolMaterial material;
     public final float drawSpeed;
-    public static float maxBowRange;
+    public float maxBowRange;
     private final ParticleEffect type;
 
     String[] repairIngredient;
@@ -41,7 +41,7 @@ public class McdwShortbow extends BowItem {
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.repairIngredient = repairIngredient;
-        maxBowRange = maxBowRangePar;
+        this.maxBowRange = maxBowRangePar;
         type = null;
     }
 

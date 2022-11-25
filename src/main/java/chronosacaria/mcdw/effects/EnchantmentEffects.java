@@ -3,7 +3,6 @@ package chronosacaria.mcdw.effects;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.util.*;
-import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.damagesource.ElectricShockDamageSource;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
@@ -757,8 +756,7 @@ public class EnchantmentEffects {
         if (ricochetLevel > 0) {
 
             float damageMultiplier = 0.03F + (ricochetLevel * 0.07F);
-            float arrowVelocity = McdwBow.maxBowRange;
-            if (arrowVelocity > 0.1F)
+            if (ppe.getVelocity().length() > 0.7F)
                 ProjectileEffectHelper.spawnExtraArrows(shooter, target, 1, 10, damageMultiplier);
         }
     }
