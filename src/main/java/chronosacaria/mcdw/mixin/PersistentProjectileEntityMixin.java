@@ -260,7 +260,6 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         tag.putInt("tempoTheftLevel", tempoTheftLevel);
         tag.putInt("voidShotLevel", voidShotLevel);
         tag.putInt("wildRageLevel", wildRageLevel);
-
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))

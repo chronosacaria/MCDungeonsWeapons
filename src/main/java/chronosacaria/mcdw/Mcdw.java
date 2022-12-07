@@ -18,13 +18,16 @@ import chronosacaria.mcdw.sounds.McdwSoundEvents;
 import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -36,17 +39,17 @@ public class Mcdw implements ModInitializer {
         return new Identifier(MOD_ID, path);
     }
 
-    public static final ItemGroup WEAPONS = FabricItemGroupBuilder.build(
-            Mcdw.ID("weapons"),
-            () -> new ItemStack(ItemsInit.SWORD_ITEMS.get(SwordsID.SWORD_HEARTSTEALER)));
-    public static final ItemGroup RANGED = FabricItemGroupBuilder.build(
-            Mcdw.ID("weapons/bows"),
-            () -> new ItemStack(ItemsInit.LONGBOW_ITEMS.get(LongbowsID.BOW_LONGBOW)));
-    public static final ItemGroup SHIELDS = FabricItemGroupBuilder.build(
-            Mcdw.ID("weapons/shields"),
-            () -> new ItemStack(ItemsInit.SHIELD_ITEMS.get(ShieldsID.SHIELD_ROYAL_GUARD)));
-    public static final ItemGroup ENCHANTMENTS = FabricItemGroupBuilder.create(
-                    Mcdw.ID("enchants"))
+    public static final ItemGroup WEAPONS = FabricItemGroup.builder(Mcdw.ID("weapons"))
+            .displayName(Text.translatable("itemGroup.mcdw.weapons"))
+            .icon(() -> new ItemStack(SwordsID.SWORD_HEARTSTEALER.getItem())).build();
+    public static final ItemGroup RANGED = FabricItemGroup.builder(Mcdw.ID("weapons/bows"))
+            .displayName(Text.translatable("itemGroup.mcdw.weapons/bows"))
+            .icon(() -> new ItemStack(LongbowsID.BOW_LONGBOW.getItem())).build();
+    public static final ItemGroup SHIELDS = FabricItemGroup.builder(Mcdw.ID("weapons/shields"))
+            .displayName(Text.translatable("itemGroup.mcdw.shields"))
+            .icon(() -> new ItemStack(ShieldsID.SHIELD_ROYAL_GUARD.getItem())).build();
+    public static final ItemGroup ENCHANTMENTS = FabricItemGroup.builder(Mcdw.ID("enchantments"))
+            .displayName(Text.translatable("itemGroup.mcdw.enchantments"))
             .icon(() -> new ItemStack(Items.ENCHANTED_BOOK))
             .appendItems(itemStacks -> {
                 // For loop creates first 3 levels of enchanted books
