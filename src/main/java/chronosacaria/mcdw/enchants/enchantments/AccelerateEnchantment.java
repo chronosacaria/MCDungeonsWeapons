@@ -10,13 +10,14 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 
 public class AccelerateEnchantment extends RangedEnchantment {
     public AccelerateEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("accelerate"), this);
+            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("accelerate"), this);
         }
     }
 

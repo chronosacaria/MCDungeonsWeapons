@@ -11,6 +11,8 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.registry.Registry;
 
 public class ThunderingEnchantment extends AOEEnchantment {
@@ -18,7 +20,7 @@ public class ThunderingEnchantment extends AOEEnchantment {
     public ThunderingEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.THUNDERING)) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("thundering"), this);
+            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("thundering"), this);
         }
     }
 

@@ -12,6 +12,8 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.registry.Registry;
 
 public class CommittedEnchantment extends DamageBoostEnchantment {
@@ -19,7 +21,7 @@ public class CommittedEnchantment extends DamageBoostEnchantment {
     public CommittedEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.COMMITTED)) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("committed"), this);
+            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("committed"), this);
         }
     }
 

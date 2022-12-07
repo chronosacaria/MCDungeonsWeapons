@@ -8,13 +8,15 @@ import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.registry.Registry;
 
 public class ShadowBarbEnchantment extends RangedEnchantment {
     public ShadowBarbEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SHADOW_BARB)) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("shadow_barb"), this);
+            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("shadow_barb"), this);
         }
     }
 

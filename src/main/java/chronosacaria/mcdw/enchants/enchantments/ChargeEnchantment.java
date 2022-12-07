@@ -7,6 +7,8 @@ import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.registry.Registry;
 
 public class ChargeEnchantment extends RangedEnchantment {
@@ -14,7 +16,7 @@ public class ChargeEnchantment extends RangedEnchantment {
     public ChargeEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.CHARGE)) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("charge"), this);
+            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("charge"), this);
         }
     }
 

@@ -8,13 +8,15 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.registry.Registry;
 
 public class GrowingEnchantment extends RangedEnchantment {
     public GrowingEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.GROWING)) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("growing"), this);
+            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("growing"), this);
         }
     }
 

@@ -10,13 +10,15 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.registry.Registry;
 
 public class FuseShotEnchantment extends RangedEnchantment {
     public FuseShotEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.FUSE_SHOT)) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("fuse_shot"), this);
+            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("fuse_shot"), this);
         }
     }
 

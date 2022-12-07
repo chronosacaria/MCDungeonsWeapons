@@ -8,6 +8,8 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.registry.Registry;
 
 public class PhantomsMarkEnchantment extends Enchantment {
@@ -15,7 +17,7 @@ public class PhantomsMarkEnchantment extends Enchantment {
     public PhantomsMarkEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.PHANTOMS_MARK)) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("phantoms_mark"), this);
+            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("phantoms_mark"), this);
         }
     }
 

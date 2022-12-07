@@ -29,7 +29,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class Mcdw implements ModInitializer {
 
@@ -51,11 +50,11 @@ public class Mcdw implements ModInitializer {
     public static final ItemGroup ENCHANTMENTS = FabricItemGroup.builder(Mcdw.ID("enchantments"))
             .displayName(Text.translatable("itemGroup.mcdw.enchantments"))
             .icon(() -> new ItemStack(Items.ENCHANTED_BOOK))
-            .appendItems(itemStacks -> {
+            .entries((enabledFeatures, entries, operatorEnabled) -> {
                 // For loop creates first 3 levels of enchanted books
                 for (Enchantment enchantment : EnchantsLists.EnchantsList)
                     for (int i = 1; i <= 3; i++)
-                        itemStacks.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, i)));
+                        entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, i)));
             })
             .build();
 
@@ -71,7 +70,7 @@ public class Mcdw implements ModInitializer {
         OffhandAttackPacket.init();
         McdwNewLoottables.init();
         EnchantsRegistry.init();
-        Registry.register(Registry.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);
+        Registry.register(Registries.SOUND_EVENT, McdwSoundEvents.ECHO_SOUND, McdwSoundEvents.ECHO_SOUND_EVENT);
         McdwEnchantGiverConfig.appendEnchants();
         SummonedEntityRegistry.register();
         StatusEffectsRegistry.init();

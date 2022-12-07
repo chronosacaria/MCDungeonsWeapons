@@ -9,6 +9,8 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.registry.Registry;
 
 public class PoisonCloudEnchantment extends AOEEnchantment {
@@ -16,7 +18,7 @@ public class PoisonCloudEnchantment extends AOEEnchantment {
     public PoisonCloudEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.POISON_CLOUD)) {
-            Registry.register(Registry.ENCHANTMENT, Mcdw.ID("poison_cloud"), this);
+            Registry.register(Registries.ENCHANTMENT, Mcdw.ID("poison_cloud"), this);
         }
     }
 

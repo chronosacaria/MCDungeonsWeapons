@@ -44,8 +44,10 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.UUID;
 
 public class EnchantmentEffects {
