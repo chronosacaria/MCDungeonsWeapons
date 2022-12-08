@@ -2,11 +2,13 @@ package chronosacaria.mcdw.items;
 
 import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enums.*;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 
 import java.util.EnumMap;
 import java.util.Locale;
@@ -49,7 +51,9 @@ public class ItemsInit {
             if (!CONFIG.mcdwEnableItemsConfig.ITEMS_ENABLED.get(itemsID))
                 continue;
 
-            BeeStingerItem beeStingerItem = new BeeStingerItem(new Item.Settings().group(ItemGroup.MISC).maxCount(64));
+            BeeStingerItem beeStingerItem = new BeeStingerItem(new Item.Settings().maxCount(64));
+            //TODO Find proper Misc replacement
+            ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> entries.add(beeStingerItem));
 
             MCDW_ITEMS.put(itemsID, beeStingerItem);
             registerItem(itemsID.toString().toLowerCase(Locale.ROOT), beeStingerItem);
@@ -57,7 +61,7 @@ public class ItemsInit {
     }
 
     protected static void registerItem(String id, Item item) {
-        Registry.register(Registry.ITEM, ID(id), item);
+        Registry.register(Registries.ITEM, ID(id), item);
     }
 
     public static ToolMaterial stringToMaterial(String material) {

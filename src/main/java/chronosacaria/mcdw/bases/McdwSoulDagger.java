@@ -5,6 +5,7 @@ import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.SoulDaggersID;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,7 +21,8 @@ public class McdwSoulDagger extends SwordItem {
     String[] repairIngredient;
     public McdwSoulDagger(ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
         super(material, attackDamage, attackSpeed,
-                new Item.Settings().group(Mcdw.WEAPONS).rarity(RarityHelper.fromToolMaterial(material)));
+                new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this));
         this.repairIngredient = repairIngredient;
     }
 

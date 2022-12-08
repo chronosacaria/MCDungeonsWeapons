@@ -10,7 +10,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class SummonedEntityRegistry {
     }
 
     public static void registerEntity(String name, EntityType<? extends LivingEntity> entity){
-        Registry.register(Registry.ENTITY_TYPE, Mcdw.ID(name), entity);
+        Registry.register(Registries.ENTITY_TYPE, Mcdw.ID(name), entity);
         ATTRIBUTES.put(entity, MobEntity.createMobAttributes().build());
     }
 

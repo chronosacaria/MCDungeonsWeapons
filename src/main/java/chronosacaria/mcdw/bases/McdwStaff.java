@@ -7,6 +7,7 @@ import chronosacaria.mcdw.configs.CompatibilityFlags;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
@@ -36,7 +37,8 @@ public class McdwStaff extends AxeItem {
 
     public McdwStaff(ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
         super(material, attackDamage, attackSpeed,
-                new Item.Settings().group(Mcdw.WEAPONS).rarity(RarityHelper.fromToolMaterial(material)));
+                new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this));
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
         this.repairIngredient = repairIngredient;

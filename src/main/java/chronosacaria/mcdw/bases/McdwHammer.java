@@ -3,6 +3,7 @@ package chronosacaria.mcdw.bases;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.*;
@@ -18,7 +19,8 @@ public class McdwHammer extends AxeItem {
     String[] repairIngredient;
     public McdwHammer(ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
         super(material, attackDamage, attackSpeed,
-                new Item.Settings().group(Mcdw.WEAPONS).rarity(RarityHelper.fromToolMaterial(material)));
+                new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this));
         this.repairIngredient = repairIngredient;
     }
 

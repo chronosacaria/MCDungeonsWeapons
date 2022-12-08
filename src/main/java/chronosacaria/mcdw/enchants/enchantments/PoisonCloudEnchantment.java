@@ -11,7 +11,6 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.registry.Registry;
 
 public class PoisonCloudEnchantment extends AOEEnchantment {
 

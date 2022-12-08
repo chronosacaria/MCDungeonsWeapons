@@ -7,7 +7,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
 import wraith.enchant_giver.EnchantsList;
 
 public class McdwEnchantGiverConfig {
@@ -229,6 +229,6 @@ public class McdwEnchantGiverConfig {
     }
 
     private static void addInnateEnchant(Item item, Enchantment enchantment, int level, Boolean replace) {
-        EnchantsList.addEnchant(Registry.ITEM.getId(item), Registry.ENCHANTMENT.getId(enchantment), level, replace);
+        EnchantsList.addEnchant(Registries.ITEM.getId(item), Registries.ENCHANTMENT.getId(enchantment), level, replace);
     }
 }

@@ -9,8 +9,8 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Util;
-import net.minecraft.util.registry.Registry;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -43,7 +43,7 @@ public abstract class EnchantmentMixin {
 
     private boolean mcdw$isEnchantment(Enchantment ...enchantments){
         for (Enchantment enchantment : enchantments){
-            if (Util.createTranslationKey("enchantment", Registry.ENCHANTMENT.getId(enchantment)).equals(this.getOrCreateTranslationKey())){
+            if (Util.createTranslationKey("enchantment", Registries.ENCHANTMENT.getId(enchantment)).equals(this.getOrCreateTranslationKey())){
                 return true;
             }
         }

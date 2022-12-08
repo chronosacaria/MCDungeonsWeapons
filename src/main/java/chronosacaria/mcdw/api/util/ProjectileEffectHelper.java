@@ -9,10 +9,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Quaternion;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
+import org.joml.Vector3f;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -49,9 +48,9 @@ public class ProjectileEffectHelper {
                 Vec3d upVector = target.getOppositeRotationVector(1.0F);
                 Quaternion quaternion = new Quaternion(new Vec3f(upVector), -135.0F + (90.0f * i), true);
                 Vec3d lookVector = target.getRotationVec(1.0F);
-                Vec3f vector3f = new Vec3f(lookVector);
+                Vector3f vector3f = new Vector3f(lookVector);
                 vector3f.rotate(quaternion);
-                projectile.setVelocity(vector3f.getX(), vector3f.getY(), vector3f.getZ(), v1, v2);
+                projectile.setVelocity(vector3f.x(), vector3f.y(), vector3f.z(), v1, v2);
                 projectile.setOwner(target);
                 world.spawnEntity(projectile);
             }

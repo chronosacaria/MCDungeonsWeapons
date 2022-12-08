@@ -5,5 +5,5 @@ import net.minecraft.util.Identifier;
 
 public final class McdwSoundEvents{
     public static final Identifier ECHO_SOUND = new Identifier("mcdw:echo_sound");
-    public static final SoundEvent ECHO_SOUND_EVENT = new SoundEvent(ECHO_SOUND);
+    public static final SoundEvent ECHO_SOUND_EVENT = SoundEvent.of(ECHO_SOUND);
 }

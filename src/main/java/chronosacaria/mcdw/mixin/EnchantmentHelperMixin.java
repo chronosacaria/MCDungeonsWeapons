@@ -7,8 +7,8 @@ import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -26,7 +26,7 @@ public class EnchantmentHelperMixin {
         for (NbtElement enchantmentNbt : stack.getEnchantments()) {
             NbtCompound nbtCompound = (NbtCompound) enchantmentNbt;
             Identifier identifier = EnchantmentHelper.getIdFromNbt(nbtCompound);
-            Enchantment enchantmentOnStack = Registry.ENCHANTMENT.getOrEmpty(identifier).orElseThrow(() -> {
+            Enchantment enchantmentOnStack = Registries.ENCHANTMENT.getOrEmpty(identifier).orElseThrow(() -> {
                 throw new JsonSyntaxException("Unknown enchantment '" + identifier + "'");
             });
             list.removeIf(enchantmentLevelEntry -> !enchantmentLevelEntry.enchantment.canCombine(enchantmentOnStack));

@@ -4,11 +4,11 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.tag.ItemTags;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +35,7 @@ public class CleanlinessHelper {
                     else if (repIngredient.contentEquals("minecraft:stone_crafting_materials"))
                         isStone.set(true);
                     potentialIngredients.add(
-                            Registry.ITEM.get(new Identifier(repIngredient)));
+                            Registries.ITEM.get(new Identifier(repIngredient)));
                 }
             });
         }

@@ -6,6 +6,7 @@ import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.BowsID;
 import chronosacaria.mcdw.items.ItemsInit;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.BowItem;
@@ -33,11 +34,10 @@ public class McdwBow extends BowItem {
     String[] repairIngredient;
 
     public McdwBow(ToolMaterial material, float drawSpeed, float maxBowRangePar, String[] repairIngredient) {
-        super(new Item.Settings().group(Mcdw.RANGED)
-                .maxCount(1)
-                .maxDamage(100 + material.getDurability())
+        super(new Item.Settings().maxCount(1).maxDamage(100 + material.getDurability())
                 .rarity(RarityHelper.fromToolMaterial(material))
         );
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.RANGED).register(entries -> entries.add(this));
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.repairIngredient = repairIngredient;

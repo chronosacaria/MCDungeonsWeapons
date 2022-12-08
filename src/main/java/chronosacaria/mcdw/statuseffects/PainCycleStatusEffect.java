@@ -5,13 +5,14 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class PainCycleStatusEffect extends StatusEffect {
     public PainCycleStatusEffect(StatusEffectCategory statusEffectCategory, int color, String id) {
         super(statusEffectCategory, color);
-        Registry.register(Registry.STATUS_EFFECT, new Identifier(Mcdw.MOD_ID, id), this);
+        Registry.register(Registries.STATUS_EFFECT, new Identifier(Mcdw.MOD_ID, id), this);
     }
 
     private int lastPain = 0;
