@@ -11,6 +11,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
 import java.util.Collections;
@@ -46,10 +47,9 @@ public class ProjectileEffectHelper {
                 projectile.setShotFromCrossbow(true);
                 projectile.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
                 Vec3d upVector = target.getOppositeRotationVector(1.0F);
-                Quaternion quaternion = new Quaternion(new Vec3f(upVector), -135.0F + (90.0f * i), true);
-                Vec3d lookVector = target.getRotationVec(1.0F);
-                Vector3f vector3f = new Vector3f(lookVector);
-                vector3f.rotate(quaternion);
+                Quaternionf quaternionf = new Quaternionf(upVector.getX(), upVector.getY(), upVector.getZ(), -135.0F + (90.0f * i));
+                Vector3f vector3f = target.getRotationVec(1.0F).toVector3f();
+                vector3f.rotate(quaternionf);
                 projectile.setVelocity(vector3f.x(), vector3f.y(), vector3f.z(), v1, v2);
                 projectile.setOwner(target);
                 world.spawnEntity(projectile);

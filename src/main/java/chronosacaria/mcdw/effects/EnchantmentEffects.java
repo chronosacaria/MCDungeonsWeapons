@@ -614,7 +614,7 @@ public class EnchantmentEffects {
 
     public static void causeExplosionAttack(LivingEntity user, LivingEntity target, float damageAmount, float distance) {
         AOEHelper.getAoeTargets(target, user, distance)
-                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.explosion(user), damageAmount));
+                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC.setExplosive(), damageAmount));
     }
 
     public static void applyRampaging(LivingEntity rampagingEntity, boolean isOffHandStack) {
