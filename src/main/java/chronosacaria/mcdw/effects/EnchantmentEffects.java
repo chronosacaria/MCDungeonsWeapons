@@ -27,6 +27,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
@@ -46,7 +47,9 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 public class EnchantmentEffects {
 
@@ -478,6 +481,14 @@ public class EnchantmentEffects {
         CleanlinessHelper.playCenteredSound(user, SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.WEATHER, 1f, 1f);
         CleanlinessHelper.playCenteredSound(user, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER, 1f, 1f);
 
+        //Default (0): Everything
+        //Next Permission (1): Not Players or pets of self
+        //Next Permission (2): Not Potential allies (pets, iron golems, villagers, etc.)
+        //Final Permission (3): Only hostile mobs
+
+        //int AOE permission: _
+
+        //AOEHelper.getEntitiesByPredicate(HostileEntity.class, user, distance, LivingEntity::isAlive);
         for (LivingEntity nearbyEntity : AOEHelper.getAoeTargets(user, user, distance)) {
             electrocute(user, nearbyEntity, damageAmount);
 
@@ -485,6 +496,13 @@ public class EnchantmentEffects {
             if (limit <= 0) break;
         }
     }
+
+    //public static List<? extends LivingEntity> getAOETargetsByPermission(LivingEntity center, float distance, Predicate<? super LivingEntity> predicate) {
+    //    switch () {
+    //        case 0 -> return AOEHelper.getEntitiesByPredicate(center, distance, predicate);
+    //        case 1 -> return AOEHelper.getEntitiesByPredicate();
+    //    }
+    //}
 
     public static void applyWeakeningCloud(LivingEntity weakeningEntity, LivingEntity target, boolean isOffHandStack) {
         int weakeningLevel = mcdw$getEnchantmentLevel(EnchantsRegistry.WEAKENING, weakeningEntity, isOffHandStack);
