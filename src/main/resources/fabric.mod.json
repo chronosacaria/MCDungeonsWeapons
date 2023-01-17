@@ -16,7 +16,7 @@
     "sources": "https://www.github.com/chronosacaria/MCDungeonsWeapons",
     "issues": "https://www.github.com/chronosacaria/MCDungeonsWeapons/issues"
   },
-  "license": "MIT",
+  "license": "Timefall Development License",
   "icon": "assets/mcdw/icon.png",
   "environment": "*",
   "entrypoints": {
