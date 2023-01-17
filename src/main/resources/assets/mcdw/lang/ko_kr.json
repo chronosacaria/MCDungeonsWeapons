@@ -1,8 +1,8 @@
 {
-  "itemGroup.mcdw.weapons": "마크 던전스 무기 (근접)",
+  "itemGroup.mcdw.weapons/melee": "마크 던전스 무기 (근접)",
   "itemGroup.mcdw.weapons/bows": "마크 던전스 무기 (원거리)",
-  "itemGroup.mcdw.weapons/shields": "마크 던전스 무기 (방패)",
-  "itemGroup.mcdw.enchants": "마크 던전스 무기 (마법 부여)",
+  "itemGroup.mcdw.shields": "마크 던전스 무기 (방패)",
+  "itemGroup.mcdw.enchantments": "마크 던전스 무기 (마법 부여)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "범위",
   "attribute.name.generic.reach-entity-attributes.attack_range": "공격 범위",

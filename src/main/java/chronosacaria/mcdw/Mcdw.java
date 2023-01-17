@@ -39,7 +39,7 @@ public class Mcdw implements ModInitializer {
     }
 
     public static final ItemGroup WEAPONS = FabricItemGroup.builder(Mcdw.ID("weapons"))
-            .displayName(Text.translatable("itemGroup.mcdw.weapons"))
+            .displayName(Text.translatable("itemGroup.mcdw.weapons/melee"))
             .icon(() -> new ItemStack(SwordsID.SWORD_HEARTSTEALER.getItem())).build();
     public static final ItemGroup RANGED = FabricItemGroup.builder(Mcdw.ID("weapons/bows"))
             .displayName(Text.translatable("itemGroup.mcdw.weapons/bows"))

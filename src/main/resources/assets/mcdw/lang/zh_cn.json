@@ -1,8 +1,8 @@
 {
-  "itemGroup.mcdw.weapons": "我的世界：地下城武器 (近战)",
+  "itemGroup.mcdw.weapons/melee": "我的世界：地下城武器 (近战)",
   "itemGroup.mcdw.weapons/bows": "我的世界：地下城武器 (远程)",
-  "itemGroup.mcdw.weapons/shields": "我的世界：地下城武器 (盾)",
-  "itemGroup.mcdw.enchants": "我的世界：地下城武器 (魔咒)",
+  "itemGroup.mcdw.shields": "我的世界：地下城武器 (盾)",
+  "itemGroup.mcdw.enchantments": "我的世界：地下城武器 (魔咒)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "范围",
   "attribute.name.generic.reach-entity-attributes.attack_range": "攻击范围",

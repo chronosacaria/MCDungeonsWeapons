@@ -1,8 +1,8 @@
 {
-  "itemGroup.mcdw.weapons": "MC Dungeons Weapons (Melee)",
+  "itemGroup.mcdw.weapons/melee": "MC Dungeons Weapons (Melee)",
   "itemGroup.mcdw.weapons/bows": "MC Dungeons Weapons (Ranged)",
-  "itemGroup.mcdw.weapons/shields": "MC Dungeons Weapons (Shields)",
-  "itemGroup.mcdw.enchants": "MC Dungeons Weapons (Enchantments)",
+  "itemGroup.mcdw.shields": "MC Dungeons Weapons (Shields)",
+  "itemGroup.mcdw.enchantments": "MC Dungeons Weapons (Enchantments)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Reach",
   "attribute.name.generic.reach-entity-attributes.attack_range": "Attack Reach",

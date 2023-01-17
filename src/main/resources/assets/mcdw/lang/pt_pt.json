@@ -1,8 +1,8 @@
 {
-  "itemGroup.mcdw.weapons":       "Armas de MC Dungeons (a Corpo)",
+  "itemGroup.mcdw.weapons/melee":       "Armas de MC Dungeons (a Corpo)",
   "itemGroup.mcdw.weapons/bows":  "Armas de MC Dungeons (de Alcance)",
-  "itemGroup.mcdw.weapons/shields": "Armas de MC Dungeons (Escudos)",
-  "itemGroup.mcdw.enchants":      "Armas de MC Dungeons (Encantamentos)",
+  "itemGroup.mcdw.shields": "Armas de MC Dungeons (Escudos)",
+  "itemGroup.mcdw.enchantments":      "Armas de MC Dungeons (Encantamentos)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Alcance",
   "attribute.name.generic.reach-entity-attributes.attack_range": "Alcance de Golpe",

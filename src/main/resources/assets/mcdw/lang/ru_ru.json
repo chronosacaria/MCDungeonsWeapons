@@ -1,8 +1,8 @@
 {
-  "itemGroup.mcdw.weapons":       "Оружие МК Подземелье (Ближнее)",
+  "itemGroup.mcdw.weapons/melee":       "Оружие МК Подземелье (Ближнее)",
   "itemGroup.mcdw.weapons/bows":  "Оружие МК Подземелье (Дальнее)",
-  "itemGroup.mcdw.weapons/shields": "Оружие МК Подземелье (Щиты́)",
-  "itemGroup.mcdw.enchants":      "Оружие МК Подземелье (Зачарованиями)",
+  "itemGroup.mcdw.shields": "Оружие МК Подземелье (Щиты́)",
+  "itemGroup.mcdw.enchantments":      "Оружие МК Подземелье (Зачарованиями)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Радиус Действия",
   "attribute.name.generic.reach-entity-attributes.attack_range": "Дальность Атаки",

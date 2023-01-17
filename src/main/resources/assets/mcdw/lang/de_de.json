@@ -1,8 +1,8 @@
 {
-  "itemGroup.mcdw.weapons": "MC Dungeons Waffen (Nahkampf)",
+  "itemGroup.mcdw.weapons/melee": "MC Dungeons Waffen (Nahkampf)",
   "itemGroup.mcdw.weapons/bows": "MC Dungeons Waffen (Fernkampf)",
-  "itemGroup.mcdw.weapons/shields": "MC Dungeons Waffen (Schilde)",
-  "itemGroup.mcdw.enchants": "MC Dungeons Waffen (Verzauberungen)",
+  "itemGroup.mcdw.shields": "MC Dungeons Waffen (Schilde)",
+  "itemGroup.mcdw.enchantments": "MC Dungeons Waffen (Verzauberungen)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Reichweite",
   "attribute.name.generic.reach-entity-attributes.attack_range": "TTreffer Reichweite",
