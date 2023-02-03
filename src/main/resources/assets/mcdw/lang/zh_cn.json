@@ -880,8 +880,8 @@
   "enchantment.mcdw.swirling.desc": "有几率对1.5格范围内的所有实体造成伤害。",
   "enchantment.mcdw.tempo_theft.desc": "偷取目标的速度，减速它们并加速自己。",
   "enchantment.mcdw.thundering.desc": "有几率对目标召唤一道闪电，对一定范围内的生物造成范围伤害，取决于魔咒等级。",
-  "enchantment.mcdw.void_strike.desc": "根据魔咒等级造成多倍伤害。",
-  "enchantment.mcdw.void_shot.desc": "根据魔咒等级造成多倍伤害。",
+  "enchantment.mcdw.void_strike.desc": "有几率对根据魔咒等级造成多倍伤害。",
+  "enchantment.mcdw.void_shot.desc": "有几率对根据魔咒等级造成多倍伤害。",
   "enchantment.mcdw.weakening.desc": "有几率在目标周围生成虚弱之雾。",
   "enchantment.mcdw.wild_rage.desc": "攻击敌人有概率让其发怒，并将仇恨覆盖到所有生物上。"
   }
