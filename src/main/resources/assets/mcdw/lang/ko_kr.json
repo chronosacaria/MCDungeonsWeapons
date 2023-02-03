@@ -886,8 +886,8 @@
   "enchantment.mcdw.swirling.desc": "일정 확률로 사용자 주변 1.5 블록 내에 있는 모든 엔티티를 공격합니다.",
   "enchantment.mcdw.tempo_theft.desc": "대상의 이동 속도를 훔쳐 대상을 느려지게 만들고 자신의 이동 속도는 빠르게 만듭니다.",
   "enchantment.mcdw.thundering.desc": "일정 확률로 번개를 소환하여 레벨에 비례하여 범위 내 엔티티들에게 피해를 입힙니다.",
-  "enchantment.mcdw.void_strike.desc": "마법 부여 레벨에 따라 곱연산으로 공격력이 증가합니다.",
-  "enchantment.mcdw.void_shot.desc": "마법 부여 레벨에 따라 곱연산으로 공격력이 증가합니다.",
+  "enchantment.mcdw.void_strike.desc": "일정 확률로 마법 부여 레벨에 따라 곱연산으로 공격력이 증가합니다.",
+  "enchantment.mcdw.void_shot.desc": "일정 확률로 마법 부여 레벨에 따라 곱연산으로 공격력이 증가합니다.",
   "enchantment.mcdw.weakening.desc": "일정 확률로 대상의 주변에 쇠약 구름을 소환합니다.",
   "enchantment.mcdw.wild_rage.desc": "적을 공격하면 일정 확률로 분노를 일으켜 모든 것을 적대하도록 만듭니다."
 }
