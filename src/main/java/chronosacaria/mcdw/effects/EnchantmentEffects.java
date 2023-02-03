@@ -27,7 +27,6 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.CreeperEntity;
-import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
@@ -47,9 +46,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.UUID;
-import java.util.function.Predicate;
 
 public class EnchantmentEffects {
 
@@ -421,13 +418,13 @@ public class EnchantmentEffects {
     }
 
     public static void causeShockwaveAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
-        AOEHelper.getAoeTargets(target, user, distance).stream()
+        AOEHelper.getEntitiesByConfig(user, distance).stream()
                 .filter(nearbyEntity -> nearbyEntity != target)
                 .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC, amount * 0.25f));
     }
 
     public static void causeSmitingAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
-        AOEHelper.getAoeTargets(target, user, distance).stream()
+        AOEHelper.getEntitiesByConfig(user, distance).stream()
                 .filter(nearbyEntity -> nearbyEntity != target && nearbyEntity.isUndead())
                 .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.MAGIC, amount * 1.25F));
     }
@@ -478,31 +475,18 @@ public class EnchantmentEffects {
     }
 
     public static void electrocuteNearbyEnemies(LivingEntity user, float distance, float damageAmount, int limit) {
-        CleanlinessHelper.playCenteredSound(user, SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.WEATHER, 1f, 1f);
-        CleanlinessHelper.playCenteredSound(user, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER, 1f, 1f);
-
-        //Default (0): Everything
-        //Next Permission (1): Not Players or pets of self
-        //Next Permission (2): Not Potential allies (pets, iron golems, villagers, etc.)
-        //Final Permission (3): Only hostile mobs
-
-        //int AOE permission: _
-
-        //AOEHelper.getEntitiesByPredicate(HostileEntity.class, user, distance, LivingEntity::isAlive);
-        for (LivingEntity nearbyEntity : AOEHelper.getAoeTargets(user, user, distance)) {
+        boolean foundTarget = false;
+        for (LivingEntity nearbyEntity : AOEHelper.getEntitiesByConfig(user, distance)) {
             electrocute(user, nearbyEntity, damageAmount);
-
+            foundTarget = true;
             limit--;
             if (limit <= 0) break;
         }
+        if (foundTarget) {
+            CleanlinessHelper.playCenteredSound(user, SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.WEATHER, 1f, 1f);
+            CleanlinessHelper.playCenteredSound(user, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.WEATHER, 1f, 1f);
+        }
     }
-
-    //public static List<? extends LivingEntity> getAOETargetsByPermission(LivingEntity center, float distance, Predicate<? super LivingEntity> predicate) {
-    //    switch () {
-    //        case 0 -> return AOEHelper.getEntitiesByPredicate(center, distance, predicate);
-    //        case 1 -> return AOEHelper.getEntitiesByPredicate();
-    //    }
-    //}
 
     public static void applyWeakeningCloud(LivingEntity weakeningEntity, LivingEntity target, boolean isOffHandStack) {
         int weakeningLevel = mcdw$getEnchantmentLevel(EnchantsRegistry.WEAKENING, weakeningEntity, isOffHandStack);
@@ -531,7 +515,7 @@ public class EnchantmentEffects {
     }
 
     public static void causeSwirlingAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
-        AOEHelper.getAoeTargets(target, user, distance)
+        AOEHelper.getEntitiesByConfig(target, user, distance)
                 .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC, amount * 0.5F));
     }
 
@@ -550,7 +534,7 @@ public class EnchantmentEffects {
 
         target.addStatusEffect(chained);
 
-        AOEHelper.getAoeTargets(target, user, distance).stream()
+        AOEHelper.getEntitiesByConfig(user, distance).stream()
                 .filter(nearbyEntity -> nearbyEntity != target)
                 .forEach(nearbyEntity -> {
                     pullTowards(nearbyEntity, target);
@@ -581,7 +565,7 @@ public class EnchantmentEffects {
     }
 
     public static void pullInNearbyEntities(LivingEntity user, LivingEntity target, float distance) {
-        AOEHelper.getAoeTargets(target, user, distance).stream()
+        AOEHelper.getEntitiesByConfig(user, distance).stream()
                 .filter(nearbyEntity -> nearbyEntity != target)
                 .forEach(nearbyEntity -> pullTowards(nearbyEntity, target));
     }
@@ -604,7 +588,7 @@ public class EnchantmentEffects {
     }
 
     public static void causeEchoAttack(LivingEntity user, LivingEntity target, float distance, int echoLevel, float amount) {
-        for (LivingEntity nearbyEntity : AOEHelper.getAoeTargets(target, user, distance)) {
+        for (LivingEntity nearbyEntity : AOEHelper.getEntitiesByConfig(user, distance)) {
             if (nearbyEntity != target) {
                 nearbyEntity.damage(DamageSource.GENERIC, amount);
 
@@ -631,7 +615,7 @@ public class EnchantmentEffects {
     }
 
     public static void causeExplosionAttack(LivingEntity user, LivingEntity target, float damageAmount, float distance) {
-        AOEHelper.getAoeTargets(target, user, distance)
+        AOEHelper.getEntitiesByConfig(target, user, distance)
                 .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC.setExplosive(), damageAmount));
     }
 

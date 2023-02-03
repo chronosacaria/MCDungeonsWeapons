@@ -20,7 +20,7 @@ public class CleanlinessHelper {
     static final Random random = new Random();
 
     public static boolean percentToOccur (int chance) {
-        return random.nextInt(100) <= chance;
+        return random.nextInt(100) < chance;
     }
 
     public static boolean canRepairCheck(String[] repairIngredient, ItemStack ingredient) {

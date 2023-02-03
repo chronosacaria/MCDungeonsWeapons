@@ -200,7 +200,7 @@ public class LivingEntityMixin {
                     float targetHealth = target.getHealth() - amount;
                     if (targetHealth < 0) {
                         float overkillDamage = Math.abs(targetHealth);
-                        List<LivingEntity> nearbyEntities = AOEHelper.getAoeTargets(target, target, 6);
+                        List<LivingEntity> nearbyEntities = AOEHelper.getEntitiesByConfig(target, 6);
                         if (nearbyEntities.size() == 0) {
                             if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.SHARED_PAIN_CAN_DAMAGE_USER)) {
                                 player.damage(DamageSource.MAGIC, overkillDamage);

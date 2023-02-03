@@ -66,7 +66,7 @@ public class AreaEffectCloudEntityMixin implements IExclusiveAOECloud {
             if (this.exclusions.get(0)) {
                 ci.cancel();
             }
-        } else if (this.owner != null && AbilityHelper.isAllyOf(this.owner, h)) {
+        } else if (this.owner != null && AbilityHelper.isTrueAlly(this.owner, h)) {
             if (this.exclusions.get(1)) {
                 ci.cancel();
             }

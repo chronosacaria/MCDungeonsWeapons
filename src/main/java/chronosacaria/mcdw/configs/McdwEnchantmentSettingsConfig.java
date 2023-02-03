@@ -13,6 +13,16 @@ import java.util.LinkedHashMap;
 @Config(name = "mcdw_enchantment_settings_config")
 public class McdwEnchantmentSettingsConfig implements ConfigData {
 
+    @Comment("""
+            Default (0): Everything other than self
+            Next Permission (1): Not self and not teammates or pets of self
+            Next Permission (2): Not self and not teammates or pets of self or AnimalEntities (not hitting farm animals is not present in permission 3)
+            Next Permission (3): Not self and not Potential allies (pets of any player, iron golems, villagers, players)
+            Final Permission (4): Only hostile mobs
+            WARNING: LOOKS AT HOSTILE ENTITY CLASS WHICH DOES NOT INCLUDE ENDER DRAGON AND OTHERS.
+            If anything else is put, it will be treated as default""")
+    public int aoePermission = 0;
+
     // Enchantment Settings
     public final HashMap<SettingsID, Boolean> ENABLE_ENCHANTMENT_SETTINGS = new HashMap<>();
 
@@ -27,7 +37,7 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
     public final LinkedHashMap<EnchantmentsID, Integer> ENCHANTMENT_TRIGGER_BASE_CHANCE = new LinkedHashMap<>();
 
     @Comment("Overall Enchantment Strength Slider")
-    public final float enchantmentStrength = 1.0f;
+    public float enchantmentStrength = 1.0f;
 
     public McdwEnchantmentSettingsConfig(){
         ENABLE_ENCHANTMENT_SETTINGS.put(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING, false);

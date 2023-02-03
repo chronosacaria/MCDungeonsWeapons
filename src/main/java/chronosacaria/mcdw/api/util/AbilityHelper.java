@@ -28,39 +28,60 @@ public class AbilityHelper {
         target.addStatusEffect(miningFatigue);
     }
 
-    public static boolean isPetOf(LivingEntity self, LivingEntity owner){
-        if (self instanceof TameableEntity pet)
+    public static boolean isPetOf(LivingEntity owner, LivingEntity animal){
+        if (animal instanceof TameableEntity pet)
             return pet.getOwner() == owner;
-        else if(self instanceof AbstractHorseEntity horseBaseEntity)
+        else if (animal instanceof AbstractHorseEntity horseBaseEntity)
             return GoalUtils.getOwner(horseBaseEntity) == owner;
         else
             return false;
     }
 
-    private static boolean isVillagerOrIronGolem(LivingEntity nearbyEntity) {
+    public static boolean isTrueAlly(LivingEntity self, LivingEntity foreignEntity) {
+        return self.isTeammate(foreignEntity)
+                || isPetOf(self, foreignEntity)
+                || isVillagerTyped(foreignEntity);
+    }
+
+    public static boolean isPotentialAlly(LivingEntity foreignEntity) {
+        return isPet(foreignEntity)
+                || isVillagerTyped(foreignEntity)
+                || foreignEntity instanceof PlayerEntity;
+    }
+
+
+    private static boolean isPet(LivingEntity animal) {
+        if (animal instanceof TameableEntity pet)
+            return pet.getOwner() != null;
+        else if (animal instanceof AbstractHorseEntity horseBaseEntity)
+            return GoalUtils.getOwner(horseBaseEntity) != null;
+        return false;
+    }
+
+    private static boolean isVillagerTyped(LivingEntity nearbyEntity) {
         return (nearbyEntity instanceof VillagerEntity) || (nearbyEntity instanceof IronGolemEntity);
     }
 
-    public static boolean isAllyOf(LivingEntity self, LivingEntity other) {
-        return self.isTeammate(other)
-            || isPetOf(self, other)
-            || isVillagerOrIronGolem(other);
+    public static boolean isAoeTarget(LivingEntity self, LivingEntity foreignEntity) {
+        return foreignEntity != self
+                && foreignEntity.isAlive()
+                && isAffectedByAoe(foreignEntity)
+                && self.canSee(foreignEntity);
     }
 
-    public static boolean isAoeTarget(LivingEntity self, LivingEntity attacker, LivingEntity center) {
-        return self != attacker
-            && self.isAlive()
-            && !isAllyOf(attacker, self)
-            && !isUnaffectedByAoe(self)
-            && center.canSee(self);
+    public static boolean isAoeTarget(LivingEntity center, LivingEntity owner, LivingEntity foreignEntity) {
+        return foreignEntity != owner
+                && foreignEntity.isAlive()
+                && isAffectedByAoe(foreignEntity)
+                && center.canSee(foreignEntity);
     }
 
-    private static boolean isUnaffectedByAoe(LivingEntity entity) {
+    private static boolean isAffectedByAoe(LivingEntity entity) {
         if (entity instanceof PlayerEntity player) {
-            if (player.isCreative()) return true;
-            return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS);
+            if (player.isCreative()) return false;
+            return !Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS);
         }
-        return false;
+        return true;
     }
 
     public static float getAnimaRepairAmount(float experience, int level) {
