@@ -1,8 +1,8 @@
 {
-  "itemGroup.mcdw.weapons/melee": "MC Dungeons Weapons (Melee)",
+  "itemGroup.mcdw.weapons": "MC Dungeons Weapons (Melee)",
   "itemGroup.mcdw.weapons/bows": "MC Dungeons Weapons (Ranged)",
-  "itemGroup.mcdw.shields": "MC Dungeons Weapons (Shields)",
-  "itemGroup.mcdw.enchantments": "MC Dungeons Weapons (Enchantments)",
+  "itemGroup.mcdw.weapons/shields": "MC Dungeons Weapons (Shields)",
+  "itemGroup.mcdw.enchants": "MC Dungeons Weapons (Enchantments)",
 
   "attribute.name.generic.reach-entity-attributes.reach": "Reach",
   "attribute.name.generic.reach-entity-attributes.attack_range": "Attack Reach",
@@ -885,8 +885,8 @@
   "enchantment.mcdw.swirling.desc": "Chance to hit all entities in a 1.5 block radius around the user.",
   "enchantment.mcdw.tempo_theft.desc": "Steal speed from your target, slowing them and speeding yourself up.",
   "enchantment.mcdw.thundering.desc": "Chance to summon a lightning bolt and damage entities in a range relative to the level.",
-  "enchantment.mcdw.void_strike.desc": "Deal multiplicative damage based on level of enchantment.",
-  "enchantment.mcdw.void_shot.desc": "Deal multiplicative damage based on level of enchantment.",
+  "enchantment.mcdw.void_strike.desc": "Chance to deal multiplicative damage based on level of enchantment.",
+  "enchantment.mcdw.void_shot.desc": "Chance to deal multiplicative damage based on level of enchantment.",
   "enchantment.mcdw.weakening.desc": "Chance to spawn a weakness cloud around the target.",
   "enchantment.mcdw.wild_rage.desc": "Hitting an enemy has a chance to send it into a rage, making it hostile towards everyone."
 }
