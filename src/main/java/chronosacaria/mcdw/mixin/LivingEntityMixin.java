@@ -8,10 +8,7 @@ import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
-import chronosacaria.mcdw.enums.EnchantmentsID;
-import chronosacaria.mcdw.enums.ItemsID;
-import chronosacaria.mcdw.enums.SettingsID;
-import chronosacaria.mcdw.enums.SwordsID;
+import chronosacaria.mcdw.enums.*;
 import chronosacaria.mcdw.items.ItemsInit;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -50,7 +47,7 @@ public class LivingEntityMixin {
             return amount;
 
         if (amount > 0) {
-            float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.enchantmentStrength;
+            float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENCHANTMENT_STRENGTH.get(EnchantStatsID.ENCHANTMENT_STRENGTH_SLIDER);
             if (attackingEntity instanceof TameableEntity petSource
                     && petSource.world instanceof ServerWorld serverWorld
                     && petSource.getOwner() instanceof PlayerEntity owner) {

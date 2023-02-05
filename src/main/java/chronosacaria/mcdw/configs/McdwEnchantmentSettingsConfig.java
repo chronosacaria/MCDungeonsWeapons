@@ -37,7 +37,10 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
     public final LinkedHashMap<EnchantmentsID, Integer> ENCHANTMENT_TRIGGER_BASE_CHANCE = new LinkedHashMap<>();
 
     @Comment("Overall Enchantment Strength Slider")
-    public float enchantmentStrength = 1.0f;
+    public final HashMap<EnchantStatsID, Float> ENCHANTMENT_STRENGTH = new HashMap<>();
+
+    @Comment("Healing Factor Slider. Percentage of healing -> 1.0 = 100%. Default value = 1.0.")
+    public final HashMap<EnchantStatsID, Float> HEALING_FACTOR = new HashMap<>();
 
     public McdwEnchantmentSettingsConfig(){
         ENABLE_ENCHANTMENT_SETTINGS.put(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING, false);
@@ -49,6 +52,8 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
 
         ENIGMA_RESONATOR_DIVISOR.put(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR, 3.25f);
         DYNAMO_STACK_CAP.put(EnchantStatsID.DYNAMO_STACK_CAP, 20);
+        HEALING_FACTOR.put(EnchantStatsID.HEALING_FACTOR, 1.0f);
+        ENCHANTMENT_STRENGTH.put(EnchantStatsID.ENCHANTMENT_STRENGTH_SLIDER, 1.0f);
 
         ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.CHAIN_REACTION, 10);
         ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.CHAINS, 20);

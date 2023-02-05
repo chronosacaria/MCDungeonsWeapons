@@ -82,7 +82,7 @@ public class EnchantmentEffects {
             float missingHealth = playerEntity.getMaxHealth() - playerEntity.getHealth();
             if (missingHealth > 0) {
                 float i = Math.min(AbilityHelper.getAnimaRepairAmount(amount, animaLevel), missingHealth);
-                playerEntity.heal(i);
+                playerEntity.heal(i * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.HEALING_FACTOR.get(EnchantStatsID.HEALING_FACTOR));
                 amount -= (int) (i * 5);
                 return Math.max(amount, 0);
             }
@@ -646,7 +646,7 @@ public class EnchantmentEffects {
         if (leechingLevel > 0) {
             if (leechingEntity.getHealth() < leechingEntity.getMaxHealth()) {
                 float healthRegained = (0.2F + 0.2F * leechingLevel) * target.getMaxHealth();
-                leechingEntity.heal(healthRegained);
+                leechingEntity.heal(healthRegained * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.HEALING_FACTOR.get(EnchantStatsID.HEALING_FACTOR));
             }
         }
     }
