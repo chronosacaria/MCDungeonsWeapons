@@ -23,8 +23,7 @@
       "rotation": [ -90, 0, 35 ],
       "translation": [ 1.13, 3.2, 1.13],
       "scale": [ 1.36, 1.36, 0.68 ]
-    }
-  ,
+    },
     "ground": {
       "rotation": [ 0, 0, 0 ],
       "translation": [ 0, 0, 0 ],
