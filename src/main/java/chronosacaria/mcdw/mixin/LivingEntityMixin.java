@@ -47,7 +47,7 @@ public class LivingEntityMixin {
             return amount;
 
         if (amount > 0) {
-            float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENCHANTMENT_STRENGTH.get(EnchantStatsID.ENCHANTMENT_STRENGTH_SLIDER);
+            float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.directDamageEnchantmentMultiplier;
             if (attackingEntity instanceof TameableEntity petSource
                     && petSource.world instanceof ServerWorld serverWorld
                     && petSource.getOwner() instanceof PlayerEntity owner) {

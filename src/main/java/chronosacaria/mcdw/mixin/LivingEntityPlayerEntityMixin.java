@@ -4,7 +4,6 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.PlayerAttackHelper;
 import chronosacaria.mcdw.damagesource.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
-import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -30,7 +29,7 @@ public class LivingEntityPlayerEntityMixin {
 
         if (amount > 0) {
 
-            float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENCHANTMENT_STRENGTH.get(EnchantStatsID.ENCHANTMENT_STRENGTH_SLIDER);
+            float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.directDamageEnchantmentMultiplier;
 
             if (source.getSource() instanceof LivingEntity) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.AMBUSH))

@@ -36,8 +36,12 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
             "the chance to trigger.")
     public final LinkedHashMap<EnchantmentsID, Integer> ENCHANTMENT_TRIGGER_BASE_CHANCE = new LinkedHashMap<>();
 
-    @Comment("Overall Enchantment Strength Slider")
-    public final HashMap<EnchantStatsID, Float> ENCHANTMENT_STRENGTH = new HashMap<>();
+    @Comment("""
+            A slider value for damage modifying enchantments: Ambush, Critical Hit, Void Strike, Pain Cycle,
+            Enigma Resonator, Dynamo, Shadow Form, Enigma Shot, Growing, Void Shot, Overcharge, Committed,
+            Hunter's Promise.
+            """)
+    public float directDamageEnchantmentMultiplier = 1.0f;
 
     @Comment("Healing Factor Slider. Percentage of healing -> 1.0 = 100%. Default value = 1.0.")
     public final HashMap<EnchantStatsID, Float> HEALING_FACTOR = new HashMap<>();
@@ -53,7 +57,6 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
         ENIGMA_RESONATOR_DIVISOR.put(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR, 3.25f);
         DYNAMO_STACK_CAP.put(EnchantStatsID.DYNAMO_STACK_CAP, 20);
         HEALING_FACTOR.put(EnchantStatsID.HEALING_FACTOR, 1.0f);
-        ENCHANTMENT_STRENGTH.put(EnchantStatsID.ENCHANTMENT_STRENGTH_SLIDER, 1.0f);
 
         ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.CHAIN_REACTION, 10);
         ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.CHAINS, 20);
