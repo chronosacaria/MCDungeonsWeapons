@@ -541,43 +541,6 @@
 		}
 	],
 	"gui_light": "front",
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, 25, -90],
-			"translation": [2.75, 0.25, -2.75],
-			"scale": [0.9, 0.9, 0.9]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [-180, -115, -90],
-			"translation": [2.75, 0.25, -2.75],
-			"scale": [0.9, 0.9, 0.9]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 35, -90],
-			"translation": [13.4, -9, -15.25],
-			"scale": [0.9, 0.9, 0.9]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, -45, 90],
-			"translation": [13.4, -9, -15.25],
-			"scale": [0.9, 0.9, 0.9]
-		},
-		"ground": {
-			"translation": [0, 3.25, 0],
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"gui": {
-			"rotation": [0, 90, 0]
-		},
-		"head": {
-			"rotation": [0, 45, -90],
-			"translation": [0, 6.75, -2],
-			"scale":[ 1, 1, 1 ]
-		},
-		"fixed": {
-			"rotation": [0, -90, 0]
-		}
-	},
 	"groups": [
 		{
 			"name": "butterfly_crossbow_pulling_2",

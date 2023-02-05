@@ -27,6 +27,7 @@
       "chronosacaria.mcdw.Mcdw"
     ]
   },
+  "accessWidener": "mcdw.accesswidener",
   "mixins": [
     "mcdw.mixins.json"
   ],

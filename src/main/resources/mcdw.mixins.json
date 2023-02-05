@@ -21,6 +21,8 @@
   ],
   "client": [
     "client.AbstractClientPlayerEntityMixin",
+    "client.HeldItemRendererInvoker",
+    "client.HeldItemRendererMixin",
     "client.InGameHudMixin",
     "client.ModelPredicateProviderRegistryMixin",
     "client.PlayerEntityRendererMixin"
