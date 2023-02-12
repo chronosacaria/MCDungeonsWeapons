@@ -1,56 +1,32 @@
-Timefall Development License 
+Timefall Development License 1.1
 
-Copyright (c) 2020-2022 Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+Copyright (c) 2020-2023 Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
 
-Permissions are hereby granted below to any person having a copy of
-this software and/or its associated files:
+Permissions are hereby granted, below, to any person having a copy of this software and/or its associated files:
 
-Usage - You may use this software for private and public use. You may use this software as a library
-or integrate it with your code. This software may not be bundled with your code in any way, shape or form.
+Usage - You may use this software for private and public use. You may use this software as a library or integrate it with your code. This software may not be bundled with your code in any way, shape or form.
 Copying - You may copy this software for private use or to contribute to this software.
 Modification - You may modify this software for private use or to contribute to this software.
 Publishing - You may not publish copies of this software.
 Distributing - You may not distribute this software.
 Sublicensing - You may not sublicense this software.
-Selling - You may not sell this software or restrict its access behind any paywall to monetised link.
+Selling - You may not sell this software, any part of this software, or restrict its access behind any paywall to monetised link.
 
 Modpack Clarification:
-Permission is granted for Modpacks to include this software as long
-as the copy of this software in the pack is done via a manifest which
-would download this software from its respective CurseForge page. In the
-case of explicit written permission by a copyright holder, this software
-may permitted to be used as an override, allowing for the direct integration
-with the Modpack in question.
+Permission is granted for Modpacks to include this software as long as the copy of this software in the pack is done via a manifest which would download this software from its respective CurseForge or Modrinth page. In the case of explicit written permission by a copyright holder, this software may permitted to be used as an override, allowing for the direct integration with the Modpack in question. In the case of a resource pack, it may be added directly to a modpack's download.
 
 Content Creator Clarification:
-Permission is granted to Content Creators, such as YouTubers or Twitch Streamers
-to make use of and monetise content that is created using this software. Whilst
-not required of a Content Creator, a link back to the CurseForge page of this
-software is greatly appreciated and encouraged.
+Permission is granted to Content Creators to make use of and monetise content that is created using this software. Whilst not required of a Content Creator, a link back to the CurseForge or Modrinth page of this software is greatly appreciated and encouraged.
 
 Porting Clarification:
-Permission is not granted to any user of this software to make ports of this
-software to another mod loader. This means that if this software was created
-for the Fabric Mod Loader, it may not be ported to the Forge Mod Loader or Quilt
-Mod Loader without express written permission from the copyright holders. Permission
-is granted to any user to fork the repository of this software and create a port
-to a different mod loader if, and only if, the port is to be submitted to the copyright
-holders as a Pull Request wherever this software's source code is hosted by the 
-copyright holders.
+Permission is not granted to any user of this software to make ports of this software to another mod loader. This means that if this software was created for the Fabric Mod Loader, it may not be ported to the Forge Mod Loader or Quilt Mod Loader without express written permission from the copyright holders. Permission is granted to any user to fork the repository of this software and create a port to a different mod loader if, and only if, the port is to be submitted to the copyright holders as a Pull Request wherever this software's source code is hosted by the copyright holders. The submitter of the Pull Request containing the porting code agrees that Timefall Development is free to negotiate the terms for the use of the submitted code. This includes, but will often not be the case that, submissions are used without compensation of any kind.
 
 Definition of 'Our Sources' in this license:
-Our Sources in this license means a copy
-of this software or its associated files that come
-directly from the owners of this software, an example
-are the files uploaded by us on our CurseForge Page.
+Our Sources in this license means a copy of this software or its associated files that come directly from the owners of this software, an example are the files uploaded by us on our CurseForge or Modrinth Pages.
 
-The above copyright notice and these permission notices shall be included in all
-copies or substantial portions of the Software.
+Definition of "Content Creator" in this license:
+Content Creator, in this license, means anyone who creates content on YouTube or Twitch regardless of affiliation or partner status.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+The above copyright notice and these permission notices shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
