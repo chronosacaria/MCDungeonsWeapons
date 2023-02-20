@@ -1,8 +1,8 @@
 package chronosacaria.mcdw.configs;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.*;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;

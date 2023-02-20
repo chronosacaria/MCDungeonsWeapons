@@ -1,5 +1,9 @@
-package chronosacaria.mcdw.statuseffects;
+package chronosacaria.mcdw.registries;
 
+import chronosacaria.mcdw.statuseffects.AccelerateStatusEffect;
+import chronosacaria.mcdw.statuseffects.DynamoStatusEffect;
+import chronosacaria.mcdw.statuseffects.PainCycleStatusEffect;
+import chronosacaria.mcdw.statuseffects.ShadowFormStatusEffect;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 

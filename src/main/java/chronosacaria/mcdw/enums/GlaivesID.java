@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwGlaive;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -35,7 +35,7 @@ public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<GlaivesID, McdwGlaive> getItemsEnum() {
-        return ItemsInit.GLAIVE_ITEMS;
+        return ItemsRegistry.GLAIVE_ITEMS;
     }
 
     public static HashMap<GlaivesID, Integer> getSpawnRates() {
@@ -98,7 +98,7 @@ public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
 
     @Override
     public McdwGlaive makeWeapon() {
-        McdwGlaive mcdwGlaive = new McdwGlaive(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwGlaive mcdwGlaive = new McdwGlaive(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwGlaive);

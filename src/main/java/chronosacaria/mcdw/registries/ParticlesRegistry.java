@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.particles;
+package chronosacaria.mcdw.registries;
 
 import chronosacaria.mcdw.Mcdw;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -9,15 +9,15 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-public class ParticlesInit {
+public class ParticlesRegistry {
 
     public static final DefaultParticleType OFFHAND_SWEEP_PARTICLE = FabricParticleTypes.simple(true);
 
-    public static void initializeOnServer() {
+    public static void initParticlesOnServer() {
         Registry.register(Registries.PARTICLE_TYPE, new Identifier(Mcdw.MOD_ID, "offhand_sweep"), OFFHAND_SWEEP_PARTICLE);
     }
 
-    public static void initializeOnClient() {
+    public static void initParticlesOnClient() {
         ParticleFactoryRegistry.getInstance().register(OFFHAND_SWEEP_PARTICLE, SweepAttackParticle.Factory::new);
     }
 }

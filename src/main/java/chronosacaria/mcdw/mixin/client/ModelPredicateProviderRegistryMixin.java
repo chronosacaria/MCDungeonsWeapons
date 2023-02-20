@@ -1,9 +1,9 @@
 package chronosacaria.mcdw.mixin.client;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.EnchantmentsID;
-import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
+import chronosacaria.mcdw.registries.StatusEffectsRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;

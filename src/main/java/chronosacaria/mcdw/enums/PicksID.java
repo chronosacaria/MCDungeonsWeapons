@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwPick;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -35,7 +35,7 @@ public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<PicksID, McdwPick> getItemsEnum() {
-        return ItemsInit.PICK_ITEMS;
+        return ItemsRegistry.PICK_ITEMS;
     }
 
     public static HashMap<PicksID, Integer> getSpawnRates() {
@@ -98,7 +98,7 @@ public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
 
     @Override
     public McdwPick makeWeapon() {
-        McdwPick mcdwPick = new McdwPick(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwPick mcdwPick = new McdwPick(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwPick);

@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwDoubleAxe;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -34,7 +34,7 @@ public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<DoubleAxesID, McdwDoubleAxe> getItemsEnum() {
-        return ItemsInit.DOUBLE_AXE_ITEMS;
+        return ItemsRegistry.DOUBLE_AXE_ITEMS;
     }
 
     public static HashMap<DoubleAxesID, Integer> getSpawnRates() {
@@ -97,7 +97,7 @@ public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
 
     @Override
     public McdwDoubleAxe makeWeapon() {
-        McdwDoubleAxe mcdwDoubleAxe = new McdwDoubleAxe(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwDoubleAxe mcdwDoubleAxe = new McdwDoubleAxe(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwDoubleAxe);

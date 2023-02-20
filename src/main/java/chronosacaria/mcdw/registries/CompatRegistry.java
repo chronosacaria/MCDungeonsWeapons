@@ -1,7 +1,7 @@
-package chronosacaria.mcdw.registry;
+package chronosacaria.mcdw.registries;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.damagesource.OffHandDamageSource;
+import chronosacaria.mcdw.damagesources.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import com.blamejared.clumps.api.events.ClumpsEvents;

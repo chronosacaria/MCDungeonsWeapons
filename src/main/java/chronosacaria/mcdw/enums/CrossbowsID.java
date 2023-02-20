@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwCrossbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -60,7 +60,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     public static EnumMap<CrossbowsID, McdwCrossbow> getItemsEnum() {
-        return ItemsInit.CROSSBOW_ITEMS;
+        return ItemsRegistry.CROSSBOW_ITEMS;
     }
 
     public static HashMap<CrossbowsID, Integer> getSpawnRates() {
@@ -123,7 +123,7 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
 
     @Override
     public McdwCrossbow makeWeapon() {
-        McdwCrossbow mcdwCrossbow = new McdwCrossbow(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwCrossbow mcdwCrossbow = new McdwCrossbow(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwCrossbow);

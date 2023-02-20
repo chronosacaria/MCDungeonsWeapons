@@ -1,7 +1,6 @@
-package chronosacaria.mcdw.loottables;
+package chronosacaria.mcdw.registries;
 
 import chronosacaria.mcdw.enums.*;
-import chronosacaria.mcdw.items.ItemsInit;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -16,7 +15,7 @@ import java.util.List;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public class McdwNewLoottables {
+public class LootTablesRegistry {
 
     public static final ArrayList<String> COMMON_LOOT_TABLES =
             new ArrayList<>(List.of(CONFIG.mcdwNewlootConfig.COMMON_LOOT_TABLES.get(SettingsID.COMMON_LOOT_TABLES)));
@@ -71,7 +70,7 @@ public class McdwNewLoottables {
             if (EntityType.BEE.getLootTableId().equals(id) && source.isBuiltin())
                 if (CONFIG.mcdwEnableItemsConfig.ITEMS_ENABLED.get(ItemsID.ITEM_BEE_STINGER)) {
                     LootPool.Builder lootPoolBuilder = LootPool.builder();
-                    addItemDrop(lootPoolBuilder, ItemsInit.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER), 1, 1f);
+                    addItemDrop(lootPoolBuilder, ItemsRegistry.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER), 1, 1f);
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
 

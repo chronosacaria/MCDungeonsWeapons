@@ -4,7 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.SwordsID;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
@@ -44,9 +44,9 @@ public class McdwSword extends SwordItem {
            tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
            i++;
        }
-        if (stack.getItem() == ItemsInit.SWORD_ITEMS.get(SwordsID.SWORD_BEESTINGER))
+        if (stack.getItem() == ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_BEESTINGER))
             tooltip.add(Text.translatable("tooltip_ench_item.mcdw.beestinger_1").formatted(Formatting.GRAY));
-        if (stack.getItem() == ItemsInit.SWORD_ITEMS.get(SwordsID.SWORD_DIAMOND_SWORD_VAR)){
+        if (stack.getItem() == ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_DIAMOND_SWORD_VAR)){
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.diamond_sword_1").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.diamond_sword_2").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.diamond_sword_3").formatted(Formatting.ITALIC));

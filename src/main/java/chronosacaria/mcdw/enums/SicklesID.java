@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSickle;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -35,7 +35,7 @@ public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<SicklesID, McdwSickle> getItemsEnum() {
-        return ItemsInit.SICKLE_ITEMS;
+        return ItemsRegistry.SICKLE_ITEMS;
     }
 
     public static HashMap<SicklesID, Integer> getSpawnRates() {
@@ -98,7 +98,7 @@ public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
 
     @Override
     public McdwSickle makeWeapon() {
-        McdwSickle mcdwSickle = new McdwSickle(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwSickle mcdwSickle = new McdwSickle(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwSickle);

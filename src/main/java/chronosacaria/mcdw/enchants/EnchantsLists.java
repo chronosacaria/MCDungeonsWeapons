@@ -1,5 +1,6 @@
 package chronosacaria.mcdw.enchants;
 
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import net.minecraft.enchantment.Enchantment;
 
 import java.util.List;

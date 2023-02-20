@@ -5,7 +5,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.BowsID;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
@@ -99,7 +99,7 @@ public class McdwBow extends BowItem {
             tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
             i++;
         }
-        if (stack.getItem() == ItemsInit.BOW_ITEMS.get(BowsID.BOW_HUNTERS_PROMISE))
+        if (stack.getItem() == ItemsRegistry.BOW_ITEMS.get(BowsID.BOW_HUNTERS_PROMISE))
             tooltip.add(Text.translatable("tooltip_ench_item.mcdw.hunters_promise_1").formatted(Formatting.GRAY));
     }
 }

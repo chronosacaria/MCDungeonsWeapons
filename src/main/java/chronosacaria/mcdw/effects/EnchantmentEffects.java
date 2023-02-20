@@ -3,16 +3,16 @@ package chronosacaria.mcdw.effects;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.util.*;
-import chronosacaria.mcdw.damagesource.ElectricShockDamageSource;
-import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.damagesources.ElectricShockDamageSource;
 import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
 import chronosacaria.mcdw.enums.BowsID;
 import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.mixin.CreeperEntityAccessor;
 import chronosacaria.mcdw.mixin.MobEntityAccessor;
-import chronosacaria.mcdw.sounds.McdwSoundEvents;
-import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
+import chronosacaria.mcdw.registries.SoundEventsRegistry;
+import chronosacaria.mcdw.registries.StatusEffectsRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
@@ -582,7 +582,7 @@ public class EnchantmentEffects {
                 causeEchoAttack(echoEntity, target,
                         3.0f,
                         echoLevel, amount);
-                CleanlinessHelper.playCenteredSound(echoEntity, McdwSoundEvents.ECHO_SOUND_EVENT, 0.5F, 1.0F);
+                CleanlinessHelper.playCenteredSound(echoEntity, SoundEventsRegistry.ECHO_SOUND_EVENT, 0.5F, 1.0F);
             }
         }
     }

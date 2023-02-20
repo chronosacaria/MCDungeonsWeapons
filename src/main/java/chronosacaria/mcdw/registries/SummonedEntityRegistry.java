@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.enchants.summons.registry;
+package chronosacaria.mcdw.registries;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;

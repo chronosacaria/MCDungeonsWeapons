@@ -5,11 +5,11 @@ import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.bases.McdwCrossbow;
-import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.CrossbowsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
-import chronosacaria.mcdw.items.ItemsInit;
-import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
+import chronosacaria.mcdw.registries.ItemsRegistry;
+import chronosacaria.mcdw.registries.StatusEffectsRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -81,7 +81,7 @@ public class CrossbowItemMixin {
                 ((IMcdwEnchantedArrow)ppe).setLevitationShotLevel(levitationShotLevel);
             }
             // For Drag in Water for Nautilus Crossbow
-            ((IMcdwEnchantedArrow)ppe).setNautilusBoolean(crossbow.isOf(ItemsInit.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)));
+            ((IMcdwEnchantedArrow)ppe).setNautilusBoolean(crossbow.isOf(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)));
             int phantomsMarkLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PHANTOMS_MARK, crossbow);
             if (phantomsMarkLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setPhantomsMarkLevel(phantomsMarkLevel);
@@ -102,7 +102,7 @@ public class CrossbowItemMixin {
             if (ricochetLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setRicochetLevel(ricochetLevel);
             }
-            ((IMcdwEnchantedArrow)ppe).setShadowBarbBoolean(crossbow.isOf(ItemsInit.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)));
+            ((IMcdwEnchantedArrow)ppe).setShadowBarbBoolean(crossbow.isOf(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)));
             int shadowShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SHADOW_SHOT, crossbow);
             if (shadowShotLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).setShadowShotLevel(shadowShotLevel);

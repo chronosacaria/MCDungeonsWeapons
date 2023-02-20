@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwScythe;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -35,7 +35,7 @@ public enum ScythesID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<ScythesID, McdwScythe> getItemsEnum() {
-        return ItemsInit.SCYTHE_ITEMS;
+        return ItemsRegistry.SCYTHE_ITEMS;
     }
 
     public static HashMap<ScythesID, Integer> getSpawnRates() {
@@ -98,7 +98,7 @@ public enum ScythesID implements IMcdwWeaponID, IMeleeWeaponID {
 
     @Override
     public McdwScythe makeWeapon() {
-        McdwScythe mcdwScythe = new McdwScythe(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwScythe mcdwScythe = new McdwScythe(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwScythe);

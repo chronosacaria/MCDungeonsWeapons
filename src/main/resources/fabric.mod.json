@@ -16,7 +16,7 @@
     "sources": "https://www.github.com/chronosacaria/MCDungeonsWeapons",
     "issues": "https://www.github.com/chronosacaria/MCDungeonsWeapons/issues"
   },
-  "license": "Timefall Development License",
+  "license": "Timefall Development License 1.1",
   "icon": "assets/mcdw/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -32,9 +32,9 @@
     "mcdw.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.9.3+build.207",
+    "fabricloader": ">=0.14.14",
     "fabric": "*",
-    "minecraft": "1.19.x",
-    "cloth-config2": ">=6.0.45"
+    "minecraft": ">=1.19.3",
+    "cloth-config2": ">=9.0.93"
   }
 }

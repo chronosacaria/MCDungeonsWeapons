@@ -3,13 +3,16 @@ package chronosacaria.mcdw.mixin;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
-import chronosacaria.mcdw.damagesource.OffHandDamageSource;
+import chronosacaria.mcdw.damagesources.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
-import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
-import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
-import chronosacaria.mcdw.enums.*;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.enums.ItemsID;
+import chronosacaria.mcdw.enums.SettingsID;
+import chronosacaria.mcdw.enums.SwordsID;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
+import chronosacaria.mcdw.registries.ItemsRegistry;
+import chronosacaria.mcdw.registries.SummonedEntityRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
@@ -141,7 +144,7 @@ public class LivingEntityMixin {
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BUZZY_BEE)) {
             ItemStack mainHandStack = attackingPlayer.getMainHandStack();
             ItemStack offHandStack = attackingPlayer.getOffHandStack();
-            if (mainHandStack.getItem() == ItemsInit.SWORD_ITEMS.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsInit.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER)) {
+            if (mainHandStack.getItem() == ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsRegistry.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER)) {
                 offHandStack.decrement(1);
                 SummonedBeeEntity summonedBeeEntity_1 = mcdw$summoned_bee.create(attackingPlayer.world);
                 if (summonedBeeEntity_1 != null) {

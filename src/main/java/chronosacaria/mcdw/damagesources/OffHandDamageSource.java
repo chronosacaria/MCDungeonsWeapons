@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.damagesource;
+package chronosacaria.mcdw.damagesources;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
