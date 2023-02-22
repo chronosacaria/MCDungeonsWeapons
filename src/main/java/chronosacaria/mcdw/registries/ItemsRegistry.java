@@ -1,7 +1,8 @@
-package chronosacaria.mcdw.items;
+package chronosacaria.mcdw.registries;
 
 import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enums.*;
+import chronosacaria.mcdw.items.BeeStingerItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ToolMaterial;
@@ -14,7 +15,7 @@ import java.util.Locale;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 import static chronosacaria.mcdw.Mcdw.ID;
 
-public class ItemsInit {
+public class ItemsRegistry {
 
     public static final EnumMap<SwordsID, McdwSword> SWORD_ITEMS = new EnumMap<>(SwordsID.class);
     public static final EnumMap<AxesID, McdwAxe> AXE_ITEMS = new EnumMap<>(AxesID.class);

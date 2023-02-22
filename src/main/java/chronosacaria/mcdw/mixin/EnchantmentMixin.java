@@ -2,9 +2,9 @@ package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.bases.McdwAxe;
 import chronosacaria.mcdw.bases.McdwCustomWeaponBase;
-import chronosacaria.mcdw.enchants.EnchantsRegistry;
 import chronosacaria.mcdw.enums.DaggersID;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
@@ -35,7 +35,7 @@ public abstract class EnchantmentMixin {
                 && this.type.equals(EnchantmentTarget.WEAPON)){
             cir.setReturnValue(true);
         }
-        if (stack.isOf(ItemsInit.DAGGER_ITEMS.get(DaggersID.DAGGER_SWIFT_STRIKER))
+        if (stack.isOf(ItemsRegistry.DAGGER_ITEMS.get(DaggersID.DAGGER_SWIFT_STRIKER))
                 && mcdw$isEnchantment(EnchantsRegistry.ECHO, EnchantsRegistry.AMBUSH)){
             cir.setReturnValue(true);
         }

@@ -4,7 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.PicksID;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,7 +32,7 @@ public class McdwPick extends PickaxeItem {
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
-        if (stack.getItem() == ItemsInit.PICK_ITEMS.get(PicksID.PICK_DIAMOND_PICKAXE_VAR)) {
+        if (stack.getItem() == ItemsRegistry.PICK_ITEMS.get(PicksID.PICK_DIAMOND_PICKAXE_VAR)) {
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.diamond_pick_1").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.diamond_pick_2").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.diamond_pick_3").formatted(Formatting.ITALIC));

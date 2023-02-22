@@ -3,8 +3,8 @@ package chronosacaria.mcdw.api.util;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
-import chronosacaria.mcdw.damagesource.OffHandDamageSource;
-import chronosacaria.mcdw.particles.ParticlesInit;
+import chronosacaria.mcdw.damagesources.OffHandDamageSource;
+import chronosacaria.mcdw.registries.ParticlesRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.SweepingEnchantment;
@@ -42,37 +42,6 @@ public class PlayerAttackHelper {
         return damageSource.name.equals("mob")
                 || damageSource.name.equals("player");
     }
-
-    /* Can you see me on severs?
-    public void swingOffHand(LivingEntity livingEntity, Hand hand) {
-        this.swingOffHand(livingEntity, hand, false);
-    }
-
-    public void swingOffHand(LivingEntity livingEntity, Hand hand, boolean fromServerPlayer) {
-        if (!livingEntity.handSwinging || livingEntity.handSwingTicks >= this.getOffHandSwingDuration(livingEntity) / 2 || livingEntity.handSwingTicks < 0) {
-            livingEntity.handSwingTicks = -1;
-            livingEntity.handSwinging = true;
-            livingEntity.preferredHand = hand;
-            if (livingEntity.world instanceof ServerWorld) {
-                EntityAnimationS2CPacket entityAnimationS2CPacket = new EntityAnimationS2CPacket(livingEntity, hand == Hand.OFF_HAND ? 0: 3);
-                ServerChunkManager serverChunkManager = ((ServerWorld) livingEntity.world).getChunkManager();
-                if (fromServerPlayer) {
-                    serverChunkManager.sendToNearbyPlayers(livingEntity, entityAnimationS2CPacket);
-                } else {
-                    serverChunkManager.sendToOtherNearbyPlayers(livingEntity, entityAnimationS2CPacket);
-                }
-            }
-        }
-    }
-
-    private int getOffHandSwingDuration(LivingEntity livingEntity) {
-        if (StatusEffectUtil.hasHaste(livingEntity)) {
-            return 6 - (1 + StatusEffectUtil.getHasteAmplifier(livingEntity));
-        } else {
-            return livingEntity.hasStatusEffect(StatusEffects.MINING_FATIGUE) ? 6 + (1 + livingEntity.getStatusEffect(StatusEffects.MINING_FATIGUE).getAmplifier()) * 2 : 6;
-        }
-    }
-    */
 
     public static void switchModifiers(PlayerEntity player, ItemStack switchFrom, ItemStack switchTo) {
         player.getAttributes().removeModifiers(switchFrom.getAttributeModifiers(EquipmentSlot.MAINHAND));
@@ -162,7 +131,7 @@ public class PlayerAttackHelper {
                         });
                         CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
                         if (playerEntity.world instanceof ServerWorld serverWorld) {
-                            serverWorld.spawnParticles(ParticlesInit.OFFHAND_SWEEP_PARTICLE, playerEntity.getX() + positionOne,
+                            serverWorld.spawnParticles(ParticlesRegistry.OFFHAND_SWEEP_PARTICLE, playerEntity.getX() + positionOne,
                                     playerEntity.getBodyY(0.5D), playerEntity.getZ() + positionTwo, 0, positionOne, 0.0D, positionTwo, 0.0D);
                         }
                     }

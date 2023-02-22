@@ -8,40 +8,40 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 @SuppressWarnings({"UnusedReturnValue", "SameParameterValue"})
 @Config(name = "mcdw_stats_config")
 public class McdwNewStatsConfig implements ConfigData {
 
     @Comment("Can use the following tags as repair ingredient -- minecraft:planks, minecraft:stone_crafting_materials. Other tags do not work.")
-    public final HashMap<SwordsID, IMeleeWeaponID.MeleeStats> swordStats = new HashMap<>();
-    public final HashMap<AxesID, IMeleeWeaponID.MeleeStats> axeStats = new HashMap<>();
-    public final HashMap<DoubleAxesID, IMeleeWeaponID.MeleeStats> doubleAxeStats = new HashMap<>();
-    public final HashMap<DaggersID, IMeleeWeaponID.MeleeStats> daggerStats = new HashMap<>();
-    public final HashMap<SoulDaggersID, IMeleeWeaponID.MeleeStats> soulDaggerStats = new HashMap<>();
-    public final HashMap<HammersID, IMeleeWeaponID.MeleeStats> hammerStats = new HashMap<>();
-    public final HashMap<GauntletsID, IMeleeWeaponID.MeleeStats> gauntletStats = new HashMap<>();
-    public final HashMap<SicklesID, IMeleeWeaponID.MeleeStats> sickleStats = new HashMap<>();
-    public final HashMap<ScythesID, IMeleeWeaponID.MeleeStats> scytheStats = new HashMap<>();
-    public final HashMap<PicksID, IMeleeWeaponID.MeleeStats> pickStats = new HashMap<>();
+    public final LinkedHashMap<SwordsID, IMeleeWeaponID.MeleeStats> swordStats = new LinkedHashMap<>();
+    public final LinkedHashMap<AxesID, IMeleeWeaponID.MeleeStats> axeStats = new LinkedHashMap<>();
+    public final LinkedHashMap<DoubleAxesID, IMeleeWeaponID.MeleeStats> doubleAxeStats = new LinkedHashMap<>();
+    public final LinkedHashMap<DaggersID, IMeleeWeaponID.MeleeStats> daggerStats = new LinkedHashMap<>();
+    public final LinkedHashMap<SoulDaggersID, IMeleeWeaponID.MeleeStats> soulDaggerStats = new LinkedHashMap<>();
+    public final LinkedHashMap<HammersID, IMeleeWeaponID.MeleeStats> hammerStats = new LinkedHashMap<>();
+    public final LinkedHashMap<GauntletsID, IMeleeWeaponID.MeleeStats> gauntletStats = new LinkedHashMap<>();
+    public final LinkedHashMap<SicklesID, IMeleeWeaponID.MeleeStats> sickleStats = new LinkedHashMap<>();
+    public final LinkedHashMap<ScythesID, IMeleeWeaponID.MeleeStats> scytheStats = new LinkedHashMap<>();
+    public final LinkedHashMap<PicksID, IMeleeWeaponID.MeleeStats> pickStats = new LinkedHashMap<>();
     @Comment("This value is ignored if Better Combat is installed! Default: 1.0")
     public final double extraAttackReachOfGlaives = 1.0D;
-    public final HashMap<GlaivesID, IMeleeWeaponID.MeleeStats> glaiveStats = new HashMap<>();
+    public final LinkedHashMap<GlaivesID, IMeleeWeaponID.MeleeStats> glaiveStats = new LinkedHashMap<>();
     @Comment("This value is ignored if Better Combat is installed! Default: 1.0")
     public final double extraAttackReachOfSpears = 1.0D;
-    public final HashMap<SpearsID, IMeleeWeaponID.MeleeStats> spearStats = new HashMap<>();
+    public final LinkedHashMap<SpearsID, IMeleeWeaponID.MeleeStats> spearStats = new LinkedHashMap<>();
     @Comment("This value is ignored if Better Combat is installed! Default: 1.0")
     public final double extraAttackReachOfStaves = 1.0D;
-    public final HashMap<StavesID, IMeleeWeaponID.MeleeStats> staffStats = new HashMap<>();
+    public final LinkedHashMap<StavesID, IMeleeWeaponID.MeleeStats> staffStats = new LinkedHashMap<>();
     @Comment("This value is ignored if Better Combat is installed! Default: 1.5")
     public final double extraAttackReachOfWhips = 1.5D;
-    public final HashMap<WhipsID, IMeleeWeaponID.MeleeStats> whipStats = new HashMap<>();
-    public final HashMap<BowsID, IRangedWeaponID.RangedStats> bowStats = new HashMap<>();
-    public final HashMap<ShortbowsID, IRangedWeaponID.RangedStats> shortbowStats = new HashMap<>();
-    public final HashMap<LongbowsID, IRangedWeaponID.RangedStats> longbowStats = new HashMap<>();
-    public final HashMap<CrossbowsID, IRangedWeaponID.RangedStats> crossbowStats = new HashMap<>();
-    public final HashMap<ShieldsID, IShieldID.ShieldStats> shieldStats = new HashMap<>();
+    public final LinkedHashMap<WhipsID, IMeleeWeaponID.MeleeStats> whipStats = new LinkedHashMap<>();
+    public final LinkedHashMap<BowsID, IRangedWeaponID.RangedStats> bowStats = new LinkedHashMap<>();
+    public final LinkedHashMap<ShortbowsID, IRangedWeaponID.RangedStats> shortbowStats = new LinkedHashMap<>();
+    public final LinkedHashMap<LongbowsID, IRangedWeaponID.RangedStats> longbowStats = new LinkedHashMap<>();
+    public final LinkedHashMap<CrossbowsID, IRangedWeaponID.RangedStats> crossbowStats = new LinkedHashMap<>();
+    public final LinkedHashMap<ShieldsID, IShieldID.ShieldStats> shieldStats = new LinkedHashMap<>();
 
     // Stats Convenience Methods
     protected IMeleeWeaponID.MeleeStats meleeWeaponStats(String material, int damage, float attackSpeed, String[] repairIngredient, IMeleeWeaponID iMeleeWeaponID) {

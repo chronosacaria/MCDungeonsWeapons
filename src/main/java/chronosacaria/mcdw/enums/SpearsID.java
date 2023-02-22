@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSpear;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -34,7 +34,7 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<SpearsID, McdwSpear> getItemsEnum() {
-        return ItemsInit.SPEAR_ITEMS;
+        return ItemsRegistry.SPEAR_ITEMS;
     }
 
     public static HashMap<SpearsID, Integer> getSpawnRates() {
@@ -97,7 +97,7 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
 
     @Override
     public McdwSpear makeWeapon() {
-        McdwSpear mcdwSpear = new McdwSpear(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwSpear mcdwSpear = new McdwSpear(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwSpear);

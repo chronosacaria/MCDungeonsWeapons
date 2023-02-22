@@ -2,12 +2,12 @@ package chronosacaria.mcdw.client;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.*;
-import chronosacaria.mcdw.enchants.EnchantsRegistry;
-import chronosacaria.mcdw.enchants.summons.registry.SummonedEntityRegistry;
 import chronosacaria.mcdw.enchants.summons.render.SummonedBeeRenderer;
 import chronosacaria.mcdw.enums.*;
-import chronosacaria.mcdw.particles.ParticlesInit;
-import chronosacaria.mcdw.statuseffects.StatusEffectsRegistry;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
+import chronosacaria.mcdw.registries.ParticlesRegistry;
+import chronosacaria.mcdw.registries.StatusEffectsRegistry;
+import chronosacaria.mcdw.registries.SummonedEntityRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -28,7 +28,7 @@ public class McdwClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         EntityRendererRegistry.register(SummonedEntityRegistry.SUMMONED_BEE_ENTITY, SummonedBeeRenderer::new);
-        ParticlesInit.initializeOnClient();
+        ParticlesRegistry.initParticlesOnClient();
 
         Arrays.stream(BowsID.values()).forEach(bowsID -> registerBowPredicates(bowsID.getItem()));
         Arrays.stream(ShortbowsID.values()).forEach(shortBowsID -> registerShortBowPredicates(shortBowsID.getItem()));

@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwGauntlet;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -34,7 +34,7 @@ public enum GauntletsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<GauntletsID, McdwGauntlet> getItemsEnum() {
-        return ItemsInit.GAUNTLET_ITEMS;
+        return ItemsRegistry.GAUNTLET_ITEMS;
     }
 
     public static HashMap<GauntletsID, Integer> getSpawnRates() {
@@ -97,7 +97,7 @@ public enum GauntletsID implements IMcdwWeaponID, IMeleeWeaponID {
 
     @Override
     public McdwGauntlet makeWeapon() {
-        McdwGauntlet mcdwGauntlet = new McdwGauntlet(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwGauntlet mcdwGauntlet = new McdwGauntlet(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwGauntlet);

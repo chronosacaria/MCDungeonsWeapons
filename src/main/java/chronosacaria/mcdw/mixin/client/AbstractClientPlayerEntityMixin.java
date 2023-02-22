@@ -3,7 +3,7 @@ package chronosacaria.mcdw.mixin.client;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwLongbow;
 import chronosacaria.mcdw.bases.McdwShortbow;
-import chronosacaria.mcdw.enchants.EnchantsRegistry;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;

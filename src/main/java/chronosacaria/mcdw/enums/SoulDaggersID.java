@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSoulDagger;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -35,7 +35,7 @@ public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<SoulDaggersID, McdwSoulDagger> getItemsEnum() {
-        return ItemsInit.SOUL_DAGGER_ITEMS;
+        return ItemsRegistry.SOUL_DAGGER_ITEMS;
     }
 
     public static HashMap<SoulDaggersID, Integer> getSpawnRates() {
@@ -98,7 +98,7 @@ public enum SoulDaggersID implements IMcdwWeaponID, IMeleeWeaponID {
 
     @Override
     public McdwSoulDagger makeWeapon() {
-        McdwSoulDagger mcdwSoulDagger = new McdwSoulDagger(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwSoulDagger mcdwSoulDagger = new McdwSoulDagger(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwSoulDagger);

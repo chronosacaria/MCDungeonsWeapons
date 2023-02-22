@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwShield;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -30,7 +30,7 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
     }
 
     public static EnumMap<ShieldsID, McdwShield> getItemsEnum() {
-        return ItemsInit.SHIELD_ITEMS;
+        return ItemsRegistry.SHIELD_ITEMS;
     }
 
     public static HashMap<ShieldsID, Integer> getSpawnRates() {
@@ -81,7 +81,7 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
 
     @Override
     public McdwShield makeWeapon() {
-        McdwShield mcdwShield = new McdwShield(ItemsInit.stringToMaterial(this.getWeaponItemStats().material), this.getWeaponItemStats().repairIngredient);
+        McdwShield mcdwShield = new McdwShield(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material), this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwShield);
         return mcdwShield;

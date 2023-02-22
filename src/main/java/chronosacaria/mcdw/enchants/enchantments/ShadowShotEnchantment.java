@@ -4,7 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
 import chronosacaria.mcdw.enums.CrossbowsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -35,7 +35,7 @@ public class ShadowShotEnchantment extends RangedEnchantment {
 
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem().equals(ItemsInit.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)) || stack.getItem().equals(ItemsInit.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW));
+        return stack.getItem().equals(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_SHADOW_CROSSBOW)) || stack.getItem().equals(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW));
     }
 
     @Override

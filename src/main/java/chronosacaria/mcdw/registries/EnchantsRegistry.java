@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.enchants;
+package chronosacaria.mcdw.registries;
 
 import chronosacaria.mcdw.enchants.enchantments.*;
 import net.minecraft.enchantment.Enchantment;

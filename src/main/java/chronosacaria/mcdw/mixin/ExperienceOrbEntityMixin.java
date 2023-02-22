@@ -2,7 +2,7 @@
 package chronosacaria.mcdw.mixin;
 
 import chronosacaria.mcdw.Mcdw;
-import chronosacaria.mcdw.damagesource.OffHandDamageSource;
+import chronosacaria.mcdw.damagesources.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.ExperienceOrbEntity;

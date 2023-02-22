@@ -3,7 +3,7 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwWhip;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.items.ItemsInit;
+import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 
@@ -32,7 +32,7 @@ public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
     }
 
     public static EnumMap<WhipsID, McdwWhip> getItemsEnum() {
-        return ItemsInit.WHIP_ITEMS;
+        return ItemsRegistry.WHIP_ITEMS;
     }
 
     public static HashMap<WhipsID, Integer> getSpawnRates() {
@@ -95,7 +95,7 @@ public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
 
     @Override
     public McdwWhip makeWeapon() {
-        McdwWhip mcdwWhip = new McdwWhip(ItemsInit.stringToMaterial(this.getWeaponItemStats().material),
+        McdwWhip mcdwWhip = new McdwWhip(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwWhip);
