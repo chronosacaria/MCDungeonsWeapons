@@ -7,7 +7,6 @@ import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 @Config(name = "mcdw_enchantment_settings_config")
@@ -24,13 +23,13 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
     public int aoePermission = 0;
 
     // Enchantment Settings
-    public final HashMap<SettingsID, Boolean> ENABLE_ENCHANTMENT_SETTINGS = new HashMap<>();
+    public final LinkedHashMap<SettingsID, Boolean> ENABLE_ENCHANTMENT_SETTINGS = new LinkedHashMap<>();
 
     @Comment("ENIGMA_RESONATOR_DIVISOR -> Higher number = lower damage. Default value = 3.25.")
-    public final HashMap<EnchantStatsID, Float> ENIGMA_RESONATOR_DIVISOR = new HashMap<>();
+    public final LinkedHashMap<EnchantStatsID, Float> ENIGMA_RESONATOR_DIVISOR = new LinkedHashMap<>();
 
     @Comment("Dynamo Stack Cap, Higher number = more potential damage. Default value = 20.")
-    public final HashMap<EnchantStatsID, Integer> DYNAMO_STACK_CAP = new HashMap<>();
+    public final LinkedHashMap<EnchantStatsID, Integer> DYNAMO_STACK_CAP = new LinkedHashMap<>();
 
     @Comment("Enchantment Trigger Chances Base. This is not the % to occur, but the higher this number, the higher " +
             "the chance to trigger.")
@@ -44,7 +43,7 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
     public float directDamageEnchantmentMultiplier = 1.0f;
 
     @Comment("Healing Factor Slider. Percentage of healing -> 1.0 = 100%. Default value = 1.0.")
-    public final HashMap<EnchantStatsID, Float> HEALING_FACTOR = new HashMap<>();
+    public final LinkedHashMap<EnchantStatsID, Float> HEALING_FACTOR = new LinkedHashMap<>();
 
     public McdwEnchantmentSettingsConfig(){
         ENABLE_ENCHANTMENT_SETTINGS.put(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING, false);

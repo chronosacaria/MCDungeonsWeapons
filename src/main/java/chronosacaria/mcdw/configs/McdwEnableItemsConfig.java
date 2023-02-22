@@ -4,31 +4,31 @@ import chronosacaria.mcdw.enums.*;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 @Config(name = "mcdw_items_registry")
 public class McdwEnableItemsConfig implements ConfigData {
 
-    public final HashMap<SwordsID, Boolean> SWORDS_ENABLED = new HashMap<>();
-    public final HashMap<AxesID, Boolean> AXES_ENABLED = new HashMap<>();
-    public final HashMap<DoubleAxesID, Boolean> DOUBLE_AXES_ENABLED = new HashMap<>();
-    public final HashMap<DaggersID, Boolean> DAGGERS_ENABLED = new HashMap<>();
-    public final HashMap<SoulDaggersID, Boolean> SOUL_DAGGERS_ENABLED = new HashMap<>();
-    public final HashMap<HammersID, Boolean> HAMMERS_ENABLED = new HashMap<>();
-    public final HashMap<GauntletsID, Boolean> GAUNTLETS_ENABLED = new HashMap<>();
-    public final HashMap<SicklesID, Boolean> SICKLES_ENABLED = new HashMap<>();
-    public final HashMap<ScythesID, Boolean> SCYTHES_ENABLED = new HashMap<>();
-    public final HashMap<PicksID, Boolean> PICKS_ENABLED = new HashMap<>();
-    public final HashMap<GlaivesID, Boolean> GLAIVES_ENABLED = new HashMap<>();
-    public final HashMap<SpearsID, Boolean> SPEARS_ENABLED = new HashMap<>();
-    public final HashMap<StavesID, Boolean> STAVES_ENABLED = new HashMap<>();
-    public final HashMap<WhipsID, Boolean> WHIPS_ENABLED = new HashMap<>();
-    public final HashMap<BowsID, Boolean> BOWS_ENABLED = new HashMap<>();
-    public final HashMap<ShortbowsID, Boolean> SHORTBOWS_ENABLED = new HashMap<>();
-    public final HashMap<LongbowsID, Boolean> LONGBOWS_ENABLED = new HashMap<>();
-    public final HashMap<CrossbowsID, Boolean> CROSSBOWS_ENABLED = new HashMap<>();
-    public final HashMap<ShieldsID, Boolean> SHIELDS_ENABLED = new HashMap<>();
-    public final HashMap<ItemsID, Boolean> ITEMS_ENABLED = new HashMap<>();
+    public final LinkedHashMap<SwordsID, Boolean> SWORDS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<AxesID, Boolean> AXES_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<DoubleAxesID, Boolean> DOUBLE_AXES_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<DaggersID, Boolean> DAGGERS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<SoulDaggersID, Boolean> SOUL_DAGGERS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<HammersID, Boolean> HAMMERS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<GauntletsID, Boolean> GAUNTLETS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<SicklesID, Boolean> SICKLES_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<ScythesID, Boolean> SCYTHES_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<PicksID, Boolean> PICKS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<GlaivesID, Boolean> GLAIVES_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<SpearsID, Boolean> SPEARS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<StavesID, Boolean> STAVES_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<WhipsID, Boolean> WHIPS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<BowsID, Boolean> BOWS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<ShortbowsID, Boolean> SHORTBOWS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<LongbowsID, Boolean> LONGBOWS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<CrossbowsID, Boolean> CROSSBOWS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<ShieldsID, Boolean> SHIELDS_ENABLED = new LinkedHashMap<>();
+    public final LinkedHashMap<ItemsID, Boolean> ITEMS_ENABLED = new LinkedHashMap<>();
 
     public McdwEnableItemsConfig() {
         for (SwordsID swordsID : SwordsID.values())

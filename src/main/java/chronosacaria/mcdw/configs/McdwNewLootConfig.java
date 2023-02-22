@@ -5,7 +5,7 @@ import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 @Config(name = "mcdw_loot_config")
 public class McdwNewLootConfig implements ConfigData {
@@ -16,30 +16,30 @@ public class McdwNewLootConfig implements ConfigData {
     @Comment("Higher Number makes Luck give you potential for extra MCDW loot. Default = 1.2f")
     public Float bonusRollsWithLuck = 1.2f;
 
-    public final HashMap<SettingsID, Boolean> WEAPONS_ENABLED_IN_LOOTTABLES = new HashMap<>();
-    public final HashMap<SettingsID, String[]> COMMON_LOOT_TABLES = new HashMap<>();
-    public final HashMap<SettingsID, String[]> UNCOMMON_LOOT_TABLES = new HashMap<>();
-    public final HashMap<SettingsID, String[]> RARE_LOOT_TABLES = new HashMap<>();
-    public final HashMap<SettingsID, String[]> EPIC_LOOT_TABLES = new HashMap<>();
-    public final HashMap<AxesID, Integer> AXE_SPAWN_RATES = new HashMap<>();
-    public final HashMap<DaggersID, Integer> DAGGER_SPAWN_RATES = new HashMap<>();
-    public final HashMap<DoubleAxesID, Integer> DOUBLE_AXE_SPAWN_RATES = new HashMap<>();
-    public final HashMap<GauntletsID, Integer> GAUNTLET_SPAWN_RATES = new HashMap<>();
-    public final HashMap<GlaivesID, Integer> GLAIVE_SPAWN_RATES = new HashMap<>();
-    public final HashMap<HammersID, Integer> HAMMER_SPAWN_RATES = new HashMap<>();
-    public final HashMap<PicksID, Integer> PICK_SPAWN_RATES = new HashMap<>();
-    public final HashMap<ScythesID, Integer> SCYTHE_SPAWN_RATES = new HashMap<>();
-    public final HashMap<SicklesID, Integer> SICKLE_SPAWN_RATES = new HashMap<>();
-    public final HashMap<SoulDaggersID, Integer> SOUL_DAGGER_SPAWN_RATES = new HashMap<>();
-    public final HashMap<SpearsID, Integer> SPEAR_SPAWN_RATES = new HashMap<>();
-    public final HashMap<StavesID, Integer> STAFF_SPAWN_RATES = new HashMap<>();
-    public final HashMap<SwordsID, Integer> SWORD_SPAWN_RATES = new HashMap<>();
-    public final HashMap<WhipsID, Integer> WHIP_SPAWN_RATES = new HashMap<>();
-    public final HashMap<BowsID, Integer> BOW_SPAWN_RATES = new HashMap<>();
-    public final HashMap<LongbowsID, Integer> LONGBOW_SPAWN_RATES = new HashMap<>();
-    public final HashMap<ShortbowsID, Integer> SHORTBOW_SPAWN_RATES = new HashMap<>();
-    public final HashMap<CrossbowsID, Integer> CROSSBOW_SPAWN_RATES = new HashMap<>();
-    public final HashMap<ShieldsID, Integer> SHIELD_SPAWN_RATES = new HashMap<>();
+    public final LinkedHashMap<SettingsID, Boolean> WEAPONS_ENABLED_IN_LOOTTABLES = new LinkedHashMap<>();
+    public final LinkedHashMap<SettingsID, String[]> COMMON_LOOT_TABLES = new LinkedHashMap<>();
+    public final LinkedHashMap<SettingsID, String[]> UNCOMMON_LOOT_TABLES = new LinkedHashMap<>();
+    public final LinkedHashMap<SettingsID, String[]> RARE_LOOT_TABLES = new LinkedHashMap<>();
+    public final LinkedHashMap<SettingsID, String[]> EPIC_LOOT_TABLES = new LinkedHashMap<>();
+    public final LinkedHashMap<AxesID, Integer> AXE_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<DaggersID, Integer> DAGGER_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<DoubleAxesID, Integer> DOUBLE_AXE_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<GauntletsID, Integer> GAUNTLET_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<GlaivesID, Integer> GLAIVE_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<HammersID, Integer> HAMMER_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<PicksID, Integer> PICK_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<ScythesID, Integer> SCYTHE_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<SicklesID, Integer> SICKLE_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<SoulDaggersID, Integer> SOUL_DAGGER_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<SpearsID, Integer> SPEAR_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<StavesID, Integer> STAFF_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<SwordsID, Integer> SWORD_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<WhipsID, Integer> WHIP_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<BowsID, Integer> BOW_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<LongbowsID, Integer> LONGBOW_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<ShortbowsID, Integer> SHORTBOW_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<CrossbowsID, Integer> CROSSBOW_SPAWN_RATES = new LinkedHashMap<>();
+    public final LinkedHashMap<ShieldsID, Integer> SHIELD_SPAWN_RATES = new LinkedHashMap<>();
 
     public McdwNewLootConfig(){
         WEAPONS_ENABLED_IN_LOOTTABLES.put(SettingsID.ENABLE_WEAPONS_IN_LOOTTABLES, true);

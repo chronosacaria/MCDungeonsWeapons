@@ -4,15 +4,15 @@ import chronosacaria.mcdw.enums.EnchantmentsID;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 @Config(name = "mcdw_enchantments_config")
 public class McdwEnchantmentsConfig implements ConfigData {
 
     // Enable or Disable Enchantments
-    public final HashMap<EnchantmentsID, Boolean> ENABLE_ENCHANTMENTS = new HashMap<>();
-    public final HashMap<EnchantmentsID, Boolean> ENABLE_VILLAGER_TRADING = new HashMap<>();
-    public final HashMap<EnchantmentsID, Boolean> ENABLE_RANDOM_SELECTION = new HashMap<>();
+    public final LinkedHashMap<EnchantmentsID, Boolean> ENABLE_ENCHANTMENTS = new LinkedHashMap<>();
+    public final LinkedHashMap<EnchantmentsID, Boolean> ENABLE_VILLAGER_TRADING = new LinkedHashMap<>();
+    public final LinkedHashMap<EnchantmentsID, Boolean> ENABLE_RANDOM_SELECTION = new LinkedHashMap<>();
 
     public McdwEnchantmentsConfig(){
         for (EnchantmentsID enchantmentsID : EnchantmentsID.values())
