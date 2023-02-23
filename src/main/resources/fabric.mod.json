@@ -25,6 +25,9 @@
     ],
     "main": [
       "chronosacaria.mcdw.Mcdw"
+    ],
+    "preLaunch": [
+      "chronosacaria.mcdw.McdwPreLaunch"
     ]
   },
   "mixins": [

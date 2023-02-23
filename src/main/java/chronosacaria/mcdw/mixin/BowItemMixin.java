@@ -10,6 +10,7 @@ import chronosacaria.mcdw.bases.McdwShortbow;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.StatusEffectsRegistry;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -34,12 +35,6 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 public abstract class BowItemMixin{
 
     private int overcharge;
-
-    private LivingEntity livingEntity;
-
-    public void setLivingEntity(LivingEntity livingEntity){
-        this.livingEntity = livingEntity;
-    }
 
     @Inject(method = "onStoppedUsing", at = @At("HEAD"))
     public void mcdw$onStoppedUsingBow(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
@@ -152,14 +147,10 @@ public abstract class BowItemMixin{
         }
     }
 
-    @Inject(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getMaxUseTime(Lnet/minecraft/item/ItemStack;)I"))
-    private void mcdw$livingEntityGetter(ItemStack stack, World world, LivingEntity user,
-                                                int remainingUseTicks, CallbackInfo ci){
-        this.setLivingEntity(user);
-    }
 
+    @SuppressWarnings("InvalidInjectorMethodSignature")
     @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getPullProgress(I)F"), index = 0)
-    private int mcdw$acceleratedPullProgress(int value){
+    private int mcdw$acceleratedPullProgress(int value, @Local(ordinal = 0) LivingEntity livingEntity){
         ItemStack bowStack = livingEntity.getActiveItem();
 
         if (bowStack.getItem() instanceof McdwShortbow mcdwShortBow) {
@@ -198,7 +189,7 @@ public abstract class BowItemMixin{
     @ModifyArgs(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/projectile/PersistentProjectileEntity;setVelocity(Lnet/minecraft/entity/Entity;FFFFF)V"))
     private void mcdw$rangeHandler(Args args) {
         float velocity = args.get(4);
-        ItemStack bowStack = livingEntity.getActiveItem();
+        ItemStack bowStack = ((PlayerEntity)args.get(0)).getActiveItem();
 
         if (bowStack.getItem() instanceof McdwShortbow mcdwShortBow) {
             velocity *= mcdwShortBow.getRange() / 15f;
