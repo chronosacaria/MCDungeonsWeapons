@@ -3,12 +3,11 @@ package chronosacaria.mcdw.enchants.enchantments;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enchants.types.RangedEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
-import net.minecraft.enchantment.PowerEnchantment;
-import net.minecraft.enchantment.PunchEnchantment;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.enchantment.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.BowItem;
+import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -18,6 +17,11 @@ public class OverchargeEnchantment extends RangedEnchantment {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.OVERCHARGE)) {
             Registry.register(Registries.ENCHANTMENT, Mcdw.ID("overcharge"), this);
+            ItemGroupEvents.modifyEntriesEvent(Mcdw.ENCHANTMENTS).register(entries -> {
+                // For loop creates first 3 levels of enchanted books
+                for (int i = 1; i <= getMaxLevel(); i++)
+                    entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(this, i)));
+            });
         }
     }
 

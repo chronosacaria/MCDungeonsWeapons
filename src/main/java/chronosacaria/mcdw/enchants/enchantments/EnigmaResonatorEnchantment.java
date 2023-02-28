@@ -6,8 +6,10 @@ import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.DamageEnchantment;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
@@ -20,6 +22,11 @@ public class EnigmaResonatorEnchantment extends DamageBoostEnchantment {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ENIGMA_RESONATOR)) {
             Registry.register(Registries.ENCHANTMENT, Mcdw.ID("enigma_resonator"), this);
+            ItemGroupEvents.modifyEntriesEvent(Mcdw.ENCHANTMENTS).register(entries -> {
+                // For loop creates first 3 levels of enchanted books
+                for (int i = 1; i <= getMaxLevel(); i++)
+                    entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(this, i)));
+            });
         }
     }
 

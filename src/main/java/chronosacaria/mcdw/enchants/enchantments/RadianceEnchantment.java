@@ -6,7 +6,9 @@ import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import chronosacaria.mcdw.enchants.types.HealingEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
@@ -19,6 +21,11 @@ public class RadianceEnchantment extends HealingEnchantment {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.RADIANCE)) {
             Registry.register(Registries.ENCHANTMENT, Mcdw.ID("radiance"), this);
+            ItemGroupEvents.modifyEntriesEvent(Mcdw.ENCHANTMENTS).register(entries -> {
+                // For loop creates first 3 levels of enchanted books
+                for (int i = 1; i <= getMaxLevel(); i++)
+                    entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(this, i)));
+            });
         }
     }
 

@@ -3,7 +3,6 @@ package chronosacaria.mcdw;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.configs.McdwConfig;
 import chronosacaria.mcdw.configs.McdwEnchantGiverConfig;
-import chronosacaria.mcdw.enchants.EnchantsLists;
 import chronosacaria.mcdw.enums.LongbowsID;
 import chronosacaria.mcdw.enums.ShieldsID;
 import chronosacaria.mcdw.enums.SwordsID;
@@ -12,9 +11,6 @@ import chronosacaria.mcdw.registries.*;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentLevelEntry;
-import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -40,14 +36,7 @@ public class Mcdw implements ModInitializer {
             .icon(() -> new ItemStack(ShieldsID.SHIELD_ROYAL_GUARD.getItem())).build();
     public static final ItemGroup ENCHANTMENTS = FabricItemGroup.builder(Mcdw.ID("enchantments"))
             .displayName(Text.translatable("itemGroup.mcdw.enchantments"))
-            .icon(() -> new ItemStack(Items.ENCHANTED_BOOK))
-            .entries((enabledFeatures, entries, operatorEnabled) -> {
-                // For loop creates first 3 levels of enchanted books
-                for (Enchantment enchantment : EnchantsLists.EnchantsList)
-                    for (int i = 1; i <= 3; i++)
-                        entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(enchantment, i)));
-            })
-            .build();
+            .icon(() -> new ItemStack(Items.ENCHANTED_BOOK)).build();
 
     public static McdwConfig CONFIG;
 

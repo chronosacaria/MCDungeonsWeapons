@@ -4,12 +4,15 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwCustomWeaponBase;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.DamageEnchantment;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.AxeItem;
+import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.registry.Registries;
@@ -20,6 +23,11 @@ public class IllagersBaneEnchantment extends Enchantment {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ILLAGERS_BANE)) {
             Registry.register(Registries.ENCHANTMENT, Mcdw.ID("illagers_bane"), this);
+            ItemGroupEvents.modifyEntriesEvent(Mcdw.ENCHANTMENTS).register(entries -> {
+                // For loop creates first 3 levels of enchanted books
+                for (int i = 1; i <= getMaxLevel(); i++)
+                    entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(this, i)));
+            });
         }
     }
 
