@@ -1,6 +1,5 @@
 package chronosacaria.mcdw.mixin;
 
-import com.google.gson.JsonSyntaxException;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -26,10 +25,10 @@ public class EnchantmentHelperMixin {
         for (NbtElement enchantmentNbt : stack.getEnchantments()) {
             NbtCompound nbtCompound = (NbtCompound) enchantmentNbt;
             Identifier identifier = EnchantmentHelper.getIdFromNbt(nbtCompound);
-            Enchantment enchantmentOnStack = Registries.ENCHANTMENT.getOrEmpty(identifier).orElseThrow(() -> {
-                throw new JsonSyntaxException("Unknown enchantment '" + identifier + "'");
-            });
-            list.removeIf(enchantmentLevelEntry -> !enchantmentLevelEntry.enchantment.canCombine(enchantmentOnStack));
+            Enchantment enchantmentOnStack = Registries.ENCHANTMENT.get(identifier);
+            // If can find enchants, remove incompatible options from the list of randomly enchant-able enchantments
+            if (enchantmentOnStack != null)
+                list.removeIf(enchantmentLevelEntry -> !enchantmentLevelEntry.enchantment.canCombine(enchantmentOnStack));
         }
         cir.setReturnValue(list);
     }
