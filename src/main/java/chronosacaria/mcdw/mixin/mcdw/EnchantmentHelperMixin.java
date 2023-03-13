@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin;
+package chronosacaria.mcdw.mixin.mcdw;
 
 import com.google.gson.JsonSyntaxException;
 import net.minecraft.enchantment.Enchantment;

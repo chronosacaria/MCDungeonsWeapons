@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin;
+package chronosacaria.mcdw.mixin.mcdw;
 
 import chronosacaria.mcdw.bases.McdwSpear;
 import net.minecraft.enchantment.DamageEnchantment;

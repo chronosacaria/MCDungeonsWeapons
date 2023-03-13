@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin.client;
+package chronosacaria.mcdw.mixin.mcdw.client;
 
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.item.HeldItemRenderer;

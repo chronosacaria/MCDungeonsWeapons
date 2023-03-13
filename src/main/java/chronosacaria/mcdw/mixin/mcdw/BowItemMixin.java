@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin;
+package chronosacaria.mcdw.mixin.mcdw;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;

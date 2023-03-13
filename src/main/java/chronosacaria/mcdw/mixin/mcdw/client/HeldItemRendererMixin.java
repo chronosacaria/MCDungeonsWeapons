@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin.client;
+package chronosacaria.mcdw.mixin.mcdw.client;
 
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwCrossbow;
@@ -7,7 +7,7 @@ import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.HeldItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.CrossbowItem;
@@ -33,12 +33,11 @@ public abstract class HeldItemRendererMixin {
     @Shadow protected abstract void applySwingOffset(MatrixStack matrices, Arm arm, float swingProgress);
 
     @Shadow
-    public abstract void renderItem(LivingEntity entity, ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light);
-
-    @Shadow
     private static boolean isChargedCrossbow(ItemStack stack) {
         return false;
     }
+
+    @Shadow public abstract void renderItem(LivingEntity entity, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light);
 
     @Inject(method = "getHandRenderType(Lnet/minecraft/client/network/ClientPlayerEntity;)Lnet/minecraft/client/render/item/HeldItemRenderer$HandRenderType;",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"),
@@ -116,7 +115,7 @@ public abstract class HeldItemRendererMixin {
                 }
             }
 
-            this.renderItem(player, item, bl3 ? ModelTransformation.Mode.FIRST_PERSON_RIGHT_HAND : ModelTransformation.Mode.FIRST_PERSON_LEFT_HAND, !bl3, matrices, vertexConsumers, light);
+            this.renderItem(player, item, bl3 ? ModelTransformationMode.FIRST_PERSON_RIGHT_HAND : ModelTransformationMode.FIRST_PERSON_LEFT_HAND, !bl3, matrices, vertexConsumers, light);
             ci.cancel();
         }
     }

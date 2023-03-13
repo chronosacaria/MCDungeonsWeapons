@@ -4,9 +4,9 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
+import chronosacaria.mcdw.registries.EntityAttributesRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
@@ -51,10 +51,10 @@ public class McdwSpear extends McdwCustomWeaponBase implements Vanishable {
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID,
                 "Tool modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         if (CompatibilityFlags.isReachEntityAttributeEnabled) {
-            builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Attack range",
+            builder.put(EntityAttributesRegistry.REACH, new EntityAttributeModifier("Attack range",
                     Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfSpears,
                     EntityAttributeModifier.Operation.ADDITION));
-            builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
+            builder.put(EntityAttributesRegistry.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
                     Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfSpears,
                     EntityAttributeModifier.Operation.ADDITION));
         }

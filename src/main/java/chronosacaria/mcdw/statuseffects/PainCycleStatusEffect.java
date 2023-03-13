@@ -2,7 +2,6 @@ package chronosacaria.mcdw.statuseffects;
 
 import chronosacaria.mcdw.Mcdw;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.registry.Registries;
@@ -27,7 +26,7 @@ public class PainCycleStatusEffect extends StatusEffect {
         super.applyUpdateEffect(entity, amplifier);
         lastPain++;
         if (lastPain == 300) {
-            entity.damage(DamageSource.MAGIC, 2);
+            entity.damage(entity.getWorld().getDamageSources().magic(), 2);
             lastPain = 0;
         }
     }

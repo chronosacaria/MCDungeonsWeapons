@@ -1,3 +1,4 @@
+/*
 package chronosacaria.mcdw.registries;
 
 import chronosacaria.mcdw.Mcdw;
@@ -29,3 +30,4 @@ public class CompatRegistry {
         }
     }
 }
+*/

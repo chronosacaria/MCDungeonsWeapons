@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin;
+package chronosacaria.mcdw.mixin.mcdw;
 
 import chronosacaria.mcdw.api.interfaces.IExclusiveAOECloud;
 import chronosacaria.mcdw.api.util.AbilityHelper;

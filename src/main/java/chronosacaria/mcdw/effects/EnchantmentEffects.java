@@ -3,13 +3,12 @@ package chronosacaria.mcdw.effects;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
 import chronosacaria.mcdw.api.util.*;
-import chronosacaria.mcdw.damagesources.ElectricShockDamageSource;
 import chronosacaria.mcdw.enchants.goals.WildRageAttackGoal;
 import chronosacaria.mcdw.enums.BowsID;
 import chronosacaria.mcdw.enums.EnchantStatsID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
-import chronosacaria.mcdw.mixin.CreeperEntityAccessor;
-import chronosacaria.mcdw.mixin.MobEntityAccessor;
+import chronosacaria.mcdw.mixin.mcdw.CreeperEntityAccessor;
+import chronosacaria.mcdw.mixin.mcdw.MobEntityAccessor;
 import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.SoundEventsRegistry;
 import chronosacaria.mcdw.registries.StatusEffectsRegistry;
@@ -22,7 +21,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -208,7 +206,7 @@ public class EnchantmentEffects {
                 StatusEffectInstance painCycleUpdate = new StatusEffectInstance(StatusEffectsRegistry.PAIN_CYCLE, 120000, i, false, false, true);
                 painEntity.removeStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
                 painEntity.addStatusEffect(painCycleUpdate);
-                painEntity.damage(DamageSource.MAGIC, 1);
+                painEntity.damage(painEntity.getWorld().getDamageSources().magic(), 1);
             } else {
                 painEntity.removeStatusEffect(StatusEffectsRegistry.PAIN_CYCLE);
                 return painCycleLevel + 1;
@@ -420,13 +418,13 @@ public class EnchantmentEffects {
     public static void causeShockwaveAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
         AOEHelper.getEntitiesByConfig(user, distance).stream()
                 .filter(nearbyEntity -> nearbyEntity != target)
-                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC, amount * 0.25f));
+                .forEach(nearbyEntity -> nearbyEntity.damage(nearbyEntity.getWorld().getDamageSources().generic(), amount * 0.25f));
     }
 
     public static void causeSmitingAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
         AOEHelper.getEntitiesByConfig(user, distance).stream()
                 .filter(nearbyEntity -> nearbyEntity != target && nearbyEntity.isUndead())
-                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.MAGIC, amount * 1.25F));
+                .forEach(nearbyEntity -> nearbyEntity.damage(nearbyEntity.getWorld().getDamageSources().magic(), amount * 1.25F));
     }
 
     public static void applyStunning(LivingEntity stunningEntity, LivingEntity target, boolean isOffHandStack) {
@@ -468,16 +466,15 @@ public class EnchantmentEffects {
         }
     }
 
-    public static void electrocute(LivingEntity attacker, LivingEntity victim, float damageAmount) {
+    public static void electrocute(LivingEntity victim, float damageAmount) {
         createVisualLightningBoltOnEntity(victim);
-        DamageSource electricShockDamageSource = new ElectricShockDamageSource(attacker).setUsesMagic();
-        victim.damage(electricShockDamageSource, damageAmount);
+        victim.damage(victim.getWorld().getDamageSources().lightningBolt(), damageAmount);
     }
 
     public static void electrocuteNearbyEnemies(LivingEntity user, float distance, float damageAmount, int limit) {
         boolean foundTarget = false;
         for (LivingEntity nearbyEntity : AOEHelper.getEntitiesByConfig(user, distance)) {
-            electrocute(user, nearbyEntity, damageAmount);
+            electrocute(nearbyEntity, damageAmount);
             foundTarget = true;
             limit--;
             if (limit <= 0) break;
@@ -516,7 +513,7 @@ public class EnchantmentEffects {
 
     public static void causeSwirlingAttack(LivingEntity user, LivingEntity target, float distance, float amount) {
         AOEHelper.getEntitiesByConfig(target, user, distance)
-                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC, amount * 0.5F));
+                .forEach(nearbyEntity -> nearbyEntity.damage(nearbyEntity.getWorld().getDamageSources().generic(), amount * 0.5F));
     }
 
     public static void applyChains(LivingEntity chainingEntity, LivingEntity target, boolean isOffHandStack) {
@@ -590,7 +587,7 @@ public class EnchantmentEffects {
     public static void causeEchoAttack(LivingEntity user, LivingEntity target, float distance, int echoLevel, float amount) {
         for (LivingEntity nearbyEntity : AOEHelper.getEntitiesByConfig(user, distance)) {
             if (nearbyEntity != target) {
-                nearbyEntity.damage(DamageSource.GENERIC, amount);
+                nearbyEntity.damage(nearbyEntity.getWorld().getDamageSources().generic(), amount);
 
                 echoLevel--;
                 if (echoLevel <= 0) break;
@@ -616,7 +613,7 @@ public class EnchantmentEffects {
 
     public static void causeExplosionAttack(LivingEntity user, LivingEntity target, float damageAmount, float distance) {
         AOEHelper.getEntitiesByConfig(target, user, distance)
-                .forEach(nearbyEntity -> nearbyEntity.damage(DamageSource.GENERIC.setExplosive(), damageAmount));
+                .forEach(nearbyEntity -> nearbyEntity.damage(nearbyEntity.getWorld().getDamageSources().explosion(target, user), damageAmount));
     }
 
     public static void applyRampaging(LivingEntity rampagingEntity, boolean isOffHandStack) {

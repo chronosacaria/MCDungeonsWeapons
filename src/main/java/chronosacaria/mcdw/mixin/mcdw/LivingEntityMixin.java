@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin;
+package chronosacaria.mcdw.mixin.mcdw;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.AOEHelper;
@@ -11,12 +11,15 @@ import chronosacaria.mcdw.enums.ItemsID;
 import chronosacaria.mcdw.enums.SettingsID;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.registries.EnchantsRegistry;
+import chronosacaria.mcdw.registries.EntityAttributesRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import chronosacaria.mcdw.registries.SummonedEntityRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -29,20 +32,26 @@ import net.minecraft.potion.Potions;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Comparator;
 import java.util.List;
 
 @SuppressWarnings("ConstantConditions")
 @Mixin(LivingEntity.class)
-public class LivingEntityMixin {
+public abstract class LivingEntityMixin extends Entity {
     public final EntityType<SummonedBeeEntity> mcdw$summoned_bee =
             SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
+
+    public LivingEntityMixin(EntityType<?> type, World world) {
+        super(type, world);
+    }
 
     @ModifyVariable(method = "damage", at = @At(value = "HEAD"), argsOnly = true)
     public float mcdw$damageModifiers(float amount, DamageSource source) {
@@ -203,15 +212,20 @@ public class LivingEntityMixin {
                         List<LivingEntity> nearbyEntities = AOEHelper.getEntitiesByConfig(target, 6);
                         if (nearbyEntities.size() == 0) {
                             if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.SHARED_PAIN_CAN_DAMAGE_USER)) {
-                                player.damage(DamageSource.MAGIC, overkillDamage);
+                                player.damage(player.getWorld().getDamageSources().magic(), overkillDamage);
                             }
                         } else {
                             nearbyEntities.sort(Comparator.comparingDouble(livingEntity -> livingEntity.squaredDistanceTo(target)));
-                            nearbyEntities.get(0).damage(DamageSource.MAGIC, overkillDamage);
+                            nearbyEntities.get(0).damage(nearbyEntities.get(0).getWorld().getDamageSources().magic(), overkillDamage);
                         }
                     }
                 }
             }
         }
+    }
+
+    @Inject(method = "createLivingAttributes", require = 1, allow = 1, at = @At("RETURN"))
+    private static void mcdw$addAttributes(CallbackInfoReturnable<DefaultAttributeContainer.Builder> cir) {
+        cir.getReturnValue().add(EntityAttributesRegistry.REACH).add(EntityAttributesRegistry.ATTACK_RANGE);
     }
 }

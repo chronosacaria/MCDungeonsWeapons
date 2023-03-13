@@ -1,3 +1,4 @@
 accessWidener	v1	named
 
 accessible  class   net/minecraft/client/render/item/HeldItemRenderer$HandRenderType
+accessible  class   net/minecraft/enchantment/EnchantmentHelper$Consumer

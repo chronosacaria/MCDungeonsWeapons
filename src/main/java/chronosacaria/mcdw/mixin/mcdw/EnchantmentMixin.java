@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin;
+package chronosacaria.mcdw.mixin.mcdw;
 
 import chronosacaria.mcdw.bases.McdwAxe;
 import chronosacaria.mcdw.bases.McdwCustomWeaponBase;
@@ -23,7 +23,7 @@ public abstract class EnchantmentMixin {
 
     @Shadow protected abstract String getOrCreateTranslationKey();
 
-    @Shadow @Final public EnchantmentTarget type;
+    @Shadow @Final public EnchantmentTarget target;
 
     @Inject(method = "isAcceptableItem", at = @At("RETURN"), cancellable = true)
 
@@ -32,7 +32,7 @@ public abstract class EnchantmentMixin {
             cir.setReturnValue(true);
         }
         if (stack.getItem() instanceof McdwCustomWeaponBase
-                && this.type.equals(EnchantmentTarget.WEAPON)){
+                && this.target.equals(EnchantmentTarget.WEAPON)){
             cir.setReturnValue(true);
         }
         if (stack.isOf(ItemsRegistry.DAGGER_ITEMS.get(DaggersID.DAGGER_SWIFT_STRIKER))

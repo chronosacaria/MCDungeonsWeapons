@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin;
+package chronosacaria.mcdw.mixin.mcdw;
 
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.CreeperEntity;

@@ -49,15 +49,16 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // Jamie White Shirt Reach
-    modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
-    include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
+    // modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
+    // include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
 
     // Enchant Giver
-    modImplementation "wraith.EnchantGiver:wraith-enchant_giver-1.4.0"
-    include "wraith.EnchantGiver:wraith-enchant_giver-1.4.0"
+    // modImplementation "wraith.EnchantGiver:wraith-enchant_giver-1.4.0"
+    // include "wraith.EnchantGiver:wraith-enchant_giver-1.4.0"
 
     // Clumps
-    modImplementation "com.blamejared.clumps:Clumps-fabric-${project.minecraft_version}:${project.clumps_version}"
+    // modImplementation "com.blamejared.clumps:Clumps-fabric-${project.minecraft_version}:${project.clumps_version}"
+    // modImplementation "com.blamejared.clumps:Clumps-fabric-1.19.3:${project.clumps_version}"
 
     // Cloth Config
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {

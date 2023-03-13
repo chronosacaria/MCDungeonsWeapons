@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin.client;
+package chronosacaria.mcdw.mixin.mcdw.client;
 
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.bases.McdwLongbow;

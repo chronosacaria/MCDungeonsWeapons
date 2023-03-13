@@ -2,16 +2,21 @@ package chronosacaria.mcdw.damagesources;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.EntityDamageSource;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.damage.DamageType;
+import net.minecraft.registry.entry.RegistryEntry;
+import org.jetbrains.annotations.Nullable;
 
-public class OffHandDamageSource extends EntityDamageSource {
-    public OffHandDamageSource(String name, Entity source) {
-        super(name, source);
+public class OffHandDamageSource extends DamageSource {
+    public OffHandDamageSource(RegistryEntry<DamageType> type, @Nullable Entity source, @Nullable Entity attacker) {
+        super(type, source, attacker);
     }
 
-    public static DamageSource player(PlayerEntity attacker) {
-        return new OffHandDamageSource("player", attacker);
-    }
+    //public OffHandDamageSource(String name, Entity source) {
+    //    super(name, source);
+    //}
+
+    //public static DamageSource player(PlayerEntity attacker) {
+    //    return new OffHandDamageSource("player", attacker);
+    //}
 
 }

@@ -1,4 +1,4 @@
-package chronosacaria.mcdw.mixin;
+package chronosacaria.mcdw.mixin.mcdw;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.PlayerAttackHelper;
@@ -7,6 +7,7 @@ import chronosacaria.mcdw.effects.EnchantmentEffects;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -107,7 +108,7 @@ public class LivingEntityPlayerEntityMixin {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.WEAKENING))
                     EnchantmentEffects.applyWeakeningCloud(attackingEntity, victim, isOffHandAttack);
 
-                if (!source.isProjectile()) {
+                if (!source.isOf(DamageTypes.ARROW)) {
                     if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.CHAINS))
                         EnchantmentEffects.applyChains(attackingEntity, victim, isOffHandAttack);
                     if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.GRAVITY))
@@ -172,5 +173,4 @@ public class LivingEntityPlayerEntityMixin {
             }
         }
     }
-
 }

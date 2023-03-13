@@ -3,7 +3,7 @@ package chronosacaria.mcdw.api.util;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
-import chronosacaria.mcdw.damagesources.OffHandDamageSource;
+import chronosacaria.mcdw.registries.EntityAttributesRegistry;
 import chronosacaria.mcdw.registries.ParticlesRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -12,9 +12,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
@@ -26,21 +28,27 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
 
 public class PlayerAttackHelper {
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean isLikelyNotMeleeDamage(DamageSource damageSource){
-        return damageSource.isFire()
-                || damageSource.isExplosive()
-                || damageSource.isMagic()
-                || damageSource.isProjectile()
+        return damageSource.isOf(DamageTypes.ON_FIRE)
+                || damageSource.isOf(DamageTypes.EXPLOSION)
+                || damageSource.isOf(DamageTypes.MAGIC)
+                || damageSource.isOf(DamageTypes.ARROW)
                 || !isDirectDamage(damageSource);
     }
 
     private static boolean isDirectDamage(DamageSource damageSource){
-        return damageSource.name.equals("mob")
-                || damageSource.name.equals("player");
+        return damageSource.isOf(DamageTypes.MOB_ATTACK)
+                || damageSource.isOf(DamageTypes.PLAYER_ATTACK);
     }
 
     public static void switchModifiers(PlayerEntity player, ItemStack switchFrom, ItemStack switchTo) {
@@ -107,7 +115,7 @@ public class PlayerAttackHelper {
                 }
 
                 Vec3d targetVelocity = target.getVelocity();
-                if (target.damage(OffHandDamageSource.player(playerEntity), attackDamage)) {
+                if (target.damage(target.getWorld().getDamageSources().playerAttack(playerEntity), attackDamage)) {
                     double positionOne = -MathHelper.sin(playerEntity.getYaw() * ((float) Math.PI / 180));
                     double positionTwo = MathHelper.cos(playerEntity.getYaw() * ((float) Math.PI / 180));
                     if (knockbackLevel > 0) {
@@ -126,7 +134,9 @@ public class PlayerAttackHelper {
                         playerEntity.world.getNonSpectatingEntities(LivingEntity.class, target.getBoundingBox().expand(1.0, 0.25, 1.0)).forEach(sweptEntity -> {
                             if (AOEHelper.satisfySweepConditions(playerEntity, target, sweptEntity, 3.0f)) {
                                 sweptEntity.takeKnockback(0.4f, -positionOne, -positionTwo);
-                                sweptEntity.damage(OffHandDamageSource.player(playerEntity), sweepingEdgeMultiplierTimesDamage);
+                                sweptEntity.damage(
+                                        sweptEntity.getWorld().getDamageSources().playerAttack(playerEntity),
+                                        sweepingEdgeMultiplierTimesDamage);
                             }
                         });
                         CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
@@ -196,5 +206,129 @@ public class PlayerAttackHelper {
                 }
             }
         }
+    }
+
+    /**
+     * At this time, the code that is in this class is used without permission. However, the reason for it being uploaded
+     * to GitHub on our project is to make sure that we can address issues with older versions of MCDW. Permission has been
+     * requested, and if it is denied, this code shall be removed from the project.
+     * <br/><br/>
+     * Timefall Development want to make it very clear that NO copyright infringement was intended and we shall comply with
+     * any and all requests from either <a href="https://github.com/JamiesWhiteShirt/">JamieWhiteShirt</a> or <a href="https://github.com/ChloeDawn/">ChloeDawn</a> to remove this code from our repository.
+     * <br/><br/>
+     * The following code is from Reach Entity Attributes and can be found here:
+     * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L27">ReachEntityAttributes Lines 27-30</a>
+     */
+
+    public static double getReachDistance(LivingEntity livingEntity, double defaultReachDistance) {
+        @Nullable
+        EntityAttributeInstance reachDistance = livingEntity.getAttributeInstance(EntityAttributesRegistry.REACH);
+        return (reachDistance != null) ? (defaultReachDistance + reachDistance.getValue()) : defaultReachDistance;
+    }
+
+    /**
+     * At this time, the code that is in this class is used without permission. However, the reason for it being uploaded
+     * to GitHub on our project is to make sure that we can address issues with older versions of MCDW. Permission has been
+     * requested, and if it is denied, this code shall be removed from the project.
+     * <br/><br/>
+     * Timefall Development want to make it very clear that NO copyright infringement was intended and we shall comply with
+     * any and all requests from either <a href="https://github.com/JamiesWhiteShirt/">JamieWhiteShirt</a> or <a href="https://github.com/ChloeDawn/">ChloeDawn</a> to remove this code from our repository.
+     * <br/><br/>
+     * The following code is from Reach Entity Attributes and can be found here:
+     * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L32">ReachEntityAttributes Lines 32-35</a>
+     */
+    public static double getSquaredReachDistance(LivingEntity livingEntity, double squareDefaultReachDistance) {
+        double reachDistance = getReachDistance(livingEntity, Math.sqrt(squareDefaultReachDistance));
+        return reachDistance * reachDistance;
+    }
+
+    /**
+     * At this time, the code that is in this class is used without permission. However, the reason for it being uploaded
+     * to GitHub on our project is to make sure that we can address issues with older versions of MCDW. Permission has been
+     * requested, and if it is denied, this code shall be removed from the project.
+     * <br/><br/>
+     * Timefall Development want to make it very clear that NO copyright infringement was intended and we shall comply with
+     * any and all requests from either <a href="https://github.com/JamiesWhiteShirt/">JamieWhiteShirt</a> or <a href="https://github.com/ChloeDawn/">ChloeDawn</a> to remove this code from our repository.
+     * <br/><br/>
+     * The following code is from Reach Entity Attributes and can be found here:
+     * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L37">ReachEntityAttributes Lines 37-40</a>
+     */
+    public static double getAttackRange(LivingEntity livingEntity, double defaultAttackRange) {
+        @Nullable
+        EntityAttributeInstance attackRange = livingEntity.getAttributeInstance(EntityAttributesRegistry.ATTACK_RANGE);
+        return (attackRange != null) ? (defaultAttackRange + attackRange.getValue()) : defaultAttackRange;
+    }
+
+    /**
+     * At this time, the code that is in this class is used without permission. However, the reason for it being uploaded
+     * to GitHub on our project is to make sure that we can address issues with older versions of MCDW. Permission has been
+     * requested, and if it is denied, this code shall be removed from the project.
+     * <br/><br/>
+     * Timefall Development want to make it very clear that NO copyright infringement was intended and we shall comply with
+     * any and all requests from either <a href="https://github.com/JamiesWhiteShirt/">JamieWhiteShirt</a> or <a href="https://github.com/ChloeDawn/">ChloeDawn</a> to remove this code from our repository.
+     * <br/><br/>
+     * The following code is from Reach Entity Attributes and can be found here:
+     * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L42">ReachEntityAttributes Lines 42-45</a>
+     */
+    public static double getSquaredAttackRange(LivingEntity livingEntity, double squareDefaultAttackRange) {
+        double attackRange = getAttackRange(livingEntity, Math.sqrt(squareDefaultAttackRange));
+        return attackRange * attackRange;
+    }
+
+    /**
+     * At this time, the code that is in this class is used without permission. However, the reason for it being uploaded
+     * to GitHub on our project is to make sure that we can address issues with older versions of MCDW. Permission has been
+     * requested, and if it is denied, this code shall be removed from the project.
+     * <br/><br/>
+     * Timefall Development want to make it very clear that NO copyright infringement was intended and we shall comply with
+     * any and all requests from either <a href="https://github.com/JamiesWhiteShirt/">JamieWhiteShirt</a> or <a href="https://github.com/ChloeDawn/">ChloeDawn</a> to remove this code from our repository.
+     * <br/><br/>
+     * The following code is from Reach Entity Attributes and can be found here:
+     * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L47">ReachEntityAttributes Lines 47-49</a>
+     */
+    public static List<PlayerEntity> getPlayerEntitiesWithinReach(World world, int x, int y, int z, double defaultReachDistance) {
+        return getPlayerEntitiesWithinReach(player -> true, world, x, y, z, defaultReachDistance);
+    }
+
+    /**
+     * At this time, the code that is in this class is used without permission. However, the reason for it being uploaded
+     * to GitHub on our project is to make sure that we can address issues with older versions of MCDW. Permission has been
+     * requested, and if it is denied, this code shall be removed from the project.
+     * <br/><br/>
+     * Timefall Development want to make it very clear that NO copyright infringement was intended and we shall comply with
+     * any and all requests from either <a href="https://github.com/JamiesWhiteShirt/">JamieWhiteShirt</a> or <a href="https://github.com/ChloeDawn/">ChloeDawn</a> to remove this code from our repository.
+     * <br/><br/>
+     * The following code is from Reach Entity Attributes and can be found here:
+     * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L51">ReachEntityAttributes Lines 51-65</a>
+     */
+    public static List<PlayerEntity> getPlayerEntitiesWithinReach(Predicate<PlayerEntity> viewerPredicate, World world, int x, int y, int z, double defaultReachDistance) {
+        List<PlayerEntity> playerEntitiesWithinReach = new ArrayList<>();
+        for (PlayerEntity playerEntity : world.getPlayers()) {
+            if (viewerPredicate.test(playerEntity)) {
+                double reach = getReachDistance(playerEntity, defaultReachDistance);
+                double dx = (x + 0.5) - playerEntity.getX();
+                double dy = (y + 0.5) - playerEntity.getEyeY();
+                double dz = (z + 0.5) - playerEntity.getZ();
+                if (((dx * dx) + (dy * dy) + (dz * dz)) <= (reach * reach)) {
+                    playerEntitiesWithinReach.add(playerEntity);
+                }
+            }
+        }
+        return playerEntitiesWithinReach;
+    }
+
+    /**
+     * At this time, the code that is in this class is used without permission. However, the reason for it being uploaded
+     * to GitHub on our project is to make sure that we can address issues with older versions of MCDW. Permission has been
+     * requested, and if it is denied, this code shall be removed from the project.
+     * <br/><br/>
+     * Timefall Development want to make it very clear that NO copyright infringement was intended and we shall comply with
+     * any and all requests from either <a href="https://github.com/JamiesWhiteShirt/">JamieWhiteShirt</a> or <a href="https://github.com/ChloeDawn/">ChloeDawn</a> to remove this code from our repository.
+     * <br/><br/>
+     * The following code is from Reach Entity Attributes and can be found here:
+     * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L67">ReachEntityAttributes Lines 67-69</a>
+     */
+    public static boolean isEntityWithinAttackRange(PlayerEntity playerEntity, Entity entity) {
+        return playerEntity.squaredDistanceTo(entity) <= getSquaredAttackRange(playerEntity, 64);
     }
 }
