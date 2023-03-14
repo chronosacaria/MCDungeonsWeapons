@@ -67,7 +67,7 @@ public abstract class HeldItemRendererMixin {
 
     @Inject(method = "isChargedCrossbow", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"), cancellable = true)
     private static void mcdw$isChargedCrossbow(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-        if (stack.getItem() instanceof McdwCrossbow)
+        if (stack.getItem() instanceof McdwCrossbow && CrossbowItem.isCharged(stack))
             cir.setReturnValue(true);
     }
 
@@ -117,6 +117,7 @@ public abstract class HeldItemRendererMixin {
             }
 
             this.renderItem(player, item, bl3 ? ModelTransformation.Mode.FIRST_PERSON_RIGHT_HAND : ModelTransformation.Mode.FIRST_PERSON_LEFT_HAND, !bl3, matrices, vertexConsumers, light);
+            matrices.pop();
             ci.cancel();
         }
     }
