@@ -30,6 +30,7 @@
       "chronosacaria.mcdw.McdwPreLaunch"
     ]
   },
+  "accessWidener": "mcdw.accessWidener",
   "mixins": [
     "mcdw.mixins.json"
   ],

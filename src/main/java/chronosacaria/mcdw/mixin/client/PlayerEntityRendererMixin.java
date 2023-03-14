@@ -4,6 +4,8 @@ import chronosacaria.mcdw.bases.McdwCrossbow;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
+import net.minecraft.item.CrossbowItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,26 +20,12 @@ public class PlayerEntityRendererMixin {
             cancellable = true
     )
     private static void mcdw$getArmPose(AbstractClientPlayerEntity player, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> cir) {
-        var isMcdwCrossbowCharged = McdwCrossbow.isCharged(player.getStackInHand(hand));
+        ItemStack itemStack = player.getStackInHand(hand);
 
         if (!player.handSwinging
-                && (player.getMainHandStack().getItem() instanceof McdwCrossbow || player.getOffHandStack().getItem() instanceof McdwCrossbow)
-                && isMcdwCrossbowCharged) {
-
+                && (itemStack.getItem() instanceof McdwCrossbow)
+                && CrossbowItem.isCharged(itemStack)) {
             cir.setReturnValue(BipedEntityModel.ArmPose.CROSSBOW_HOLD);
-            cir.cancel();
         }
-        if (!player.handSwinging
-                && (player.getMainHandStack().getItem() instanceof McdwCrossbow && player.getOffHandStack().getItem() instanceof McdwCrossbow)
-                || !isMcdwCrossbowCharged) {
-            cir.setReturnValue(BipedEntityModel.ArmPose.ITEM);
-            cir.cancel();
-        }
-        // Close, but not quite what I'm looking for
-        //if (!player.handSwinging
-        //        && ((player.getMainHandStack().getItem() instanceof McdwCrossbow && player.getOffHandStack().getItem() instanceof McdwCrossbow))) {
-        //    cir.setReturnValue(BipedEntityModel.ArmPose.SPYGLASS);
-        //    cir.cancel();
-        //}
     }
 }

@@ -11,6 +11,7 @@
     "EnchantmentHelperMixin",
     "EnchantmentMixin",
     "ExperienceOrbEntityMixin",
+    "HandRenderTypeInvoker",
     "ItemStackMixin",
     "LivingEntityMixin",
     "LivingEntityPlayerEntityMixin",
@@ -21,6 +22,7 @@
   ],
   "client": [
     "client.AbstractClientPlayerEntityMixin",
+    "client.HeldItemRendererMixin",
     "client.InGameHudMixin",
     "client.ModelPredicateProviderRegistryMixin",
     "client.PlayerEntityRendererMixin"
