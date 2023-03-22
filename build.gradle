@@ -53,8 +53,8 @@ dependencies {
     // include "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
 
     // Enchant Giver
-    // modImplementation "wraith.EnchantGiver:wraith-enchant_giver-1.4.0"
-    // include "wraith.EnchantGiver:wraith-enchant_giver-1.4.0"
+    modImplementation "wraith.EnchantGiver:wraith-enchant_giver-1.4.0"
+    include "wraith.EnchantGiver:wraith-enchant_giver-1.4.0"
 
     // Clumps
     // modImplementation "com.blamejared.clumps:Clumps-fabric-${project.minecraft_version}:${project.clumps_version}"

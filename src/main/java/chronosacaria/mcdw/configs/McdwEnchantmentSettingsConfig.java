@@ -84,6 +84,5 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
         ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.VOID_STRIKE, 15);
         ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.WEAKENING, 30);
         ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.WILD_RAGE, 10);
-
     }
 }
