@@ -1,26 +1,37 @@
 {
   "replace": false,
   "values": [
-    "mcdw:axe_axe",
-    "mcdw:axe_firebrand",
-    "mcdw:axe_highland",
-
-    "mcdw:axe_cursed",
-    "mcdw:axe_double",
-    "mcdw:axe_whirlwind",
-
-    "mcdw:axe_anchor",
-    "mcdw:axe_encrusted_anchor",
-
-    "mcdw:spear_spear",
-    "mcdw:spear_whispering_spear",
-    "mcdw:spear_fortune",
-
-    "mcdw:staff_battlestaff",
-    "mcdw:staff_growing_staff",
-    "mcdw:staff_battlestaff_of_terror",
-
-    "mcdw:whip_whip",
-    "mcdw:whip_vine_whip"
+    {
+      "id":"mcdw:axe_axe",
+      "required": false
+    },
+    {
+      "id":"mcdw:axe_firebrand",
+      "required": false
+    },
+    {
+      "id":"mcdw:axe_highland",
+      "required": false
+    },
+    {
+      "id":"mcdw:axe_cursed",
+      "required": false
+    },
+    {
+      "id":"mcdw:axe_double",
+      "required": false
+    },
+    {
+      "id":"mcdw:axe_whirlwind",
+      "required": false
+    },
+    {
+      "id":"mcdw:axe_anchor",
+      "required": false
+    },
+    {
+      "id":"mcdw:axe_encrusted_anchor",
+      "required": false
+    }
   ]
 }

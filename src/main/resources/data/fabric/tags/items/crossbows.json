@@ -1,34 +1,121 @@
 {
   "replace": false,
   "values": [
-    "mcdw:crossbow_the_slicer",
-    "mcdw:crossbow_azure_seeker",
-    "mcdw:crossbow_exploding_crossbow",
-    "mcdw:crossbow_imploding_crossbow",
-    "mcdw:crossbow_firebolt_thrower",
-    "mcdw:crossbow_heavy_crossbow",
-    "mcdw:crossbow_doom_crossbow",
-    "mcdw:crossbow_slayer_crossbow",
-    "mcdw:crossbow_rapid_crossbow",
-    "mcdw:crossbow_butterfly_crossbow",
-    "mcdw:crossbow_auto_crossbow",
-    "mcdw:crossbow_scatter_crossbow",
-    "mcdw:crossbow_harp_crossbow",
-    "mcdw:crossbow_lightning_harp_crossbow",
-    "mcdw:crossbow_soul_crossbow",
-    "mcdw:crossbow_feral_soul_crossbow",
-    "mcdw:crossbow_voidcaller_crossbow",
-    "mcdw:crossbow_dual_crossbow",
-    "mcdw:crossbow_spellbound_crossbow",
-    "mcdw:crossbow_baby_crossbow",
-    "mcdw:crossbow_burst_crossbow",
-    "mcdw:crossbow_soul_hunter_crossbow",
-    "mcdw:crossbow_corrupted_crossbow",
-    "mcdw:crossbow_cog_crossbow",
-    "mcdw:crossbow_pride_of_the_piglins",
-    "mcdw:crossbow_harpoon_crossbow",
-    "mcdw:crossbow_nautical_crossbow",
-    "mcdw:crossbow_veiled_crossbow",
-    "mcdw:crossbow_voidcaller_crossbow"
+    {
+      "id":"mcdw:crossbow_the_slicer",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_azure_seeker",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_exploding_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_imploding_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_firebolt_thrower",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_heavy_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_doom_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_slayer_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_rapid_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_butterfly_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_auto_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_scatter_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_harp_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_lightning_harp_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_soul_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_feral_soul_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_voidcaller_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_dual_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_spellbound_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_baby_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_burst_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_soul_hunter_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_corrupted_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_cog_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_pride_of_the_piglins",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_harpoon_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_nautical_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_veiled_crossbow",
+      "required": false
+    },
+    {
+      "id":"mcdw:crossbow_voidcaller_crossbow",
+      "required": false
+    }
   ]
 }

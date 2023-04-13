@@ -1,8 +1,17 @@
 {
   "replace": false,
   "values": [
-    "mcdw:shield_royal_guard",
-    "mcdw:shield_vanguard",
-    "mcdw:shield_tower_guard"
+    {
+      "id": "mcdw:shield_royal_guard",
+      "required": false
+    },
+    {
+      "id": "mcdw:shield_vanguard",
+      "required": false
+    },
+    {
+      "id": "mcdw:shield_tower_guard",
+      "required": false
+    }
   ]
 }

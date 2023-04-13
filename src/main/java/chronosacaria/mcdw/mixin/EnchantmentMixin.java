@@ -4,13 +4,10 @@ import chronosacaria.mcdw.bases.McdwAxe;
 import chronosacaria.mcdw.bases.McdwCustomWeaponBase;
 import chronosacaria.mcdw.enums.DaggersID;
 import chronosacaria.mcdw.registries.EnchantsRegistry;
-import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Util;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -20,8 +17,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Enchantment.class)
 public abstract class EnchantmentMixin {
-
-    @Shadow protected abstract String getOrCreateTranslationKey();
 
     @Shadow @Final public EnchantmentTarget type;
 
@@ -35,19 +30,20 @@ public abstract class EnchantmentMixin {
                 && this.type.equals(EnchantmentTarget.WEAPON)){
             cir.setReturnValue(true);
         }
-        if (stack.isOf(ItemsRegistry.DAGGER_ITEMS.get(DaggersID.DAGGER_SWIFT_STRIKER))
+
+        //TODO: Fix so that Echo and Ambush can be applied to the Swift Striker
+        if (stack.isOf(DaggersID.DAGGER_SWIFT_STRIKER.getItem())
                 && mcdw$isEnchantment(EnchantsRegistry.ECHO, EnchantsRegistry.AMBUSH)){
             cir.setReturnValue(true);
         }
     }
 
-    private boolean mcdw$isEnchantment(Enchantment ...enchantments){
-        for (Enchantment enchantment : enchantments){
-            if (Util.createTranslationKey("enchantment", Registries.ENCHANTMENT.getId(enchantment)).equals(this.getOrCreateTranslationKey())){
-                return true;
-            }
-        }
-        return false;
+    /* TODO: Check to make sure that the issue with Wizards and applying inappropriate enchantments is corrected
+     * TODO: Could be causing a value to be incorrect in other mods
+     */
+
+    private boolean mcdw$isEnchantment(Enchantment ...enchantments) {
+        return Arrays.stream(enchantments).toList().contains((Enchantment) (Object) this);
     }
 }
 
