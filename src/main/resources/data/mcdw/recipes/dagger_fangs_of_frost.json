@@ -1,5 +1,13 @@
 {
-    "type": "minecraft:crafting_shaped",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:dagger_fangs_of_frost"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
     "pattern": [
         "BSB",
         "B/B",

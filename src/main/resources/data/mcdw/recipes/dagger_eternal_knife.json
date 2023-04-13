@@ -1,4 +1,12 @@
 {
+	"fabric:load_conditions": [
+		{
+			"condition": "mcdw:item_enabled",
+			"values": [
+				"mcdw:dagger_eternal_knife"
+			]
+		}
+	],
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" A ",

@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:staff_battlestaff"
+      ]
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "  S",

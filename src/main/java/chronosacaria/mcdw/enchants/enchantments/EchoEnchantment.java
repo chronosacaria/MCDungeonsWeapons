@@ -4,6 +4,7 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwCustomWeaponBase;
 import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
+import chronosacaria.mcdw.enums.DaggersID;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
 import net.minecraft.enchantment.Enchantment;
@@ -29,7 +30,7 @@ public class EchoEnchantment extends AOEEnchantment {
     }
 
     @Override
-    protected boolean canAccept (Enchantment other){
+    protected boolean canAccept (Enchantment other) {
         return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
                 || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
@@ -48,8 +49,10 @@ public class EchoEnchantment extends AOEEnchantment {
 
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem || stack.getItem() instanceof McdwCustomWeaponBase;
-    }
+        return stack.getItem() instanceof SwordItem
+                || stack.getItem() instanceof AxeItem
+                || stack.getItem() instanceof McdwCustomWeaponBase
+                || stack.isOf(DaggersID.DAGGER_SWIFT_STRIKER.getItem());    }
 
     @Override
     public int getMinPower(int level) {

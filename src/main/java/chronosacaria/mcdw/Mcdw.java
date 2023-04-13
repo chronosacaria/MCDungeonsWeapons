@@ -3,6 +3,7 @@ package chronosacaria.mcdw;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.configs.McdwConfig;
 import chronosacaria.mcdw.configs.McdwEnchantGiverConfig;
+import chronosacaria.mcdw.data.ConfigItemEnabledCondition;
 import chronosacaria.mcdw.enchants.EnchantsLists;
 import chronosacaria.mcdw.enums.LongbowsID;
 import chronosacaria.mcdw.enums.ShieldsID;
@@ -56,6 +57,7 @@ public class Mcdw implements ModInitializer {
         CompatibilityFlags.init();
         McdwConfig.init();
         CONFIG = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();
+        ConfigItemEnabledCondition.init();
         ParticlesRegistry.initParticlesOnServer();
         ItemsRegistry.init();
         OffhandAttackPacket.init();

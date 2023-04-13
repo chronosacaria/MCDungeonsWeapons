@@ -1,5 +1,13 @@
 {
-    "type": "minecraft:smithing",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:sword_mechanized_sawblade"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing",
     "base": {
         "item": "mcdw:sword_broken_sawblade"
     },
