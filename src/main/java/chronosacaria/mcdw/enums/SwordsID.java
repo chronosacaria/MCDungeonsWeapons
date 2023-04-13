@@ -33,7 +33,7 @@ public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
     SWORD_MECHANIZED_SAWBLADE(ToolMaterials.DIAMOND,3, -2.4f, "minecraft:blaze_rod"),
     SWORD_NAMELESS_BLADE(ToolMaterials.IRON,4, -2.3f, "minecraft:iron_ingot"),
     SWORD_OBSIDIAN_CLAYMORE(ToolMaterials.NETHERITE, 6, -3.3f, "minecraft:netherite_scrap"),
-    SWORD_RAPIER(ToolMaterials.IRON,0, -1.14f, "minecraft:iron_ingot"),
+    SWORD_RAPIER(ToolMaterials.IRON,0, -1.1f, "minecraft:iron_ingot"),
     SWORD_SINISTER(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot"),
     SWORD_SPONGE_STRIKER(ToolMaterials.DIAMOND,3, -2.4f, "minecraft:diamond"),
     SWORD_THE_STARLESS_NIGHT(ToolMaterials.NETHERITE, 6, -3.3f, "minecraft:netherite_scrap");
