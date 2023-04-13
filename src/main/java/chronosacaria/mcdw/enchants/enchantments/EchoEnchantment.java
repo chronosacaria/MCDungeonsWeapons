@@ -39,7 +39,7 @@ public class EchoEnchantment extends AOEEnchantment {
     }
 
     @Override
-    protected boolean canAccept (Enchantment other){
+    protected boolean canAccept(Enchantment other){
         return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
                 || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
     }
