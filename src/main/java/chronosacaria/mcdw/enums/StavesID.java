@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum StavesID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum StavesID implements IMeleeWeaponID {
     STAFF_BATTLESTAFF(ToolMaterials.WOOD,2, -2.6f, "minecraft:planks"),
     STAFF_BATTLESTAFF_OF_TERROR(ToolMaterials.IRON,5, -2.6f, "minecraft:iron_ingot"),
     STAFF_GROWING_STAFF(ToolMaterials.IRON,5, -2.6f, "minecraft:iron_ingot");

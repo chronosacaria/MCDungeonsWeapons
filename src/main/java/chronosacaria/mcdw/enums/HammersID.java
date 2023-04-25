@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum HammersID implements IMeleeWeaponID {
     HAMMER_BONECLUB(ToolMaterials.IRON,7, -3.2f, "minecraft:bone_block"),
     HAMMER_BONE_CUDGEL(ToolMaterials.NETHERITE,7, -3.2f, "minecraft:netherite_scrap"),
     HAMMER_FLAIL(ToolMaterials.IRON,5, -2.8f, "minecraft:iron_ingot"),

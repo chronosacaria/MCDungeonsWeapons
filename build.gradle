@@ -30,6 +30,13 @@ repositories {
     maven {
         url 'https://jitpack.io'
     }
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
     repositories {
         flatDir{
             dirs 'localdeps'
@@ -58,6 +65,9 @@ dependencies {
 
     // Clumps
     modImplementation "curse.maven:clumps-256717:3900783"
+
+    // Projectile Damage
+    modImplementation "maven.modrinth:projectile-damage-attribute:${project.projectile_damage_version}-fabric"
 
     // Cloth Config
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {

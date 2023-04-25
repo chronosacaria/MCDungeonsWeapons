@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum DaggersID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum DaggersID implements IMeleeWeaponID {
     DAGGER_BACKSTABBER(ToolMaterials.DIAMOND,1, -1.7f, "minecraft:diamond"),
     DAGGER_CHILL_GALE_KNIFE(ToolMaterials.DIAMOND,2, -2.2f, "minecraft:diamond"),
     DAGGER_DAGGER(ToolMaterials.IRON,1, -1.5f, "minecraft:iron_ingot"),

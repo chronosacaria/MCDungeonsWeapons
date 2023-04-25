@@ -4,26 +4,34 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwLongbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import net.projectile_damage.api.IProjectileWeapon;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum LongbowsID implements IMcdwWeaponID, IRangedWeaponID {
-    BOW_GUARDIAN_BOW(ToolMaterials.DIAMOND, 30, 19f, "minecraft:diamond"),
-    BOW_LONGBOW(ToolMaterials.IRON, 25, 17f, "minecraft:planks"),
-    BOW_RED_SNAKE(ToolMaterials.DIAMOND, 30, 18f, "minecraft:diamond");
+public enum LongbowsID implements IRangedWeaponID {
+    BOW_GUARDIAN_BOW(ToolMaterials.DIAMOND, 8, 30, 19f, "minecraft:diamond"),
+    BOW_LONGBOW(     ToolMaterials.IRON,    7, 25, 17f, "minecraft:planks"),
+    BOW_RED_SNAKE(   ToolMaterials.DIAMOND, 7, 30, 18f, "minecraft:diamond");
 
     public final ToolMaterial material;
+    public final double projectileDamage;
     public final int drawSpeed;
     public final float range;
     private final String[] repairIngredient;
 
-    LongbowsID(ToolMaterial material, int drawSpeed, float range, String... repairIngredient) {
+    LongbowsID(ToolMaterial material, double projectileDamage, int drawSpeed, float range, String... repairIngredient) {
         this.material = material;
+        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+            this.projectileDamage = projectileDamage;
+        } else {
+            this.projectileDamage = 0;
+        }
         this.drawSpeed = drawSpeed;
         this.range = range;
         this.repairIngredient = repairIngredient;
@@ -81,6 +89,15 @@ public enum LongbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
+    public double getProjectileDamage() {
+        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+            return projectileDamage;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
     public int getDrawSpeed() {
         return drawSpeed;
     }
@@ -100,6 +117,8 @@ public enum LongbowsID implements IMcdwWeaponID, IRangedWeaponID {
         McdwLongbow mcdwLongbow = new McdwLongbow(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
 
+        if (FabricLoader.getInstance().isModLoaded("projectile_damage"))
+            ((IProjectileWeapon)mcdwLongbow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);
         getItemsEnum().put(this, mcdwLongbow);
         return mcdwLongbow;
     }

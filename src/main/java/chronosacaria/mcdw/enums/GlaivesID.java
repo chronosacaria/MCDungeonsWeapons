@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum GlaivesID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum GlaivesID implements IMeleeWeaponID {
     SPEAR_CACKLING_BROOM(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
     SPEAR_GLAIVE(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
     SPEAR_GRAVE_BANE(ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot"),
