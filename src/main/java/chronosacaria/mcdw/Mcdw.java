@@ -67,6 +67,7 @@ public class Mcdw implements ModInitializer {
         McdwEnchantGiverConfig.appendEnchants();
         SummonedEntityRegistry.register();
         StatusEffectsRegistry.init();
+        EnchantmentRestrictionsRegistry.init();
         CompatRegistry.init();
     }
 }

@@ -6,7 +6,7 @@ import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import com.google.common.collect.BiMap;
-import com.google.common.collect.ImmutableMap;
+import net.fabricmc.fabric.mixin.content.registry.AxeItemAccessor;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
@@ -16,6 +16,7 @@ import net.minecraft.item.*;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
@@ -25,12 +26,10 @@ import net.minecraft.world.event.GameEvent;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Optional;
 
 @SuppressWarnings("rawtypes")
 public class McdwSword extends SwordItem {
-    protected static final Map<Block, Block> STRIPPED_BLOCKS;
     String[] repairIngredient;
 
     public McdwSword(ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
@@ -88,8 +87,18 @@ public class McdwSword extends SwordItem {
         return ActionResult.PASS;
     }
 
+    @Override
+    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
+        if (stack.isOf(SwordsID.SWORD_MECHANIZED_SAWBLADE.getItem())) {
+            if (state.isIn(BlockTags.AXE_MINEABLE))
+                return 8.0F;
+        }
+        return super.getMiningSpeedMultiplier(stack, state);
+    }
+
+    @SuppressWarnings("UnstableApiUsage")
     private Optional<BlockState> getStrippedState(BlockState state) {
-        return Optional.ofNullable(STRIPPED_BLOCKS.get(state.getBlock())).map((block) -> block.getDefaultState().with(PillarBlock.AXIS, state.get(PillarBlock.AXIS)));
+        return Optional.ofNullable(AxeItemAccessor.getStrippedBlocks().get(state.getBlock())).map((block) -> block.getDefaultState().with(PillarBlock.AXIS, state.get(PillarBlock.AXIS)));
     }
 
     @Override
@@ -110,29 +119,4 @@ public class McdwSword extends SwordItem {
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.diamond_sword_3").formatted(Formatting.ITALIC));
         }
     }
-
-    static {
-        //noinspection unchecked
-        STRIPPED_BLOCKS = (new ImmutableMap.Builder())
-                .put(Blocks.OAK_WOOD, Blocks.STRIPPED_OAK_WOOD)
-                .put(Blocks.OAK_LOG, Blocks.STRIPPED_OAK_LOG)
-                .put(Blocks.DARK_OAK_WOOD, Blocks.STRIPPED_DARK_OAK_WOOD)
-                .put(Blocks.DARK_OAK_LOG, Blocks.STRIPPED_DARK_OAK_LOG)
-                .put(Blocks.ACACIA_WOOD, Blocks.STRIPPED_ACACIA_WOOD)
-                .put(Blocks.ACACIA_LOG, Blocks.STRIPPED_ACACIA_LOG)
-                .put(Blocks.BIRCH_WOOD, Blocks.STRIPPED_BIRCH_WOOD)
-                .put(Blocks.BIRCH_LOG, Blocks.STRIPPED_BIRCH_LOG)
-                .put(Blocks.JUNGLE_WOOD, Blocks.STRIPPED_JUNGLE_WOOD)
-                .put(Blocks.JUNGLE_LOG, Blocks.STRIPPED_JUNGLE_LOG)
-                .put(Blocks.SPRUCE_WOOD, Blocks.STRIPPED_SPRUCE_WOOD)
-                .put(Blocks.SPRUCE_LOG, Blocks.STRIPPED_SPRUCE_LOG)
-                .put(Blocks.WARPED_STEM, Blocks.STRIPPED_WARPED_STEM)
-                .put(Blocks.WARPED_HYPHAE, Blocks.STRIPPED_WARPED_HYPHAE)
-                .put(Blocks.CRIMSON_STEM, Blocks.STRIPPED_CRIMSON_STEM)
-                .put(Blocks.CRIMSON_HYPHAE, Blocks.STRIPPED_CRIMSON_HYPHAE)
-                .put(Blocks.MANGROVE_WOOD, Blocks.STRIPPED_MANGROVE_WOOD)
-                .put(Blocks.MANGROVE_LOG, Blocks.STRIPPED_MANGROVE_LOG)
-                .build();
-    }
-
 }

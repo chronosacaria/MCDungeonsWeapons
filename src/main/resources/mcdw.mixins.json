@@ -7,7 +7,6 @@
     "BowItemMixin",
     "CreeperEntityAccessor",
     "CrossbowItemMixin",
-    "DamageEnchantmentMixin",
     "EnchantmentHelperMixin",
     "EnchantmentMixin",
     "ExperienceOrbEntityMixin",

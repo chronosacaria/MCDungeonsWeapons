@@ -1,10 +1,10 @@
 package chronosacaria.mcdw.api.util;
 
+import com.google.common.collect.ArrayListMultimap;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * This code is used with the permission of <a href = "https://github.com/ZsoltMolnarrr">Daedelus</a>. <br />
@@ -15,25 +15,57 @@ public final class EnchantmentRestriction {
     public interface Condition {
         boolean isAcceptableItem(ItemStack itemStack);
     }
-    private static HashMap<Enchantment, ArrayList<Condition>> alleviations = new HashMap<>();
 
-    // If alleviating condition is met, the enchantment will be applicable ignoring additional checks
-    public static void alleviate(Enchantment enchantment, Condition condition) {
-        var conditions = alleviations.get(enchantment);
-        if (conditions == null) {
-            conditions = new ArrayList<>();
-        }
-        conditions.add(condition);
-        alleviations.put(enchantment, conditions);
+    public interface TypeCondition {
+        boolean isAcceptableItem(Enchantment enchantment, ItemStack itemStack);
+    }
+    private static ArrayListMultimap<Enchantment, Condition> permissions = ArrayListMultimap.create();
+    private static ArrayList<TypeCondition> permissibleTargets = new ArrayList<>();
+    private static ArrayListMultimap<Enchantment, Condition> prohibitions = ArrayListMultimap.create();
+    private static ArrayList<TypeCondition> prohibitedTargets = new ArrayList<>();
+
+
+    public static void permit(Enchantment enchantment, Condition condition) {
+        permissions.put(enchantment, condition);
     }
 
-    public static boolean isAlleviated(Enchantment enchantment, ItemStack itemStack) {
-        var conditions = alleviations.get(enchantment);
-        if (conditions != null) {
-            for(var condition: conditions) {
-                if (condition.isAcceptableItem(itemStack)) {
-                    return true;
-                }
+    public static void permitTarget(TypeCondition typeCondition) {
+        permissibleTargets.add(typeCondition);
+    }
+
+    public static void prohibit(Enchantment enchantment, Condition condition) {
+        prohibitions.put(enchantment, condition);
+    }
+
+    public static void prohibitTarget(TypeCondition typeCondition) {
+        prohibitedTargets.add(typeCondition);
+    }
+
+    public static boolean isPermitted(Enchantment enchantment, ItemStack itemStack) {
+        var conditions = permissions.get(enchantment);
+        for(var condition: conditions) {
+            if (condition.isAcceptableItem(itemStack)) {
+                return true;
+            }
+        }
+        for(var condition: permissibleTargets) {
+            if (condition.isAcceptableItem(enchantment, itemStack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isProhibited(Enchantment enchantment, ItemStack itemStack) {
+        var conditions = prohibitions.get(enchantment);
+        for(var condition: conditions) {
+            if (condition.isAcceptableItem(itemStack)) {
+                return true;
+            }
+        }
+        for(var condition: prohibitedTargets) {
+            if (condition.isAcceptableItem(enchantment, itemStack)) {
+                return true;
             }
         }
         return false;
