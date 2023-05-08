@@ -139,13 +139,17 @@ public enum BowsID implements IRangedWeaponID {
         return repairIngredient;
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public McdwBow makeWeapon() {
         McdwBow mcdwBow = new McdwBow(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
 
-        if (FabricLoader.getInstance().isModLoaded("projectile_damage"))
-            ((IProjectileWeapon)mcdwBow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);
+        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+            ((IProjectileWeapon) mcdwBow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);
+            ((IProjectileWeapon) mcdwBow).setCustomLaunchVelocity((this.getWeaponItemStats().range / 15.0f) * 3.0);
+        }
+
         getItemsEnum().put(this, mcdwBow);
         return mcdwBow;
     }

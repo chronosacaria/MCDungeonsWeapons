@@ -12,7 +12,7 @@ import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 
-public class AccelerateEnchantment extends RangedEnchantment {
+public class AccelerateEnchantment extends RangedEnchantment{
     public AccelerateEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
@@ -56,5 +56,4 @@ public class AccelerateEnchantment extends RangedEnchantment {
     public int getMaxPower(int level) {
         return this.getMinPower(level) + 5;
     }
-
 }

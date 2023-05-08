@@ -113,13 +113,16 @@ public enum ShortbowsID implements IRangedWeaponID {
         return repairIngredient;
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public McdwShortbow makeWeapon() {
         McdwShortbow mcdwShortbow = new McdwShortbow(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
 
-        if (FabricLoader.getInstance().isModLoaded("projectile_damage"))
-            ((IProjectileWeapon)mcdwShortbow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);
+        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+            ((IProjectileWeapon) mcdwShortbow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);
+            ((IProjectileWeapon) mcdwShortbow).setCustomLaunchVelocity((this.getWeaponItemStats().range / 15.0f) * 3.0);
+        }
         getItemsEnum().put(this, mcdwShortbow);
         return mcdwShortbow;
     }

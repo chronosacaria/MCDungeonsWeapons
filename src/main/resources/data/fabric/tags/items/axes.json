@@ -32,6 +32,10 @@
     {
       "id":"mcdw:axe_encrusted_anchor",
       "required": false
+    },
+    {
+      "id":"mcdw:sword_mechanized_sawblade",
+      "required": false
     }
   ]
 }

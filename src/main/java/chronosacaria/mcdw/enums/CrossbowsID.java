@@ -138,6 +138,7 @@ public enum CrossbowsID implements IRangedWeaponID {
         return repairIngredient;
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public McdwCrossbow makeWeapon() {
         McdwCrossbow mcdwCrossbow = new McdwCrossbow(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
@@ -145,7 +146,7 @@ public enum CrossbowsID implements IRangedWeaponID {
 
         if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
             ((IProjectileWeapon) mcdwCrossbow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);
-            ((IProjectileWeapon) mcdwCrossbow).setMaxProjectileVelocity((double)this.getWeaponItemStats().range * 0.255);
+            ((IProjectileWeapon) mcdwCrossbow).setCustomLaunchVelocity((this.getWeaponItemStats().range / 8.0f) * 3.15);
         }
         getItemsEnum().put(this, mcdwCrossbow);
         return mcdwCrossbow;
