@@ -4,6 +4,7 @@ import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.configs.McdwConfig;
 import chronosacaria.mcdw.configs.McdwEnchantGiverConfig;
 import chronosacaria.mcdw.data.ConfigItemEnabledCondition;
+import chronosacaria.mcdw.enchants.EnchantmentRestrictions;
 import chronosacaria.mcdw.enchants.EnchantsLists;
 import chronosacaria.mcdw.enums.LongbowsID;
 import chronosacaria.mcdw.enums.ShieldsID;
@@ -68,5 +69,6 @@ public class Mcdw implements ModInitializer {
         SummonedEntityRegistry.register();
         StatusEffectsRegistry.init();
         CompatRegistry.init();
+        EnchantmentRestrictions.register();
     }
 }
