@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum ScythesID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum ScythesID implements IMeleeWeaponID {
     SICKLE_FROST_SCYTHE(ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),
     SICKLE_JAILORS_SCYTHE(ToolMaterials.IRON,4, -2.9f, "minecraft:iron_ingot"),
     SICKLE_SKULL_SCYTHE(ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),

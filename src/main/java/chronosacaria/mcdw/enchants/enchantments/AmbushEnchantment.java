@@ -31,8 +31,9 @@ public class AmbushEnchantment extends DamageBoostEnchantment {
 
     @Override
     protected boolean canAccept (Enchantment other){
-        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING) ||
-                !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment);
+        return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
+                || !(other instanceof AOEEnchantment || other instanceof DamageBoostEnchantment)
+                || other.isAcceptableItem(DaggersID.DAGGER_SWIFT_STRIKER.getItem().getDefaultStack());
     }
 
     @Override
@@ -52,7 +53,8 @@ public class AmbushEnchantment extends DamageBoostEnchantment {
         return stack.getItem() instanceof SwordItem
                 || stack.getItem() instanceof AxeItem
                 || stack.getItem() instanceof McdwCustomWeaponBase
-                || stack.isOf(DaggersID.DAGGER_SWIFT_STRIKER.getItem());    }
+                || stack.isOf(DaggersID.DAGGER_SWIFT_STRIKER.getItem());
+    }
 
     @Override
     public int getMinPower(int level) {

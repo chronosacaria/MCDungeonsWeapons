@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum SwordsID implements IMeleeWeaponID {
     SWORD_BEESTINGER(ToolMaterials.IRON, 0, -1.1f, "minecraft:iron_ingot"),
     SWORD_BROADSWORD(ToolMaterials.IRON, 5, -3.0f, "minecraft:iron_ingot"),
     SWORD_BROKEN_SAWBLADE(ToolMaterials.IRON,3, -2.4f, "minecraft:iron_ingot"),

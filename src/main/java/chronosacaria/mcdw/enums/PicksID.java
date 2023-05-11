@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum PicksID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum PicksID implements IMeleeWeaponID {
     PICK_DIAMOND_PICKAXE_VAR(ToolMaterials.DIAMOND,1, -2.8f, "minecraft:diamond"),
     PICK_HAILING_PINNACLE(ToolMaterials.DIAMOND,1, -2.8f, "minecraft:diamond"),
     PICK_HOWLING_PICK(ToolMaterials.IRON,1, -2.8f, "minecraft:iron_ingot"),
