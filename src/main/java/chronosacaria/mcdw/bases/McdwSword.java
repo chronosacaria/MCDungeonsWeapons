@@ -4,11 +4,14 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.SwordsID;
+import chronosacaria.mcdw.mixin.InsulatedAxeItemAccessor;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import com.google.common.collect.BiMap;
-import net.fabricmc.fabric.mixin.content.registry.AxeItemAccessor;
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Oxidizable;
+import net.minecraft.block.PillarBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.player.PlayerEntity;
@@ -96,9 +99,8 @@ public class McdwSword extends SwordItem {
         return super.getMiningSpeedMultiplier(stack, state);
     }
 
-    @SuppressWarnings("UnstableApiUsage")
     private Optional<BlockState> getStrippedState(BlockState state) {
-        return Optional.ofNullable(AxeItemAccessor.getStrippedBlocks().get(state.getBlock())).map((block) -> block.getDefaultState().with(PillarBlock.AXIS, state.get(PillarBlock.AXIS)));
+        return Optional.ofNullable(InsulatedAxeItemAccessor.getSTRIPPED_BLOCKS().get(state.getBlock())).map((block) -> block.getDefaultState().with(PillarBlock.AXIS, state.get(PillarBlock.AXIS)));
     }
 
     @Override

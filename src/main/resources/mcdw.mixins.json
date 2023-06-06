@@ -11,6 +11,7 @@
     "EnchantmentMixin",
     "ExperienceOrbEntityMixin",
     "HandRenderTypeInvoker",
+    "InsulatedAxeItemAccessor",
     "ItemStackMixin",
     "LivingEntityMixin",
     "LivingEntityPlayerEntityMixin",
