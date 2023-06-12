@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum SicklesID implements IMeleeWeaponID {
     SICKLE_LAST_LAUGH_GOLD(ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
     SICKLE_LAST_LAUGH_SILVER(ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
     SICKLE_NIGHTMARES_BITE(ToolMaterials.IRON,2, -2.1f, "minecraft:iron_ingot"),
@@ -104,4 +104,13 @@ public enum SicklesID implements IMcdwWeaponID, IMeleeWeaponID {
         getItemsEnum().put(this, mcdwSickle);
         return mcdwSickle;
     }
+
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+    //        case SICKLE_LAST_LAUGH_GOLD, SICKLE_LAST_LAUGH_SILVER -> Map.of(PROSPECTOR, 1);
+    //        case SICKLE_NIGHTMARES_BITE -> Map.of(POISON_CLOUD, 1);
+    //        case SICKLE_SICKLE -> null;
+    //    };
+    //}
 }

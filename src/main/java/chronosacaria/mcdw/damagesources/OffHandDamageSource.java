@@ -10,13 +10,4 @@ public class OffHandDamageSource extends DamageSource {
     public OffHandDamageSource(RegistryEntry<DamageType> type, @Nullable Entity source, @Nullable Entity attacker) {
         super(type, source, attacker);
     }
-
-    //public OffHandDamageSource(String name, Entity source) {
-    //    super(name, source);
-    //}
-
-    //public static DamageSource player(PlayerEntity attacker) {
-    //    return new OffHandDamageSource("player", attacker);
-    //}
-
 }

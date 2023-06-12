@@ -3,6 +3,7 @@ package chronosacaria.mcdw.mixin.mcdw;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.util.PlayerAttackHelper;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
+import chronosacaria.mcdw.enchants.summons.IBeeSummoning;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -21,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin extends LivingEntity implements IDualWielding {
+public abstract class PlayerEntityMixin extends LivingEntity implements IDualWielding, IBeeSummoning {
 
     private static final TrackedData<Integer> LAST_ATTACKED_OFFHAND_TICKS = DataTracker.registerData(PlayerEntityMixin.class, TrackedDataHandlerRegistry.INTEGER);
 
@@ -86,6 +87,18 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
     @ModifyConstant(method = "attack", constant = @Constant(doubleValue = 9.0))
     private double modifiedAttackRange(double attackRange) {
         return PlayerAttackHelper.getSquaredAttackRange(this, attackRange);
+    }
+
+    /**
+     * IBeeSummoning
+     */
+    private int lastTimeSummonedBee = 0;
+
+    public void setLastSummonedBee(int time) {
+        lastTimeSummonedBee = time;
+    }
+    public int getLastSummonedBee() {
+        return lastTimeSummonedBee;
     }
 
 

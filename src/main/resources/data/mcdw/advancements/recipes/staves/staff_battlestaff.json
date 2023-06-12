@@ -1,18 +1,15 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:staff_battlestaff"
+      ]
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stick": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:stick"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
+
     "has_the_recipe": {
       "conditions": {
         "recipe": "mcdw:staff_battlestaff"
@@ -22,7 +19,7 @@
   },
   "requirements": [
     [
-      "has_stick",
+
       "has_the_recipe"
     ]
   ],

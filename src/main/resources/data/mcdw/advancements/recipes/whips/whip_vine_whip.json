@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:whip_vine_whip"
+      ]
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_leather": {

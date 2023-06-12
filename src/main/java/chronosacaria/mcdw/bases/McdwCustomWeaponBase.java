@@ -24,4 +24,6 @@ public class McdwCustomWeaponBase extends ToolItem implements Vanishable {
                 "Weapon modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
     }
+
+    
 }

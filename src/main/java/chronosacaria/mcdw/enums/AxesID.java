@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum AxesID implements IMeleeWeaponID {
     AXE_ANCHOR(ToolMaterials.IRON,8, -3.4f, "minecraft:iron_ingot"),
     AXE_AXE(ToolMaterials.IRON,6, -3.1f, "minecraft:iron_ingot"),
     AXE_ENCRUSTED_ANCHOR(ToolMaterials.DIAMOND,8, -3.4f, "minecraft:diamond"),
@@ -105,4 +105,15 @@ public enum AxesID implements IMcdwWeaponID, IMeleeWeaponID {
         getItemsEnum().put(this, mcdwAxe);
         return mcdwAxe;
     }
+
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+//
+    //        case AXE_ANCHOR, AXE_AXE -> null;
+    //        case AXE_ENCRUSTED_ANCHOR -> Map.of(EnchantsRegistry.GRAVITY, 1, EnchantsRegistry.JUNGLE_POISON, 1);
+    //        case AXE_FIREBRAND -> Map.of(Enchantments.FIRE_ASPECT, 1);
+    //        case AXE_HIGHLAND -> Map.of(EnchantsRegistry.STUNNING, 1);
+    //    };
+    //}
 }

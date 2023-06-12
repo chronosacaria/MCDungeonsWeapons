@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum ShieldsID implements IMcdwWeaponID, IShieldID {
+public enum ShieldsID implements IShieldID {
     SHIELD_ROYAL_GUARD(ToolMaterials.DIAMOND, "minecraft:iron_ingot", "minecraft:gold_ingot"),
     SHIELD_TOWER_GUARD(ToolMaterials.DIAMOND, "minecraft:iron_ingot", "minecraft:gold_ingot", "minecraft:copper_ingot"),
     SHIELD_VANGUARD(ToolMaterials.DIAMOND, "minecraft:planks", "minecraft:iron_ingot");
@@ -86,4 +86,9 @@ public enum ShieldsID implements IMcdwWeaponID, IShieldID {
         getItemsEnum().put(this, mcdwShield);
         return mcdwShield;
     }
+
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return null;
+    //}
 }

@@ -1,74 +1,253 @@
 {
   "replace": false,
   "values": [
-    "mcdw:sword_claymore",
-    "mcdw:sword_broadsword",
-    "mcdw:sword_frost_slayer",
-    "mcdw:sword_heartstealer",
-    "mcdw:sword_great_axeblade",
-    "mcdw:sword_rapier",
-    "mcdw:sword_beestinger",
-    "mcdw:sword_freezing_foil",
-    "mcdw:sword_cutlass",
-    "mcdw:sword_nameless_blade",
-    "mcdw:sword_dancers_sword",
-    "mcdw:sword_katana",
-    "mcdw:sword_masters_katana",
-    "mcdw:sword_dark_katana",
-    "mcdw:sword_iron_sword_var",
-    "mcdw:sword_diamond_sword_var",
-    "mcdw:sword_hawkbrand",
-    "mcdw:sword_sinister",
-    "mcdw:sword_broken_sawblade",
-    "mcdw:sword_mechanized_sawblade",
-    "mcdw:sword_coral_blade",
-    "mcdw:sword_sponge_striker",
-    "mcdw:sword_obsidian_claymore",
-    "mcdw:sword_the_starless_night",
-
-    "mcdw:dagger_dagger",
-    "mcdw:dagger_fangs_of_frost",
-    "mcdw:dagger_moon",
-    "mcdw:dagger_shear_dagger",
-    "mcdw:dagger_tempest_knife",
-    "mcdw:dagger_resolute_tempest_knife",
-    "mcdw:dagger_chill_gale_knife",
-    "mcdw:dagger_backstabber",
-    "mcdw:dagger_swift_striker",
-    "mcdw:dagger_void_touched_blade",
-    "mcdw:dagger_the_beginning",
-    "mcdw:dagger_the_end",
-
-    "mcdw:dagger_soul_knife",
-    "mcdw:dagger_eternal_knife",
-    "mcdw:sword_truthseeker",
-
-    "mcdw:hammer_mace",
-    "mcdw:hammer_great_hammer",
-    "mcdw:hammer_stormlander",
-    "mcdw:hammer_gravity",
-    "mcdw:hammer_flail",
-    "mcdw:hammer_suns_grace",
-    "mcdw:hammer_boneclub",
-    "mcdw:hammer_bone_cudgel",
-
-    "mcdw:gauntlet_gauntlet",
-    "mcdw:gauntlet_maulers",
-    "mcdw:gauntlet_soul_fists",
-
-    "mcdw:sickle_sickle",
-    "mcdw:sickle_nightmares_bite",
-    "mcdw:sickle_last_laugh_gold",
-    "mcdw:sickle_last_laugh_silver",
-
-    "mcdw:sickle_jailors_scythe",
-    "mcdw:sickle_soul_scythe",
-    "mcdw:sickle_frost_scythe",
-    "mcdw:sickle_skull_scythe",
-
-    "mcdw:spear_glaive",
-    "mcdw:spear_grave_bane",
-    "mcdw:spear_venom_glaive",
-    "mcdw:spear_cackling_broom"
+    {
+      "id":"mcdw:sword_claymore",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_broadsword",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_frost_slayer",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_heartstealer",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_great_axeblade",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_rapier",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_beestinger",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_freezing_foil",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_cutlass",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_nameless_blade",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_dancers_sword",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_katana",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_masters_katana",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_dark_katana",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_iron_sword_var",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_diamond_sword_var",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_hawkbrand",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_sinister",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_broken_sawblade",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_mechanized_sawblade",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_coral_blade",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_sponge_striker",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_obsidian_claymore",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_the_starless_night",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_dagger",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_fangs_of_frost",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_moon",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_shear_dagger",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_tempest_knife",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_resolute_tempest_knife",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_chill_gale_knife",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_backstabber",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_swift_striker",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_void_touched_blade",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_the_beginning",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_the_end",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_soul_knife",
+      "required": false
+    },
+    {
+      "id":"mcdw:dagger_eternal_knife",
+      "required": false
+    },
+    {
+      "id":"mcdw:sword_truthseeker",
+      "required": false
+    },
+    {
+      "id":"mcdw:hammer_mace",
+      "required": false
+    },
+    {
+      "id":"mcdw:hammer_great_hammer",
+      "required": false
+    },
+    {
+      "id":"mcdw:hammer_stormlander",
+      "required": false
+    },
+    {
+      "id":"mcdw:hammer_gravity",
+      "required": false
+    },
+    {
+      "id":"mcdw:hammer_flail",
+      "required": false
+    },
+    {
+      "id":"mcdw:hammer_suns_grace",
+      "required": false
+    },
+    {
+      "id":"mcdw:hammer_boneclub",
+      "required": false
+    },
+    {
+      "id":"mcdw:hammer_bone_cudgel",
+      "required": false
+    },
+    {
+      "id":"mcdw:gauntlet_gauntlet",
+      "required": false
+    },
+    {
+      "id":"mcdw:gauntlet_maulers",
+      "required": false
+    },
+    {
+      "id":"mcdw:gauntlet_soul_fists",
+      "required": false
+    },
+    {
+      "id":"mcdw:sickle_sickle",
+      "required": false
+    },
+    {
+      "id":"mcdw:sickle_nightmares_bite",
+      "required": false
+    },
+    {
+      "id":"mcdw:sickle_last_laugh_gold",
+      "required": false
+    },
+    {
+      "id":"mcdw:sickle_last_laugh_silver",
+      "required": false
+    },
+    {
+      "id":"mcdw:sickle_jailors_scythe",
+      "required": false
+    },
+    {
+      "id":"mcdw:sickle_soul_scythe",
+      "required": false
+    },
+    {
+      "id":"mcdw:sickle_frost_scythe",
+      "required": false
+    },
+    {
+      "id":"mcdw:sickle_skull_scythe",
+      "required": false
+    },
+    {
+      "id":"mcdw:spear_glaive",
+      "required": false
+    },
+    {
+      "id":"mcdw:spear_grave_bane",
+      "required": false
+    },
+    {
+      "id":"mcdw:spear_venom_glaive",
+      "required": false
+    },
+    {
+      "id":"mcdw:spear_cackling_broom",
+      "required": false
+    }
   ]
 }

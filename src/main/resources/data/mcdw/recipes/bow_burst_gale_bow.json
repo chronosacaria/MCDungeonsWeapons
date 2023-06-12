@@ -1,5 +1,13 @@
 {
-    "type": "minecraft:crafting_shaped",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:bow_burst_gale_bow"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
     "pattern": [
         "GGS",
         "GTS",

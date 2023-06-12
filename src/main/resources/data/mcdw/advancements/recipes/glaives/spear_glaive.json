@@ -1,5 +1,13 @@
 {
-    "parent": "minecraft:recipes/root",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:spear_glaive"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
     "criteria": {
         "has_iron_sword": {
             "conditions": {
@@ -7,18 +15,6 @@
                     {
                         "items": [
                             "minecraft:iron_sword"
-                        ]
-                    }
-                ]
-            },
-            "trigger": "minecraft:inventory_changed"
-        },
-        "has_stick": {
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "minecraft:stick"
                         ]
                     }
                 ]
@@ -35,7 +31,7 @@
     "requirements": [
         [
             "has_iron_sword",
-            "has_stick",
+
             "has_the_recipe"
         ]
     ],

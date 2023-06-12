@@ -5,6 +5,7 @@ import chronosacaria.mcdw.api.util.AOEHelper;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.damagesources.OffHandDamageSource;
 import chronosacaria.mcdw.effects.EnchantmentEffects;
+import chronosacaria.mcdw.enchants.summons.IBeeSummoning;
 import chronosacaria.mcdw.enchants.summons.entity.SummonedBeeEntity;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.ItemsID;
@@ -31,9 +32,10 @@ import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -46,6 +48,10 @@ import java.util.List;
 @SuppressWarnings("ConstantConditions")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
+
+    @Shadow
+    @Nullable
+    protected PlayerEntity attackingPlayer;
     public final EntityType<SummonedBeeEntity> mcdw$summoned_bee =
             SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
 
@@ -145,12 +151,19 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
-    @Inject(at = @At("HEAD"), method = "swingHand(Lnet/minecraft/util/Hand;)V")
-    private void mcdw$swingHand(Hand hand, CallbackInfo ci) {
-        if(!((Object) this instanceof PlayerEntity attackingPlayer))
+    @Inject(method = "applyDamage", at = @At("HEAD"))
+    private void onAttack(DamageSource source, float amount, CallbackInfo ci) {
+        var attacker = source.getAttacker();
+        var target = (LivingEntity) ((Object)this);
+        if (target.isInvulnerableTo(source)) {
+            return;
+        }
+
+        if(!(attacker instanceof PlayerEntity attackingPlayer))
             return;
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BUZZY_BEE)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BUZZY_BEE)
+                && ((IBeeSummoning)attackingPlayer).isReadyForBeeSummon(attackingPlayer.age)) {
             ItemStack mainHandStack = attackingPlayer.getMainHandStack();
             ItemStack offHandStack = attackingPlayer.getOffHandStack();
             if (mainHandStack.getItem() == ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsRegistry.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER)) {

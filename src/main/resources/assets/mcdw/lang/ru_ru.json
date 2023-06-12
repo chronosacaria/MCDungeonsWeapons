@@ -4,8 +4,8 @@
   "itemGroup.mcdw.shields": "Оружие МК Подземелье (Щиты́)",
   "itemGroup.mcdw.enchantments":      "Оружие МК Подземелье (Зачарованиями)",
 
-  "attribute.name.generic.reach-entity-attributes.reach": "Радиус Действия",
-  "attribute.name.generic.reach-entity-attributes.attack_range": "Дальность Атаки",
+  "attribute.name.generic.mcdw.reach": "Радиус Действия",
+  "attribute.name.generic.mcdw.attack_range": "Дальность Атаки",
 
   "item.mcdw.axe_axe": "Топор",
   "item.mcdw.axe_cursed": "Проклятый Топор",

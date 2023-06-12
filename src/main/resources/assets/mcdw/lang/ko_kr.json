@@ -4,8 +4,8 @@
   "itemGroup.mcdw.shields": "마크 던전스 무기 (방패)",
   "itemGroup.mcdw.enchantments": "마크 던전스 무기 (마법 부여)",
 
-  "attribute.name.generic.reach-entity-attributes.reach": "범위",
-  "attribute.name.generic.reach-entity-attributes.attack_range": "공격 범위",
+  "attribute.name.generic.mcdw.reach": "범위",
+  "attribute.name.generic.mcdw.attack_range": "공격 범위",
 
   "item.mcdw.axe_axe": "도끼",
   "item.mcdw.axe_cursed": "저주받은 도끼",

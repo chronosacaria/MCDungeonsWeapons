@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum DaggersID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum DaggersID implements IMeleeWeaponID {
     DAGGER_BACKSTABBER(ToolMaterials.DIAMOND,1, -1.7f, "minecraft:diamond"),
     DAGGER_CHILL_GALE_KNIFE(ToolMaterials.DIAMOND,2, -2.2f, "minecraft:diamond"),
     DAGGER_DAGGER(ToolMaterials.IRON,1, -1.5f, "minecraft:iron_ingot"),
@@ -112,4 +112,19 @@ public enum DaggersID implements IMcdwWeaponID, IMeleeWeaponID {
         getItemsEnum().put(this, mcdwDagger);
         return mcdwDagger;
     }
+
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+    //        case DAGGER_BACKSTABBER -> Map.of(AMBUSH, 1, BONUS_SHOT, 1);
+    //        case DAGGER_CHILL_GALE_KNIFE, DAGGER_FANGS_OF_FROST -> Map.of(FREEZING, 1);
+    //        case DAGGER_DAGGER, DAGGER_TEMPEST_KNIFE -> null;
+    //        case DAGGER_MOON -> Map.of(ENIGMA_RESONATOR, 1);
+    //        case DAGGER_RESOLUTE_TEMPEST_KNIFE -> Map.of(COMMITTED, 1 , RUSHDOWN, 1);
+    //        case DAGGER_SHEAR_DAGGER -> Map.of(SWIRLING, 1);
+    //        case DAGGER_SWIFT_STRIKER -> Map.of(AMBUSH, 1, ECHO, 1);
+    //        case DAGGER_THE_BEGINNING -> Map.of(LEECHING, 1);
+    //        case DAGGER_THE_END, DAGGER_VOID_TOUCHED_BLADE -> Map.of(VOID_STRIKE, 1);
+    //    };
+    //}
 }

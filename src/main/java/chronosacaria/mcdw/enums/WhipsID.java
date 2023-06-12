@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum WhipsID implements IMeleeWeaponID {
     WHIP_VINE_WHIP(ToolMaterials.IRON, 5, -3.1f, "minecraft:vine"),
     WHIP_WHIP(ToolMaterials.IRON, 3, -3.1f, "minecraft:string");
 
@@ -101,4 +101,12 @@ public enum WhipsID implements IMcdwWeaponID, IMeleeWeaponID {
         getItemsEnum().put(this, mcdwWhip);
         return mcdwWhip;
     }
+
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+    //        case WHIP_WHIP -> null;
+    //        case WHIP_VINE_WHIP -> Map.of(JUNGLE_POISON, 1);
+    //    };
+    //}
 }

@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:sword_beestinger"
+      ]
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_bee_stinger": {
@@ -37,18 +45,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stick": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:stick"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_base": {
       "conditions": {
         "items": [
@@ -73,7 +69,6 @@
       "has_bee_stinger",
       "has_iron_nugget",
       "has_gold_ingot",
-      "has_stick",
       "has_base",
       "has_the_recipe"
     ]

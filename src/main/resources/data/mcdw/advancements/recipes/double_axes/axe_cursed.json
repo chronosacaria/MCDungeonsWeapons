@@ -1,5 +1,13 @@
 {
-    "parent": "minecraft:recipes/root",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:axe_cursed"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
     "criteria": {
         "has_iron_block": {
             "conditions": {
@@ -13,18 +21,7 @@
             },
             "trigger": "minecraft:inventory_changed"
         },
-        "has_stick": {
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "minecraft:stick"
-                        ]
-                    }
-                ]
-            },
-            "trigger": "minecraft:inventory_changed"
-        },
+
         "has_rotten_flesh": {
             "conditions": {
                 "items": [
@@ -59,7 +56,7 @@
     "requirements": [
         [
             "has_iron_block",
-            "has_stick",
+
             "has_rotten_flesh",
             "has_base",
             "has_the_recipe"

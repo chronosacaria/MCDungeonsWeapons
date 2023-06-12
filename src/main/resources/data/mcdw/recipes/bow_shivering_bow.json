@@ -1,5 +1,13 @@
 {
-    "type": "minecraft:crafting_shaped",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:bow_shivering_bow"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
     "pattern": [
         "BBB",
         "BbB",

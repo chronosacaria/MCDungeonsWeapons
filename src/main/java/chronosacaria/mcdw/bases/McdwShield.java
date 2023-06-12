@@ -51,6 +51,8 @@ public class McdwShield extends ShieldItem {
         return TypedActionResult.consume(itemStack);
     }
 
+    
+
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return CleanlinessHelper.canRepairCheck(repairIngredient, ingredient);

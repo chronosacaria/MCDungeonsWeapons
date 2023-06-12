@@ -1,36 +1,53 @@
 package chronosacaria.mcdw.mixin.mcdw;
 
-import com.google.gson.JsonSyntaxException;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mixin(EnchantmentHelper.class)
 public class EnchantmentHelperMixin {
+    @Inject(method = "getPossibleEntries", at = @At("RETURN"))
+    private static void getPossibleEntries_RETURN_SpellEngine(int power, ItemStack stack, boolean treasureAllowed, CallbackInfoReturnable<List<EnchantmentLevelEntry>> cir) {
+        var currentEntries = cir.getReturnValue();
 
-    @Inject(method = "getPossibleEntries", at = @At(value = "RETURN"), cancellable = true)
-    private static void mcdw$permitInnateEnchantmentsToBeEnchantedButNotWithConflicts(int power, ItemStack stack, boolean treasureAllowed,
-                                                                                      CallbackInfoReturnable<List<EnchantmentLevelEntry>> cir) {
-        List<EnchantmentLevelEntry> list = cir.getReturnValue();
-        for (NbtElement enchantmentNbt : stack.getEnchantments()) {
-            NbtCompound nbtCompound = (NbtCompound) enchantmentNbt;
-            Identifier identifier = EnchantmentHelper.getIdFromNbt(nbtCompound);
-            Enchantment enchantmentOnStack = Registries.ENCHANTMENT.getOrEmpty(identifier).orElseThrow(() -> {
-                throw new JsonSyntaxException("Unknown enchantment '" + identifier + "'");
-            });
-            list.removeIf(enchantmentLevelEntry -> !enchantmentLevelEntry.enchantment.canCombine(enchantmentOnStack));
+        // 1. REMOVING ENCHANT ENTRIES ADDED INCORRECTLY
+
+        var toRemove = new ArrayList<EnchantmentLevelEntry>();
+        for (var entry: currentEntries) {
+            if (!entry.enchantment.isAcceptableItem(stack)) {
+                toRemove.add(entry);
+            }
         }
-        cir.setReturnValue(list);
+        currentEntries.removeAll(toRemove);
+
+        // 2. ADDING ENCHANT ENTRIES LEFT OUT INITIALLY
+
+        // This logic is mostly copied from EnchantmentHelper.getPossibleEntries
+        boolean isBook = stack.isOf(Items.BOOK);
+        for (Enchantment enchantment : Registries.ENCHANTMENT) {
+            // Don't check entries already added
+            boolean alreadyAdded = currentEntries.stream().anyMatch(entry -> entry.enchantment.equals(enchantment));
+            if (alreadyAdded) { continue; }
+
+            if (enchantment.isTreasure()
+                    && !treasureAllowed
+                    || !enchantment.isAvailableForRandomSelection()
+                    || !enchantment.isAcceptableItem(stack) // Custom logic, replacing `!enchantment.type.isAcceptableItem(item)`
+                    && !isBook) continue;
+            for (int i = enchantment.getMaxLevel(); i > enchantment.getMinLevel() - 1; --i) {
+                if (power < enchantment.getMinPower(i) || power > enchantment.getMaxPower(i)) continue;
+                currentEntries.add(new EnchantmentLevelEntry(enchantment, i));
+            }
+        }
     }
 }

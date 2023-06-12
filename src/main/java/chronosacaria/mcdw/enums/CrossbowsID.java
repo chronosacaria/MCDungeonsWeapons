@@ -4,52 +4,60 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwCrossbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import net.projectile_damage.api.IProjectileWeapon;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
-    CROSSBOW_AUTO_CROSSBOW(ToolMaterials.IRON, 28, 8.0f, "minecraft:iron_ingot"),
-    CROSSBOW_AZURE_SEEKER(ToolMaterials.IRON, 28, 8.4f, "minecraft:iron_ingot"),
-    CROSSBOW_BABY_CROSSBOW(ToolMaterials.IRON, 23, 7.2f, "minecraft:iron_ingot"),
-    CROSSBOW_BURST_CROSSBOW(ToolMaterials.IRON, 28, 8.0f, "minecraft:iron_ingot"),
-    CROSSBOW_BUTTERFLY_CROSSBOW(ToolMaterials.IRON, 28, 8.9f, "minecraft:iron_ingot"),
-    CROSSBOW_COG_CROSSBOW(ToolMaterials.IRON, 28, 8.4f, "minecraft:iron_ingot"),
-    CROSSBOW_CORRUPTED_CROSSBOW(ToolMaterials.NETHERITE, 22, 14.0f, "minecraft:netherite_scrap"),
-    CROSSBOW_DOOM_CROSSBOW(ToolMaterials.NETHERITE, 26, 8.0f, "minecraft:netherite_scrap"),
-    CROSSBOW_DUAL_CROSSBOW(ToolMaterials.IRON, 24, 7.0f, "minecraft:iron_ingot"),
-    CROSSBOW_EXPLODING_CROSSBOW(ToolMaterials.IRON, 28, 8.0f, "minecraft:iron_ingot"),
-    CROSSBOW_FERAL_SOUL_CROSSBOW(ToolMaterials.IRON, 28, 9.2f, "minecraft:iron_ingot"),
-    CROSSBOW_FIREBOLT_THROWER(ToolMaterials.IRON, 28, 7.9f, "minecraft:iron_ingot"),
-    CROSSBOW_HARPOON_CROSSBOW(ToolMaterials.IRON, 28, 11.0f, "minecraft:iron_ingot"),
-    CROSSBOW_HARP_CROSSBOW(ToolMaterials.IRON, 28, 8.6f, "minecraft:iron_ingot"),
-    CROSSBOW_HEAVY_CROSSBOW(ToolMaterials.IRON, 28, 8.0f, "minecraft:iron_ingot"),
-    CROSSBOW_IMPLODING_CROSSBOW(ToolMaterials.IRON, 28, 8.0f, "minecraft:iron_ingot"),
-    CROSSBOW_LIGHTNING_HARP_CROSSBOW(ToolMaterials.DIAMOND, 28, 14.2f, "minecraft:diamond"),
-    CROSSBOW_NAUTICAL_CROSSBOW(ToolMaterials.DIAMOND, 24, 14.0f, "minecraft:diamond"),
-    CROSSBOW_PRIDE_OF_THE_PIGLINS(ToolMaterials.NETHERITE, 20, 13.0f, "minecraft:netherite_scrap"),
-    CROSSBOW_RAPID_CROSSBOW(ToolMaterials.IRON, 20, 8.2f, "minecraft:iron_ingot"),
-    CROSSBOW_SCATTER_CROSSBOW(ToolMaterials.IRON, 28, 8.0f, "minecraft:iron_ingot"),
-    CROSSBOW_SHADOW_CROSSBOW(ToolMaterials.DIAMOND, 25, 12.0f, "minecraft:diamond"),
-    CROSSBOW_SLAYER_CROSSBOW(ToolMaterials.DIAMOND, 26, 8.8f, "minecraft:diamond"),
-    CROSSBOW_SOUL_CROSSBOW(ToolMaterials.IRON, 28, 8.0f, "minecraft:iron_ingot"),
-    CROSSBOW_SOUL_HUNTER_CROSSBOW(ToolMaterials.DIAMOND, 28, 11.0f, "minecraft:diamond"),
-    CROSSBOW_SPELLBOUND_CROSSBOW(ToolMaterials.IRON, 28, 8.9f, "minecraft:iron_ingot"),
-    CROSSBOW_THE_SLICER(ToolMaterials.IRON, 28, 10.2f, "minecraft:iron_ingot"),
-    CROSSBOW_VEILED_CROSSBOW(ToolMaterials.DIAMOND, 22, 14.5f, "minecraft:diamond"),
-    CROSSBOW_VOIDCALLER_CROSSBOW(ToolMaterials.DIAMOND, 26, 12.5f, "minecraft:diamond");
+public enum CrossbowsID implements IRangedWeaponID {
+    CROSSBOW_AUTO_CROSSBOW(          ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_AZURE_SEEKER(           ToolMaterials.IRON,      10, 28, 8.4f,  "minecraft:iron_ingot"),
+    CROSSBOW_BABY_CROSSBOW(          ToolMaterials.IRON,      8,  23, 7.2f,  "minecraft:iron_ingot"),
+    CROSSBOW_BURST_CROSSBOW(         ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_BUTTERFLY_CROSSBOW(     ToolMaterials.IRON,      10, 28, 8.9f,  "minecraft:iron_ingot"),
+    CROSSBOW_COG_CROSSBOW(           ToolMaterials.IRON,      10, 28, 8.4f,  "minecraft:iron_ingot"),
+    CROSSBOW_CORRUPTED_CROSSBOW(     ToolMaterials.NETHERITE, 16, 22, 14.0f, "minecraft:netherite_scrap"),
+    CROSSBOW_DOOM_CROSSBOW(          ToolMaterials.NETHERITE, 9,  26, 8.0f,  "minecraft:netherite_scrap"),
+    CROSSBOW_DUAL_CROSSBOW(          ToolMaterials.IRON,      8,  24, 7.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_EXPLODING_CROSSBOW(     ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_FERAL_SOUL_CROSSBOW(    ToolMaterials.IRON,      10, 28, 9.2f,  "minecraft:iron_ingot"),
+    CROSSBOW_FIREBOLT_THROWER(       ToolMaterials.IRON,      9,  28, 7.9f,  "minecraft:iron_ingot"),
+    CROSSBOW_HARPOON_CROSSBOW(       ToolMaterials.IRON,      12, 28, 11.0f, "minecraft:iron_ingot"),
+    CROSSBOW_HARP_CROSSBOW(          ToolMaterials.IRON,      10, 28, 8.6f,  "minecraft:iron_ingot"),
+    CROSSBOW_HEAVY_CROSSBOW(         ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_IMPLODING_CROSSBOW(     ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_LIGHTNING_HARP_CROSSBOW(ToolMaterials.DIAMOND,   16, 28, 14.2f, "minecraft:diamond"),
+    CROSSBOW_NAUTICAL_CROSSBOW(      ToolMaterials.DIAMOND,   16, 24, 14.0f, "minecraft:diamond"),
+    CROSSBOW_PRIDE_OF_THE_PIGLINS(   ToolMaterials.NETHERITE, 15, 20, 13.0f, "minecraft:netherite_scrap"),
+    CROSSBOW_RAPID_CROSSBOW(         ToolMaterials.IRON,      9,  20, 8.2f,  "minecraft:iron_ingot"),
+    CROSSBOW_SCATTER_CROSSBOW(       ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_SHADOW_CROSSBOW(        ToolMaterials.DIAMOND,   14, 25, 12.0f, "minecraft:diamond"),
+    CROSSBOW_SLAYER_CROSSBOW(        ToolMaterials.DIAMOND,   10, 26, 8.8f,  "minecraft:diamond"),
+    CROSSBOW_SOUL_CROSSBOW(          ToolMaterials.IRON,      9,  28, 8.0f,  "minecraft:iron_ingot"),
+    CROSSBOW_SOUL_HUNTER_CROSSBOW(   ToolMaterials.DIAMOND,   12, 28, 11.0f, "minecraft:diamond"),
+    CROSSBOW_SPELLBOUND_CROSSBOW(    ToolMaterials.IRON,      10, 28, 8.9f,  "minecraft:iron_ingot"),
+    CROSSBOW_THE_SLICER(             ToolMaterials.IRON,      12, 28, 10.2f, "minecraft:iron_ingot"),
+    CROSSBOW_VEILED_CROSSBOW(        ToolMaterials.DIAMOND,   16, 22, 14.5f, "minecraft:diamond"),
+    CROSSBOW_VOIDCALLER_CROSSBOW(    ToolMaterials.DIAMOND,   14, 26, 12.5f, "minecraft:diamond");
 
     public final ToolMaterial material;
+    public final double projectileDamage;
     public final int drawSpeed;
     public final float range;
     private final String[] repairIngredient;
 
-    CrossbowsID(ToolMaterial material, int drawSpeed, float range, String... repairIngredient) {
+    CrossbowsID(ToolMaterial material, double projectileDamage, int drawSpeed, float range, String... repairIngredient) {
         this.material = material;
+        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+            this.projectileDamage = projectileDamage;
+        } else {
+            this.projectileDamage = 0;
+        }
         this.drawSpeed = drawSpeed;
         this.range = range;
         this.repairIngredient = repairIngredient;
@@ -107,6 +115,15 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
     }
 
     @Override
+    public double getProjectileDamage() {
+        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+            return projectileDamage;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
     public int getDrawSpeed() {
         return drawSpeed;
     }
@@ -125,8 +142,33 @@ public enum CrossbowsID implements IMcdwWeaponID, IRangedWeaponID {
     public McdwCrossbow makeWeapon() {
         McdwCrossbow mcdwCrossbow = new McdwCrossbow(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
-
+        if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
+            ((IProjectileWeapon) mcdwCrossbow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);
+            ((IProjectileWeapon) mcdwCrossbow).setCustomLaunchVelocity((this.getWeaponItemStats().range / 8.0f) * 3.15);
+        }
         getItemsEnum().put(this, mcdwCrossbow);
         return mcdwCrossbow;
     }
+
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+    //        case CROSSBOW_AUTO_CROSSBOW -> Map.of(ACCELERATE, 1, BONUS_SHOT, 1);
+    //        case CROSSBOW_AZURE_SEEKER, CROSSBOW_BURST_CROSSBOW, CROSSBOW_COG_CROSSBOW, CROSSBOW_DUAL_CROSSBOW, CROSSBOW_HARPOON_CROSSBOW, CROSSBOW_HEAVY_CROSSBOW, CROSSBOW_RAPID_CROSSBOW, CROSSBOW_SPELLBOUND_CROSSBOW -> null;
+    //        case CROSSBOW_BABY_CROSSBOW -> Map.of(GROWING, 1);
+    //        case CROSSBOW_BUTTERFLY_CROSSBOW -> Map.of(BONUS_SHOT, 1);
+    //        case CROSSBOW_CORRUPTED_CROSSBOW -> Map.of(DYNAMO, 1);
+    //        case CROSSBOW_DOOM_CROSSBOW -> Map.of(PUNCH, 1);
+    //        case CROSSBOW_EXPLODING_CROSSBOW -> Map.of(FUSE_SHOT, 1);
+    //        case CROSSBOW_FERAL_SOUL_CROSSBOW, CROSSBOW_SOUL_CROSSBOW, CROSSBOW_SOUL_HUNTER_CROSSBOW -> Map.of(ENIGMA_RESONATOR, 1);
+    //        case CROSSBOW_FIREBOLT_THROWER -> Map.of(CHAIN_REACTION, 1);
+    //        case CROSSBOW_HARP_CROSSBOW, CROSSBOW_SCATTER_CROSSBOW -> Map.of(MULTISHOT, 1);
+    //        case CROSSBOW_IMPLODING_CROSSBOW, CROSSBOW_VOIDCALLER_CROSSBOW -> Map.of(GRAVITY, 1);
+    //        case CROSSBOW_LIGHTNING_HARP_CROSSBOW -> Map.of(MULTISHOT, 1, RICOCHET, 1);
+    //        case CROSSBOW_NAUTICAL_CROSSBOW, CROSSBOW_PRIDE_OF_THE_PIGLINS, CROSSBOW_THE_SLICER -> Map.of(PIERCING, 1);
+    //        case CROSSBOW_SHADOW_CROSSBOW -> Map.of(SHADOW_SHOT, 1);
+    //        case CROSSBOW_SLAYER_CROSSBOW -> Map.of(RICOCHET, 1);
+    //        case CROSSBOW_VEILED_CROSSBOW -> Map.of(SHADOW_SHOT, 1, SHADOW_BARB, 1);
+    //    };
+    //}
 }

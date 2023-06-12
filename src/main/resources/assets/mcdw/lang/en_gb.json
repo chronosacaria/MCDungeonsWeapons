@@ -4,8 +4,8 @@
   "itemGroup.mcdw.shields": "MC Dungeons Weapons (Shields)",
   "itemGroup.mcdw.enchantments": "MC Dungeons Weapons (Enchantments)",
 
-  "attribute.name.generic.reach-entity-attributes.reach": "Reach",
-  "attribute.name.generic.reach-entity-attributes.attack_range": "Attack Reach",
+  "attribute.name.generic.mcdw.reach": "Reach",
+  "attribute.name.generic.mcdw.attack_range": "Attack Reach",
 
   "item.mcdw.axe_axe": "Axe",
   "item.mcdw.axe_cursed": "Cursed Axe",

@@ -32,12 +32,14 @@ public class McdwCrossbow extends CrossbowItem {
         this.repairIngredient = repairIngredient;
     }
 
-    public float getProjectileVelocity(ItemStack stack){
+    public float getProjectileVelocity(ItemStack stack) {
         return hasProjectile(stack, Items.FIREWORK_ROCKET) ? 1.6F : 3.2F;
     }
 
     @Override
-    public int getRange() { return (int)range; }
+    public int getRange() {
+        return (int) range;
+    }
 
     @Override
     public int getEnchantability() {
@@ -50,13 +52,15 @@ public class McdwCrossbow extends CrossbowItem {
     }
 
     @Override
-    public boolean isUsedOnRelease(ItemStack stack){
+    public boolean isUsedOnRelease(ItemStack stack) {
         return stack.isOf(this);
     }
 
-    public int getDrawSpeed(){
+    public int getDrawSpeed() {
         return this.drawSpeed;
     }
+
+    
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {

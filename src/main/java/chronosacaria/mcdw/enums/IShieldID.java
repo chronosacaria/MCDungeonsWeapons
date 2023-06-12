@@ -27,5 +27,4 @@ public interface IShieldID extends IMcdwWeaponID {
             return this;
         }
     }
-
 }

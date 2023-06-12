@@ -4,8 +4,8 @@
   "itemGroup.mcdw.shields": "我的世界：地下城武器 (盾)",
   "itemGroup.mcdw.enchantments": "我的世界：地下城武器 (魔咒)",
 
-  "attribute.name.generic.reach-entity-attributes.reach": "范围",
-  "attribute.name.generic.reach-entity-attributes.attack_range": "攻击范围",
+  "attribute.name.generic.mcdw.reach": "范围",
+  "attribute.name.generic.mcdw.attack_range": "攻击范围",
 
   "item.mcdw.axe_axe": "斧",
   "item.mcdw.axe_cursed": "诅咒之斧",

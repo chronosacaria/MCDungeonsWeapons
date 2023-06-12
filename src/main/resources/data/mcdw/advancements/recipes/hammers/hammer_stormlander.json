@@ -1,5 +1,13 @@
 {
-    "parent": "minecraft:recipes/root",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:hammer_stormlander"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
     "criteria": {
         "has_creeper_head": {
             "conditions": {
@@ -13,18 +21,7 @@
             },
             "trigger": "minecraft:inventory_changed"
         },
-        "has_stick": {
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "minecraft:stick"
-                        ]
-                    }
-                ]
-            },
-            "trigger": "minecraft:inventory_changed"
-        },
+
         "has_redstone_block": {
             "conditions": {
                 "items": [
@@ -83,7 +80,7 @@
     "requirements": [
         [
             "has_creeper_head",
-            "has_stick",
+
             "has_redstone_block",
             "has_anvil",
             "has_copper_block",

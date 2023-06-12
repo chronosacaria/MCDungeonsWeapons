@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:whip_whip"
+      ]
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_leather": {
@@ -13,18 +21,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stick": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:stick"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
+
     "has_string": {
       "conditions": {
         "items": [
@@ -47,7 +44,7 @@
   "requirements": [
     [
       "has_leather",
-      "has_stick",
+
       "has_string",
       "has_the_recipe"
     ]

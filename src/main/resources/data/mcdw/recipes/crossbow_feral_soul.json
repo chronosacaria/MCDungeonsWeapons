@@ -1,5 +1,13 @@
 {
-    "type": "minecraft:crafting_shaped",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:crossbow_feral_soul_crossbow"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
     "pattern": [
         "OsO",
         "sCs",

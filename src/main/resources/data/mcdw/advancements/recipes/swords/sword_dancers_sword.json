@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:sword_dancers_sword"
+      ]
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_slime_ball": {
@@ -25,18 +33,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stick": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:stick"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
+
     "has_base": {
       "conditions": {
         "items": [
@@ -60,7 +57,7 @@
     [
       "has_slime_ball",
       "has_leather",
-      "has_stick",
+
       "has_base",
       "has_the_recipe"
     ]

@@ -1,5 +1,13 @@
 {
-    "parent": "minecraft:recipes/root",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:hammer_flail"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
     "criteria": {
         "has_chain": {
             "conditions": {
@@ -13,18 +21,7 @@
             },
             "trigger": "minecraft:inventory_changed"
         },
-        "has_stick": {
-            "conditions": {
-                "items": [
-                    {
-                        "items": [
-                            "minecraft:stick"
-                        ]
-                    }
-                ]
-            },
-            "trigger": "minecraft:inventory_changed"
-        },
+
         "has_base": {
             "conditions": {
                 "items": [
@@ -47,7 +44,7 @@
     "requirements": [
         [
             "has_chain",
-            "has_stick",
+
             "has_base",
             "has_the_recipe"
         ]

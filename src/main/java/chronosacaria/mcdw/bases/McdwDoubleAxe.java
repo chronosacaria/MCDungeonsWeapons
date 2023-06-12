@@ -31,6 +31,8 @@ public class McdwDoubleAxe extends AxeItem {
         return CleanlinessHelper.canRepairCheck(repairIngredient, ingredient);
     }
 
+    
+
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext){
         super.appendTooltip(stack, world, tooltip, tooltipContext);

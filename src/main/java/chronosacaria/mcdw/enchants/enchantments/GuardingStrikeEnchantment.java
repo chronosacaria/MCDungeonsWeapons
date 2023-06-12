@@ -8,6 +8,8 @@ import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.EnchantedBookItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.RangedWeaponItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
@@ -40,6 +42,11 @@ public class GuardingStrikeEnchantment extends Enchantment {
     public boolean isAvailableForEnchantedBookOffer() {
         return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.GUARDING_STRIKE)
                 && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_VILLAGER_TRADING.get(EnchantmentsID.GUARDING_STRIKE);
+    }
+
+    @Override
+    public boolean isAcceptableItem(ItemStack stack) {
+        return !(stack.getItem() instanceof RangedWeaponItem);
     }
 
     @Override

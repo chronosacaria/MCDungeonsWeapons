@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:bow_web_bow"
+      ]
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_string": {
@@ -13,18 +21,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stick": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:stick"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
+
     "has_fermented_spider_eye": {
       "conditions": {
         "items": [
@@ -71,7 +68,7 @@
   "requirements": [
     [
       "has_string",
-      "has_stick",
+
       "has_fermented_spider_eye",
       "has_cobweb",
       "has_base_bow",

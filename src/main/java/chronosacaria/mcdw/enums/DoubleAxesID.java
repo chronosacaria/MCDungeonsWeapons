@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum DoubleAxesID implements IMeleeWeaponID {
     AXE_CURSED(ToolMaterials.IRON,7, -2.9f, "minecraft:iron_ingot"),
     AXE_DOUBLE(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot"),
     AXE_WHIRLWIND(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot");
@@ -103,4 +103,13 @@ public enum DoubleAxesID implements IMcdwWeaponID, IMeleeWeaponID {
         getItemsEnum().put(this, mcdwDoubleAxe);
         return mcdwDoubleAxe;
     }
+
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+    //        case AXE_CURSED -> Map.of(EXPLODING, 1);
+    //        case AXE_DOUBLE -> null;
+    //        case AXE_WHIRLWIND -> Map.of(SHOCKWAVE, 1);
+    //    };
+    //}
 }

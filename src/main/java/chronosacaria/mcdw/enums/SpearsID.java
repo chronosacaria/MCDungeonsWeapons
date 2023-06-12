@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum SpearsID implements IMeleeWeaponID {
     SPEAR_SPEAR(ToolMaterials.IRON,4, -2.5f, "minecraft:iron_ingot"),
     SPEAR_WHISPERING_SPEAR(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot"),
     SPEAR_FORTUNE(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot");
@@ -103,4 +103,13 @@ public enum SpearsID implements IMcdwWeaponID, IMeleeWeaponID {
         getItemsEnum().put(this, mcdwSpear);
         return mcdwSpear;
     }
+
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+    //        case SPEAR_SPEAR -> null;
+    //        case SPEAR_WHISPERING_SPEAR -> Map.of(EnchantsRegistry.ECHO, 1);
+    //        case SPEAR_FORTUNE -> Map.of(Enchantments.LOOTING, 1);
+    //    };
+    //}
 }

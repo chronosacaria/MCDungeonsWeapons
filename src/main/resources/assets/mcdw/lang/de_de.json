@@ -4,8 +4,8 @@
   "itemGroup.mcdw.shields": "MC Dungeons Waffen (Schilde)",
   "itemGroup.mcdw.enchantments": "MC Dungeons Waffen (Verzauberungen)",
 
-  "attribute.name.generic.reach-entity-attributes.reach": "Reichweite",
-  "attribute.name.generic.reach-entity-attributes.attack_range": "TTreffer Reichweite",
+  "attribute.name.generic.mcdw.reach": "Reichweite",
+  "attribute.name.generic.mcdw.attack_range": "TTreffer Reichweite",
 
   "item.mcdw.axe_axe": "Axt",
   "item.mcdw.axe_cursed": "Verfluchte Axt",

@@ -2,6 +2,7 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.BowsID;
@@ -87,6 +88,11 @@ public class McdwBow extends BowItem {
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return CleanlinessHelper.canRepairCheck(repairIngredient, ingredient);
+    }
+
+    @Override
+    public ItemStack getDefaultStack() {
+        return ((IInnateEnchantment)this).getInnateEnchantedStack(this);
     }
 
     @Override

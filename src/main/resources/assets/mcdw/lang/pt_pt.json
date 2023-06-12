@@ -4,8 +4,8 @@
   "itemGroup.mcdw.shields": "Armas de MC Dungeons (Escudos)",
   "itemGroup.mcdw.enchantments":      "Armas de MC Dungeons (Encantamentos)",
 
-  "attribute.name.generic.reach-entity-attributes.reach": "Alcance",
-  "attribute.name.generic.reach-entity-attributes.attack_range": "Alcance de Golpe",
+  "attribute.name.generic.mcdw.reach": "Alcance",
+  "attribute.name.generic.mcdw.attack_range": "Alcance de Golpe",
 
   "item.mcdw.axe_axe": "Machado",
   "item.mcdw.axe_cursed": "Machado Amaldiçoado",

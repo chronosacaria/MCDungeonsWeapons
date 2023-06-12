@@ -49,10 +49,7 @@ public class McdwWhip extends McdwCustomWeaponBase implements Vanishable {
                 "Tool modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID,
                 "Tool modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        if (CompatibilityFlags.isReachEntityAttributeEnabled) {
-            builder.put(EntityAttributesRegistry.REACH, new EntityAttributeModifier("Attack range",
-                    Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfWhips,
-                    EntityAttributeModifier.Operation.ADDITION));
+        if (CompatibilityFlags.isReachExtensionEnabled) {
             builder.put(EntityAttributesRegistry.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
                     Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfWhips,
                     EntityAttributeModifier.Operation.ADDITION));
@@ -105,6 +102,8 @@ public class McdwWhip extends McdwCustomWeaponBase implements Vanishable {
         return equipmentSlot == EquipmentSlot.MAINHAND ? attributeModifiers :
                 super.getAttributeModifiers(equipmentSlot);
     }
+
+    
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {

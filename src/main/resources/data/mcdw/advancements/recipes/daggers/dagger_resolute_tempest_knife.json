@@ -1,5 +1,13 @@
 {
-    "parent": "minecraft:recipes/root",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:dagger_resolute_tempest_knife"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
     "criteria": {
         "has_diamond": {
             "conditions": {

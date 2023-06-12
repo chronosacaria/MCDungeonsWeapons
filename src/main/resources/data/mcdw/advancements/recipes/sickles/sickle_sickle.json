@@ -1,18 +1,15 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:sickle_sickle"
+      ]
+    }
+  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stick": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:stick"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
+
     "has_iron_ingot": {
       "conditions": {
         "items": [
@@ -34,7 +31,7 @@
   },
   "requirements": [
     [
-      "has_stick",
+
       "has_iron_ingot",
       "has_the_recipe"
     ]

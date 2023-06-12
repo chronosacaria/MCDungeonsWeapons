@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:staff_battlestaff_of_terror"
+      ]
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     " NI",

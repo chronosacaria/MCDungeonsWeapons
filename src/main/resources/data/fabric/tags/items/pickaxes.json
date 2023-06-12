@@ -1,9 +1,21 @@
 {
   "replace": false,
   "values": [
-    "mcdw:pick_diamond_pickaxe_var",
-    "mcdw:pick_mountaineer_pick",
-    "mcdw:pick_howling_pick",
-    "mcdw:pick_hailing_pinnacle"
+    {
+      "id":"mcdw:pick_diamond_pickaxe_var",
+      "required": false
+    },
+    {
+      "id":"mcdw:pick_mountaineer_pick",
+      "required": false
+    },
+    {
+      "id":"mcdw:pick_howling_pick",
+      "required": false
+    },
+    {
+      "id":"mcdw:pick_hailing_pinnacle",
+      "required": false
+    }
   ]
 }

@@ -1,5 +1,13 @@
 {
-    "type": "minecraft:crafting_shaped",
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:dagger_resolute_tempest_knife"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
     "pattern": [
         "  D",
         "GDD",

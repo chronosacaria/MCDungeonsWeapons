@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum HammersID implements IMeleeWeaponID {
     HAMMER_BONECLUB(ToolMaterials.IRON,7, -3.2f, "minecraft:bone_block"),
     HAMMER_BONE_CUDGEL(ToolMaterials.NETHERITE,7, -3.2f, "minecraft:netherite_scrap"),
     HAMMER_FLAIL(ToolMaterials.IRON,5, -2.8f, "minecraft:iron_ingot"),
@@ -108,4 +108,16 @@ public enum HammersID implements IMcdwWeaponID, IMeleeWeaponID {
         getItemsEnum().put(this, mcdwHammer);
         return mcdwHammer;
     }
+
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+    //        case HAMMER_BONECLUB, HAMMER_GREAT_HAMMER, HAMMER_MACE -> null;
+    //        case HAMMER_FLAIL -> Map.of(CHAINS, 1);
+    //        case HAMMER_BONE_CUDGEL -> Map.of(ILLAGERS_BANE, 1);
+    //        case HAMMER_GRAVITY -> Map.of(GRAVITY, 1);
+    //        case HAMMER_STORMLANDER -> Map.of(THUNDERING, 1);
+    //        case HAMMER_SUNS_GRACE -> Map.of(RADIANCE, 1);
+    //    };
+    //}
 }

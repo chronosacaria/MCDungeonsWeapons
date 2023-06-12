@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
+public enum SwordsID implements IMeleeWeaponID {
     SWORD_BEESTINGER(ToolMaterials.IRON, 0, -1.1f, "minecraft:iron_ingot"),
     SWORD_BROADSWORD(ToolMaterials.IRON, 5, -3.0f, "minecraft:iron_ingot"),
     SWORD_BROKEN_SAWBLADE(ToolMaterials.IRON,3, -2.4f, "minecraft:iron_ingot"),
@@ -124,4 +124,21 @@ public enum SwordsID implements IMcdwWeaponID, IMeleeWeaponID {
         getItemsEnum().put(this, mcdwSword);
         return mcdwSword;
     }
+
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    switch (this) {
+    //        case SWORD_BEESTINGER, SWORD_BROKEN_SAWBLADE, SWORD_CLAYMORE, SWORD_CORAL_BLADE, SWORD_CUTLASS, SWORD_DIAMOND_SWORD_VAR, SWORD_IRON_SWORD_VAR, SWORD_KATANA, SWORD_MECHANIZED_SAWBLADE, SWORD_OBSIDIAN_CLAYMORE, SWORD_RAPIER -> null;
+    //        case SWORD_BROADSWORD -> Map.of(SWIRLING, 1);
+    //        case SWORD_DANCERS_SWORD -> Map.of(RAMPAGING, 1);
+    //        case SWORD_DARK_KATANA -> Map.of(SMITING, 1);
+    //        case SWORD_FREEZING_FOIL, SWORD_FROST_SLAYER -> Map.of(FREEZING, 1);
+    //        case SWORD_GREAT_AXEBLADE -> Map.of(DYNAMO, 1);
+    //        case SWORD_HAWKBRAND, SWORD_MASTERS_KATANA, SWORD_SINISTER -> Map.of(CRITICAL_HIT, 1);
+    //        case SWORD_HEARTSTEALER -> Map.of(LEECHING, 1);
+    //        case SWORD_NAMELESS_BLADE -> Map.of(WEAKENING, 1);
+    //        case SWORD_SPONGE_STRIKER -> Map.of(ENIGMA_RESONATOR, 1);
+    //        case SWORD_THE_STARLESS_NIGHT -> Map.of(SHARED_PAIN, 1);
+    //    };
+    //}
 }

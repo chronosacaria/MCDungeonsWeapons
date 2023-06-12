@@ -13,9 +13,6 @@ group = project.maven_group
 repositories {
     mavenLocal()
     maven {
-        url "https://maven.jamieswhiteshirt.com/libs-release/"
-    }
-    maven {
         url "https://maven.shedaniel.me/"
     }
     maven {
@@ -25,9 +22,13 @@ repositories {
         url "https://maven.blamejared.com/"
     }
     maven {
-        url "https://www.cursemaven.com"
+        url 'https://jitpack.io'
+    }
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
         content {
-            includeGroup "curse.maven"
+            includeGroup 'maven.modrinth'
         }
     }
     repositories {
@@ -57,13 +58,18 @@ dependencies {
     include "wraith.EnchantGiver:wraith-enchant_giver-1.4.0"
 
     // Clumps
-    // modImplementation "com.blamejared.clumps:Clumps-fabric-${project.minecraft_version}:${project.clumps_version}"
-    // modImplementation "com.blamejared.clumps:Clumps-fabric-1.19.3:${project.clumps_version}"
+    modImplementation "com.blamejared.clumps:Clumps-fabric-${project.minecraft_version}:${project.clumps_version}"
+
+    // Projectile Damage
+    modImplementation "maven.modrinth:projectile-damage-attribute:${project.projectile_damage_version}+${project.minecraft_version}-fabric"
 
     // Cloth Config
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
+
+    // Mixin Extras
+    include(implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-fabric:${project.mixin_extras_version}")))
 
 }
 
