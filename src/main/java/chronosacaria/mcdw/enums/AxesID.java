@@ -3,12 +3,19 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwAxe;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -98,6 +105,21 @@ public enum AxesID implements IMeleeWeaponID {
     }
 
     @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case AXE_ANCHOR, AXE_AXE -> null;
+            case AXE_ENCRUSTED_ANCHOR -> Map.of(EnchantsRegistry.GRAVITY, 1, EnchantsRegistry.JUNGLE_POISON, 1);
+            case AXE_FIREBRAND -> Map.of(Enchantments.FIRE_ASPECT, 1);
+            case AXE_HIGHLAND -> Map.of(EnchantsRegistry.STUNNING, 1);
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
+
+    @Override
     public McdwAxe makeWeapon() {
         McdwAxe mcdwAxe = new McdwAxe(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
@@ -105,15 +127,4 @@ public enum AxesID implements IMeleeWeaponID {
         getItemsEnum().put(this, mcdwAxe);
         return mcdwAxe;
     }
-
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-//
-    //        case AXE_ANCHOR, AXE_AXE -> null;
-    //        case AXE_ENCRUSTED_ANCHOR -> Map.of(EnchantsRegistry.GRAVITY, 1, EnchantsRegistry.JUNGLE_POISON, 1);
-    //        case AXE_FIREBRAND -> Map.of(Enchantments.FIRE_ASPECT, 1);
-    //        case AXE_HIGHLAND -> Map.of(EnchantsRegistry.STUNNING, 1);
-    //    };
-    //}
 }

@@ -14,8 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Enchantment.class)
 public abstract class EnchantmentMixin {
 
-    @Shadow protected abstract String getOrCreateTranslationKey();
-
     @Shadow @Final public EnchantmentTarget target;
 
     @Inject(method = "isAcceptableItem", at = @At("HEAD"), cancellable = true)

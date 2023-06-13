@@ -3,12 +3,18 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwWhip;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -94,6 +100,19 @@ public enum WhipsID implements IMeleeWeaponID {
     }
 
     @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case WHIP_WHIP -> null;
+            case WHIP_VINE_WHIP -> Map.of(EnchantsRegistry.JUNGLE_POISON, 1);
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
+
+    @Override
     public McdwWhip makeWeapon() {
         McdwWhip mcdwWhip = new McdwWhip(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
@@ -101,12 +120,4 @@ public enum WhipsID implements IMeleeWeaponID {
         getItemsEnum().put(this, mcdwWhip);
         return mcdwWhip;
     }
-
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case WHIP_WHIP -> null;
-    //        case WHIP_VINE_WHIP -> Map.of(JUNGLE_POISON, 1);
-    //    };
-    //}
 }

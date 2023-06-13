@@ -2,7 +2,6 @@ package chronosacaria.mcdw;
 
 import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.configs.McdwConfig;
-import chronosacaria.mcdw.configs.McdwEnchantGiverConfig;
 import chronosacaria.mcdw.data.ConfigItemEnabledCondition;
 import chronosacaria.mcdw.enums.LongbowsID;
 import chronosacaria.mcdw.enums.ShieldsID;
@@ -23,6 +22,7 @@ import org.apache.logging.log4j.Logger;
 public class Mcdw implements ModInitializer {
 
     public static final String MOD_ID = "mcdw";
+    @SuppressWarnings("unused")
     public static final Logger LOGGER = LogManager.getLogger();
 
     public static Identifier ID(String path) {
@@ -58,10 +58,8 @@ public class Mcdw implements ModInitializer {
         LootTablesRegistry.init();
         EnchantsRegistry.init();
         SoundEventsRegistry.init();
-        McdwEnchantGiverConfig.appendEnchants();
         SummonedEntityRegistry.register();
         StatusEffectsRegistry.init();
         EnchantmentRestrictionsRegistry.init();
-        //CompatRegistry.init();
     }
 }

@@ -3,12 +3,18 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSickle;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -97,6 +103,20 @@ public enum SicklesID implements IMeleeWeaponID {
     }
 
     @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case SICKLE_LAST_LAUGH_GOLD, SICKLE_LAST_LAUGH_SILVER -> Map.of(EnchantsRegistry.PROSPECTOR, 1);
+            case SICKLE_NIGHTMARES_BITE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
+            case SICKLE_SICKLE -> null;
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
+
+    @Override
     public McdwSickle makeWeapon() {
         McdwSickle mcdwSickle = new McdwSickle(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
@@ -104,13 +124,4 @@ public enum SicklesID implements IMeleeWeaponID {
         getItemsEnum().put(this, mcdwSickle);
         return mcdwSickle;
     }
-
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case SICKLE_LAST_LAUGH_GOLD, SICKLE_LAST_LAUGH_SILVER -> Map.of(PROSPECTOR, 1);
-    //        case SICKLE_NIGHTMARES_BITE -> Map.of(POISON_CLOUD, 1);
-    //        case SICKLE_SICKLE -> null;
-    //    };
-    //}
 }

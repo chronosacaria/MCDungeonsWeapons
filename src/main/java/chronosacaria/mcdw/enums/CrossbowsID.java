@@ -3,14 +3,21 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwCrossbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import net.projectile_damage.api.IProjectileWeapon;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -139,6 +146,34 @@ public enum CrossbowsID implements IRangedWeaponID {
     }
 
     @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case CROSSBOW_AUTO_CROSSBOW -> Map.of(EnchantsRegistry.ACCELERATE, 1, EnchantsRegistry.BONUS_SHOT, 1);
+            case CROSSBOW_AZURE_SEEKER, CROSSBOW_BURST_CROSSBOW, CROSSBOW_COG_CROSSBOW, CROSSBOW_DUAL_CROSSBOW, CROSSBOW_HARPOON_CROSSBOW, CROSSBOW_HEAVY_CROSSBOW, CROSSBOW_RAPID_CROSSBOW, CROSSBOW_SPELLBOUND_CROSSBOW -> null;
+            case CROSSBOW_BABY_CROSSBOW -> Map.of(EnchantsRegistry.GROWING, 1);
+            case CROSSBOW_BUTTERFLY_CROSSBOW -> Map.of(EnchantsRegistry.BONUS_SHOT, 1);
+            case CROSSBOW_CORRUPTED_CROSSBOW -> Map.of(EnchantsRegistry.DYNAMO, 1);
+            case CROSSBOW_DOOM_CROSSBOW -> Map.of(Enchantments.PUNCH, 1);
+            case CROSSBOW_EXPLODING_CROSSBOW -> Map.of(EnchantsRegistry.FUSE_SHOT, 1);
+            case CROSSBOW_FERAL_SOUL_CROSSBOW, CROSSBOW_SOUL_CROSSBOW, CROSSBOW_SOUL_HUNTER_CROSSBOW -> Map.of(EnchantsRegistry.ENIGMA_RESONATOR, 1);
+            case CROSSBOW_FIREBOLT_THROWER -> Map.of(EnchantsRegistry.CHAIN_REACTION, 1);
+            case CROSSBOW_HARP_CROSSBOW, CROSSBOW_SCATTER_CROSSBOW -> Map.of(Enchantments.MULTISHOT, 1);
+            case CROSSBOW_IMPLODING_CROSSBOW, CROSSBOW_VOIDCALLER_CROSSBOW -> Map.of(EnchantsRegistry.GRAVITY, 1);
+            case CROSSBOW_LIGHTNING_HARP_CROSSBOW -> Map.of(Enchantments.MULTISHOT, 1, EnchantsRegistry.RICOCHET, 1);
+            case CROSSBOW_NAUTICAL_CROSSBOW, CROSSBOW_PRIDE_OF_THE_PIGLINS, CROSSBOW_THE_SLICER -> Map.of(Enchantments.PIERCING, 1);
+            case CROSSBOW_SHADOW_CROSSBOW -> Map.of(EnchantsRegistry.SHADOW_SHOT, 1);
+            case CROSSBOW_SLAYER_CROSSBOW -> Map.of(EnchantsRegistry.RICOCHET, 1);
+            case CROSSBOW_VEILED_CROSSBOW -> Map.of(EnchantsRegistry.SHADOW_SHOT, 1, EnchantsRegistry.SHADOW_BARB, 1);
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    @Override
     public McdwCrossbow makeWeapon() {
         McdwCrossbow mcdwCrossbow = new McdwCrossbow(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
@@ -149,26 +184,4 @@ public enum CrossbowsID implements IRangedWeaponID {
         getItemsEnum().put(this, mcdwCrossbow);
         return mcdwCrossbow;
     }
-
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case CROSSBOW_AUTO_CROSSBOW -> Map.of(ACCELERATE, 1, BONUS_SHOT, 1);
-    //        case CROSSBOW_AZURE_SEEKER, CROSSBOW_BURST_CROSSBOW, CROSSBOW_COG_CROSSBOW, CROSSBOW_DUAL_CROSSBOW, CROSSBOW_HARPOON_CROSSBOW, CROSSBOW_HEAVY_CROSSBOW, CROSSBOW_RAPID_CROSSBOW, CROSSBOW_SPELLBOUND_CROSSBOW -> null;
-    //        case CROSSBOW_BABY_CROSSBOW -> Map.of(GROWING, 1);
-    //        case CROSSBOW_BUTTERFLY_CROSSBOW -> Map.of(BONUS_SHOT, 1);
-    //        case CROSSBOW_CORRUPTED_CROSSBOW -> Map.of(DYNAMO, 1);
-    //        case CROSSBOW_DOOM_CROSSBOW -> Map.of(PUNCH, 1);
-    //        case CROSSBOW_EXPLODING_CROSSBOW -> Map.of(FUSE_SHOT, 1);
-    //        case CROSSBOW_FERAL_SOUL_CROSSBOW, CROSSBOW_SOUL_CROSSBOW, CROSSBOW_SOUL_HUNTER_CROSSBOW -> Map.of(ENIGMA_RESONATOR, 1);
-    //        case CROSSBOW_FIREBOLT_THROWER -> Map.of(CHAIN_REACTION, 1);
-    //        case CROSSBOW_HARP_CROSSBOW, CROSSBOW_SCATTER_CROSSBOW -> Map.of(MULTISHOT, 1);
-    //        case CROSSBOW_IMPLODING_CROSSBOW, CROSSBOW_VOIDCALLER_CROSSBOW -> Map.of(GRAVITY, 1);
-    //        case CROSSBOW_LIGHTNING_HARP_CROSSBOW -> Map.of(MULTISHOT, 1, RICOCHET, 1);
-    //        case CROSSBOW_NAUTICAL_CROSSBOW, CROSSBOW_PRIDE_OF_THE_PIGLINS, CROSSBOW_THE_SLICER -> Map.of(PIERCING, 1);
-    //        case CROSSBOW_SHADOW_CROSSBOW -> Map.of(SHADOW_SHOT, 1);
-    //        case CROSSBOW_SLAYER_CROSSBOW -> Map.of(RICOCHET, 1);
-    //        case CROSSBOW_VEILED_CROSSBOW -> Map.of(SHADOW_SHOT, 1, SHADOW_BARB, 1);
-    //    };
-    //}
 }

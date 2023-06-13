@@ -3,12 +3,18 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwStaff;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -96,6 +102,20 @@ public enum StavesID implements IMeleeWeaponID {
     }
 
     @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case STAFF_BATTLESTAFF -> null;
+            case STAFF_BATTLESTAFF_OF_TERROR -> Map.of(EnchantsRegistry.EXPLODING, 1);
+            case STAFF_GROWING_STAFF -> Map.of(EnchantsRegistry.COMMITTED, 1);
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
+
+    @Override
     public McdwStaff makeWeapon() {
         McdwStaff mcdwStaff = new McdwStaff(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
@@ -103,13 +123,4 @@ public enum StavesID implements IMeleeWeaponID {
         getItemsEnum().put(this, mcdwStaff);
         return mcdwStaff;
     }
-
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case STAFF_BATTLESTAFF -> null;
-    //        case STAFF_BATTLESTAFF_OF_TERROR -> Map.of(EXPLODING, 1);
-    //        case STAFF_GROWING_STAFF -> Map.of(COMMITTED, 1);
-    //    };
-    //}
 }

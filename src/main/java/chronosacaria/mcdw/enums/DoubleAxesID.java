@@ -3,12 +3,18 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwDoubleAxe;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -96,6 +102,20 @@ public enum DoubleAxesID implements IMeleeWeaponID {
     }
 
     @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case AXE_CURSED -> Map.of(EnchantsRegistry.EXPLODING, 1);
+            case AXE_DOUBLE -> null;
+            case AXE_WHIRLWIND -> Map.of(EnchantsRegistry.SHOCKWAVE, 1);
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
+
+    @Override
     public McdwDoubleAxe makeWeapon() {
         McdwDoubleAxe mcdwDoubleAxe = new McdwDoubleAxe(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
@@ -103,13 +123,4 @@ public enum DoubleAxesID implements IMeleeWeaponID {
         getItemsEnum().put(this, mcdwDoubleAxe);
         return mcdwDoubleAxe;
     }
-
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case AXE_CURSED -> Map.of(EXPLODING, 1);
-    //        case AXE_DOUBLE -> null;
-    //        case AXE_WHIRLWIND -> Map.of(SHOCKWAVE, 1);
-    //    };
-    //}
 }

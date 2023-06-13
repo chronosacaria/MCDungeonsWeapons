@@ -3,12 +3,18 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwHammer;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -101,6 +107,23 @@ public enum HammersID implements IMeleeWeaponID {
     }
 
     @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case HAMMER_BONECLUB, HAMMER_GREAT_HAMMER, HAMMER_MACE -> null;
+            case HAMMER_FLAIL -> Map.of(EnchantsRegistry.CHAINS, 1);
+            case HAMMER_BONE_CUDGEL -> Map.of(EnchantsRegistry.ILLAGERS_BANE, 1);
+            case HAMMER_GRAVITY -> Map.of(EnchantsRegistry.GRAVITY, 1);
+            case HAMMER_STORMLANDER -> Map.of(EnchantsRegistry.THUNDERING, 1);
+            case HAMMER_SUNS_GRACE -> Map.of(EnchantsRegistry.RADIANCE, 1);
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
+
+    @Override
     public McdwHammer makeWeapon() {
         McdwHammer mcdwHammer = new McdwHammer(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
@@ -108,16 +131,4 @@ public enum HammersID implements IMeleeWeaponID {
         getItemsEnum().put(this, mcdwHammer);
         return mcdwHammer;
     }
-
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case HAMMER_BONECLUB, HAMMER_GREAT_HAMMER, HAMMER_MACE -> null;
-    //        case HAMMER_FLAIL -> Map.of(CHAINS, 1);
-    //        case HAMMER_BONE_CUDGEL -> Map.of(ILLAGERS_BANE, 1);
-    //        case HAMMER_GRAVITY -> Map.of(GRAVITY, 1);
-    //        case HAMMER_STORMLANDER -> Map.of(THUNDERING, 1);
-    //        case HAMMER_SUNS_GRACE -> Map.of(RADIANCE, 1);
-    //    };
-    //}
 }
