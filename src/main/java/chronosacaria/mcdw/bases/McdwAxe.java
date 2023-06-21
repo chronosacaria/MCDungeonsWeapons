@@ -23,10 +23,12 @@ import java.util.Map;
 
 public class McdwAxe extends AxeItem implements IInnateEnchantment {
     String[] repairIngredient;
-    public McdwAxe(ToolMaterial material, float attackDamage, float attackSpeed, String[] repairIngredient){
+    AxesID axeEnum;
+    public McdwAxe(AxesID axeEnum, ToolMaterial material, float attackDamage, float attackSpeed, String[] repairIngredient){
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this));
+        this.axeEnum = axeEnum;
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this.getDefaultStack()));
         this.repairIngredient = repairIngredient;
     }
 
