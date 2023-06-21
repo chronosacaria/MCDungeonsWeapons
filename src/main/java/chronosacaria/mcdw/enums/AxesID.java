@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.bases.McdwAxe;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.EnchantsRegistry;

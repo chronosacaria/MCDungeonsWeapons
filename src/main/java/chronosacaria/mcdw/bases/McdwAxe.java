@@ -1,11 +1,14 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
+import chronosacaria.mcdw.enums.AxesID;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,8 +19,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
-public class McdwAxe extends AxeItem {
+public class McdwAxe extends AxeItem implements IInnateEnchantment {
     String[] repairIngredient;
     public McdwAxe(ToolMaterial material, float attackDamage, float attackSpeed, String[] repairIngredient){
         super(material, attackDamage, attackSpeed,
@@ -32,6 +36,16 @@ public class McdwAxe extends AxeItem {
     }
 
     @Override
+    public ItemStack getDefaultStack() {
+        return getInnateEnchantedStack(this);
+    }
+
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return this.axeEnum.getInnateEnchantments();
+    }
+
+    @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
         int i = 1;
@@ -42,5 +56,4 @@ public class McdwAxe extends AxeItem {
             i++;
         }
     }
-
 }

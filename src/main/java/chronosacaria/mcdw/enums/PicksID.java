@@ -4,16 +4,11 @@ import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwPick;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.ItemsRegistry;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -101,15 +96,15 @@ public enum PicksID implements IMeleeWeaponID {
         return repairIngredient;
     }
 
-    @Override
-    public Map<Enchantment, Integer> getInnateEnchantments() {
-        return null;
-    }
-
-    @Override
-    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-        return item.getDefaultStack();
-    }
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return null;
+    //}
+//
+    //@Override
+    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+    //    return item.getDefaultStack();
+    //}
 
     @Override
     public McdwPick makeWeapon() {

@@ -3,20 +3,14 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwLongbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import net.projectile_damage.api.IProjectileWeapon;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -118,18 +112,18 @@ public enum LongbowsID implements IRangedWeaponID {
         return repairIngredient;
     }
 
-    @Override
-    public Map<Enchantment, Integer> getInnateEnchantments() {
-        return switch (this) {
-            case BOW_GUARDIAN_BOW, BOW_LONGBOW -> null;
-            case BOW_RED_SNAKE -> Map.of(EnchantsRegistry.FUSE_SHOT, 1);
-        };
-    }
-
-    @Override
-    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-        return item.getDefaultStack();
-    }
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+    //        case BOW_GUARDIAN_BOW, BOW_LONGBOW -> null;
+    //        case BOW_RED_SNAKE -> Map.of(EnchantsRegistry.FUSE_SHOT, 1);
+    //    };
+    //}
+    //
+    //@Override
+    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+    //    return item.getDefaultStack();
+    //}
 
     @SuppressWarnings("ConstantConditions")
     @Override

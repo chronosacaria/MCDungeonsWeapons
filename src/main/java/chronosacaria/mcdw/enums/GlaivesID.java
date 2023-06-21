@@ -3,18 +3,12 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwGlaive;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -102,19 +96,19 @@ public enum GlaivesID implements IMeleeWeaponID {
         return repairIngredient;
     }
 
-    @Override
-    public Map<Enchantment, Integer> getInnateEnchantments() {
-        return switch (this) {
-            case SPEAR_CACKLING_BROOM, SPEAR_GRAVE_BANE -> Map.of(EnchantsRegistry.SMITING, 1);
-            case SPEAR_GLAIVE -> null;
-            case SPEAR_VENOM_GLAIVE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
-        };
-    }
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+    //        case SPEAR_CACKLING_BROOM, SPEAR_GRAVE_BANE -> Map.of(EnchantsRegistry.SMITING, 1);
+    //        case SPEAR_GLAIVE -> null;
+    //        case SPEAR_VENOM_GLAIVE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
+    //    };
+    //}
 
-    @Override
-    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-        return item.getDefaultStack();
-    }
+    //@Override
+    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+    //    return item.getDefaultStack();
+    //}
 
     @Override
     public McdwGlaive makeWeapon() {

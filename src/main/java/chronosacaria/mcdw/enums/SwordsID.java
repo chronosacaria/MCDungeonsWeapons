@@ -3,18 +3,12 @@ package chronosacaria.mcdw.enums;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwSword;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
-import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
@@ -122,27 +116,27 @@ public enum SwordsID implements IMeleeWeaponID {
         return repairIngredient;
     }
 
-    @Override
-    public Map<Enchantment, Integer> getInnateEnchantments() {
-        return switch (this) {
-            case SWORD_BEESTINGER, SWORD_BROKEN_SAWBLADE, SWORD_CLAYMORE, SWORD_CORAL_BLADE, SWORD_CUTLASS, SWORD_DIAMOND_SWORD_VAR, SWORD_IRON_SWORD_VAR, SWORD_KATANA, SWORD_MECHANIZED_SAWBLADE, SWORD_OBSIDIAN_CLAYMORE, SWORD_RAPIER -> null;
-            case SWORD_BROADSWORD -> Map.of(EnchantsRegistry.SWIRLING, 1);
-            case SWORD_DANCERS_SWORD -> Map.of(EnchantsRegistry.RAMPAGING, 1);
-            case SWORD_DARK_KATANA -> Map.of(EnchantsRegistry.SMITING, 1);
-            case SWORD_FREEZING_FOIL, SWORD_FROST_SLAYER -> Map.of(EnchantsRegistry.FREEZING, 1);
-            case SWORD_GREAT_AXEBLADE -> Map.of(EnchantsRegistry.DYNAMO, 1);
-            case SWORD_HAWKBRAND, SWORD_MASTERS_KATANA, SWORD_SINISTER -> Map.of(EnchantsRegistry.CRITICAL_HIT, 1);
-            case SWORD_HEARTSTEALER -> Map.of(EnchantsRegistry.LEECHING, 1);
-            case SWORD_NAMELESS_BLADE -> Map.of(EnchantsRegistry.WEAKENING, 1);
-            case SWORD_SPONGE_STRIKER -> Map.of(EnchantsRegistry.ENIGMA_RESONATOR, 1);
-            case SWORD_THE_STARLESS_NIGHT -> Map.of(EnchantsRegistry.SHARED_PAIN, 1);
-        };
-    }
-
-    @Override
-    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-        return item.getDefaultStack();
-    }
+    //@Override
+    //public Map<Enchantment, Integer> getInnateEnchantments() {
+    //    return switch (this) {
+    //        case SWORD_BEESTINGER, SWORD_BROKEN_SAWBLADE, SWORD_CLAYMORE, SWORD_CORAL_BLADE, SWORD_CUTLASS, SWORD_DIAMOND_SWORD_VAR, SWORD_IRON_SWORD_VAR, SWORD_KATANA, SWORD_MECHANIZED_SAWBLADE, SWORD_OBSIDIAN_CLAYMORE, SWORD_RAPIER -> null;
+    //        case SWORD_BROADSWORD -> Map.of(EnchantsRegistry.SWIRLING, 1);
+    //        case SWORD_DANCERS_SWORD -> Map.of(EnchantsRegistry.RAMPAGING, 1);
+    //        case SWORD_DARK_KATANA -> Map.of(EnchantsRegistry.SMITING, 1);
+    //        case SWORD_FREEZING_FOIL, SWORD_FROST_SLAYER -> Map.of(EnchantsRegistry.FREEZING, 1);
+    //        case SWORD_GREAT_AXEBLADE -> Map.of(EnchantsRegistry.DYNAMO, 1);
+    //        case SWORD_HAWKBRAND, SWORD_MASTERS_KATANA, SWORD_SINISTER -> Map.of(EnchantsRegistry.CRITICAL_HIT, 1);
+    //        case SWORD_HEARTSTEALER -> Map.of(EnchantsRegistry.LEECHING, 1);
+    //        case SWORD_NAMELESS_BLADE -> Map.of(EnchantsRegistry.WEAKENING, 1);
+    //        case SWORD_SPONGE_STRIKER -> Map.of(EnchantsRegistry.ENIGMA_RESONATOR, 1);
+    //        case SWORD_THE_STARLESS_NIGHT -> Map.of(EnchantsRegistry.SHARED_PAIN, 1);
+    //    };
+    //}
+    //
+    //@Override
+    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+    //    return item.getDefaultStack();
+    //}
 
     @Override
     public McdwSword makeWeapon() {
