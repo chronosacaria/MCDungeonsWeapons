@@ -18,6 +18,7 @@ public class GrindstoneScreenHandlerMixin {
         Map<Enchantment, Integer> map = args.get(0);
         if (args.get(1) instanceof ItemStack itemStack && itemStack.getItem() instanceof IInnateEnchantment) {
             Map<Enchantment, Integer> innateMap = ((IInnateEnchantment) itemStack.getItem()).getInnateEnchantments();
+            if (innateMap == null) return;
             for (Enchantment enchantment : innateMap.keySet())
                 map.put(enchantment, innateMap.get(enchantment));
             args.set(0, map);

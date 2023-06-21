@@ -1,11 +1,14 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
+import chronosacaria.mcdw.enums.CrossbowsID;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -13,19 +16,22 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
-public class McdwCrossbow extends CrossbowItem {
+public class McdwCrossbow extends CrossbowItem implements IInnateEnchantment {
 
     public final ToolMaterial material;
     public final int drawSpeed;
     public final float range;
     String[] repairIngredient;
+    CrossbowsID crossbowsEnum;
 
-    public McdwCrossbow(ToolMaterial material, int drawSpeed, float range, String[] repairIngredient) {
+    public McdwCrossbow(CrossbowsID crossbowsEnum, ToolMaterial material, int drawSpeed, float range, String[] repairIngredient) {
         super(new Item.Settings().maxCount(1).maxDamage(100 + material.getDurability())
                 .rarity(RarityHelper.fromToolMaterial(material))
         );
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.RANGED).register(entries -> entries.add(this));
+        this.crossbowsEnum = crossbowsEnum;
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.RANGED).register(entries -> entries.add(this.getDefaultStack()));
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.range = range;
@@ -60,7 +66,15 @@ public class McdwCrossbow extends CrossbowItem {
         return this.drawSpeed;
     }
 
-    
+    @Override
+    public ItemStack getDefaultStack() {
+        return getInnateEnchantedStack(this);
+    }
+
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return this.crossbowsEnum.getInnateEnchantments();
+    }
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {

@@ -2,11 +2,14 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
+import chronosacaria.mcdw.enums.ShortbowsID;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,21 +22,24 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.function.Predicate;
 
-public class McdwShortbow extends BowItem {
+public class McdwShortbow extends BowItem implements IInnateEnchantment {
 
     public final ToolMaterial material;
     public final float drawSpeed;
     public float maxBowRange;
     private final ParticleEffect type;
     String[] repairIngredient;
+    ShortbowsID shortbowsEnum;
 
-    public McdwShortbow(ToolMaterial material, float drawSpeed, float maxBowRangePar, String[] repairIngredient) {
+    public McdwShortbow(ShortbowsID shortbowsEnum, ToolMaterial material, float drawSpeed, float maxBowRangePar, String[] repairIngredient) {
         super(new Item.Settings().maxCount(1).maxDamage(material.getDurability())
                 .rarity(RarityHelper.fromToolMaterial(material))
         );
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.RANGED).register(entries -> entries.add(this));
+        this.shortbowsEnum = shortbowsEnum;
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.RANGED).register(entries -> entries.add(this.getDefaultStack()));
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.repairIngredient = repairIngredient;
@@ -70,7 +76,15 @@ public class McdwShortbow extends BowItem {
         return CleanlinessHelper.canRepairCheck(repairIngredient, ingredient);
     }
 
-    
+    @Override
+    public ItemStack getDefaultStack() {
+        return getInnateEnchantedStack(this);
+    }
+
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return this.shortbowsEnum.getInnateEnchantments();
+    }
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {

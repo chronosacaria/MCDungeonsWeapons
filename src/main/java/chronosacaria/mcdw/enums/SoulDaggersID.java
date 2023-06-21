@@ -1,18 +1,25 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.bases.McdwSoulDagger;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum SoulDaggersID implements IMeleeWeaponID {
+public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
     DAGGER_ETERNAL_KNIFE(ToolMaterials.NETHERITE,4, -2.8f, "minecraft:netherite_scrap"),
     DAGGER_SOUL_KNIFE(ToolMaterials.IRON,4, -2.8f, "minecraft:iron_ingot"),
     SWORD_TRUTHSEEKER(ToolMaterials.NETHERITE,3, -2.8f, "minecraft:netherite_scrap");
@@ -96,23 +103,23 @@ public enum SoulDaggersID implements IMeleeWeaponID {
         return repairIngredient;
     }
 
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case DAGGER_ETERNAL_KNIFE -> Map.of(EnchantsRegistry.SOUL_SIPHON, 1);
-    //        case DAGGER_SOUL_KNIFE -> null;
-    //        case SWORD_TRUTHSEEKER -> Map.of(EnchantsRegistry.COMMITTED, 1);
-    //    };
-    //}
-    //
-    //@Override
-    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-    //    return item.getDefaultStack();
-    //}
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case DAGGER_ETERNAL_KNIFE -> Map.of(EnchantsRegistry.SOUL_SIPHON, 1);
+            case DAGGER_SOUL_KNIFE -> null;
+            case SWORD_TRUTHSEEKER -> Map.of(EnchantsRegistry.COMMITTED, 1);
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
 
     @Override
     public McdwSoulDagger makeWeapon() {
-        McdwSoulDagger mcdwSoulDagger = new McdwSoulDagger(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwSoulDagger mcdwSoulDagger = new McdwSoulDagger(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwSoulDagger);

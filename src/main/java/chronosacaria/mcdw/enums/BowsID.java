@@ -1,20 +1,28 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.bases.McdwBow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import net.projectile_damage.api.IProjectileWeapon;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum BowsID implements IRangedWeaponID {
+public enum BowsID implements IRangedWeaponID, IInnateEnchantment {
     BOW_ANCIENT_BOW(       ToolMaterials.NETHERITE, 7, 14, 18f, "minecraft:netherite_scrap"),
     BOW_BONEBOW(           ToolMaterials.STONE,     5, 16, 12f, "minecraft:bone"),
     BOW_BUBBLE_BOW(        ToolMaterials.IRON,      5, 15, 12f, "minecraft:iron_ingot"),
@@ -139,38 +147,38 @@ public enum BowsID implements IRangedWeaponID {
         return repairIngredient;
     }
 
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case BOW_ANCIENT_BOW -> Map.of(EnchantsRegistry.DYNAMO, 1);
-    //        case BOW_BONEBOW -> Map.of(EnchantsRegistry.GROWING, 1);
-    //        case BOW_BUBBLE_BOW, BOW_SNOW_BOW, BOW_SOUL_BOW, BOW_TRICKBOW, BOW_TWISTING_VINE_BOW, BOW_WEEPING_VINE_BOW, BOW_WIND_BOW, BOW_WINTERS_TOUCH, BOW_POWER_BOW, BOW_HUNTING_BOW -> null;
-    //        case BOW_BUBBLE_BURSTER, BOW_ECHO_OF_THE_VALLEY -> Map.of(EnchantsRegistry.RICOCHET, 1);
-    //        case BOW_BURST_GALE_BOW -> Map.of(EnchantsRegistry.CHARGE, 1);
-    //        case BOW_CALL_OF_THE_VOID -> Map.of(EnchantsRegistry.FUSE_SHOT, 1, EnchantsRegistry.VOID_SHOT, 1);
-    //        case BOW_ELITE_POWER_BOW, BOW_MASTERS_BOW -> Map.of(Enchantments.POWER, 1);
-    //        case BOW_GREEN_MENACE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
-    //        case BOW_HAUNTED_BOW, BOW_TWIN_BOW -> Map.of(EnchantsRegistry.BONUS_SHOT, 1);
-    //        case BOW_HUNTERS_PROMISE -> Map.of(EnchantsRegistry.REPLENISH, 1);
-    //        case BOW_LOST_SOULS -> Map.of(Enchantments.MULTISHOT, 1);
-    //        case BOW_NOCTURNAL_BOW, BOW_SHIVERING_BOW -> Map.of(EnchantsRegistry.TEMPO_THEFT, 1);
-    //        case BOW_PHANTOM_BOW -> Map.of(EnchantsRegistry.PHANTOMS_MARK, 1, Enchantments.POWER, 1);
-    //        case BOW_PINK_SCOUNDREL -> Map.of(EnchantsRegistry.RICOCHET, 1, EnchantsRegistry.WILD_RAGE, 1);
-    //        case BOW_SABREWING -> Map.of(EnchantsRegistry.RADIANCE, 1);
-    //        case BOW_VOID_BOW -> Map.of(EnchantsRegistry.VOID_SHOT, 1);
-    //        case BOW_WEB_BOW -> Map.of(EnchantsRegistry.COBWEB_SHOT, 1);
-    //    };
-    //}
-//
-    //@Override
-    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-    //    return item.getDefaultStack();
-    //}
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case BOW_ANCIENT_BOW -> Map.of(EnchantsRegistry.DYNAMO, 1);
+            case BOW_BONEBOW -> Map.of(EnchantsRegistry.GROWING, 1);
+            case BOW_BUBBLE_BOW, BOW_SNOW_BOW, BOW_SOUL_BOW, BOW_TRICKBOW, BOW_TWISTING_VINE_BOW, BOW_WEEPING_VINE_BOW, BOW_WIND_BOW, BOW_WINTERS_TOUCH, BOW_POWER_BOW, BOW_HUNTING_BOW -> null;
+            case BOW_BUBBLE_BURSTER, BOW_ECHO_OF_THE_VALLEY -> Map.of(EnchantsRegistry.RICOCHET, 1);
+            case BOW_BURST_GALE_BOW -> Map.of(EnchantsRegistry.CHARGE, 1);
+            case BOW_CALL_OF_THE_VOID -> Map.of(EnchantsRegistry.FUSE_SHOT, 1, EnchantsRegistry.VOID_SHOT, 1);
+            case BOW_ELITE_POWER_BOW, BOW_MASTERS_BOW -> Map.of(Enchantments.POWER, 1);
+            case BOW_GREEN_MENACE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
+            case BOW_HAUNTED_BOW, BOW_TWIN_BOW -> Map.of(EnchantsRegistry.BONUS_SHOT, 1);
+            case BOW_HUNTERS_PROMISE -> Map.of(EnchantsRegistry.REPLENISH, 1);
+            case BOW_LOST_SOULS -> Map.of(Enchantments.MULTISHOT, 1);
+            case BOW_NOCTURNAL_BOW, BOW_SHIVERING_BOW -> Map.of(EnchantsRegistry.TEMPO_THEFT, 1);
+            case BOW_PHANTOM_BOW -> Map.of(EnchantsRegistry.PHANTOMS_MARK, 1, Enchantments.POWER, 1);
+            case BOW_PINK_SCOUNDREL -> Map.of(EnchantsRegistry.RICOCHET, 1, EnchantsRegistry.WILD_RAGE, 1);
+            case BOW_SABREWING -> Map.of(EnchantsRegistry.RADIANCE, 1);
+            case BOW_VOID_BOW -> Map.of(EnchantsRegistry.VOID_SHOT, 1);
+            case BOW_WEB_BOW -> Map.of(EnchantsRegistry.COBWEB_SHOT, 1);
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
 
     @SuppressWarnings("ConstantConditions")
     @Override
     public McdwBow makeWeapon() {
-        McdwBow mcdwBow = new McdwBow(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwBow mcdwBow = new McdwBow(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
         if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
             ((IProjectileWeapon) mcdwBow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);

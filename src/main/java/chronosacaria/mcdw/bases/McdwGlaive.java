@@ -1,9 +1,11 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
+import chronosacaria.mcdw.enums.GlaivesID;
 import chronosacaria.mcdw.registries.EntityAttributesRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -11,6 +13,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -28,18 +31,21 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
-public class McdwGlaive extends SwordItem {
+public class McdwGlaive extends SwordItem implements IInnateEnchantment {
     String[] repairIngredient;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     private final ToolMaterial material;
     private final float attackDamage;
+    GlaivesID glaivesEnum;
 
-    public McdwGlaive(ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
+    public McdwGlaive(GlaivesID glaivesEnum, ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this));
+        this.glaivesEnum = glaivesEnum;
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this.getDefaultStack()));
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
         this.repairIngredient = repairIngredient;
@@ -101,7 +107,15 @@ public class McdwGlaive extends SwordItem {
         return CleanlinessHelper.canRepairCheck(repairIngredient, ingredient);
     }
 
-    
+    @Override
+    public ItemStack getDefaultStack() {
+        return getInnateEnchantedStack(this);
+    }
+
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return this.glaivesEnum.getInnateEnchantments();
+    }
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {

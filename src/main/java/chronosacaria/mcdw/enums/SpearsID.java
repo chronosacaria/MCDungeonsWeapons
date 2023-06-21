@@ -1,18 +1,26 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.bases.McdwSpear;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum SpearsID implements IMeleeWeaponID {
+public enum SpearsID implements IMeleeWeaponID, IInnateEnchantment {
     SPEAR_SPEAR(ToolMaterials.IRON,4, -2.5f, "minecraft:iron_ingot"),
     SPEAR_WHISPERING_SPEAR(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot"),
     SPEAR_FORTUNE(ToolMaterials.IRON,5, -2.5f, "minecraft:iron_ingot");
@@ -95,23 +103,23 @@ public enum SpearsID implements IMeleeWeaponID {
         return repairIngredient;
     }
 
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case SPEAR_SPEAR -> null;
-    //        case SPEAR_WHISPERING_SPEAR -> Map.of(EnchantsRegistry.ECHO, 1);
-    //        case SPEAR_FORTUNE -> Map.of(Enchantments.LOOTING, 1);
-    //    };
-    //}
-    //
-    //@Override
-    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-    //    return item.getDefaultStack();
-    //}
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case SPEAR_SPEAR -> null;
+            case SPEAR_WHISPERING_SPEAR -> Map.of(EnchantsRegistry.ECHO, 1);
+            case SPEAR_FORTUNE -> Map.of(Enchantments.LOOTING, 1);
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
 
     @Override
     public McdwSpear makeWeapon() {
-        McdwSpear mcdwSpear = new McdwSpear(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwSpear mcdwSpear = new McdwSpear(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwSpear);

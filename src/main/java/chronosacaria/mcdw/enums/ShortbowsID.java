@@ -1,20 +1,27 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.bases.McdwShortbow;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
 import net.projectile_damage.api.IProjectileWeapon;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum ShortbowsID implements IRangedWeaponID {
+public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
     BOW_LOVE_SPELL_BOW(     ToolMaterials.IRON, 3, 9, 8f, "minecraft:iron_ingot"),
     BOW_MECHANICAL_SHORTBOW(ToolMaterials.IRON, 4, 9, 9f, "minecraft:iron_ingot"),
     BOW_PURPLE_STORM(       ToolMaterials.IRON, 3, 9, 8f, "minecraft:iron_ingot"),
@@ -113,24 +120,24 @@ public enum ShortbowsID implements IRangedWeaponID {
         return repairIngredient;
     }
 
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case BOW_LOVE_SPELL_BOW -> Map.of(EnchantsRegistry.RADIANCE, 1);
-    //        case BOW_MECHANICAL_SHORTBOW -> Map.of(EnchantsRegistry.ACCELERATE, 1);
-    //        case BOW_PURPLE_STORM,BOW_SHORTBOW -> null;
-    //    };
-    //}
-    //
-    //@Override
-    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-    //    return item.getDefaultStack();
-    //}
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case BOW_LOVE_SPELL_BOW -> Map.of(EnchantsRegistry.RADIANCE, 1);
+            case BOW_MECHANICAL_SHORTBOW -> Map.of(EnchantsRegistry.ACCELERATE, 1);
+            case BOW_PURPLE_STORM,BOW_SHORTBOW -> null;
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
 
     @SuppressWarnings("ConstantConditions")
     @Override
     public McdwShortbow makeWeapon() {
-        McdwShortbow mcdwShortbow = new McdwShortbow(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwShortbow mcdwShortbow = new McdwShortbow(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().drawSpeed, this.getWeaponItemStats().range, this.getWeaponItemStats().repairIngredient);
         if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
             ((IProjectileWeapon) mcdwShortbow).setProjectileDamage(this.getWeaponItemStats().projectileDamage);

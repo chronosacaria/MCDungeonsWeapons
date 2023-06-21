@@ -15,6 +15,7 @@ public class CraftingScreenHandlerMixin {
     private static ItemStack innateItemStack(ItemStack itemStack) {
         if (itemStack.getItem() instanceof IInnateEnchantment innateEnchantedItem) {
             Map<Enchantment, Integer> map = innateEnchantedItem.getInnateEnchantments();
+            if (map == null) return itemStack;
             for (Enchantment enchantment : map.keySet())
                 itemStack.addEnchantment(enchantment, map.get(enchantment));
         }

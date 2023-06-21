@@ -1,11 +1,14 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
+import chronosacaria.mcdw.enums.DoubleAxesID;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,13 +19,16 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
-public class McdwDoubleAxe extends AxeItem {
+public class McdwDoubleAxe extends AxeItem implements IInnateEnchantment {
     String[] repairIngredient;
-    public McdwDoubleAxe(ToolMaterial material, float attackDamage, float attackSpeed, String[] repairIngredient){
+    DoubleAxesID doubleAxesEnum;
+    public McdwDoubleAxe(DoubleAxesID doubleAxesEnum, ToolMaterial material, float attackDamage, float attackSpeed, String[] repairIngredient){
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this));
+        this.doubleAxesEnum = doubleAxesEnum;
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this.getDefaultStack()));
         this.repairIngredient = repairIngredient;
     }
 
@@ -31,7 +37,15 @@ public class McdwDoubleAxe extends AxeItem {
         return CleanlinessHelper.canRepairCheck(repairIngredient, ingredient);
     }
 
-    
+    @Override
+    public ItemStack getDefaultStack() {
+        return getInnateEnchantedStack(this);
+    }
+
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return this.doubleAxesEnum.getInnateEnchantments();
+    }
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext){

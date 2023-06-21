@@ -96,16 +96,6 @@ public enum PicksID implements IMeleeWeaponID {
         return repairIngredient;
     }
 
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return null;
-    //}
-//
-    //@Override
-    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-    //    return item.getDefaultStack();
-    //}
-
     @Override
     public McdwPick makeWeapon() {
         McdwPick mcdwPick = new McdwPick(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),

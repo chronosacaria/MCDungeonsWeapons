@@ -79,16 +79,6 @@ public enum ShieldsID implements IShieldID {
         return repairIngredient;
     }
 
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return null;
-    //}
-    //
-    //@Override
-    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-    //    return item.getDefaultStack();
-    //}
-
     @Override
     public McdwShield makeWeapon() {
         McdwShield mcdwShield = new McdwShield(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material), this.getWeaponItemStats().repairIngredient);

@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.SwordsID;
@@ -15,6 +16,7 @@ import net.minecraft.block.Oxidizable;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.tag.BlockTags;
@@ -30,15 +32,18 @@ import net.minecraft.world.event.GameEvent;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 
-public class McdwSword extends SwordItem {
+public class McdwSword extends SwordItem implements IInnateEnchantment {
     String[] repairIngredient;
+    SwordsID swordsEnum;
 
-    public McdwSword(ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
+    public McdwSword(SwordsID swordsEnum, ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this));
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this.getDefaultStack()));
+        this.swordsEnum = swordsEnum;
         this.repairIngredient = repairIngredient;
     }
 
@@ -103,6 +108,16 @@ public class McdwSword extends SwordItem {
 
     private Optional<BlockState> getStrippedState(BlockState state) {
         return Optional.ofNullable(InsulatedAxeItemAccessor.getSTRIPPED_BLOCKS().get(state.getBlock())).map((block) -> block.getDefaultState().with(PillarBlock.AXIS, state.get(PillarBlock.AXIS)));
+    }
+
+    @Override
+    public ItemStack getDefaultStack() {
+        return getInnateEnchantedStack(this);
+    }
+
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return this.swordsEnum.getInnateEnchantments();
     }
 
     @Override

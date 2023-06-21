@@ -1,18 +1,25 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.bases.McdwGauntlet;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum GauntletsID implements IMeleeWeaponID {
+public enum GauntletsID implements IMeleeWeaponID, IInnateEnchantment {
     GAUNTLET_GAUNTLET(ToolMaterials.IRON,0, -1.5f, "minecraft:iron_ingot"),
     GAUNTLET_MAULERS(ToolMaterials.DIAMOND,1, -1.5f, "minecraft:diamond"),
     GAUNTLET_SOUL_FISTS(ToolMaterials.NETHERITE,0, -1.5f, "minecraft:netherite_scrap");
@@ -95,23 +102,23 @@ public enum GauntletsID implements IMeleeWeaponID {
         return repairIngredient;
     }
 
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case GAUNTLET_GAUNTLET -> null;
-    //        case GAUNTLET_MAULERS -> Map.of(EnchantsRegistry.RAMPAGING, 1);
-    //        case GAUNTLET_SOUL_FISTS -> Map.of(EnchantsRegistry.ENIGMA_RESONATOR, 1);
-    //    };
-    //}
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case GAUNTLET_GAUNTLET -> null;
+            case GAUNTLET_MAULERS -> Map.of(EnchantsRegistry.RAMPAGING, 1);
+            case GAUNTLET_SOUL_FISTS -> Map.of(EnchantsRegistry.ENIGMA_RESONATOR, 1);
+        };
+    }
 
-    //@Override
-    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-    //    return item.getDefaultStack();
-    //}
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
 
     @Override
     public McdwGauntlet makeWeapon() {
-        McdwGauntlet mcdwGauntlet = new McdwGauntlet(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwGauntlet mcdwGauntlet = new McdwGauntlet(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwGauntlet);

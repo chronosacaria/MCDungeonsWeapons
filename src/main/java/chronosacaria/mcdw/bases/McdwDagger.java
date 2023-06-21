@@ -1,13 +1,16 @@
 package chronosacaria.mcdw.bases;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
+import chronosacaria.mcdw.enums.DaggersID;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,13 +24,16 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
-public class McdwDagger extends SwordItem implements IOffhandAttack {
+public class McdwDagger extends SwordItem implements IOffhandAttack, IInnateEnchantment {
     String[] repairIngredient;
-    public McdwDagger(ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
+    DaggersID daggersEnum;
+    public McdwDagger(DaggersID daggersEnum, ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this));
+        this.daggersEnum = daggersEnum;
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this.getDefaultStack()));
         this.repairIngredient = repairIngredient;
     }
 
@@ -41,7 +47,15 @@ public class McdwDagger extends SwordItem implements IOffhandAttack {
         return CleanlinessHelper.canRepairCheck(repairIngredient, ingredient);
     }
 
-    
+    @Override
+    public ItemStack getDefaultStack() {
+        return getInnateEnchantedStack(this);
+    }
+
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return this.daggersEnum.getInnateEnchantments();
+    }
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {

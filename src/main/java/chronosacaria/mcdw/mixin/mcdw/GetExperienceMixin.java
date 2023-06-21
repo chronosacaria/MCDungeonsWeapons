@@ -19,6 +19,7 @@ public class GetExperienceMixin {
             int i = cir.getReturnValue();
             Map<Enchantment, Integer> map = EnchantmentHelper.get(stack);
             Map<Enchantment, Integer> innateMap = innateEnchantedWeapon.getInnateEnchantments();
+            if (innateMap == null) return;
             for (Map.Entry<Enchantment, Integer> entry : innateMap.entrySet()) {
                 Enchantment enchantment = entry.getKey();
                 Integer integer = entry.getValue();

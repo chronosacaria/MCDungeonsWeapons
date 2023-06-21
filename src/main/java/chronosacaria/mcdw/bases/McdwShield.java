@@ -21,7 +21,7 @@ public class McdwShield extends ShieldItem {
         super(new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)).maxCount(1)
                 .maxDamage(250 + material.getDurability())
         );
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.SHIELDS).register(entries -> entries.add(this));
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.SHIELDS).register(entries -> entries.add(this.getDefaultStack()));
         this.material = material;
         this.repairIngredient = repairIngredient;
 
@@ -50,8 +50,6 @@ public class McdwShield extends ShieldItem {
         user.setCurrentHand(hand);
         return TypedActionResult.consume(itemStack);
     }
-
-    
 
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {

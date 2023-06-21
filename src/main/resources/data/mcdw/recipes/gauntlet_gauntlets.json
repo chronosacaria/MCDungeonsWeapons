@@ -3,7 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
-        "mcdw:beenest_armor_boots"
+        "mcdw:gauntlet_gauntlet"
       ]
     }
   ],

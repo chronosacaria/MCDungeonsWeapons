@@ -22,7 +22,7 @@ public class McdwPick extends PickaxeItem {
     public McdwPick(ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this));
+        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this.getDefaultStack()));
         this.repairIngredient = repairIngredient;
     }
 
@@ -30,8 +30,6 @@ public class McdwPick extends PickaxeItem {
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return CleanlinessHelper.canRepairCheck(repairIngredient, ingredient);
     }
-
-    
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {

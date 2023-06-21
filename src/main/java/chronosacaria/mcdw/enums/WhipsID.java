@@ -1,18 +1,25 @@
 package chronosacaria.mcdw.enums;
 
 import chronosacaria.mcdw.Mcdw;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.bases.McdwWhip;
 import chronosacaria.mcdw.configs.McdwNewStatsConfig;
+import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ToolMaterials;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Map;
 
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
-public enum WhipsID implements IMeleeWeaponID {
+public enum WhipsID implements IMeleeWeaponID, IInnateEnchantment {
     WHIP_VINE_WHIP(ToolMaterials.IRON, 5, -3.1f, "minecraft:vine"),
     WHIP_WHIP(ToolMaterials.IRON, 3, -3.1f, "minecraft:string");
 
@@ -93,22 +100,22 @@ public enum WhipsID implements IMeleeWeaponID {
         return repairIngredient;
     }
 
-    //@Override
-    //public Map<Enchantment, Integer> getInnateEnchantments() {
-    //    return switch (this) {
-    //        case WHIP_WHIP -> null;
-    //        case WHIP_VINE_WHIP -> Map.of(EnchantsRegistry.JUNGLE_POISON, 1);
-    //    };
-    //}
-    //
-    //@Override
-    //public @NotNull ItemStack getInnateEnchantedStack(Item item) {
-    //    return item.getDefaultStack();
-    //}
+    @Override
+    public Map<Enchantment, Integer> getInnateEnchantments() {
+        return switch (this) {
+            case WHIP_WHIP -> null;
+            case WHIP_VINE_WHIP -> Map.of(EnchantsRegistry.JUNGLE_POISON, 1);
+        };
+    }
+
+    @Override
+    public @NotNull ItemStack getInnateEnchantedStack(Item item) {
+        return item.getDefaultStack();
+    }
 
     @Override
     public McdwWhip makeWeapon() {
-        McdwWhip mcdwWhip = new McdwWhip(ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
+        McdwWhip mcdwWhip = new McdwWhip(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),
                 this.getWeaponItemStats().damage, this.getWeaponItemStats().attackSpeed, this.getWeaponItemStats().repairIngredient);
 
         getItemsEnum().put(this, mcdwWhip);
