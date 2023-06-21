@@ -72,7 +72,11 @@ public class InventoryHelper {
                 if (count > 0) {
                     playerInv.setStack(slotIndex, stackReplaceTo);
                     int k = playerInv.getSlotWithStack(new ItemStack(toReplace));
-                    playerInv.getStack(k).decrement(1);
+                    // getSlotWithStack can't find offhand. If allows it
+                    if (k == -1 && playerInv.offHand.get(0).isOf(toReplace))
+                        playerInv.offHand.get(0).decrement(1);
+                    else
+                        playerInv.getStack(k).decrement(1);
                     count--;
                 } else
                     break;
