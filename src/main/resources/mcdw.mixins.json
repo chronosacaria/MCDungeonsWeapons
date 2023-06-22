@@ -21,6 +21,7 @@
     "mcdw.PersistentProjectileEntityMixin",
     "mcdw.PlayerEntityMixin",
     "mcdw.ShieldPlayerEntityMixin",
+    "mcdw.SmithingScreenHandlerMixin",
     "reach.ItemMixin",
     "reach.ServerPlayNetworkPlayerEntityInteractionHandlerMixin"
   ],

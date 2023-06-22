@@ -20,9 +20,9 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum DoubleAxesID implements IMeleeWeaponID, IInnateEnchantment {
-    AXE_CURSED(ToolMaterials.IRON,7, -2.9f, "minecraft:iron_ingot"),
-    AXE_DOUBLE(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot"),
-    AXE_WHIRLWIND(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot");
+    DOUBLE_AXE_CURSED(ToolMaterials.IRON,7, -2.9f, "minecraft:iron_ingot"),
+    DOUBLE_AXE_DOUBLE(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot"),
+    DOUBLE_AXE_WHIRLWIND(ToolMaterials.IRON,6, -2.9f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
@@ -105,9 +105,9 @@ public enum DoubleAxesID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case AXE_CURSED -> Map.of(EnchantsRegistry.EXPLODING, 1);
-            case AXE_DOUBLE -> null;
-            case AXE_WHIRLWIND -> Map.of(EnchantsRegistry.SHOCKWAVE, 1);
+            case DOUBLE_AXE_CURSED -> Map.of(EnchantsRegistry.EXPLODING, 1);
+            case DOUBLE_AXE_DOUBLE -> null;
+            case DOUBLE_AXE_WHIRLWIND -> Map.of(EnchantsRegistry.SHOCKWAVE, 1);
         };
     }
 

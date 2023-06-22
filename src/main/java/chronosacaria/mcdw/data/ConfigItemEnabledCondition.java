@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ConfigItemEnabledCondition {
 
-    public static void init() {
+    public static void register() {
         ResourceConditions.register(new Identifier(Mcdw.MOD_ID, "config_enabled"), jsonObject -> {
             JsonArray jsonArray = JsonHelper.getArray(jsonObject, "values");
             List<Boolean> booleanArrayList = new ArrayList<>();

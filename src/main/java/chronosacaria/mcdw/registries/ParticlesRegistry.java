@@ -13,11 +13,11 @@ public class ParticlesRegistry {
 
     public static final DefaultParticleType OFFHAND_SWEEP_PARTICLE = FabricParticleTypes.simple(true);
 
-    public static void initParticlesOnServer() {
+    public static void registerOnServer() {
         Registry.register(Registries.PARTICLE_TYPE, new Identifier(Mcdw.MOD_ID, "offhand_sweep"), OFFHAND_SWEEP_PARTICLE);
     }
 
-    public static void initParticlesOnClient() {
+    public static void registerOnClient() {
         ParticleFactoryRegistry.getInstance().register(OFFHAND_SWEEP_PARTICLE, SweepAttackParticle.Factory::new);
     }
 }

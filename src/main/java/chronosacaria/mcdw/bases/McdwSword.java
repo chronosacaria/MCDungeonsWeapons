@@ -1,11 +1,11 @@
 package chronosacaria.mcdw.bases;
 
-import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.mixin.mcdw.InsulatedAxeItemAccessor;
+import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import com.google.common.collect.BiMap;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -42,7 +42,7 @@ public class McdwSword extends SwordItem implements IInnateEnchantment {
     public McdwSword(SwordsID swordsEnum, ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this.getDefaultStack()));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.MELEE).register(entries -> entries.add(this.getDefaultStack()));
         this.swordsEnum = swordsEnum;
         this.repairIngredient = repairIngredient;
     }
@@ -52,6 +52,7 @@ public class McdwSword extends SwordItem implements IInnateEnchantment {
         return CleanlinessHelper.canRepairCheck(repairIngredient, ingredient);
     }
 
+    @SuppressWarnings("rawtypes")
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();

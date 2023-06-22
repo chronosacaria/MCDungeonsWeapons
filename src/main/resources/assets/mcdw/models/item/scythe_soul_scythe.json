@@ -1,0 +1,17 @@
+{
+  "parent": "mcdw:item/model_scythe",
+  "textures": {
+	  "layer0": "mcdw:item/scythes/scythe_soul_scythe"
+  },
+	"display": {
+		"head": {
+			"rotation": [0, 0, 0],
+			"translation": [0, 2, 0],
+			"scale":[ 1, 1, 0.5 ]
+		},
+		"ground": {
+			"translation": [ 0, 2, 0 ],
+			"scale": [ 0.75, 0.75, 0.5 ]
+		}
+	}
+}

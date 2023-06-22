@@ -1,8 +1,8 @@
 package chronosacaria.mcdw.bases;
 
-import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
+import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,7 +21,7 @@ public class McdwShield extends ShieldItem {
         super(new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)).maxCount(1)
                 .maxDamage(250 + material.getDurability())
         );
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.SHIELDS).register(entries -> entries.add(this.getDefaultStack()));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.SHIELDS).register(entries -> entries.add(this.getDefaultStack()));
         this.material = material;
         this.repairIngredient = repairIngredient;
 

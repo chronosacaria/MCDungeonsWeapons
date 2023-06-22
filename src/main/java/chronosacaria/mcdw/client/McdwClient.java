@@ -28,7 +28,7 @@ public class McdwClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         EntityRendererRegistry.register(SummonedEntityRegistry.SUMMONED_BEE_ENTITY, SummonedBeeRenderer::new);
-        ParticlesRegistry.initParticlesOnClient();
+        ParticlesRegistry.registerOnClient();
 
         Arrays.stream(BowsID.values()).forEach(bowsID -> registerBowPredicates(bowsID.getItem()));
         Arrays.stream(ShortbowsID.values()).forEach(shortBowsID -> registerShortBowPredicates(shortBowsID.getItem()));

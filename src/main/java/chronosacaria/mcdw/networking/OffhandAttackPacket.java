@@ -30,10 +30,10 @@ public class OffhandAttackPacket {
         return ClientPlayNetworking.createC2SPacket(OFFHAND_MISS_PACKET, buf);
     }
 
-    public static void init() {
+    public static void register() {
         ServerPlayNetworking.registerGlobalReceiver(OFFHAND_ATTACK_PACKET, (server, player, handler, buffer, sender) -> {
             int offhandAttackedEntityId = buffer.readInt();
-            Entity entity = ((ServerWorld) player.world).getDragonPart(offhandAttackedEntityId);
+            Entity entity = ((ServerWorld) player.getWorld()).getDragonPart(offhandAttackedEntityId);
             server.execute(() -> {
                 player.updateLastActionTime();
                 if (entity != null) {

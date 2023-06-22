@@ -1,7 +1,7 @@
 {
   "parent": "mcdw:item/model_whip",
   "textures": {
-    "layer0": "mcdw:item/whip_vine_whip"
+    "layer0": "mcdw:item/whips/whip_vine_whip"
   },  
   "display": {
     "head": {

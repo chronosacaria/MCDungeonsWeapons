@@ -3,8 +3,8 @@
 	"parent": "mcdw:item/model_hammer",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "mcdw:item/hammer_stormlander",
-		"particle": "mcdw:item/hammer_stormlander"
+		"0": "mcdw:item/hammers/hammer_stormlander",
+		"particle": "mcdw:item/hammers/hammer_stormlander"
 	},
 	"elements": [
 		{

@@ -33,9 +33,7 @@ import net.minecraft.potion.Potions;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -48,10 +46,6 @@ import java.util.List;
 @SuppressWarnings("ConstantConditions")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
-
-    @Shadow
-    @Nullable
-    protected PlayerEntity attackingPlayer;
     public final EntityType<SummonedBeeEntity> mcdw$summoned_bee =
             SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
 
@@ -67,7 +61,7 @@ public abstract class LivingEntityMixin extends Entity {
         if (amount > 0) {
             float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.directDamageEnchantmentMultiplier;
             if (attackingEntity instanceof TameableEntity petSource
-                    && petSource.world instanceof ServerWorld serverWorld
+                    && petSource.getWorld() instanceof ServerWorld serverWorld
                     && petSource.getOwner() instanceof PlayerEntity owner) {
 
                 amount += storedAmount * EnchantmentEffects.huntersPromiseDamage(owner, serverWorld);
@@ -168,11 +162,11 @@ public abstract class LivingEntityMixin extends Entity {
             ItemStack offHandStack = attackingPlayer.getOffHandStack();
             if (mainHandStack.getItem() == ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsRegistry.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER)) {
                 offHandStack.decrement(1);
-                SummonedBeeEntity summonedBeeEntity_1 = mcdw$summoned_bee.create(attackingPlayer.world);
+                SummonedBeeEntity summonedBeeEntity_1 = mcdw$summoned_bee.create(attackingPlayer.getWorld());
                 if (summonedBeeEntity_1 != null) {
                     summonedBeeEntity_1.setSummoner(attackingPlayer);
                     summonedBeeEntity_1.refreshPositionAndAngles(attackingPlayer.getX(), attackingPlayer.getY() + 1, attackingPlayer.getZ(), 0, 0);
-                    attackingPlayer.world.spawnEntity(summonedBeeEntity_1);
+                    attackingPlayer.getWorld().spawnEntity(summonedBeeEntity_1);
                 }
             }
         }

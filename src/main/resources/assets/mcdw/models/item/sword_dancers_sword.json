@@ -1,7 +1,7 @@
 {
 	"parent": "mcdw:item/model_sword",
 	"textures": {
-		"layer0": "mcdw:item/sword_dancers_sword"
+		"layer0": "mcdw:item/swords/sword_dancers_sword"
 	},
 	"display": {
 		"gui": {

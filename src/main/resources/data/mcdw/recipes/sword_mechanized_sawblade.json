@@ -7,14 +7,17 @@
       ]
     }
   ],
-  "type": "minecraft:smithing",
-    "base": {
-        "item": "mcdw:sword_broken_sawblade"
-    },
+  "type": "minecraft:smithing_transform",
     "addition": {
-        "item": "minecraft:blaze_rod"
+      "item": "minecraft:blaze_rod"
+    },
+    "base": {
+      "item": "mcdw:sword_broken_sawblade"
     },
     "result": {
-        "item": "mcdw:sword_mechanized_sawblade"
+      "item": "mcdw:sword_mechanized_sawblade"
+    },
+    "template": {
+      "item": "minecraft:blaze_powder"
     }
 }

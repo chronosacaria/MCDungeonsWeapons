@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "mcdw:item/model_gauntlet",
 	"textures": {
-		"0": "mcdw:item/gauntlet_gauntlet",
-		"particle": "mcdw:item/gauntlet_gauntlet"
+		"0": "mcdw:item/gauntlets/gauntlet_gauntlet",
+		"particle": "mcdw:item/gauntlets/gauntlet_gauntlet"
 	},
 	"elements": [
 		{

@@ -1,0 +1,37 @@
+{
+	"fabric:load_conditions": [
+		{
+			"condition": "mcdw:item_enabled",
+			"values": [
+				"mcdw:soul_dagger_eternal_knife"
+			]
+		}
+	],
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" A ",
+		"CNC",
+		"WSW"
+	],
+	"key": {
+		"S": {
+			"item": "mcdw:soul_dagger_soul_knife"
+		},
+		"N": {
+			"item": "minecraft:nether_star"
+		},
+		"W": {
+			"item": "minecraft:wither_skeleton_skull"
+		},
+		"A": {
+			"item": "minecraft:amethyst_shard"
+		},
+		"C": {
+			"item": "minecraft:crying_obsidian"
+		}
+	},
+	"result": {
+		"item": "mcdw:soul_dagger_eternal_knife",
+		"count": 1
+	}
+}

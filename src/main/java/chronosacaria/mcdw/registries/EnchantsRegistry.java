@@ -59,7 +59,7 @@ public class EnchantsRegistry {
     public static Enchantment VOID_SHOT;
     public static Enchantment WILD_RAGE;
 
-    public static void init() {
+    public static void register() {
         AMBUSH = new AmbushEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
         ANIMA_CONDUIT = new AnimaConduitEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,

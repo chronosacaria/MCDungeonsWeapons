@@ -1,7 +1,7 @@
 {
 	"parent": "mcdw:item/model_axe",
 	"textures": {
-		"layer0": "mcdw:item/axe_axe"
+		"layer0": "mcdw:item/axes/axe_axe"
 	},
 	"gui_light": "front",
 	"display": {

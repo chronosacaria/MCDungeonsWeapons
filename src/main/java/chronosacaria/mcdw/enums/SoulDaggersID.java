@@ -20,9 +20,9 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
-    DAGGER_ETERNAL_KNIFE(ToolMaterials.NETHERITE,4, -2.8f, "minecraft:netherite_scrap"),
-    DAGGER_SOUL_KNIFE(ToolMaterials.IRON,4, -2.8f, "minecraft:iron_ingot"),
-    SWORD_TRUTHSEEKER(ToolMaterials.NETHERITE,3, -2.8f, "minecraft:netherite_scrap");
+    SOUL_DAGGER_ETERNAL_KNIFE(ToolMaterials.NETHERITE,4, -2.8f, "minecraft:netherite_scrap"),
+    SOUL_DAGGER_SOUL_KNIFE(ToolMaterials.IRON,4, -2.8f, "minecraft:iron_ingot"),
+    SOUL_DAGGER_TRUTHSEEKER(ToolMaterials.NETHERITE,3, -2.8f, "minecraft:netherite_scrap");
 
     private final ToolMaterial material;
     private final int damage;
@@ -106,9 +106,9 @@ public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case DAGGER_ETERNAL_KNIFE -> Map.of(EnchantsRegistry.SOUL_SIPHON, 1);
-            case DAGGER_SOUL_KNIFE -> null;
-            case SWORD_TRUTHSEEKER -> Map.of(EnchantsRegistry.COMMITTED, 1);
+            case SOUL_DAGGER_ETERNAL_KNIFE -> Map.of(EnchantsRegistry.SOUL_SIPHON, 1);
+            case SOUL_DAGGER_SOUL_KNIFE -> null;
+            case SOUL_DAGGER_TRUTHSEEKER -> Map.of(EnchantsRegistry.COMMITTED, 1);
         };
     }
 

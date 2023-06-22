@@ -1,8 +1,8 @@
 {
 	"parent": "mcdw:item/model_pick",
 	"textures": {
-		"layer0": "mcdw:item/pick_hailing_pinnacle",
-		"particle": "mcdw:item/pick_hailing_pinnacle"
+		"layer0": "mcdw:item/picks/pick_hailing_pinnacle",
+		"particle": "mcdw:item/picks/pick_hailing_pinnacle"
 	},
 	"gui_light": "front",
 	"display": {

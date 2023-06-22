@@ -50,7 +50,7 @@ public class CleanlinessHelper {
     }
 
     public static void playCenteredSound (LivingEntity center, SoundEvent soundEvent, SoundCategory soundCategory, float volume, float pitch) {
-        center.world.playSound(null,
+        center.getWorld().playSound(null,
                 center.getX(), center.getY(), center.getZ(),
                 soundEvent, soundCategory,
                 volume, pitch);
@@ -62,9 +62,9 @@ public class CleanlinessHelper {
 
     public static void mcdw$dropItem(LivingEntity le, ItemStack itemStack) {
         ItemEntity it = new ItemEntity(
-                le.world, le.getX(), le.getY(), le.getZ(),
+                le.getWorld(), le.getX(), le.getY(), le.getZ(),
                 itemStack);
-        le.world.spawnEntity(it);
+        le.getWorld().spawnEntity(it);
     }
 
     public static void mcdw$dropItem(LivingEntity le, Item item, int amount) {

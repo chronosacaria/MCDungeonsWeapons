@@ -1,7 +1,7 @@
 {
   "parent": "mcdw:item/model_sword",
   "textures": {
-	  "layer0": "mcdw:item/sword_coral_blade"
+	  "layer0": "mcdw:item/swords/sword_coral_blade"
   },
   "display": {
     "gui": {

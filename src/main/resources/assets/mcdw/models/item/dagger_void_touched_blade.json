@@ -1,7 +1,7 @@
 {
 	"parent": "mcdw:item/model_dagger",
 	"textures": {
-		"layer0": "mcdw:item/dagger_void_touched_blade"
+		"layer0": "mcdw:item/daggers/dagger_void_touched_blade"
 	},
 	"gui_light": "front",
 	"display": {

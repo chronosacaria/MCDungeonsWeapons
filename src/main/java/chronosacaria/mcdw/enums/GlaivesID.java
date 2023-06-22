@@ -20,10 +20,10 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum GlaivesID implements IMeleeWeaponID, IInnateEnchantment {
-    SPEAR_CACKLING_BROOM(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
-    SPEAR_GLAIVE(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
-    SPEAR_GRAVE_BANE(ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot"),
-    SPEAR_VENOM_GLAIVE(ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot");
+    GLAIVE_CACKLING_BROOM(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
+    GLAIVE_GLAIVE(ToolMaterials.IRON,5, -3f, "minecraft:iron_ingot"),
+    GLAIVE_GRAVE_BANE(ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot"),
+    GLAIVE_VENOM_GLAIVE(ToolMaterials.IRON,6, -3f, "minecraft:iron_ingot");
 
     private final ToolMaterial material;
     private final int damage;
@@ -106,9 +106,9 @@ public enum GlaivesID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case SPEAR_CACKLING_BROOM, SPEAR_GRAVE_BANE -> Map.of(EnchantsRegistry.SMITING, 1);
-            case SPEAR_GLAIVE -> null;
-            case SPEAR_VENOM_GLAIVE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
+            case GLAIVE_CACKLING_BROOM, GLAIVE_GRAVE_BANE -> Map.of(EnchantsRegistry.SMITING, 1);
+            case GLAIVE_GLAIVE -> null;
+            case GLAIVE_VENOM_GLAIVE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
         };
     }
 

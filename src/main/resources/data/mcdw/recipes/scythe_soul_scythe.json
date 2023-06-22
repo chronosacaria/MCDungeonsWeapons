@@ -1,0 +1,37 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:scythe_soul_scythe"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "IAS",
+        "I/N",
+        "/I "
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "S": {
+            "item": "mcdw:sickle_sickle"
+        },
+        "A": {
+            "item": "minecraft:diamond"
+        },
+        "N": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:scythe_soul_scythe",
+        "count": 1
+    }
+}

@@ -1,7 +1,7 @@
 {
 	"parent": "mcdw:item/model_dagger",
 	"textures": {
-		"layer0": "mcdw:item/dagger_shear_dagger"
+		"layer0": "mcdw:item/daggers/dagger_shear_dagger"
 	},
 	"gui_light": "front",
 	"display": {

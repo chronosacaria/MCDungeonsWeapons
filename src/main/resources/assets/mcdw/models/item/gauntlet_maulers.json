@@ -3,8 +3,8 @@
 	"parent": "mcdw:item/model_gauntlet",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "mcdw:item/gauntlet_maulers",
-		"particle": "mcdw:item/gauntlet_maulers"
+		"0": "mcdw:item/gauntlets/gauntlet_maulers",
+		"particle": "mcdw:item/gauntlets/gauntlet_maulers"
 	},
 	"elements": [
 		{

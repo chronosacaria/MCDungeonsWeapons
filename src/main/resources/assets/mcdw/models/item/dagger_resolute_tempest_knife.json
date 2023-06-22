@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "mcdw:item/model_tempest_knife",
 	"textures": {
-		"layer0": "mcdw:item/dagger_resolute_tempest_knife"
+		"layer0": "mcdw:item/daggers/dagger_resolute_tempest_knife"
 	},
 	"display": {  
 		"head": {

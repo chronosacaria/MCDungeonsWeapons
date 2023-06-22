@@ -1,0 +1,34 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:double_axe_whirlwind"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "FAF",
+        " /B",
+        "B/ "
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "A": {
+            "item": "mcdw:double_axe_double"
+        },
+        "F": {
+            "item": "minecraft:feather"
+        },
+        "B": {
+            "item": "minecraft:phantom_membrane"
+        }
+    },
+    "result": {
+        "item": "mcdw:double_axe_whirlwind",
+        "count": 1
+    }
+}

@@ -1,8 +1,8 @@
 {
 	"parent": "mcdw:item/model_pick",
 	"textures": {
-		"layer0": "mcdw:item/pick_diamond_pickaxe_var",
-		"particle": "mcdw:item/pick_diamond_pickaxe_var"
+		"layer0": "mcdw:item/picks/pick_diamond_pickaxe_var",
+		"particle": "mcdw:item/picks/pick_diamond_pickaxe_var"
 	},
 	"gui_light": "front",
 	"display": {

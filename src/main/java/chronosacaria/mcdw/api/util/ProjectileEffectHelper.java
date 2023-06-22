@@ -26,7 +26,7 @@ public class ProjectileEffectHelper {
             PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(makeArrowFromMe, nearbyEntities.get(i));
             arrowEntity.setDamage(arrowEntity.getDamage() * bonusShotDamageMultiplier);
             arrowEntity.setOwner(owner);
-            makeArrowFromMe.world.spawnEntity(arrowEntity);
+            makeArrowFromMe.getWorld().spawnEntity(arrowEntity);
         }
     }
 

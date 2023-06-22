@@ -1,0 +1,34 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:glaive_grave_bane"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GGG",
+        "S/S",
+        "VVV"
+    ],
+    "key": {
+        "G": {
+            "item": "minecraft:gold_ingot"
+        },
+        "/": {
+            "item": "mcdw:glaive_glaive"
+        },
+        "S": {
+            "item": "minecraft:soul_soil"
+        },
+        "V": {
+            "item": "minecraft:soul_sand"
+        }
+    },
+    "result": {
+        "item": "mcdw:glaive_grave_bane",
+        "count": 1
+    }
+}

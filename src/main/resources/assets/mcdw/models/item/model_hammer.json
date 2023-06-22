@@ -37,23 +37,5 @@
 			"rotation": [0, -90, 0],
 			"translation": [2, -2, 0]
 		}
-	},
-	"groups": [
-		{
-			"name": "great_hammer",
-			"origin": [8, 8, 8],
-			"children": [
-				{
-					"name": "stick",
-					"origin": [8, 8, 8],
-					"children": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-				},
-				{
-					"name": "head",
-					"origin": [9, 15, 16],
-					"children": [12]
-				}
-			]
-		}
-	]
+	}
 }

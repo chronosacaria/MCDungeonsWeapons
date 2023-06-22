@@ -37,7 +37,7 @@ public abstract class ShieldPlayerEntityMixin extends LivingEntity {
     @Inject(method = "damageShield", at = @At("HEAD"))
     private void mcdw$damageMcdwShield(float amount, CallbackInfo ci) {
         if (this.activeItemStack.getItem() instanceof McdwShield) {
-            if (!this.world.isClient) {
+            if (!this.getWorld().isClient) {
                 this.incrementStat(Stats.USED.getOrCreateStat(this.activeItemStack.getItem()));
             }
 
@@ -53,7 +53,7 @@ public abstract class ShieldPlayerEntityMixin extends LivingEntity {
                     }
 
                     this.activeItemStack = ItemStack.EMPTY;
-                    this.playSound(SoundEvents.ITEM_SHIELD_BREAK, 0.8F, 0.8F + this.world.random.nextFloat() * 0.4F);
+                    this.playSound(SoundEvents.ITEM_SHIELD_BREAK, 0.8F, 0.8F + this.getWorld().getRandom().nextFloat() * 0.4F);
                 }
             }
         }

@@ -3,7 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
-        "mcdw:spear_glaive"
+        "mcdw:glaive_glaive"
       ]
     }
   ],
@@ -23,7 +23,7 @@
         },
         "has_the_recipe": {
             "conditions": {
-                "recipe": "mcdw:spear_glaive"
+                "recipe": "mcdw:glaive_glaive"
             },
             "trigger": "minecraft:recipe_unlocked"
         }
@@ -31,13 +31,12 @@
     "requirements": [
         [
             "has_iron_sword",
-
             "has_the_recipe"
         ]
     ],
     "rewards": {
         "recipes": [
-            "mcdw:spear_glaive"
+            "mcdw:glaive_glaive"
         ]
     }
 }

@@ -2,7 +2,7 @@
   "credit": "Made by SeaOfPixels",
   "parent": "mcdw:item/model_claymore",
   "textures": {
-	  "layer0": "mcdw:item/sword_frost_slayer"
+	  "layer0": "mcdw:item/swords/sword_frost_slayer"
   },
   "gui_light": "front",
   "display": {

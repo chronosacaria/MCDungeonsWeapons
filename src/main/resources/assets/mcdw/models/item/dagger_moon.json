@@ -1,7 +1,7 @@
 {
   "parent": "mcdw:item/model_dagger",
   "textures": {
-	  "layer0": "mcdw:item/dagger_moon"
+	  "layer0": "mcdw:item/daggers/dagger_moon"
   },
 	"display": {  
 		"head": {

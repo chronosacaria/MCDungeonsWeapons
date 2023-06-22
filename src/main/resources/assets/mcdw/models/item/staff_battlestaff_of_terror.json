@@ -1,7 +1,7 @@
 {
   "parent": "mcdw:item/model_staff",
   "textures": {
-	  "layer0": "mcdw:item/staff_battlestaff_of_terror"
+	  "layer0": "mcdw:item/staves/staff_battlestaff_of_terror"
   },  
   "display": {
     "head": {

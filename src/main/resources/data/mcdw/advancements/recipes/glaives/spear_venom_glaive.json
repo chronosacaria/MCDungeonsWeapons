@@ -3,7 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
-        "mcdw:spear_venom_glaive"
+        "mcdw:glaive_venom_glaive"
       ]
     }
   ],
@@ -38,7 +38,7 @@
                 "items": [
                     {
                         "items": [
-                            "mcdw:spear_glaive"
+                            "mcdw:glaive_glaive"
                         ]
                     }
                 ]
@@ -47,7 +47,7 @@
         },
         "has_the_recipe": {
             "conditions": {
-                "recipe": "mcdw:spear_venom_glaive"
+                "recipe": "mcdw:glaive_venom_glaive"
             },
             "trigger": "minecraft:recipe_unlocked"
         }
@@ -62,7 +62,7 @@
     ],
     "rewards": {
         "recipes": [
-            "mcdw:spear_venom_glaive"
+            "mcdw:glaive_venom_glaive"
         ]
     }
 }

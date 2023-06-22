@@ -9,14 +9,14 @@ import chronosacaria.mcdw.enums.SicklesID;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawableHelper;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.option.AttackIndicator;
 import net.minecraft.client.option.GameOptions;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -33,7 +33,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Environment(EnvType.CLIENT)
 @Mixin(InGameHud.class)
-public class InGameHudMixin extends DrawableHelper{
+public class InGameHudMixin {
 
     @Shadow @Final @Mutable
     private MinecraftClient client;
@@ -44,12 +44,14 @@ public class InGameHudMixin extends DrawableHelper{
     @Shadow
     private int scaledWidth;
 
+    @Shadow @Final private static Identifier ICONS;
+
     public InGameHudMixin(MinecraftClient client) {
         this.client = client;
     }
 
     @Inject(method = "renderCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getAttackCooldownProgress(F)F", shift = At.Shift.AFTER))
-    private void renderOffhandCrosshair(MatrixStack matrices, CallbackInfo ci) {
+    private void renderOffhandCrosshair(DrawContext context, CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts) {
             PlayerEntity player = client.player;
             if (player == null)
@@ -76,11 +78,11 @@ public class InGameHudMixin extends DrawableHelper{
                                 int height = this.scaledHeight / 2 - 7 + 16;
                                 int width = this.scaledWidth / 2 - 8;
                                 if (bl) {
-                                    DrawableHelper.drawTexture(matrices, width, height + 8, 68, 94, 16, 16, 256, 256);
+                                    context.drawTexture(ICONS, width, height + 8, 68, 94, 16, 16, 256, 256);
                                 } else if (offhandAttackCooldownProgress < 1.0f) {
                                     int l = (int) (offhandAttackCooldownProgress * 17.0f);
-                                    DrawableHelper.drawTexture(matrices, width, height + 8, 36, 94, 16, 4, 256, 256);
-                                    DrawableHelper.drawTexture(matrices, width, height + 8, 52, 94, l, 4, 256, 256);
+                                    context.drawTexture(ICONS, width, height + 8, 36, 94, 16, 4, 256, 256);
+                                    context.drawTexture(ICONS, width, height + 8, 52, 94, l, 4, 256, 256);
                                 }
                             }
                         }

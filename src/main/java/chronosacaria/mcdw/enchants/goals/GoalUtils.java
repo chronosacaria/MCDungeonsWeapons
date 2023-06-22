@@ -12,7 +12,7 @@ public class GoalUtils {
     public static LivingEntity getOwner(AbstractHorseEntity horseBaseEntity){
         try{
             UUID ownerUniqueId = horseBaseEntity.getOwnerUuid();
-            return ownerUniqueId == null ? null : horseBaseEntity.world.getPlayerByUuid(ownerUniqueId);
+            return ownerUniqueId == null ? null : horseBaseEntity.getWorld().getPlayerByUuid(ownerUniqueId);
         }catch (IllegalArgumentException var2) {
             return null;
         }

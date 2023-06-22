@@ -1,11 +1,11 @@
 
 package chronosacaria.mcdw.bases;
 
-import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.BowsID;
+import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
@@ -44,7 +44,7 @@ public class McdwBow extends BowItem implements IInnateEnchantment {
                 .rarity(RarityHelper.fromToolMaterial(material))
         );
         this.bowsEnum = bowsEnum;
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.RANGED).register(entries -> entries.add(this.getDefaultStack()));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.RANGED).register(entries -> entries.add(this.getDefaultStack()));
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.repairIngredient = repairIngredient;

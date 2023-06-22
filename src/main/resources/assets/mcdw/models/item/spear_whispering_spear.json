@@ -1,7 +1,7 @@
 {
   "parent": "mcdw:item/model_spear",
   "textures": {
-	  "layer0": "mcdw:item/spear_whispering_spear"
+	  "layer0": "mcdw:item/spears/spear_whispering_spear"
   },
   "display": {
     "head": {

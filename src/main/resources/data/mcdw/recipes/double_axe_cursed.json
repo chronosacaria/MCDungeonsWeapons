@@ -1,0 +1,34 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:double_axe_cursed"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " BB",
+        " AB",
+        "D/D"
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:iron_block"
+        },
+        "A": {
+            "item": "mcdw:axe_axe"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "D": {
+            "item": "minecraft:rotten_flesh"
+        }
+    },
+    "result": {
+        "item": "mcdw:double_axe_cursed",
+        "count": 1
+    }
+}

@@ -1,10 +1,10 @@
 package chronosacaria.mcdw.bases;
 
-import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.DoubleAxesID;
+import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
@@ -28,7 +28,7 @@ public class McdwDoubleAxe extends AxeItem implements IInnateEnchantment {
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
         this.doubleAxesEnum = doubleAxesEnum;
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this.getDefaultStack()));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.MELEE).register(entries -> entries.add(this.getDefaultStack()));
         this.repairIngredient = repairIngredient;
     }
 
@@ -51,7 +51,7 @@ public class McdwDoubleAxe extends AxeItem implements IInnateEnchantment {
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext){
         super.appendTooltip(stack, world, tooltip, tooltipContext);
         int i = 1;
-        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(14);
+        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(21);
         String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
         while (I18n.hasTranslation(translationKey + i)) {
             tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));

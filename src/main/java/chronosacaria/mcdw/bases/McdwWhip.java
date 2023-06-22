@@ -7,6 +7,7 @@ import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.enums.WhipsID;
 import chronosacaria.mcdw.registries.EntityAttributesRegistry;
+import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -45,7 +46,7 @@ public class McdwWhip extends McdwCustomWeaponBase implements Vanishable, IInnat
     public McdwWhip(WhipsID whipsEnum, ToolMaterial material, int attackDamage, float attackSpeed, String[] repairIngredient) {
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this.getDefaultStack()));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.MELEE).register(entries -> entries.add(this.getDefaultStack()));
         this.whipsEnum = whipsEnum;
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();

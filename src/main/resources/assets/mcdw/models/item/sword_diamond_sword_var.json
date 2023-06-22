@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/generated",
 	"textures": {
-		"particle": "mcdw:item/sword_diamond_sword_var",
-		"layer0": "mcdw:item/sword_diamond_sword_var"
+		"particle": "mcdw:item/swords/sword_diamond_sword_var",
+		"layer0": "mcdw:item/swords/sword_diamond_sword_var"
 	},
 	"display": {
 		"gui": {

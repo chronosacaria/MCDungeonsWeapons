@@ -6,6 +6,7 @@ import chronosacaria.mcdw.enchants.types.AOEEnchantment;
 import chronosacaria.mcdw.enchants.types.DamageBoostEnchantment;
 import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
+import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -21,7 +22,7 @@ public class GravityEnchantment extends AOEEnchantment {
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.GRAVITY)) {
             Registry.register(Registries.ENCHANTMENT, Mcdw.ID("gravity"), this);
-            ItemGroupEvents.modifyEntriesEvent(Mcdw.ENCHANTMENTS).register(entries -> {
+            ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.ENCHANTMENTS).register(entries -> {
                 // For loop creates first 3 levels of enchanted books
                 for (int i = 1; i <= getMaxLevel(); i++)
                     entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(this, i)));

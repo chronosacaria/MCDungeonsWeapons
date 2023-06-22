@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "mcdw:item/hammer_flail",
-		"particle": "mcdw:item/hammer_flail"
+		"0": "mcdw:item/hammers/hammer_flail",
+		"particle": "mcdw:item/hammers/hammer_flail"
 	},
 	"elements": [
 		{

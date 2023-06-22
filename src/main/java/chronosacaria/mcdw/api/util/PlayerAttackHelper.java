@@ -131,7 +131,7 @@ public class PlayerAttackHelper {
 
                     if (playerShouldSweep) {
                         float sweepingEdgeMultiplierTimesDamage = 1.0f + SweepingEnchantment.getMultiplier(EnchantmentHelper.getLevel(Enchantments.SWEEPING, offhandStack)) * attackDamage;
-                        playerEntity.world.getNonSpectatingEntities(LivingEntity.class, target.getBoundingBox().expand(1.0, 0.25, 1.0)).forEach(sweptEntity -> {
+                        playerEntity.getWorld().getNonSpectatingEntities(LivingEntity.class, target.getBoundingBox().expand(1.0, 0.25, 1.0)).forEach(sweptEntity -> {
                             if (AOEHelper.satisfySweepConditions(playerEntity, target, sweptEntity, 3.0f)) {
                                 sweptEntity.takeKnockback(0.4f, -positionOne, -positionTwo);
                                 sweptEntity.damage(
@@ -140,7 +140,7 @@ public class PlayerAttackHelper {
                             }
                         });
                         CleanlinessHelper.playCenteredSound(playerEntity, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.0f);
-                        if (playerEntity.world instanceof ServerWorld serverWorld) {
+                        if (playerEntity.getWorld() instanceof ServerWorld serverWorld) {
                             serverWorld.spawnParticles(ParticlesRegistry.OFFHAND_SWEEP_PARTICLE, playerEntity.getX() + positionOne,
                                     playerEntity.getBodyY(0.5D), playerEntity.getZ() + positionTwo, 0, positionOne, 0.0D, positionTwo, 0.0D);
                         }
@@ -175,7 +175,7 @@ public class PlayerAttackHelper {
                         targetedEntity = enderDragonPartTarget.owner;
                     }
 
-                    if (!playerEntity.world.isClient && !offhandStack.isEmpty() && targetedEntity instanceof LivingEntity livingTarget) {
+                    if (!playerEntity.getWorld().isClient && !offhandStack.isEmpty() && targetedEntity instanceof LivingEntity livingTarget) {
                         offhandStack.postHit(livingTarget, playerEntity);
                         if (offhandStack.isEmpty()) {
                             playerEntity.setStackInHand(Hand.OFF_HAND, ItemStack.EMPTY);
@@ -190,7 +190,7 @@ public class PlayerAttackHelper {
                             target.setOnFireFor(fireAspectLevel * 4);
                         }
 
-                        if (playerEntity.world instanceof ServerWorld playerServerWorld && targetCurrentHealth > 2.0f) {
+                        if (playerEntity.getWorld() instanceof ServerWorld playerServerWorld && targetCurrentHealth > 2.0f) {
                             int particleCount = (int) ((double) targetCurrentHealth * 0.5);
                             playerServerWorld.spawnParticles(ParticleTypes.DAMAGE_INDICATOR,
                                     target.getX(), target.getBodyY(0.5), target.getZ(),
@@ -255,6 +255,7 @@ public class PlayerAttackHelper {
      * The following code is from Reach Entity Attributes and can be found here:
      * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L32">ReachEntityAttributes Lines 32-35</a>
      */
+    @SuppressWarnings("unused")
     public static double getSquaredReachDistance(LivingEntity livingEntity, double squareDefaultReachDistance) {
         double reachDistance = getReachDistance(livingEntity, Math.sqrt(squareDefaultReachDistance));
         return reachDistance * reachDistance;
@@ -331,6 +332,7 @@ public class PlayerAttackHelper {
      * The following code is from Reach Entity Attributes and can be found here:
      * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L47">ReachEntityAttributes Lines 47-49</a>
      */
+    @SuppressWarnings("unused")
     public static List<PlayerEntity> getPlayerEntitiesWithinReach(World world, int x, int y, int z, double defaultReachDistance) {
         return getPlayerEntitiesWithinReach(player -> true, world, x, y, z, defaultReachDistance);
     }

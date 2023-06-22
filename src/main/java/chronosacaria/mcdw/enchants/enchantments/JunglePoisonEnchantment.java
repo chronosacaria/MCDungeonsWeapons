@@ -3,6 +3,7 @@ package chronosacaria.mcdw.enchants.enchantments;
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.bases.McdwCustomWeaponBase;
 import chronosacaria.mcdw.enums.EnchantmentsID;
+import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -21,7 +22,7 @@ public class JunglePoisonEnchantment extends Enchantment{
         super(rarity, enchantmentTarget, equipmentSlots);
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.POISONING)) {
             Registry.register(Registries.ENCHANTMENT, Mcdw.ID("jungle_poison"), this);
-            ItemGroupEvents.modifyEntriesEvent(Mcdw.ENCHANTMENTS).register(entries -> {
+            ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.ENCHANTMENTS).register(entries -> {
                 // For loop creates first 3 levels of enchanted books
                 for (int i = 1; i <= getMaxLevel(); i++)
                     entries.add(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(this, i)));

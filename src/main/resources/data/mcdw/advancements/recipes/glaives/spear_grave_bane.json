@@ -3,7 +3,7 @@
     {
       "condition": "mcdw:item_enabled",
       "values": [
-        "mcdw:spear_grave_bane"
+        "mcdw:glaive_grave_bane"
       ]
     }
   ],
@@ -50,7 +50,7 @@
                 "items": [
                     {
                         "items": [
-                            "mcdw:spear_glaive"
+                            "mcdw:glaive_glaive"
                         ]
                     }
                 ]
@@ -59,7 +59,7 @@
         },
         "has_the_recipe": {
             "conditions": {
-                "recipe": "mcdw:spear_grave_bane"
+                "recipe": "mcdw:glaive_grave_bane"
             },
             "trigger": "minecraft:recipe_unlocked"
         }
@@ -75,7 +75,7 @@
     ],
     "rewards": {
         "recipes": [
-            "mcdw:spear_grave_bane"
+            "mcdw:glaive_grave_bane"
         ]
     }
 }

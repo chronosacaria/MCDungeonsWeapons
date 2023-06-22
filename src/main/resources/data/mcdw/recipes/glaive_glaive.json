@@ -1,0 +1,28 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:glaive_glaive"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  S",
+        " / ",
+        "/  "
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:iron_sword"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mcdw:glaive_glaive",
+        "count": 1
+    }
+}

@@ -20,10 +20,10 @@ import java.util.Map;
 import static chronosacaria.mcdw.Mcdw.CONFIG;
 
 public enum ScythesID implements IMeleeWeaponID, IInnateEnchantment {
-    SICKLE_FROST_SCYTHE(ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),
-    SICKLE_JAILORS_SCYTHE(ToolMaterials.IRON,4, -2.9f, "minecraft:iron_ingot"),
-    SICKLE_SKULL_SCYTHE(ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),
-    SICKLE_SOUL_SCYTHE(ToolMaterials.DIAMOND,3, -2.9f, "minecraft:diamond");
+    SCYTHE_FROST_SCYTHE(ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),
+    SCYTHE_JAILORS_SCYTHE(ToolMaterials.IRON,4, -2.9f, "minecraft:iron_ingot"),
+    SCYTHE_SKULL_SCYTHE(ToolMaterials.DIAMOND,4, -2.9f, "minecraft:diamond"),
+    SCYTHE_SOUL_SCYTHE(ToolMaterials.DIAMOND,3, -2.9f, "minecraft:diamond");
 
     private final ToolMaterial material;
     private final int damage;
@@ -106,9 +106,9 @@ public enum ScythesID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case SICKLE_FROST_SCYTHE, SICKLE_SKULL_SCYTHE -> Map.of(EnchantsRegistry.FREEZING, 1);
-            case SICKLE_JAILORS_SCYTHE -> Map.of(EnchantsRegistry.CHAINS, 1);
-            case SICKLE_SOUL_SCYTHE -> Map.of(EnchantsRegistry.SOUL_DEVOURER, 1);
+            case SCYTHE_FROST_SCYTHE, SCYTHE_SKULL_SCYTHE -> Map.of(EnchantsRegistry.FREEZING, 1);
+            case SCYTHE_JAILORS_SCYTHE -> Map.of(EnchantsRegistry.CHAINS, 1);
+            case SCYTHE_SOUL_SCYTHE -> Map.of(EnchantsRegistry.SOUL_DEVOURER, 1);
         };
     }
 

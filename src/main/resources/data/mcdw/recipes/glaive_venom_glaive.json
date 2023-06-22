@@ -1,0 +1,31 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:glaive_venom_glaive"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PPP",
+        "J/J",
+        " P "
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:poisonous_potato"
+        },
+        "/": {
+            "item": "mcdw:glaive_glaive"
+        },
+        "J": {
+            "item": "minecraft:vine"
+        }
+    },
+    "result": {
+        "item": "mcdw:glaive_venom_glaive",
+        "count": 1
+    }
+}

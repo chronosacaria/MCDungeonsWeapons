@@ -1,0 +1,37 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:scythe_skull_scythe"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "bbN",
+        " SB",
+        "C  "
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:bone"
+        },
+        "S": {
+            "item": "mcdw:sickle_sickle"
+        },
+        "B": {
+            "item": "minecraft:bone_block"
+        },
+        "N": {
+            "item": "minecraft:netherite_scrap"
+        },
+        "C": {
+            "item": "minecraft:copper_ingot"
+        }
+    },
+    "result": {
+        "item": "mcdw:scythe_skull_scythe",
+        "count": 1
+    }
+}

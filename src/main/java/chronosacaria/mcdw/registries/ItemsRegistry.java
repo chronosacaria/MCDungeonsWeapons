@@ -2,7 +2,6 @@ package chronosacaria.mcdw.registries;
 
 import chronosacaria.mcdw.bases.*;
 import chronosacaria.mcdw.enums.*;
-import chronosacaria.mcdw.items.BeeStingerItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -38,9 +37,9 @@ public class ItemsRegistry {
     public static final EnumMap<LongbowsID, McdwLongbow> LONGBOW_ITEMS = new EnumMap<>(LongbowsID.class);
     public static final EnumMap<CrossbowsID, McdwCrossbow> CROSSBOW_ITEMS = new EnumMap<>(CrossbowsID.class);
     public static final EnumMap<ShieldsID, McdwShield> SHIELD_ITEMS = new EnumMap<>(ShieldsID.class);
-    public static final EnumMap<ItemsID, BeeStingerItem> MCDW_ITEMS = new EnumMap<>(ItemsID.class);
+    public static final EnumMap<ItemsID, Item> MCDW_ITEMS = new EnumMap<>(ItemsID.class);
 
-    public static void init() {
+    public static void register() {
         for (IMcdwWeaponID mcdwWeaponID : IMcdwWeaponID.values()) {
             if (mcdwWeaponID.isEnabled()) {
                 Item weapon = mcdwWeaponID.makeWeapon();
@@ -51,12 +50,9 @@ public class ItemsRegistry {
         for (ItemsID itemsID : ItemsID.values()) {
             if (!CONFIG.mcdwEnableItemsConfig.ITEMS_ENABLED.get(itemsID))
                 continue;
-
-            BeeStingerItem beeStingerItem = new BeeStingerItem(new Item.Settings().maxCount(64));
-            ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> entries.add(beeStingerItem));
-
-            MCDW_ITEMS.put(itemsID, beeStingerItem);
-            registerItem(itemsID.toString().toLowerCase(Locale.ROOT), beeStingerItem);
+            Item item = itemsID.makeItem(new Item.Settings());
+            registerItem(itemsID.toString().toLowerCase(Locale.ROOT), item);
+            ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(itemsID.getItem()));
         }
     }
 

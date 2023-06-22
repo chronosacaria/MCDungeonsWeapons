@@ -1,7 +1,7 @@
 {
 	"parent": "mcdw:item/model_claymore",
 	"textures": {
-		"layer0": "mcdw:item/sword_great_axeblade"
+		"layer0": "mcdw:item/swords/sword_great_axeblade"
 	},
 	"display": {
 		"head": {

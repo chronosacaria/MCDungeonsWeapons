@@ -2,7 +2,7 @@
   "credit": "Made by SeaOfPixels",
   "parent": "item/generated",
   "textures": {
-    "layer0": "mcdw:item/sword_the_starless_night"
+    "layer0": "mcdw:item/swords/sword_the_starless_night"
   },
   "gui_light": "front",
   "display": {

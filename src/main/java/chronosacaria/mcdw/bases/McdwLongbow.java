@@ -1,11 +1,11 @@
 
 package chronosacaria.mcdw.bases;
 
-import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.enums.LongbowsID;
+import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
@@ -30,6 +30,7 @@ public class McdwLongbow extends BowItem implements IInnateEnchantment {
     public final ToolMaterial material;
     public final float drawSpeed;
     public float maxBowRange;
+    @SuppressWarnings({"FieldCanBeLocal", "unused"})
     private final ParticleEffect type;
     String[] repairIngredient;
     LongbowsID longbowsEnum;
@@ -39,7 +40,7 @@ public class McdwLongbow extends BowItem implements IInnateEnchantment {
                 .rarity(RarityHelper.fromToolMaterial(material))
         );
         this.longbowsEnum = longbowsEnum;
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.RANGED).register(entries -> entries.add(this.getDefaultStack()));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.RANGED).register(entries -> entries.add(this.getDefaultStack()));
         this.material = material;
         this.drawSpeed = drawSpeed;
         this.repairIngredient = repairIngredient;

@@ -1,7 +1,7 @@
 {
   "parent": "mcdw:item/model_tempest_knife",
   "textures": {
-    "layer0": "mcdw:item/dagger_chill_gale_knife"
+    "layer0": "mcdw:item/daggers/dagger_chill_gale_knife"
   },
 	"display": {  
 		"head": {

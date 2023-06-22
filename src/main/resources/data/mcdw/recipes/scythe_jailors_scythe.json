@@ -1,0 +1,34 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:scythe_jailors_scythe"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ICS",
+        "I/I",
+        "/C "
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "S": {
+            "item": "mcdw:sickle_sickle"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "C": {
+            "item": "minecraft:chain"
+        }
+    },
+    "result": {
+        "item": "mcdw:scythe_jailors_scythe",
+        "count": 1
+    }
+}

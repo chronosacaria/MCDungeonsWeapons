@@ -7,6 +7,7 @@ import chronosacaria.mcdw.api.util.RarityHelper;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
 import chronosacaria.mcdw.enums.GlaivesID;
 import chronosacaria.mcdw.registries.EntityAttributesRegistry;
+import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -45,7 +46,7 @@ public class McdwGlaive extends SwordItem implements IInnateEnchantment {
         super(material, attackDamage, attackSpeed,
                 new Item.Settings().rarity(RarityHelper.fromToolMaterial(material)));
         this.glaivesEnum = glaivesEnum;
-        ItemGroupEvents.modifyEntriesEvent(Mcdw.WEAPONS).register(entries -> entries.add(this.getDefaultStack()));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.MELEE).register(entries -> entries.add(this.getDefaultStack()));
         this.material = material;
         this.attackDamage = attackDamage + material.getAttackDamage();
         this.repairIngredient = repairIngredient;
@@ -121,7 +122,7 @@ public class McdwGlaive extends SwordItem implements IInnateEnchantment {
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
         int i = 1;
-        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(16);
+        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(17);
         String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
         while (I18n.hasTranslation(translationKey + i)) {
             tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));

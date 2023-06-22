@@ -1,7 +1,7 @@
 {
   "parent": "mcdw:item/model_claymore",
   "textures": {
-	  "layer0": "mcdw:item/sword_hawkbrand"
+	  "layer0": "mcdw:item/swords/sword_hawkbrand"
   },  
   "display": {
     "head": {

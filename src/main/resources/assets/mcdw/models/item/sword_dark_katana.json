@@ -1,7 +1,7 @@
 {
 	"parent": "mcdw:item/model_katana",
 	"textures": {
-		"layer0": "mcdw:item/sword_dark_katana"
+		"layer0": "mcdw:item/swords/sword_dark_katana"
 	},  
   "display": {
     "head": {

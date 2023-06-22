@@ -1,0 +1,70 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:double_axe_cursed"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_iron_block": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:iron_block"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+
+        "has_rotten_flesh": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:rotten_flesh"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_base": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "mcdw:axe_axe"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+            "conditions": {
+                "recipe": "mcdw:double_axe_cursed"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+        }
+    },
+    "requirements": [
+        [
+            "has_iron_block",
+
+            "has_rotten_flesh",
+            "has_base",
+            "has_the_recipe"
+        ]
+    ],
+    "rewards": {
+        "recipes": [
+            "mcdw:axe_cursed"
+        ]
+    }
+}

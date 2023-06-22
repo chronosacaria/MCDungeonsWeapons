@@ -1,7 +1,7 @@
 {
 	"parent": "mcdw:item/model_dagger",
 	"textures": {
-		"layer0": "mcdw:item/dagger_swift_striker"
+		"layer0": "mcdw:item/daggers/dagger_swift_striker"
 	},
 	"gui_light": "front",
 	"display": {

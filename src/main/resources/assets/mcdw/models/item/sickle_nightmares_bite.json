@@ -1,7 +1,7 @@
 {
 	"parent": "mcdw:item/model_sickle",
 	"textures": {
-		"layer0": "mcdw:item/sickle_nightmares_bite"
+		"layer0": "mcdw:item/sickles/sickle_nightmares_bite"
 	},
 	"display": {
 		"head": {

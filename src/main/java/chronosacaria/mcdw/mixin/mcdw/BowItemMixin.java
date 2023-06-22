@@ -63,7 +63,7 @@ public abstract class BowItemMixin{
                     double e = target.getBodyY(0.3333333333333333D) - projectile.getY();
                     double f = target.getZ() - user.getZ();
                     double g = MathHelper.sqrt((float) (d * d + f * f));
-                    projectile.setVelocity(d, e + g * 0.20000000298023224D, f, 1.6F, (float) (14 - user.world.getDifficulty().getId() * 4));
+                    projectile.setVelocity(d, e + g * 0.20000000298023224D, f, 1.6F, (float) (14 - user.getWorld().getDifficulty().getId() * 4));
                     projectile.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
                     world.spawnEntity(projectile);
                 }

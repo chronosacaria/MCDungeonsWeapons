@@ -13,7 +13,7 @@ public class AOECloudHelper {
 
     public static void spawnStatusCloud(LivingEntity user, LivingEntity center, StatusEffect statusEffect, int amplifier) {
         AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(
-                center.world, center.getX(), center.getY(), center.getZ());
+                center.getWorld(), center.getX(), center.getY(), center.getZ());
         areaEffectCloudEntity.setOwner(user);
         areaEffectCloudEntity.setRadius(5.0F);
         areaEffectCloudEntity.setRadiusOnUse(-0.5F);
@@ -21,14 +21,14 @@ public class AOECloudHelper {
         areaEffectCloudEntity.setDuration(60);
         areaEffectCloudEntity.addEffect(new StatusEffectInstance(
                 statusEffect, 60, amplifier));
-        center.world.spawnEntity(areaEffectCloudEntity);
+        center.getWorld().spawnEntity(areaEffectCloudEntity);
     }
 
     public static void spawnPickyStatusCloud(LivingEntity user, LivingEntity center,
                                              StatusEffect statusEffect, int duration, int amplifier,
                                              boolean exclOwner, boolean exclAllies, boolean exclEnemy) {
         AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(
-                center.world, center.getX(), center.getY(), center.getZ());
+                center.getWorld(), center.getX(), center.getY(), center.getZ());
         areaEffectCloudEntity.setOwner(user);
         areaEffectCloudEntity.setRadius(5.0F);
         areaEffectCloudEntity.setRadiusOnUse(-0.5F);
@@ -37,25 +37,25 @@ public class AOECloudHelper {
         areaEffectCloudEntity.addEffect(new StatusEffectInstance(
                 statusEffect, duration, amplifier));
         ((IExclusiveAOECloud) areaEffectCloudEntity).setExclusions(exclOwner, exclAllies, exclEnemy);
-        center.world.spawnEntity(areaEffectCloudEntity);
+        center.getWorld().spawnEntity(areaEffectCloudEntity);
     }
 
     //Exploding
     public static void spawnExplosionCloud(LivingEntity user, LivingEntity target, float radius) {
         AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(
-                target.world, target.getX(), target.getY(), target.getZ());
+                target.getWorld(), target.getX(), target.getY(), target.getZ());
         areaEffectCloudEntity.setOwner(user);
         areaEffectCloudEntity.setParticleType(ParticleTypes.EXPLOSION);
         areaEffectCloudEntity.setRadius(radius);
         areaEffectCloudEntity.setDuration(0);
-        user.world.spawnEntity(areaEffectCloudEntity);
+        user.getWorld().spawnEntity(areaEffectCloudEntity);
     }
 
     //Regen Arrow
     public static void spawnRegenCloudAtPos(LivingEntity user, boolean arrow, BlockPos blockPos, int amplifier) {
         int inGroundMitigator = arrow ? 1 : 0;
         AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(
-                user.world, blockPos.getX(), blockPos.getY() + inGroundMitigator, blockPos.getZ());
+                user.getWorld(), blockPos.getX(), blockPos.getY() + inGroundMitigator, blockPos.getZ());
         areaEffectCloudEntity.setOwner(user);
         areaEffectCloudEntity.setRadius(5.0F);
         areaEffectCloudEntity.setRadiusOnUse(-0.5F);
@@ -64,6 +64,6 @@ public class AOECloudHelper {
         StatusEffectInstance regeneration = new StatusEffectInstance(StatusEffects.REGENERATION, 100, amplifier);
         areaEffectCloudEntity.addEffect(regeneration);
         ((IExclusiveAOECloud) areaEffectCloudEntity).setExclusions(false, false, true);
-        user.world.spawnEntity(areaEffectCloudEntity);
+        user.getWorld().spawnEntity(areaEffectCloudEntity);
     }
 }

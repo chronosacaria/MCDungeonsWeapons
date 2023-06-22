@@ -1,0 +1,34 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mcdw:item_enabled",
+      "values": [
+        "mcdw:double_axe_double"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "A#A",
+        "S/S",
+        " / "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_block"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "A": {
+            "item": "mcdw:axe_axe"
+        },
+        "S": {
+            "item": "minecraft:slime_ball"
+        }
+    },
+    "result": {
+        "item": "mcdw:double_axe_double",
+        "count": 1
+    }
+}

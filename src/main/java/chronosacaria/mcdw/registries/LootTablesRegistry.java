@@ -28,8 +28,8 @@ public class LootTablesRegistry {
     public static final ArrayList<String> NETHER_TABLES =
             new ArrayList<>(List.of("minecraft:chests/nether_bridge", "minecraft:chests/bastion_bridge", "minecraft:chests/bastion_other", "minecraft:chests/bastion_treasure"));
 
-    static List<IMcdwWeaponID> COMMON_LOOT_POOL = List.of(AxesID.AXE_ANCHOR, AxesID.AXE_AXE, DaggersID.DAGGER_DAGGER, DoubleAxesID.AXE_DOUBLE, GauntletsID.GAUNTLET_GAUNTLET,
-            GlaivesID.SPEAR_GLAIVE, HammersID.HAMMER_GREAT_HAMMER, HammersID.HAMMER_MACE, LongbowsID.BOW_LONGBOW, PicksID.PICK_HOWLING_PICK, PicksID.PICK_MOUNTAINEER_PICK,
+    static List<IMcdwWeaponID> COMMON_LOOT_POOL = List.of(AxesID.AXE_ANCHOR, AxesID.AXE_AXE, DaggersID.DAGGER_DAGGER, DoubleAxesID.DOUBLE_AXE_DOUBLE, GauntletsID.GAUNTLET_GAUNTLET,
+            GlaivesID.GLAIVE_GLAIVE, HammersID.HAMMER_GREAT_HAMMER, HammersID.HAMMER_MACE, LongbowsID.BOW_LONGBOW, PicksID.PICK_HOWLING_PICK, PicksID.PICK_MOUNTAINEER_PICK,
             ShortbowsID.BOW_SHORTBOW, SicklesID.SICKLE_SICKLE, SpearsID.SPEAR_SPEAR, StavesID.STAFF_BATTLESTAFF, SwordsID.SWORD_CUTLASS, SwordsID.SWORD_IRON_SWORD_VAR,
             SwordsID.SWORD_KATANA, SwordsID.SWORD_RAPIER);
 
@@ -38,8 +38,8 @@ public class LootTablesRegistry {
             CrossbowsID.CROSSBOW_AUTO_CROSSBOW, CrossbowsID.CROSSBOW_AZURE_SEEKER, CrossbowsID.CROSSBOW_BURST_CROSSBOW, CrossbowsID.CROSSBOW_BUTTERFLY_CROSSBOW,
             CrossbowsID.CROSSBOW_DUAL_CROSSBOW, CrossbowsID.CROSSBOW_EXPLODING_CROSSBOW, CrossbowsID.CROSSBOW_FIREBOLT_THROWER, CrossbowsID.CROSSBOW_HARPOON_CROSSBOW,
             CrossbowsID.CROSSBOW_HARP_CROSSBOW, CrossbowsID.CROSSBOW_HEAVY_CROSSBOW, CrossbowsID.CROSSBOW_IMPLODING_CROSSBOW, CrossbowsID.CROSSBOW_RAPID_CROSSBOW,
-            CrossbowsID.CROSSBOW_SCATTER_CROSSBOW, CrossbowsID.CROSSBOW_SOUL_CROSSBOW, CrossbowsID.CROSSBOW_THE_SLICER, DoubleAxesID.AXE_CURSED, HammersID.HAMMER_BONECLUB,
-            HammersID.HAMMER_BONE_CUDGEL, PicksID.PICK_HOWLING_PICK, ScythesID.SICKLE_JAILORS_SCYTHE, ScythesID.SICKLE_SKULL_SCYTHE, SicklesID.SICKLE_NIGHTMARES_BITE,
+            CrossbowsID.CROSSBOW_SCATTER_CROSSBOW, CrossbowsID.CROSSBOW_SOUL_CROSSBOW, CrossbowsID.CROSSBOW_THE_SLICER, DoubleAxesID.DOUBLE_AXE_CURSED, HammersID.HAMMER_BONECLUB,
+            HammersID.HAMMER_BONE_CUDGEL, PicksID.PICK_HOWLING_PICK, ScythesID.SCYTHE_JAILORS_SCYTHE, ScythesID.SCYTHE_SKULL_SCYTHE, SicklesID.SICKLE_NIGHTMARES_BITE,
             SwordsID.SWORD_BROADSWORD, SwordsID.SWORD_BROKEN_SAWBLADE, SwordsID.SWORD_CLAYMORE, SwordsID.SWORD_DIAMOND_SWORD_VAR, SwordsID.SWORD_MECHANIZED_SAWBLADE,
             SwordsID.SWORD_NAMELESS_BLADE, SwordsID.SWORD_SINISTER, WhipsID.WHIP_VINE_WHIP, WhipsID.WHIP_WHIP);
 
@@ -50,9 +50,9 @@ public class LootTablesRegistry {
             CrossbowsID.CROSSBOW_LIGHTNING_HARP_CROSSBOW, CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW, CrossbowsID.CROSSBOW_SHADOW_CROSSBOW, CrossbowsID.CROSSBOW_SLAYER_CROSSBOW,
             CrossbowsID.CROSSBOW_SOUL_HUNTER_CROSSBOW, CrossbowsID.CROSSBOW_SPELLBOUND_CROSSBOW, CrossbowsID.CROSSBOW_VEILED_CROSSBOW, CrossbowsID.CROSSBOW_VOIDCALLER_CROSSBOW,
             DaggersID.DAGGER_CHILL_GALE_KNIFE, DaggersID.DAGGER_FANGS_OF_FROST, DaggersID.DAGGER_RESOLUTE_TEMPEST_KNIFE, DaggersID.DAGGER_SHEAR_DAGGER,
-            DaggersID.DAGGER_TEMPEST_KNIFE, DoubleAxesID.AXE_WHIRLWIND, GauntletsID.GAUNTLET_MAULERS, GlaivesID.SPEAR_GRAVE_BANE, GlaivesID.SPEAR_VENOM_GLAIVE,
+            DaggersID.DAGGER_TEMPEST_KNIFE, DoubleAxesID.DOUBLE_AXE_WHIRLWIND, GauntletsID.GAUNTLET_MAULERS, GlaivesID.GLAIVE_GRAVE_BANE, GlaivesID.GLAIVE_VENOM_GLAIVE,
             HammersID.HAMMER_FLAIL, LongbowsID.BOW_GUARDIAN_BOW, LongbowsID.BOW_RED_SNAKE, PicksID.PICK_DIAMOND_PICKAXE_VAR, PicksID.PICK_HAILING_PINNACLE,
-            ScythesID.SICKLE_FROST_SCYTHE, ShieldsID.SHIELD_ROYAL_GUARD, ShieldsID.SHIELD_VANGUARD, ShortbowsID.BOW_LOVE_SPELL_BOW, ShortbowsID.BOW_MECHANICAL_SHORTBOW,
+            ScythesID.SCYTHE_FROST_SCYTHE, ShieldsID.SHIELD_ROYAL_GUARD, ShieldsID.SHIELD_VANGUARD, ShortbowsID.BOW_LOVE_SPELL_BOW, ShortbowsID.BOW_MECHANICAL_SHORTBOW,
             ShortbowsID.BOW_PURPLE_STORM, SicklesID.SICKLE_LAST_LAUGH_GOLD, SicklesID.SICKLE_LAST_LAUGH_GOLD, SicklesID.SICKLE_LAST_LAUGH_SILVER, SpearsID.SPEAR_FORTUNE,
             SpearsID.SPEAR_WHISPERING_SPEAR, StavesID.STAFF_BATTLESTAFF_OF_TERROR, StavesID.STAFF_GROWING_STAFF, SwordsID.SWORD_BEESTINGER, SwordsID.SWORD_CORAL_BLADE,
             SwordsID.SWORD_DANCERS_SWORD, SwordsID.SWORD_FREEZING_FOIL, SwordsID.SWORD_FROST_SLAYER, SwordsID.SWORD_GREAT_AXEBLADE, SwordsID.SWORD_HAWKBRAND,
@@ -61,10 +61,10 @@ public class LootTablesRegistry {
     static List<IMcdwWeaponID> EPIC_LOOT_POOL = List.of(BowsID.BOW_ANCIENT_BOW, BowsID.BOW_HAUNTED_BOW, BowsID.BOW_LOST_SOULS, CrossbowsID.CROSSBOW_CORRUPTED_CROSSBOW,
             CrossbowsID.CROSSBOW_DOOM_CROSSBOW, CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS, DaggersID.DAGGER_BACKSTABBER, DaggersID.DAGGER_SWIFT_STRIKER,
             DaggersID.DAGGER_THE_BEGINNING, DaggersID.DAGGER_THE_END, DaggersID.DAGGER_VOID_TOUCHED_BLADE, GauntletsID.GAUNTLET_SOUL_FISTS, HammersID.HAMMER_GRAVITY,
-            HammersID.HAMMER_STORMLANDER, HammersID.HAMMER_SUNS_GRACE, ScythesID.SICKLE_SOUL_SCYTHE, SoulDaggersID.DAGGER_ETERNAL_KNIFE, SoulDaggersID.DAGGER_SOUL_KNIFE,
-            SoulDaggersID.SWORD_TRUTHSEEKER, SwordsID.SWORD_DARK_KATANA, SwordsID.SWORD_OBSIDIAN_CLAYMORE, SwordsID.SWORD_THE_STARLESS_NIGHT);
+            HammersID.HAMMER_STORMLANDER, HammersID.HAMMER_SUNS_GRACE, ScythesID.SCYTHE_SOUL_SCYTHE, SoulDaggersID.SOUL_DAGGER_ETERNAL_KNIFE, SoulDaggersID.SOUL_DAGGER_SOUL_KNIFE,
+            SoulDaggersID.SOUL_DAGGER_TRUTHSEEKER, SwordsID.SWORD_DARK_KATANA, SwordsID.SWORD_OBSIDIAN_CLAYMORE, SwordsID.SWORD_THE_STARLESS_NIGHT);
 
-    public static void init() {
+    public static void register() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
 
             if (EntityType.BEE.getLootTableId().equals(id) && source.isBuiltin())
@@ -75,9 +75,9 @@ public class LootTablesRegistry {
                 }
 
             if (EntityType.WITCH.getLootTableId().equals(id) && source.isBuiltin())
-                if (GlaivesID.SPEAR_CACKLING_BROOM.isEnabled()) {
+                if (GlaivesID.GLAIVE_CACKLING_BROOM.isEnabled()) {
                     LootPool.Builder lootPoolBuilder = LootPool.builder();
-                    addItemDrop(lootPoolBuilder, GlaivesID.SPEAR_CACKLING_BROOM.getItem(), 1, 0.2F);
+                    addItemDrop(lootPoolBuilder, GlaivesID.GLAIVE_CACKLING_BROOM.getItem(), 1, 0.2F);
                     tableBuilder.pool(lootPoolBuilder.build());
                 }
 
