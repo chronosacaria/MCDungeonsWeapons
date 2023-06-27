@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class SmithingScreenHandlerMixin {
 
     @Inject(method = "onTakeOutput", at = @At(value = "TAIL"))
-    public void innateItemStack(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
+    public void mcdw$onTakeOutput(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
         if (stack.getItem() == ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_MECHANIZED_SAWBLADE))
             stack.addEnchantment(Enchantments.FIRE_ASPECT, 1);
     }

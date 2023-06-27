@@ -67,14 +67,14 @@ public class InGameHudMixin {
                     if (this.client.interactionManager != null) {
                         if (this.client.interactionManager.getCurrentGameMode() != GameMode.SPECTATOR || mcdw$shouldRenderSpectatorCrosshair(this.client.crosshairTarget)) {
                             if (this.client.options.getAttackIndicator().getValue() == AttackIndicator.CROSSHAIR) {
-                                PlayerAttackHelper.switchModifiers(player, player.getMainHandStack(), player.getOffHandStack());
+                                PlayerAttackHelper.mcdw$switchModifiers(player, player.getMainHandStack(), player.getOffHandStack());
                                 float offhandAttackCooldownProgress = ((IDualWielding) player).getOffhandAttackCooldownProgress(0.0f);
                                 boolean bl = false;
                                 if (this.client.targetedEntity != null && this.client.targetedEntity instanceof LivingEntity && offhandAttackCooldownProgress >= 1.0f) {
                                     bl = ((IDualWielding) player).getOffhandAttackCooldownProgressPerTick() > 5.0f;
                                     bl &= this.client.targetedEntity.isAlive();
                                 }
-                                PlayerAttackHelper.switchModifiers(player, player.getOffHandStack(), player.getMainHandStack());
+                                PlayerAttackHelper.mcdw$switchModifiers(player, player.getOffHandStack(), player.getMainHandStack());
                                 int height = this.scaledHeight / 2 - 7 + 16;
                                 int width = this.scaledWidth / 2 - 8;
                                 if (bl) {

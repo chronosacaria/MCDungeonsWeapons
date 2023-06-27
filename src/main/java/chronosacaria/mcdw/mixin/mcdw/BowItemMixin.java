@@ -49,14 +49,14 @@ public abstract class BowItemMixin{
                 float damageMultiplier = 0.03F + (bonusShotLevel * 0.07F);
                 float arrowVelocity = RangedAttackHelper.getVanillaOrModdedBowArrowVelocity(stack, remainingUseTicks);
                 if (arrowVelocity >= 0.1F){
-                    ProjectileEffectHelper.spawnExtraArrows(user, user, 1, 10, damageMultiplier);
+                    ProjectileEffectHelper.mcdw$spawnExtraArrows(user, user, 1, 10, damageMultiplier);
                 }
             }
         }
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.MULTI_SHOT)) {
             int multiShotLevel = EnchantmentHelper.getLevel(Enchantments.MULTISHOT, stack);
             if (multiShotLevel > 0) {
-                PersistentProjectileEntity projectile = ProjectileEffectHelper.createAbstractArrow(user);
+                PersistentProjectileEntity projectile = ProjectileEffectHelper.mcdw$createAbstractArrow(user);
                 LivingEntity target = user.getAttacking();
                 if (target != null) { // \/\/ Taken from AbstractSkeletonEntity
                     double d = target.getX() - user.getX();

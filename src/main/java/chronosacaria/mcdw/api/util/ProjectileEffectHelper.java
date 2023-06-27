@@ -20,25 +20,25 @@ import java.util.List;
 
 public class ProjectileEffectHelper {
 
-    public static void spawnExtraArrows(LivingEntity owner, LivingEntity makeArrowFromMe, int numArrowsLimit, int distance, double bonusShotDamageMultiplier) {
-        List<LivingEntity> nearbyEntities = getSecondaryTargets(makeArrowFromMe, distance);
+    public static void mcdw$spawnExtraArrows(LivingEntity owner, LivingEntity makeArrowFromMe, int numArrowsLimit, int distance, double bonusShotDamageMultiplier) {
+        List<LivingEntity> nearbyEntities = mcdw$getSecondaryTargets(makeArrowFromMe, distance);
         for (int i = 0; i < Math.min(numArrowsLimit, nearbyEntities.size()); i++) {
-            PersistentProjectileEntity arrowEntity = createProjectileEntityTowards(makeArrowFromMe, nearbyEntities.get(i));
+            PersistentProjectileEntity arrowEntity = mcdw$createProjectileEntityTowards(makeArrowFromMe, nearbyEntities.get(i));
             arrowEntity.setDamage(arrowEntity.getDamage() * bonusShotDamageMultiplier);
             arrowEntity.setOwner(owner);
             makeArrowFromMe.getWorld().spawnEntity(arrowEntity);
         }
     }
 
-    public static PersistentProjectileEntity createAbstractArrow(LivingEntity attacker) {
+    public static PersistentProjectileEntity mcdw$createAbstractArrow(LivingEntity attacker) {
         return ((ArrowItem) Items.ARROW).createArrow(attacker.getEntityWorld(), new ItemStack(Items.ARROW), attacker);
     }
 
-    public static void fireChainReactionProjectileFromTarget(World world, LivingEntity attacker, LivingEntity target,
-                                                             float v1, float v2) {
+    public static void mcdw$fireChainReactionProjectileFromTarget(World world, LivingEntity attacker, LivingEntity target,
+                                                                  float v1, float v2) {
         if (!world.isClient) {
             for (int i = 0 ; i < 4 ; i++) {
-                PersistentProjectileEntity projectile = createAbstractArrow(attacker);
+                PersistentProjectileEntity projectile = mcdw$createAbstractArrow(attacker);
                 if (attacker instanceof PlayerEntity) {
                     projectile.setCritical(true);
                 }
@@ -57,7 +57,7 @@ public class ProjectileEffectHelper {
         }
     }
 
-    public static List<LivingEntity> getSecondaryTargets(LivingEntity source, double distance) {
+    public static List<LivingEntity> mcdw$getSecondaryTargets(LivingEntity source, double distance) {
         List<LivingEntity> nearbyEntities = AOEHelper.getEntitiesByConfig(source, (float) distance);
         if (nearbyEntities.size() < 2) return Collections.emptyList();
 
@@ -65,19 +65,19 @@ public class ProjectileEffectHelper {
         return nearbyEntities;
     }
 
-    public static PersistentProjectileEntity createProjectileEntityTowards(LivingEntity source, LivingEntity target) {
-        PersistentProjectileEntity projectile = createAbstractArrow(source);
+    public static PersistentProjectileEntity mcdw$createProjectileEntityTowards(LivingEntity source, LivingEntity target) {
+        PersistentProjectileEntity projectile = mcdw$createAbstractArrow(source);
         // borrowed from AbstractSkeletonEntity
         double towardsX = target.getX() - source.getX();
         double towardsZ = target.getZ() - source.getZ();
         double euclideanDist = MathHelper.hypot(towardsX, towardsZ);
         double towardsY = target.getBodyY(0.3333333333333333D) - projectile.getY() + euclideanDist * 0.2d;
-        setProjectileTowards(projectile, towardsX, towardsY, towardsZ);
+        mcdw$setProjectileTowards(projectile, towardsX, towardsY, towardsZ);
         projectile.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
         return projectile;
     }
 
-    public static void setProjectileTowards(ProjectileEntity projectileEntity, double x, double y, double z) {
+    public static void mcdw$setProjectileTowards(ProjectileEntity projectileEntity, double x, double y, double z) {
         Vec3d vec3d = new Vec3d(x, y, z).normalize();
         projectileEntity.setVelocity(vec3d);
         float f = MathHelper.sqrt((float) projectileEntity.squaredDistanceTo(vec3d));

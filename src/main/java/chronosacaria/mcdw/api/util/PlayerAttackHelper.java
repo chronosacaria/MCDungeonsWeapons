@@ -38,25 +38,25 @@ import java.util.function.Predicate;
 public class PlayerAttackHelper {
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    public static boolean isLikelyNotMeleeDamage(DamageSource damageSource){
+    public static boolean mcdw$isLikelyNotMeleeDamage(DamageSource damageSource){
         return damageSource.isOf(DamageTypes.ON_FIRE)
                 || damageSource.isOf(DamageTypes.EXPLOSION)
                 || damageSource.isOf(DamageTypes.MAGIC)
                 || damageSource.isOf(DamageTypes.ARROW)
-                || !isDirectDamage(damageSource);
+                || !mcdw$isDirectDamage(damageSource);
     }
 
-    private static boolean isDirectDamage(DamageSource damageSource){
+    private static boolean mcdw$isDirectDamage(DamageSource damageSource){
         return damageSource.isOf(DamageTypes.MOB_ATTACK)
                 || damageSource.isOf(DamageTypes.PLAYER_ATTACK);
     }
 
-    public static void switchModifiers(PlayerEntity player, ItemStack switchFrom, ItemStack switchTo) {
+    public static void mcdw$switchModifiers(PlayerEntity player, ItemStack switchFrom, ItemStack switchTo) {
         player.getAttributes().removeModifiers(switchFrom.getAttributeModifiers(EquipmentSlot.MAINHAND));
         player.getAttributes().addTemporaryModifiers(switchTo.getAttributeModifiers(EquipmentSlot.MAINHAND));
     }
 
-    public static void offhandAttack(PlayerEntity playerEntity, Entity target) {
+    public static void mcdw$offhandAttack(PlayerEntity playerEntity, Entity target) {
         if (CompatibilityFlags.noOffhandConflicts) {
             if (!target.isAttackable())
                 if (target.handleAttack(playerEntity))
@@ -65,14 +65,14 @@ public class PlayerAttackHelper {
             ItemStack offhandStack = playerEntity.getOffHandStack();
 
             // use offhand modifiers
-            switchModifiers(playerEntity, playerEntity.getMainHandStack(), offhandStack);
+            mcdw$switchModifiers(playerEntity, playerEntity.getMainHandStack(), offhandStack);
 
             float cooldownProgress = ((IDualWielding) playerEntity).getOffhandAttackCooldownProgress(0.5F);
             float attackDamage = (float) playerEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
             attackDamage *= 0.2f + Math.pow(cooldownProgress, 2) * 0.8f;
 
             // use mainhand modifiers
-            switchModifiers(playerEntity, offhandStack, playerEntity.getMainHandStack());
+            mcdw$switchModifiers(playerEntity, offhandStack, playerEntity.getMainHandStack());
 
             float enchantBonusDamage = EnchantmentHelper.getAttackDamage(offhandStack, target instanceof LivingEntity livingTarget ?
                     livingTarget.getGroup() : EntityGroup.DEFAULT) * cooldownProgress;
@@ -229,7 +229,7 @@ public class PlayerAttackHelper {
      * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L27">ReachEntityAttributes Lines 27-30</a>
      */
 
-    public static double getReachDistance(LivingEntity livingEntity, double defaultReachDistance) {
+    public static double mcdw$getReachDistance(LivingEntity livingEntity, double defaultReachDistance) {
         @Nullable
         EntityAttributeInstance reachDistance = livingEntity.getAttributeInstance(EntityAttributesRegistry.REACH);
         return (reachDistance != null) ? (defaultReachDistance + reachDistance.getValue()) : defaultReachDistance;
@@ -256,8 +256,8 @@ public class PlayerAttackHelper {
      * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L32">ReachEntityAttributes Lines 32-35</a>
      */
     @SuppressWarnings("unused")
-    public static double getSquaredReachDistance(LivingEntity livingEntity, double squareDefaultReachDistance) {
-        double reachDistance = getReachDistance(livingEntity, Math.sqrt(squareDefaultReachDistance));
+    public static double mcdw$getSquaredReachDistance(LivingEntity livingEntity, double squareDefaultReachDistance) {
+        double reachDistance = mcdw$getReachDistance(livingEntity, Math.sqrt(squareDefaultReachDistance));
         return reachDistance * reachDistance;
     }
 
@@ -281,7 +281,7 @@ public class PlayerAttackHelper {
      * The following code is from Reach Entity Attributes and can be found here:
      * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L37">ReachEntityAttributes Lines 37-40</a>
      */
-    public static double getAttackRange(LivingEntity livingEntity, double defaultAttackRange) {
+    public static double mcdw$getAttackRange(LivingEntity livingEntity, double defaultAttackRange) {
         @Nullable
         EntityAttributeInstance attackRange = livingEntity.getAttributeInstance(EntityAttributesRegistry.ATTACK_RANGE);
         return (attackRange != null) ? (defaultAttackRange + attackRange.getValue()) : defaultAttackRange;
@@ -307,8 +307,8 @@ public class PlayerAttackHelper {
      * The following code is from Reach Entity Attributes and can be found here:
      * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L42">ReachEntityAttributes Lines 42-45</a>
      */
-    public static double getSquaredAttackRange(LivingEntity livingEntity, double squareDefaultAttackRange) {
-        double attackRange = getAttackRange(livingEntity, Math.sqrt(squareDefaultAttackRange));
+    public static double mcdw$getSquaredAttackRange(LivingEntity livingEntity, double squareDefaultAttackRange) {
+        double attackRange = mcdw$getAttackRange(livingEntity, Math.sqrt(squareDefaultAttackRange));
         return attackRange * attackRange;
     }
 
@@ -333,8 +333,8 @@ public class PlayerAttackHelper {
      * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L47">ReachEntityAttributes Lines 47-49</a>
      */
     @SuppressWarnings("unused")
-    public static List<PlayerEntity> getPlayerEntitiesWithinReach(World world, int x, int y, int z, double defaultReachDistance) {
-        return getPlayerEntitiesWithinReach(player -> true, world, x, y, z, defaultReachDistance);
+    public static List<PlayerEntity> mcdw$getPlayerEntitiesWithinReach(World world, int x, int y, int z, double defaultReachDistance) {
+        return mcdw$getPlayerEntitiesWithinReach(player -> true, world, x, y, z, defaultReachDistance);
     }
 
     /**
@@ -357,11 +357,11 @@ public class PlayerAttackHelper {
      * The following code is from Reach Entity Attributes and can be found here:
      * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L51">ReachEntityAttributes Lines 51-65</a>
      */
-    public static List<PlayerEntity> getPlayerEntitiesWithinReach(Predicate<PlayerEntity> viewerPredicate, World world, int x, int y, int z, double defaultReachDistance) {
+    public static List<PlayerEntity> mcdw$getPlayerEntitiesWithinReach(Predicate<PlayerEntity> viewerPredicate, World world, int x, int y, int z, double defaultReachDistance) {
         List<PlayerEntity> playerEntitiesWithinReach = new ArrayList<>();
         for (PlayerEntity playerEntity : world.getPlayers()) {
             if (viewerPredicate.test(playerEntity)) {
-                double reach = getReachDistance(playerEntity, defaultReachDistance);
+                double reach = mcdw$getReachDistance(playerEntity, defaultReachDistance);
                 double dx = (x + 0.5) - playerEntity.getX();
                 double dy = (y + 0.5) - playerEntity.getEyeY();
                 double dz = (z + 0.5) - playerEntity.getZ();
@@ -393,7 +393,7 @@ public class PlayerAttackHelper {
      * The following code is from Reach Entity Attributes and can be found here:
      * <a href = "https://github.com/JamiesWhiteShirt/reach-entity-attributes/blob/1.19/src/main/java/com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.java#L67">ReachEntityAttributes Lines 67-69</a>
      */
-    public static boolean isEntityWithinAttackRange(PlayerEntity playerEntity, Entity entity) {
-        return playerEntity.squaredDistanceTo(entity) <= getSquaredAttackRange(playerEntity, 64);
+    public static boolean mcdw$isEntityWithinAttackRange(PlayerEntity playerEntity, Entity entity) {
+        return playerEntity.squaredDistanceTo(entity) <= mcdw$getSquaredAttackRange(playerEntity, 64);
     }
 }

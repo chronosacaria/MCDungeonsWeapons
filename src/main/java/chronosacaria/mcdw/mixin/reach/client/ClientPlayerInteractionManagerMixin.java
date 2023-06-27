@@ -32,9 +32,9 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class ClientPlayerInteractionManagerMixin {
     @ModifyConstant(method = "getReachDistance", require = 2, allow = 2,
     constant = { @Constant(floatValue = 5.0F), @Constant(floatValue = 4.5F)})
-    private float getNewReachDistance(float reachDistance) {
+    private float mcdw$getReachDistance(float reachDistance) {
         if (MinecraftClient.getInstance().player != null) {
-            return (float) PlayerAttackHelper.getReachDistance(MinecraftClient.getInstance().player, reachDistance);
+            return (float) PlayerAttackHelper.mcdw$getReachDistance(MinecraftClient.getInstance().player, reachDistance);
         }
         return reachDistance;
     }

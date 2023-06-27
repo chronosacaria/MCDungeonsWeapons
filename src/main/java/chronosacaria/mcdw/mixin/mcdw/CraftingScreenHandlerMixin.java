@@ -12,7 +12,7 @@ import java.util.Map;
 @Mixin(net.minecraft.screen.CraftingScreenHandler.class)
 public class CraftingScreenHandlerMixin {
     @ModifyVariable(method = "updateResult", at = @At(value = "STORE"), ordinal = 1)
-    private static ItemStack innateItemStack(ItemStack itemStack) {
+    private static ItemStack mcdw$innateItemStack(ItemStack itemStack) {
         if (itemStack.getItem() instanceof IInnateEnchantment innateEnchantedItem) {
             Map<Enchantment, Integer> map = innateEnchantedItem.getInnateEnchantments();
             if (map == null) return itemStack;

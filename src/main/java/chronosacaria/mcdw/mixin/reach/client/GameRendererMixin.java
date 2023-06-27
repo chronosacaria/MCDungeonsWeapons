@@ -32,25 +32,25 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(GameRenderer.class)
 public abstract class GameRendererMixin implements SynchronousResourceReloader {
     @ModifyConstant(method = "updateTargetedEntity", require = 1, allow = 1, constant = @Constant(doubleValue = 6.0))
-    private double getNewReachDistance(double reachDistance) {
+    private double mcdw$updateTargetedEntity(double reachDistance) {
         if (MinecraftClient.getInstance().player != null) {
-            return PlayerAttackHelper.getReachDistance(MinecraftClient.getInstance().player, reachDistance);
+            return PlayerAttackHelper.mcdw$getReachDistance(MinecraftClient.getInstance().player, reachDistance);
         }
         return reachDistance;
     }
 
     @ModifyConstant(method = "updateTargetedEntity", require = 1, allow = 1, constant = @Constant(doubleValue = 3.0))
-    private double getNewAttackRangeI(double attackRange) {
+    private double mcdw$updateTargetedEntityII(double attackRange) {
         if (MinecraftClient.getInstance().player != null) {
-            return PlayerAttackHelper.getAttackRange(MinecraftClient.getInstance().player, attackRange);
+            return PlayerAttackHelper.mcdw$getAttackRange(MinecraftClient.getInstance().player, attackRange);
         }
         return attackRange;
     }
 
     @ModifyConstant(method = "updateTargetedEntity", require = 1, allow = 1, constant = @Constant(doubleValue = 9.0))
-    private double getNewAttackRangeII(double attackRange) {
+    private double mcdw$updateTargetedEntityIII(double attackRange) {
         if (MinecraftClient.getInstance().player != null) {
-            return PlayerAttackHelper.getSquaredAttackRange(MinecraftClient.getInstance().player, attackRange);
+            return PlayerAttackHelper.mcdw$getSquaredAttackRange(MinecraftClient.getInstance().player, attackRange);
         }
         return attackRange;
     }

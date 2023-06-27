@@ -46,25 +46,25 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
     }
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getMainHandStack()Lnet/minecraft/item/ItemStack;"))
-    public void tick(CallbackInfo ci) {
+    public void mcdw$tick(CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
             setOffhandAttackedTicks(getOffhandAttackedTicks() + 1);
     }
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
-    protected void injectInitDataTracker(CallbackInfo ci) {
+    protected void mcdw$initDataTracker(CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
             dataTracker.startTracking(LAST_ATTACKED_OFFHAND_TICKS, 0);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
-    public void injectWriteCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
+    public void mcdw$writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
             nbt.putInt("LastAttackedOffhandTicks", getOffhandAttackedTicks());
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
-    public void injectReadCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
+    public void mcdw$readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
             setOffhandAttackedTicks(nbt.getInt("LastAttackedOffhandTicks"));
     }
@@ -86,7 +86,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
 
     @ModifyConstant(method = "attack", constant = @Constant(doubleValue = 9.0))
     private double modifiedAttackRange(double attackRange) {
-        return PlayerAttackHelper.getSquaredAttackRange(this, attackRange);
+        return PlayerAttackHelper.mcdw$getSquaredAttackRange(this, attackRange);
     }
 
     /**

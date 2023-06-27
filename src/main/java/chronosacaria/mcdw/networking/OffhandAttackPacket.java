@@ -37,7 +37,7 @@ public class OffhandAttackPacket {
             server.execute(() -> {
                 player.updateLastActionTime();
                 if (entity != null) {
-                    PlayerAttackHelper.offhandAttack(player, entity);
+                    PlayerAttackHelper.mcdw$offhandAttack(player, entity);
                 }
             });
         });

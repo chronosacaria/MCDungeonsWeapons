@@ -17,7 +17,7 @@ import java.util.List;
 @Mixin(EnchantmentHelper.class)
 public class EnchantmentHelperMixin {
     @Inject(method = "getPossibleEntries", at = @At("RETURN"))
-    private static void getPossibleEntries_RETURN_SpellEngine(int power, ItemStack stack, boolean treasureAllowed, CallbackInfoReturnable<List<EnchantmentLevelEntry>> cir) {
+    private static void mcdw$getPossibleEntries(int power, ItemStack stack, boolean treasureAllowed, CallbackInfoReturnable<List<EnchantmentLevelEntry>> cir) {
         var currentEntries = cir.getReturnValue();
 
         // 1. REMOVING ENCHANT ENTRIES ADDED INCORRECTLY

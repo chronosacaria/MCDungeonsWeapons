@@ -39,7 +39,7 @@ public class LivingEntityPlayerEntityMixin {
                     amount += storedAmount * EnchantmentEffects.criticalHitDamage(attackingEntity, victim, isOffHandAttack);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.VOID_STRIKE))
                     amount += storedAmount * EnchantmentEffects.voidStrikeDamage(attackingEntity, victim, isOffHandAttack);
-                if (!PlayerAttackHelper.isLikelyNotMeleeDamage(source)) {
+                if (!PlayerAttackHelper.mcdw$isLikelyNotMeleeDamage(source)) {
                     if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.PAIN_CYCLE))
                         amount += storedAmount * EnchantmentEffects.painCycleDamage(attackingEntity, isOffHandAttack);
                 }
@@ -151,7 +151,7 @@ public class LivingEntityPlayerEntityMixin {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.LEECHING))
                     EnchantmentEffects.applyLeeching(attackingEntity, victim, isOffHandAttack);
 
-                if (!PlayerAttackHelper.isLikelyNotMeleeDamage(source)) {
+                if (!PlayerAttackHelper.mcdw$isLikelyNotMeleeDamage(source)) {
                     if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.GUARDING_STRIKE))
                         EnchantmentEffects.applyGuardingStrike(attackingEntity, isOffHandAttack);
                 }

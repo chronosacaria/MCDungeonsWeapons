@@ -146,7 +146,7 @@ public abstract class LivingEntityMixin extends Entity {
     }
 
     @Inject(method = "applyDamage", at = @At("HEAD"))
-    private void onAttack(DamageSource source, float amount, CallbackInfo ci) {
+    private void mcdw$onAttack(DamageSource source, float amount, CallbackInfo ci) {
         var attacker = source.getAttacker();
         var target = (LivingEntity) ((Object)this);
         if (target.isInvulnerableTo(source)) {
@@ -207,7 +207,7 @@ public abstract class LivingEntityMixin extends Entity {
     }
 
     @Inject(method = "applyDamage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setHealth(F)V"))
-    public void applySharedPainDamage(DamageSource source, float amount, CallbackInfo ci) {
+    public void mcdw$applySharedPainDamage(DamageSource source, float amount, CallbackInfo ci) {
         if (source.getSource() instanceof PlayerEntity player) {
             int sharedPainLevel = EnchantmentEffects.mcdw$getEnchantmentLevel(EnchantsRegistry.SHARED_PAIN, player, false);
             if (sharedPainLevel <= 0) return;

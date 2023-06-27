@@ -33,7 +33,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(Item.class)
 public abstract class ItemMixin implements ItemConvertible {
     @ModifyConstant(method = "raycast", require = 4, allow = 4, constant = @Constant(doubleValue = 5.0))
-    private static double getNewReachDistance(double reachDistance, World world, PlayerEntity playerEntity) {
-        return PlayerAttackHelper.getReachDistance(playerEntity, reachDistance);
+    private static double mcdw$raycast(double reachDistance, World world, PlayerEntity playerEntity) {
+        return PlayerAttackHelper.mcdw$getReachDistance(playerEntity, reachDistance);
     }
 }

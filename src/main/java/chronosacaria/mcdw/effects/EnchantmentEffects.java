@@ -664,7 +664,7 @@ public class EnchantmentEffects {
         if (chainReactionLevel > 0) {
 
             if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.CHAIN_REACTION) * chainReactionLevel)){
-                ProjectileEffectHelper.fireChainReactionProjectileFromTarget(target.getEntityWorld(), target, shooter,
+                ProjectileEffectHelper.mcdw$fireChainReactionProjectileFromTarget(target.getEntityWorld(), target, shooter,
                         3.15F,1.0F);
             }
         }
@@ -756,7 +756,7 @@ public class EnchantmentEffects {
 
             float damageMultiplier = 0.03F + (ricochetLevel * 0.07F);
             if (ppe.getVelocity().length() > 0.7F)
-                ProjectileEffectHelper.spawnExtraArrows(shooter, target, 1, 10, damageMultiplier);
+                ProjectileEffectHelper.mcdw$spawnExtraArrows(shooter, target, 1, 10, damageMultiplier);
         }
     }
 
@@ -818,7 +818,7 @@ public class EnchantmentEffects {
                 int availableArrows = Math.min(InventoryHelper.mcdw$countItem(attackingPlayer, Items.ARROW), burstBowstringLevel);
                 if (availableArrows < 1) return; //Avoid area lookup
 
-                ProjectileEffectHelper.spawnExtraArrows(jumpingEntity, jumpingEntity, availableArrows, 16, 0.4F);
+                ProjectileEffectHelper.mcdw$spawnExtraArrows(jumpingEntity, jumpingEntity, availableArrows, 16, 0.4F);
             }
         }
     }

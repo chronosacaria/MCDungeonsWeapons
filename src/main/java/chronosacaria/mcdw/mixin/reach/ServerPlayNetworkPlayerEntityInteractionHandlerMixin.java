@@ -42,8 +42,8 @@ public abstract class ServerPlayNetworkPlayerEntityInteractionHandlerMixin imple
     Entity field_28962;
 
     @Inject(method = "attack", at = @At("HEAD"), require = 1, allow = 1, cancellable = true)
-    private void confirmTargetIsWithinAttackRange(CallbackInfo ci) {
-        if (!PlayerAttackHelper.isEntityWithinAttackRange(this.field_28963.player, this.field_28962)) {
+    private void mcdw$attack(CallbackInfo ci) {
+        if (!PlayerAttackHelper.mcdw$isEntityWithinAttackRange(this.field_28963.player, this.field_28962)) {
             ci.cancel();
         }
     }
