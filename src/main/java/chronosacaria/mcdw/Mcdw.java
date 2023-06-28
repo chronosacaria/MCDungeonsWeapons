@@ -24,6 +24,7 @@ public class Mcdw implements ModInitializer {
     @Override
     public void onInitialize() {
         CompatibilityFlags.init();
+        CompatRegistry.register();
         EntityAttributesRegistry.register();
         McdwConfig.register();
         CONFIG = AutoConfig.getConfigHolder(McdwConfig.class).getConfig();

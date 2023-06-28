@@ -1,4 +1,3 @@
-/*
 package chronosacaria.mcdw.registries;
 
 import chronosacaria.mcdw.Mcdw;
@@ -10,13 +9,12 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class CompatRegistry {
-    public static void init() {
+    public static void register() {
         if (FabricLoader.getInstance().isModLoaded("clumps")) {
             ClumpsEvents.VALUE_EVENT.register(event -> {
                 int amount = event.getValue();
                 PlayerEntity playerEntity = event.getPlayer();
                 boolean isOffHandAttack = playerEntity.getRecentDamageSource() instanceof OffHandDamageSource;
-
 
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SOUL_DEVOURER))
                     amount = EnchantmentEffects.soulDevourerExperience(playerEntity, amount);
@@ -30,4 +28,3 @@ public class CompatRegistry {
         }
     }
 }
-*/

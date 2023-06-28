@@ -2,6 +2,7 @@
   "required": true,
   "package": "chronosacaria.mcdw.mixin",
   "compatibilityLevel": "JAVA_8",
+  "plugin": "chronosacaria.mcdw.mixin.McdwMixinPlugin",
   "mixins": [
     "mcdw.AreaEffectCloudEntityMixin",
     "mcdw.BowItemMixin",
