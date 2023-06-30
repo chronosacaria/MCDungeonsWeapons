@@ -24,6 +24,7 @@
     "mcdw.ShieldPlayerEntityMixin",
     "mcdw.SmithingScreenHandlerMixin",
     "reach.ItemMixin",
+    "reach.PlayerEntityMixin",
     "reach.ServerPlayNetworkPlayerEntityInteractionHandlerMixin"
   ],
   "client": [
