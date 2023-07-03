@@ -115,7 +115,7 @@ public enum DaggersID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case DAGGER_BACKSTABBER -> Map.of(EnchantsRegistry.AMBUSH, 1, EnchantsRegistry.BONUS_SHOT, 1);
+            case DAGGER_BACKSTABBER -> Map.of(EnchantsRegistry.AMBUSH, 1);
             case DAGGER_CHILL_GALE_KNIFE, DAGGER_FANGS_OF_FROST -> Map.of(EnchantsRegistry.FREEZING, 1);
             case DAGGER_DAGGER, DAGGER_TEMPEST_KNIFE -> null;
             case DAGGER_MOON -> Map.of(EnchantsRegistry.ENIGMA_RESONATOR, 1);
