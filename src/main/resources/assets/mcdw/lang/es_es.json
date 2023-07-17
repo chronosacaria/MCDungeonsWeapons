@@ -61,7 +61,7 @@
   "item.mcdw.crossbow_voidcaller_crossbow" : "Llamadora del vacio",
   "item.mcdw.crossbow_dual_crossbow" : "Ballestas dobles",
   "item.mcdw.crossbow_spellbound_crossbow" : "Ballestas hechizadas",
-  "item.mcdw.crossbow_baby_crossbow" : "Arco bebe",
+  "item.mcdw.crossbow_baby_crossbow" : "Ballestas bebe",
   "item.mcdw.crossbow_burst_crossbow" : "Ballesta explosiva",
   "item.mcdw.crossbow_soul_hunter_crossbow" : "Ballesta cazadora de almas",
   "item.mcdw.crossbow_corrupted_crossbow" : "Ballesta corrompida",
@@ -319,9 +319,9 @@
   "tooltip_info_item.mcdw.grave_bane_2"       : "esta guja irradia una potente energía mágica",
   "tooltip_info_item.mcdw.grave_bane_3"       : "para alejar a los muertos vivientes.",
 
-  "tooltip_info_item.mcdw.spear_1"            : "The spear, with its long reach",
-  "tooltip_info_item.mcdw.spear_2"            : "and powerful range, is a solid",
-  "tooltip_info_item.mcdw.spear_3"            : "choice of weapon.",
+  "tooltip_info_item.mcdw.spear_1"            : "The spear, con su largo alcance",
+  "tooltip_info_item.mcdw.spear_2"            : "y un rango poderoso, es una solida",
+  "tooltip_info_item.mcdw.spear_3"            : "opcion como arma.",
 
   "tooltip_info_item.mcdw.fortune_1"          : "La lanza que fue observada por",
   "tooltip_info_item.mcdw.fortune_2"          : "almas suertudas, dando suerte a",
@@ -343,7 +343,7 @@
   "tooltip_info_item.mcdw.great_hammer_3"     : "en la forja y en la batalla.",
 
   "tooltip_info_item.mcdw.gravity_1"          : "Un martillo, incrustado con un cristal que",
-  "tooltip_info_item.mcdw.gravity_2"          : "arpvecha el poder de la gravedad, que es",
+  "tooltip_info_item.mcdw.gravity_2"          : "aprovecha el poder de la gravedad, que es",
   "tooltip_info_item.mcdw.gravity_3"          : "increiblemente poderoso.",
 
   "tooltip_info_item.mcdw.stormlander_1"      : "El Stormlander, encantado con el poder de la",
@@ -404,223 +404,223 @@
   "tooltip_info_item.mcdw.vine_whip_4"        : "Ten cuidado de no tocarlo",
   "tooltip_info_item.mcdw.vine_whip_5"        : "tu mismo.",
 
-  "tooltip_info_item.mcdw.tempest_knife_1"    : "This knife slices through",
-  "tooltip_info_item.mcdw.tempest_knife_2"    : "enemies like winds that cut",
-  "tooltip_info_item.mcdw.tempest_knife_3"    : "between the mountaintops.",
+  "tooltip_info_item.mcdw.tempest_knife_1"    : "Este cuchillo corta",
+  "tooltip_info_item.mcdw.tempest_knife_2"    : "a sus enemigos como los vientos",
+  "tooltip_info_item.mcdw.tempest_knife_3"    : "que se cortan entre las montañas.",
 
-  "tooltip_info_item.mcdw.resolute_tempest_knife_1" : "Passed down by nomads who roam",
-  "tooltip_info_item.mcdw.resolute_tempest_knife_2" : "the mountain peaks, this knife",
-  "tooltip_info_item.mcdw.resolute_tempest_knife_3" : "has been used in countless battles.",
+  "tooltip_info_item.mcdw.resolute_tempest_knife_1" : "Transmitido por nomadas que recorren",
+  "tooltip_info_item.mcdw.resolute_tempest_knife_2" : "las cimas de las montañas, este cuchillo",
+  "tooltip_info_item.mcdw.resolute_tempest_knife_3" : "que ha sido usado en incontables batallas.",
 
-  "tooltip_info_item.mcdw.chill_gale_knife_1" : "Created from the never-melting ice",
-  "tooltip_info_item.mcdw.chill_gale_knife_2" : "atop the mountain peaks, this",
-  "tooltip_info_item.mcdw.chill_gale_knife_3" : "knife is forever icy to the touch.",
+  "tooltip_info_item.mcdw.chill_gale_knife_1" : "Creado de hielo que nunca se derrite",
+  "tooltip_info_item.mcdw.chill_gale_knife_2" : "en la cima de una montaña, este",
+  "tooltip_info_item.mcdw.chill_gale_knife_3" : "cuchillo es siempre helado al tacto.",
 
-  "tooltip_info_item.mcdw.ancient_bow_1"      : "The Ancient Bow is still as sprightly",
-  "tooltip_info_item.mcdw.ancient_bow_2"      : "as the day it was first strung.",
+  "tooltip_info_item.mcdw.ancient_bow_1"      : "Este arco ancestral sigue siendo tan agil",
+  "tooltip_info_item.mcdw.ancient_bow_2"      : "como el primer dia que fue encordado.",
 
-  "tooltip_info_item.mcdw.bonebow_1"          : "The Bonebow is the pride of Pumpkin",
-  "tooltip_info_item.mcdw.bonebow_2"          : "Pastures, crafted within the walls",
-  "tooltip_info_item.mcdw.bonebow_3"          : "of their humble village.",
+  "tooltip_info_item.mcdw.bonebow_1"          : "El arco de hueso es el orgullo de los Pastos",
+  "tooltip_info_item.mcdw.bonebow_2"          : "de Calabaza, hecho bajo los techos",
+  "tooltip_info_item.mcdw.bonebow_3"          : "de una humilde aldea.",
 
-  "tooltip_info_item.mcdw.lost_souls_1"       : "This bow, made of cursed bones,",
-  "tooltip_info_item.mcdw.lost_souls_2"       : "stripes the living of their",
-  "tooltip_info_item.mcdw.lost_souls_3"       : "very souls.",
+  "tooltip_info_item.mcdw.lost_souls_1"       : "Este arco, hecho de huesos malditos,",
+  "tooltip_info_item.mcdw.lost_souls_2"       : "Pulido de muchas almas",
+  "tooltip_info_item.mcdw.lost_souls_3"       : "vivientes.",
 
-  "tooltip_info_item.mcdw.elite_power_bow_1"  : "The secret of the Elite Power ",
-  "tooltip_info_item.mcdw.elite_power_bow_2"  : "Bow's construction have been ",
-  "tooltip_info_item.mcdw.elite_power_bow_3"  : "lost without a trace.",
+  "tooltip_info_item.mcdw.elite_power_bow_1"  : "El secreto del arco de Energía Elitista",
+  "tooltip_info_item.mcdw.elite_power_bow_2"  : "es que fue construida sin",
+  "tooltip_info_item.mcdw.elite_power_bow_3"  : "perder ni un solo rastro.",
 
-  "tooltip_info_item.mcdw.guardian_bow_1"     : "Forged from fossilized coral,",
-  "tooltip_info_item.mcdw.guardian_bow_2"     : "the Guardian Bow is a remnant from",
-  "tooltip_info_item.mcdw.guardian_bow_3"     : "sunken civilizations of lost ages.",
+  "tooltip_info_item.mcdw.guardian_bow_1"     : "Forgado de un coral fosilizado,",
+  "tooltip_info_item.mcdw.guardian_bow_2"     : "el arco del guardián es uno de los restos",
+  "tooltip_info_item.mcdw.guardian_bow_3"     : "civilizaciones hundidas de épocas perdidas.",
 
-  "tooltip_info_item.mcdw.haunted_bow_1"      : "What indescribably horror! The ",
-  "tooltip_info_item.mcdw.haunted_bow_2"      : "creeping tentacles of this bow",
-  "tooltip_info_item.mcdw.haunted_bow_3"      : "reach for the unknowable Void.",
+  "tooltip_info_item.mcdw.haunted_bow_1"      : "¡Qué horror indescriptible! Los",
+  "tooltip_info_item.mcdw.haunted_bow_2"      : "tentáculos reptantes de este arco",
+  "tooltip_info_item.mcdw.haunted_bow_3"      : "alcanzan el Vacío incognoscible",
 
-  "tooltip_info_item.mcdw.hunters_promise_1"  : "This enchanted bow deepens the",
-  "tooltip_info_item.mcdw.hunters_promise_2"  : "bond between the hunter and.",
-  "tooltip_info_item.mcdw.hunters_promise_3"  : "their trusted animal companion.",
+  "tooltip_info_item.mcdw.hunters_promise_1"  : "Este arco encantado profundiza",
+  "tooltip_info_item.mcdw.hunters_promise_2"  : "el vínculo entre el cazador y su",
+  "tooltip_info_item.mcdw.hunters_promise_3"  : "compañero animal de confianza.",
 
-  "tooltip_info_item.mcdw.hunting_bow_1"      : "This enchanted bow deepens the",
-  "tooltip_info_item.mcdw.hunting_bow_2"      : "bond between the hunter and.",
-  "tooltip_info_item.mcdw.hunting_bow_3"      : "their trusted animal companion.",
+  "tooltip_info_item.mcdw.hunting_bow_1"      : "Este arco encantado depende del",
+  "tooltip_info_item.mcdw.hunting_bow_2"      : "vinculo entre el cazador y",
+  "tooltip_info_item.mcdw.hunting_bow_3"      : "y su compañero de confianza.",
 
-  "tooltip_info_item.mcdw.longbow_1"          : "The Longbow, crafted for hunting",
-  "tooltip_info_item.mcdw.longbow_2"          : "rather than battle, is still",
-  "tooltip_info_item.mcdw.longbow_3"          : "useful in a fight.",
-
-
-  "tooltip_info_item.mcdw.love_spell_bow_1"   : "Love can be magical, but when it ",
-  "tooltip_info_item.mcdw.love_spell_bow_2"   : "becomes too powerful, it can turn",
-  "tooltip_info_item.mcdw.love_spell_bow_3"   : "into a frenzy.",
-
-  "tooltip_info_item.mcdw.masters_bow_1"      : "The bow preferred by the masters",
-  "tooltip_info_item.mcdw.masters_bow_2"      : "of archery across the Overworld,",
-  "tooltip_info_item.mcdw.masters_bow_3"      : "no matter how simple it appears.",
-
-  "tooltip_info_item.mcdw.mechanical_shortbow_1" : "A brand new development in",
-  "tooltip_info_item.mcdw.mechanical_shortbow_2" : "quick firing technology, this",
-  "tooltip_info_item.mcdw.mechanical_shortbow_3" : "bow packs a swift punch.",
-
-  "tooltip_info_item.mcdw.nocturnal_bow_1"    : "The souls bound to the bow guide",
-  "tooltip_info_item.mcdw.nocturnal_bow_2"    : "the arrows to their targets and",
-  "tooltip_info_item.mcdw.nocturnal_bow_3"    : "cause it to glow slightly.",
-
-  "tooltip_info_item.mcdw.power_bow_1"        : "The question of what makes the",
-  "tooltip_info_item.mcdw.power_bow_2"        : "Power Bow so powerful has puzzled",
-  "tooltip_info_item.mcdw.power_bow_3"        : "the minds of learned folk for ages.",
-
-  "tooltip_info_item.mcdw.purple_storm_1"     : "Named the Purple Storm after",
-  "tooltip_info_item.mcdw.purple_storm_2"     : "its lovely hue, this legendary",
-  "tooltip_info_item.mcdw.purple_storm_3"     : "bow packs a powerful punch.",
-
-  "tooltip_info_item.mcdw.red_snake_1"        : "The Red Snake radiates and",
-  "tooltip_info_item.mcdw.red_snake_2"        : "explosive heat, making it a deadly",
-  "tooltip_info_item.mcdw.red_snake_3"        : "fire risk in the dry, desert lands.",
-
-  "tooltip_info_item.mcdw.sabrewing_1"        : "This bow, built for a long-lost",
-  "tooltip_info_item.mcdw.sabrewing_2"        : "champion, feels right in the hands",
-  "tooltip_info_item.mcdw.sabrewing_3"        : "of those who seek justice.",
-
-  "tooltip_info_item.mcdw.shortbow_1"         : "The preferred weapon of thieves",
-  "tooltip_info_item.mcdw.shortbow_2"         : "and rogues, the Shortbow is nimble",
-  "tooltip_info_item.mcdw.shortbow_3"         : "and lethal at short range.",
-
-  "tooltip_info_item.mcdw.snow_bow_1"         : "Those who face the Snow Bow in",
-  "tooltip_info_item.mcdw.snow_bow_2"         : "battle must also prepare to face",
-  "tooltip_info_item.mcdw.snow_bow_3"         : "the chill of freezing wintry winds.",
-
-  "tooltip_info_item.mcdw.soul_bow_1"         : "The Soul Bow simmers with all",
-  "tooltip_info_item.mcdw.soul_bow_2"         : "of the beauty and fury",
-  "tooltip_info_item.mcdw.soul_bow_3"         : "of an attacking Vex.",
-
-  "tooltip_info_item.mcdw.green_menace_1"     : "The arrows fired from the Green",
-  "tooltip_info_item.mcdw.green_menace_2"     : "Menace always hit their intended",
-  "tooltip_info_item.mcdw.green_menace_3"     : "target, even in the thickest fog.",
-
-  "tooltip_info_item.mcdw.pink_scoundrel_1"   : "It would be a deadly mistake to",
-  "tooltip_info_item.mcdw.pink_scoundrel_2"   : "underestimate the power of the",
-  "tooltip_info_item.mcdw.pink_scoundrel_3"   : "Pink Scoundrel.",
-
-  "tooltip_info_item.mcdw.trickbow_1"         : "A sleek bow that seems to",
-  "tooltip_info_item.mcdw.trickbow_2"         : "never miss its target.",
-
-  "tooltip_info_item.mcdw.twin_bow_1"         : "The Twin Bow is the champion",
-  "tooltip_info_item.mcdw.twin_bow_2"         : "of the hero who finds themselves",
-  "tooltip_info_item.mcdw.twin_bow_3"         : "outnumbered and alone.",
-
-  "tooltip_info_item.mcdw.winters_touch_1"    : "Arrows fired from this legendary",
-  "tooltip_info_item.mcdw.winters_touch_2"    : "bow are said to be carried by the",
-  "tooltip_info_item.mcdw.winters_touch_3"    : "winter winds themselves.",
-
-  "tooltip_info_item.mcdw.auto_crossbow_1"          : "The Arch-Illager said the design",
-  "tooltip_info_item.mcdw.auto_crossbow_2"          : "for this powerful crossbow came",
-  "tooltip_info_item.mcdw.auto_crossbow_3"          : "to him in a vision.",
-
-  "tooltip_info_item.mcdw.azure_seeker_1"           : "If the color blue had a sound,",
-  "tooltip_info_item.mcdw.azure_seeker_2"           : "it would be shots fired by",
-  "tooltip_info_item.mcdw.azure_seeker_3"           : "the Azure Seeker.",
-
-  "tooltip_info_item.mcdw.baby_crossbow_1"          : "While some discuss the cute",
-  "tooltip_info_item.mcdw.baby_crossbow_2"          : "Baby Crossbow,these deadly weapons",
-  "tooltip_info_item.mcdw.baby_crossbow_3"          : "grow into heavy hitters.",
+  "tooltip_info_item.mcdw.longbow_1"          : "El arco largo, diseñado para la",
+  "tooltip_info_item.mcdw.longbow_2"          : "caza en lugar de la batalla,",
+  "tooltip_info_item.mcdw.longbow_3"          : "sigue siendo útil en una pelea.",
 
 
-  "tooltip_info_item.mcdw.burst_crossbow_1"         : "A tactical crossbow favored by warriors",
-  "tooltip_info_item.mcdw.burst_crossbow_2"         : "and hunters alike, the Burst Crossbow",
-  "tooltip_info_item.mcdw.burst_crossbow_3"         : "is a powerful tool for any hero.",
+  "tooltip_info_item.mcdw.love_spell_bow_1"   : "El amor puede ser magico, pero cuando se",
+  "tooltip_info_item.mcdw.love_spell_bow_2"   : "vuelve demasiado, puede volverse",
+  "tooltip_info_item.mcdw.love_spell_bow_3"   : "un poco peligroso.",
 
-  "tooltip_info_item.mcdw.butterfly_crossbow_1"     : "This crossbow moves faster than",
-  "tooltip_info_item.mcdw.butterfly_crossbow_2"     : "wings in flight and strikes down",
-  "tooltip_info_item.mcdw.butterfly_crossbow_3"     : "enemies before they see the bolt.",
+  "tooltip_info_item.mcdw.masters_bow_1"      : "El arco preferrido por los maestros",
+  "tooltip_info_item.mcdw.masters_bow_2"      : "de la arquería por todo el mundo,",
+  "tooltip_info_item.mcdw.masters_bow_3"      : "que no te importe lo simple que se vea.",
 
-  "tooltip_info_item.mcdw.cog_crossbow_1"           : "The gears of this ancient Cog",
-  "tooltip_info_item.mcdw.cog_crossbow_2"           : "Crossbow still turn up smoothly,",
-  "tooltip_info_item.mcdw.cog_crossbow_3"           : "making it a reliable weapon choice",
-  "tooltip_info_item.mcdw.cog_crossbow_4"           : "to this day.",
+  "tooltip_info_item.mcdw.mechanical_shortbow_1" : "Un arco nuevo dessarrollado con",
+  "tooltip_info_item.mcdw.mechanical_shortbow_2" : "una tecnologia de disparo rapido, este",
+  "tooltip_info_item.mcdw.mechanical_shortbow_3" : "arco guarda un par de rapidos ataques.",
 
-  "tooltip_info_item.mcdw.corrupted_crossbow_1"     : "This crossbow has a subtle yet",
-  "tooltip_info_item.mcdw.corrupted_crossbow_2"     : "corrupting power that is suitable",
-  "tooltip_info_item.mcdw.corrupted_crossbow_3"     : "for thieves and nimble warriors alike.",
+  "tooltip_info_item.mcdw.nocturnal_bow_1"    : "Las almas vinculadas a este arco guian",
+  "tooltip_info_item.mcdw.nocturnal_bow_2"    : "las flechas a sus objetivos y",
+  "tooltip_info_item.mcdw.nocturnal_bow_3"    : "hace que brillen ligeramente.",
 
-  "tooltip_info_item.mcdw.doom_crossbow_1"          : "Many thought that the Doom Crossbow",
-  "tooltip_info_item.mcdw.doom_crossbow_2"          : "was just a myth, but this time",
-  "tooltip_info_item.mcdw.doom_crossbow_3"          : "the rumors turned out to be true.",
+  "tooltip_info_item.mcdw.power_bow_1"        : "La pregunta de que hace al",
+  "tooltip_info_item.mcdw.power_bow_2"        : "arco de Energía tan poderoso a sido la confusión",
+  "tooltip_info_item.mcdw.power_bow_3"        : "de grandes mentes a lo largo de los años.",
 
-  "tooltip_info_item.mcdw.dual_crossbow_1"          : "Dual crossbows are the perfect choice",
-  "tooltip_info_item.mcdw.dual_crossbow_2"          : "for a warrior with quick reflexes in",
-  "tooltip_info_item.mcdw.dual_crossbow_3"          : "a fast-paced battle.",
+  "tooltip_info_item.mcdw.purple_storm_1"     : "Se nombro tormenta Violeta por",
+  "tooltip_info_item.mcdw.purple_storm_2"     : "su precioso tono, este legendario",
+  "tooltip_info_item.mcdw.purple_storm_3"     : "arco guarda un gran golpe.",
 
-  "tooltip_info_item.mcdw.exploding_crossbow_1"     : "The power of TNT fused with the",
-  "tooltip_info_item.mcdw.exploding_crossbow_2"     : "latest in archery design resulted",
-  "tooltip_info_item.mcdw.exploding_crossbow_3"     : "in this devastating crossbow.",
+  "tooltip_info_item.mcdw.red_snake_1"        : "La Serpiente Roja irradia un",
+  "tooltip_info_item.mcdw.red_snake_2"        : "calor explosivo, haciendolo un letal",
+  "tooltip_info_item.mcdw.red_snake_3"        : "riesgo de incendios en lugares secos.",
 
-  "tooltip_info_item.mcdw.feral_soul_crossbow_1"    : "If you listen closely you can hear the",
-  "tooltip_info_item.mcdw.feral_soul_crossbow_2"    : "souls inside the crossbow,",
-  "tooltip_info_item.mcdw.feral_soul_crossbow_3"    : "usually ridiculing you.",
+  "tooltip_info_item.mcdw.sabrewing_1"        : "Este arco, hecho por un gran campeon",
+  "tooltip_info_item.mcdw.sabrewing_2"        : "ya retirado, se siente bien en las manos",
+  "tooltip_info_item.mcdw.sabrewing_3"        : "de quien busca la justicia.",
 
-  "tooltip_info_item.mcdw.firebolt_thrower_1"       : "The Firebolt Thrower launches chaos",
-  "tooltip_info_item.mcdw.firebolt_thrower_2"       : "in a chain reaction of exploding arrows.",
+  "tooltip_info_item.mcdw.shortbow_1"         : "El arma preferida de los ladrones",
+  "tooltip_info_item.mcdw.shortbow_2"         : "y los pillos, El arco corto es un gran",
+  "tooltip_info_item.mcdw.shortbow_3"         : "y letal arma a corto alcance.",
 
-  "tooltip_info_item.mcdw.harp_crossbow_1"          : "Half musical instrument and fully",
-  "tooltip_info_item.mcdw.harp_crossbow_2"          : "deadly weapon, the Harp Crossbow",
-  "tooltip_info_item.mcdw.harp_crossbow_3"          : "is the life of the party.",
+  "tooltip_info_item.mcdw.snow_bow_1"         : "Quienes vieron al arco de nieve en",
+  "tooltip_info_item.mcdw.snow_bow_2"         : "batalla estan preparados para soportar",
+  "tooltip_info_item.mcdw.snow_bow_3"         : "el frío de los gélidos vientos invernales.",
 
-  "tooltip_info_item.mcdw.heavy_crossbow_1"         : "The weighted crossbow is a damage-dealing",
-  "tooltip_info_item.mcdw.heavy_crossbow_2"         : "menace and a real threat from a",
-  "tooltip_info_item.mcdw.heavy_crossbow_3"         : "ranged distance.",
+  "tooltip_info_item.mcdw.soul_bow_1"         : "El arco de alma hierve a fuego lento a todos",
+  "tooltip_info_item.mcdw.soul_bow_2"         : "con la belleza y furia",
+  "tooltip_info_item.mcdw.soul_bow_3"         : "del ataque de un Vex.",
 
-  "tooltip_info_item.mcdw.imploding_crossbow_1"     : "The Imploding Crossbow has been",
-  "tooltip_info_item.mcdw.imploding_crossbow_2"     : "magically fine-tuned to maximize",
-  "tooltip_info_item.mcdw.imploding_crossbow_3"     : "the impact of the explosion.",
+  "tooltip_info_item.mcdw.green_menace_1"     : "Las flechas que dispara la Amenaza",
+  "tooltip_info_item.mcdw.green_menace_2"     : "Verde siempre golpean a su objeto",
+  "tooltip_info_item.mcdw.green_menace_3"     : "deseado, incluso en la niebla más espesa.",
 
-  "tooltip_info_item.mcdw.lightning_harp_crossbow_1": "Adding electrical energy to this",
-  "tooltip_info_item.mcdw.lightning_harp_crossbow_2": "crossbow changed the firing",
-  "tooltip_info_item.mcdw.lightning_harp_crossbow_3": "sound dramatically.",
+  "tooltip_info_item.mcdw.pink_scoundrel_1"   : "Puede ser un error mortal",
+  "tooltip_info_item.mcdw.pink_scoundrel_2"   : "desestimar el poder de",
+  "tooltip_info_item.mcdw.pink_scoundrel_3"   : "El Sinvergüenza Rosa.",
 
-  "tooltip_info_item.mcdw.pride_of_the_piglins_1"   : "Found in the farthest reaches",
-  "tooltip_info_item.mcdw.pride_of_the_piglins_2"   : "of the Nether, the Pride of the",
-  "tooltip_info_item.mcdw.pride_of_the_piglins_3"   : "Piglins is both vintage and vicious.",
+  "tooltip_info_item.mcdw.trickbow_1"         : "Un arco elegante que se ve que",
+  "tooltip_info_item.mcdw.trickbow_2"         : "nunca falla su objetivo.",
 
-  "tooltip_info_item.mcdw.rapid_crossbow_1"         : "New reloading technology helps this",
-  "tooltip_info_item.mcdw.rapid_crossbow_2"         : "crossbow fire more rapidly than those",
-  "tooltip_info_item.mcdw.rapid_crossbow_3"         : "that came before it.",
+  "tooltip_info_item.mcdw.twin_bow_1"         : "Los arcos gemelos son el favoritos",
+  "tooltip_info_item.mcdw.twin_bow_2"         : "de los heroes que se encuentran a ellos mismos",
+  "tooltip_info_item.mcdw.twin_bow_3"         : "incontables veces solos.",
 
-  "tooltip_info_item.mcdw.scatter_crossbow_1"       : "This crossbow, modified to hold and fire",
-  "tooltip_info_item.mcdw.scatter_crossbow_2"       : "multiple bolts, is also a half-decent",
-  "tooltip_info_item.mcdw.scatter_crossbow_3"       : "musical instrument.",
+  "tooltip_info_item.mcdw.winters_touch_1"    : "Los arcos que dispara este legendario arco",
+  "tooltip_info_item.mcdw.winters_touch_2"    : "dicen que carga con los grandes",
+  "tooltip_info_item.mcdw.winters_touch_3"    : "vientos del invierno.",
 
-  "tooltip_info_item.mcdw.slayer_crossbow_1"        : "The Slayer Crossbow is the treasured",
-  "tooltip_info_item.mcdw.slayer_crossbow_2"        : "heirloom of many legendary hunters.",
+  "tooltip_info_item.mcdw.auto_crossbow_1"          : "El Archimaldeano dijo que el diseño de",
+  "tooltip_info_item.mcdw.auto_crossbow_2"          : "esta poderosa ballesta se le ocurrio",
+  "tooltip_info_item.mcdw.auto_crossbow_3"          : "en una vision.",
 
-  "tooltip_info_item.mcdw.the_slicer_1"             : "The peak of mischievous Illager",
-  "tooltip_info_item.mcdw.the_slicer_2"             : "engineering, the famous Slicer",
-  "tooltip_info_item.mcdw.the_slicer_3"             : "was designed to fire bolts that",
-  "tooltip_info_item.mcdw.the_slicer_4"             : "pierce through even the thickest",
-  "tooltip_info_item.mcdw.the_slicer_5"             : "of armor.",
+  "tooltip_info_item.mcdw.azure_seeker_1"           : "Si el color azul tuviese un sonido,",
+  "tooltip_info_item.mcdw.azure_seeker_2"           : "Podrian ser los disparos por el",
+  "tooltip_info_item.mcdw.azure_seeker_3"           : "Buscador azul.",
+
+  "tooltip_info_item.mcdw.baby_crossbow_1"          : "Cuando algunos decian lo bonito que eran",
+  "tooltip_info_item.mcdw.baby_crossbow_2"          : "las ballestas bebe, hasta que estas armas letales",
+  "tooltip_info_item.mcdw.baby_crossbow_3"          : "crecieron en grandes golpeadores.",
 
 
-  "tooltip_info_item.mcdw.soul_crossbow_1"          : "The Soul Crossbow was crafted by the",
-  "tooltip_info_item.mcdw.soul_crossbow_2"          : "mysterious Evokers and Enchanters of",
-  "tooltip_info_item.mcdw.soul_crossbow_3"          : "the Woodland Mansions.",
+  "tooltip_info_item.mcdw.burst_crossbow_1"         : "Una ballesta tactica muy preferida por guerreros",
+  "tooltip_info_item.mcdw.burst_crossbow_2"         : "y cazadores, la ballesta explosiva",
+  "tooltip_info_item.mcdw.burst_crossbow_3"         : "es una herramienta muy podersa para cualquier heroe.",
 
-  "tooltip_info_item.mcdw.soul_hunter_crossbow_1"   : "This crossbow was made in a soul-rich",
-  "tooltip_info_item.mcdw.soul_hunter_crossbow_2"   : "forge, and it thrives when there are",
-  "tooltip_info_item.mcdw.soul_hunter_crossbow_3"   : "a large number of souls nearby.",
+  "tooltip_info_item.mcdw.butterfly_crossbow_1"     : "Esta ballesta se mueve mas rapido",
+  "tooltip_info_item.mcdw.butterfly_crossbow_2"     : "que el viento y golpea",
+  "tooltip_info_item.mcdw.butterfly_crossbow_3"     : "a sus enemigos antes de que lo vean.",
 
-  "tooltip_info_item.mcdw.spellbound_crossbow_1"    : "Enchanted enemies are especially vulnerable",
-  "tooltip_info_item.mcdw.spellbound_crossbow_2"    : "to the magic of this crossbow.",
+  "tooltip_info_item.mcdw.cog_crossbow_1"           : "Los engranajes de esta antigua ballesta",
+  "tooltip_info_item.mcdw.cog_crossbow_2"           : "siguen apareciendo sin problemas,",
+  "tooltip_info_item.mcdw.cog_crossbow_3"           : "haciendolo una buena opcion como arma",
+  "tooltip_info_item.mcdw.cog_crossbow_4"           : "a estos dias.",
 
-  "tooltip_info_item.mcdw.voidcaller_crossbow_1"    : "This weapon calls out to souls that",
-  "tooltip_info_item.mcdw.voidcaller_crossbow_2"    : "are trapped between this world and",
-  "tooltip_info_item.mcdw.voidcaller_crossbow_3"    : "the next.",
+  "tooltip_info_item.mcdw.corrupted_crossbow_1"     : "Esta ballesta tiene un",
+  "tooltip_info_item.mcdw.corrupted_crossbow_2"     : "poder corrupto que es perfecto",
+  "tooltip_info_item.mcdw.corrupted_crossbow_3"     : "para los ladrones y para agiles guerreros.",
+
+  "tooltip_info_item.mcdw.doom_crossbow_1"          : "Muchos pensaban que la Ballesta de la Perdición",
+  "tooltip_info_item.mcdw.doom_crossbow_2"          : "era sólo un mito, pero esta vez",
+  "tooltip_info_item.mcdw.doom_crossbow_3"          : "los rumores resultaron ser ciertos.",
+
+  "tooltip_info_item.mcdw.dual_crossbow_1"          : "Las ballestas dobles son la mejor eleccion",
+  "tooltip_info_item.mcdw.dual_crossbow_2"          : "para un guerrero con reflejos rapidos",
+  "tooltip_info_item.mcdw.dual_crossbow_3"          : "y para un rapido posicionamiento en batalla.",
+
+  "tooltip_info_item.mcdw.exploding_crossbow_1"     : "El poder de la TNT fusionada con",
+  "tooltip_info_item.mcdw.exploding_crossbow_2"     : "con el ultimo diseño de la arquería resultando",
+  "tooltip_info_item.mcdw.exploding_crossbow_3"     : "en esta debastadora ballesta.",
+
+  "tooltip_info_item.mcdw.feral_soul_crossbow_1"    : "Si te acercas mucho se pueden escuchar",
+  "tooltip_info_item.mcdw.feral_soul_crossbow_2"    : "las almas dentro de esta ballesta,",
+  "tooltip_info_item.mcdw.feral_soul_crossbow_3"    : "normalmente riduculizandote.",
+
+  "tooltip_info_item.mcdw.firebolt_thrower_1"       : "El Lanzador de saetas diapara el caos en",
+  "tooltip_info_item.mcdw.firebolt_thrower_2"       : "en cadena con flechas explosivas.",
+
+  "tooltip_info_item.mcdw.harp_crossbow_1"          : "Parte intrumento musical y por otra",
+  "tooltip_info_item.mcdw.harp_crossbow_2"          : "un arma letal, la ballesta arpía",
+  "tooltip_info_item.mcdw.harp_crossbow_3"          : "es el alma de la fiesta.",
+
+  "tooltip_info_item.mcdw.heavy_crossbow_1"         : "La ballesta ponderada es un arma que un amenazante",
+  "tooltip_info_item.mcdw.heavy_crossbow_2"         : "daño y es un real problema en",
+  "tooltip_info_item.mcdw.heavy_crossbow_3"         : "largas distancias.",
+
+  "tooltip_info_item.mcdw.imploding_crossbow_1"     : "La ballesta explosiva fue",
+  "tooltip_info_item.mcdw.imploding_crossbow_2"     : "magicamente mejorada para maximar",
+  "tooltip_info_item.mcdw.imploding_crossbow_3"     : "el impacto de la explosion.",
+
+  "tooltip_info_item.mcdw.lightning_harp_crossbow_1": "Agregando energia electria a este",
+  "tooltip_info_item.mcdw.lightning_harp_crossbow_2": "ballesta cambia el sonido",
+  "tooltip_info_item.mcdw.lightning_harp_crossbow_3": "de disparo exageradamente.",
+
+  "tooltip_info_item.mcdw.pride_of_the_piglins_1"   : "Encontrado en los lugares mas lejanos",
+  "tooltip_info_item.mcdw.pride_of_the_piglins_2"   : "del Nether, El orgullo de los Piglins",
+  "tooltip_info_item.mcdw.pride_of_the_piglins_3"   : "es a la vez antiguo y vicioso.",
+
+  "tooltip_info_item.mcdw.rapid_crossbow_1"         : "Las nuevas tecnologias de recargo ayuda a esta",
+  "tooltip_info_item.mcdw.rapid_crossbow_2"         : "ballesta a disparar mas rapidos que",
+  "tooltip_info_item.mcdw.rapid_crossbow_3"         : "sus predecesores.",
+
+  "tooltip_info_item.mcdw.scatter_crossbow_1"       : "Esta ballesta, modificado para disparar",
+  "tooltip_info_item.mcdw.scatter_crossbow_2"       : "multiples tornillos, es medio decendiente",
+  "tooltip_info_item.mcdw.scatter_crossbow_3"       : "de un instrumento musical.",
+
+  "tooltip_info_item.mcdw.slayer_crossbow_1"        : "La ballesta asesina es la preciada",
+  "tooltip_info_item.mcdw.slayer_crossbow_2"        : "herencia de muchos cazadores legendarias.",
+
+  "tooltip_info_item.mcdw.the_slicer_1"             : "Lo mejor de la ingenieria traviesa",
+  "tooltip_info_item.mcdw.the_slicer_2"             : "Illager, El famoso rebanador",
+  "tooltip_info_item.mcdw.the_slicer_3"             : "fue diseñado para disparar tornillos que pueden",
+  "tooltip_info_item.mcdw.the_slicer_4"             : "perforar la armadura mas",
+  "tooltip_info_item.mcdw.the_slicer_5"             : "gruesa.",
+
+
+  "tooltip_info_item.mcdw.soul_crossbow_1"          : "La ballesta de almas fue creada",
+  "tooltip_info_item.mcdw.soul_crossbow_2"          : "Evokers y encantadores misteriosos de",
+  "tooltip_info_item.mcdw.soul_crossbow_3"          : "las mansiones del bosque.",
+
+  "tooltip_info_item.mcdw.soul_hunter_crossbow_1"   : "Esta ballesta fue hecha en una forga de almas",
+  "tooltip_info_item.mcdw.soul_hunter_crossbow_2"   : "y roba cuando hay cerca",
+  "tooltip_info_item.mcdw.soul_hunter_crossbow_3"   : "una gran cantidd de almas.",
+
+  "tooltip_info_item.mcdw.spellbound_crossbow_1"    : "Los enemigos encantados son especialmente vulnerables",
+  "tooltip_info_item.mcdw.spellbound_crossbow_2"    : "a a la magia de esta ballesta.",
+
+  "tooltip_info_item.mcdw.voidcaller_crossbow_1"    : "Esta arma llama a las almas atrapadas",
+  "tooltip_info_item.mcdw.voidcaller_crossbow_2"    : "entre este mundo y",
+  "tooltip_info_item.mcdw.voidcaller_crossbow_3"    : "el siguiente.",
 
   "tooltip_info_item.mcdw.gap": " ",
-  "tooltip_note_item.mcdw.dualwield": "Dual Wield",
-  "tooltip_note_item.mcdw.longbow": "Longbow",
-  "tooltip_note_item.mcdw.shortbow": "Shortbow",
+  "tooltip_note_item.mcdw.dualwield": "Doble empuñadura",
+  "tooltip_note_item.mcdw.longbow": "Arco largo",
+  "tooltip_note_item.mcdw.shortbow": "Arco corto",
 
-  "death.attack.electricShock": "%s was electrocuted to death."
+  "death.attack.electricShock": "%s a sido electrocutado hasta la muerte."
 }
