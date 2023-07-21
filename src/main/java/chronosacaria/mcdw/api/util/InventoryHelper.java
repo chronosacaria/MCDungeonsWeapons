@@ -3,7 +3,10 @@ package chronosacaria.mcdw.api.util;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,42 +58,34 @@ public class InventoryHelper {
         }
     }
 
-    public static void mcdw$systematicReplacePotions(PlayerEntity player, Item toReplace, ItemStack stackReplaceTo, int count) {
-        if (count == 0)
-            return;
+    public static void mcdw$systematicReplacePotions(PlayerEntity player, Item toReplace, Potion potionReplaceTo, int count) {
         // Minecraft code is dumb sometimes. Just make potions their own item gah
         PlayerInventory playerInv = player.getInventory();
+        List<Integer> stackSlots = mcdw$getSlotsWithStack(player, toReplace);
 
-        mcdw$optimizeSortItemStack(player, toReplace);
-        // Does the player have any empty slots? -1 means no, anything 0 or up is yes
-        if (playerInv.getEmptySlot() >= 0) {
-            // If we have less than we are trying to replace, just replace that many
-            count = Math.min(mcdw$countItem(player, toReplace), count);
-            // Get slots in the main inventory that are empty
-            List<Integer> emptySlotList = mcdw$getAllEmptySlots(player);
-            for (Integer slotIndex : emptySlotList) {
-                if (count > 0) {
-                    playerInv.setStack(slotIndex, stackReplaceTo);
-                    int k = playerInv.getSlotWithStack(new ItemStack(toReplace));
-                    playerInv.getStack(k).decrement(1);
-                    count--;
-                } else
+        record SlotInfo(int index, int size) {}
+        List<SlotInfo> toReplaceSlots = new ArrayList<SlotInfo>();
+        for (int slotIndex : stackSlots)
+            toReplaceSlots.add(new SlotInfo(slotIndex, playerInv.getStack(slotIndex).getCount()));
+        // sort by size (ascending order)
+        toReplaceSlots.sort((a, b) -> a.size - b.size);
+
+        while (count > 0 && !toReplaceSlots.isEmpty()) {
+            SlotInfo slot = toReplaceSlots.get(0);
+            ItemStack stackReplaceTo = PotionUtil.setPotion(new ItemStack(Items.POTION), potionReplaceTo);
+            if (slot.size == 1) {
+                playerInv.setStack(slot.index, stackReplaceTo);
+                toReplaceSlots.remove(0);
+            } else {
+                int emptySlot = playerInv.getEmptySlot();
+                if (emptySlot == -1)
+                    // no empty space, stop here
                     break;
+                playerInv.getStack(slot.index).decrement(1);
+                playerInv.setStack(emptySlot, stackReplaceTo);
+                toReplaceSlots.set(0, new SlotInfo(slot.index, slot.size - 1));
             }
-            if (count > 0)
-                mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, count);
-        } else {
-            List<Integer> stackSlots = mcdw$getSlotsWithStack(player, toReplace);
-            for (int slotIndex : stackSlots) {
-
-                int availableToReplace = playerInv.getStack(slotIndex).getCount();
-
-                if (availableToReplace == 1) {
-                    playerInv.setStack(slotIndex, stackReplaceTo);
-                    count -= availableToReplace;
-                    mcdw$systematicReplacePotions(player, toReplace, stackReplaceTo, count);
-                }
-            }
+            count--;
         }
     }
 
