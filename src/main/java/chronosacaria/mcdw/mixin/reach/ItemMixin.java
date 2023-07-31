@@ -4,10 +4,15 @@ import chronosacaria.mcdw.api.util.PlayerAttackHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 /**
  * Copyright 2019 Erlend Åmdal
@@ -32,8 +37,15 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(Item.class)
 public abstract class ItemMixin implements ItemConvertible {
-    @ModifyConstant(method = "raycast", require = 4, allow = 4, constant = @Constant(doubleValue = 5.0))
-    private static double mcdw$raycast(double reachDistance, World world, PlayerEntity playerEntity) {
-        return PlayerAttackHelper.mcdw$getReachDistance(playerEntity, reachDistance);
+    //@ModifyConstant(method = "raycast", require = 4, allow = 4, constant = @Constant(doubleValue = 5.0))
+    //private static double mcdw$raycast(double reachDistance, World world, PlayerEntity playerEntity) {
+    //    return PlayerAttackHelper.mcdw$getReachDistance(playerEntity, reachDistance);
+    //}
+
+    @Inject(method = "raycast", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/Vec3d;add(DDD)Lnet/minecraft/util/math/Vec3d;"), locals = LocalCapture.CAPTURE_FAILSOFT)
+    private static void mcdw$fixraycast(World world, PlayerEntity player, RaycastContext.FluidHandling fluidHandling, CallbackInfoReturnable<BlockHitResult> cir,
+                                        float f, float g, Vec3d vec3d, float h, float i, float j, float k, float l, float m, float n, double d) {
+        double modifiedReachDelta = PlayerAttackHelper.mcdw$getReachDistance(player, d) - 5;
+        vec3d.add(l * modifiedReachDelta, k * modifiedReachDelta,n * modifiedReachDelta);
     }
 }

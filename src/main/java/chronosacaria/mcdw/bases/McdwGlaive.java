@@ -10,7 +10,6 @@ import chronosacaria.mcdw.registries.EntityAttributesRegistry;
 import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockState;
@@ -58,10 +57,10 @@ public class McdwGlaive extends SwordItem implements IInnateEnchantment {
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID,
                 "Tool modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         if (FabricLoader.getInstance().isModLoaded("reach-entity-attributes") && CompatibilityFlags.isReachExtensionEnabled) {
-            builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Attack range",
+            builder.put(EntityAttributesRegistry.REACH, new EntityAttributeModifier("Attack range",
                     Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfGlaives,
                     EntityAttributeModifier.Operation.ADDITION));
-            builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
+            builder.put(EntityAttributesRegistry.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
                     Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfGlaives,
                     EntityAttributeModifier.Operation.ADDITION));
         } else if (CompatibilityFlags.isReachExtensionEnabled) {

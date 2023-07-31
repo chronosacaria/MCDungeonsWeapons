@@ -60,9 +60,6 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
-    // Reach Entity Attributes
-    modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
-
     // Mixin Extras
     include(implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-fabric:${project.mixin_extras_version}")))
 
