@@ -55,12 +55,12 @@ public class McdwStaff extends AxeItem implements IInnateEnchantment {
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID,
                 "Tool modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         if (FabricLoader.getInstance().isModLoaded("reach-entity-attributes") && CompatibilityFlags.isReachExtensionEnabled) {
-            builder.put(EntityAttributesRegistry.REACH, new EntityAttributeModifier("Attack range",
-                    Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfStaves,
-                    EntityAttributeModifier.Operation.ADDITION));
-            builder.put(EntityAttributesRegistry.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
-                    Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfStaves,
-                    EntityAttributeModifier.Operation.ADDITION));
+            //builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Attack range",
+            //        Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfStaves,
+            //        EntityAttributeModifier.Operation.ADDITION));
+            //builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
+            //        Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfStaves,
+            //        EntityAttributeModifier.Operation.ADDITION));
         } else if (CompatibilityFlags.isReachExtensionEnabled) {
             builder.put(EntityAttributesRegistry.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
                     Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfStaves,

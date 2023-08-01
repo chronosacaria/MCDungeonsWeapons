@@ -6,8 +6,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
@@ -15,8 +15,13 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         super(entityType, world);
     }
 
-    @ModifyConstant(method = "attack", constant = @Constant(doubleValue = 9.0))
-    private double modifiedAttackRange(double attackRange) {
-        return PlayerAttackHelper.mcdw$getSquaredAttackRange(this, attackRange);
+    //@ModifyConstant(method = "attack", constant = @Constant(doubleValue = 9.0))
+    //private double modifiedAttackRange(double attackRange) {
+    //    return PlayerAttackHelper.mcdw$getSquaredAttackRange(this, attackRange);
+    //}
+
+    @ModifyVariable(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;squaredDistanceTo(Lnet/minecraft/entity/Entity;)D"))
+    private double mcdw$modifyAttackRange(double sqdDistanceTo) {
+        return sqdDistanceTo + (9 - PlayerAttackHelper.mcdw$getSquaredAttackRange(this, 9));
     }
 }
