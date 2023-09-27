@@ -882,5 +882,27 @@
   "enchantment.mcdw.void_strike.desc": "基于魔咒等级造成多倍伤害",
   "enchantment.mcdw.void_shot.desc": "基于魔咒等级造成多倍伤害",
   "enchantment.mcdw.weakening.desc": "概率在目标周围生成虚弱气雾",
-  "enchantment.mcdw.wild_rage.desc": "受击目标概率进入无差别攻击状态"
+  "enchantment.mcdw.wild_rage.desc": "受击目标概率进入无差别攻击状态",
+
+  "item.mcdw.soul_dagger_soul_knife": "灵魂之刃",
+  "item.mcdw.soul_dagger_eternal_knife": "永恒之刃",
+  "item.mcdw.double_axe_whirlwind": "旋风斧",
+  "item.mcdw.double_axe_cursed": "诅咒之斧",
+  "item.mcdw.double_axe_double": "双刃斧",
+  "item.mcdw.scythe_frost_scythe": "冰霜长镰",
+  "item.mcdw.scythe_jailors_scythe": "狱卒之镰",
+  "item.mcdw.scythe_soul_scythe": "灵魂长镰",
+  "item.mcdw.scythe_skull_scythe": "骷髅长镰",
+  "item.mcdw.glaive_glaive": "长柄刀",
+  "item.mcdw.glaive_grave_bane": "弑墓者",
+  "item.mcdw.glaive_venom_glaive": "剧毒长刀",
+  "item.mcdw.glaive_cackling_broom": "咯笑扫帚",
+  "item.mcdw.soul_dagger_truthseeker": "求真者",
+
+  "attribute.name.generic.mcdw.reach": "范围",
+  "attribute.name.generic.mcdw.attack_range": "攻击范围",
+
+  "itemGroup.mcdw.weapons/melee": "我的世界：地下城武器（近战）",
+  "itemGroup.mcdw.weapons/ranged": "我的世界：地下城武器（远程）",
+  "itemGroup.mcdw.enchantments": "我的世界：地下城武器（附魔）"
 }
