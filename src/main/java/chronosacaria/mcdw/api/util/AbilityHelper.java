@@ -43,6 +43,7 @@ public class AbilityHelper {
                 || isVillagerTyped(foreignEntity);
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean isPotentialAlly(LivingEntity foreignEntity) {
         return isPet(foreignEntity)
                 || isVillagerTyped(foreignEntity)
@@ -85,7 +86,7 @@ public class AbilityHelper {
     }
 
     public static float getAnimaRepairAmount(float experience, int level) {
-        experience *= 0.2 * level;
+        experience *= (float) (0.2 * level);
         return experience;
     }
 

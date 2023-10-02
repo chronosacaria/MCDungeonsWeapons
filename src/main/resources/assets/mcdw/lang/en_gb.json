@@ -382,9 +382,9 @@
   "tooltip_info_item.mcdw.truthseeker_2"      : "kept this unpleasant blade by",
   "tooltip_info_item.mcdw.truthseeker_3"      : "their side during interrogations.",
 
-  "tooltip_info_item.mcdw.diamond_sword_1"    : "The Diamond Sword is the true ",
-  "tooltip_info_item.mcdw.diamond_sword_2"    : "mark of a hero and an ",
-  "tooltip_info_item.mcdw.diamond_sword_3"    : "accomplished adventurer.",
+  "tooltip_info_item.mcdw.diamond_sword_var_1"    : "The Diamond Sword is the true ",
+  "tooltip_info_item.mcdw.diamond_sword_var_2"    : "mark of a hero and an ",
+  "tooltip_info_item.mcdw.diamond_sword_var_3"    : "accomplished adventurer.",
 
   "tooltip_info_item.mcdw.iron_sword_var_1"   : "A sturdy and reliable blade.",
 
@@ -434,7 +434,7 @@
 
   "tooltip_info_item.mcdw.shear_dagger_1"     : "Even the simplest of farmers",
   "tooltip_info_item.mcdw.shear_dagger_2"     : "can wield these Shear Daggers",
-  "tooltip_info_item.mcdw.shear_dagger_3"     : "with savage results",
+  "tooltip_info_item.mcdw.shear_dagger_3"     : "with savage results.",
 
   "tooltip_info_item.mcdw.soul_knife_1"       : "A ceremonial knife that uses",
   "tooltip_info_item.mcdw.soul_knife_2"       : "magical energy to hold the wrath",
@@ -493,9 +493,9 @@
   "tooltip_info_item.mcdw.stormlander_2"      : "of the raging storm, is a treasure of",
   "tooltip_info_item.mcdw.stormlander_3"      : "the Illagers.",
 
-  "tooltip_info_item.mcdw.diamond_pick_1"     : "Diamond is one of the most durable",
-  "tooltip_info_item.mcdw.diamond_pick_2"     : "materials making it an excellent",
-  "tooltip_info_item.mcdw.diamond_pick_3"     : "choice for a pickaxe.",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_1"     : "Diamond is one of the most durable",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_2"     : "materials making it an excellent",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_3"     : "choice for a pickaxe.",
 
   "tooltip_info_item.mcdw.soul_scythe_1"      : "A cruel reaper of souls, the Soul",
   "tooltip_info_item.mcdw.soul_scythe_2"      : "Scythe is unsentimental in its",
@@ -869,7 +869,7 @@
   "enchantment.mcdw.radiance.desc": "A chance to spawn a healing cloud around a target.",
   "enchantment.mcdw.radiance_shot.desc": "A chance to spawn a healing cloud around target hit by an arrow.",
   "enchantment.mcdw.rampaging.desc": "A chance to gain stacking haste on a kill.",
-  "enchantment.mcdw.refreshment.desc": "Refills empty bottles as health potions upon kill with melee weapon.",
+  "enchantment.mcdw.refreshment.desc": "Refills empty bottles as health potions upon kill with a weapon.",
   "enchantment.mcdw.refreshment_shot.desc": "Refills empty bottles as health potions upon kill with ranged weapon.",
   "enchantment.mcdw.replenish.desc": "A chance to recover an arrow upon firing.",
   "enchantment.mcdw.ricochet.desc": "The arrow bounces from target to target.",

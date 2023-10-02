@@ -27,6 +27,7 @@ public enum WhipsID implements IMeleeWeaponID, IInnateEnchantment {
     private final int damage;
     private final float attackSpeed;
     private final String[] repairIngredient;
+    @SuppressWarnings("SameParameterValue")
     WhipsID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
@@ -38,6 +39,7 @@ public enum WhipsID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.WHIPS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<WhipsID, McdwWhip> getItemsEnum() {
         return ItemsRegistry.WHIP_ITEMS;
     }

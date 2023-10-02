@@ -323,9 +323,9 @@
   "tooltip_info_item.mcdw.truthseeker_2"      : "程中将这把令人不爽的剑放在",
   "tooltip_info_item.mcdw.truthseeker_3"      : "囚犯身边。",
 
-  "tooltip_info_item.mcdw.diamond_sword_1"    : "拥有一把钻石剑是一个英",
-  "tooltip_info_item.mcdw.diamond_sword_2"    : "雄或经验丰富的冒险家的",
-  "tooltip_info_item.mcdw.diamond_sword_3"    : "标配。",
+  "tooltip_info_item.mcdw.diamond_sword_var_1"    : "拥有一把钻石剑是一个英",
+  "tooltip_info_item.mcdw.diamond_sword_var_2"    : "雄或经验丰富的冒险家的",
+  "tooltip_info_item.mcdw.diamond_sword_var_3"    : "标配。",
 
   "tooltip_info_item.mcdw.iron_sword_var_1"   : "一把坚固且可靠的剑。",
 
@@ -458,9 +458,9 @@
   "tooltip_info_item.mcdw.bone_cudgel_2"      : "程度，即使按现代标准，也仍",
   "tooltip_info_item.mcdw.bone_cudgel_3"      : "然充满危险。",
 
-  "tooltip_info_item.mcdw.diamond_pick_1"     : "钻石是最耐用的原材料之",
-  "tooltip_info_item.mcdw.diamond_pick_2"     : "一，用来做一把镐子再适",
-  "tooltip_info_item.mcdw.diamond_pick_3"     : "合不过了。",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_1"     : "钻石是最耐用的原材料之",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_2"     : "一，用来做一把镐子再适",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_3"     : "合不过了。",
 
   "tooltip_info_item.mcdw.soul_scythe_1"      : "残酷的灵魂",
   "tooltip_info_item.mcdw.soul_scythe_2"      : "收割机，不需要",
@@ -864,7 +864,7 @@
   "enchantment.mcdw.radiance.desc": "有几率在目标周围生成治疗之雾。",
   "enchantment.mcdw.radiance_shot.desc": "箭矢有几率在目标周围生成治疗之雾。",
   "enchantment.mcdw.rampaging.desc": "击败生物时有几率获得急迫效果，提高挖掘与攻击速度。",
-  "enchantment.mcdw.refreshment.desc": "近战武器击败生物时装满空瓶并将其变为治疗药水。",
+  "enchantment.mcdw.refreshment.desc": "武器击败生物时装满空瓶并将其变为治疗药水。",
   "enchantment.mcdw.refreshment_shot.desc": "远程武器击败生物时装满空瓶并将其变为治疗药水。",
   "enchantment.mcdw.replenish.desc": "射箭时有几率不消耗箭矢。",
   "enchantment.mcdw.ricochet.desc": "箭矢会在目标之间弹射。",

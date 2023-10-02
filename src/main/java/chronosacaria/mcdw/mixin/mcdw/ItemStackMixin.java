@@ -46,10 +46,9 @@ public abstract class ItemStackMixin {
     // This mixin changes items, that only got their IInnateEnchantments to still be enchantable
     @Inject(method = "isEnchantable()Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;hasEnchantments()Z"), cancellable = true)
     public void mcdw$isEnchantable(CallbackInfoReturnable<Boolean> cir) {
-        if (this.getItem() instanceof IInnateEnchantment iInnateEnchantment && iInnateEnchantment.onlyHasInnateEnchantments((ItemStack)(Object) this)) {
+        ItemStack stack = (ItemStack) (Object) this;
+        if (stack.getItem() instanceof IInnateEnchantment iInnateEnchantment && iInnateEnchantment.onlyHasInnateEnchantments(stack)) {
             cir.setReturnValue(true);
         }
     }
-    
-    
 }

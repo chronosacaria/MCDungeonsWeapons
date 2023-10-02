@@ -34,6 +34,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -43,9 +44,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Comparator;
 import java.util.List;
 
-@SuppressWarnings("ConstantConditions")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
+    @Unique
     public final EntityType<SummonedBeeEntity> mcdw$summoned_bee =
             SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
 
@@ -103,44 +104,24 @@ public abstract class LivingEntityMixin extends Entity {
         if (source.getSource() instanceof LivingEntity) {
             if (amount > 0) {
                 ItemStack mainHandStack = user.getMainHandStack();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SMITING)) {
+                ItemStack offHandStack = user.getOffHandStack();
 
-                    if (mainHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack) > 0
-                            && !(EnchantmentHelper.getLevel(Enchantments.SMITE, mainHandStack) > 0))) {
-                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, mainHandStack);
-                        if (target.isUndead()) {
-                            EnchantmentEffects.causeSmitingAttack(user, target,
-                                    3.0f * level, amount);
-                        }
-                    }
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SMITING)) {
+                    mcdw$applySmite(amount, user, target, mainHandStack);
+                    mcdw$applySmite(amount, user, target, offHandStack);
                 }
             }
         }
     }
 
-    @Inject(method = "applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V", at = @At("HEAD"))
-    public void mcdw$applySmitingEnchantmentDamageFromOffHand(DamageSource source, float amount, CallbackInfo info) {
-        if(!(source.getAttacker() instanceof LivingEntity user))
-            return;
-
-        LivingEntity target = (LivingEntity) (Object) this;
-
-        if(target instanceof PlayerEntity) return;
-
-        if (source.getSource() instanceof LivingEntity) {
-            if (amount > 0) {
-                ItemStack offHandStack = user.getOffHandStack();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SMITING)) {
-
-                    if (offHandStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, offHandStack) > 0
-                            && !(EnchantmentHelper.getLevel(Enchantments.SMITE, offHandStack) > 0))) {
-                        int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, offHandStack);
-                        if (target.isUndead()) {
-                            EnchantmentEffects.causeSmitingAttack(user, target,
-                                    3.0f * level, amount);
-                        }
-                    }
-                }
+    @Unique
+    private void mcdw$applySmite(float amount, LivingEntity user, LivingEntity target, ItemStack itemStack) {
+        if (itemStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, itemStack) > 0
+                && !(EnchantmentHelper.getLevel(Enchantments.SMITE, itemStack) > 0))) {
+            int level = EnchantmentHelper.getLevel(EnchantsRegistry.SMITING, itemStack);
+            if (target.isUndead()) {
+                EnchantmentEffects.causeSmitingAttack(user, target,
+                        3.0f * level, amount);
             }
         }
     }
@@ -217,7 +198,7 @@ public abstract class LivingEntityMixin extends Entity {
                     if (targetHealth < 0) {
                         float overkillDamage = Math.abs(targetHealth);
                         List<LivingEntity> nearbyEntities = AOEHelper.getEntitiesByConfig(target, 6);
-                        if (nearbyEntities.size() == 0) {
+                        if (nearbyEntities.isEmpty()) {
                             if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.SHARED_PAIN_CAN_DAMAGE_USER)) {
                                 player.damage(player.getWorld().getDamageSources().magic(), overkillDamage);
                             }

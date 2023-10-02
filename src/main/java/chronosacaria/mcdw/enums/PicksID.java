@@ -23,6 +23,7 @@ public enum PicksID implements IMeleeWeaponID {
     private final float attackSpeed;
     private final String[] repairIngredient;
 
+    @SuppressWarnings("SameParameterValue")
     PicksID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
@@ -34,6 +35,7 @@ public enum PicksID implements IMeleeWeaponID {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.PICKS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<PicksID, McdwPick> getItemsEnum() {
         return ItemsRegistry.PICK_ITEMS;
     }

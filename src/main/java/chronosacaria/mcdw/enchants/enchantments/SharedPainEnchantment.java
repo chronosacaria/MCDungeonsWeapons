@@ -29,11 +29,6 @@ public class SharedPainEnchantment extends Enchantment {
     }
 
     @Override
-    public int getMaxLevel(){
-        return 1;
-    }
-
-    @Override
     public boolean isAvailableForRandomSelection() {
         return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SHARED_PAIN)
                 && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_RANDOM_SELECTION.get(EnchantmentsID.SHARED_PAIN);

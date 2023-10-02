@@ -32,6 +32,7 @@ public abstract class HeldItemRendererMixin {
 
     @Shadow protected abstract void applySwingOffset(MatrixStack matrices, Arm arm, float swingProgress);
 
+    @SuppressWarnings("SameReturnValue")
     @Shadow
     private static boolean isChargedCrossbow(ItemStack stack) {
         return false;

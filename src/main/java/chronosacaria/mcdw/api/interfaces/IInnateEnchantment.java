@@ -45,7 +45,6 @@ public interface IInnateEnchantment {
     /**
      * Checks a stack if it only has enchantments that are lower or equal its InnateEnchantments,
      * meaning enchantments had been added on top of the innate ones.
-     *
      * Copyright 2023 DaFuqs
      * <br/><br/>
      * Used with Permission, modifications made to allow for checking whether innate enchantments are enabled or not.
@@ -56,6 +55,9 @@ public interface IInnateEnchantment {
     default boolean onlyHasInnateEnchantments(ItemStack stack) {
         Map<Enchantment, Integer> innateEnchantments = getInnateEnchantments();
         Map<Enchantment, Integer> stackEnchantments = EnchantmentHelper.get(stack);
+
+        if (innateEnchantments == null)
+            return false;
         
         for(Map.Entry<Enchantment, Integer> stackEnchantment : stackEnchantments.entrySet()) {
             int innateLevel = innateEnchantments.getOrDefault(stackEnchantment.getKey(), 0);

@@ -14,6 +14,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -21,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements IDualWielding, IBeeSummoning {
 
+    @Unique
     private static final TrackedData<Integer> LAST_ATTACKED_OFFHAND_TICKS = DataTracker.registerData(PlayerEntityMixin.class, TrackedDataHandlerRegistry.INTEGER);
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
@@ -28,24 +30,24 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
     }
 
     @Override
-    public float getOffhandAttackCooldownProgressPerTick() {
+    public float mcdw$getOffhandAttackCooldownProgressPerTick() {
         return (float) (1.0D / this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED) * 20.0D);
     }
 
     @Override
-    public float getOffhandAttackCooldownProgress(float baseTime) {
-        return MathHelper.clamp(((float) getOffhandAttackedTicks() + baseTime) / this.getOffhandAttackCooldownProgressPerTick(), 0.0F, 1.0F);
+    public float mcdw$getOffhandAttackCooldownProgress(float baseTime) {
+        return MathHelper.clamp(((float) mcdw$getOffhandAttackedTicks() + baseTime) / this.mcdw$getOffhandAttackCooldownProgressPerTick(), 0.0F, 1.0F);
     }
 
     @Override
-    public void resetLastAttackedOffhandTicks() {
-        setOffhandAttackedTicks(0);
+    public void mcdw$resetLastAttackedOffhandTicks() {
+        mcdw$setOffhandAttackedTicks(0);
     }
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getMainHandStack()Lnet/minecraft/item/ItemStack;"))
     public void mcdw$tick(CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
-            setOffhandAttackedTicks(getOffhandAttackedTicks() + 1);
+            mcdw$setOffhandAttackedTicks(mcdw$getOffhandAttackedTicks() + 1);
     }
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
@@ -57,24 +59,30 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void mcdw$writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
-            nbt.putInt("LastAttackedOffhandTicks", getOffhandAttackedTicks());
+            nbt.putInt("LastAttackedOffhandTicks", mcdw$getOffhandAttackedTicks());
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     public void mcdw$readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
         if (CompatibilityFlags.noOffhandConflicts)
-            setOffhandAttackedTicks(nbt.getInt("LastAttackedOffhandTicks"));
+            mcdw$setOffhandAttackedTicks(nbt.getInt("LastAttackedOffhandTicks"));
+    }
+
+    @Unique
+    private double roundedDouble(double value, int percision) {
+        int scale = (int) Math.pow(10, percision);
+        return (double) Math.round(value * scale) / scale;
     }
 
     @Override
-    public int getOffhandAttackedTicks() {
+    public int mcdw$getOffhandAttackedTicks() {
         if (CompatibilityFlags.noOffhandConflicts)
             return dataTracker.get(LAST_ATTACKED_OFFHAND_TICKS);
         return 0;
     }
 
     @Override
-    public void setOffhandAttackedTicks(int lastAttackedOffhandTicks) {
+    public void mcdw$setOffhandAttackedTicks(int lastAttackedOffhandTicks) {
         if (CompatibilityFlags.noOffhandConflicts) {
             if (lastAttackedOffhandTicks >= 0)
                 dataTracker.set(LAST_ATTACKED_OFFHAND_TICKS, lastAttackedOffhandTicks);
@@ -84,12 +92,13 @@ public abstract class PlayerEntityMixin extends LivingEntity implements IDualWie
     /**
      * IBeeSummoning
      */
+    @Unique
     private int lastTimeSummonedBee = 0;
 
-    public void setLastSummonedBee(int time) {
+    public void mcdw$setLastSummonedBee(int time) {
         lastTimeSummonedBee = time;
     }
-    public int getLastSummonedBee() {
+    public int mcdw$getLastSummonedBee() {
         return lastTimeSummonedBee;
     }
 

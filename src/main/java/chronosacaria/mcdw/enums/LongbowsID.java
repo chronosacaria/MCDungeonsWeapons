@@ -48,6 +48,7 @@ public enum LongbowsID implements IRangedWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.LONGBOWS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<LongbowsID, McdwLongbow> getItemsEnum() {
         return ItemsRegistry.LONGBOW_ITEMS;
     }
@@ -132,7 +133,7 @@ public enum LongbowsID implements IRangedWeaponID, IInnateEnchantment {
         return item.getDefaultStack();
     }
 
-    @SuppressWarnings("ConstantConditions")
+    @SuppressWarnings("DataFlowIssue")
     @Override
     public McdwLongbow makeWeapon() {
         McdwLongbow mcdwLongbow = new McdwLongbow(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),

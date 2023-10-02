@@ -62,6 +62,7 @@ public enum SwordsID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.SWORDS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<SwordsID, McdwSword> getItemsEnum() {
         return ItemsRegistry.SWORD_ITEMS;
     }

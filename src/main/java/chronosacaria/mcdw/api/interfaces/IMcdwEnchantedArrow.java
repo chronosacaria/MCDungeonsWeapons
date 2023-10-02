@@ -2,67 +2,67 @@ package chronosacaria.mcdw.api.interfaces;
 
 public interface IMcdwEnchantedArrow {
 
-    int getOvercharge();
-    void setOvercharge(int overcharge);
+    int mcdw$getOvercharge();
+    void mcdw$setOvercharge(int overcharge);
 
-    int getChainReactionLevel();
-    void setChainReactionLevel(int chainReactionLevel);
+    int mcdw$getChainReactionLevel();
+    void mcdw$setChainReactionLevel(int chainReactionLevel);
 
-    int getChargeLevel();
-    void setChargeLevel(int chargeLevel);
+    int mcdw$getChargeLevel();
+    void mcdw$setChargeLevel(int chargeLevel);
 
-    int getCobwebShotLevel();
-    void setCobwebShotLevel(int cobwebShotLevel);
+    int mcdw$getCobwebShotLevel();
+    void mcdw$setCobwebShotLevel(int cobwebShotLevel);
 
-    int getDynamoLevel();
-    void setDynamoLevel(int dynamoLevel);
+    int mcdw$getDynamoLevel();
+    void mcdw$setDynamoLevel(int dynamoLevel);
 
-    int getEnigmaResonatorLevel();
-    void setEnigmaResonatorLevel(int enigmaResonatorLevel);
+    int mcdw$getEnigmaResonatorLevel();
+    void mcdw$setEnigmaResonatorLevel(int enigmaResonatorLevel);
 
-    int getFuseShotLevel();
-    void setFuseShotLevel(int fuseShotLevel);
+    int mcdw$getFuseShotLevel();
+    void mcdw$setFuseShotLevel(int fuseShotLevel);
 
-    int getGravityLevel();
-    void setGravityLevel(int gravityLevel);
+    int mcdw$getGravityLevel();
+    void mcdw$setGravityLevel(int gravityLevel);
 
-    int getGrowingLevel();
-    void setGrowingLevel(int growingLevel);
+    int mcdw$getGrowingLevel();
+    void mcdw$setGrowingLevel(int growingLevel);
 
-    int getLevitationShotLevel();
-    void setLevitationShotLevel(int levitationShotLevel);
+    int mcdw$getLevitationShotLevel();
+    void mcdw$setLevitationShotLevel(int levitationShotLevel);
 
-    boolean getNautilusBoolean();
-    void setNautilusBoolean(boolean nautilusBoolean);
+    boolean mcdw$getNautilusBoolean();
+    void mcdw$setNautilusBoolean(boolean nautilusBoolean);
 
-    int getPhantomsMarkLevel();
-    void setPhantomsMarkLevel(int phantomsMarkLevel);
+    int mcdw$getPhantomsMarkLevel();
+    void mcdw$setPhantomsMarkLevel(int phantomsMarkLevel);
 
-    int getPoisonCloudLevel();
-    void setPoisonCloudLevel(int poisonCloudLevel);
+    int mcdw$getPoisonCloudLevel();
+    void mcdw$setPoisonCloudLevel(int poisonCloudLevel);
 
-    int getRadianceLevel();
-    void setRadianceLevel(int radianceLevel);
+    int mcdw$getRadianceLevel();
+    void mcdw$setRadianceLevel(int radianceLevel);
 
-    int getReplenishLevel();
-    void setReplenishLevel(int replenishLevel);
+    int mcdw$getReplenishLevel();
+    void mcdw$setReplenishLevel(int replenishLevel);
 
-    int getRicochetLevel();
-    void setRicochetLevel(int ricochetLevel);
+    int mcdw$getRicochetLevel();
+    void mcdw$setRicochetLevel(int ricochetLevel);
 
-    boolean getShadowBarbBoolean();
-    void setShadowBarbBoolean(boolean shadowBarbBoolean);
+    boolean mcdw$getShadowBarbBoolean();
+    void mcdw$setShadowBarbBoolean(boolean shadowBarbBoolean);
 
-    int getShadowShotLevel();
-    void setShadowShotLevel(int shadowShotLevel);
+    int mcdw$getShadowShotLevel();
+    void mcdw$setShadowShotLevel(int shadowShotLevel);
 
-    int getTempoTheftLevel();
-    void setTempoTheftLevel(int tempoTheftLevel);
+    int mcdw$getTempoTheftLevel();
+    void mcdw$setTempoTheftLevel(int tempoTheftLevel);
 
-    int getVoidShotLevel();
-    void setVoidShotLevel(int voidShotLevel);
+    int mcdw$getVoidShotLevel();
+    void mcdw$setVoidShotLevel(int voidShotLevel);
 
-    int getWildRageLevel();
-    void setWildRageLevel(int wildRageLevel);
+    int mcdw$getWildRageLevel();
+    void mcdw$setWildRageLevel(int wildRageLevel);
 
 }

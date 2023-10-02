@@ -251,9 +251,9 @@
    "tooltip_info_item.mcdw.truthseeker_2"      : "mantuvo esta desagradable espada",
    "tooltip_info_item.mcdw.truthseeker_3"      : "a su lado durante los interrogatorios.",
  
-   "tooltip_info_item.mcdw.diamond_sword_1"    : "La espada de diamante es la verdadera",
-   "tooltip_info_item.mcdw.diamond_sword_2"    : "marca de un héroe y un aventurero",
-   "tooltip_info_item.mcdw.diamond_sword_3"    : "consumado.",
+   "tooltip_info_item.mcdw.diamond_sword_var_1"    : "La espada de diamante es la verdadera",
+   "tooltip_info_item.mcdw.diamond_sword_var_2"    : "marca de un héroe y un aventurero",
+   "tooltip_info_item.mcdw.diamond_sword_var_3"    : "consumado.",
  
    "tooltip_info_item.mcdw.iron_sword_var_1"   : "Una hoja robusta y fiable.",
  
@@ -350,9 +350,9 @@
    "tooltip_info_item.mcdw.stormlander_2"      : "furiosa tormenta, es un tesoro",
    "tooltip_info_item.mcdw.stormlander_3"      : "de los Illagers.",
  
-   "tooltip_info_item.mcdw.diamond_pick_1"     : "El diamante es uno de los materiales",
-   "tooltip_info_item.mcdw.diamond_pick_2"     : "mas duraderos haciéndolo una",
-   "tooltip_info_item.mcdw.diamond_pick_3"     : "excelente opción para un pico",
+   "tooltip_info_item.mcdw.diamond_pickaxe_var_1"     : "El diamante es uno de los materiales",
+   "tooltip_info_item.mcdw.diamond_pickaxe_var_2"     : "mas duraderos haciéndolo una",
+   "tooltip_info_item.mcdw.diamond_pickaxe_var_3"     : "excelente opción para un pico",
  
    "tooltip_info_item.mcdw.soul_scythe_1"      : "Un cruel segador de almas, Guadaña",
    "tooltip_info_item.mcdw.soul_scythe_2"      : "del alma no es sentimental",

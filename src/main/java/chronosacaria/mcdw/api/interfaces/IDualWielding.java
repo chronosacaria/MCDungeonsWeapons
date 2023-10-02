@@ -2,13 +2,13 @@ package chronosacaria.mcdw.api.interfaces;
 
 public interface IDualWielding {
 
-    float getOffhandAttackCooldownProgressPerTick();
+    float mcdw$getOffhandAttackCooldownProgressPerTick();
 
-    float getOffhandAttackCooldownProgress(float baseTime);
+    float mcdw$getOffhandAttackCooldownProgress(float baseTime);
 
-    void resetLastAttackedOffhandTicks();
+    void mcdw$resetLastAttackedOffhandTicks();
 
-    int getOffhandAttackedTicks();
+    int mcdw$getOffhandAttackedTicks();
 
-    void setOffhandAttackedTicks(int lastAttackedOffhandTicks);
+    void mcdw$setOffhandAttackedTicks(int lastAttackedOffhandTicks);
 }

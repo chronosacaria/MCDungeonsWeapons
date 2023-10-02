@@ -41,6 +41,7 @@ public enum GlaivesID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.GLAIVES_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<GlaivesID, McdwGlaive> getItemsEnum() {
         return ItemsRegistry.GLAIVE_ITEMS;
     }

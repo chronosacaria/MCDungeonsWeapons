@@ -14,6 +14,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -22,221 +23,242 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PersistentProjectileEntity.class)
 public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedArrow {
 
+    @Unique
     private int overcharge;
+    @Unique
     private int chainReactionLevel = 0;
+    @Unique
     private int chargeLevel = 0;
+    @Unique
     private int cobwebShotLevel = 0;
+    @Unique
     private int dynamoLevel = 0;
+    @Unique
     private int enigmaResonatorLevel = 0;
+    @Unique
     private int fuseShotLevel = 0;
+    @Unique
     private int gravityLevel = 0;
+    @Unique
     private int growingLevel = 0;
+    @Unique
     private int levitationShotLevel = 0;
+    @Unique
     private boolean nautilusBoolean = false;
+    @Unique
     private int phantomsMarkLevel = 0;
+    @Unique
     private int poisonCloudLevel = 0;
+    @Unique
     private int radianceLevel = 0;
+    @Unique
     private int replenishLevel = 0;
+    @Unique
     private int ricochetLevel = 0;
+    @Unique
     private boolean shadowBarbBoolean = false;
+    @Unique
     private int shadowShotLevel = 0;
+    @Unique
     private int tempoTheftLevel = 0;
+    @Unique
     private int voidShotLevel = 0;
+    @Unique
     private int wildRageLevel = 0;
 
     @Override
-    public int getOvercharge() {
+    public int mcdw$getOvercharge() {
         return overcharge;
     }
 
     @Override
-    public void setOvercharge(int overcharge) {
+    public void mcdw$setOvercharge(int overcharge) {
         this.overcharge = overcharge;
     }
 
     @Override
-    public int getChainReactionLevel() {
+    public int mcdw$getChainReactionLevel() {
         return chainReactionLevel;
     }
 
     @Override
-    public void setChainReactionLevel(int chainReactionLevel) { this.chainReactionLevel = chainReactionLevel; }
+    public void mcdw$setChainReactionLevel(int chainReactionLevel) { this.chainReactionLevel = chainReactionLevel; }
 
     @Override
-    public int getChargeLevel() {
+    public int mcdw$getChargeLevel() {
         return chargeLevel;
     }
 
     @Override
-    public void setChargeLevel(int chargeLevel) {
+    public void mcdw$setChargeLevel(int chargeLevel) {
         this.chargeLevel = chargeLevel;
     }
 
     @Override
-    public int getCobwebShotLevel() {
+    public int mcdw$getCobwebShotLevel() {
         return cobwebShotLevel;
     }
 
     @Override
-    public void setCobwebShotLevel(int cobwebShotLevel){
+    public void mcdw$setCobwebShotLevel(int cobwebShotLevel){
         this.cobwebShotLevel = cobwebShotLevel;
     }
 
     @Override
-    public int getDynamoLevel() {
+    public int mcdw$getDynamoLevel() {
         return dynamoLevel;
     }
 
     @Override
-    public void setDynamoLevel(int dynamoLevel) { this.dynamoLevel = dynamoLevel; }
+    public void mcdw$setDynamoLevel(int dynamoLevel) { this.dynamoLevel = dynamoLevel; }
 
     @Override
-    public int getEnigmaResonatorLevel() {
+    public int mcdw$getEnigmaResonatorLevel() {
         return enigmaResonatorLevel;
     }
 
     @Override
-    public void setEnigmaResonatorLevel(int enigmaResonatorLevel) {
+    public void mcdw$setEnigmaResonatorLevel(int enigmaResonatorLevel) {
         this.enigmaResonatorLevel = enigmaResonatorLevel;
     }
 
     @Override
-    public int getFuseShotLevel() {
+    public int mcdw$getFuseShotLevel() {
         return fuseShotLevel;
     }
 
     @Override
-    public void setFuseShotLevel(int fuseShotLevel) {
+    public void mcdw$setFuseShotLevel(int fuseShotLevel) {
         this.fuseShotLevel = fuseShotLevel;
     }
 
     @Override
-    public int getGravityLevel() {
+    public int mcdw$getGravityLevel() {
         return gravityLevel;
     }
 
     @Override
-    public void setGravityLevel(int gravityLevel) {
+    public void mcdw$setGravityLevel(int gravityLevel) {
         this.gravityLevel = gravityLevel;
     }
 
     @Override
-    public int getGrowingLevel() {
+    public int mcdw$getGrowingLevel() {
         return growingLevel;
     }
 
     @Override
-    public void setGrowingLevel(int growingLevel) {
+    public void mcdw$setGrowingLevel(int growingLevel) {
         this.growingLevel = growingLevel;
     }
 
     @Override
-    public int getLevitationShotLevel() {
+    public int mcdw$getLevitationShotLevel() {
         return levitationShotLevel;
     }
 
     @Override
-    public void setLevitationShotLevel(int levitationShotLevel) {
+    public void mcdw$setLevitationShotLevel(int levitationShotLevel) {
         this.levitationShotLevel = levitationShotLevel;
     }
 
     @Override
-    public boolean getNautilusBoolean() {
+    public boolean mcdw$getNautilusBoolean() {
         return nautilusBoolean;
     }
 
     @Override
-    public void setNautilusBoolean(boolean nautilusBoolean) {
+    public void mcdw$setNautilusBoolean(boolean nautilusBoolean) {
         this.nautilusBoolean = nautilusBoolean;
     }
 
     @Override
-    public int getPhantomsMarkLevel() {
+    public int mcdw$getPhantomsMarkLevel() {
         return phantomsMarkLevel;
     }
 
     @Override
-    public void setPhantomsMarkLevel(int phantomsMarkLevel) {
+    public void mcdw$setPhantomsMarkLevel(int phantomsMarkLevel) {
         this.phantomsMarkLevel = phantomsMarkLevel;
     }
 
     @Override
-    public int getPoisonCloudLevel() {
+    public int mcdw$getPoisonCloudLevel() {
         return poisonCloudLevel;
     }
 
     @Override
-    public void setPoisonCloudLevel(int poisonCloudLevel) {
+    public void mcdw$setPoisonCloudLevel(int poisonCloudLevel) {
         this.poisonCloudLevel = poisonCloudLevel;
     }
 
     @Override
-    public int getRadianceLevel() {
+    public int mcdw$getRadianceLevel() {
         return radianceLevel;
     }
 
     @Override
-    public void setRadianceLevel(int radianceLevel) {
+    public void mcdw$setRadianceLevel(int radianceLevel) {
         this.radianceLevel = radianceLevel;
     }
 
     @Override
-    public int getReplenishLevel() {
+    public int mcdw$getReplenishLevel() {
         return replenishLevel;
     }
 
     @Override
-    public void setReplenishLevel(int replenishLevel) {
+    public void mcdw$setReplenishLevel(int replenishLevel) {
         this.replenishLevel = replenishLevel;
     }
 
     @Override
-    public int getRicochetLevel() {
+    public int mcdw$getRicochetLevel() {
         return ricochetLevel;
     }
 
     @Override
-    public void setRicochetLevel(int ricochetLevel) {
+    public void mcdw$setRicochetLevel(int ricochetLevel) {
         this.ricochetLevel = ricochetLevel;
     }
 
     @Override
-    public boolean getShadowBarbBoolean() { return shadowBarbBoolean; }
+    public boolean mcdw$getShadowBarbBoolean() { return shadowBarbBoolean; }
 
     @Override
-    public void setShadowBarbBoolean(boolean shadowBarbBoolean) {this.shadowBarbBoolean = shadowBarbBoolean; }
+    public void mcdw$setShadowBarbBoolean(boolean shadowBarbBoolean) {this.shadowBarbBoolean = shadowBarbBoolean; }
 
     @Override
-    public int getShadowShotLevel() { return shadowShotLevel; }
+    public int mcdw$getShadowShotLevel() { return shadowShotLevel; }
 
     @Override
-    public void setShadowShotLevel(int shadowShotLevel) { this.shadowShotLevel = shadowShotLevel; }
+    public void mcdw$setShadowShotLevel(int shadowShotLevel) { this.shadowShotLevel = shadowShotLevel; }
 
     @Override
-    public int getTempoTheftLevel() {
+    public int mcdw$getTempoTheftLevel() {
         return tempoTheftLevel;
     }
 
     @Override
-    public void setTempoTheftLevel(int tempoTheftLevel) {
+    public void mcdw$setTempoTheftLevel(int tempoTheftLevel) {
         this.tempoTheftLevel = tempoTheftLevel;
     }
 
     @Override
-    public int getVoidShotLevel() {
+    public int mcdw$getVoidShotLevel() {
         return voidShotLevel;
     }
 
     @Override
-    public void setVoidShotLevel(int voidShotLevel) {
+    public void mcdw$setVoidShotLevel(int voidShotLevel) {
         this.voidShotLevel = voidShotLevel;
     }
 
     @Override
-    public int getWildRageLevel() { return wildRageLevel; }
+    public int mcdw$getWildRageLevel() { return wildRageLevel; }
 
     @Override
-    public void setWildRageLevel(int wildRageLevel) { this.wildRageLevel = wildRageLevel; }
+    public void mcdw$setWildRageLevel(int wildRageLevel) { this.wildRageLevel = wildRageLevel; }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     public void mcdw$nbtToTag(NbtCompound tag, CallbackInfo ci){
@@ -346,7 +368,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     public void mcdw$onHarpoonArrowFire(CallbackInfoReturnable<Float> cir) {
         PersistentProjectileEntity ppe = (PersistentProjectileEntity) (Object) this;
         if (ppe.isTouchingWater()) {
-            if (((IMcdwEnchantedArrow)ppe).getNautilusBoolean()) {
+            if (((IMcdwEnchantedArrow)ppe).mcdw$getNautilusBoolean()) {
                 float normDrag = cir.getReturnValueF();
                 float v = (cir.getReturnValue() == null ? 0.6F : normDrag) * 1.542f;
                 cir.setReturnValue(v);

@@ -5,6 +5,6 @@ import java.util.List;
 public interface IExclusiveAOECloud {
 
     @SuppressWarnings("unused")
-    List<Boolean> getExclusions();
-    void setExclusions (boolean owner, boolean allies, boolean enemy);
+    List<Boolean> mcdw$getExclusions();
+    void mcdw$setExclusions(boolean owner, boolean allies, boolean enemy);
 }

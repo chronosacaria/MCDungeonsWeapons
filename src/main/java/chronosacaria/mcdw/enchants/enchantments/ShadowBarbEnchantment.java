@@ -29,11 +29,6 @@ public class ShadowBarbEnchantment extends RangedEnchantment {
     }
 
     @Override
-    public int getMaxLevel(){
-        return 1;
-    }
-
-    @Override
     public boolean isAvailableForRandomSelection() {
         return false;
     }
@@ -48,13 +43,4 @@ public class ShadowBarbEnchantment extends RangedEnchantment {
         return stack.getItem().equals(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW));
     }
 
-    @Override
-    public int getMinPower(int level) {
-        return 1 + level * 10;
-    }
-
-    @Override
-    public int getMaxPower(int level) {
-        return this.getMinPower(level) + 5;
-    }
 }

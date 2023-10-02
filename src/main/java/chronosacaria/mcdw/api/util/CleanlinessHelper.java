@@ -1,5 +1,9 @@
 package chronosacaria.mcdw.api.util;
 
+import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
+import chronosacaria.mcdw.bases.McdwShortbow;
+import chronosacaria.mcdw.configs.CompatibilityFlags;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
@@ -8,12 +12,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CleanlinessHelper {
@@ -69,5 +72,30 @@ public class CleanlinessHelper {
 
     public static void mcdw$dropItem(LivingEntity le, Item item, int amount) {
         mcdw$dropItem(le, new ItemStack(item, amount));
+    }
+
+    public static void mcdw$tooltipHelper(ItemStack stack, List<Text> tooltip, int subStringIndex) {
+        int i = 1;
+        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(subStringIndex);
+        String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
+        while (I18n.hasTranslation(translationKey + i)) {
+            tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
+            i++;
+        }
+        if (stack.getItem() instanceof IOffhandAttack) {
+            if (CompatibilityFlags.noOffhandConflicts) {
+                tooltip.add(Text.translatable("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+                tooltip.add(Text.translatable("tooltip_note_item.mcdw.dualwield").formatted(Formatting.GREEN));
+            }
+        }
+        if (stack.getItem() instanceof McdwShortbow) {
+            tooltip.add(Text.translatable("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(Text.translatable("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
+        }
+        if (stack.getItem() instanceof McdwShortbow) {
+            tooltip.add(Text.translatable("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
+            tooltip.add(Text.translatable("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
+        }
+
     }
 }

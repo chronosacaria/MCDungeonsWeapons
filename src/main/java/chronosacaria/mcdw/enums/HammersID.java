@@ -45,6 +45,7 @@ public enum HammersID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.HAMMERS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<HammersID, McdwHammer> getItemsEnum() {
         return ItemsRegistry.HAMMER_ITEMS;
     }

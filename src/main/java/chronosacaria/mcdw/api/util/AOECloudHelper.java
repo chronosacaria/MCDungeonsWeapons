@@ -36,7 +36,7 @@ public class AOECloudHelper {
         areaEffectCloudEntity.setDuration(60);
         areaEffectCloudEntity.addEffect(new StatusEffectInstance(
                 statusEffect, duration, amplifier));
-        ((IExclusiveAOECloud) areaEffectCloudEntity).setExclusions(exclOwner, exclAllies, exclEnemy);
+        ((IExclusiveAOECloud) areaEffectCloudEntity).mcdw$setExclusions(exclOwner, exclAllies, exclEnemy);
         center.getWorld().spawnEntity(areaEffectCloudEntity);
     }
 
@@ -63,7 +63,7 @@ public class AOECloudHelper {
         areaEffectCloudEntity.setDuration(60);
         StatusEffectInstance regeneration = new StatusEffectInstance(StatusEffects.REGENERATION, 100, amplifier);
         areaEffectCloudEntity.addEffect(regeneration);
-        ((IExclusiveAOECloud) areaEffectCloudEntity).setExclusions(false, false, true);
+        ((IExclusiveAOECloud) areaEffectCloudEntity).mcdw$setExclusions(false, false, true);
         user.getWorld().spawnEntity(areaEffectCloudEntity);
     }
 }

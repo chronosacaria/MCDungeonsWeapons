@@ -8,6 +8,7 @@ import java.util.EnumMap;
 public enum ItemsID {
     ITEM_BEE_STINGER;
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<ItemsID, Item> getItemsEnum() {
         return ItemsRegistry.MCDW_ITEMS;
     }

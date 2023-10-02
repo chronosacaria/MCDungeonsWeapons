@@ -41,6 +41,7 @@ public enum SicklesID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.SICKLES_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<SicklesID, McdwSickle> getItemsEnum() {
         return ItemsRegistry.SICKLE_ITEMS;
     }

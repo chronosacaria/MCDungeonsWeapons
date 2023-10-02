@@ -43,6 +43,7 @@ public enum AxesID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.AXES_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<AxesID, McdwAxe> getItemsEnum() {
         return ItemsRegistry.AXE_ITEMS;
     }

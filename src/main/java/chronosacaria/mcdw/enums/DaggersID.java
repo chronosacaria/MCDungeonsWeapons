@@ -50,6 +50,7 @@ public enum DaggersID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.DAGGERS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<DaggersID, McdwDagger> getItemsEnum() {
         return ItemsRegistry.DAGGER_ITEMS;
     }

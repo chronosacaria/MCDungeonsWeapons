@@ -75,6 +75,7 @@ public enum CrossbowsID implements IRangedWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.CROSSBOWS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<CrossbowsID, McdwCrossbow> getItemsEnum() {
         return ItemsRegistry.CROSSBOW_ITEMS;
     }
@@ -173,7 +174,7 @@ public enum CrossbowsID implements IRangedWeaponID, IInnateEnchantment {
         return item.getDefaultStack();
     }
 
-    @SuppressWarnings("ConstantConditions")
+    @SuppressWarnings("DataFlowIssue")
     @Override
     public McdwCrossbow makeWeapon() {
         McdwCrossbow mcdwCrossbow = new McdwCrossbow(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),

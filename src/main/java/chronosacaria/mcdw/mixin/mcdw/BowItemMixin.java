@@ -22,6 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -33,10 +34,13 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 @Mixin(BowItem.class)
 public abstract class BowItemMixin{
 
+    @Unique
     private int overcharge;
 
+    @Unique
     private LivingEntity livingEntity;
 
+    @Unique
     public void setLivingEntity(LivingEntity livingEntity){
         this.livingEntity = livingEntity;
     }
@@ -79,76 +83,76 @@ public abstract class BowItemMixin{
 
         // Not the level of Overcharge
         if (overcharge > 0) {
-            ((IMcdwEnchantedArrow)ppe).setOvercharge(overcharge);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setOvercharge(overcharge);
         }
 
         int chainReactionLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, stack);
         if (chainReactionLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setChainReactionLevel(chainReactionLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setChainReactionLevel(chainReactionLevel);
         }
         int chargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHARGE, stack);
         if (chargeLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setChargeLevel(chargeLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setChargeLevel(chargeLevel);
         }
         int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, stack);
         if (cobwebShotLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setCobwebShotLevel(cobwebShotLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setCobwebShotLevel(cobwebShotLevel);
         }
         int dynamoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, stack);
         if (dynamoLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setDynamoLevel(dynamoLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setDynamoLevel(dynamoLevel);
         }
         int enigmaResonatorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, stack);
         if (enigmaResonatorLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setEnigmaResonatorLevel(enigmaResonatorLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setEnigmaResonatorLevel(enigmaResonatorLevel);
         }
         int fuseShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, stack);
         if (fuseShotLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setFuseShotLevel(fuseShotLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setFuseShotLevel(fuseShotLevel);
         }
         int gravityLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, stack);
         if (gravityLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setGravityLevel(gravityLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setGravityLevel(gravityLevel);
         }
         int growingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, stack);
         if (growingLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setGrowingLevel(growingLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setGrowingLevel(growingLevel);
         }
         int levitationShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.LEVITATION_SHOT, stack);
         if (levitationShotLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setLevitationShotLevel(levitationShotLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setLevitationShotLevel(levitationShotLevel);
         }
         int phantomsMarkLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PHANTOMS_MARK, stack);
         if (phantomsMarkLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setPhantomsMarkLevel(phantomsMarkLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setPhantomsMarkLevel(phantomsMarkLevel);
         }
         int poisonCloudLevel = EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, stack);
         if (poisonCloudLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setPoisonCloudLevel(poisonCloudLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setPoisonCloudLevel(poisonCloudLevel);
         }
         int radianceLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, stack);
         if (radianceLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setRadianceLevel(radianceLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setRadianceLevel(radianceLevel);
         }
         int replenishLevel = EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, stack);
         if (replenishLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setReplenishLevel(replenishLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setReplenishLevel(replenishLevel);
         }
         int ricochetLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, stack);
         if (ricochetLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setRicochetLevel(ricochetLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setRicochetLevel(ricochetLevel);
         }
         int tempoTheftLevel = EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, stack);
         if (tempoTheftLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setTempoTheftLevel(tempoTheftLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setTempoTheftLevel(tempoTheftLevel);
         }
         int voidShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_SHOT, stack);
         if (voidShotLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setVoidShotLevel(voidShotLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setVoidShotLevel(voidShotLevel);
         }
         int wildRageLevel = EnchantmentHelper.getLevel(EnchantsRegistry.WILD_RAGE, stack);
         if (wildRageLevel > 0) {
-            ((IMcdwEnchantedArrow)ppe).setWildRageLevel(wildRageLevel);
+            ((IMcdwEnchantedArrow)ppe).mcdw$setWildRageLevel(wildRageLevel);
         }
     }
 
@@ -163,11 +167,11 @@ public abstract class BowItemMixin{
         ItemStack bowStack = livingEntity.getActiveItem();
 
         if (bowStack.getItem() instanceof McdwShortbow mcdwShortBow) {
-            value /= mcdwShortBow.getDrawSpeed() / 20;
+            value /= (int) (mcdwShortBow.getDrawSpeed() / 20);
         } else if (bowStack.getItem() instanceof McdwLongbow mcdwLongBow) {
-            value /= mcdwLongBow.getDrawSpeed() / 20;
+            value /= (int) (mcdwLongBow.getDrawSpeed() / 20);
         } else if (bowStack.getItem() instanceof McdwBow mcdwBow) {
-            value /= mcdwBow.getDrawSpeed() / 20;
+            value /= (int) (mcdwBow.getDrawSpeed() / 20);
         }
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {

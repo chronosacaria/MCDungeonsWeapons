@@ -250,9 +250,9 @@
   "tooltip_info_item.mcdw.truthseeker_2"      : "kept this unpleasant blade by",
   "tooltip_info_item.mcdw.truthseeker_3"      : "their side during interrogations.",
 
-  "tooltip_info_item.mcdw.diamond_sword_1"    : "The Diamond Sword is the true ",
-  "tooltip_info_item.mcdw.diamond_sword_2"    : "mark of a hero and an ",
-  "tooltip_info_item.mcdw.diamond_sword_3"    : "accomplished adventurer.",
+  "tooltip_info_item.mcdw.diamond_sword_var_1"    : "The Diamond Sword is the true ",
+  "tooltip_info_item.mcdw.diamond_sword_var_2"    : "mark of a hero and an ",
+  "tooltip_info_item.mcdw.diamond_sword_var_3"    : "accomplished adventurer.",
 
   "tooltip_info_item.mcdw.iron_sword_var_1"   : "A sturdy and reliable blade.",
 
@@ -349,9 +349,9 @@
   "tooltip_info_item.mcdw.stormlander_2"      : "of the raging storm, is a treasure of",
   "tooltip_info_item.mcdw.stormlander_3"      : "the Illagers.",
 
-  "tooltip_info_item.mcdw.diamond_pick_1"     : "Diamond is one of the most durable",
-  "tooltip_info_item.mcdw.diamond_pick_2"     : "materials making it an excellent",
-  "tooltip_info_item.mcdw.diamond_pick_3"     : "choice for a pickaxe.",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_1"     : "Diamond is one of the most durable",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_2"     : "materials making it an excellent",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_3"     : "choice for a pickaxe.",
 
   "tooltip_info_item.mcdw.soul_scythe_1"      : "A cruel reaper of souls, the Soul",
   "tooltip_info_item.mcdw.soul_scythe_2"      : "Scythe is unsentimental in its",

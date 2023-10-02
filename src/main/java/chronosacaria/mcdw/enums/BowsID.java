@@ -76,6 +76,7 @@ public enum BowsID implements IRangedWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.BOWS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<BowsID, McdwBow> getItemsEnum() {
         return ItemsRegistry.BOW_ITEMS;
     }
@@ -175,7 +176,7 @@ public enum BowsID implements IRangedWeaponID, IInnateEnchantment {
         return item.getDefaultStack();
     }
 
-    @SuppressWarnings("ConstantConditions")
+    @SuppressWarnings("DataFlowIssue")
     @Override
     public McdwBow makeWeapon() {
         McdwBow mcdwBow = new McdwBow(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),

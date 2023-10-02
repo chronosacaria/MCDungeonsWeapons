@@ -9,6 +9,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class InventoryHelper {
@@ -64,15 +65,15 @@ public class InventoryHelper {
         List<Integer> stackSlots = mcdw$getSlotsWithStack(player, toReplace);
 
         record SlotInfo(int index, int size) {}
-        List<SlotInfo> toReplaceSlots = new ArrayList<SlotInfo>();
+        List<SlotInfo> toReplaceSlots = new ArrayList<>();
         for (int slotIndex : stackSlots)
             toReplaceSlots.add(new SlotInfo(slotIndex, playerInv.getStack(slotIndex).getCount()));
         // don't forget about offhand
-        ItemStack offhand = playerInv.getStack(playerInv.OFF_HAND_SLOT);
+        ItemStack offhand = playerInv.getStack(PlayerInventory.OFF_HAND_SLOT);
         if (offhand.isOf(toReplace))
-            toReplaceSlots.add(new SlotInfo(playerInv.OFF_HAND_SLOT, offhand.getCount()));
+            toReplaceSlots.add(new SlotInfo(PlayerInventory.OFF_HAND_SLOT, offhand.getCount()));
         // sort by size (ascending order)
-        toReplaceSlots.sort((a, b) -> a.size - b.size);
+        toReplaceSlots.sort(Comparator.comparingInt(a -> a.size));
 
         while (count > 0 && !toReplaceSlots.isEmpty()) {
             SlotInfo slot = toReplaceSlots.get(0);
@@ -82,7 +83,7 @@ public class InventoryHelper {
                 toReplaceSlots.remove(0);
             } else {
                 int emptySlot = playerInv.getEmptySlot();
-                if (emptySlot == playerInv.NOT_FOUND)
+                if (emptySlot == PlayerInventory.NOT_FOUND)
                     // no empty space, stop here
                     break;
                 playerInv.getStack(slot.index).decrement(1);

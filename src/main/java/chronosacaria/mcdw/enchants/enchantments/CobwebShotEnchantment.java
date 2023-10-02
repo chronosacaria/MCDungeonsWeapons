@@ -33,11 +33,6 @@ public class CobwebShotEnchantment extends RangedEnchantment {
     }
 
     @Override
-    public int getMaxLevel(){
-        return 1;
-    }
-
-    @Override
     protected boolean canAccept (Enchantment other){
         return Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING)
                 || !(other instanceof AOEEnchantment);
@@ -60,14 +55,5 @@ public class CobwebShotEnchantment extends RangedEnchantment {
         return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
     }
 
-    @Override
-    public int getMinPower(int level) {
-        return 1 + level * 10;
-    }
-
-    @Override
-    public int getMaxPower(int level) {
-        return this.getMinPower(level) + 5;
-    }
 }
 

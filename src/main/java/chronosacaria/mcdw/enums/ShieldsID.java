@@ -20,6 +20,7 @@ public enum ShieldsID implements IShieldID {
     private final ToolMaterial material;
     private final String[] repairIngredient;
 
+    @SuppressWarnings("SameParameterValue")
     ShieldsID(ToolMaterial material, String... repairIngredient) {
         this.material = material;
         this.repairIngredient = repairIngredient;
@@ -29,6 +30,7 @@ public enum ShieldsID implements IShieldID {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.SHIELDS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<ShieldsID, McdwShield> getItemsEnum() {
         return ItemsRegistry.SHIELD_ITEMS;
     }
