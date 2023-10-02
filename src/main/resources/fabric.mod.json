@@ -32,9 +32,12 @@
     "mcdw.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.14",
+    "fabricloader": ">=0.14.21",
     "fabric": "*",
     "minecraft": ">=1.20.0",
     "cloth-config2": ">=11.0.0.1"
+  },
+  "breaks": {
+    "pehkui": "*"
   }
 }
