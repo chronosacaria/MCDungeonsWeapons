@@ -1,6 +1,7 @@
 package chronosacaria.mcdw.api.util;
 
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
+import chronosacaria.mcdw.bases.McdwLongbow;
 import chronosacaria.mcdw.bases.McdwShortbow;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
 import net.minecraft.client.resource.language.I18n;
@@ -92,7 +93,7 @@ public class CleanlinessHelper {
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_note_item.mcdw.shortbow").formatted(Formatting.GREEN));
         }
-        if (stack.getItem() instanceof McdwShortbow) {
+        if (stack.getItem() instanceof McdwLongbow) {
             tooltip.add(Text.translatable("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
             tooltip.add(Text.translatable("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
         }
