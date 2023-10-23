@@ -153,21 +153,25 @@ public enum BowsID implements IRangedWeaponID, IInnateEnchantment {
         return switch (this) {
             case BOW_ANCIENT_BOW -> Map.of(EnchantsRegistry.DYNAMO, 1);
             case BOW_BONEBOW -> Map.of(EnchantsRegistry.GROWING, 1);
-            case BOW_BUBBLE_BOW, BOW_SNOW_BOW, BOW_SOUL_BOW, BOW_TRICKBOW, BOW_TWISTING_VINE_BOW, BOW_WEEPING_VINE_BOW, BOW_WIND_BOW, BOW_WINTERS_TOUCH, BOW_POWER_BOW, BOW_HUNTING_BOW -> null;
-            case BOW_BUBBLE_BURSTER, BOW_ECHO_OF_THE_VALLEY -> Map.of(EnchantsRegistry.RICOCHET, 1);
-            case BOW_BURST_GALE_BOW -> Map.of(EnchantsRegistry.CHARGE, 1);
+            case BOW_BUBBLE_BOW, BOW_SOUL_BOW, BOW_TWISTING_VINE_BOW, BOW_WEEPING_VINE_BOW, BOW_HUNTING_BOW -> null;
+            case BOW_SNOW_BOW, BOW_WINTERS_TOUCH -> Map.of(EnchantsRegistry.FREEZING, 1);
+            case BOW_BUBBLE_BURSTER, BOW_TRICKBOW -> Map.of(EnchantsRegistry.RICOCHET, 1);
+            case BOW_ECHO_OF_THE_VALLEY -> Map.of(EnchantsRegistry.GRAVITY, 1, EnchantsRegistry.RICOCHET, 1);
+            case BOW_BURST_GALE_BOW -> Map.of(EnchantsRegistry.CHARGE, 1, EnchantsRegistry.GRAVITY, 1);
             case BOW_CALL_OF_THE_VOID -> Map.of(EnchantsRegistry.FUSE_SHOT, 1, EnchantsRegistry.VOID_SHOT, 1);
-            case BOW_ELITE_POWER_BOW, BOW_MASTERS_BOW -> Map.of(Enchantments.POWER, 1);
-            case BOW_GREEN_MENACE -> Map.of(EnchantsRegistry.POISON_CLOUD, 1);
+            case BOW_ELITE_POWER_BOW -> Map.of(Enchantments.POWER, 2);
+            case BOW_GREEN_MENACE -> Map.of(EnchantsRegistry.RICOCHET, 1, EnchantsRegistry.POISON_CLOUD, 1);
             case BOW_HAUNTED_BOW, BOW_TWIN_BOW -> Map.of(EnchantsRegistry.BONUS_SHOT, 1);
             case BOW_HUNTERS_PROMISE -> Map.of(EnchantsRegistry.REPLENISH, 1);
             case BOW_LOST_SOULS -> Map.of(Enchantments.MULTISHOT, 1);
             case BOW_NOCTURNAL_BOW, BOW_SHIVERING_BOW -> Map.of(EnchantsRegistry.TEMPO_THEFT, 1);
             case BOW_PHANTOM_BOW -> Map.of(EnchantsRegistry.PHANTOMS_MARK, 1, Enchantments.POWER, 1);
             case BOW_PINK_SCOUNDREL -> Map.of(EnchantsRegistry.RICOCHET, 1, EnchantsRegistry.WILD_RAGE, 1);
-            case BOW_SABREWING -> Map.of(EnchantsRegistry.RADIANCE, 1);
+            case BOW_POWER_BOW, BOW_MASTERS_BOW -> Map.of(Enchantments.POWER, 1);
+            case BOW_SABREWING -> Map.of(Enchantments.POWER, 1, EnchantsRegistry.RADIANCE, 1);
             case BOW_VOID_BOW -> Map.of(EnchantsRegistry.VOID_SHOT, 1);
             case BOW_WEB_BOW -> Map.of(EnchantsRegistry.COBWEB_SHOT, 1);
+            case BOW_WIND_BOW -> Map.of(EnchantsRegistry.GRAVITY, 1);
         };
     }
 

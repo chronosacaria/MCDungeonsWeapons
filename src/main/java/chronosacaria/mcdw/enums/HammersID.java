@@ -7,6 +7,7 @@ import chronosacaria.mcdw.configs.McdwNewStatsConfig;
 import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
@@ -111,9 +112,10 @@ public enum HammersID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case HAMMER_BONECLUB, HAMMER_GREAT_HAMMER, HAMMER_MACE -> null;
+            case HAMMER_BONECLUB -> Map.of(Enchantments.KNOCKBACK, 1);
+            case HAMMER_GREAT_HAMMER, HAMMER_MACE -> null;
             case HAMMER_FLAIL -> Map.of(EnchantsRegistry.CHAINS, 1);
-            case HAMMER_BONE_CUDGEL -> Map.of(EnchantsRegistry.ILLAGERS_BANE, 1);
+            case HAMMER_BONE_CUDGEL -> Map.of(Enchantments.KNOCKBACK, 1, EnchantsRegistry.ILLAGERS_BANE, 1);
             case HAMMER_GRAVITY -> Map.of(EnchantsRegistry.GRAVITY, 1);
             case HAMMER_STORMLANDER -> Map.of(EnchantsRegistry.THUNDERING, 1);
             case HAMMER_SUNS_GRACE -> Map.of(EnchantsRegistry.RADIANCE, 1);

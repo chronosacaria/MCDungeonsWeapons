@@ -114,6 +114,10 @@ public class CrossbowItemMixin {
             if (tempoTheftLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).mcdw$setTempoTheftLevel(tempoTheftLevel);
             }
+            int thunderingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, crossbow);
+            if (thunderingLevel > 0) {
+                ((IMcdwEnchantedArrow)ppe).mcdw$setThunderingLevel(thunderingLevel);
+            }
             int voidShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_SHOT, crossbow);
             if (voidShotLevel > 0) {
                 ((IMcdwEnchantedArrow)ppe).mcdw$setVoidShotLevel(voidShotLevel);

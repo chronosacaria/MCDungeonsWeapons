@@ -59,6 +59,9 @@ public interface IMcdwEnchantedArrow {
     int mcdw$getTempoTheftLevel();
     void mcdw$setTempoTheftLevel(int tempoTheftLevel);
 
+    int mcdw$getThunderingLevel();
+    void mcdw$setThunderingLevel(int thunderingLevel);
+
     int mcdw$getVoidShotLevel();
     void mcdw$setVoidShotLevel(int voidShotLevel);
 

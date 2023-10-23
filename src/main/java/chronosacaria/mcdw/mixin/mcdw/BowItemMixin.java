@@ -146,6 +146,10 @@ public abstract class BowItemMixin{
         if (tempoTheftLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).mcdw$setTempoTheftLevel(tempoTheftLevel);
         }
+        //int thunderingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, stack);
+        //if (thunderingLevel > 0) {
+        //    ((IMcdwEnchantedArrow)ppe).mcdw$setThunderingLevel(thunderingLevel);
+        //}
         int voidShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_SHOT, stack);
         if (voidShotLevel > 0) {
             ((IMcdwEnchantedArrow)ppe).mcdw$setVoidShotLevel(voidShotLevel);
@@ -162,16 +166,17 @@ public abstract class BowItemMixin{
         this.setLivingEntity(user);
     }
 
+    @SuppressWarnings("lossy-conversions")
     @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getPullProgress(I)F"), index = 0)
     private int mcdw$acceleratedPullProgress(int value){
         ItemStack bowStack = livingEntity.getActiveItem();
 
         if (bowStack.getItem() instanceof McdwShortbow mcdwShortBow) {
-            value /= (int) (mcdwShortBow.getDrawSpeed() / 20);
+            value /= (mcdwShortBow.getDrawSpeed() / 20);
         } else if (bowStack.getItem() instanceof McdwLongbow mcdwLongBow) {
-            value /= (int) (mcdwLongBow.getDrawSpeed() / 20);
+            value /= (mcdwLongBow.getDrawSpeed() / 20);
         } else if (bowStack.getItem() instanceof McdwBow mcdwBow) {
-            value /= (int) (mcdwBow.getDrawSpeed() / 20);
+            value /= (mcdwBow.getDrawSpeed() / 20);
         }
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {

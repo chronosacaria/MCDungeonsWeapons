@@ -125,9 +125,9 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case BOW_LOVE_SPELL_BOW -> Map.of(EnchantsRegistry.RADIANCE, 1);
-            case BOW_MECHANICAL_SHORTBOW -> Map.of(EnchantsRegistry.ACCELERATE, 1);
-            case BOW_PURPLE_STORM,BOW_SHORTBOW -> null;
+            case BOW_LOVE_SPELL_BOW -> Map.of(EnchantsRegistry.WILD_RAGE, 1);
+            case BOW_MECHANICAL_SHORTBOW, BOW_PURPLE_STORM -> Map.of(EnchantsRegistry.ACCELERATE, 1);
+            case BOW_SHORTBOW -> null;
         };
     }
 

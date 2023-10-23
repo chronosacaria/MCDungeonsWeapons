@@ -62,6 +62,8 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Unique
     private int tempoTheftLevel = 0;
     @Unique
+    private int thunderingLevel = 0;
+    @Unique
     private int voidShotLevel = 0;
     @Unique
     private int wildRageLevel = 0;
@@ -245,6 +247,16 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     }
 
     @Override
+    public int mcdw$getThunderingLevel() {
+        return thunderingLevel;
+    }
+
+    @Override
+    public void mcdw$setThunderingLevel(int thunderingLevel) {
+        this.thunderingLevel = thunderingLevel;
+    }
+
+    @Override
     public int mcdw$getVoidShotLevel() {
         return voidShotLevel;
     }
@@ -338,9 +350,11 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
                 EnchantmentEffects.applyRicochet(shooter, target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.TEMPO_THEFT))
                 EnchantmentEffects.applyTempoTheft(shooter, target, persProjEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.THUNDERING))
+                EnchantmentEffects.applyThunderingShot(shooter, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.WILD_RAGE)) {
-                if (!(target instanceof EnderDragonEntity || target instanceof WardenEntity) && target instanceof MobEntity mobEntity) {
-                    EnchantmentEffects.applyWildRage(mobEntity, persProjEntity);
+                if (!(target instanceof EnderDragonEntity || target instanceof WardenEntity) && target instanceof MobEntity) {
+                    EnchantmentEffects.applyWildRage((MobEntity) target, persProjEntity);
                 }
             }
         }

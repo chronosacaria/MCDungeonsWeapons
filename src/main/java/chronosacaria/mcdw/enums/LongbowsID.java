@@ -8,6 +8,7 @@ import chronosacaria.mcdw.registries.EnchantsRegistry;
 import chronosacaria.mcdw.registries.ItemsRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
@@ -123,8 +124,9 @@ public enum LongbowsID implements IRangedWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case BOW_GUARDIAN_BOW, BOW_LONGBOW -> null;
-            case BOW_RED_SNAKE -> Map.of(EnchantsRegistry.FUSE_SHOT, 1);
+            case BOW_LONGBOW -> null;
+            case BOW_GUARDIAN_BOW -> Map.of(Enchantments.POWER, 2);
+            case BOW_RED_SNAKE -> Map.of(Enchantments.POWER, 1, EnchantsRegistry.FUSE_SHOT, 1);
         };
     }
 

@@ -761,6 +761,19 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyThunderingShot(LivingEntity shooter, PersistentProjectileEntity ppe){
+        int thunderingLevel = ((IMcdwEnchantedArrow)ppe).mcdw$getThunderingLevel();
+
+        if (thunderingLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG_CHANCE.get(EnchantmentsID.THUNDERING))) {
+                electrocuteNearbyEnemies(shooter,
+                        5 * thunderingLevel, 5,
+                        Integer.MAX_VALUE);
+            }
+        }
+    }
+
     public static void applyWildRage(MobEntity ragingEntity, PersistentProjectileEntity ppe) {
         int wildRageLevel = ((IMcdwEnchantedArrow)ppe).mcdw$getWildRageLevel();
         if (wildRageLevel > 0) {
