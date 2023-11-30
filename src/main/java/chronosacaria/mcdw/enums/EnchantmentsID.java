@@ -34,7 +34,6 @@ public enum EnchantmentsID {
     POISON_CLOUD,
     PROSPECTOR,
     RADIANCE,
-    RADIANCE_SHOT,
     RAMPAGING,
     REPLENISH,
     REFRESHMENT,

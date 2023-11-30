@@ -44,7 +44,7 @@ public class McdwClient implements ClientModInitializer {
                 return 0.0F;
             } else {
                 int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
                     int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, itemStack);
                     if (accelerateLevel > 0) {
                         StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
@@ -53,7 +53,7 @@ public class McdwClient implements ClientModInitializer {
                         useTicks = (int) (useTicks * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
                     }
                 }
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.OVERCHARGE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.OVERCHARGE).mcdw$getIsEnabled()) {
                     int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
                     if (overchargeLevel > 0) {
                         int overcharge = (int) Math.min((useTicks / bow.getDrawSpeed()) - 1, overchargeLevel);
@@ -77,7 +77,7 @@ public class McdwClient implements ClientModInitializer {
                 return 0.0F;
             } else {
                 int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
                     int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, itemStack);
                     if (accelerateLevel > 0) {
                         StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
@@ -86,7 +86,7 @@ public class McdwClient implements ClientModInitializer {
                         useTicks = (int) (useTicks * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
                     }
                 }
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.OVERCHARGE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.OVERCHARGE).mcdw$getIsEnabled()) {
                     int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
                     if (overchargeLevel > 0) {
                         int overcharge = (int) Math.min((useTicks / bow.getDrawSpeed()) - 1, overchargeLevel);
@@ -110,7 +110,7 @@ public class McdwClient implements ClientModInitializer {
                 return 0.0F;
             } else {
                 int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
                     int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, itemStack);
                     if (accelerateLevel > 0) {
                         StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
@@ -119,7 +119,7 @@ public class McdwClient implements ClientModInitializer {
                         useTicks = (int) (useTicks * (1f + (MathHelper.clamp(consecutiveShots * (6.0f + 2.0f * accelerateLevel), 0f, 100f) / 100f)));
                     }
                 }
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.OVERCHARGE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.OVERCHARGE).mcdw$getIsEnabled()) {
                     int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, itemStack);
                     if (overchargeLevel > 0) {
                         int overcharge = (int) Math.min((useTicks / bow.getDrawSpeed()) - 1, overchargeLevel);
@@ -143,7 +143,7 @@ public class McdwClient implements ClientModInitializer {
                 return 0.0F;
             } else {
                 int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
+                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
                     int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, itemStack);
                     if (accelerateLevel > 0) {
                         StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);

@@ -127,11 +127,12 @@ public class CrossbowItemMixin {
                 ((IMcdwEnchantedArrow)ppe).mcdw$setWildRageLevel(wildRageLevel);
             }
 
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BONUS_SHOT)) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.BONUS_SHOT).mcdw$getIsEnabled()) {
                 int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, crossbow);
                 if (bonusShotLevel > 0) {
                     float damageMultiplier = 0.1F + ((bonusShotLevel - 1) * 0.07F);
 
+                    @SuppressWarnings("unused")
                     float arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(crossbow);
                     ProjectileEffectHelper.mcdw$spawnExtraArrows(user, user, 1, 10, damageMultiplier);
                 }
@@ -148,7 +149,7 @@ public class CrossbowItemMixin {
     private int mcdw$acceleratedPullProgress(int useTicks) {
         ItemStack crossbowStack = livingEntity.getActiveItem();
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
             int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, crossbowStack);
             if (accelerateLevel > 0) {
                 StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);

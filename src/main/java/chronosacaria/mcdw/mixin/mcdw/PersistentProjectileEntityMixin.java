@@ -328,31 +328,31 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         PersistentProjectileEntity persProjEntity = (PersistentProjectileEntity) (Object) this;
         if (persProjEntity.getOwner() instanceof LivingEntity shooter) {
 
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.CHAIN_REACTION))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.CHAIN_REACTION).mcdw$getIsEnabled())
                 EnchantmentEffects.applyChainReaction(shooter, target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.CHARGE))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.CHARGE).mcdw$getIsEnabled())
                 EnchantmentEffects.applyCharge(shooter, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.COBWEB_SHOT))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.COBWEB_SHOT).mcdw$getIsEnabled())
                 EnchantmentEffects.applyCobwebShotEntity(target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.FUSE_SHOT))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FUSE_SHOT).mcdw$getIsEnabled())
                 EnchantmentEffects.applyFuseShot(shooter, target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.GRAVITY))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.GRAVITY).mcdw$getIsEnabled())
                 EnchantmentEffects.applyGravityShot(shooter, target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.LEVITATION_SHOT))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.LEVITATION_SHOT).mcdw$getIsEnabled())
                 EnchantmentEffects.applyLevitationShot(target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.PHANTOMS_MARK))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.PHANTOMS_MARK).mcdw$getIsEnabled())
                 EnchantmentEffects.applyPhantomsMark(target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.POISON_CLOUD))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISON_CLOUD).mcdw$getIsEnabled())
                 EnchantmentEffects.applyPoisonCloudShot(shooter, target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.RADIANCE))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.RADIANCE).mcdw$getIsEnabled())
                 EnchantmentEffects.applyRadianceShot(shooter, target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.RICOCHET))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.RICOCHET).mcdw$getIsEnabled())
                 EnchantmentEffects.applyRicochet(shooter, target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.TEMPO_THEFT))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.TEMPO_THEFT).mcdw$getIsEnabled())
                 EnchantmentEffects.applyTempoTheft(shooter, target, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.THUNDERING))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.THUNDERING).mcdw$getIsEnabled())
                 EnchantmentEffects.applyThunderingShot(shooter, persProjEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.WILD_RAGE)) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.WILD_RAGE).mcdw$getIsEnabled()) {
                 if (!(target instanceof EnderDragonEntity || target instanceof WardenEntity) && target instanceof MobEntity) {
                     EnchantmentEffects.applyWildRage((MobEntity) target, persProjEntity);
                 }
@@ -361,7 +361,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
 
         if (persProjEntity.getOwner() instanceof PlayerEntity shooter) {
 
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.REPLENISH))
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.REPLENISH).mcdw$getIsEnabled())
                 EnchantmentEffects.applyReplenish(shooter, persProjEntity);
         }
     }
@@ -372,9 +372,9 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         if (!(persProjEntity.getOwner() instanceof LivingEntity shooter))
             return;
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.COBWEB_SHOT))
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.COBWEB_SHOT).mcdw$getIsEnabled())
             EnchantmentEffects.applyCobwebShotBlock(blockHitResult, persProjEntity);
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.RADIANCE_SHOT))
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.RADIANCE).mcdw$getIsEnabled())
             EnchantmentEffects.applyRadianceShotBlock(blockHitResult, shooter, persProjEntity);
     }
 

@@ -35,7 +35,7 @@ public class ExperienceOrbEntityMixin {
         mcdw$setPlayerEntity(playerEntity);
         int amount = args.get(1);
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.SOUL_DEVOURER))
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SOUL_DEVOURER).mcdw$getIsEnabled())
             amount = EnchantmentEffects.soulDevourerExperience(playerEntity, amount);
 
         args.set(1, amount);
@@ -47,7 +47,7 @@ public class ExperienceOrbEntityMixin {
        PlayerEntity playerEntity = mcdw$getPlayerEntity();
        boolean isOffHandAttack = playerEntity.getRecentDamageSource() instanceof OffHandDamageSource;
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ANIMA_CONDUIT))
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ANIMA_CONDUIT).mcdw$getIsEnabled())
             return EnchantmentEffects.animaConduitExperience(playerEntity, experience, isOffHandAttack);
         return experience;
     }

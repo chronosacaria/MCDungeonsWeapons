@@ -47,7 +47,7 @@ public abstract class BowItemMixin{
 
     @Inject(method = "onStoppedUsing", at = @At("HEAD"))
     public void mcdw$onStoppedUsingBow(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci){
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BONUS_SHOT)){
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.BONUS_SHOT).mcdw$getIsEnabled()){
             int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, stack);
             if (bonusShotLevel > 0){
                 float damageMultiplier = 0.03F + (bonusShotLevel * 0.07F);
@@ -57,7 +57,7 @@ public abstract class BowItemMixin{
                 }
             }
         }
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.MULTI_SHOT)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.MULTI_SHOT).mcdw$getIsEnabled()) {
             int multiShotLevel = EnchantmentHelper.getLevel(Enchantments.MULTISHOT, stack);
             if (multiShotLevel > 0) {
                 PersistentProjectileEntity projectile = ProjectileEffectHelper.mcdw$createAbstractArrow(user);
@@ -179,7 +179,7 @@ public abstract class BowItemMixin{
             value /= (mcdwBow.getDrawSpeed() / 20);
         }
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
             int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, bowStack);
             if (accelerateLevel > 0) {
                 StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
@@ -194,7 +194,7 @@ public abstract class BowItemMixin{
             }
         }
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.OVERCHARGE)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.OVERCHARGE).mcdw$getIsEnabled()) {
             int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.OVERCHARGE, bowStack);
             if (overchargeLevel > 0) {
                 overcharge = Math.min((value / 20) - 1, overchargeLevel);
