@@ -10,11 +10,11 @@ import chronosacaria.mcdw.registries.EntityAttributesRegistry;
 import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.resource.language.I18n;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -27,12 +27,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.Vanishable;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 public class McdwSpear extends McdwCustomWeaponBase implements Vanishable, IInnateEnchantment {
@@ -57,12 +55,12 @@ public class McdwSpear extends McdwCustomWeaponBase implements Vanishable, IInna
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID,
                 "Tool modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         if (FabricLoader.getInstance().isModLoaded("reach-entity-attributes") && CompatibilityFlags.isReachExtensionEnabled) {
-            //builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Attack range",
-            //        Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfSpears,
-            //        EntityAttributeModifier.Operation.ADDITION));
-            //builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
-            //        Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfSpears,
-            //        EntityAttributeModifier.Operation.ADDITION));
+            builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier("Attack range",
+                    Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfSpears,
+                    EntityAttributeModifier.Operation.ADDITION));
+            builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
+                    Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfSpears,
+                    EntityAttributeModifier.Operation.ADDITION));
         } else if (CompatibilityFlags.isReachExtensionEnabled) {
             builder.put(EntityAttributesRegistry.ATTACK_RANGE, new EntityAttributeModifier("Attack range",
                     Mcdw.CONFIG.mcdwNewStatsConfig.extraAttackReachOfSpears,
@@ -130,12 +128,6 @@ public class McdwSpear extends McdwCustomWeaponBase implements Vanishable, IInna
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
-        int i = 1;
-        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(16);
-        String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
-        while (I18n.hasTranslation(translationKey + i)) {
-            tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
-            i++;
-        }
+        CleanlinessHelper.mcdw$tooltipHelper(stack, tooltip, 16);
     }
 }

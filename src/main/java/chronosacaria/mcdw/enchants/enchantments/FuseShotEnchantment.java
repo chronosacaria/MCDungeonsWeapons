@@ -20,7 +20,7 @@ import net.minecraft.registry.Registry;
 public class FuseShotEnchantment extends RangedEnchantment {
     public FuseShotEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.FUSE_SHOT)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FUSE_SHOT).mcdw$getIsEnabled()) {
             Registry.register(Registries.ENCHANTMENT, Mcdw.ID("fuse_shot"), this);
             ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.ENCHANTMENTS).register(entries -> {
                 // For loop creates first 3 levels of enchanted books
@@ -32,7 +32,7 @@ public class FuseShotEnchantment extends RangedEnchantment {
 
     @Override
     public int getMaxLevel(){
-        return 3;
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FUSE_SHOT).mcdw$getMaxLevel();
     }
 
     @Override
@@ -43,14 +43,14 @@ public class FuseShotEnchantment extends RangedEnchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.FUSE_SHOT)
-                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_RANDOM_SELECTION.get(EnchantmentsID.FUSE_SHOT);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FUSE_SHOT).mcdw$getIsEnabled()
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FUSE_SHOT).mcdw$getIsAvailableForRandomSelection();
     }
 
     @Override
     public boolean isAvailableForEnchantedBookOffer() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.FUSE_SHOT)
-                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_VILLAGER_TRADING.get(EnchantmentsID.FUSE_SHOT);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FUSE_SHOT).mcdw$getIsEnabled()
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FUSE_SHOT).mcdw$getIsAvailableForEnchantedBookOffer();
     }
 
     @Override
@@ -58,13 +58,4 @@ public class FuseShotEnchantment extends RangedEnchantment {
         return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
     }
 
-    @Override
-    public int getMinPower(int level) {
-        return 1 + level * 10;
-    }
-
-    @Override
-    public int getMaxPower(int level) {
-        return this.getMinPower(level) + 5;
-    }
 }

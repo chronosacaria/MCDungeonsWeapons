@@ -37,11 +37,6 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(Item.class)
 public abstract class ItemMixin implements ItemConvertible {
-    //@ModifyConstant(method = "raycast", require = 4, allow = 4, constant = @Constant(doubleValue = 5.0))
-    //private static double mcdw$raycast(double reachDistance, World world, PlayerEntity playerEntity) {
-    //    return PlayerAttackHelper.mcdw$getReachDistance(playerEntity, reachDistance);
-    //}
-
     @Inject(method = "raycast", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/Vec3d;add(DDD)Lnet/minecraft/util/math/Vec3d;"), locals = LocalCapture.CAPTURE_FAILSOFT)
     private static void mcdw$fixraycast(World world, PlayerEntity player, RaycastContext.FluidHandling fluidHandling, CallbackInfoReturnable<BlockHitResult> cir,
                                         float f, float g, Vec3d vec3d, float h, float i, float j, float k, float l, float m, float n, double d) {

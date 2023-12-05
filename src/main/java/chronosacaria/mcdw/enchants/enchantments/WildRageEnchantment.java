@@ -19,7 +19,7 @@ public class WildRageEnchantment extends RangedEnchantment {
 
     public WildRageEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.WILD_RAGE)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.WILD_RAGE).mcdw$getIsEnabled()) {
             Registry.register(Registries.ENCHANTMENT, Mcdw.ID("wild_rage"), this);
             ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.ENCHANTMENTS).register(entries -> {
                 // For loop creates first 3 levels of enchanted books
@@ -31,19 +31,19 @@ public class WildRageEnchantment extends RangedEnchantment {
 
     @Override
     public int getMaxLevel(){
-        return 3;
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.WILD_RAGE).mcdw$getMaxLevel();
     }
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.WILD_RAGE)
-                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_RANDOM_SELECTION.get(EnchantmentsID.WILD_RAGE);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.WILD_RAGE).mcdw$getIsEnabled()
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.WILD_RAGE).mcdw$getIsAvailableForRandomSelection();
     }
 
     @Override
     public boolean isAvailableForEnchantedBookOffer() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.WILD_RAGE)
-                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_VILLAGER_TRADING.get(EnchantmentsID.WILD_RAGE);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.WILD_RAGE).mcdw$getIsEnabled()
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.WILD_RAGE).mcdw$getIsAvailableForEnchantedBookOffer();
     }
 
     @Override
@@ -51,14 +51,5 @@ public class WildRageEnchantment extends RangedEnchantment {
         return stack.getItem() instanceof CrossbowItem || stack.getItem() instanceof BowItem;
     }
 
-    @Override
-    public int getMinPower(int level) {
-        return 1 + level * 10;
-    }
-
-    @Override
-    public int getMaxPower(int level) {
-        return this.getMinPower(level) + 5;
-    }
 }
 

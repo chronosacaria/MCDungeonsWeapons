@@ -30,6 +30,7 @@ public enum ScythesID implements IMeleeWeaponID, IInnateEnchantment {
     private final float attackSpeed;
     private final String[] repairIngredient;
 
+    @SuppressWarnings("SameParameterValue")
     ScythesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
@@ -41,6 +42,7 @@ public enum ScythesID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.SCYTHES_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<ScythesID, McdwScythe> getItemsEnum() {
         return ItemsRegistry.SCYTHE_ITEMS;
     }

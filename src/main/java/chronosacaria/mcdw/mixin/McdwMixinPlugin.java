@@ -21,9 +21,14 @@ public class McdwMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (FabricLoader.getInstance().isModLoaded("reach-entity-attributes") && mixinClassName.contains("reach")) {
+        if (FabricLoader.getInstance().isModLoaded("reach-entity-attributes")
+                && mixinClassName.contains("reach")) {
             return false;
         }
+        //if (FabricLoader.getInstance().isModLoaded("pehkui")
+        //        && mixinClassName.contains("reach")) {
+        //    return false;
+        //}
         return true;
     }
 

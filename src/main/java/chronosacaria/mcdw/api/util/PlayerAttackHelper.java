@@ -3,6 +3,8 @@ package chronosacaria.mcdw.api.util;
 import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
+import chronosacaria.mcdw.enums.DaggersID;
+import chronosacaria.mcdw.enums.SicklesID;
 import chronosacaria.mcdw.registries.EntityAttributesRegistry;
 import chronosacaria.mcdw.registries.ParticlesRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -67,9 +69,9 @@ public class PlayerAttackHelper {
             // use offhand modifiers
             mcdw$switchModifiers(playerEntity, playerEntity.getMainHandStack(), offhandStack);
 
-            float cooldownProgress = ((IDualWielding) playerEntity).getOffhandAttackCooldownProgress(0.5F);
+            float cooldownProgress = ((IDualWielding) playerEntity).mcdw$getOffhandAttackCooldownProgress(0.5F);
             float attackDamage = (float) playerEntity.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-            attackDamage *= 0.2f + Math.pow(cooldownProgress, 2) * 0.8f;
+            attackDamage *= (float) (0.2f + Math.pow(cooldownProgress, 2) * 0.8f);
 
             // use mainhand modifiers
             mcdw$switchModifiers(playerEntity, offhandStack, playerEntity.getMainHandStack());
@@ -77,7 +79,7 @@ public class PlayerAttackHelper {
             float enchantBonusDamage = EnchantmentHelper.getAttackDamage(offhandStack, target instanceof LivingEntity livingTarget ?
                     livingTarget.getGroup() : EntityGroup.DEFAULT) * cooldownProgress;
 
-            ((IDualWielding) playerEntity).resetLastAttackedOffhandTicks();
+            ((IDualWielding) playerEntity).mcdw$resetLastAttackedOffhandTicks();
 
             if (attackDamage > 0.0f || enchantBonusDamage > 0.0f) {
                 /* bl */
@@ -206,6 +208,14 @@ public class PlayerAttackHelper {
                 }
             }
         }
+    }
+
+    public static boolean mixAndMatchWeapons(PlayerEntity playerEntity) {
+            return (playerEntity.getOffHandStack().isOf(playerEntity.getMainHandStack().getItem())
+                    || (playerEntity.getMainHandStack().isOf(DaggersID.DAGGER_THE_BEGINNING.getItem()) && playerEntity.getOffHandStack().isOf(DaggersID.DAGGER_THE_END.getItem()))
+                    || (playerEntity.getMainHandStack().isOf(DaggersID.DAGGER_THE_END.getItem()) && playerEntity.getOffHandStack().isOf(DaggersID.DAGGER_THE_BEGINNING.getItem()))
+                    || (playerEntity.getMainHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_GOLD.getItem()) && playerEntity.getOffHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_SILVER.getItem()))
+                    || (playerEntity.getMainHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_SILVER.getItem()) && playerEntity.getOffHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_GOLD.getItem())));
     }
 
     /**

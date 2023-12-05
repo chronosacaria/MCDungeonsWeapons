@@ -8,7 +8,6 @@ import chronosacaria.mcdw.enums.LongbowsID;
 import chronosacaria.mcdw.registries.ItemGroupRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.resource.language.I18n;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
@@ -16,14 +15,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.function.Predicate;
 
 public class McdwLongbow extends BowItem implements IInnateEnchantment {
 
@@ -50,16 +45,6 @@ public class McdwLongbow extends BowItem implements IInnateEnchantment {
 
     public float getDrawSpeed() {
         return Math.max(0, drawSpeed);
-    }
-
-    @Override
-    public UseAction getUseAction(ItemStack stack) {
-        return UseAction.BOW;
-    }
-
-    @Override
-    public Predicate<ItemStack> getProjectiles() {
-        return BOW_PROJECTILES;
     }
 
     @Override
@@ -90,14 +75,6 @@ public class McdwLongbow extends BowItem implements IInnateEnchantment {
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         super.appendTooltip(stack, world, tooltip, tooltipContext);
-        int i = 1;
-        String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(14);
-        String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
-        while (I18n.hasTranslation(translationKey + i)) {
-            tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
-            i++;
-        }
-        tooltip.add(Text.translatable("tooltip_info_item.mcdw.gap").formatted(Formatting.ITALIC));
-        tooltip.add(Text.translatable("tooltip_note_item.mcdw.longbow").formatted(Formatting.GREEN));
+        CleanlinessHelper.mcdw$tooltipHelper(stack, tooltip, 14);
     }
 }

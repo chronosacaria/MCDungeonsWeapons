@@ -43,7 +43,7 @@ public class OffhandAttackPacket {
         });
 
         ServerPlayNetworking.registerGlobalReceiver(OFFHAND_MISS_PACKET, (server, player, handler, buffer, sender) ->
-                server.execute(() -> ((IDualWielding) player).resetLastAttackedOffhandTicks())
+                server.execute(() -> ((IDualWielding) player).mcdw$resetLastAttackedOffhandTicks())
         );
     }
 }

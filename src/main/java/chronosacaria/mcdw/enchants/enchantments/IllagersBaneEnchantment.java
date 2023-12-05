@@ -22,7 +22,7 @@ import net.minecraft.registry.Registry;
 public class IllagersBaneEnchantment extends Enchantment {
     public IllagersBaneEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
         super(rarity, enchantmentTarget, equipmentSlots);
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ILLAGERS_BANE)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ILLAGERS_BANE).mcdw$getIsEnabled()) {
             Registry.register(Registries.ENCHANTMENT, Mcdw.ID("illagers_bane"), this);
             ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.ENCHANTMENTS).register(entries -> {
                 // For loop creates first 3 levels of enchanted books
@@ -34,7 +34,7 @@ public class IllagersBaneEnchantment extends Enchantment {
 
     @Override
     public int getMaxLevel(){
-        return 3;
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ILLAGERS_BANE).mcdw$getMaxLevel();
     }
 
     @Override
@@ -54,14 +54,14 @@ public class IllagersBaneEnchantment extends Enchantment {
 
     @Override
     public boolean isAvailableForRandomSelection() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ILLAGERS_BANE)
-                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_RANDOM_SELECTION.get(EnchantmentsID.ILLAGERS_BANE);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ILLAGERS_BANE).mcdw$getIsEnabled()
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ILLAGERS_BANE).mcdw$getIsAvailableForRandomSelection();
     }
 
     @Override
     public boolean isAvailableForEnchantedBookOffer() {
-        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ILLAGERS_BANE)
-                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_VILLAGER_TRADING.get(EnchantmentsID.ILLAGERS_BANE);
+        return Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ILLAGERS_BANE).mcdw$getIsEnabled()
+                && Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ILLAGERS_BANE).mcdw$getIsAvailableForEnchantedBookOffer();
     }
 
     @Override
@@ -69,13 +69,4 @@ public class IllagersBaneEnchantment extends Enchantment {
         return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem || stack.getItem() instanceof McdwCustomWeaponBase;
     } //TODO Explore Bows and Crossbows
 
-    @Override
-    public int getMinPower(int level) {
-        return 1 + level * 10;
-    }
-
-    @Override
-    public int getMaxPower(int level) {
-        return this.getMinPower(level) + 5;
-    }
 }

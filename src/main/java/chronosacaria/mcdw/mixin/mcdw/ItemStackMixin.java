@@ -34,11 +34,13 @@ public abstract class ItemStackMixin {
         if (itemStack.getItem() == ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_MECHANIZED_SAWBLADE) && getDamage() + amount >= getMaxDamage()) {
             NbtList oldEnchantments = this.getEnchantments().copy();
             ItemStack brokenSawblade = new ItemStack(ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_BROKEN_SAWBLADE));
+            int oldRepairCost = itemStack.getRepairCost();
             brokenSawblade.setSubNbt(ItemStack.ENCHANTMENTS_KEY, oldEnchantments);
             CleanlinessHelper.mcdw$dropItem(entity, brokenSawblade);
             Map<Enchantment, Integer> brokenSawbladeEnchantments = EnchantmentHelper.get(brokenSawblade);
             brokenSawbladeEnchantments.remove(Enchantments.FIRE_ASPECT);
             EnchantmentHelper.set(brokenSawbladeEnchantments, brokenSawblade);
+            brokenSawblade.setRepairCost(oldRepairCost);
         }
     }
     
@@ -46,10 +48,9 @@ public abstract class ItemStackMixin {
     // This mixin changes items, that only got their IInnateEnchantments to still be enchantable
     @Inject(method = "isEnchantable()Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;hasEnchantments()Z"), cancellable = true)
     public void mcdw$isEnchantable(CallbackInfoReturnable<Boolean> cir) {
-        if (this.getItem() instanceof IInnateEnchantment iInnateEnchantment && iInnateEnchantment.onlyHasInnateEnchantments((ItemStack)(Object) this)) {
+        ItemStack stack = (ItemStack) (Object) this;
+        if (stack.getItem() instanceof IInnateEnchantment iInnateEnchantment && iInnateEnchantment.onlyHasInnateEnchantments(stack)) {
             cir.setReturnValue(true);
         }
     }
-    
-    
 }

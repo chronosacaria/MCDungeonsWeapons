@@ -8,6 +8,7 @@ import net.minecraft.nbt.NbtCompound;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
@@ -20,20 +21,24 @@ import java.util.List;
 public class AreaEffectCloudEntityMixin implements IExclusiveAOECloud {
 
     @Shadow @Nullable private LivingEntity owner;
+    @Unique
     private List<Boolean> exclusions = List.of(false, false, false);
+    @Unique
     private LivingEntity livingEntity;
 
+    @Unique
     private void setLivingEntity(LivingEntity livingEntity) { this.livingEntity = livingEntity; }
 
+    @Unique
     private LivingEntity getLivingEntity() { return livingEntity; }
 
     @Override
-    public List<Boolean> getExclusions() {
+    public List<Boolean> mcdw$getExclusions() {
         return exclusions;
     }
 
     @Override
-    public void setExclusions(boolean owner, boolean allies, boolean enemy) {
+    public void mcdw$setExclusions(boolean owner, boolean allies, boolean enemy) {
         exclusions = List.of(owner, allies, enemy);
     }
 

@@ -15,7 +15,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Oxidizable;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.resource.language.I18n;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
@@ -31,7 +30,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 
@@ -123,20 +121,9 @@ public class McdwSword extends SwordItem implements IInnateEnchantment {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext tooltipContext){
-       super.appendTooltip(stack, world, tooltip, tooltipContext);
-       int i = 1;
-       String str = stack.getItem().getTranslationKey().toLowerCase(Locale.ROOT).substring(16);
-       String translationKey = String.format("tooltip_info_item.mcdw.%s_", str);
-       while (I18n.hasTranslation(translationKey + i)) {
-           tooltip.add(Text.translatable(translationKey + i).formatted(Formatting.ITALIC));
-           i++;
-       }
+        super.appendTooltip(stack, world, tooltip, tooltipContext);
+        CleanlinessHelper.mcdw$tooltipHelper(stack, tooltip, 16);
         if (stack.getItem() == ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_BEESTINGER))
             tooltip.add(Text.translatable("tooltip_ench_item.mcdw.beestinger_1").formatted(Formatting.GRAY));
-        if (stack.getItem() == ItemsRegistry.SWORD_ITEMS.get(SwordsID.SWORD_DIAMOND_SWORD_VAR)){
-            tooltip.add(Text.translatable("tooltip_info_item.mcdw.diamond_sword_1").formatted(Formatting.ITALIC));
-            tooltip.add(Text.translatable("tooltip_info_item.mcdw.diamond_sword_2").formatted(Formatting.ITALIC));
-            tooltip.add(Text.translatable("tooltip_info_item.mcdw.diamond_sword_3").formatted(Formatting.ITALIC));
-        }
     }
 }

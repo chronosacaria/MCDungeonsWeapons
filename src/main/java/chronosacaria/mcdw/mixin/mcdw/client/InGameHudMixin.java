@@ -4,8 +4,6 @@ import chronosacaria.mcdw.api.interfaces.IDualWielding;
 import chronosacaria.mcdw.api.interfaces.IOffhandAttack;
 import chronosacaria.mcdw.api.util.PlayerAttackHelper;
 import chronosacaria.mcdw.configs.CompatibilityFlags;
-import chronosacaria.mcdw.enums.DaggersID;
-import chronosacaria.mcdw.enums.SicklesID;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -23,10 +21,7 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameMode;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Mutable;
-import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -56,11 +51,7 @@ public class InGameHudMixin {
             PlayerEntity player = client.player;
             if (player == null)
                 return;
-            if (player.getOffHandStack().getItem() instanceof IOffhandAttack && (player.getOffHandStack().isOf(player.getMainHandStack().getItem())
-                    || (player.getMainHandStack().isOf(DaggersID.DAGGER_THE_BEGINNING.getItem()) && player.getOffHandStack().isOf(DaggersID.DAGGER_THE_END.getItem()))
-                    || (player.getMainHandStack().isOf(DaggersID.DAGGER_THE_END.getItem()) && player.getOffHandStack().isOf(DaggersID.DAGGER_THE_BEGINNING.getItem()))
-                    || (player.getMainHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_GOLD.getItem()) && player.getOffHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_SILVER.getItem()))
-                    || (player.getMainHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_SILVER.getItem()) && player.getOffHandStack().isOf(SicklesID.SICKLE_LAST_LAUGH_GOLD.getItem())))) {
+            if (player.getOffHandStack().getItem() instanceof IOffhandAttack && PlayerAttackHelper.mixAndMatchWeapons(player)) {
 
                 GameOptions gameOptions = this.client.options;
                 if (gameOptions.getPerspective().isFirstPerson()) {
@@ -68,10 +59,10 @@ public class InGameHudMixin {
                         if (this.client.interactionManager.getCurrentGameMode() != GameMode.SPECTATOR || mcdw$shouldRenderSpectatorCrosshair(this.client.crosshairTarget)) {
                             if (this.client.options.getAttackIndicator().getValue() == AttackIndicator.CROSSHAIR) {
                                 PlayerAttackHelper.mcdw$switchModifiers(player, player.getMainHandStack(), player.getOffHandStack());
-                                float offhandAttackCooldownProgress = ((IDualWielding) player).getOffhandAttackCooldownProgress(0.0f);
+                                float offhandAttackCooldownProgress = ((IDualWielding) player).mcdw$getOffhandAttackCooldownProgress(0.0f);
                                 boolean bl = false;
                                 if (this.client.targetedEntity != null && this.client.targetedEntity instanceof LivingEntity && offhandAttackCooldownProgress >= 1.0f) {
-                                    bl = ((IDualWielding) player).getOffhandAttackCooldownProgressPerTick() > 5.0f;
+                                    bl = ((IDualWielding) player).mcdw$getOffhandAttackCooldownProgressPerTick() > 5.0f;
                                     bl &= this.client.targetedEntity.isAlive();
                                 }
                                 PlayerAttackHelper.mcdw$switchModifiers(player, player.getOffHandStack(), player.getMainHandStack());
@@ -92,6 +83,7 @@ public class InGameHudMixin {
         }
     }
 
+    @Unique
     private boolean mcdw$shouldRenderSpectatorCrosshair(HitResult hitResult) {
         if (hitResult == null) {
             return false;

@@ -41,6 +41,7 @@ public enum SpearsID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.SPEARS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<SpearsID, McdwSpear> getItemsEnum() {
         return ItemsRegistry.SPEAR_ITEMS;
     }

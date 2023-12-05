@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -32,8 +33,10 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 @Mixin(CrossbowItem.class)
 public class CrossbowItemMixin {
 
+    @Unique
     private LivingEntity livingEntity;
 
+    @Unique
     public void mcdw$setLivingEntity(LivingEntity livingEntity){
         this.livingEntity = livingEntity;
     }
@@ -46,85 +49,90 @@ public class CrossbowItemMixin {
 
             int chainReactionLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, crossbow);
             if (chainReactionLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setChainReactionLevel(chainReactionLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setChainReactionLevel(chainReactionLevel);
             }
             int chargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHARGE, crossbow);
             if (chargeLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setChargeLevel(chargeLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setChargeLevel(chargeLevel);
             }
             int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, crossbow);
             if (cobwebShotLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setCobwebShotLevel(cobwebShotLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setCobwebShotLevel(cobwebShotLevel);
             }
             int dynamoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, crossbow);
             if (dynamoLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setDynamoLevel(dynamoLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setDynamoLevel(dynamoLevel);
             }
             int enigmaResonatorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, crossbow);
             if (enigmaResonatorLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setEnigmaResonatorLevel(enigmaResonatorLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setEnigmaResonatorLevel(enigmaResonatorLevel);
             }
             int fuseShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, crossbow);
             if (fuseShotLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setFuseShotLevel(fuseShotLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setFuseShotLevel(fuseShotLevel);
             }
             int gravityLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, crossbow);
             if (gravityLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setGravityLevel(gravityLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setGravityLevel(gravityLevel);
             }
             int growingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, crossbow);
             if (growingLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setGrowingLevel(growingLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setGrowingLevel(growingLevel);
             }
             int levitationShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.LEVITATION_SHOT, crossbow);
             if (levitationShotLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setLevitationShotLevel(levitationShotLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setLevitationShotLevel(levitationShotLevel);
             }
             // For Drag in Water for Nautilus Crossbow
-            ((IMcdwEnchantedArrow)ppe).setNautilusBoolean(crossbow.isOf(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)));
+            ((IMcdwEnchantedArrow)ppe).mcdw$setNautilusBoolean(crossbow.isOf(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)));
             int phantomsMarkLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PHANTOMS_MARK, crossbow);
             if (phantomsMarkLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setPhantomsMarkLevel(phantomsMarkLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setPhantomsMarkLevel(phantomsMarkLevel);
             }
             int poisonCloudLevel = EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, crossbow);
             if (poisonCloudLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setPoisonCloudLevel(poisonCloudLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setPoisonCloudLevel(poisonCloudLevel);
             }
             int radianceLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, crossbow);
             if (radianceLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setRadianceLevel(radianceLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setRadianceLevel(radianceLevel);
             }
             int replenishLevel = EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, crossbow);
             if (replenishLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setReplenishLevel(replenishLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setReplenishLevel(replenishLevel);
             }
             int ricochetLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, crossbow);
             if (ricochetLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setRicochetLevel(ricochetLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setRicochetLevel(ricochetLevel);
             }
-            ((IMcdwEnchantedArrow)ppe).setShadowBarbBoolean(crossbow.isOf(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)));
+            ((IMcdwEnchantedArrow)ppe).mcdw$setShadowBarbBoolean(crossbow.isOf(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)));
             int shadowShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SHADOW_SHOT, crossbow);
             if (shadowShotLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setShadowShotLevel(shadowShotLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setShadowShotLevel(shadowShotLevel);
             }
             int tempoTheftLevel = EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, crossbow);
             if (tempoTheftLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setTempoTheftLevel(tempoTheftLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setTempoTheftLevel(tempoTheftLevel);
+            }
+            int thunderingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, crossbow);
+            if (thunderingLevel > 0) {
+                ((IMcdwEnchantedArrow)ppe).mcdw$setThunderingLevel(thunderingLevel);
             }
             int voidShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_SHOT, crossbow);
             if (voidShotLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).setVoidShotLevel(voidShotLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setVoidShotLevel(voidShotLevel);
             }
             int wildRageLevel = EnchantmentHelper.getLevel(EnchantsRegistry.WILD_RAGE, crossbow);
             if (wildRageLevel > 0){
-                ((IMcdwEnchantedArrow)ppe).setWildRageLevel(wildRageLevel);
+                ((IMcdwEnchantedArrow)ppe).mcdw$setWildRageLevel(wildRageLevel);
             }
 
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.BONUS_SHOT)) {
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.BONUS_SHOT).mcdw$getIsEnabled()) {
                 int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, crossbow);
                 if (bonusShotLevel > 0) {
                     float damageMultiplier = 0.1F + ((bonusShotLevel - 1) * 0.07F);
 
+                    @SuppressWarnings("unused")
                     float arrowVelocity = RangedAttackHelper.getVanillaOrModdedCrossbowArrowVelocity(crossbow);
                     ProjectileEffectHelper.mcdw$spawnExtraArrows(user, user, 1, 10, damageMultiplier);
                 }
@@ -141,7 +149,7 @@ public class CrossbowItemMixin {
     private int mcdw$acceleratedPullProgress(int useTicks) {
         ItemStack crossbowStack = livingEntity.getActiveItem();
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENABLE_ENCHANTMENTS.get(EnchantmentsID.ACCELERATE)) {
+        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
             int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ACCELERATE, crossbowStack);
             if (accelerateLevel > 0) {
                 StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);

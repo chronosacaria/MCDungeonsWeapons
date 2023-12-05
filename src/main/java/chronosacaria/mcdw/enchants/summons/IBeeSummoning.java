@@ -1,14 +1,14 @@
 package chronosacaria.mcdw.enchants.summons;
 
 public interface IBeeSummoning {
-    void setLastSummonedBee(int time);
-    int getLastSummonedBee();
+    void mcdw$setLastSummonedBee(int time);
+    int mcdw$getLastSummonedBee();
 
     default boolean isReadyForBeeSummon(int summonerAge) {
-        return summonerAge > getLastSummonedBee();
+        return summonerAge > mcdw$getLastSummonedBee();
     }
 
     default void onBeeSummoned(int summonerAge) {
-        setLastSummonedBee(summonerAge);
+        mcdw$setLastSummonedBee(summonerAge);
     }
 }

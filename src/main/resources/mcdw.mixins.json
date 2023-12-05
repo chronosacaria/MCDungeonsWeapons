@@ -23,6 +23,7 @@
     "mcdw.PlayerEntityMixin",
     "mcdw.ShieldPlayerEntityMixin",
     "mcdw.SmithingScreenHandlerMixin",
+    "mcdw.UnbreakingEnchantmentMixin",
     "reach.ItemMixin",
     "reach.PlayerEntityMixin",
     "reach.ServerPlayNetworkPlayerEntityInteractionHandlerMixin"

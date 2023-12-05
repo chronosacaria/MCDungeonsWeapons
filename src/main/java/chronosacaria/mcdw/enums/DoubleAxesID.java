@@ -40,6 +40,7 @@ public enum DoubleAxesID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.DOUBLE_AXES_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<DoubleAxesID, McdwDoubleAxe> getItemsEnum() {
         return ItemsRegistry.DOUBLE_AXE_ITEMS;
     }

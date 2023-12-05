@@ -33,6 +33,7 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
     public final float range;
     private final String[] repairIngredient;
 
+    @SuppressWarnings("SameParameterValue")
     ShortbowsID(ToolMaterial material, double projectileDamage, int drawSpeed, float range, String... repairIngredient) {
         this.material = material;
         if (FabricLoader.getInstance().isModLoaded("projectile_damage")) {
@@ -49,6 +50,7 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.SHORTBOWS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<ShortbowsID, McdwShortbow> getItemsEnum() {
         return ItemsRegistry.SHORTBOW_ITEMS;
     }
@@ -123,9 +125,9 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case BOW_LOVE_SPELL_BOW -> Map.of(EnchantsRegistry.RADIANCE, 1);
-            case BOW_MECHANICAL_SHORTBOW -> Map.of(EnchantsRegistry.ACCELERATE, 1);
-            case BOW_PURPLE_STORM,BOW_SHORTBOW -> null;
+            case BOW_LOVE_SPELL_BOW -> Map.of(EnchantsRegistry.WILD_RAGE, 1);
+            case BOW_MECHANICAL_SHORTBOW, BOW_PURPLE_STORM -> Map.of(EnchantsRegistry.ACCELERATE, 1);
+            case BOW_SHORTBOW -> null;
         };
     }
 
@@ -134,7 +136,7 @@ public enum ShortbowsID implements IRangedWeaponID, IInnateEnchantment {
         return item.getDefaultStack();
     }
 
-    @SuppressWarnings("ConstantConditions")
+    @SuppressWarnings("DataFlowIssue")
     @Override
     public McdwShortbow makeWeapon() {
         McdwShortbow mcdwShortbow = new McdwShortbow(this, ItemsRegistry.stringToMaterial(this.getWeaponItemStats().material),

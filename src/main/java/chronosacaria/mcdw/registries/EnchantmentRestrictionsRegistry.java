@@ -18,8 +18,6 @@ public class EnchantmentRestrictionsRegistry {
         EnchantmentRestriction.permitTarget((enchantment, itemStack) -> enchantment instanceof DamageEnchantment && itemStack.getItem() instanceof McdwSpear);
 
         // Individual Enchantment Prohibitions
-        EnchantmentRestriction.prohibit(Enchantments.UNBREAKING, itemStack -> itemStack.isOf(SwordsID.SWORD_MECHANIZED_SAWBLADE.getItem()));
-        EnchantmentRestriction.prohibit(Enchantments.UNBREAKING, itemStack -> itemStack.isOf(SwordsID.SWORD_BROKEN_SAWBLADE.getItem()));
         EnchantmentRestriction.prohibit(Enchantments.EFFICIENCY, itemStack -> itemStack.isOf(SwordsID.SWORD_BROKEN_SAWBLADE.getItem()));
     }
 }

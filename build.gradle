@@ -61,7 +61,12 @@ dependencies {
     }
 
     // Reach Entity Attributes
-    //modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
+    modImplementation "com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"
+
+    // Pehkui
+    //modApi("com.github.Virtuoel:Pehkui:${project.pehkui_version}", {
+    //    exclude group: "net.fabricmc.fabric-api"
+    //})
 
     // Mixin Extras
     include(implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-fabric:${project.mixin_extras_version}")))

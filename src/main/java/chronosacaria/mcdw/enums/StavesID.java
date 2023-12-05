@@ -29,6 +29,7 @@ public enum StavesID implements IMeleeWeaponID, IInnateEnchantment {
     private final float attackSpeed;
     private final String[] repairIngredient;
 
+    @SuppressWarnings("SameParameterValue")
     StavesID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
@@ -40,6 +41,7 @@ public enum StavesID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.STAVES_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<StavesID, McdwStaff> getItemsEnum() {
         return ItemsRegistry.STAFF_ITEMS;
     }

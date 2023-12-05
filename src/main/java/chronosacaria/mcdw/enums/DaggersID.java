@@ -50,6 +50,7 @@ public enum DaggersID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.DAGGERS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<DaggersID, McdwDagger> getItemsEnum() {
         return ItemsRegistry.DAGGER_ITEMS;
     }
@@ -116,8 +117,10 @@ public enum DaggersID implements IMeleeWeaponID, IInnateEnchantment {
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
             case DAGGER_BACKSTABBER -> Map.of(EnchantsRegistry.AMBUSH, 1);
-            case DAGGER_CHILL_GALE_KNIFE, DAGGER_FANGS_OF_FROST -> Map.of(EnchantsRegistry.FREEZING, 1);
-            case DAGGER_DAGGER, DAGGER_TEMPEST_KNIFE -> null;
+            case DAGGER_CHILL_GALE_KNIFE -> Map.of(EnchantsRegistry.RUSHDOWN, 1, EnchantsRegistry.FREEZING, 1);
+            case DAGGER_FANGS_OF_FROST -> Map.of(EnchantsRegistry.FREEZING, 1);
+            case DAGGER_DAGGER -> null;
+            case DAGGER_TEMPEST_KNIFE -> Map.of(EnchantsRegistry.RUSHDOWN, 1);
             case DAGGER_MOON -> Map.of(EnchantsRegistry.ENIGMA_RESONATOR, 1);
             case DAGGER_RESOLUTE_TEMPEST_KNIFE -> Map.of(EnchantsRegistry.COMMITTED, 1 , EnchantsRegistry.RUSHDOWN, 1);
             case DAGGER_SHEAR_DAGGER -> Map.of(EnchantsRegistry.SWIRLING, 1);

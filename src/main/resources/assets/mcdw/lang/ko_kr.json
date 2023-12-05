@@ -338,9 +338,9 @@
   "tooltip_info_item.mcdw.truthseeker_2"      : "심문할 때 이 불쾌한 칼을",
   "tooltip_info_item.mcdw.truthseeker_3"      : "지녔습니다.",
 
-  "tooltip_info_item.mcdw.diamond_sword_1"    : "다이아몬드 검은",
-  "tooltip_info_item.mcdw.diamond_sword_2"    : "진정한 영웅과 성공한",
-  "tooltip_info_item.mcdw.diamond_sword_3"    : "모험자의 상징입니다.",
+  "tooltip_info_item.mcdw.diamond_sword_var_1"    : "다이아몬드 검은",
+  "tooltip_info_item.mcdw.diamond_sword_var_2"    : "진정한 영웅과 성공한",
+  "tooltip_info_item.mcdw.diamond_sword_var_3"    : "모험자의 상징입니다.",
 
   "tooltip_info_item.mcdw.iron_sword_var_1"   : "튼튼하고 믿고 쓸 수 있는 검입니다.",
 
@@ -493,9 +493,9 @@
   "tooltip_info_item.mcdw.bone_cudgel_2"      : "오래된 무기이지만,",
   "tooltip_info_item.mcdw.bone_cudgel_3"      : "현대의 기준으로도 여전히 위협적인 무기입니다.",
   
-  "tooltip_info_item.mcdw.diamond_pick_1"     : "가장 강력한 재료 중 하나인",
-  "tooltip_info_item.mcdw.diamond_pick_2"     : "다이아몬드는 곡괭이를 만들기",
-  "tooltip_info_item.mcdw.diamond_pick_3"     : "위한 최상의 선택입니다.",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_1"     : "가장 강력한 재료 중 하나인",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_2"     : "다이아몬드는 곡괭이를 만들기",
+  "tooltip_info_item.mcdw.diamond_pickaxe_var_3"     : "위한 최상의 선택입니다.",
 
   "tooltip_info_item.mcdw.soul_scythe_1"      : "잔인한 영혼의 리퍼인",
   "tooltip_info_item.mcdw.soul_scythe_2"      : "영혼의 대낫은 자비심",
@@ -870,7 +870,7 @@
   "enchantment.mcdw.radiance.desc": "일정 확률로 대상 주변에 치유 구름을 소환합니다.",
   "enchantment.mcdw.radiance_shot.desc": "일정 확률로 화살에 맞은 대상 주변에 치유 구름을 소환합니다.",
   "enchantment.mcdw.rampaging.desc": "적을 죽이면 일정 확률로 중첩 가능한 성급함 효과를 받습니다.",
-  "enchantment.mcdw.refreshment.desc": "근접 무기로 적을 죽이면 유리병이 치유 물약으로 다시 채워집니다.",
+  "enchantment.mcdw.refreshment.desc": "적을 무기로  죽이면 유리병이 치유 물약으로 다시 채워집니다.",
   "enchantment.mcdw.refreshment_shot.desc": "원거리 무기로 적을 죽이면 유리병이 치유 물약으로 다시 채워집니다.",
   "enchantment.mcdw.replenish.desc": "화살을 쏘면 일정 확률로 화살을 회수합니다.",
   "enchantment.mcdw.ricochet.desc": "화살이 다른 대상으로 튕깁니다.",

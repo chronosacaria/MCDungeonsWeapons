@@ -30,6 +30,7 @@ public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
     private final String[] repairIngredient;
 
 
+    @SuppressWarnings("SameParameterValue")
     SoulDaggersID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
@@ -41,6 +42,7 @@ public enum SoulDaggersID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.SOUL_DAGGERS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<SoulDaggersID, McdwSoulDagger> getItemsEnum() {
         return ItemsRegistry.SOUL_DAGGER_ITEMS;
     }

@@ -62,6 +62,7 @@ public enum SwordsID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.SWORDS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<SwordsID, McdwSword> getItemsEnum() {
         return ItemsRegistry.SWORD_ITEMS;
     }
@@ -127,14 +128,16 @@ public enum SwordsID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case SWORD_BEESTINGER, SWORD_BROKEN_SAWBLADE, SWORD_CLAYMORE, SWORD_CORAL_BLADE, SWORD_CUTLASS, SWORD_DIAMOND_SWORD_VAR, SWORD_IRON_SWORD_VAR, SWORD_KATANA, SWORD_OBSIDIAN_CLAYMORE, SWORD_RAPIER -> null;
-            case SWORD_BROADSWORD -> Map.of(EnchantsRegistry.SWIRLING, 1);
+            case SWORD_BEESTINGER, SWORD_BROKEN_SAWBLADE, SWORD_CORAL_BLADE, SWORD_CUTLASS, SWORD_DIAMOND_SWORD_VAR, SWORD_IRON_SWORD_VAR, SWORD_KATANA, SWORD_OBSIDIAN_CLAYMORE, SWORD_RAPIER -> null;
+            case SWORD_CLAYMORE -> Map.of(Enchantments.KNOCKBACK, 1);
+            case SWORD_BROADSWORD -> Map.of(Enchantments.KNOCKBACK, 1, EnchantsRegistry.SWIRLING, 1);
             case SWORD_DANCERS_SWORD -> Map.of(EnchantsRegistry.RAMPAGING, 1);
             case SWORD_DARK_KATANA -> Map.of(EnchantsRegistry.SMITING, 1);
-            case SWORD_FREEZING_FOIL, SWORD_FROST_SLAYER -> Map.of(EnchantsRegistry.FREEZING, 1);
-            case SWORD_GREAT_AXEBLADE -> Map.of(EnchantsRegistry.DYNAMO, 1);
+            case SWORD_FREEZING_FOIL -> Map.of(EnchantsRegistry.FREEZING, 1);
+            case SWORD_FROST_SLAYER -> Map.of(Enchantments.KNOCKBACK, 1, EnchantsRegistry.FREEZING, 1);
+            case SWORD_GREAT_AXEBLADE -> Map.of(Enchantments.KNOCKBACK, 1, EnchantsRegistry.DYNAMO, 1);
             case SWORD_HAWKBRAND, SWORD_MASTERS_KATANA, SWORD_SINISTER -> Map.of(EnchantsRegistry.CRITICAL_HIT, 1);
-            case SWORD_HEARTSTEALER -> Map.of(EnchantsRegistry.LEECHING, 1);
+            case SWORD_HEARTSTEALER -> Map.of(Enchantments.KNOCKBACK, 1, EnchantsRegistry.LEECHING, 1);
             case SWORD_MECHANIZED_SAWBLADE -> Map.of(Enchantments.FIRE_ASPECT, 1);
             case SWORD_NAMELESS_BLADE -> Map.of(EnchantsRegistry.WEAKENING, 1);
             case SWORD_SPONGE_STRIKER -> Map.of(EnchantsRegistry.ENIGMA_RESONATOR, 1);

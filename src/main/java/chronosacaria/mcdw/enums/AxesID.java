@@ -43,6 +43,7 @@ public enum AxesID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.AXES_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<AxesID, McdwAxe> getItemsEnum() {
         return ItemsRegistry.AXE_ITEMS;
     }
@@ -108,7 +109,8 @@ public enum AxesID implements IMeleeWeaponID, IInnateEnchantment {
     @Override
     public Map<Enchantment, Integer> getInnateEnchantments() {
         return switch (this) {
-            case AXE_ANCHOR, AXE_AXE -> null;
+            case AXE_ANCHOR -> Map.of(EnchantsRegistry.GRAVITY, 1);
+            case AXE_AXE -> null;
             case AXE_ENCRUSTED_ANCHOR -> Map.of(EnchantsRegistry.GRAVITY, 1, EnchantsRegistry.JUNGLE_POISON, 1);
             case AXE_FIREBRAND -> Map.of(Enchantments.FIRE_ASPECT, 1);
             case AXE_HIGHLAND -> Map.of(EnchantsRegistry.STUNNING, 1);

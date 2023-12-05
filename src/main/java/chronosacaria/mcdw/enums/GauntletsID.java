@@ -29,6 +29,7 @@ public enum GauntletsID implements IMeleeWeaponID, IInnateEnchantment {
     private final float attackSpeed;
     private final String[] repairIngredient;
 
+    @SuppressWarnings("SameParameterValue")
     GauntletsID(ToolMaterial material, int damage, float attackSpeed, String... repairIngredient) {
         this.material = material;
         this.damage = damage;
@@ -40,6 +41,7 @@ public enum GauntletsID implements IMeleeWeaponID, IInnateEnchantment {
         return Mcdw.CONFIG.mcdwEnableItemsConfig.GAUNTLETS_ENABLED;
     }
 
+    @SuppressWarnings("SameReturnValue")
     public static EnumMap<GauntletsID, McdwGauntlet> getItemsEnum() {
         return ItemsRegistry.GAUNTLET_ITEMS;
     }

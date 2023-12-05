@@ -1,7 +1,5 @@
 package chronosacaria.mcdw.configs;
 
-import chronosacaria.mcdw.enums.EnchantStatsID;
-import chronosacaria.mcdw.enums.EnchantmentsID;
 import chronosacaria.mcdw.enums.SettingsID;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
@@ -25,26 +23,6 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
     // Enchantment Settings
     public final LinkedHashMap<SettingsID, Boolean> ENABLE_ENCHANTMENT_SETTINGS = new LinkedHashMap<>();
 
-    @Comment("ENIGMA_RESONATOR_DIVISOR -> Higher number = lower damage. Default value = 3.25.")
-    public final LinkedHashMap<EnchantStatsID, Float> ENIGMA_RESONATOR_DIVISOR = new LinkedHashMap<>();
-
-    @Comment("Dynamo Stack Cap, Higher number = more potential damage. Default value = 20.")
-    public final LinkedHashMap<EnchantStatsID, Integer> DYNAMO_STACK_CAP = new LinkedHashMap<>();
-
-    @Comment("Enchantment Trigger Chances Base. This is not the % to occur, but the higher this number, the higher " +
-            "the chance to trigger.")
-    public final LinkedHashMap<EnchantmentsID, Integer> ENCHANTMENT_TRIGGER_BASE_CHANCE = new LinkedHashMap<>();
-
-    @Comment("""
-            A slider value for damage modifying enchantments: Ambush, Critical Hit, Void Strike, Pain Cycle,
-            Enigma Resonator, Dynamo, Shadow Form, Enigma Shot, Growing, Void Shot, Overcharge, Committed,
-            Hunter's Promise.
-            """)
-    public float directDamageEnchantmentMultiplier = 1.0f;
-
-    @Comment("Healing Factor Slider. Percentage of healing -> 1.0 = 100%. Default value = 1.0.")
-    public final LinkedHashMap<EnchantStatsID, Float> HEALING_FACTOR = new LinkedHashMap<>();
-
     public McdwEnchantmentSettingsConfig(){
         ENABLE_ENCHANTMENT_SETTINGS.put(SettingsID.ENABLE_OP_ENCHANTMENT_MIXING, false);
         ENABLE_ENCHANTMENT_SETTINGS.put(SettingsID.LEECHING_CAN_BE_MIXED_WITH_HEALING, false);
@@ -52,37 +30,5 @@ public class McdwEnchantmentSettingsConfig implements ConfigData {
         ENABLE_ENCHANTMENT_SETTINGS.put(SettingsID.SHARED_PAIN_CAN_DAMAGE_USER, false);
         ENABLE_ENCHANTMENT_SETTINGS.put(SettingsID.AREA_OF_EFFECT_ENCHANTS_DONT_AFFECT_PLAYERS, true);
         ENABLE_ENCHANTMENT_SETTINGS.put(SettingsID.ENABLE_INNATE_ENCHANTMENTS, true);
-
-        ENIGMA_RESONATOR_DIVISOR.put(EnchantStatsID.ENIGMA_RESONATOR_DIVISOR, 3.25f);
-        DYNAMO_STACK_CAP.put(EnchantStatsID.DYNAMO_STACK_CAP, 20);
-        HEALING_FACTOR.put(EnchantStatsID.HEALING_FACTOR, 1.0f);
-
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.CHAIN_REACTION, 10);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.CHAINS, 20);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.CHARGE, 10);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.COMMITTED, 30);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.CRITICAL_HIT, 10);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.ECHO, 10);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.EXPLODING, 20);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.FREEZING, 30);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.FUSE_SHOT, 20);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.GRAVITY, 30);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.POISONING, 30);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.POISON_CLOUD, 30);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.PROSPECTOR, 5);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.RADIANCE, 20);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.RAMPAGING, 10);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.REPLENISH, 3);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.RUSHDOWN, 10);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.SHADOW_SHOT, 10);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.SHOCKWAVE, 10);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.SOUL_SIPHON, 10);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.STUNNING, 20);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.SWIRLING, 10);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.THUNDERING, 20);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.VOID_SHOT, 25);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.VOID_STRIKE, 15);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.WEAKENING, 30);
-        ENCHANTMENT_TRIGGER_BASE_CHANCE.put(EnchantmentsID.WILD_RAGE, 10);
     }
 }
