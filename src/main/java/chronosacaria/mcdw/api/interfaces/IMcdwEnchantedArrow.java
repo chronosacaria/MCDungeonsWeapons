@@ -20,6 +20,9 @@ public interface IMcdwEnchantedArrow {
     int mcdw$getEnigmaResonatorLevel();
     void mcdw$setEnigmaResonatorLevel(int enigmaResonatorLevel);
 
+    int mcdw$getFreezingLevel();
+    void mcdw$setFreezingLevel(int freezingLevel);
+
     int mcdw$getFuseShotLevel();
     void mcdw$setFuseShotLevel(int fuseShotLevel);
 

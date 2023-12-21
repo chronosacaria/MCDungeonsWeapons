@@ -28,6 +28,7 @@ import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.PotionItem;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -47,6 +48,7 @@ import java.util.List;
 @SuppressWarnings("ConstantValue")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
+
     @Unique
     public final EntityType<SummonedBeeEntity> mcdw$summoned_bee =
             SummonedEntityRegistry.SUMMONED_BEE_ENTITY;
@@ -162,10 +164,18 @@ public abstract class LivingEntityMixin extends Entity {
         ItemStack poisonTippedArrow = PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW, 8), Potions.POISON);
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.DIPPING_POISON).mcdw$getIsEnabled()) {
-            if (user.getOffHandStack() != null && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack()) > 0)) {
+            if (!(user.getMainHandStack().getItem() instanceof PotionItem))
+                return;
+
+            if (user.getOffHandStack() != null
+                    && (EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack()) > 0)
+            ) {
                 int level = EnchantmentHelper.getLevel(EnchantsRegistry.DIPPING_POISON, user.getOffHandStack());
                 if (level > 0) {
                     List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(user.getMainHandStack());
+                    if (!(potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH)) {
+                        return;
+                    }
                     if (potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH) {
                         CleanlinessHelper.mcdw$dropItem(user, poisonTippedArrow);
                     }

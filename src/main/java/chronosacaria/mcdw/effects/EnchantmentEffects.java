@@ -708,6 +708,16 @@ public class EnchantmentEffects {
         }
     }
 
+    public static void applyFreezingShot(LivingEntity target, PersistentProjectileEntity ppe) {
+        int freezingLevel = ((IMcdwEnchantedArrow) ppe).mcdw$getFreezingLevel();
+        if (freezingLevel > 0) {
+
+            if (CleanlinessHelper.percentToOccur(CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FREEZING).mcdw$getProcChance() + (10 * freezingLevel))) {
+                AbilityHelper.causeFreezing(target, 100);
+            }
+        }
+    }
+
     public static void applyGravityShot(LivingEntity shooter, LivingEntity target, PersistentProjectileEntity ppe) {
         int gravityLevel = ((IMcdwEnchantedArrow) ppe).mcdw$getGravityLevel();
         if (gravityLevel > 0) {

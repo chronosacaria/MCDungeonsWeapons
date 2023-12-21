@@ -2,6 +2,7 @@ package chronosacaria.mcdw.mixin.mcdw;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.api.interfaces.IMcdwEnchantedArrow;
+import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.api.util.ProjectileEffectHelper;
 import chronosacaria.mcdw.api.util.RangedAttackHelper;
 import chronosacaria.mcdw.bases.McdwCrossbow;
@@ -46,86 +47,11 @@ public class CrossbowItemMixin {
                                     CallbackInfoReturnable<PersistentProjectileEntity> cir, ArrowItem arrowItem,
                                     PersistentProjectileEntity ppe){
         if (CrossbowItem.isCharged(crossbow)) {
-
-            int chainReactionLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHAIN_REACTION, crossbow);
-            if (chainReactionLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setChainReactionLevel(chainReactionLevel);
-            }
-            int chargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.CHARGE, crossbow);
-            if (chargeLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setChargeLevel(chargeLevel);
-            }
-            int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.COBWEB_SHOT, crossbow);
-            if (cobwebShotLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setCobwebShotLevel(cobwebShotLevel);
-            }
-            int dynamoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.DYNAMO, crossbow);
-            if (dynamoLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setDynamoLevel(dynamoLevel);
-            }
-            int enigmaResonatorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.ENIGMA_RESONATOR, crossbow);
-            if (enigmaResonatorLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setEnigmaResonatorLevel(enigmaResonatorLevel);
-            }
-            int fuseShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.FUSE_SHOT, crossbow);
-            if (fuseShotLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setFuseShotLevel(fuseShotLevel);
-            }
-            int gravityLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GRAVITY, crossbow);
-            if (gravityLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setGravityLevel(gravityLevel);
-            }
-            int growingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.GROWING, crossbow);
-            if (growingLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setGrowingLevel(growingLevel);
-            }
-            int levitationShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.LEVITATION_SHOT, crossbow);
-            if (levitationShotLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setLevitationShotLevel(levitationShotLevel);
-            }
+            CleanlinessHelper.addPPEEnchantments(crossbow, (IMcdwEnchantedArrow) ppe);
             // For Drag in Water for Nautilus Crossbow
             ((IMcdwEnchantedArrow)ppe).mcdw$setNautilusBoolean(crossbow.isOf(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_NAUTICAL_CROSSBOW)));
-            int phantomsMarkLevel = EnchantmentHelper.getLevel(EnchantsRegistry.PHANTOMS_MARK, crossbow);
-            if (phantomsMarkLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setPhantomsMarkLevel(phantomsMarkLevel);
-            }
-            int poisonCloudLevel = EnchantmentHelper.getLevel(EnchantsRegistry.POISON_CLOUD, crossbow);
-            if (poisonCloudLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setPoisonCloudLevel(poisonCloudLevel);
-            }
-            int radianceLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RADIANCE, crossbow);
-            if (radianceLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setRadianceLevel(radianceLevel);
-            }
-            int replenishLevel = EnchantmentHelper.getLevel(EnchantsRegistry.REPLENISH, crossbow);
-            if (replenishLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setReplenishLevel(replenishLevel);
-            }
-            int ricochetLevel = EnchantmentHelper.getLevel(EnchantsRegistry.RICOCHET, crossbow);
-            if (ricochetLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setRicochetLevel(ricochetLevel);
-            }
             ((IMcdwEnchantedArrow)ppe).mcdw$setShadowBarbBoolean(crossbow.isOf(ItemsRegistry.CROSSBOW_ITEMS.get(CrossbowsID.CROSSBOW_VEILED_CROSSBOW)));
-            int shadowShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.SHADOW_SHOT, crossbow);
-            if (shadowShotLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setShadowShotLevel(shadowShotLevel);
-            }
-            int tempoTheftLevel = EnchantmentHelper.getLevel(EnchantsRegistry.TEMPO_THEFT, crossbow);
-            if (tempoTheftLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setTempoTheftLevel(tempoTheftLevel);
-            }
-            int thunderingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.THUNDERING, crossbow);
-            if (thunderingLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setThunderingLevel(thunderingLevel);
-            }
-            int voidShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.VOID_SHOT, crossbow);
-            if (voidShotLevel > 0) {
-                ((IMcdwEnchantedArrow)ppe).mcdw$setVoidShotLevel(voidShotLevel);
-            }
-            int wildRageLevel = EnchantmentHelper.getLevel(EnchantsRegistry.WILD_RAGE, crossbow);
-            if (wildRageLevel > 0){
-                ((IMcdwEnchantedArrow)ppe).mcdw$setWildRageLevel(wildRageLevel);
-            }
+
 
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.BONUS_SHOT).mcdw$getIsEnabled()) {
                 int bonusShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.BONUS_SHOT, crossbow);
@@ -139,7 +65,8 @@ public class CrossbowItemMixin {
             }
         }
     }
-    
+
+
     @Inject(method = "onStoppedUsing", at = @At(value = "HEAD"))
     private void mcdw$livingEntityGetter(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo ci) {
         this.mcdw$setLivingEntity(user);

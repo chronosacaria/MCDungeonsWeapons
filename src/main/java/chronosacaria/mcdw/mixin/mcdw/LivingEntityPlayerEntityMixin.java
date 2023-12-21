@@ -10,6 +10,8 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.BowItem;
+import net.minecraft.item.CrossbowItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -87,7 +89,10 @@ public class LivingEntityPlayerEntityMixin {
 
         if (amount > 0) {
 
-            if (source.getSource() instanceof LivingEntity) {
+            if (source.getSource() instanceof LivingEntity sourceEntity
+                    && !(sourceEntity.getMainHandStack().getItem() instanceof BowItem
+                         || sourceEntity.getMainHandStack().getItem() instanceof CrossbowItem)
+            ) {
 
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FREEZING).mcdw$getIsEnabled())
                     EnchantmentEffects.applyFreezing(attackingEntity, victim, isOffHandAttack);
@@ -129,7 +134,10 @@ public class LivingEntityPlayerEntityMixin {
 
         if (amount > 0) {
 
-            if (source.getSource() instanceof LivingEntity) {
+            if (source.getSource() instanceof LivingEntity sourceEntity
+                    && !(sourceEntity.getMainHandStack().getItem() instanceof BowItem
+                    || sourceEntity.getMainHandStack().getItem() instanceof CrossbowItem)
+            ) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ECHO).mcdw$getIsEnabled())
                     EnchantmentEffects.echoDamage(attackingEntity, victim, amount, isOffHandAttack);
             }
@@ -143,7 +151,10 @@ public class LivingEntityPlayerEntityMixin {
 
             LivingEntity victim = (LivingEntity) (Object) this;
 
-            if (source.getSource() instanceof LivingEntity) {
+            if (source.getSource() instanceof LivingEntity sourceEntity
+                    && !(sourceEntity.getMainHandStack().getItem() instanceof BowItem
+                    || sourceEntity.getMainHandStack().getItem() instanceof CrossbowItem)
+            ) {
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.EXPLODING).mcdw$getIsEnabled())
                     EnchantmentEffects.explodingDamage(attackingEntity, victim, isOffHandAttack);
                 if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.RAMPAGING).mcdw$getIsEnabled())

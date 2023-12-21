@@ -38,6 +38,8 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Unique
     private int fuseShotLevel = 0;
     @Unique
+    private int freezingLevel = 0;
+    @Unique
     private int gravityLevel = 0;
     @Unique
     private int growingLevel = 0;
@@ -132,6 +134,16 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
     @Override
     public void mcdw$setFuseShotLevel(int fuseShotLevel) {
         this.fuseShotLevel = fuseShotLevel;
+    }
+
+    @Override
+    public int mcdw$getFreezingLevel() {
+        return freezingLevel;
+    }
+
+    @Override
+    public void mcdw$setFreezingLevel(int freezingLevel) {
+        this.freezingLevel = freezingLevel;
     }
 
     @Override
@@ -279,6 +291,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         tag.putInt("cobwebShotLevel", cobwebShotLevel);
         tag.putInt("enigmaResonatorLevel", enigmaResonatorLevel);
         tag.putInt("fuseShotLevel", fuseShotLevel);
+        tag.putInt("freezingLevel", freezingLevel);
         tag.putInt("gravityLevel", gravityLevel);
         tag.putInt("growingLevel", growingLevel);
         tag.putInt("levitationShotLevel", levitationShotLevel);
@@ -303,6 +316,7 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
         this.cobwebShotLevel = tag.getInt("cobwebShotLevel");
         this.enigmaResonatorLevel = tag.getInt("enigmaResonatorLevel");
         this.fuseShotLevel = tag.getInt("fuseShotLevel");
+        this.freezingLevel = tag.getInt("freezingLevel");
         this.gravityLevel = tag.getInt("gravityLevel");
         this.growingLevel = tag.getInt("growingLevel");
         this.levitationShotLevel = tag.getInt("levitationLevel");
@@ -336,6 +350,8 @@ public abstract class PersistentProjectileEntityMixin implements IMcdwEnchantedA
                 EnchantmentEffects.applyCobwebShotEntity(target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FUSE_SHOT).mcdw$getIsEnabled())
                 EnchantmentEffects.applyFuseShot(shooter, target, persProjEntity);
+            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FREEZING).mcdw$getIsEnabled())
+                EnchantmentEffects.applyFreezingShot(target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.GRAVITY).mcdw$getIsEnabled())
                 EnchantmentEffects.applyGravityShot(shooter, target, persProjEntity);
             if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.LEVITATION_SHOT).mcdw$getIsEnabled())
