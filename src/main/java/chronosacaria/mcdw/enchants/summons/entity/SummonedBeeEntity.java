@@ -3,6 +3,9 @@ package chronosacaria.mcdw.enchants.summons.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
@@ -13,6 +16,15 @@ public class SummonedBeeEntity extends BeeEntity {
 
     public SummonedBeeEntity(EntityType<? extends SummonedBeeEntity> type, World world){
         super(EntityType.BEE, world);
+    }
+
+    public static DefaultAttributeContainer.Builder createSummonedBeeEntityAttributes() {
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0)
+                .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.6f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2.0)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 48.0);
     }
 
     public void setSummoner(Entity user){

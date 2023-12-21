@@ -2,7 +2,8 @@ package chronosacaria.mcdw.api.interfaces;
 
 import chronosacaria.mcdw.Mcdw;
 import chronosacaria.mcdw.enums.SettingsID;
-import net.minecraft.enchantment.*;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.jetbrains.annotations.NotNull;

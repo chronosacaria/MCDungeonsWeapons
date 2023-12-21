@@ -1,6 +1,6 @@
 package chronosacaria.mcdw.mixin.mcdw;
 
-import chronosacaria.mcdw.api.interfaces.*;
+import chronosacaria.mcdw.api.interfaces.IInnateEnchantment;
 import chronosacaria.mcdw.api.util.CleanlinessHelper;
 import chronosacaria.mcdw.enums.SwordsID;
 import chronosacaria.mcdw.registries.ItemsRegistry;
@@ -15,7 +15,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.*;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Map;
 import java.util.function.Consumer;

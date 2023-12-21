@@ -15,11 +15,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         super(entityType, world);
     }
 
-    //@ModifyConstant(method = "attack", constant = @Constant(doubleValue = 9.0))
-    //private double modifiedAttackRange(double attackRange) {
-    //    return PlayerAttackHelper.mcdw$getSquaredAttackRange(this, attackRange);
-    //}
-
     @ModifyVariable(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;squaredDistanceTo(Lnet/minecraft/entity/Entity;)D"))
     private double mcdw$modifyAttackRange(double sqdDistanceTo) {
         return sqdDistanceTo + (9 - PlayerAttackHelper.mcdw$getSquaredAttackRange(this, 9));

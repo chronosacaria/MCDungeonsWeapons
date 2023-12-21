@@ -25,10 +25,6 @@ public class McdwMixinPlugin implements IMixinConfigPlugin {
                 && mixinClassName.contains("reach")) {
             return false;
         }
-        //if (FabricLoader.getInstance().isModLoaded("pehkui")
-        //        && mixinClassName.contains("reach")) {
-        //    return false;
-        //}
         return true;
     }
 

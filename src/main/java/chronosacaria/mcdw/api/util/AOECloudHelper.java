@@ -11,32 +11,23 @@ import net.minecraft.util.math.BlockPos;
 
 public class AOECloudHelper {
 
-    public static void spawnStatusCloud(LivingEntity user, LivingEntity center, StatusEffect statusEffect, int amplifier) {
+    public static void spawnAreaEffectCloudEntityWithAttributes(LivingEntity user, LivingEntity center, float cloudRadius,
+                                                    int cloudWaitTime, int cloudDuration,
+                                                    StatusEffect statusEffect, int effectDuration, int effectAmplifier,
+                                                    boolean isPicky, boolean exclOwner,
+                                                    boolean exclAllies, boolean exclEnemy
+                                                    ) {
         AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(
                 center.getWorld(), center.getX(), center.getY(), center.getZ());
         areaEffectCloudEntity.setOwner(user);
-        areaEffectCloudEntity.setRadius(5.0F);
-        areaEffectCloudEntity.setRadiusOnUse(-0.5F);
-        areaEffectCloudEntity.setWaitTime(10);
-        areaEffectCloudEntity.setDuration(60);
+        areaEffectCloudEntity.setRadius(cloudRadius);
+        areaEffectCloudEntity.setRadiusOnUse((cloudRadius / 10) * -1);
+        areaEffectCloudEntity.setWaitTime(cloudWaitTime);
+        areaEffectCloudEntity.setDuration(cloudDuration);
         areaEffectCloudEntity.addEffect(new StatusEffectInstance(
-                statusEffect, 60, amplifier));
-        center.getWorld().spawnEntity(areaEffectCloudEntity);
-    }
-
-    public static void spawnPickyStatusCloud(LivingEntity user, LivingEntity center,
-                                             StatusEffect statusEffect, int duration, int amplifier,
-                                             boolean exclOwner, boolean exclAllies, boolean exclEnemy) {
-        AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(
-                center.getWorld(), center.getX(), center.getY(), center.getZ());
-        areaEffectCloudEntity.setOwner(user);
-        areaEffectCloudEntity.setRadius(5.0F);
-        areaEffectCloudEntity.setRadiusOnUse(-0.5F);
-        areaEffectCloudEntity.setWaitTime(10);
-        areaEffectCloudEntity.setDuration(60);
-        areaEffectCloudEntity.addEffect(new StatusEffectInstance(
-                statusEffect, duration, amplifier));
-        ((IExclusiveAOECloud) areaEffectCloudEntity).mcdw$setExclusions(exclOwner, exclAllies, exclEnemy);
+                statusEffect, effectDuration, effectAmplifier));
+        if (isPicky)
+            ((IExclusiveAOECloud) areaEffectCloudEntity).mcdw$setExclusions(exclOwner, exclAllies, exclEnemy);
         center.getWorld().spawnEntity(areaEffectCloudEntity);
     }
 

@@ -6,11 +6,26 @@
   "description": "Add the weapons (and some tools) from Minecraft Dungeons to Minecraft Java",
   "authors": [
     "Chronosacaria",
-    "Kluzzio",
+    "Kluzzio"
+  ],
+  "contributors": [
+    "Daedelus (Code)",
+    "DaFuqs (Code)",
+    "el0c (Code)",
+    "Fourmisain (Code)",
+    "fzzyhmstrs (Code)",
+    "Krutyi-4el (Code)",
+    "LordDeatHunter (Code)",
+    "pizzaspren (Code)",
     "Kai1907 (Art)",
     "SeaOfPixels (Art)",
-    "Patreons (Support)"
-  ],
+    "RDKRACZ (Art)",
+    "Binaris00 (Translation)",
+    "gyular (Translation)",
+    "RawPineapple (Translation)",
+    "realpeterpet (Translation)",
+    "Soochaehwa (Translation)",
+    "Patreons (Support)"],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/mcdw",
     "sources": "https://www.github.com/chronosacaria/MCDungeonsWeapons",

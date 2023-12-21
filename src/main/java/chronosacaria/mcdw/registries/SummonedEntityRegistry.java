@@ -9,7 +9,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
@@ -26,12 +25,15 @@ public class SummonedEntityRegistry {
                     .build();
 
     public static void register(){
-        registerEntity("summoned_bee", SUMMONED_BEE_ENTITY);
+        registerEntity(
+                "summoned_bee",
+                SUMMONED_BEE_ENTITY,
+                SummonedBeeEntity.createSummonedBeeEntityAttributes());
     }
 
-    public static void registerEntity(String name, EntityType<? extends LivingEntity> entity){
+    public static void registerEntity(String name, EntityType<? extends LivingEntity> entity, DefaultAttributeContainer.Builder attributes){
         Registry.register(Registries.ENTITY_TYPE, Mcdw.ID(name), entity);
-        ATTRIBUTES.put(entity, MobEntity.createMobAttributes().build());
+        ATTRIBUTES.put(entity, attributes.build());
     }
 
 }

@@ -18,6 +18,7 @@ public class AOEHelper {
     // Owner is center
     public static List<LivingEntity> getEntitiesByConfig(LivingEntity center, float distance) {
         int permissionLevel = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.aoePermission;
+        //noinspection DuplicatedCode
         Predicate<? super LivingEntity> predicate = livingEntity -> AbilityHelper.isAoeTarget(center, livingEntity) &&
                 switch (permissionLevel) {
                     case 1 -> !AbilityHelper.isTrueAlly(center, livingEntity);
@@ -33,6 +34,7 @@ public class AOEHelper {
     // Owner and center are different
     public static List<LivingEntity> getEntitiesByConfig(LivingEntity center, LivingEntity owner, float distance) {
         int permissionLevel = Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.aoePermission;
+        //noinspection DuplicatedCode
         Predicate<? super LivingEntity> predicate = livingEntity -> AbilityHelper.isAoeTarget(center, owner, livingEntity) &&
                 switch (permissionLevel) {
                     case 1 -> !AbilityHelper.isTrueAlly(owner, livingEntity);
