@@ -12,12 +12,43 @@ import java.util.List;
 public class McdwEnchantmentsConfig implements ConfigData {
 
     @Comment("""
+            
             A slider value for damage modifying enchantments:
             Ambush, Critical Hit, Void Strike, Pain Cycle, Enigma Resonator, Dynamo, Shadow Form,
             Enigma Shot, Growing, Void Shot, Overcharge, Committed and Hunter's Promise.
             """)
     public float directDamageEnchantmentMultiplier = 1.0f;
 
+    @Comment("""
+            
+            Some notes to make sense of the config, below:
+            
+            offset:     This is a value that is unique to certain enchantments. What it does will be
+                        explained in the "comment" section that is related to the enchantment.
+            
+            isEnabled:  Whether the enchantment is on or off. If set to "false", the enchantment
+                        will not be possible to obtain in any way.
+            
+            isAvailableForEnchantedBookOffer: Whether the enchantment can be sold by villagers.
+                        If set to "false", this means that Librarian villagers will not sell this
+                        enchantment.
+            
+            isAvailableForRandomSelection: Whether the enchantment can be found as random loot or
+                        obtained through the Enchanting Table. If set to "false", this means that the
+                        enchantment will not be available via the Enchanting Table nor will it
+                        generate as loot that is found in the world.
+         
+            maxLevel:   This is an integer (whole number) value that tells the game what the max
+                        level the enchantment can be. The value for most enchantments in Minecraft
+                        range from 1 to 5. Most MCDX enchantments are up to level 3 and whilst it
+                        is possible to set this value above 3, it can have some unexpected results.
+          
+            procChance: Some enchantments trigger on a chance. Whilst this number is not a percentage
+                        the higher the number, the more likely the enchantment is to trigger.
+                        Therefore, if the procChance is set to 20, it is more likely to trigger than
+                        if the procChance is set to 10. It is best to experiment with these values
+                        if you plan to change them to see what works best for you.
+            """)
     public final LinkedHashMap<EnchantmentsID, EnchantmentIDConfigHelper> ENCHANTMENT_CONFIG = new LinkedHashMap<>();
 
     public McdwEnchantmentsConfig(){
@@ -185,7 +216,7 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 EnchantmentsID.ENIGMA_RESONATOR,
                 new EnchantmentIDConfigHelper(
                         List.of("Effect Offset:  Damage Divisor,",
-                                "Formula:        Math.max((Math.log(numSouls * level + 20) / offset) - 1, 0)",
+                                "Formula:        max((log_e(numSouls * level + 20) / offset) - 1, 0)",
                                 "Offset Note:    higher offset = less damage,",
                                 "Default:        3.25f"
                         ),
@@ -456,8 +487,8 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 EnchantmentsID.SHOCKWAVE,
                 new EnchantmentIDConfigHelper(
                         true,
-                        false,
-                        false,
+                        true,
+                        true,
                         3,
                         10
                 )
@@ -466,8 +497,8 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 EnchantmentsID.SMITING,
                 new EnchantmentIDConfigHelper(
                         true,
-                        false,
-                        false,
+                        true,
+                        true,
                         3,
                         null
                 )
@@ -481,8 +512,8 @@ public class McdwEnchantmentsConfig implements ConfigData {
                                 "Default:        3.0f"
                         ),
                         true,
-                        false,
-                        false,
+                        true,
+                        true,
                         3,
                         null,
                         3.0f
@@ -492,8 +523,8 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 EnchantmentsID.SOUL_SIPHON,
                 new EnchantmentIDConfigHelper(
                         true,
-                        false,
-                        false,
+                        true,
+                        true,
                         3,
                         10
                 )
@@ -502,8 +533,8 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 EnchantmentsID.STUNNING,
                 new EnchantmentIDConfigHelper(
                         true,
-                        false,
-                        false,
+                        true,
+                        true,
                         3,
                         20
                 )
@@ -512,8 +543,8 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 EnchantmentsID.SWIRLING,
                 new EnchantmentIDConfigHelper(
                         true,
-                        false,
-                        false,
+                        true,
+                        true,
                         3,
                         10
                 )
@@ -522,8 +553,8 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 EnchantmentsID.TEMPO_THEFT,
                 new EnchantmentIDConfigHelper(
                         true,
-                        false,
-                        false,
+                        true,
+                        true,
                         3,
                         null
                 )
@@ -532,8 +563,8 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 EnchantmentsID.THUNDERING,
                 new EnchantmentIDConfigHelper(
                         true,
-                        false,
-                        false,
+                        true,
+                        true,
                         3,
                         20
                 )
@@ -543,7 +574,7 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 new EnchantmentIDConfigHelper(
                         true,
                         false,
-                        false,
+                        true,
                         3,
                         25
                 )
@@ -553,7 +584,7 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 new EnchantmentIDConfigHelper(
                         true,
                         false,
-                        false,
+                        true,
                         3,
                         15
                 )
@@ -562,8 +593,8 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 EnchantmentsID.WEAKENING,
                 new EnchantmentIDConfigHelper(
                         true,
-                        false,
-                        false,
+                        true,
+                        true,
                         3,
                         30
                 )
@@ -573,7 +604,7 @@ public class McdwEnchantmentsConfig implements ConfigData {
                 new EnchantmentIDConfigHelper(
                         true,
                         false,
-                        false,
+                        true,
                         3,
                         10
                 )
