@@ -23,8 +23,8 @@ public class ShadowFormStatusEffect extends StatusEffect {
     }
 
     @Override
-    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier){
-        super.onApplied(entity, attributes, amplifier);
+    public void onApplied(LivingEntity entity, int amplifier){
+        super.onApplied(entity, amplifier);
         entity.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 80, amplifier,false,false,false));
     }
 }

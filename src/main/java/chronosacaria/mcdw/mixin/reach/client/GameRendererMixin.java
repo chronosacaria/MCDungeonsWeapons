@@ -39,16 +39,8 @@ public abstract class GameRendererMixin implements SynchronousResourceReloader {
         return reachDistance;
     }
 
-    @ModifyConstant(method = "updateTargetedEntity", require = 1, allow = 1, constant = @Constant(doubleValue = 3.0))
-    private double mcdw$updateTargetedEntityII(double attackRange) {
-        if (MinecraftClient.getInstance().player != null) {
-            return PlayerAttackHelper.mcdw$getAttackRange(MinecraftClient.getInstance().player, attackRange);
-        }
-        return attackRange;
-    }
-
     @ModifyConstant(method = "updateTargetedEntity", require = 1, allow = 1, constant = @Constant(doubleValue = 9.0))
-    private double mcdw$updateTargetedEntityIII(double attackRange) {
+    private double mcdw$updateTargetedEntityII(double attackRange) {
         if (MinecraftClient.getInstance().player != null) {
             return PlayerAttackHelper.mcdw$getSquaredAttackRange(MinecraftClient.getInstance().player, attackRange);
         }

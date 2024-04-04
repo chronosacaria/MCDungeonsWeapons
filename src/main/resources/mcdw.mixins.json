@@ -35,7 +35,7 @@
     "mcdw.client.InGameHudMixin",
     "mcdw.client.ModelPredicateProviderRegistryMixin",
     "mcdw.client.PlayerEntityRendererMixin",
-    "reach.client.ClientPlayerInteractionManagerMixin",
+    "reach.client.PlayerEntityMixin",
     "reach.client.GameRendererMixin"
   ],
   "injectors": {

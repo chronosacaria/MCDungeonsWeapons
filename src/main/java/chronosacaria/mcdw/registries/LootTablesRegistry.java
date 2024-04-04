@@ -107,7 +107,7 @@ public class LootTablesRegistry {
                     EPIC_LOOT_POOL.forEach(lootID -> addWeaponById(lootPoolBuilder, lootID));
 
                 if (NETHER_TABLES.contains(id.toString())) {
-                    if (Arrays.stream(lootPoolBuilder.build().entries).noneMatch(lootPoolEntry ->
+                    if (lootPoolBuilder.build().entries.stream().noneMatch(lootPoolEntry ->
                             lootPoolEntry.equals(ItemEntry.builder(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS.getItem())
                                     .weight(CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS.getItemSpawnRate()).build()))) {
                         addWeaponById(lootPoolBuilder, CrossbowsID.CROSSBOW_PRIDE_OF_THE_PIGLINS);

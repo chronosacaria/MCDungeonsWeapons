@@ -39,7 +39,11 @@ public class InGameHudMixin {
     @Shadow
     private int scaledWidth;
 
-    @Shadow @Final private static Identifier ICONS;
+    @Shadow @Final private static Identifier CROSSHAIR_ATTACK_INDICATOR_BACKGROUND_TEXTURE;
+
+    @Shadow @Final private static Identifier CROSSHAIR_ATTACK_INDICATOR_FULL_TEXTURE;
+
+    @Shadow @Final private static Identifier CROSSHAIR_ATTACK_INDICATOR_PROGRESS_TEXTURE;
 
     public InGameHudMixin(MinecraftClient client) {
         this.client = client;
@@ -69,11 +73,11 @@ public class InGameHudMixin {
                                 int height = this.scaledHeight / 2 - 7 + 16;
                                 int width = this.scaledWidth / 2 - 8;
                                 if (bl) {
-                                    context.drawTexture(ICONS, width, height + 8, 68, 94, 16, 16, 256, 256);
-                                } else if (offhandAttackCooldownProgress < 1.0f) {
-                                    int l = (int) (offhandAttackCooldownProgress * 17.0f);
-                                    context.drawTexture(ICONS, width, height + 8, 36, 94, 16, 4, 256, 256);
-                                    context.drawTexture(ICONS, width, height + 8, 52, 94, l, 4, 256, 256);
+                                    context.drawGuiTexture(CROSSHAIR_ATTACK_INDICATOR_FULL_TEXTURE, width, height+8, 16, 16);
+                                } else if (offhandAttackCooldownProgress < 1.0F) {
+                                    int l = (int)(offhandAttackCooldownProgress * 17.0F);
+                                    context.drawGuiTexture(CROSSHAIR_ATTACK_INDICATOR_BACKGROUND_TEXTURE, width, height+8, 16, 4);
+                                    context.drawGuiTexture(CROSSHAIR_ATTACK_INDICATOR_PROGRESS_TEXTURE, 16, 4, 0, 0, width, height +8 , l, 4);
                                 }
                             }
                         }
