@@ -6,7 +6,24 @@
  */
 package dev.timefall.mcdw.client;
 
-/*
+
+import dev.timefall.mcdw.bases.*;
+import dev.timefall.mcdw.enums.EnchantmentsID;
+import dev.timefall.mcdw.registries.EnchantsRegistry;
+import dev.timefall.mcdw.registries.StatusEffectsRegistry;
+import dev.timefall.mcdw.registries.SummonedEntityRegistry;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.item.*;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
+
+import java.util.Arrays;
+
 @Environment(EnvType.CLIENT)
 public class McdwClient implements ClientModInitializer {
 
@@ -101,5 +118,3 @@ public class McdwClient implements ClientModInitializer {
         return drawSpeed;
     }
 }
-
- */

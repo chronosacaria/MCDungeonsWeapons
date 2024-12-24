@@ -25,6 +25,7 @@ import java.util.List;
 
 public class McdwAxeItem extends AxeItem {
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.MeleeStats itemStats;
 
     public McdwAxeItem(IMcdwWeaponStats.MeleeStats itemStats, ToolMaterial material, Item.Settings settings) {
@@ -33,6 +34,7 @@ public class McdwAxeItem extends AxeItem {
         this.material = material;
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.MELEE).register(entries -> entries.add(this.getDefaultStack()));
+
     }
 
     @Override

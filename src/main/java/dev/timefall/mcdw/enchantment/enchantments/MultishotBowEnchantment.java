@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 
 /*
  * Effects Present:
+ *  See multishot.json
  */
 
 public class MultishotBowEnchantment extends Enchantment {

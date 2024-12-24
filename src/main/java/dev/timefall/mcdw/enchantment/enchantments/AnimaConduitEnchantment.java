@@ -16,6 +16,7 @@ import net.minecraft.item.SwordItem;
  * Effects Needed:
  * REPAIR_PLAYER -> AddEnchantmentEffectType (add from MutableFloat of zero);
  * would be like: ComponentType<List<EnchantmentEffectEntry<EnchantmentValueEffectType>>> REPAIR_WITH_XP
+ * formula: EnchantmentEffects#animaConduitExperience
  */
 
 /*

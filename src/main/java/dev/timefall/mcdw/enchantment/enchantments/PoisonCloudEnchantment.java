@@ -16,6 +16,9 @@ import net.minecraft.item.*;
 
 /*
  * Effects Present:
+ *  SummonEntityEnchantmentEffectType -> Like CHANNELING to summon PoisonCloud
+ *  EnchantmentEffectComponentTypes - DAMAGE --> EnchantmentLocationBasedEffect --> Explode
+ *  EnchantmentEffectComponentTypes - HIT_BLOCK --> EnchantmentLocationBasedEffect--> Explode
  */
 
 public class PoisonCloudEnchantment extends AoEEnchantment {

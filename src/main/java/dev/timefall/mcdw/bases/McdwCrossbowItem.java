@@ -21,6 +21,7 @@ import java.util.List;
 public class McdwCrossbowItem extends CrossbowItem implements IMcdwDrawSpeed {
 
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.RangedStats itemStats;
     public final int drawSpeed;
     public final int range;

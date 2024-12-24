@@ -26,6 +26,7 @@ import java.util.List;
 
 public class McdwSickleItem extends SwordItem implements IOffhandAttack {
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.MeleeStats itemStats;
 
     public McdwSickleItem(IMcdwWeaponStats.MeleeStats itemStats, ToolMaterial material, Item.Settings settings) {

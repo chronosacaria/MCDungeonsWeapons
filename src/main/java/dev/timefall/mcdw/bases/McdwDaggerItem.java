@@ -26,6 +26,7 @@ import java.util.List;
 
 public class McdwDaggerItem extends SwordItem implements IOffhandAttack {
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.MeleeStats itemStats;
 
     public McdwDaggerItem(IMcdwWeaponStats.MeleeStats itemStats, ToolMaterial material, Item.Settings settings) {

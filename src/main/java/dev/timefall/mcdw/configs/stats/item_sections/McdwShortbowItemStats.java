@@ -16,9 +16,13 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwShortbowItemStats extends ConfigSection {
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.RangedStats shortbowLoveSpellBow       = IMcdwWeaponStats.rangedStats(true,    true,   ToolMaterials.IRON, 3,  9,  8,  5,  Identifier.of("minecraft:iron_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.RangedStats shortbowMechanicalShortbow = IMcdwWeaponStats.rangedStats(true,    true,   ToolMaterials.IRON, 4,  9,  9,  5,  Identifier.of("minecraft:iron_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.RangedStats shortbowPurpleStorm        = IMcdwWeaponStats.rangedStats(true,    true,   ToolMaterials.IRON, 3,  9,  8,  5,  Identifier.of("minecraft:iron_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.RangedStats shortbowShortbow           = IMcdwWeaponStats.rangedStats(true,    true,   ToolMaterials.IRON, 3,  9,  8,  10, Identifier.of("minecraft:planks"));
 
     public IMcdwWeaponStats.RangedStats getShortbowLoveSpellBow() {

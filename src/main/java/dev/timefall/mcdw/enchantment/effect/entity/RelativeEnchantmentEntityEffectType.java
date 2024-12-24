@@ -32,7 +32,7 @@ public interface RelativeEnchantmentEntityEffectType extends EnchantmentEntityEf
     void applyRelative(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos, Entity relativeTo);
 
     @Override
-    public MapCodec<? extends RelativeEnchantmentEntityEffectType> getCodec();
+    MapCodec<? extends RelativeEnchantmentEntityEffectType> getCodec();
 
     static void register(Registry<MapCodec<? extends RelativeEnchantmentEntityEffectType>> registry){
         Registry.register(registry, Mcdw.ID("unit"), Unit.CODEC);
@@ -44,6 +44,7 @@ public interface RelativeEnchantmentEntityEffectType extends EnchantmentEntityEf
 
     class Unit implements RelativeEnchantmentEntityEffectType{
 
+        @SuppressWarnings("CanBeFinal")
         public static MapCodec<Unit> CODEC = MapCodec.unit(new Unit());
 
         @Override

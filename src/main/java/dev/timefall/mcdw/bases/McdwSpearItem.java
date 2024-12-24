@@ -24,6 +24,7 @@ import java.util.List;
 
 public class McdwSpearItem extends McdwCustomWeaponItem {
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.MeleeStats itemStats;
 
 

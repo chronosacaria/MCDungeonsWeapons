@@ -24,6 +24,7 @@ import java.util.List;
 public class McdwWhipItem extends McdwCustomWeaponItem {
 
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.MeleeStats itemStats;
 
     public McdwWhipItem(IMcdwWeaponStats.MeleeStats itemStats, ToolMaterial material, Settings settings) {

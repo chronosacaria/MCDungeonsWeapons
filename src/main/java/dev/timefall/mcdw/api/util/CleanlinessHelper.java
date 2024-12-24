@@ -211,20 +211,15 @@ public class CleanlinessHelper {
 
 
     public static String materialToString(ToolMaterial toolMaterial) {
-        if (toolMaterial == ToolMaterials.WOOD)
-            return "wood";
-        else if (toolMaterial == ToolMaterials.STONE)
-            return "stone";
-        else if (toolMaterial == ToolMaterials.GOLD)
-            return "gold";
-        else if (toolMaterial == ToolMaterials.IRON)
-            return "iron";
-        else if (toolMaterial == ToolMaterials.DIAMOND)
-            return "diamond";
-        else if (toolMaterial == ToolMaterials.NETHERITE)
-            return "netherite";
-        else
-            return "none";
+        return switch (toolMaterial) {
+            case ToolMaterials.WOOD -> "wood";
+            case ToolMaterials.STONE -> "stone";
+            case ToolMaterials.GOLD -> "gold";
+            case ToolMaterials.IRON -> "iron";
+            case ToolMaterials.DIAMOND -> "diamond";
+            case ToolMaterials.NETHERITE -> "netherite";
+            case null, default -> "none";
+        };
     }
 
     public static ToolMaterial stringToMaterial(String material) {

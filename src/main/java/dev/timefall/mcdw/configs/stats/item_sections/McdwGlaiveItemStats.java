@@ -16,9 +16,13 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwGlaiveItemStats extends ConfigSection {
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats glaiveCacklingBroom = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON,   5,    -3f,  1.0d, 5,   Identifier.of("minecraft:iron_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats glaiveGlaive        = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON,   5,    -3f,  1.0d, 10,  Identifier.of("minecraft:iron_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats glaiveGraveBane     = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON,   6,    -3f,  1.0d, 5,   Identifier.of("minecraft:gold_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats glaiveVenomGlaive   = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON,   6,    -3f,  1.0d, 5,   Identifier.of("minecraft:iron_ingot"));
 
     public IMcdwWeaponStats.MeleeStats getGlaiveCacklingBroom() {

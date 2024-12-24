@@ -25,6 +25,7 @@ import java.util.List;
 
 public class McdwDoubleAxeItem extends AxeItem {
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.MeleeStats itemStats;
 
     public McdwDoubleAxeItem(IMcdwWeaponStats.MeleeStats itemStats, ToolMaterial material, Item.Settings settings) {

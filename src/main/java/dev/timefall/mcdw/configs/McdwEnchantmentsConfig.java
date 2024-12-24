@@ -614,6 +614,4 @@ public class McdwEnchantmentsConfig{
                 )
         );
     }
-
- */
 }
