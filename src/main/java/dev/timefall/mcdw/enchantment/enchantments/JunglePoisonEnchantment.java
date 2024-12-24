@@ -18,6 +18,9 @@ import net.minecraft.item.SwordItem;
 
 /*
  * Effects Present:
+ * POST_HIT
+ * ApplyMobEffectEnchantmentEffectType -> for freezing application itself
+ * RandomChanceLootCondition
  */
 
 public class JunglePoisonEnchantment extends Enchantment{

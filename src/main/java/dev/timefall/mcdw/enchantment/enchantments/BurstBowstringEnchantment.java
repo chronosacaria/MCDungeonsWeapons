@@ -18,6 +18,8 @@ import net.minecraft.item.ItemStack;
 
 /*
  * Effects Present:
+ * PROJECTILE_COUNT -> EnchantmentEffectComponent
+ * PROJECTILE_SPREAD -> EnchantmentEffectComponent
  */
 
 public class BurstBowstringEnchantment extends RangedEnchantment {

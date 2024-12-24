@@ -13,10 +13,12 @@ import net.minecraft.item.ItemStack;
 
 /*
  * Effects Needed:
+ *  DISTANCE_TO_TARGET_MULTIPLIER -> MultiplyEnchantmentEffectType -> ComponentType<List<EnchantmentEffectEntry<EnchantmentValueEffectType>>>
  */
 
 /*
  * Effects Present:
+ *  DAMAGE -> MultiplyEnchantmentEffectType
  */
 
 public class GrowingEnchantment extends RangedEnchantment {

@@ -36,6 +36,7 @@ import java.util.Optional;
 
 public class McdwSwordItem extends SwordItem {
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.MeleeStats itemStats;
 
     public McdwSwordItem(IMcdwWeaponStats.MeleeStats itemStats, ToolMaterial material, Item.Settings settings) {

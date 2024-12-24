@@ -18,6 +18,10 @@ import net.minecraft.item.SwordItem;
 
 /*
  * Effects Present:
+ * DAMAGE
+ * POST_HIT
+ * ApplyMobEffectEnchantmentEffectType -> for freezing application itself
+ * RandomChanceLootCondition
  */
 
 public class FreezingEnchantment extends Enchantment{

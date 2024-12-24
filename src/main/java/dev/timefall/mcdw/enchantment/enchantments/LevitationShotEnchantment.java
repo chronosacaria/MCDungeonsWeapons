@@ -17,6 +17,8 @@ import net.minecraft.item.ItemStack;
 
 /*
  * Effects Present:
+ *  POST_HIT
+ *  ApplyMobEffectEnchantmentEffectType -> for levitation application itself
  */
 
 public class LevitationShotEnchantment extends RangedEnchantment {

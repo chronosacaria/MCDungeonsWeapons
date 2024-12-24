@@ -12,10 +12,14 @@ import net.minecraft.item.*;
 
 /*
  * Effects Needed:
+ *  AREA_OF_EFFECT_MULTIPLIER -> MultiplyEnchantmentEffectType -> ComponentType<List<EnchantmentEffectEntry<EnchantmentValueEffectType>>>
  */
+
 
 /*
  * Effects Present:
+ *  ApplyMobEffectEnchantmentEffectType -> for chains application itself
+ *  RandomChanceLootCondition
  */
 
 public class GravityEnchantment extends AoEEnchantment {

@@ -22,7 +22,9 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwWhipItemStats extends ConfigSection {
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats whipVineWhip  = IMcdwWeaponStats.meleeStats(true,   true,   ToolMaterials.IRON, 5,  -3.1f,  1.5d,   5,  Identifier.of("minecraft:vine"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats whipWhip      = IMcdwWeaponStats.meleeStats(true,   true,   ToolMaterials.IRON, 3,  -3.1f,  1.5d,   10, Identifier.of("minecraft:string"));
 
     public IMcdwWeaponStats.MeleeStats getWhipWhip(){

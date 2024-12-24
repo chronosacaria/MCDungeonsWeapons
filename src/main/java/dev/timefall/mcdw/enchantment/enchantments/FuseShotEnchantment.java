@@ -17,6 +17,8 @@ import net.minecraft.item.ItemStack;
 
 /*
  * Effects Present:
+ * EnchantmentEffectComponentTypes - DAMAGE --> EnchantmentLocationBasedEffect --> Explode
+ * EnchantmentEffectComponentTypes - HIT_BLOCK --> EnchantmentLocationBasedEffect--> Explode
  */
 
 public class FuseShotEnchantment extends RangedEnchantment {

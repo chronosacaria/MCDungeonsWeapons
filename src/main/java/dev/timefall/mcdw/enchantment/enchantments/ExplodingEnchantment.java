@@ -18,6 +18,7 @@ import net.minecraft.item.SwordItem;
 
 /*
  * Effects Present:
+ *  EnchantmentEffectComponentTypes - DAMAGE --> Explode
  */
 
 public class ExplodingEnchantment extends AoEEnchantment {

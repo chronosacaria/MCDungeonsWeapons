@@ -26,8 +26,10 @@ import java.util.List;
 public class McdwShortbowItem extends BowItem implements IMcdwDrawSpeed {
 
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.RangedStats itemStats;
     public final int drawSpeed;
+    @SuppressWarnings("CanBeFinal")
     public int maxBowRange;
     @SuppressWarnings({"FieldCanBeLocal", "unused"})
     private final ParticleEffect type;

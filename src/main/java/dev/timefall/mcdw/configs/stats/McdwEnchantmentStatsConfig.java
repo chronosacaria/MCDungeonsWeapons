@@ -24,6 +24,7 @@ public class McdwEnchantmentStatsConfig extends Config {
         super(Mcdw.ID("mcdw_enchantment_stats_config"));
     }
 
+    @SuppressWarnings("CanBeFinal")
     private McdwEnchantmentStats mcdwEnchantmentStats = new McdwEnchantmentStats();
 
 

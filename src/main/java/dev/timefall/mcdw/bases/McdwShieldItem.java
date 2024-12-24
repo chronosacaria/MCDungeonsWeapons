@@ -15,6 +15,7 @@ import net.minecraft.item.*;
 public class McdwShieldItem extends ShieldItem {
 
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.ShieldStats itemStats;
 
     public McdwShieldItem(IMcdwWeaponStats.ShieldStats itemStats,ToolMaterial material, Item.Settings settings) {

@@ -26,6 +26,7 @@ public class SummonedEntityRegistry {
                     .dimensions(0.4F, 0.4F)
                     .maxTrackingRange(10));
 
+    @SuppressWarnings("SameParameterValue")
     private static <T extends Entity> EntityType<T> registerEntity(String name, EntityType.Builder<T> entityBuilder) {
         return Registry.register(Registries.ENTITY_TYPE, Mcdw.ID(name), entityBuilder.build());
     }

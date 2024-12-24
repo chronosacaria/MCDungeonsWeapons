@@ -16,8 +16,11 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwSoulDaggerItemStats extends ConfigSection {
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats soul_dagger_eternal_knife   = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.NETHERITE,    4,  -2.8f,  -1.0d,  5,     Identifier.of("minecraft:netherite_scrap"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats soul_dagger_soul_knife      = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON,         4,  -2.8f,  -1.0d,  10,    Identifier.of("minecraft:iron_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats soul_dagger_truthseeker     = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.NETHERITE,    3,  -2.8f,   0.0d,  5,     Identifier.of("minecraft:netherite_scrap"));
 
     public IMcdwWeaponStats.MeleeStats getSoul_dagger_eternal_knife() {

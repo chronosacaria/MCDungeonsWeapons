@@ -18,6 +18,10 @@ import net.minecraft.item.SwordItem;
 
 /*
  * Effects Present:
+ *  DAMAGE
+ *  POST_ATTACK
+ *  LootConditionTypes -> ENTITY_PROPERTIES --> Create Tag "sensitive_to_illagers_bane"
+ *  See bane_of_arthropods.json
  */
 
 public class IllagersBaneEnchantment extends Enchantment {

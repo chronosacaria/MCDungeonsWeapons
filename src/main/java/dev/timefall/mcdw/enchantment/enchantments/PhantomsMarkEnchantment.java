@@ -17,6 +17,8 @@ import net.minecraft.item.ItemStack;
 
 /*
  * Effects Present:
+ *  POST_HIT
+ *  ApplyMobEffectEnchantmentEffectType -> for glowing application itself
  */
 
 public class PhantomsMarkEnchantment extends Enchantment {

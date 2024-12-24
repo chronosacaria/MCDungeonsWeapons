@@ -13,7 +13,23 @@
  */
 package dev.timefall.mcdw.mixin.old_mixins.mcdw.client;
 
-/*
+
+import dev.timefall.mcdw.bases.McdwBowItem;
+import dev.timefall.mcdw.bases.McdwLongbowItem;
+import dev.timefall.mcdw.bases.McdwShortbowItem;
+import dev.timefall.mcdw.enums.EnchantmentsID;
+import dev.timefall.mcdw.registries.EnchantsRegistry;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.MathHelper;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
 @Environment(EnvType.CLIENT)
 @Mixin(AbstractClientPlayerEntity.class)
 public class AbstractClientPlayerEntityMixin {
@@ -60,5 +76,3 @@ public class AbstractClientPlayerEntityMixin {
         }
     }
 }
-
- */

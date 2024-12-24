@@ -43,31 +43,47 @@ import me.fzzyhmstrs.fzzy_config.config.ConfigSection;
                         if you plan to change them to see what works best for you.
             """)
 public class McdwEnchantmentStats extends ConfigSection {
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats accelerateEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats ambushEnchantment            = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     @Comment("""
             Effect Offset:  Healing Percentage,
             Offset Note:    higher offset == more health recovered,
             Default:        100.0f
             """)
     private IMcdwEnchantmentStats.EnchantmentStats animaConduitEnchantment      = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  100.0f);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats bonusShotEnchantment         = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats burstBowstringEnchantment    = IMcdwEnchantmentStats.enchantmentStats(true,  false,  false,  3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats busyBeeEnchantment           = IMcdwEnchantmentStats.enchantmentStats(true,  false,  false,  1);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats chainReactionEnchantment     = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats chainsEnchantment            = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  20);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats chargeEnchantment            = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats cobwebShotEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   1);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats committedEnchantment         = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats criticalHitEnchantment       = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats dippingPoisonEnchantment     = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     @Comment("""
             Effect Offset:  Maximum Stacks,
             Offset Note:    higher offset == more potential stacks,
             Default:        20.0f
             """)
     private IMcdwEnchantmentStats.EnchantmentStats dynamoEnchantment            = IMcdwEnchantmentStats.enchantmentStats(true,  false,  false,  3,  20.0f);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats echoEnchantment              = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
+    @SuppressWarnings("CanBeFinal")
     @Comment("""
             Effect Offset:  Damage Divisor,
             Formula:        max((log_e(numSouls * level + 20) / offset) - 1, 0),
@@ -75,38 +91,66 @@ public class McdwEnchantmentStats extends ConfigSection {
             Default:        3.25f
             """)
     private IMcdwEnchantmentStats.EnchantmentStats enigmaResonatorEnchantment   = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  3.25f);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats explodingEnchantment         = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  20);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats freezingEnchantment          = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  30);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats fuseShotEnchantment          = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  20);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats gravityEnchantment           = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  30);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats growingEnchantment           = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats guardingStrikeEnchantment    = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats illagersBaneEnchantment      = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats junglePoisonEnchantment      = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  30);
+    @SuppressWarnings("CanBeFinal")
     @Comment("""
             Effect Offset:  Healing Percentage,
             Offset Note:    higher offset == more health recovered,
             Default:        100.0f
             """)
     private IMcdwEnchantmentStats.EnchantmentStats leechingEnchantment          = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  100.0f);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats levitationShotEnchantment    = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats MultiShotEnchantment         = IMcdwEnchantmentStats.enchantmentStats(true,  false,  false,  1);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats overchargeEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats painCycleEnchantment         = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats phantomsMarkEnchantment      = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats poisonCloudEnchantment       = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  30);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats prospectorEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  5);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats radianceEnchantment          = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  20);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats rampagingEnchantment         = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats refreshmentEnchantment       = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats replenishEnchantment         = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats ricochetEnchantment          = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats rushdownEnchantment          = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats shadowBarbEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  false,  false,  1);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats shadowShotEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  false,  false,  1);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats sharedPainEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  false,  false,  3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats shockwaveEnchantment         = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats smitingEnchantment           = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     @Comment("""
             Effect Offset:  Additional XP,
             Formula:        amount * (1 + (level / offset)),
@@ -114,14 +158,23 @@ public class McdwEnchantmentStats extends ConfigSection {
             Default:        3.0f
             """)
     private IMcdwEnchantmentStats.EnchantmentStats soulDevourerEnchantment      = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  3.0f);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats soulSiphonEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats stunningEnchantment          = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  20);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats swirlingEnchantment          = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats tempoTheftEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats thunderingEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  20);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats voidShotEnchantment          = IMcdwEnchantmentStats.enchantmentStats(true,  true,   false,  3,  25);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats voidStrikeEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  true,   false,  3,  15);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats weakeningEnchantment         = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  30);
+    @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats wildRageEnchantment          = IMcdwEnchantmentStats.enchantmentStats(true,  true,   false,  3,  10);
 
     public IMcdwEnchantmentStats.EnchantmentStats getAccelerateEnchantment() {

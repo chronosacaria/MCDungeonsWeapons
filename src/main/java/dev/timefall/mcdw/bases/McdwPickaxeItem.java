@@ -21,6 +21,7 @@ import java.util.List;
 
 public class McdwPickaxeItem extends PickaxeItem {
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.MeleeStats itemStats;
 
     public McdwPickaxeItem(IMcdwWeaponStats.MeleeStats itemStats, ToolMaterial material, Item.Settings settings) {

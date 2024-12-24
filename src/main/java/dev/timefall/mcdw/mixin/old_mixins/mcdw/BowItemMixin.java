@@ -106,7 +106,7 @@ public abstract class BowItemMixin{
         this.setLivingEntity(user);
     }
 
-    @SuppressWarnings("lossy-conversions")
+    @SuppressWarnings("lossy-conversions").
     @ModifyArg(method = "onStoppedUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;getPullProgress(I)F"), index = 0)
     private int mcdw$acceleratedPullProgress(int value){
         ItemStack bowStack = livingEntity.getActiveItem();

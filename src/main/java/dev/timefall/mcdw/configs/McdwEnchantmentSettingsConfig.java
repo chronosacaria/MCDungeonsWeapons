@@ -25,6 +25,7 @@ public class McdwEnchantmentSettingsConfig extends Config {
         super(Mcdw.ID("mcdw_enchantment_settings_config"));
     }
 
+    @SuppressWarnings("CanBeFinal")
     private ValidatedList<Identifier> disabledEnchantments = ValidatedIdentifier.ofSuppliedList(() -> EnchantmentIds.ENCHANTMENT_IDS).toList();
 
     public boolean isEnchantmentEnabled(Identifier id){

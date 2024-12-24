@@ -16,8 +16,11 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwDoubleAxeItemStats extends ConfigSection {
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats doubleAxeCursed     = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON, 7,  -2.9f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats doubleAxeDouble     = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON, 6,  -2.9f,  0.0d,   10, Identifier.of("minecraft:iron_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats doubleAxeWhirlwind  = IMcdwWeaponStats.meleeStats(true, true,   ToolMaterials.IRON, 6,  -2.9f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
 
     public IMcdwWeaponStats.MeleeStats getDoubleAxeCursed() { return doubleAxeCursed; }

@@ -18,6 +18,8 @@ import net.minecraft.item.SwordItem;
 
 /*
  * Effects Present:
+ *  POST_DEATH -> McdwEffectComponentTypes.POST_DEATH
+ *  ApplyMobEffectEnchantmentEffectType -> for resistance application itself
  */
 
 public class GuardingStrikeEnchantment extends Enchantment {

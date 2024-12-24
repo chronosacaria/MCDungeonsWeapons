@@ -12,11 +12,12 @@ import net.minecraft.item.*;
 
 /*
  * Effects Needed:
- * ExperienceLevelValueEffectType
+ *  ExperienceLevelValueEffectType
  */
 
 /*
  * Effects Present:
+ *
  */
 
 public class EnigmaResonatorEnchantment extends DamageBoostEnchantment {

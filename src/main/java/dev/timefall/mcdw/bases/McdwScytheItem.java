@@ -21,6 +21,7 @@ import java.util.List;
 
 public class McdwScytheItem extends SwordItem {
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.MeleeStats itemStats;
 
     public McdwScytheItem(IMcdwWeaponStats.MeleeStats itemStats, ToolMaterial material, Item.Settings settings) {

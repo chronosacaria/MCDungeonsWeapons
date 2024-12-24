@@ -16,8 +16,11 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwSpearItemStats extends ConfigSection {
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats spearSpear              = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 4,  -2.5f,  1.0d,   10, Identifier.of("minecraft:iron_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats spearWhisperingSpear    = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 5,  -2.5f,  1.0d,   5,  Identifier.of("minecraft:iron_ingot"));
+    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats spearFortuneSpear       = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 5,  -2.5f,  1.0d,   5,  Identifier.of("minecraft:iron_ingot"));
 
     public IMcdwWeaponStats.MeleeStats getSpearSpear() {

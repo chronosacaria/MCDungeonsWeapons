@@ -29,6 +29,7 @@ public class McdwWeaponStatsConfig extends Config {
         super(Mcdw.ID("mcdw_weapon_stats_config"));
     }
 
+    @SuppressWarnings("CanBeFinal")
     transient private LinkedHashMap<Identifier, Supplier<Boolean>> itemEnabledMap = new LinkedHashMap<>();
 
     @ApiStatus.Internal
@@ -41,24 +42,43 @@ public class McdwWeaponStatsConfig extends Config {
         return itemEnabledMap.getOrDefault(id, () -> false).get();
     }
 
+    @SuppressWarnings("CanBeFinal")
     private McdwAxeItemStats mcdwAxeItemStats = new McdwAxeItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwBowItemStats mcdwBowItemStats = new McdwBowItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwCrossbowItemStats mcdwCrossbowItemStats = new McdwCrossbowItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwDaggerItemStats mcdwDaggerItemStats = new McdwDaggerItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwDoubleAxeItemStats mcdwDoubleAxeItemStats = new McdwDoubleAxeItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwGauntletItemStats mcdwGauntletItemStats = new McdwGauntletItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwGlaiveItemStats mcdwGlaiveItemStats = new McdwGlaiveItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwHammerItemStats mcdwHammerItemStats = new McdwHammerItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwLongbowItemStats mcdwLongbowItemStats = new McdwLongbowItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwPickaxeItemStats mcdwPickaxeItemStats = new McdwPickaxeItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwScytheItemStats mcdwScytheItemStats = new McdwScytheItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwShieldItemStats mcdwShieldItemStats = new McdwShieldItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwShortbowItemStats mcdwShortbowItemStats = new McdwShortbowItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwSickleItemStats mcdwSickleItemStats = new McdwSickleItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwSoulDaggerItemStats mcdwSoulDaggerItemStats = new McdwSoulDaggerItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwSpearItemStats mcdwSpearItemStats = new McdwSpearItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwStaffItemStats mcdwStaffItemStats = new McdwStaffItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwSwordItemStats mcdwSwordItemStats = new McdwSwordItemStats();
+    @SuppressWarnings("CanBeFinal")
     private McdwWhipItemStats mcdwWhipItemStats = new McdwWhipItemStats();
 
 

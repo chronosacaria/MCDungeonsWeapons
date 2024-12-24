@@ -64,7 +64,7 @@ public class AOEHelper {
         return center.getEntityWorld().getEntitiesByClass(entityType,
                 new Box(center.getBlockPos()).expand(distance), predicate
         );
-    }
+
 
     //public static void afflictNearbyEntities(LivingEntity user, float distance, StatusEffectInstance... statusEffectInstances) {
         for (LivingEntity nearbyEntity : getEntitiesByConfig(user, distance)) {

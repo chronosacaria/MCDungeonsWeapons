@@ -21,6 +21,7 @@ import java.util.List;
 
 public class McdwSoulDaggerItem extends SwordItem {
     private final ToolMaterial material;
+    @SuppressWarnings("CanBeFinal")
     IMcdwWeaponStats.MeleeStats itemStats;
 
     public McdwSoulDaggerItem(IMcdwWeaponStats.MeleeStats itemStats, ToolMaterial material, Item.Settings settings) {
