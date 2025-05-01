@@ -120,3 +120,4 @@ run/
 /styles.css
 /script.js
 /src/ReferenceClasses/*.java
+/common/src/main/generated/.cache/
