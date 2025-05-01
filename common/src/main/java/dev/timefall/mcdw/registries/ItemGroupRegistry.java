@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.registries.items.McdwLongbowItemRegistry;
 import dev.timefall.mcdw.registries.items.McdwShieldItemRegistry;
 import dev.timefall.mcdw.registries.items.McdwSwordItemRegistry;
@@ -21,10 +21,10 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 
 public class ItemGroupRegistry {
-    public static final RegistryKey<ItemGroup> MELEE = RegistryKey.of(RegistryKeys.ITEM_GROUP, Mcdw.ID("weapons/melee"));
-    public static final RegistryKey<ItemGroup> RANGED = RegistryKey.of(RegistryKeys.ITEM_GROUP, Mcdw.ID("weapons/ranged"));
-    public static final RegistryKey<ItemGroup> SHIELDS = RegistryKey.of(RegistryKeys.ITEM_GROUP, Mcdw.ID("weapons/shields"));
-    public static final RegistryKey<ItemGroup> ENCHANTMENTS = RegistryKey.of(RegistryKeys.ITEM_GROUP, Mcdw.ID("enchantments"));
+    public static final RegistryKey<ItemGroup> MELEE = RegistryKey.of(RegistryKeys.ITEM_GROUP, McdwCommon.ID("weapons/melee"));
+    public static final RegistryKey<ItemGroup> RANGED = RegistryKey.of(RegistryKeys.ITEM_GROUP, McdwCommon.ID("weapons/ranged"));
+    public static final RegistryKey<ItemGroup> SHIELDS = RegistryKey.of(RegistryKeys.ITEM_GROUP, McdwCommon.ID("weapons/shields"));
+    public static final RegistryKey<ItemGroup> ENCHANTMENTS = RegistryKey.of(RegistryKeys.ITEM_GROUP, McdwCommon.ID("enchantments"));
 
     public static void register() {
         Registry.register(Registries.ITEM_GROUP, MELEE, FabricItemGroup.builder()

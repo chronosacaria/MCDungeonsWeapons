@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.enums.EnchantmentsID;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.registry.Registries;
@@ -21,7 +21,7 @@ public class EnchantsRegistry {
         /*
         for (EnchantmentsID enchantmentsID : EnchantmentsID.values()) {
 
-            if (!Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(enchantmentsID).mcdw$getIsEnabled())
+            if (!McdwCommon.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(enchantmentsID).mcdw$getIsEnabled())
                 continue;
 
             Enchantment enchantment = switch (enchantmentsID) {
@@ -141,6 +141,6 @@ public class EnchantsRegistry {
     }
 
     private static void registerEnchantment(String id, Enchantment enchantment) {
-        Registry.register(Registries.ENCHANTMENT, Mcdw.ID(id), enchantment);
+        Registry.register(Registries.ENCHANTMENT, McdwCommon.ID(id), enchantment);
     }
 }

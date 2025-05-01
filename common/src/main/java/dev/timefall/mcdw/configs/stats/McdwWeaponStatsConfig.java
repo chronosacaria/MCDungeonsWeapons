@@ -8,7 +8,7 @@
 
 package dev.timefall.mcdw.configs.stats;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.configs.stats.item_sections.*;
 import me.fzzyhmstrs.fzzy_config.annotations.IgnoreVisibility;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi;
@@ -26,7 +26,7 @@ public class McdwWeaponStatsConfig extends Config {
     public static final McdwWeaponStatsConfig CONFIG = ConfigApi.registerAndLoadConfig(McdwWeaponStatsConfig::new);
 
     public McdwWeaponStatsConfig() {
-        super(Mcdw.ID("mcdw_weapon_stats_config"));
+        super(McdwCommon.ID("mcdw_weapon_stats_config"));
     }
 
     @SuppressWarnings("CanBeFinal")

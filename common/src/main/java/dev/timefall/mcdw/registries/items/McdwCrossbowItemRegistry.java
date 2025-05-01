@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwCrossbowItem;
 import dev.timefall.mcdw.configs.stats.IMcdwWeaponStats;
@@ -18,35 +18,35 @@ import net.minecraft.util.Identifier;
 
 public class McdwCrossbowItemRegistry {
 
-    public static final Identifier CROSSBOW_AUTO_CROSSBOW_ID              = Mcdw.ID("crossbow_auto_crossbow");
-    public static final Identifier CROSSBOW_AZURE_SEEKER_ID               = Mcdw.ID("crossbow_azure_seeker");
-    public static final Identifier CROSSBOW_BABY_CROSSBOW_ID              = Mcdw.ID("crossbow_baby_crossbow");
-    public static final Identifier CROSSBOW_BURST_CROSSBOW_ID             = Mcdw.ID("crossbow_burst_crossbow");
-    public static final Identifier CROSSBOW_BUTTERFLY_CROSSBOW_ID         = Mcdw.ID("crossbow_butterfly_crossbow");
-    public static final Identifier CROSSBOW_COG_CROSSBOW_ID               = Mcdw.ID("crossbow_cog_crossbow");
-    public static final Identifier CROSSBOW_CORRUPTED_CROSSBOW_ID         = Mcdw.ID("crossbow_corrupted_crossbow");
-    public static final Identifier CROSSBOW_DOOM_CROSSBOW_ID              = Mcdw.ID("crossbow_doom_crossbow");
-    public static final Identifier CROSSBOW_DUAL_CROSSBOW_ID              = Mcdw.ID("crossbow_dual_crossbow");
-    public static final Identifier CROSSBOW_EXPLODING_CROSSBOW_ID         = Mcdw.ID("crossbow_exploding_crossbow");
-    public static final Identifier CROSSBOW_FERAL_SOUL_CROSSBOW_ID        = Mcdw.ID("crossbow_feral_soul_crossbow");
-    public static final Identifier CROSSBOW_FIREBOLT_THROWER_ID           = Mcdw.ID("crossbow_firebolt_thrower");
-    public static final Identifier CROSSBOW_HARPOON_CROSSBOW_ID           = Mcdw.ID("crossbow_harpoon_crossbow");
-    public static final Identifier CROSSBOW_HARP_CROSSBOW_ID              = Mcdw.ID("crossbow_harp_crossbow");
-    public static final Identifier CROSSBOW_HEAVY_CROSSBOW_ID             = Mcdw.ID("crossbow_heavy_crossbow");
-    public static final Identifier CROSSBOW_IMPLODING_CROSSBOW_ID         = Mcdw.ID("crossbow_imploding_crossbow");
-    public static final Identifier CROSSBOW_LIGHTNING_HARP_CROSSBOW_ID    = Mcdw.ID("crossbow_lightning_harp_crossbow");
-    public static final Identifier CROSSBOW_NAUTICAL_CROSSBOW_ID          = Mcdw.ID("crossbow_nautical_crossbow");
-    public static final Identifier CROSSBOW_PRIDE_OF_THE_PIGLINS_ID       = Mcdw.ID("crossbow_pride_of_the_piglins");
-    public static final Identifier CROSSBOW_RAPID_CROSSBOW_ID             = Mcdw.ID("crossbow_rapid_crossbow");
-    public static final Identifier CROSSBOW_SCATTER_CROSSBOW_ID           = Mcdw.ID("crossbow_scatter_crossbow");
-    public static final Identifier CROSSBOW_SHADOW_CROSSBOW_ID            = Mcdw.ID("crossbow_shadow_crossbow");
-    public static final Identifier CROSSBOW_SLAYER_CROSSBOW_ID            = Mcdw.ID("crossbow_slayer_crossbow");
-    public static final Identifier CROSSBOW_SOUL_CROSSBOW_ID              = Mcdw.ID("crossbow_soul_crossbow");
-    public static final Identifier CROSSBOW_SOUL_HUNTER_CROSSBOW_ID       = Mcdw.ID("crossbow_soul_hunter_crossbow");
-    public static final Identifier CROSSBOW_SPELLBOUND_CROSSBOW_ID        = Mcdw.ID("crossbow_spellbound_crossbow");
-    public static final Identifier CROSSBOW_THE_SLICER_ID                 = Mcdw.ID("crossbow_the_slicer");
-    public static final Identifier CROSSBOW_VEILED_CROSSBOW_ID            = Mcdw.ID("crossbow_veiled_crossbow");
-    public static final Identifier CROSSBOW_VOIDCALLER_CROSSBOW_ID        = Mcdw.ID("crossbow_voidcaller_crossbow");
+    public static final Identifier CROSSBOW_AUTO_CROSSBOW_ID              = McdwCommon.ID("crossbow_auto_crossbow");
+    public static final Identifier CROSSBOW_AZURE_SEEKER_ID               = McdwCommon.ID("crossbow_azure_seeker");
+    public static final Identifier CROSSBOW_BABY_CROSSBOW_ID              = McdwCommon.ID("crossbow_baby_crossbow");
+    public static final Identifier CROSSBOW_BURST_CROSSBOW_ID             = McdwCommon.ID("crossbow_burst_crossbow");
+    public static final Identifier CROSSBOW_BUTTERFLY_CROSSBOW_ID         = McdwCommon.ID("crossbow_butterfly_crossbow");
+    public static final Identifier CROSSBOW_COG_CROSSBOW_ID               = McdwCommon.ID("crossbow_cog_crossbow");
+    public static final Identifier CROSSBOW_CORRUPTED_CROSSBOW_ID         = McdwCommon.ID("crossbow_corrupted_crossbow");
+    public static final Identifier CROSSBOW_DOOM_CROSSBOW_ID              = McdwCommon.ID("crossbow_doom_crossbow");
+    public static final Identifier CROSSBOW_DUAL_CROSSBOW_ID              = McdwCommon.ID("crossbow_dual_crossbow");
+    public static final Identifier CROSSBOW_EXPLODING_CROSSBOW_ID         = McdwCommon.ID("crossbow_exploding_crossbow");
+    public static final Identifier CROSSBOW_FERAL_SOUL_CROSSBOW_ID        = McdwCommon.ID("crossbow_feral_soul_crossbow");
+    public static final Identifier CROSSBOW_FIREBOLT_THROWER_ID           = McdwCommon.ID("crossbow_firebolt_thrower");
+    public static final Identifier CROSSBOW_HARPOON_CROSSBOW_ID           = McdwCommon.ID("crossbow_harpoon_crossbow");
+    public static final Identifier CROSSBOW_HARP_CROSSBOW_ID              = McdwCommon.ID("crossbow_harp_crossbow");
+    public static final Identifier CROSSBOW_HEAVY_CROSSBOW_ID             = McdwCommon.ID("crossbow_heavy_crossbow");
+    public static final Identifier CROSSBOW_IMPLODING_CROSSBOW_ID         = McdwCommon.ID("crossbow_imploding_crossbow");
+    public static final Identifier CROSSBOW_LIGHTNING_HARP_CROSSBOW_ID    = McdwCommon.ID("crossbow_lightning_harp_crossbow");
+    public static final Identifier CROSSBOW_NAUTICAL_CROSSBOW_ID          = McdwCommon.ID("crossbow_nautical_crossbow");
+    public static final Identifier CROSSBOW_PRIDE_OF_THE_PIGLINS_ID       = McdwCommon.ID("crossbow_pride_of_the_piglins");
+    public static final Identifier CROSSBOW_RAPID_CROSSBOW_ID             = McdwCommon.ID("crossbow_rapid_crossbow");
+    public static final Identifier CROSSBOW_SCATTER_CROSSBOW_ID           = McdwCommon.ID("crossbow_scatter_crossbow");
+    public static final Identifier CROSSBOW_SHADOW_CROSSBOW_ID            = McdwCommon.ID("crossbow_shadow_crossbow");
+    public static final Identifier CROSSBOW_SLAYER_CROSSBOW_ID            = McdwCommon.ID("crossbow_slayer_crossbow");
+    public static final Identifier CROSSBOW_SOUL_CROSSBOW_ID              = McdwCommon.ID("crossbow_soul_crossbow");
+    public static final Identifier CROSSBOW_SOUL_HUNTER_CROSSBOW_ID       = McdwCommon.ID("crossbow_soul_hunter_crossbow");
+    public static final Identifier CROSSBOW_SPELLBOUND_CROSSBOW_ID        = McdwCommon.ID("crossbow_spellbound_crossbow");
+    public static final Identifier CROSSBOW_THE_SLICER_ID                 = McdwCommon.ID("crossbow_the_slicer");
+    public static final Identifier CROSSBOW_VEILED_CROSSBOW_ID            = McdwCommon.ID("crossbow_veiled_crossbow");
+    public static final Identifier CROSSBOW_VOIDCALLER_CROSSBOW_ID        = McdwCommon.ID("crossbow_voidcaller_crossbow");
 
     public static final McdwCrossbowItem CROSSBOW_AUTO_CROSSBOW           = register(CROSSBOW_AUTO_CROSSBOW_ID, McdwWeaponStatsConfig.CONFIG.getCrossbowItemStats().getCrossbowAutoCrossbow());
     public static final McdwCrossbowItem CROSSBOW_AZURE_SEEKER            = register(CROSSBOW_AZURE_SEEKER_ID, McdwWeaponStatsConfig.CONFIG.getCrossbowItemStats().getCrossbowAzureSeeker());

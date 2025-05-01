@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwDoubleAxeItem;
@@ -21,9 +21,9 @@ import net.minecraft.util.Identifier;
 
 public class McdwDoubleAxeItemRegistry {
 
-    public static final Identifier DOUBLE_AXE_CURSED_ID         = Mcdw.ID("double_axe_cursed");
-    public static final Identifier DOUBLE_AXE_DOUBLE_ID         = Mcdw.ID("double_axe_double");
-    public static final Identifier DOUBLE_AXE_WHIRLWIND_ID      = Mcdw.ID("double_axe_whirlwind");
+    public static final Identifier DOUBLE_AXE_CURSED_ID         = McdwCommon.ID("double_axe_cursed");
+    public static final Identifier DOUBLE_AXE_DOUBLE_ID         = McdwCommon.ID("double_axe_double");
+    public static final Identifier DOUBLE_AXE_WHIRLWIND_ID      = McdwCommon.ID("double_axe_whirlwind");
 
     public static final McdwDoubleAxeItem DOUBLE_AXE_CURSED     = register(DOUBLE_AXE_CURSED_ID, McdwWeaponStatsConfig.CONFIG.getDoubleAxeItemStats().getDoubleAxeCursed());
     public static final McdwDoubleAxeItem DOUBLE_AXE_DOUBLE     = register(DOUBLE_AXE_DOUBLE_ID, McdwWeaponStatsConfig.CONFIG.getDoubleAxeItemStats().getDoubleAxeDouble());

@@ -7,7 +7,7 @@
 
 package dev.timefall.mcdw.configs;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.enchantment.EnchantmentIds;
 import me.fzzyhmstrs.fzzy_config.annotations.IgnoreVisibility;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi;
@@ -22,7 +22,7 @@ public class McdwEnchantmentSettingsConfig extends Config {
     public static final McdwEnchantmentSettingsConfig CONFIG = ConfigApi.registerAndLoadConfig(McdwEnchantmentSettingsConfig::new);
 
     public McdwEnchantmentSettingsConfig() {
-        super(Mcdw.ID("mcdw_enchantment_settings_config"));
+        super(McdwCommon.ID("mcdw_enchantment_settings_config"));
     }
 
     @SuppressWarnings("CanBeFinal")

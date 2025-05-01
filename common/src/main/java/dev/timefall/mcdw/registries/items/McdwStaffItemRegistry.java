@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwStaffItem;
@@ -21,9 +21,9 @@ import net.minecraft.util.Identifier;
 
 public class McdwStaffItemRegistry {
 
-    public static final Identifier STAFF_BATTLESTAFF_ID           = Mcdw.ID("staff_battlestaff");
-    public static final Identifier STAFF_BATTLESTAFF_OF_TERROR_ID = Mcdw.ID("staff_battlestaff_of_terror");
-    public static final Identifier STAFF_GROWING_STAFF_ID         = Mcdw.ID("staff_battlestaff_growing_staff");
+    public static final Identifier STAFF_BATTLESTAFF_ID           = McdwCommon.ID("staff_battlestaff");
+    public static final Identifier STAFF_BATTLESTAFF_OF_TERROR_ID = McdwCommon.ID("staff_battlestaff_of_terror");
+    public static final Identifier STAFF_GROWING_STAFF_ID         = McdwCommon.ID("staff_battlestaff_growing_staff");
 
     public static final McdwStaffItem STAFF_BATTLESTAFF           = register(STAFF_BATTLESTAFF_ID, McdwWeaponStatsConfig.CONFIG.getStaffItemStats().getStaffBattlestaff());
     public static final McdwStaffItem STAFF_BATTLESTAFF_OF_TERROR = register(STAFF_BATTLESTAFF_OF_TERROR_ID, McdwWeaponStatsConfig.CONFIG.getStaffItemStats().getStaffBattlestaffOfTerror());

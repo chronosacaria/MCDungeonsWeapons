@@ -7,7 +7,7 @@
 
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwAxeItem;
@@ -22,11 +22,11 @@ import net.minecraft.util.Identifier;
 
 public class McdwAxeItemRegistry {
 
-    public static final Identifier AXE_ANCHOR_ID            = Mcdw.ID("axe_anchor");
-    public static final Identifier AXE_HIGHLAND_ID          = Mcdw.ID("axe_highland");
-    public static final Identifier AXE_AXE_ID               = Mcdw.ID("axe_axe");
-    public static final Identifier AXE_ENCRUSTED_ANCHOR_ID  = Mcdw.ID("axe_encrusted_anchor");
-    public static final Identifier AXE_FIREBRAND_ID         = Mcdw.ID("axe_firebrand");
+    public static final Identifier AXE_ANCHOR_ID            = McdwCommon.ID("axe_anchor");
+    public static final Identifier AXE_HIGHLAND_ID          = McdwCommon.ID("axe_highland");
+    public static final Identifier AXE_AXE_ID               = McdwCommon.ID("axe_axe");
+    public static final Identifier AXE_ENCRUSTED_ANCHOR_ID  = McdwCommon.ID("axe_encrusted_anchor");
+    public static final Identifier AXE_FIREBRAND_ID         = McdwCommon.ID("axe_firebrand");
 
     public static final McdwAxeItem AXE_ANCHOR              = register(AXE_ANCHOR_ID, McdwWeaponStatsConfig.CONFIG.getAxeItemStats().getAxeAnchor());
     public static final McdwAxeItem AXE_HIGHLAND            = register(AXE_HIGHLAND_ID, McdwWeaponStatsConfig.CONFIG.getAxeItemStats().getAxeHighland());

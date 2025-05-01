@@ -60,7 +60,7 @@ public class McdwEnchantmentGenerator extends FabricDynamicRegistryProvider {
 
     @Override
     public String getName() {
-        return "Mcdw Enchantment Generation";
+        return "McdwCommon Enchantment Generation";
     }
 
     @Override

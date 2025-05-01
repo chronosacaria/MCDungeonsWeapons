@@ -8,7 +8,7 @@
 package dev.timefall.mcdw.enchantment.effect;
 
 import com.mojang.serialization.MapCodec;
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.enchantment.effect.entity.AOEEnchantmentEntityEffect;
 import dev.timefall.mcdw.enchantment.effect.entity.ApplyStackingMobEffectEnchantmentEntityEffect;
 import dev.timefall.mcdw.enchantment.effect.entity.LeechMobEnchantmentEntityEffect;
@@ -26,7 +26,7 @@ public class McdwEntityEffectTypes {
 
 
     private static <T extends EnchantmentEntityEffect> MapCodec<T> register(String id, MapCodec<T> codec) {
-        return Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Mcdw.ID(id), codec);
+        return Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, McdwCommon.ID(id), codec);
     }
 
 }

@@ -12,7 +12,7 @@ public class ParticlesRegistry {
     public static final SimpleParticleType OFFHAND_SWEEP_PARTICLE = FabricParticleTypes.simple(true);
 
     public static void registerOnServer() {
-        Registry.register(Registries.PARTICLE_TYPE, Identifier.of(Mcdw.MOD_ID, "offhand_sweep"), OFFHAND_SWEEP_PARTICLE);
+        Registry.register(Registries.PARTICLE_TYPE, Identifier.of(ModConstants.MOD_ID, "offhand_sweep"), OFFHAND_SWEEP_PARTICLE);
     }
 
     public static void registerOnClient() {

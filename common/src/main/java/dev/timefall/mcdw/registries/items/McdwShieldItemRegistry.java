@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwShieldItem;
 import dev.timefall.mcdw.configs.stats.IMcdwWeaponStats;
@@ -18,9 +18,9 @@ import net.minecraft.util.Identifier;
 
 public class McdwShieldItemRegistry {
 
-    public static final Identifier SHIELD_ROYAL_GUARD_SHIELD_ID   = Mcdw.ID("shield_royal_guard_shield");
-    public static final Identifier SHIELD_TOWER_GUARD_SHIELD_ID   = Mcdw.ID("shield_tower_guard_shield");
-    public static final Identifier SHIELD_VANGUARD_SHIELD_ID      = Mcdw.ID("shield_vanguard_shield");
+    public static final Identifier SHIELD_ROYAL_GUARD_SHIELD_ID   = McdwCommon.ID("shield_royal_guard_shield");
+    public static final Identifier SHIELD_TOWER_GUARD_SHIELD_ID   = McdwCommon.ID("shield_tower_guard_shield");
+    public static final Identifier SHIELD_VANGUARD_SHIELD_ID      = McdwCommon.ID("shield_vanguard_shield");
 
     public static final McdwShieldItem SHIELD_ROYAL_GUARD_SHIELD  = register(SHIELD_ROYAL_GUARD_SHIELD_ID, McdwWeaponStatsConfig.CONFIG.getShieldItemStats().getShieldRoyalGuardShield());
     public static final McdwShieldItem SHIELD_TOWER_GUARD_SHIELD  = register(SHIELD_TOWER_GUARD_SHIELD_ID, McdwWeaponStatsConfig.CONFIG.getShieldItemStats().getShieldTowerGuardShield());

@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwSickleItem;
@@ -21,10 +21,10 @@ import net.minecraft.util.Identifier;
 
 public class McdwSickleItemRegistry {
 
-    public static final Identifier SICKLE_LAST_LAUGH_GOLD_ID    = Mcdw.ID("sickle_last_laugh_gold");
-    public static final Identifier SICKLE_LAST_LAUGH_SILVER_ID  = Mcdw.ID("sickle_last_laugh_silver");
-    public static final Identifier SICKLE_NIGHTMARES_BITE_ID    = Mcdw.ID("sickle_nightmares_bite");
-    public static final Identifier SICKLE_SICKLE_ID             = Mcdw.ID("sickle_sickle");
+    public static final Identifier SICKLE_LAST_LAUGH_GOLD_ID    = McdwCommon.ID("sickle_last_laugh_gold");
+    public static final Identifier SICKLE_LAST_LAUGH_SILVER_ID  = McdwCommon.ID("sickle_last_laugh_silver");
+    public static final Identifier SICKLE_NIGHTMARES_BITE_ID    = McdwCommon.ID("sickle_nightmares_bite");
+    public static final Identifier SICKLE_SICKLE_ID             = McdwCommon.ID("sickle_sickle");
 
     public static final McdwSickleItem SICKLE_LAST_LAUGH_GOLD   = register(SICKLE_LAST_LAUGH_GOLD_ID, McdwWeaponStatsConfig.CONFIG.getSickleItemStats().getSickleLastLaughGold());
     public static final McdwSickleItem SICKLE_LAST_LAUGH_SILVER = register(SICKLE_LAST_LAUGH_SILVER_ID, McdwWeaponStatsConfig.CONFIG.getSickleItemStats().getSickleLastLaughSilver());

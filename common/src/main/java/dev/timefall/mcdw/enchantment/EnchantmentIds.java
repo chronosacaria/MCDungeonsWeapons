@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.enchantment;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -78,7 +78,7 @@ public class EnchantmentIds {
     public static void init(){}
 
     private static RegistryKey<Enchantment> of(String path) {
-        Identifier id = Mcdw.ID(path);
+        Identifier id = McdwCommon.ID(path);
         ENCHANTMENT_IDS.add(id);
         return RegistryKey.of(RegistryKeys.ENCHANTMENT, id);
     }

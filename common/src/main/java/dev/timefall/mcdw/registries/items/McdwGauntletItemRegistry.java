@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwGauntletItem;
@@ -21,9 +21,9 @@ import net.minecraft.util.Identifier;
 
 public class McdwGauntletItemRegistry {
 
-    public static final Identifier GAUNTLET_GAUNTLET_ID     = Mcdw.ID("gauntlet_gauntlet");
-    public static final Identifier GAUNTLET_MAULER_ID       = Mcdw.ID("gauntlet_mauler");
-    public static final Identifier GAUNTLET_SOUL_FIST_ID    = Mcdw.ID("gauntlet_soul_fist");
+    public static final Identifier GAUNTLET_GAUNTLET_ID     = McdwCommon.ID("gauntlet_gauntlet");
+    public static final Identifier GAUNTLET_MAULER_ID       = McdwCommon.ID("gauntlet_mauler");
+    public static final Identifier GAUNTLET_SOUL_FIST_ID    = McdwCommon.ID("gauntlet_soul_fist");
 
     public static final McdwGauntletItem GAUNTLET_GAUNTLET  = register(GAUNTLET_GAUNTLET_ID, McdwWeaponStatsConfig.CONFIG.getGauntletItemStats().getGauntletGauntlet());
     public static final McdwGauntletItem GAUNTLET_MAULER    = register(GAUNTLET_MAULER_ID, McdwWeaponStatsConfig.CONFIG.getGauntletItemStats().getGauntletMauler());

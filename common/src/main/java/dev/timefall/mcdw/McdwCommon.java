@@ -7,30 +7,16 @@
 package dev.timefall.mcdw;
 
 import dev.timefall.mcdw.configs.CompatibilityFlags;
-import dev.timefall.mcdw.data.ConfigEnchantmentEnabledCondition;
-import dev.timefall.mcdw.data.ConfigItemEnabledCondition;
 import dev.timefall.mcdw.enchantment.EnchantmentIds;
 import dev.timefall.mcdw.registries.*;
 import dev.timefall.mcdw.registries.items.*;
-import net.fabricmc.api.ModInitializer;
-import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Mcdw implements ModInitializer {
+public class McdwCommon {
 
-    public static final String MOD_ID = "mcdw";
-    @SuppressWarnings("unused")
-    public static final Logger LOGGER = LogManager.getLogger();
-    public static Identifier ID(String path) {
-        return Identifier.of(MOD_ID, path);
-    }
-
-    @Override
-    public void onInitialize() {
-        McdwRegistries.register();
+    public static void initialize() {
         // Register Weapons
-        // TODO CHECK ORDER AND MAKE SURE CALLED WHERE NEEDS TO BE CALLED
         McdwAxeItemRegistry.register();
         McdwBowItemRegistry.register();
         McdwCrossbowItemRegistry.register();
@@ -51,25 +37,43 @@ public class Mcdw implements ModInitializer {
         McdwSwordItemRegistry.register();
         McdwWhipItemRegistry.register();
 
+        // TODO CHECK ORDER AND MAKE SURE CALLED WHERE NEEDS TO BE CALLED
         EnchantmentIds.init();
-        ConfigEnchantmentEnabledCondition.register();
-        ConfigItemEnabledCondition.register();
         CompatibilityFlags.init();
         CompatRegistry.register();
         EntityAttributesRegistry.register();
-        //ConfigItemEnabledCondition.register();
-        //ParticlesRegistry.registerOnServer();
+
         ItemGroupRegistry.register();
         ItemsRegistry.register();
-        //OffhandAttackPacket.register();
+
         LootTablesRegistry.register();
         EnchantsRegistry.register();
         SoundEventsRegistry.register();
-        //SummonedEntityRegistry.register();
+
         StatusEffectsRegistry.register();
         EnchantmentRestrictionsRegistry.register();
+
+        LOGGER.info("MCDW Common Initialized");
+    }
+
+    @SuppressWarnings("unused")
+    public static final Logger LOGGER = LogManager.getLogger();
+
+    /*
+    @Override
+    public void onInitialize() {
+        McdwRegistries.register();
+
+        //ConfigItemEnabledCondition.register();
+        //ParticlesRegistry.registerOnServer();
+
+        //OffhandAttackPacket.register();
+
+        //SummonedEntityRegistry.register();
+
         //if (FabricLoader.getInstance().isModLoaded("ranged_weapon_api")) {
         //    RangedWeaponAPICompat.init();
         //}
     }
+     */
 }

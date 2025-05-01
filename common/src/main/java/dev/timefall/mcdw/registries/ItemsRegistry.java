@@ -16,7 +16,7 @@ import net.minecraft.registry.Registry;
 import java.util.EnumMap;
 import java.util.Locale;
 
-import static dev.timefall.mcdw.Mcdw.ID;
+import static dev.timefall.mcdw.McdwCommon.ID;
 
 public class ItemsRegistry {
 

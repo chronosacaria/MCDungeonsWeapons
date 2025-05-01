@@ -25,7 +25,7 @@ public class RadianceEnchantment extends HealingEnchantment {
 
     //public RadianceEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot[] equipmentSlots) {
     //    super(rarity, enchantmentTarget, equipmentSlots);
-    //    if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.RADIANCE).mcdw$getIsEnabled()) {
+    //    if (McdwCommon.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.RADIANCE).mcdw$getIsEnabled()) {
     //        ItemGroupEvents.modifyEntriesEvent(ItemGroupRegistry.ENCHANTMENTS).register(entries -> {
     //            // For loop creates first 3 levels of enchanted books
     //            for (int i = 1; i <= getMaxLevel(); i++)

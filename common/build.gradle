@@ -1,10 +1,34 @@
-/*
- * Timefall Development License 1.2
- * Copyright (c) 2025. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
- *
- * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
- */
+architectury {
+    common(rootProject.enabled_platforms.split(","))
+}
 
+
+dependencies {
+    // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
+    // Do NOT use other classes from fabric loader
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+
+    //modCompileOnly "dev.emi:emi-xplat-intermediary:${rootProject.emi_version}+${rootProject.minecraft_version}"
+    modCompileOnly "me.fzzyhmstrs:fzzy_config:${rootProject.fzzyConfigVersion}"
+}
+
+publishing {
+    publications {
+        mavenCommon(MavenPublication) {
+            artifactId = rootProject.archives_base_name
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+    }
+}
+
+
+
+/*
 plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
@@ -97,3 +121,4 @@ publishing {
 fabricApi {
     configureDataGeneration()
 }
+*/

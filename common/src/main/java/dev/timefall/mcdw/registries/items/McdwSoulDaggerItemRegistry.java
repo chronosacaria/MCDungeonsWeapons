@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwSoulDaggerItem;
@@ -21,9 +21,9 @@ import net.minecraft.util.Identifier;
 
 public class McdwSoulDaggerItemRegistry {
 
-    public static final Identifier SOUL_DAGGER_ETERNAL_KNIFE_ID        = Mcdw.ID("soul_dagger_eternal_knife");
-    public static final Identifier SOUL_DAGGER_SOUL_KNIFE_ID           = Mcdw.ID("soul_dagger_soul_knife");
-    public static final Identifier SOUL_DAGGER_TRUTHSEEKER_ID          = Mcdw.ID("soul_dagger_truthseeker");
+    public static final Identifier SOUL_DAGGER_ETERNAL_KNIFE_ID        = McdwCommon.ID("soul_dagger_eternal_knife");
+    public static final Identifier SOUL_DAGGER_SOUL_KNIFE_ID           = McdwCommon.ID("soul_dagger_soul_knife");
+    public static final Identifier SOUL_DAGGER_TRUTHSEEKER_ID          = McdwCommon.ID("soul_dagger_truthseeker");
 
     public static final McdwSoulDaggerItem SOUL_DAGGER_ETERNAL_KNIFE   = register(SOUL_DAGGER_ETERNAL_KNIFE_ID, McdwWeaponStatsConfig.CONFIG.getSoulDaggerItemStats().getSoul_dagger_eternal_knife());
     public static final McdwSoulDaggerItem SOUL_DAGGER_SOUL_KNIFE      = register(SOUL_DAGGER_SOUL_KNIFE_ID, McdwWeaponStatsConfig.CONFIG.getSoulDaggerItemStats().getSoul_dagger_soul_knife());

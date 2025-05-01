@@ -6,14 +6,14 @@
  */
 package dev.timefall.mcdw.networking;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.ModConstants;
 import net.minecraft.util.Identifier;
 
 @SuppressWarnings("deprecation")
 public class OffhandAttackPacket {
 
-    public static final Identifier OFFHAND_ATTACK_PACKET = Identifier.of(Mcdw.MOD_ID, "offhand_attack_entity");
-    public static final Identifier OFFHAND_MISS_PACKET = Identifier.of(Mcdw.MOD_ID, "offhand_miss_entity");
+    public static final Identifier OFFHAND_ATTACK_PACKET = Identifier.of(ModConstants.MOD_ID, "offhand_attack_entity");
+    public static final Identifier OFFHAND_MISS_PACKET = Identifier.of(ModConstants.MOD_ID, "offhand_miss_entity");
 
     //public static Packet<ServerPlayPacketListener> offhandAttackPacket(Entity entity) {
     //    PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());

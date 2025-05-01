@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwPickaxeItem;
@@ -21,10 +21,10 @@ import net.minecraft.util.Identifier;
 
 public class McdwPickaxeItemRegistry {
 
-    public static final Identifier PICK_DIAMOND_PICKAXE_VAR_ID      = Mcdw.ID("pickaxe_diamond_pickaxe_var");
-    public static final Identifier PICK_HAILING_PINNACLE_ID         = Mcdw.ID("pickaxe_hailing_pinnacle");
-    public static final Identifier PICK_HOWLING_PICK_ID             = Mcdw.ID("pickaxe_howling_pick");
-    public static final Identifier PICK_MOUNTAINEER_PICK_ID         = Mcdw.ID("pickaxe_mountineer_pick");
+    public static final Identifier PICK_DIAMOND_PICKAXE_VAR_ID      = McdwCommon.ID("pickaxe_diamond_pickaxe_var");
+    public static final Identifier PICK_HAILING_PINNACLE_ID         = McdwCommon.ID("pickaxe_hailing_pinnacle");
+    public static final Identifier PICK_HOWLING_PICK_ID             = McdwCommon.ID("pickaxe_howling_pick");
+    public static final Identifier PICK_MOUNTAINEER_PICK_ID         = McdwCommon.ID("pickaxe_mountineer_pick");
 
     public static final McdwPickaxeItem PICK_DIAMOND_PICKAXE_VAR    = register(PICK_DIAMOND_PICKAXE_VAR_ID, McdwWeaponStatsConfig.CONFIG.getPickaxeItemStats().getPickaxeDiamondPickaxeVar());
     public static final McdwPickaxeItem PICK_HAILING_PINNACLE       = register(PICK_HAILING_PINNACLE_ID, McdwWeaponStatsConfig.CONFIG.getPickaxeItemStats().getPickaxeHailingPinnacle());

@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.ModConstants;
 import net.minecraft.entity.attribute.ClampedEntityAttribute;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.registry.Registries;
@@ -40,10 +40,10 @@ public class EntityAttributesRegistry {
 
     @SuppressWarnings("SameParameterValue")
     private static EntityAttribute createAttribute(String attributeName, double defaultValue, double minimumValue, double maximumValue) {
-        return new ClampedEntityAttribute("attribute.name.generic." + Mcdw.MOD_ID + '.' + attributeName, defaultValue, minimumValue, maximumValue).setTracked(true);
+        return new ClampedEntityAttribute("attribute.name.generic." + ModConstants.MOD_ID + '.' + attributeName, defaultValue, minimumValue, maximumValue).setTracked(true);
     }
     public static void register() {
-        Registry.register(Registries.ATTRIBUTE, Identifier.of(Mcdw.MOD_ID, "reach"), REACH);
-        Registry.register(Registries.ATTRIBUTE, Identifier.of(Mcdw.MOD_ID, "attack_range"), ATTACK_RANGE);
+        Registry.register(Registries.ATTRIBUTE, Identifier.of(ModConstants.MOD_ID, "reach"), REACH);
+        Registry.register(Registries.ATTRIBUTE, Identifier.of(ModConstants.MOD_ID, "attack_range"), ATTACK_RANGE);
     }
 }

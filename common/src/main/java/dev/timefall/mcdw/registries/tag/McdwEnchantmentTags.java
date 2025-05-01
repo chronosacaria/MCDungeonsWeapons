@@ -6,16 +6,16 @@
  */
 package dev.timefall.mcdw.registries.tag;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 
 public class McdwEnchantmentTags {
 
-    public static final TagKey<Enchantment> AOE_EXCLUSIVE            = TagKey.of(RegistryKeys.ENCHANTMENT, Mcdw.ID("aoe_exclusive"));
-    public static final TagKey<Enchantment> AOE_AND_DAMAGE_EXCLUSIVE = TagKey.of(RegistryKeys.ENCHANTMENT, Mcdw.ID("aoe_and_damage_exclusive"));
-    public static final TagKey<Enchantment> DAMAGE_EXCLUSIVE         = TagKey.of(RegistryKeys.ENCHANTMENT, Mcdw.ID("damage_exclusive"));
-    public static final TagKey<Enchantment> EXPERIENCE_EXCLUSIVE     = TagKey.of(RegistryKeys.ENCHANTMENT, Mcdw.ID("experience_exclusive"));
-    public static final TagKey<Enchantment> HEALING_EXCLUSIVE        = TagKey.of(RegistryKeys.ENCHANTMENT, Mcdw.ID("healing_exclusive"));
+    public static final TagKey<Enchantment> AOE_EXCLUSIVE            = TagKey.of(RegistryKeys.ENCHANTMENT, McdwCommon.ID("aoe_exclusive"));
+    public static final TagKey<Enchantment> AOE_AND_DAMAGE_EXCLUSIVE = TagKey.of(RegistryKeys.ENCHANTMENT, McdwCommon.ID("aoe_and_damage_exclusive"));
+    public static final TagKey<Enchantment> DAMAGE_EXCLUSIVE         = TagKey.of(RegistryKeys.ENCHANTMENT, McdwCommon.ID("damage_exclusive"));
+    public static final TagKey<Enchantment> EXPERIENCE_EXCLUSIVE     = TagKey.of(RegistryKeys.ENCHANTMENT, McdwCommon.ID("experience_exclusive"));
+    public static final TagKey<Enchantment> HEALING_EXCLUSIVE        = TagKey.of(RegistryKeys.ENCHANTMENT, McdwCommon.ID("healing_exclusive"));
 }

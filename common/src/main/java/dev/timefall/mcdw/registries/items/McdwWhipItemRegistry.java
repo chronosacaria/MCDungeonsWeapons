@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwWhipItem;
@@ -21,8 +21,8 @@ import net.minecraft.util.Identifier;
 
 public class McdwWhipItemRegistry {
 
-    public static final Identifier WHIP_WHIP_ID      = Mcdw.ID("whip_whip");
-    public static final Identifier WHIP_VINE_WHIP_ID = Mcdw.ID("whip_vine_whip");
+    public static final Identifier WHIP_WHIP_ID      = McdwCommon.ID("whip_whip");
+    public static final Identifier WHIP_VINE_WHIP_ID = McdwCommon.ID("whip_vine_whip");
 
     public static final McdwWhipItem WHIP_WHIP       = register(WHIP_WHIP_ID, McdwWeaponStatsConfig.CONFIG.getWhipItemStats().getWhipWhip());
     public static final McdwWhipItem WHIP_VINE_WHIP  = register(WHIP_VINE_WHIP_ID, McdwWeaponStatsConfig.CONFIG.getWhipItemStats().getWhipVineWhip());

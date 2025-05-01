@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.Mcdw;
+import dev.timefall.mcdw.McdwCommon;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwGlaiveItem;
@@ -21,10 +21,10 @@ import net.minecraft.util.Identifier;
 
 public class McdwGlaiveItemRegistry {
 
-    public static final Identifier GLAIVE_CACKLING_BROOM_ID     = Mcdw.ID("glaive_cackling_broom");
-    public static final Identifier GLAIVE_GLAIVE_ID             = Mcdw.ID("glaive_glaive");
-    public static final Identifier GLAIVE_GRAVE_BANE_ID         = Mcdw.ID("glaive_grave_bane");
-    public static final Identifier GLAIVE_VENOM_GLAIVE_ID       = Mcdw.ID("glaive_venom_glaive");
+    public static final Identifier GLAIVE_CACKLING_BROOM_ID     = McdwCommon.ID("glaive_cackling_broom");
+    public static final Identifier GLAIVE_GLAIVE_ID             = McdwCommon.ID("glaive_glaive");
+    public static final Identifier GLAIVE_GRAVE_BANE_ID         = McdwCommon.ID("glaive_grave_bane");
+    public static final Identifier GLAIVE_VENOM_GLAIVE_ID       = McdwCommon.ID("glaive_venom_glaive");
 
     public static final McdwGlaiveItem GLAIVE_CACKLING_BROOM    = register(GLAIVE_CACKLING_BROOM_ID, McdwWeaponStatsConfig.CONFIG.getGlaiveItemStats().getGlaiveCacklingBroom());
     public static final McdwGlaiveItem GLAIVE_GLAIVE            = register(GLAIVE_GLAIVE_ID, McdwWeaponStatsConfig.CONFIG.getGlaiveItemStats().getGlaiveGlaive());
