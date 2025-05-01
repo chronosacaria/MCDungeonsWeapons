@@ -1,4 +1,95 @@
 plugins {
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "1.7-SNAPSHOT" apply false
+    id "me.modmuss50.mod-publish-plugin" version "0.3.4" apply false
+}
+
+architectury {
+    minecraft = rootProject.minecraft_version
+}
+
+subprojects {
+    apply plugin: "dev.architectury.loom"
+    apply plugin: "me.modmuss50.mod-publish-plugin"
+
+    base.archivesName = "${rootProject.archives_base_name}-${project.name}"
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        // The following line declares the mojmap mappings, you may use other mappings as well
+        // mappings loom.officialMojangMappings()
+        // The following line declares the yarn mappings you may select this one as well.
+        if (project.name != "neoforge") {
+            mappings "net.fabricmc:yarn:${rootProject.minecraft_version}+build.${rootProject.yarn_mappings}:v2"
+        }
+    }
+
+    //if (project.name != "common") {
+    //    publishMods {
+    //        file = remapJar.archiveFile
+    //        changelog = file('../CHANGELOG.md').text
+    //        type = project.mod_version.contains("alpha") ? ALPHA :
+    //                project.mod_version.contains("beta") ? BETA : STABLE
+
+    //        modrinth {
+    //            accessToken = providers.environmentVariable("MODRINTH_API_KEY")
+    //            projectId = "xweQBqAC"
+    //            minecraftVersions.add(rootProject.minecraft_version)
+    //        }
+
+    //        curseforge {
+    //            accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
+    //            projectId = "476788"
+    //            minecraftVersions.add(rootProject.minecraft_version)
+    //        }
+    //    }
+    //}
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+    apply plugin: "maven-publish"
+
+    version = "${rootProject.mod_version}+mc${rootProject.minecraft_version}"
+    group = rootProject.maven_group
+
+    repositories {
+        maven {
+            name = "TerraformersMC"
+            url = "https://maven.terraformersmc.com/"
+        }
+        maven {
+            name = "QuiltMC"
+            url = "https://maven.quiltmc.org/repository/release/"
+        }
+        maven {
+            name = "Modrinth"
+            url = "https://api.modrinth.com/maven"
+            content {
+                includeGroup "maven.modrinth"
+            }
+        }
+        maven {
+            name = "FzzyMaven"
+            url = "https://maven.fzzyhmstrs.me/"
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = "UTF-8"
+        options.release = 21
+    }
+
+    java {
+        withSourcesJar()
+    }
+}
+
+
+
+/*
+plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'maven-publish'
 }
@@ -125,3 +216,4 @@ publishing {
 fabricApi {
     configureDataGeneration()
 }
+*/
