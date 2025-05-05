@@ -6,20 +6,21 @@
   "description": "Add the weapons (and some tools) from Minecraft Dungeons to Minecraft Java",
   "authors": [
     "Chronosacaria",
-    "Kluzzio"
+    "Kluzzio",
+    "fzzyhmstrs"
   ],
   "contributors": [
     "Daedelus (Code)",
     "DaFuqs (Code)",
     "el0c (Code)",
     "Fourmisain (Code)",
-    "fzzyhmstrs (Code)",
     "Krutyi-4el (Code)",
     "LordDeatHunter (Code)",
     "pizzaspren (Code)",
     "Kai1907 (Art)",
     "SeaOfPixels (Art)",
     "RDKRACZ (Art)",
+    "yuripo (Art)",
     "Astro Monse (Translation, ru)",
     "Binaris00 (Translation, es)",
     "gyular (Translation, ko)",
@@ -44,7 +45,7 @@
       "dev.timefall.mcdw.client.McdwClient"
     ],
     "main": [
-      "dev.timefall.mcdw.Mcdw"
+      "dev.timefall.mcdw.McdwFabric"
     ]
   },
   "accessWidener": "mcdw.accesswidener",

@@ -15,9 +15,9 @@ public class McdwFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        McdwCommon.initialize();
         ConfigEnchantmentEnabledCondition.register();
         ConfigItemEnabledCondition.register();
-        McdwCommon.initialize();
         DefaultAttributeRegistryFabric.registerAttributes();
         McdwFabricEvents.registerEvents();
         LootRegistryFabric.register();

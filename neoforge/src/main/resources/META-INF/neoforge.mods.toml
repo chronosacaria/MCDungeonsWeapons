@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+issueTrackerURL = "https://www.github.com/chronosacaria/MCDungeonsWeapons/issues"
+license = "Timefall Development License 1.2"
+
+[[mods]]
+modId = "mcdw"
+version = "${version}"
+displayName = "MC Dungeons Weapons"
+authors = "Chronosacaria, Kluzzio, fzzyhmstrs, yuripo (Art), SeaOfPixels (Art), SattesKrokodil (Art), Patreons (Support)"
+description = '''
+Add the weapons (and some tools) from Minecraft Dungeons to Minecraft Java
+'''
+logoFile = "assets/mcdw/icon.png"
+
+[[dependencies.mcdw]]
+modId = "neoforge"
+type = "REQUIRED"
+versionRange = "[21.0.0-beta,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.mcdw]]
+modId = "minecraft"
+type = "REQUIRED"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.mcdw]]
+modId = "fzzy_config"
+type = "REQUIRED"
+versionRange = "[0.6.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config="mcdw.mixins.json"

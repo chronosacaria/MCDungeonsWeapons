@@ -121,3 +121,4 @@ run/
 /script.js
 /src/ReferenceClasses/*.java
 /common/src/main/generated/.cache/
+/common/src/ReferenceClasses/
