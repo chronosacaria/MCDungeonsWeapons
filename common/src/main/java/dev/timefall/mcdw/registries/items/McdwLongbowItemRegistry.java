@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwLongbowItem;
 import dev.timefall.mcdw.configs.stats.IMcdwWeaponStats;
@@ -18,9 +18,9 @@ import net.minecraft.util.Identifier;
 
 public class McdwLongbowItemRegistry {
 
-    public static final Identifier LONGBOW_GUARDIAN_BOW_ID      = McdwCommon.ID("longbow_guardian_bow");
-    public static final Identifier LONGBOW_LONGBOW_ID           = McdwCommon.ID("longbow_longbow");
-    public static final Identifier LONGBOW_RED_SNAKE_ID         = McdwCommon.ID("longbow_red_snake");
+    public static final Identifier LONGBOW_GUARDIAN_BOW_ID      = ModConstants.id("longbow_guardian_bow");
+    public static final Identifier LONGBOW_LONGBOW_ID           = ModConstants.id("longbow_longbow");
+    public static final Identifier LONGBOW_RED_SNAKE_ID         = ModConstants.id("longbow_red_snake");
 
     public static final McdwLongbowItem LONGBOW_GUARDIAN_BOW    = register(LONGBOW_GUARDIAN_BOW_ID, McdwWeaponStatsConfig.CONFIG.getLongbowItemStats().getLongbowGuardianBow());
     public static final McdwLongbowItem LONGBOW_LONGBOW         = register(LONGBOW_LONGBOW_ID, McdwWeaponStatsConfig.CONFIG.getLongbowItemStats().getLongbowLongbow());

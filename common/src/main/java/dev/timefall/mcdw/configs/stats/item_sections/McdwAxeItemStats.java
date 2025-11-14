@@ -16,23 +16,10 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwAxeItemStats extends ConfigSection {
-    @SuppressWarnings("CanBeFinal")
-    private IMcdwWeaponStats.MeleeStats axeAnchor          = IMcdwWeaponStats.meleeStats(
-            true,
-            true,
-            ToolMaterials.IRON,
-            8,
-            -3.4f,
-            0.0d,
-            10,
-            Identifier.of("minecraft:iron_ingot"));
-    @SuppressWarnings("CanBeFinal")
+    private IMcdwWeaponStats.MeleeStats axeAnchor          = IMcdwWeaponStats.meleeStats(true,  true,   ToolMaterials.IRON,     8,  -3.4f,  0.0d,  10,  Identifier.of("minecraft:iron_ingot"));
     private IMcdwWeaponStats.MeleeStats axeAxe             = IMcdwWeaponStats.meleeStats(true,  true,   ToolMaterials.IRON,     6,  -3.1f,  0.0d,   10, Identifier.of("minecraft:iron_ingot"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats axeEncrustedAnchor = IMcdwWeaponStats.meleeStats(true,  true,   ToolMaterials.DIAMOND,  8,  -3.4f,  0.0d,   5,  Identifier.of("minecraft:diamond"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats axeFirebrand       = IMcdwWeaponStats.meleeStats(true,  true,   ToolMaterials.DIAMOND,  4,  -2.9f,  0.0d,   5,  Identifier.of("minecraft:diamond"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats axeHighland        = IMcdwWeaponStats.meleeStats(true,  true,   ToolMaterials.IRON,     4,  -2.9f,  0.0d,   5,  Identifier.of("minecraft:iron_ingot"));
 
     public IMcdwWeaponStats.MeleeStats getAxeAnchor() { return axeAnchor; }

@@ -30,6 +30,7 @@ public interface IMcdwEnchantmentStats {
             public int procWeight = 0;
         @ValidatedFloat.Restrict(min = 0)
             public float effectOffset = 0.0f;
+        public boolean canAffectUser = true;
     }
 
     static EnchantmentStats enchantmentStats(
@@ -42,6 +43,21 @@ public interface IMcdwEnchantmentStats {
         stats.isAvailableForRandomSelection = isAvailableForRandomSelection;
         stats.isAvailableForEnchantedBookOffer = isAvailableForEnchantedBookOffer;
         stats.maxLevel = maxLevel;
+        return stats;
+    }
+
+    static EnchantmentStats enchantmentStats(
+            boolean isEnabled,
+            boolean isAvailableForRandomSelection,
+            boolean isAvailableForEnchantedBookOffer,
+            int maxLevel,
+            boolean canAffectUser) {
+        EnchantmentStats stats = new EnchantmentStats();
+        stats.isEnabled = isEnabled;
+        stats.isAvailableForRandomSelection = isAvailableForRandomSelection;
+        stats.isAvailableForEnchantedBookOffer = isAvailableForEnchantedBookOffer;
+        stats.maxLevel = maxLevel;
+        stats.canAffectUser = canAffectUser;
         return stats;
     }
 
@@ -81,6 +97,24 @@ public interface IMcdwEnchantmentStats {
             boolean isAvailableForEnchantedBookOffer,
             int maxLevel,
             int procWeight,
+            boolean canAffectUser)
+    {
+        EnchantmentStats stats = new EnchantmentStats();
+        stats.isEnabled = isEnabled;
+        stats.isAvailableForRandomSelection = isAvailableForRandomSelection;
+        stats.isAvailableForEnchantedBookOffer = isAvailableForEnchantedBookOffer;
+        stats.maxLevel = maxLevel;
+        stats.procWeight = procWeight;
+        stats.canAffectUser = canAffectUser;
+        return stats;
+    }
+
+    static EnchantmentStats enchantmentStats(
+            boolean isEnabled,
+            boolean isAvailableForRandomSelection,
+            boolean isAvailableForEnchantedBookOffer,
+            int maxLevel,
+            int procWeight,
             float effectOffset)
     {
         EnchantmentStats stats = new EnchantmentStats();
@@ -90,6 +124,26 @@ public interface IMcdwEnchantmentStats {
         stats.maxLevel = maxLevel;
         stats.procWeight = procWeight;
         stats.effectOffset = effectOffset;
+        return stats;
+    }
+
+    static EnchantmentStats enchantmentStats(
+            boolean isEnabled,
+            boolean isAvailableForRandomSelection,
+            boolean isAvailableForEnchantedBookOffer,
+            int maxLevel,
+            int procWeight,
+            float effectOffset,
+            boolean canAffectUser)
+    {
+        EnchantmentStats stats = new EnchantmentStats();
+        stats.isEnabled = isEnabled;
+        stats.isAvailableForRandomSelection = isAvailableForRandomSelection;
+        stats.isAvailableForEnchantedBookOffer = isAvailableForEnchantedBookOffer;
+        stats.maxLevel = maxLevel;
+        stats.procWeight = procWeight;
+        stats.effectOffset = effectOffset;
+        stats.canAffectUser = canAffectUser;
         return stats;
     }
 }

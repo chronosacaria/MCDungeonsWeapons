@@ -7,11 +7,8 @@
 package dev.timefall.mcdw;
 
 import dev.timefall.mcdw.configs.CompatibilityFlags;
-import dev.timefall.mcdw.enchantment.EnchantmentIds;
 import dev.timefall.mcdw.registries.*;
 import dev.timefall.mcdw.registries.items.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class McdwCommon {
 
@@ -38,7 +35,7 @@ public class McdwCommon {
         McdwWhipItemRegistry.register();
 
         // TODO CHECK ORDER AND MAKE SURE CALLED WHERE NEEDS TO BE CALLED
-        EnchantmentIds.init();
+        EnchantmentRegistry.register();
         CompatibilityFlags.init();
         CompatRegistry.register();
         EntityAttributesRegistry.register();
@@ -47,17 +44,13 @@ public class McdwCommon {
         ItemsRegistry.register();
 
         LootTablesRegistry.register();
-        EnchantsRegistry.register();
         SoundEventsRegistry.register();
 
         StatusEffectsRegistry.register();
         EnchantmentRestrictionsRegistry.register();
 
-        LOGGER.info("MCDW Common Initialized");
+        ModConstants.LOGGER.info("MCDW Common Initialized");
     }
-
-    @SuppressWarnings("unused")
-    public static final Logger LOGGER = LogManager.getLogger();
 
     /*
     @Override

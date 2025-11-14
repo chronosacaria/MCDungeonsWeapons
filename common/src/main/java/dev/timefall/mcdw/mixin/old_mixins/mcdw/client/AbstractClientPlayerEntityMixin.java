@@ -18,9 +18,11 @@ import dev.timefall.mcdw.bases.McdwBowItem;
 import dev.timefall.mcdw.bases.McdwLongbowItem;
 import dev.timefall.mcdw.bases.McdwShortbowItem;
 import dev.timefall.mcdw.enums.EnchantmentsID;
-import dev.timefall.mcdw.registries.EnchantsRegistry;
+import dev.timefall.mcdw.registries.EnchantmentRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
@@ -49,7 +51,7 @@ public class AbstractClientPlayerEntityMixin {
                     itemStack.getItem() instanceof McdwShortbowItem ||
                     itemStack.getItem() instanceof McdwLongbowItem) {
                 int i = abPlayer.getItemUseTime();
-                int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.OVERCHARGE), itemStack);
+                int overchargeLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.OVERCHARGE), itemStack);
                 if (overchargeLevel > 0) {
                     if (itemStack.getItem() instanceof McdwShortbowItem mcdwShortBowItem) {
                         int overcharge = (int) Math.min((i / mcdwShortBowItem.getDrawSpeed()) - 1, overchargeLevel);

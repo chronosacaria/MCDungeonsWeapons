@@ -8,8 +8,9 @@
 
 package dev.timefall.mcdw.configs.stats;
 
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.configs.stats.enchantment_sections.McdwEnchantmentStats;
+import kotlin.jvm.functions.Function0;
 import me.fzzyhmstrs.fzzy_config.annotations.IgnoreVisibility;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi;
 import me.fzzyhmstrs.fzzy_config.config.Config;
@@ -18,10 +19,10 @@ import me.fzzyhmstrs.fzzy_config.config.Config;
 @IgnoreVisibility
 public class McdwEnchantmentStatsConfig extends Config {
 
-    public static final McdwEnchantmentStatsConfig CONFIG = ConfigApi.registerAndLoadConfig(McdwEnchantmentStatsConfig::new);
+    public static final McdwEnchantmentStatsConfig CONFIG = ConfigApi.registerAndLoadConfig((Function0<? extends McdwEnchantmentStatsConfig>) McdwEnchantmentStatsConfig::new);
 
     public McdwEnchantmentStatsConfig() {
-        super(McdwCommon.ID("mcdw_enchantment_stats_config"));
+        super(ModConstants.id("mcdw_enchantment_stats_config"));
     }
 
     @SuppressWarnings("CanBeFinal")

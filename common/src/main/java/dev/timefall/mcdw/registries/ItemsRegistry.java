@@ -16,8 +16,6 @@ import net.minecraft.registry.Registry;
 import java.util.EnumMap;
 import java.util.Locale;
 
-import static dev.timefall.mcdw.McdwCommon.ID;
-
 public class ItemsRegistry {
 
     public static final EnumMap<ItemsID, Item> MCDW_ITEMS = new EnumMap<>(ItemsID.class);

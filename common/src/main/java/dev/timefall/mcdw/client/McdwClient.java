@@ -9,12 +9,15 @@ package dev.timefall.mcdw.client;
 
 import dev.timefall.mcdw.bases.*;
 import dev.timefall.mcdw.enums.EnchantmentsID;
-import dev.timefall.mcdw.registries.EnchantsRegistry;
+import dev.timefall.mcdw.registries.EnchantmentRegistry;
 import dev.timefall.mcdw.registries.StatusEffectsRegistry;
 import dev.timefall.mcdw.registries.SummonedEntityRegistry;
+import dev.timefall.mcdw.registries.items.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -96,7 +99,7 @@ public class McdwClient implements ClientModInitializer {
     private static float calculateDrawSpeed(ItemStack itemStack, LivingEntity livingEntity, float drawSpeed) {
         int useTicks = itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft();
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ACCELERATE).mcdw$getIsEnabled()) {
-            int accelerateLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.ACCELERATE), itemStack);
+            int accelerateLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.ACCELERATE), itemStack);
             if (accelerateLevel > 0) {
                 StatusEffectInstance accelerateInstance = livingEntity.getStatusEffect(StatusEffectsRegistry.ACCELERATE);
                 int consecutiveShots = accelerateInstance != null ? accelerateInstance.getAmplifier() + 1 : 0;
@@ -105,7 +108,7 @@ public class McdwClient implements ClientModInitializer {
             }
         }
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.OVERCHARGE).mcdw$getIsEnabled()) {
-            int overchargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.OVERCHARGE), itemStack);
+            int overchargeLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.OVERCHARGE), itemStack);
             if (overchargeLevel > 0) {
                 int overcharge = (int) Math.min((useTicks / drawSpeed) - 1, overchargeLevel);
                 useTicks = overcharge == overchargeLevel ? useTicks : (int) (useTicks % drawSpeed);

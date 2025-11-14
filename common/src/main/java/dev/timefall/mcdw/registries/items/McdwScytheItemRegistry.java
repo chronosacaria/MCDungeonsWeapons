@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwScytheItem;
@@ -21,10 +21,10 @@ import net.minecraft.util.Identifier;
 
 public class McdwScytheItemRegistry {
 
-    public static final Identifier SCYTHE_FROST_SCYTHE_ID      = McdwCommon.ID("scythe_frost_scythe");
-    public static final Identifier SCYTHE_JAILORS_SCYTHE_ID    = McdwCommon.ID("scythe_jailors_scythe");
-    public static final Identifier SCYTHE_SKULL_SCYTHE_ID      = McdwCommon.ID("scythe_skull_scythe");
-    public static final Identifier SCYTHE_SOUL_SCYTHE_ID       = McdwCommon.ID("scythe_soul_scythe");
+    public static final Identifier SCYTHE_FROST_SCYTHE_ID      = ModConstants.id("scythe_frost_scythe");
+    public static final Identifier SCYTHE_JAILORS_SCYTHE_ID    = ModConstants.id("scythe_jailors_scythe");
+    public static final Identifier SCYTHE_SKULL_SCYTHE_ID      = ModConstants.id("scythe_skull_scythe");
+    public static final Identifier SCYTHE_SOUL_SCYTHE_ID       = ModConstants.id("scythe_soul_scythe");
 
     public static final McdwScytheItem SCYTHE_FROST_SCYTHE     = register(SCYTHE_FROST_SCYTHE_ID, McdwWeaponStatsConfig.CONFIG.getScytheItemStats().getScytheFrostScythe());
     public static final McdwScytheItem SCYTHE_JAILORS_SCYTHE   = register(SCYTHE_JAILORS_SCYTHE_ID, McdwWeaponStatsConfig.CONFIG.getScytheItemStats().getScytheJailorsScythe());

@@ -7,7 +7,7 @@
 
 package dev.timefall.mcdw.component;
 
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.enchantment.effect.EntityAwareValueEffect;
 import net.minecraft.component.ComponentType;
 import net.minecraft.enchantment.effect.EnchantmentEffectEntry;
@@ -31,6 +31,6 @@ public class McdwEffectComponentTypes {
     public static final ComponentType<List<EnchantmentEffectEntry<EnchantmentValueEffect>>> XP_REPAIR_PLAYER = register("xp_repair_player", builder -> builder.codec(EnchantmentEffectEntry.createCodec(EnchantmentValueEffect.CODEC, LootContextTypes.ENCHANTED_ENTITY).listOf()));
 
     private static <T> ComponentType<T> register(String id, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
-        return Registry.register(Registries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, McdwCommon.ID(id), (builderOperator.apply(ComponentType.builder())).build());
+        return Registry.register(Registries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, ModConstants.id(id), (builderOperator.apply(ComponentType.builder())).build());
     }
 }

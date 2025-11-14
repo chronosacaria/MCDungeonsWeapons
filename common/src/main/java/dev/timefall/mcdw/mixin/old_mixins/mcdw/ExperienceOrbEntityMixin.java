@@ -45,10 +45,11 @@ public class ExperienceOrbEntityMixin {
     public void mcdw$ModifyExperience(Args args){
         PlayerEntity playerEntity = args.get(0);
         mcdw$setPlayerEntity(playerEntity);
+        boolean isOffHandAttack = playerEntity.getRecentDamageSource() instanceof OffHandDamageSource;
         int amount = args.get(1);
 
         if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SOUL_DEVOURER).mcdw$getIsEnabled())
-            amount = EnchantmentEffects.soulDevourerExperience(playerEntity, amount);
+            amount = EnchantmentEffects.soulDevourerExperience(playerEntity, amount, isOffHandAttack);
 
         args.set(1, amount);
     }

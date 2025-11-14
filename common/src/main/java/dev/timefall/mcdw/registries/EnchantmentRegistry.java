@@ -6,17 +6,72 @@
  */
 package dev.timefall.mcdw.registries;
 
-import dev.timefall.mcdw.McdwCommon;
-import dev.timefall.mcdw.enums.EnchantmentsID;
+import dev.timefall.mcdw.ModConstants;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.util.Identifier;
 
-import java.util.EnumMap;
+import java.util.ArrayList;
+import java.util.List;
 
-public class EnchantsRegistry {
+public class EnchantmentRegistry {
+    public static final List<Identifier> ENCHANTMENTS = new ArrayList<>();
 
-    public static final EnumMap<EnchantmentsID, Enchantment> enchantments = new EnumMap<>(EnchantmentsID.class);
+    public static RegistryKey<Enchantment> ACCELERATE         = of("accelerate");
+    public static RegistryKey<Enchantment> AMBUSH             = of("ambush");
+    public static RegistryKey<Enchantment> ANIMA_CONDUIT      = of("anima_conduit");
+    public static RegistryKey<Enchantment> BONUS_SHOT         = of("bonus_shot");
+    public static RegistryKey<Enchantment> BURST_BOWSTRING    = of("burst_bowstring");
+    public static RegistryKey<Enchantment> BUSY_BEE           = of("busy_bee");
+    public static RegistryKey<Enchantment> CHAIN_REACTION     = of("chain_reaction");
+    public static RegistryKey<Enchantment> CHAINS             = of("chains");
+    public static RegistryKey<Enchantment> CHARGE             = of("charge");
+    public static RegistryKey<Enchantment> COBWEB_SHOT        = of("cobweb_shot");
+    public static RegistryKey<Enchantment> COMMITTED          = of("committed");
+    public static RegistryKey<Enchantment> CRITICAL_HIT       = of("critical_hit");
+    public static RegistryKey<Enchantment> DIPPING_POISON     = of("dipping_poison");
+    public static RegistryKey<Enchantment> DYNAMO             = of("dynamo");
+    public static RegistryKey<Enchantment> ECHO               = of("echo");
+    public static RegistryKey<Enchantment> ENIGMA_RESONATOR   = of("enigma_resonator");
+    public static RegistryKey<Enchantment> EXPLODING          = of("exploding");
+    public static RegistryKey<Enchantment> FREEZING           = of("freezing");
+    public static RegistryKey<Enchantment> FUSE_SHOT          = of("fuse_shot");
+    public static RegistryKey<Enchantment> GRAVITY            = of("gravity");
+    public static RegistryKey<Enchantment> GROWING            = of("growing");
+    public static RegistryKey<Enchantment> GUARDING_STRIKE    = of("guarding_strike");
+    public static RegistryKey<Enchantment> ILLAGERS_BANE      = of("illagers_bane");
+    public static RegistryKey<Enchantment> JUNGLE_POISON      = of("jungle_poison");
+    public static RegistryKey<Enchantment> LEECHING           = of("leeching");
+    public static RegistryKey<Enchantment> LEVITATION_SHOT    = of("levitation_shot");
+    public static RegistryKey<Enchantment> MULTISHOT_BOW      = of("multishot");
+    public static RegistryKey<Enchantment> OVERCHARGE         = of("overcharge");
+    public static RegistryKey<Enchantment> PAIN_CYCLE         = of("pain_cycle");
+    public static RegistryKey<Enchantment> PHANTOMS_MARK      = of("phantoms_mark");
+    public static RegistryKey<Enchantment> POISON_CLOUD       = of("poison_cloud");
+    public static RegistryKey<Enchantment> PROSPECTOR         = of("prospector");
+    public static RegistryKey<Enchantment> RADIANCE           = of("radiance");
+    public static RegistryKey<Enchantment> RAMPAGING          = of("rampaging");
+    public static RegistryKey<Enchantment> REFRESHMENT        = of("refreshment");
+    public static RegistryKey<Enchantment> REPLENISH          = of("replenish");
+    public static RegistryKey<Enchantment> RICOCHET           = of("ricochet");
+    public static RegistryKey<Enchantment> RUSHDOWN           = of("rushdown");
+    public static RegistryKey<Enchantment> SHADOW_BARB        = of("shadow_barb");
+    public static RegistryKey<Enchantment> SHADOW_SHOT        = of("shadow_shot");
+    public static RegistryKey<Enchantment> SHARED_PAIN        = of("shared_pain");
+    public static RegistryKey<Enchantment> SHOCKWAVE          = of("shockwave");
+    public static RegistryKey<Enchantment> SMITING            = of("smiting");
+    public static RegistryKey<Enchantment> SOUL_DEVOURER      = of("soul_devourer");
+    public static RegistryKey<Enchantment> SOUL_SIPHON        = of("soul_siphon");
+    public static RegistryKey<Enchantment> STUNNING           = of("stunning");
+    public static RegistryKey<Enchantment> SWIRLING           = of("swirling");
+    public static RegistryKey<Enchantment> TEMPO_THEFT        = of("tempo_theft");
+    public static RegistryKey<Enchantment> THUNDERING         = of("thundering");
+    public static RegistryKey<Enchantment> VOID_SHOT          = of("void_shot");
+    public static RegistryKey<Enchantment> VOID_STRIKE        = of("void_strike");
+    public static RegistryKey<Enchantment> WEAKENING          = of("weakening");
+    public static RegistryKey<Enchantment> WILD_RAGE          = of("wild_rage");
+
     public static void register() {
         /*
         for (EnchantmentsID enchantmentsID : EnchantmentsID.values()) {
@@ -140,7 +195,9 @@ public class EnchantsRegistry {
          */
     }
 
-    private static void registerEnchantment(String id, Enchantment enchantment) {
-        Registry.register(Registries.ENCHANTMENT, McdwCommon.ID(id), enchantment);
+    private static RegistryKey<Enchantment> of(String path) {
+        Identifier id = ModConstants.id(path);
+        ENCHANTMENTS.add(id);
+        return RegistryKey.of(RegistryKeys.ENCHANTMENT, id);
     }
 }

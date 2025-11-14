@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwHammerItem;
@@ -20,14 +20,14 @@ import net.minecraft.util.Identifier;
 
 public class McdwHammerItemRegistry {
 
-    public static final Identifier HAMMER_BONECLUB_ID       = McdwCommon.ID("hammer_boneclub");
-    public static final Identifier HAMMER_BONE_CUDGEL_ID    = McdwCommon.ID("hammer_bone_cudgel");
-    public static final Identifier HAMMER_FLAIL_ID          = McdwCommon.ID("hammer_flail");
-    public static final Identifier HAMMER_GRAVITY_ID        = McdwCommon.ID("hammer_gravity");
-    public static final Identifier HAMMER_GREAT_HAMMER_ID   = McdwCommon.ID("hammer_great_hammer");
-    public static final Identifier HAMMER_MACE_ID           = McdwCommon.ID("hammer_mace");
-    public static final Identifier HAMMER_STORMLANDER_ID    = McdwCommon.ID("hammer_stormlander");
-    public static final Identifier HAMMER_SUNS_GRACE_ID     = McdwCommon.ID("hammer_suns_grace");
+    public static final Identifier HAMMER_BONECLUB_ID       = ModConstants.id("hammer_boneclub");
+    public static final Identifier HAMMER_BONE_CUDGEL_ID    = ModConstants.id("hammer_bone_cudgel");
+    public static final Identifier HAMMER_FLAIL_ID          = ModConstants.id("hammer_flail");
+    public static final Identifier HAMMER_GRAVITY_ID        = ModConstants.id("hammer_gravity");
+    public static final Identifier HAMMER_GREAT_HAMMER_ID   = ModConstants.id("hammer_great_hammer");
+    public static final Identifier HAMMER_MACE_ID           = ModConstants.id("hammer_mace");
+    public static final Identifier HAMMER_STORMLANDER_ID    = ModConstants.id("hammer_stormlander");
+    public static final Identifier HAMMER_SUNS_GRACE_ID     = ModConstants.id("hammer_suns_grace");
 
     public static final McdwHammerItem HAMMER_BONECLUB      = register(HAMMER_BONECLUB_ID, McdwWeaponStatsConfig.CONFIG.getHammerItemStats().getHammerBoneclub());
     public static final McdwHammerItem HAMMER_BONE_CUDGEL   = register(HAMMER_BONE_CUDGEL_ID, McdwWeaponStatsConfig.CONFIG.getHammerItemStats().getHammerBoneCudgel());

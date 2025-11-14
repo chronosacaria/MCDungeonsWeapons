@@ -26,7 +26,7 @@ public record ConfigItemEnabledCondition(Identifier item) implements ResourceCon
         ).apply(instance, ConfigItemEnabledCondition::new)
     );
 
-    private static final ResourceConditionType<ConfigItemEnabledCondition> TYPE = ResourceConditionType.create(McdwCommon.ID("item_enabled"), CODEC);
+    private static final ResourceConditionType<ConfigItemEnabledCondition> TYPE = ResourceConditionType.create(ModConstants.id("item_enabled"), CODEC);
 
     public static void register(){
         ResourceConditions.register(TYPE);

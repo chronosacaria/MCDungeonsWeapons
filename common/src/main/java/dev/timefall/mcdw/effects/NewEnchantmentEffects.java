@@ -15,7 +15,6 @@ import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.ItemEnchantmentsComponent;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentEffectContext;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.effect.EnchantmentEffectEntry;
 import net.minecraft.enchantment.effect.EnchantmentEffectTarget;
 import net.minecraft.enchantment.effect.EnchantmentEntityEffect;
@@ -113,7 +112,7 @@ public class NewEnchantmentEffects {
 
     // Should probably be replaced with AW at some point, but I'm just getting things working.
 
-    private static void forEachEnchantment(ItemStack stack, EnchantmentHelper.Consumer consumer) {
+    private static void forEachEnchantment(ItemStack stack, Consumer consumer) {
         ItemEnchantmentsComponent itemEnchantmentsComponent = (ItemEnchantmentsComponent)stack.getOrDefault(DataComponentTypes.ENCHANTMENTS, (Object)ItemEnchantmentsComponent.DEFAULT);
         for (Object2IntMap.Entry<RegistryEntry<Enchantment>> entry : itemEnchantmentsComponent.getEnchantmentEntries()) {
             consumer.accept(entry.getKey(), entry.getIntValue());
@@ -143,8 +142,13 @@ public class NewEnchantmentEffects {
     }
 
     @FunctionalInterface
+    interface Consumer {
+        void accept(RegistryEntry<Enchantment> enchantment, int level);
+    }
+
+    @FunctionalInterface
     interface ContextAwareConsumer {
-        void accept(RegistryEntry<Enchantment> var1, int var2, EnchantmentEffectContext var3);
+        void accept(RegistryEntry<Enchantment> enchantment, int level, EnchantmentEffectContext context);
     }
 
     // Hooks live here

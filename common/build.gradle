@@ -23,7 +23,8 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
-    modImplementation "me.fzzyhmstrs:fzzy_config:${rootProject.fzzyConfigVersion}"
+    modImplementation "me.fzzyhmstrs:fzzy_config:${rootProject.fzzy_config_version}"
+    modCompileOnly "maven.modrinth:mcdx:${rootProject.mcdx_version}"
     //modImplementation "net.fabricmc:fabric-language-kotlin:1.12.1+kotlin.2.0.20"
     //modImplementation "net.peanuuutz.tomlkt:tomlkt:0.3.7"
 }

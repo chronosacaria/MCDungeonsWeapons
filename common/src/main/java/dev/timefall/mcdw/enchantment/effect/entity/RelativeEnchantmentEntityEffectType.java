@@ -8,7 +8,7 @@ package dev.timefall.mcdw.enchantment.effect.entity;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.enchantment.effect.entity.relative.DamageTakenRelativeEnchantmentEntityEffect;
 import dev.timefall.mcdw.enchantment.effect.entity.relative.MaxHealthRelativeEnchantmentEntityEffectType;
 import dev.timefall.mcdw.registries.McdwRegistries;
@@ -35,9 +35,9 @@ public interface RelativeEnchantmentEntityEffectType extends EnchantmentEntityEf
     MapCodec<? extends RelativeEnchantmentEntityEffectType> getCodec();
 
     static void register(Registry<MapCodec<? extends RelativeEnchantmentEntityEffectType>> registry){
-        Registry.register(registry, McdwCommon.ID("unit"), Unit.CODEC);
-        Registry.register(registry, McdwCommon.ID("damage_taken_relative"), DamageTakenRelativeEnchantmentEntityEffect.CODEC);
-        Registry.register(registry, McdwCommon.ID("max_health_relative"), MaxHealthRelativeEnchantmentEntityEffectType.CODEC);
+        Registry.register(registry, ModConstants.id("unit"), Unit.CODEC);
+        Registry.register(registry, ModConstants.id("damage_taken_relative"), DamageTakenRelativeEnchantmentEntityEffect.CODEC);
+        Registry.register(registry, ModConstants.id("max_health_relative"), MaxHealthRelativeEnchantmentEntityEffectType.CODEC);
     }
 
     //////////////

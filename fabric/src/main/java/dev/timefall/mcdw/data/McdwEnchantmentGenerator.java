@@ -8,13 +8,13 @@
 package dev.timefall.mcdw.data;
 
 import dev.timefall.mcdw.component.McdwEffectComponentTypes;
-import dev.timefall.mcdw.enchantment.EnchantmentIds;
 import dev.timefall.mcdw.enchantment.effect.entity.AOEEnchantmentEntityEffect;
 import dev.timefall.mcdw.enchantment.effect.entity.ApplyStackingMobEffectEnchantmentEntityEffect;
 import dev.timefall.mcdw.enchantment.effect.entity.LeechMobEnchantmentEntityEffect;
 import dev.timefall.mcdw.enchantment.effect.entity.RemoveMobEffectEnchantmentEntityEffect;
 import dev.timefall.mcdw.enchantment.effect.entity.relative.DamageTakenRelativeEnchantmentEntityEffect;
 import dev.timefall.mcdw.enchantment.effect.entity_aware.MultiplyStatusValueEffect;
+import dev.timefall.mcdw.registries.EnchantmentRegistry;
 import dev.timefall.mcdw.registries.SoundEventsRegistry;
 import dev.timefall.mcdw.registries.StatusEffectsRegistry;
 import dev.timefall.mcdw.registries.tag.McdwEnchantmentTags;
@@ -76,7 +76,7 @@ public class McdwEnchantmentGenerator extends FabricDynamicRegistryProvider {
         // DYNAMO
         register(
             entries,
-            EnchantmentIds.DYNAMO,
+            EnchantmentRegistry.DYNAMO,
             Enchantment.builder(
                 Enchantment.definition(
                     itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
@@ -110,7 +110,7 @@ public class McdwEnchantmentGenerator extends FabricDynamicRegistryProvider {
         // ECHO
         register(
                 entries,
-                EnchantmentIds.ECHO,
+                EnchantmentRegistry.ECHO,
                 Enchantment.builder(
                         Enchantment.definition(
                                 itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
@@ -146,7 +146,7 @@ public class McdwEnchantmentGenerator extends FabricDynamicRegistryProvider {
                         () -> new RandomChanceWithEnchantedBonusLootCondition(
                             0f,
                             EnchantmentLevelBasedValue.linear(0.15f),
-                            enchantmentLookup.getOrThrow(EnchantmentIds.ECHO)
+                            enchantmentLookup.getOrThrow(EnchantmentRegistry.ECHO)
                         )
                 )
         );
@@ -154,7 +154,7 @@ public class McdwEnchantmentGenerator extends FabricDynamicRegistryProvider {
         // LEECHING
         register(
                 entries,
-                EnchantmentIds.LEECHING,
+                EnchantmentRegistry.LEECHING,
                 Enchantment.builder(
                     Enchantment.definition(
                         itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
@@ -178,7 +178,7 @@ public class McdwEnchantmentGenerator extends FabricDynamicRegistryProvider {
         // PAIN_CYCLE
         register(
                 entries,
-                EnchantmentIds.PAIN_CYCLE,
+                EnchantmentRegistry.PAIN_CYCLE,
                 Enchantment.builder(
                     Enchantment.definition(
                         itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
@@ -228,7 +228,7 @@ public class McdwEnchantmentGenerator extends FabricDynamicRegistryProvider {
             // the enchantment registerable
             entries,
             // the RegistryKey of SOUL_DEVOURER, kept in the Ids class
-            EnchantmentIds.SOUL_DEVOURER,
+            EnchantmentRegistry.SOUL_DEVOURER,
             //the enchantment builder itself
             Enchantment.builder(
                 // first, the definitions. This is the "basic stats" of the enchantment.
@@ -264,7 +264,7 @@ public class McdwEnchantmentGenerator extends FabricDynamicRegistryProvider {
         // SOUL_SIPHON
         register(
                 entries,
-                EnchantmentIds.SOUL_SIPHON,
+                EnchantmentRegistry.SOUL_SIPHON,
                 Enchantment.builder(
                     Enchantment.definition(
                         itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),

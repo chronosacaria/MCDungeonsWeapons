@@ -7,7 +7,7 @@
 
 package dev.timefall.mcdw.data;
 
-import dev.timefall.mcdw.enchantment.EnchantmentIds;
+import dev.timefall.mcdw.registries.EnchantmentRegistry;
 import dev.timefall.mcdw.registries.tag.McdwEnchantmentTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -27,7 +27,7 @@ public class McdwEnchantmentTagGenerator extends FabricTagProvider.EnchantmentTa
 
         getOrCreateTagBuilder(McdwEnchantmentTags.AOE_EXCLUSIVE)
                 .setReplace(false)
-                .addOptional(EnchantmentIds.ECHO);
+                .addOptional(EnchantmentRegistry.ECHO);
 
         getOrCreateTagBuilder(McdwEnchantmentTags.AOE_AND_DAMAGE_EXCLUSIVE)
                 .setReplace(false)
@@ -36,20 +36,20 @@ public class McdwEnchantmentTagGenerator extends FabricTagProvider.EnchantmentTa
 
         getOrCreateTagBuilder(McdwEnchantmentTags.DAMAGE_EXCLUSIVE)
                 .setReplace(false)
-                .addOptional(EnchantmentIds.DYNAMO)
-                .addOptional(EnchantmentIds.PAIN_CYCLE);
+                .addOptional(EnchantmentRegistry.DYNAMO)
+                .addOptional(EnchantmentRegistry.PAIN_CYCLE);
 
         getOrCreateTagBuilder(McdwEnchantmentTags.EXPERIENCE_EXCLUSIVE)
                 .setReplace(false)
-                .addOptional(EnchantmentIds.ANIMA_CONDUIT)
-                .addOptional(EnchantmentIds.SOUL_DEVOURER)
-                .addOptional(EnchantmentIds.SOUL_SIPHON);
+                .addOptional(EnchantmentRegistry.ANIMA_CONDUIT)
+                .addOptional(EnchantmentRegistry.SOUL_DEVOURER)
+                .addOptional(EnchantmentRegistry.SOUL_SIPHON);
 
         getOrCreateTagBuilder(McdwEnchantmentTags.HEALING_EXCLUSIVE)
                 .setReplace(false)
-                .addOptional(EnchantmentIds.ANIMA_CONDUIT)
-                .addOptional(EnchantmentIds.LEECHING)
-                .addOptional(EnchantmentIds.RADIANCE);
+                .addOptional(EnchantmentRegistry.ANIMA_CONDUIT)
+                .addOptional(EnchantmentRegistry.LEECHING)
+                .addOptional(EnchantmentRegistry.RADIANCE);
 
     }
 

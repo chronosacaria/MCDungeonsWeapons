@@ -12,14 +12,14 @@ import java.util.LinkedHashMap;
 
 public class McdwNewLootConfig{
 
-    public final LinkedHashMap<SettingsID, Boolean> WEAPONS_ENABLED_IN_LOOTTABLES = new LinkedHashMap<>();
+    public final LinkedHashMap<SettingsID, Boolean> WEAPONS_ENABLED_IN_LOOT_TABLES = new LinkedHashMap<>();
     public final LinkedHashMap<SettingsID, String[]> COMMON_LOOT_TABLES = new LinkedHashMap<>();
     public final LinkedHashMap<SettingsID, String[]> UNCOMMON_LOOT_TABLES = new LinkedHashMap<>();
     public final LinkedHashMap<SettingsID, String[]> RARE_LOOT_TABLES = new LinkedHashMap<>();
     public final LinkedHashMap<SettingsID, String[]> EPIC_LOOT_TABLES = new LinkedHashMap<>();
 
     public McdwNewLootConfig(){
-        WEAPONS_ENABLED_IN_LOOTTABLES.put(SettingsID.ENABLE_WEAPONS_IN_LOOT_TABLES, true);
+        WEAPONS_ENABLED_IN_LOOT_TABLES.put(SettingsID.ENABLE_WEAPONS_IN_LOOT_TABLES, true);
 
         /* LOOT TABLES */
 

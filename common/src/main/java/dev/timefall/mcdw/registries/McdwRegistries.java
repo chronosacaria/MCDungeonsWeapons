@@ -8,7 +8,7 @@
 package dev.timefall.mcdw.registries;
 
 import com.mojang.serialization.MapCodec;
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.enchantment.effect.EntityAwareValueEffect;
 import dev.timefall.mcdw.enchantment.effect.entity.RelativeEnchantmentEntityEffectType;
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
@@ -17,9 +17,9 @@ import net.minecraft.registry.RegistryKey;
 
 public class McdwRegistries {
 
-    public static final DefaultedRegistry<MapCodec<? extends EntityAwareValueEffect>> ENTITY_AWARE_VALUE_EFFECT_TYPES = FabricRegistryBuilder.<MapCodec<? extends EntityAwareValueEffect>>createDefaulted(RegistryKey.ofRegistry(McdwCommon.ID("entity_aware_value_effect_types")), McdwCommon.ID("unit")).buildAndRegister();
+    public static final DefaultedRegistry<MapCodec<? extends EntityAwareValueEffect>> ENTITY_AWARE_VALUE_EFFECT_TYPES = FabricRegistryBuilder.<MapCodec<? extends EntityAwareValueEffect>>createDefaulted(RegistryKey.ofRegistry(ModConstants.id("entity_aware_value_effect_types")), ModConstants.id("unit")).buildAndRegister();
 
-    public static final DefaultedRegistry<MapCodec<? extends RelativeEnchantmentEntityEffectType>> RELATIVE_ENTITY_EFFECT_TYPES = FabricRegistryBuilder.<MapCodec<? extends RelativeEnchantmentEntityEffectType>>createDefaulted(RegistryKey.ofRegistry(McdwCommon.ID("relative_entity_effect_types")), McdwCommon.ID("unit")).buildAndRegister();
+    public static final DefaultedRegistry<MapCodec<? extends RelativeEnchantmentEntityEffectType>> RELATIVE_ENTITY_EFFECT_TYPES = FabricRegistryBuilder.<MapCodec<? extends RelativeEnchantmentEntityEffectType>>createDefaulted(RegistryKey.ofRegistry(ModConstants.id("relative_entity_effect_types")), ModConstants.id("unit")).buildAndRegister();
 
 
     public static void register(){

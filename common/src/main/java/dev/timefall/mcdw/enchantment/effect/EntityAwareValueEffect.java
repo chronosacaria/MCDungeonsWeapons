@@ -9,7 +9,7 @@ package dev.timefall.mcdw.enchantment.effect;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.enchantment.effect.entity_aware.ExperienceLevelValueEffectType;
 import dev.timefall.mcdw.enchantment.effect.entity_aware.MultiplyStatusValueEffect;
 import dev.timefall.mcdw.mixin.EnchantmentAccessor;
@@ -33,9 +33,9 @@ public interface EntityAwareValueEffect {
     MapCodec<? extends EntityAwareValueEffect> getCodec();
 
     static void register(Registry<MapCodec<? extends EntityAwareValueEffect>> registry) {
-        Registry.register(registry, McdwCommon.ID("unit"), Unit.CODEC);
-        Registry.register(registry, McdwCommon.ID("multiply_status"), MultiplyStatusValueEffect.CODEC);
-        Registry.register(registry, McdwCommon.ID("experience_level"), ExperienceLevelValueEffectType.CODEC);
+        Registry.register(registry, ModConstants.id("unit"), Unit.CODEC);
+        Registry.register(registry, ModConstants.id("multiply_status"), MultiplyStatusValueEffect.CODEC);
+        Registry.register(registry, ModConstants.id("experience_level"), ExperienceLevelValueEffectType.CODEC);
     }
 
     static void modifyValue(Enchantment enchantment, ComponentType<EntityAwareValueEffect> type, LivingEntity livingEntity, int level, MutableFloat value) {

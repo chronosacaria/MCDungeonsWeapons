@@ -145,7 +145,12 @@ public class McdwEnchantmentStats extends ConfigSection {
     @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats shadowShotEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  false,  false,  1);
     @SuppressWarnings("CanBeFinal")
-    private IMcdwEnchantmentStats.EnchantmentStats sharedPainEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  false,  false,  3);
+    @Comment("""
+            Effect:                 If a player does not damage a living entity within a certain amount of time they will begin to take damage,
+            canAffectPlayer Note:   true == yes ; false == no,
+            Default:                true
+            """)
+    private IMcdwEnchantmentStats.EnchantmentStats sharedPainEnchantment        = IMcdwEnchantmentStats.enchantmentStats(true,  false,  false,  3,  true);
     @SuppressWarnings("CanBeFinal")
     private IMcdwEnchantmentStats.EnchantmentStats shockwaveEnchantment         = IMcdwEnchantmentStats.enchantmentStats(true,  true,   true,   3,  10);
     @SuppressWarnings("CanBeFinal")

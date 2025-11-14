@@ -23,14 +23,11 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwSickleItemStats extends ConfigSection {
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats sickleLastLaughGold     = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 2,  -2.1f,  -1.0d,  5,  Identifier.of("minecraft:iron_ingot"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats sickleLastLaughSilver   = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 2,  -2.1f,  -1.0d,  5,  Identifier.of("minecraft:iron_ingot"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats sickleNightmaresBite    = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 2,  -2.1f,  -1.0d,  5,  Identifier.of("minecraft:iron_ingot"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats sickleSickle            = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON, 1,  -2.1f,  -1.0d,  10,  Identifier.of("minecraft:iron_ingot"));
+
     public IMcdwWeaponStats.MeleeStats getSickleLastLaughGold() {
         return sickleLastLaughGold;
     }

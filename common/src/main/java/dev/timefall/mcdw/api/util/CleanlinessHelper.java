@@ -12,7 +12,7 @@ import dev.timefall.mcdw.bases.McdwLongbowItem;
 import dev.timefall.mcdw.bases.McdwShortbowItem;
 import dev.timefall.mcdw.configs.CompatibilityFlags;
 import dev.timefall.mcdw.enums.EnchantmentsID;
-import dev.timefall.mcdw.registries.EnchantsRegistry;
+import dev.timefall.mcdw.registries.EnchantmentRegistry;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -127,83 +127,83 @@ public class CleanlinessHelper {
     }
 
     public static void addPPEEnchantments(ItemStack itemStack, IMcdwEnchantedArrow ppe) {
-        int chainReactionLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.CHAIN_REACTION), itemStack);
+        int chainReactionLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.CHAIN_REACTION), itemStack);
         if (chainReactionLevel > 0) {
             ppe.mcdw$setChainReactionLevel(chainReactionLevel);
         }
-        int chargeLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.CHARGE), itemStack);
+        int chargeLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.CHARGE), itemStack);
         if (chargeLevel > 0) {
             ppe.mcdw$setChargeLevel(chargeLevel);
         }
-        int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.COBWEB_SHOT), itemStack);
+        int cobwebShotLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.COBWEB_SHOT), itemStack);
         if (cobwebShotLevel > 0) {
             ppe.mcdw$setCobwebShotLevel(cobwebShotLevel);
         }
-        int dynamoLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.DYNAMO), itemStack);
+        int dynamoLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.DYNAMO), itemStack);
         if (dynamoLevel > 0) {
             ppe.mcdw$setDynamoLevel(dynamoLevel);
         }
-        int enigmaResonatorLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.ENIGMA_RESONATOR), itemStack);
+        int enigmaResonatorLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.ENIGMA_RESONATOR), itemStack);
         if (enigmaResonatorLevel > 0) {
             ppe.mcdw$setEnigmaResonatorLevel(enigmaResonatorLevel);
         }
-        int fuseShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.FUSE_SHOT), itemStack);
+        int fuseShotLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.FUSE_SHOT), itemStack);
         if (fuseShotLevel > 0) {
             ppe.mcdw$setFuseShotLevel(fuseShotLevel);
         }
-        int freezingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.FREEZING), itemStack);
+        int freezingLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.FREEZING), itemStack);
         if (freezingLevel > 0) {
             ppe.mcdw$setFreezingLevel(freezingLevel);
         }
-        int gravityLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.GRAVITY), itemStack);
+        int gravityLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.GRAVITY), itemStack);
         if (gravityLevel > 0) {
             ppe.mcdw$setGravityLevel(gravityLevel);
         }
-        int growingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.GROWING), itemStack);
+        int growingLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.GROWING), itemStack);
         if (growingLevel > 0) {
             ppe.mcdw$setGrowingLevel(growingLevel);
         }
-        int levitationShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.LEVITATION_SHOT), itemStack);
+        int levitationShotLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.LEVITATION_SHOT), itemStack);
         if (levitationShotLevel > 0) {
             ppe.mcdw$setLevitationShotLevel(levitationShotLevel);
         }
-        int phantomsMarkLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.PHANTOMS_MARK), itemStack);
+        int phantomsMarkLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.PHANTOMS_MARK), itemStack);
         if (phantomsMarkLevel > 0) {
             ppe.mcdw$setPhantomsMarkLevel(phantomsMarkLevel);
         }
-        int poisonCloudLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.POISON_CLOUD), itemStack);
+        int poisonCloudLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.POISON_CLOUD), itemStack);
         if (poisonCloudLevel > 0) {
             ppe.mcdw$setPoisonCloudLevel(poisonCloudLevel);
         }
-        int radianceLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.RADIANCE), itemStack);
+        int radianceLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.RADIANCE), itemStack);
         if (radianceLevel > 0) {
             ppe.mcdw$setRadianceLevel(radianceLevel);
         }
-        int replenishLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.REPLENISH), itemStack);
+        int replenishLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.REPLENISH), itemStack);
         if (replenishLevel > 0) {
             ppe.mcdw$setReplenishLevel(replenishLevel);
         }
-        int ricochetLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.RICOCHET), itemStack);
+        int ricochetLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.RICOCHET), itemStack);
         if (ricochetLevel > 0) {
             ppe.mcdw$setRicochetLevel(ricochetLevel);
         }
-        int shadowShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.SHADOW_SHOT), itemStack);
+        int shadowShotLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.SHADOW_SHOT), itemStack);
         if (shadowShotLevel > 0) {
             ppe.mcdw$setShadowShotLevel(shadowShotLevel);
         }
-        int tempoTheftLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.TEMPO_THEFT), itemStack);
+        int tempoTheftLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.TEMPO_THEFT), itemStack);
         if (tempoTheftLevel > 0) {
             ppe.mcdw$setTempoTheftLevel(tempoTheftLevel);
         }
-        int thunderingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.THUNDERING), itemStack);
+        int thunderingLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.THUNDERING), itemStack);
         if (thunderingLevel > 0) {
             ppe.mcdw$setThunderingLevel(thunderingLevel);
         }
-        int voidShotLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.VOID_SHOT), itemStack);
+        int voidShotLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.VOID_SHOT), itemStack);
         if (voidShotLevel > 0) {
             ppe.mcdw$setVoidShotLevel(voidShotLevel);
         }
-        int wildRageLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.WILD_RAGE), itemStack);
+        int wildRageLevel = EnchantmentHelper.getLevel(EnchantmentRegistry.enchantments.get(EnchantmentsID.WILD_RAGE), itemStack);
         if (wildRageLevel > 0){
             ppe.mcdw$setWildRageLevel(wildRageLevel);
         }
@@ -238,8 +238,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.GENERIC_ATTACK_DAMAGE,
                         new EntityAttributeModifier(
-                                Item.ATTACK_DAMAGE_MODIFIER_ID,
-                                "Weapon modifier",
+                                Item.BASE_ATTACK_DAMAGE_MODIFIER_ID,
                                 (float) attackDamage + material.getAttackDamage(),
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),
@@ -248,8 +247,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.GENERIC_ATTACK_SPEED,
                         new EntityAttributeModifier(
-                                Item.ATTACK_SPEED_MODIFIER_ID,
-                                "Weapon modifier",
+                                Item.BASE_ATTACK_SPEED_MODIFIER_ID,
                                 attackSpeed,
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),
@@ -263,8 +261,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.GENERIC_ATTACK_DAMAGE,
                         new EntityAttributeModifier(
-                                Item.ATTACK_DAMAGE_MODIFIER_ID,
-                                "Weapon modifier",
+                                Item.BASE_ATTACK_DAMAGE_MODIFIER_ID,
                                 (float) attackDamage + material.getAttackDamage(),
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),
@@ -273,8 +270,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.GENERIC_ATTACK_SPEED,
                         new EntityAttributeModifier(
-                                Item.ATTACK_SPEED_MODIFIER_ID,
-                                "Weapon modifier",
+                                Item.BASE_ATTACK_SPEED_MODIFIER_ID,
                                 attackSpeed,
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),
@@ -283,7 +279,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE,
                         new EntityAttributeModifier(
-                                "player.entity_interaction_range",
+                                Identifier.ofVanilla("player.entity_interaction_range"),
                                 additionalAttackReach,
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),
@@ -297,8 +293,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.GENERIC_ATTACK_DAMAGE,
                         new EntityAttributeModifier(
-                                Item.ATTACK_DAMAGE_MODIFIER_ID,
-                                "Weapon modifier",
+                                Item.BASE_ATTACK_DAMAGE_MODIFIER_ID,
                                 (float) attackDamage + material.getAttackDamage(),
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),
@@ -307,8 +302,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.GENERIC_ATTACK_DAMAGE,
                         new EntityAttributeModifier(
-                                Item.ATTACK_DAMAGE_MODIFIER_ID,
-                                "Weapon modifier",
+                                Item.BASE_ATTACK_DAMAGE_MODIFIER_ID,
                                 (float) attackDamage + material.getAttackDamage(),
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),
@@ -317,8 +311,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.GENERIC_ATTACK_SPEED,
                         new EntityAttributeModifier(
-                                Item.ATTACK_SPEED_MODIFIER_ID,
-                                "Weapon modifier",
+                                Item.BASE_ATTACK_SPEED_MODIFIER_ID,
                                 attackSpeed,
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),
@@ -327,8 +320,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.GENERIC_ATTACK_SPEED,
                         new EntityAttributeModifier(
-                                Item.ATTACK_SPEED_MODIFIER_ID,
-                                "Weapon modifier",
+                                Item.BASE_ATTACK_SPEED_MODIFIER_ID,
                                 attackSpeed,
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),
@@ -337,7 +329,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE,
                         new EntityAttributeModifier(
-                                "player.entity_interaction_range",
+                                Identifier.ofVanilla("player.entity_interaction_range"),
                                 additionalAttackReach,
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),
@@ -346,7 +338,7 @@ public class CleanlinessHelper {
                 .add(
                         EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE,
                         new EntityAttributeModifier(
-                                "player.entity_interaction_range",
+                                Identifier.ofVanilla("player.entity_interaction_range"),
                                 additionalAttackReach,
                                 EntityAttributeModifier.Operation.ADD_VALUE
                         ),

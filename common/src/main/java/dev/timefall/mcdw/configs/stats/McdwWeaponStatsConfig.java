@@ -8,8 +8,9 @@
 
 package dev.timefall.mcdw.configs.stats;
 
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.configs.stats.item_sections.*;
+import kotlin.jvm.functions.Function0;
 import me.fzzyhmstrs.fzzy_config.annotations.IgnoreVisibility;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi;
 import me.fzzyhmstrs.fzzy_config.config.Config;
@@ -23,10 +24,10 @@ import java.util.function.Supplier;
 @IgnoreVisibility
 public class McdwWeaponStatsConfig extends Config {
 
-    public static final McdwWeaponStatsConfig CONFIG = ConfigApi.registerAndLoadConfig(McdwWeaponStatsConfig::new);
+    public static final McdwWeaponStatsConfig CONFIG = ConfigApi.registerAndLoadConfig((Function0<? extends McdwWeaponStatsConfig>) McdwWeaponStatsConfig::new);
 
     public McdwWeaponStatsConfig() {
-        super(McdwCommon.ID("mcdw_weapon_stats_config"));
+        super(ModConstants.id("mcdw_weapon_stats_config"));
     }
 
     @SuppressWarnings("CanBeFinal")

@@ -1,5 +1,12 @@
 /*
  * Timefall Development License 1.2
+ * Copyright (c) 2025. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+ *
+ * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
+ */
+
+/*
+ * Timefall Development License 1.2
  * Copyright (c) 2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
@@ -11,13 +18,13 @@
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.mixin.old_mixins.mcdw;
+package dev.timefall.mcdw.mixin.mcdw;
 
 
 import dev.timefall.mcdw.api.util.PlayerAttackHelper;
+import dev.timefall.mcdw.configs.stats.McdwEnchantmentStatsConfig;
 import dev.timefall.mcdw.damagesources.OffHandDamageSource;
 import dev.timefall.mcdw.effects.EnchantmentEffects;
-import dev.timefall.mcdw.enums.EnchantmentsID;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTypes;
@@ -45,46 +52,47 @@ public class LivingEntityPlayerEntityMixin {
 
         if (amount > 0) {
 
-            float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentsConfig.directDamageEnchantmentMultiplier;
+            // TODO Consider readding a configurable multiplier for stored damage
+            float storedAmount = amount;
 
             if (source.getSource() instanceof LivingEntity) {
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.AMBUSH).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getAmbushEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.ambushDamage(attackingEntity, victim, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.CRITICAL_HIT).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getCriticalHitEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.criticalHitDamage(attackingEntity, victim, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.VOID_STRIKE).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getVoidStrikeEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.voidStrikeDamage(attackingEntity, victim, isOffHandAttack);
                 if (!PlayerAttackHelper.mcdw$isLikelyNotMeleeDamage(source)) {
-                    if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.PAIN_CYCLE).mcdw$getIsEnabled())
+                    if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getPainCycleEnchantment().isEnabled)
                         amount += storedAmount * EnchantmentEffects.painCycleDamage(attackingEntity, isOffHandAttack);
                 }
             }
 
             if (source.getSource() instanceof PlayerEntity attackingPlayer) {
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ENIGMA_RESONATOR).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getEnigmaResonatorEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.enigmaResonatorDamage(attackingPlayer, victim, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.DYNAMO).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getDynamoEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.dynamoDamage(attackingEntity, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SHADOW_SHOT).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getShadowShotEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.shadowFormDamage(attackingEntity);
             }
 
             if (source.getSource() instanceof PersistentProjectileEntity ppe) {
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ENIGMA_RESONATOR).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getEnigmaResonatorEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.enigmaShotDamage(attackingEntity, victim, ppe);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.GROWING).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getGrowingEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.growingDamage(attackingEntity, victim, ppe);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.VOID_SHOT).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getVoidShotEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.voidShotDamage(victim, ppe);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.DYNAMO).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getDynamoEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.dynamoShotDamage(attackingEntity, ppe);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SHADOW_SHOT).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getShadowShotEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.shadowFormShotDamage(attackingEntity, ppe);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.OVERCHARGE).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getOverchargeEnchantment().isEnabled)
                     amount += storedAmount * EnchantmentEffects.overchargeDamage(ppe);
             }
 
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.COMMITTED).mcdw$getIsEnabled())
+            if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getCommittedEnchantment().isEnabled)
                 amount += EnchantmentEffects.committedDamage(attackingEntity, victim, isOffHandAttack);
         }
 
@@ -107,29 +115,29 @@ public class LivingEntityPlayerEntityMixin {
                          || sourceEntity.getMainHandStack().getItem() instanceof CrossbowItem)
             ) {
 
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.FREEZING).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getFreezingEnchantment().isEnabled)
                     EnchantmentEffects.applyFreezing(attackingEntity, victim, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.JUNGLE_POISON).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getJunglePoisonEnchantment().isEnabled)
                     EnchantmentEffects.applyPoisoning(attackingEntity, victim, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.POISON_CLOUD).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getPoisonCloudEnchantment().isEnabled)
                     EnchantmentEffects.applyPoisonCloud(attackingEntity, victim, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.RADIANCE).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getRadianceEnchantment().isEnabled)
                     EnchantmentEffects.applyRadianceCloud(attackingEntity, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SHOCKWAVE).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getShockwaveEnchantment().isEnabled)
                     EnchantmentEffects.applyShockwave(attackingEntity, victim, amount, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.STUNNING).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getStunningEnchantment().isEnabled)
                     EnchantmentEffects.applyStunning(attackingEntity, victim, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SWIRLING).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getSwirlingEnchantment().isEnabled)
                     EnchantmentEffects.applySwirling(attackingEntity, victim, amount, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.THUNDERING).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getThunderingEnchantment().isEnabled)
                     EnchantmentEffects.applyThundering(attackingEntity, amount, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.WEAKENING).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getWeakeningEnchantment().isEnabled)
                     EnchantmentEffects.applyWeakeningCloud(attackingEntity, victim, isOffHandAttack);
 
                 if (!source.isOf(DamageTypes.ARROW)) {
-                    if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.CHAINS).mcdw$getIsEnabled())
+                    if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getChainsEnchantment().isEnabled)
                         EnchantmentEffects.applyChains(attackingEntity, victim, isOffHandAttack);
-                    if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.GRAVITY).mcdw$getIsEnabled())
+                    if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getGravityEnchantment().isEnabled)
                         EnchantmentEffects.applyGravity(attackingEntity, victim, isOffHandAttack);
                 }
             }
@@ -151,7 +159,7 @@ public class LivingEntityPlayerEntityMixin {
                     && !(sourceEntity.getMainHandStack().getItem() instanceof BowItem
                     || sourceEntity.getMainHandStack().getItem() instanceof CrossbowItem)
             ) {
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.ECHO).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getEchoEnchantment().isEnabled)
                     EnchantmentEffects.echoDamage(attackingEntity, victim, amount, isOffHandAttack);
             }
         }
@@ -168,15 +176,15 @@ public class LivingEntityPlayerEntityMixin {
                     && !(sourceEntity.getMainHandStack().getItem() instanceof BowItem
                     || sourceEntity.getMainHandStack().getItem() instanceof CrossbowItem)
             ) {
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.EXPLODING).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getExplodingEnchantment().isEnabled)
                     EnchantmentEffects.explodingDamage(attackingEntity, victim, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.RAMPAGING).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getRampagingEnchantment().isEnabled)
                     EnchantmentEffects.applyRampaging(attackingEntity, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.LEECHING).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getLeechingEnchantment().isEnabled)
                     EnchantmentEffects.applyLeeching(attackingEntity, victim, isOffHandAttack);
 
                 if (!PlayerAttackHelper.mcdw$isLikelyNotMeleeDamage(source)) {
-                    if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.GUARDING_STRIKE).mcdw$getIsEnabled())
+                    if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getGuardingStrikeEnchantment().isEnabled)
                         EnchantmentEffects.applyGuardingStrike(attackingEntity, isOffHandAttack);
                 }
             }
@@ -185,14 +193,14 @@ public class LivingEntityPlayerEntityMixin {
         if (source.getAttacker() instanceof PlayerEntity attackingEntity) {
 
             if (source.getSource() instanceof LivingEntity) {
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.REFRESHMENT).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getRefreshmentEnchantment().isEnabled)
                     EnchantmentEffects.applyRefreshment(attackingEntity, isOffHandAttack);
             }
 
             if (source.getSource() instanceof PersistentProjectileEntity ppe) {
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.REFRESHMENT).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getRefreshmentEnchantment().isEnabled)
                     EnchantmentEffects.applyRefreshment(attackingEntity, isOffHandAttack);
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SHADOW_SHOT).mcdw$getIsEnabled())
+                if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getShadowShotEnchantment().isEnabled)
                     EnchantmentEffects.applyShadowShotShadowForm(attackingEntity, ppe, 80);
             }
         }

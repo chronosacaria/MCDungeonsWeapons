@@ -1,5 +1,12 @@
 /*
  * Timefall Development License 1.2
+ * Copyright (c) 2025. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
+ *
+ * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
+ */
+
+/*
+ * Timefall Development License 1.2
  * Copyright (c) 2024. Chronosacaria, Kluzzio, Timefall Development. All Rights Reserved.
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
@@ -11,27 +18,28 @@
  *
  * This software's content is licensed under the Timefall Development License 1.2. You can find this license information here: https://github.com/Timefall-Development/Timefall-Development-Licence/blob/main/TimefallDevelopmentLicense1.2.txt
  */
-package dev.timefall.mcdw.mixin.old_mixins.mcdw;
+package dev.timefall.mcdw.mixin.mcdw;
 
 
+import dev.timefall.mcdw.api.util.AOEHelper;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
+import dev.timefall.mcdw.api.util.move_to_mcdx.EnchantHelper;
+import dev.timefall.mcdw.configs.stats.McdwEnchantmentStatsConfig;
 import dev.timefall.mcdw.damagesources.OffHandDamageSource;
 import dev.timefall.mcdw.effects.EnchantmentEffects;
 import dev.timefall.mcdw.enchantment.summons.IBeeSummoning;
 import dev.timefall.mcdw.enchantment.summons.entity.SummonedBeeEntity;
-import dev.timefall.mcdw.enums.EnchantmentsID;
 import dev.timefall.mcdw.enums.ItemsID;
-import dev.timefall.mcdw.enums.SettingsID;
-import dev.timefall.mcdw.registries.EnchantsRegistry;
-import dev.timefall.mcdw.registries.EntityAttributesRegistry;
+import dev.timefall.mcdw.registries.EnchantmentRegistry;
 import dev.timefall.mcdw.registries.ItemsRegistry;
 import dev.timefall.mcdw.registries.SummonedEntityRegistry;
-import net.minecraft.enchantment.EnchantmentHelper;
+import dev.timefall.mcdw.registries.items.McdwSwordItemRegistry;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -41,6 +49,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.PotionItem;
 import net.minecraft.potion.Potions;
+import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
@@ -50,8 +59,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 @SuppressWarnings("ConstantValue")
@@ -72,7 +82,8 @@ public abstract class LivingEntityMixin extends Entity {
             return amount;
 
         if (amount > 0) {
-            float storedAmount = amount * Mcdw.CONFIG.mcdwEnchantmentsConfig.directDamageEnchantmentMultiplier;
+            // TODO Consider readding a configurable multiplier for stored damage
+            float storedAmount = amount;
             if (attackingEntity instanceof TameableEntity petSource
                     && petSource.getWorld() instanceof ServerWorld serverWorld
                     && petSource.getOwner() instanceof PlayerEntity owner) {
@@ -91,15 +102,15 @@ public abstract class LivingEntityMixin extends Entity {
 
         if (source.getAttacker() instanceof LivingEntity attackingEntity) {
 
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.PROSPECTOR).mcdw$getIsEnabled())
+            if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getProspectorEnchantment().isEnabled)
                 EnchantmentEffects.applyProspector(attackingEntity, victim, isOffHandAttack);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.RUSHDOWN).mcdw$getIsEnabled())
+            if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getRushdownEnchantment().isEnabled)
                 EnchantmentEffects.applyRushdown(attackingEntity, isOffHandAttack);
         }
 
         if (source.getAttacker() instanceof PlayerEntity attackingPlayer) {
 
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SOUL_SIPHON).mcdw$getIsEnabled())
+            if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getSoulSiphonEnchantment().isEnabled)
                 EnchantmentEffects.applySoulSiphon(attackingPlayer, isOffHandAttack);
         }
     }
@@ -109,16 +120,17 @@ public abstract class LivingEntityMixin extends Entity {
         if(!(source.getAttacker() instanceof LivingEntity user))
             return;
 
-        LivingEntity target = (LivingEntity) (Object) this;
 
-        if(target instanceof PlayerEntity) return;
+        if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getSmitingEnchantment().isEnabled) {
+            LivingEntity target = (LivingEntity) (Object) this;
 
-        if (source.getSource() instanceof LivingEntity) {
-            if (amount > 0) {
-                ItemStack mainHandStack = user.getMainHandStack();
-                ItemStack offHandStack = user.getOffHandStack();
+            if(target instanceof PlayerEntity) return;
 
-                if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SMITING).mcdw$getIsEnabled()) {
+            if (source.getSource() instanceof LivingEntity) {
+                if (amount > 0) {
+                    ItemStack mainHandStack = user.getMainHandStack();
+                    ItemStack offHandStack = user.getOffHandStack();
+
                     mcdw$applySmite(amount, user, target, mainHandStack);
                     mcdw$applySmite(amount, user, target, offHandStack);
                 }
@@ -128,10 +140,11 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Unique
     private void mcdw$applySmite(float amount, LivingEntity user, LivingEntity target, ItemStack itemStack) {
-        if (itemStack != null && (EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.SMITING), itemStack) > 0
-                && !(EnchantmentHelper.getLevel(Enchantments.SMITE, itemStack) > 0))) {
-            int smitingLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.SMITING), itemStack);
-            if (target.isUndead()) {
+        if (itemStack != null
+                && (EnchantHelper.mcdx$getEnchantmentLevel(EnchantmentRegistry.SMITING, user, false) > 0
+                && !(EnchantHelper.mcdx$getLevel(Enchantments.SMITE, user.getEntityWorld(), itemStack) > 0))) {
+            int smitingLevel = EnchantHelper.mcdx$getLevel(EnchantmentRegistry.SMITING, user.getEntityWorld(), itemStack);
+            if (target.getType().isIn(EntityTypeTags.SENSITIVE_TO_SMITE)) {
                 EnchantmentEffects.causeSmitingAttack(user, target,
                         3.0f * smitingLevel, amount);
             }
@@ -149,11 +162,12 @@ public abstract class LivingEntityMixin extends Entity {
         if(!(attacker instanceof PlayerEntity attackingPlayer))
             return;
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.BUSY_BEE).mcdw$getIsEnabled()
+        if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getBusyBeeEnchantment().isEnabled
                 && ((IBeeSummoning)attackingPlayer).isReadyForBeeSummon(attackingPlayer.age)) {
             ItemStack mainHandStack = attackingPlayer.getMainHandStack();
             ItemStack offHandStack = attackingPlayer.getOffHandStack();
-            if (mainHandStack.getItem() == ItemsRegistry.SWORD_ITEMS.get(McdwSwordItemRegistry.SWORD_BEESTINGER) && offHandStack.getItem() == ItemsRegistry.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER)) {
+            if (mainHandStack.getItem() == McdwSwordItemRegistry.SWORD_BEE_STINGER.asItem()
+                    && offHandStack.getItem() == ItemsRegistry.MCDW_ITEMS.get(ItemsID.ITEM_BEE_STINGER)) {
                 offHandStack.decrement(1);
                 SummonedBeeEntity summonedBeeEntity_1 = mcdw$summoned_bee.create(attackingPlayer.getWorld());
                 if (summonedBeeEntity_1 != null) {
@@ -170,23 +184,23 @@ public abstract class LivingEntityMixin extends Entity {
         if(!((Object) this instanceof PlayerEntity user))
             return;
 
-        ItemStack poisonTippedArrow = PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW, 8), Potions.POISON);
+        ItemStack poisonTippedArrow = PotionContentsComponent.createStack(Items.TIPPED_ARROW, Potions.POISON /*8*/);
 
-        if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.DIPPING_POISON).mcdw$getIsEnabled()) {
+        if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getDippingPoisonEnchantment().isEnabled) {
             if (!(user.getMainHandStack().getItem() instanceof PotionItem))
                 return;
 
             if (user.getOffHandStack() != null
-                    && (EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.DIPPING_POISON), user.getOffHandStack()) > 0)
+                    && (EnchantHelper.mcdx$getLevel(EnchantmentRegistry.DIPPING_POISON, user.getEntityWorld(), user.getOffHandStack()) > 0)
             ) {
-                int dippingPoisonLevel = EnchantmentHelper.getLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.DIPPING_POISON), user.getOffHandStack());
+                int dippingPoisonLevel = EnchantHelper.mcdx$getLevel(EnchantmentRegistry.DIPPING_POISON, user.getEntityWorld(), user.getOffHandStack());
                 if (dippingPoisonLevel > 0) {
-                    List<StatusEffectInstance> potionEffects = PotionUtil.getPotionEffects(user.getMainHandStack());
-                    if (!(potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH)) {
+                    Iterator<StatusEffectInstance> potionEffects = user.getMainHandStack().get(DataComponentTypes.POTION_CONTENTS).getEffects().iterator();
+                    if (!(potionEffects == StatusEffects.INSTANT_HEALTH)) {
                         return;
                     }
-                    if (potionEffects.get(0).getEffectType() == StatusEffects.INSTANT_HEALTH) {
-                        CleanlinessHelper.mcdw$dropItem(user, poisonTippedArrow);
+                    if (potionEffects == StatusEffects.INSTANT_HEALTH) {
+                        CleanlinessHelper.mcdw$dropItem(user, poisonTippedArrow.getItem(), 8);
                     }
                 }
 
@@ -200,9 +214,9 @@ public abstract class LivingEntityMixin extends Entity {
             return;
 
         if (playerEntity != null) {
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.BURST_BOWSTRING).mcdw$getIsEnabled())
+            if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getBurstBowstringEnchantment().isEnabled)
                 EnchantmentEffects.activateBurstBowstringOnJump(playerEntity);
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.DYNAMO).mcdw$getIsEnabled())
+            if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getDynamoEnchantment().isEnabled)
                 EnchantmentEffects.handleAddDynamoEffect(playerEntity);
         }
     }
@@ -210,16 +224,16 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "applyDamage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setHealth(F)V"))
     public void mcdw$applySharedPainDamage(DamageSource source, float amount, CallbackInfo ci) {
         if (source.getSource() instanceof PlayerEntity player) {
-            int sharedPainLevel = EnchantmentEffects.mcdw$getEnchantmentLevel(EnchantsRegistry.enchantments.get(EnchantmentsID.SHARED_PAIN), player, false);
+            int sharedPainLevel = EnchantHelper.mcdx$getEnchantmentLevel(EnchantmentRegistry.SHARED_PAIN, player, false);
             if (sharedPainLevel <= 0) return;
-            if (Mcdw.CONFIG.mcdwEnchantmentsConfig.ENCHANTMENT_CONFIG.get(EnchantmentsID.SHARED_PAIN).mcdw$getIsEnabled()) {
+            if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getSharedPainEnchantment().isEnabled) {
                 if ((Object) this instanceof LivingEntity target) {
                     float targetHealth = target.getHealth() - amount;
                     if (targetHealth < 0) {
                         float overkillDamage = Math.abs(targetHealth);
                         List<LivingEntity> nearbyEntities = AOEHelper.getEntitiesByConfig(target, 6);
                         if (nearbyEntities.isEmpty()) {
-                            if (Mcdw.CONFIG.mcdwEnchantmentSettingsConfig.ENABLE_ENCHANTMENT_SETTINGS.get(SettingsID.SHARED_PAIN_CAN_DAMAGE_USER)) {
+                            if (McdwEnchantmentStatsConfig.CONFIG.getMcdwEnchantmentStats().getSharedPainEnchantment().canAffectUser) {
                                 player.damage(player.getWorld().getDamageSources().magic(), overkillDamage);
                             }
                         } else {
@@ -230,10 +244,5 @@ public abstract class LivingEntityMixin extends Entity {
                 }
             }
         }
-    }
-
-    @Inject(method = "createLivingAttributes", require = 1, allow = 1, at = @At("RETURN"))
-    private static void mcdw$addAttributes(CallbackInfoReturnable<DefaultAttributeContainer.Builder> cir) {
-        cir.getReturnValue().add(EntityAttributesRegistry.REACH).add(EntityAttributesRegistry.ATTACK_RANGE);
     }
 }

@@ -24,6 +24,6 @@ public class McdwNeoForge {
          * Mod Event Bus Events
          */
 
-        McdwCommon.LOGGER.info("Initializing MCDW on NeoForge!");
+        ModConstants.LOGGER.info("Initializing MCDW on NeoForge!");
     }
 }

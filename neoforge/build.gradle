@@ -47,7 +47,8 @@ dependencies {
         it.mappings("dev.architectury:yarn-mappings-patch-neoforge:$project.yarn_mappings_patch_neoforge_version")
     }
 
-    modImplementation "me.fzzyhmstrs:fzzy_config:${rootProject.fzzyConfigVersion}+neoforge"
+    modImplementation "me.fzzyhmstrs:fzzy_config:${rootProject.fzzy_config_version}+neoforge"
+    modCompileOnly "maven.modrinth:mcdx:${rootProject.mcdx_version}"
 }
 
 publishMods {

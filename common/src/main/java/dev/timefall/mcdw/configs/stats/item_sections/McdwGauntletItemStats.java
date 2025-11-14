@@ -16,11 +16,8 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwGauntletItemStats extends ConfigSection {
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats gauntletGauntlet = IMcdwWeaponStats.meleeStats(true,    true,   ToolMaterials.IRON,        0,  -1.5f,  -1.0d, 10, Identifier.of("minecraft:iron_ingot"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats gauntletMauler   = IMcdwWeaponStats.meleeStats(true,    true,   ToolMaterials.DIAMOND,     1,  -1.5f,  -1.0d, 5,  Identifier.of("minecraft:diamond"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats gauntletSoulFist = IMcdwWeaponStats.meleeStats(true,    true,   ToolMaterials.NETHERITE,   0,  -1.5f,  -1.0d, 5,  Identifier.of("minecraft:netherite_scrap"));
 
     public IMcdwWeaponStats.MeleeStats getGauntletGauntlet() { return gauntletGauntlet; }

@@ -16,21 +16,13 @@ import net.minecraft.util.Identifier;
 @SuppressWarnings("FieldMayBeFinal")
 @IgnoreVisibility
 public class McdwHammerItemStats extends ConfigSection {
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats hammerBoneclub      = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON,         7,  -3.2f,  0.0d, 10,   Identifier.of("minecraft:bone_block"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats hammerBoneCudgel    = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.NETHERITE,    7,  -3.2f,  0.0d, 5,    Identifier.of("minecraft:netherite_scrap"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats hammerFlail         = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON,         5,  -2.8f,  0.0d, 5,    Identifier.of("minecraft:iron_ingot"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats hammerGravity       = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.DIAMOND,      6,  -3.2f,  0.0d, 5,    Identifier.of("minecraft:diamond"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats hammerGreatHammer   = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON,         6,  -3.2f,  0.0d, 10,   Identifier.of("minecraft:iron_ingot"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats hammerMace          = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.IRON,         5,  -2.8f,  0.0d, 10,   Identifier.of("minecraft:iron_ingot"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats hammerStormlander   = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.DIAMOND,      7,  -3.2f,  0.0d, 5,    Identifier.of("minecraft:diamond"));
-    @SuppressWarnings("CanBeFinal")
     private IMcdwWeaponStats.MeleeStats hammerSunsGrace     = IMcdwWeaponStats.meleeStats(true,  true,  ToolMaterials.DIAMOND,      4,  -2.8f,  0.0d, 5,    Identifier.of("minecraft:diamond"));
 
     public IMcdwWeaponStats.MeleeStats getHammerBoneclub() {

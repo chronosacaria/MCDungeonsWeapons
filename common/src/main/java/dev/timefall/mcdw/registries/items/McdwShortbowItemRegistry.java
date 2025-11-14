@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwShortbowItem;
 import dev.timefall.mcdw.configs.stats.IMcdwWeaponStats;
@@ -18,10 +18,10 @@ import net.minecraft.util.Identifier;
 
 public class McdwShortbowItemRegistry {
 
-    public static final Identifier SHORTBOW_LOVE_SPELL_BOW_ID          = McdwCommon.ID("shortbow_love_spell_bow");
-    public static final Identifier SHORTBOW_MECHANICAL_SHORTBOW_ID     = McdwCommon.ID("shortbow_mechanical_shortbow");
-    public static final Identifier SHORTBOW_PURPLE_STORM_ID            = McdwCommon.ID("shortbow_purple_storm");
-    public static final Identifier SHORTBOW_SHORTBOW_ID                = McdwCommon.ID("shortbow_shortbow");
+    public static final Identifier SHORTBOW_LOVE_SPELL_BOW_ID          = ModConstants.id("shortbow_love_spell_bow");
+    public static final Identifier SHORTBOW_MECHANICAL_SHORTBOW_ID     = ModConstants.id("shortbow_mechanical_shortbow");
+    public static final Identifier SHORTBOW_PURPLE_STORM_ID            = ModConstants.id("shortbow_purple_storm");
+    public static final Identifier SHORTBOW_SHORTBOW_ID                = ModConstants.id("shortbow_shortbow");
 
     public static final McdwShortbowItem SHORTBOW_LOVE_SPELL_BOW       = register(SHORTBOW_LOVE_SPELL_BOW_ID, McdwWeaponStatsConfig.CONFIG.getShortbowItemStats().getShortbowLoveSpellBow());
     public static final McdwShortbowItem SHORTBOW_MECHANICAL_SHORTBOW  = register(SHORTBOW_MECHANICAL_SHORTBOW_ID, McdwWeaponStatsConfig.CONFIG.getShortbowItemStats().getShortbowMechanicalShortbow());

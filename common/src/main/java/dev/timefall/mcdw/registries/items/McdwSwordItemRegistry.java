@@ -6,7 +6,7 @@
  */
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwSwordItem;
@@ -21,30 +21,30 @@ import net.minecraft.util.Identifier;
 
 public class McdwSwordItemRegistry {
 
-    public static final Identifier SWORD_BEE_STINGER_ID           = McdwCommon.ID("sword_bee_stinger");
-    public static final Identifier SWORD_BROADSWORD_ID            = McdwCommon.ID("sword_broadsword");
-    public static final Identifier SWORD_BROKEN_SAWBLADE_ID       = McdwCommon.ID("sword_broken_sawblade");
-    public static final Identifier SWORD_CLAYMORE_ID              = McdwCommon.ID("sword_claymore");
-    public static final Identifier SWORD_CORAL_BLADE_ID           = McdwCommon.ID("sword_coral_blade");
-    public static final Identifier SWORD_CUTLASS_ID               = McdwCommon.ID("sword_cutlass");
-    public static final Identifier SWORD_DANCERS_SWORD_ID         = McdwCommon.ID("sword_dancers_sword");
-    public static final Identifier SWORD_DARK_KATANA_ID           = McdwCommon.ID("sword_dark_katana");
-    public static final Identifier SWORD_DIAMOND_SWORD_VAR_ID     = McdwCommon.ID("sword_diamond_sword_var");
-    public static final Identifier SWORD_FREEZING_FOIL_ID         = McdwCommon.ID("sword_freezing_foil");
-    public static final Identifier SWORD_FROST_SLAYER_ID          = McdwCommon.ID("sword_frost_slayer");
-    public static final Identifier SWORD_GREAT_AXEBLADE_ID        = McdwCommon.ID("sword_great_axeblade");
-    public static final Identifier SWORD_HAWKBRAND_ID             = McdwCommon.ID("sword_hawkbrand");
-    public static final Identifier SWORD_HEARTSTEALER_ID          = McdwCommon.ID("sword_heartstealer");
-    public static final Identifier SWORD_IRON_SWORD_VAR_ID        = McdwCommon.ID("sword_iron_sword_var");
-    public static final Identifier SWORD_KATANA_ID                = McdwCommon.ID("sword_katana");
-    public static final Identifier SWORD_MASTERS_KATANA_ID        = McdwCommon.ID("sword_masters_katana");
-    public static final Identifier SWORD_MECHANIZED_SAWBLADE_ID   = McdwCommon.ID("sword_mechanized_sawblade");
-    public static final Identifier SWORD_NAMELESS_BLADE_ID        = McdwCommon.ID("sword_nameless_blade");
-    public static final Identifier SWORD_OBSIDIAN_CLAYMORE_ID     = McdwCommon.ID("sword_obsidian_claymore");
-    public static final Identifier SWORD_RAPIER_ID                = McdwCommon.ID("sword_rapier");
-    public static final Identifier SWORD_SINISTER_SWORD_ID        = McdwCommon.ID("sword_sinister_sword");
-    public static final Identifier SWORD_SPONGE_STRIKER_ID        = McdwCommon.ID("sword_sponge_striker");
-    public static final Identifier SWORD_THE_STARLESS_NIGHT_ID    = McdwCommon.ID("sword_the_starless_night");
+    public static final Identifier SWORD_BEE_STINGER_ID           = ModConstants.id("sword_bee_stinger");
+    public static final Identifier SWORD_BROADSWORD_ID            = ModConstants.id("sword_broadsword");
+    public static final Identifier SWORD_BROKEN_SAWBLADE_ID       = ModConstants.id("sword_broken_sawblade");
+    public static final Identifier SWORD_CLAYMORE_ID              = ModConstants.id("sword_claymore");
+    public static final Identifier SWORD_CORAL_BLADE_ID           = ModConstants.id("sword_coral_blade");
+    public static final Identifier SWORD_CUTLASS_ID               = ModConstants.id("sword_cutlass");
+    public static final Identifier SWORD_DANCERS_SWORD_ID         = ModConstants.id("sword_dancers_sword");
+    public static final Identifier SWORD_DARK_KATANA_ID           = ModConstants.id("sword_dark_katana");
+    public static final Identifier SWORD_DIAMOND_SWORD_VAR_ID     = ModConstants.id("sword_diamond_sword_var");
+    public static final Identifier SWORD_FREEZING_FOIL_ID         = ModConstants.id("sword_freezing_foil");
+    public static final Identifier SWORD_FROST_SLAYER_ID          = ModConstants.id("sword_frost_slayer");
+    public static final Identifier SWORD_GREAT_AXEBLADE_ID        = ModConstants.id("sword_great_axeblade");
+    public static final Identifier SWORD_HAWKBRAND_ID             = ModConstants.id("sword_hawkbrand");
+    public static final Identifier SWORD_HEARTSTEALER_ID          = ModConstants.id("sword_heartstealer");
+    public static final Identifier SWORD_IRON_SWORD_VAR_ID        = ModConstants.id("sword_iron_sword_var");
+    public static final Identifier SWORD_KATANA_ID                = ModConstants.id("sword_katana");
+    public static final Identifier SWORD_MASTERS_KATANA_ID        = ModConstants.id("sword_masters_katana");
+    public static final Identifier SWORD_MECHANIZED_SAWBLADE_ID   = ModConstants.id("sword_mechanized_sawblade");
+    public static final Identifier SWORD_NAMELESS_BLADE_ID        = ModConstants.id("sword_nameless_blade");
+    public static final Identifier SWORD_OBSIDIAN_CLAYMORE_ID     = ModConstants.id("sword_obsidian_claymore");
+    public static final Identifier SWORD_RAPIER_ID                = ModConstants.id("sword_rapier");
+    public static final Identifier SWORD_SINISTER_SWORD_ID        = ModConstants.id("sword_sinister_sword");
+    public static final Identifier SWORD_SPONGE_STRIKER_ID        = ModConstants.id("sword_sponge_striker");
+    public static final Identifier SWORD_THE_STARLESS_NIGHT_ID    = ModConstants.id("sword_the_starless_night");
 
     public static final McdwSwordItem SWORD_BEE_STINGER           = register(SWORD_BEE_STINGER_ID, McdwWeaponStatsConfig.CONFIG.getSwordItemStats().getSwordBeeStinger());
     public static final McdwSwordItem SWORD_BROADSWORD            = register(SWORD_BROADSWORD_ID, McdwWeaponStatsConfig.CONFIG.getSwordItemStats().getSwordBroadsword());

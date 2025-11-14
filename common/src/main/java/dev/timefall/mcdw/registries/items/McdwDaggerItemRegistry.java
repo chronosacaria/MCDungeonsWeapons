@@ -7,7 +7,7 @@
 
 package dev.timefall.mcdw.registries.items;
 
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.api.util.CleanlinessHelper;
 import dev.timefall.mcdw.api.util.RarityHelper;
 import dev.timefall.mcdw.bases.McdwDaggerItem;
@@ -22,18 +22,18 @@ import net.minecraft.util.Identifier;
 
 public class McdwDaggerItemRegistry {
 
-    public static final Identifier DAGGER_BACKSTABBER_ID               = McdwCommon.ID("dagger_backstabber_");
-    public static final Identifier DAGGER_DAGGER_ID                    = McdwCommon.ID("dagger_dagger");
-    public static final Identifier DAGGER_CHILL_GALE_KNIFE_ID          = McdwCommon.ID("dagger_chill_gale_knife");
-    public static final Identifier DAGGER_FANGS_OF_FROST_ID            = McdwCommon.ID("dagger_fangs_of_frost");
-    public static final Identifier DAGGER_MOON_ID                      = McdwCommon.ID("dagger_moon");
-    public static final Identifier DAGGER_RESOLUTE_TEMPEST_KNIFE_ID    = McdwCommon.ID("dagger_resolute_tempest_knife");
-    public static final Identifier DAGGER_SHEAR_DAGGER_ID              = McdwCommon.ID("dagger_shear_dagger");
-    public static final Identifier DAGGER_SWIFT_STRIKER_ID             = McdwCommon.ID("dagger_swift_striker");
-    public static final Identifier DAGGER_TEMPEST_KNIFE_ID             = McdwCommon.ID("dagger_tempest_knife");
-    public static final Identifier DAGGER_THE_BEGINNING_ID             = McdwCommon.ID("dagger_the_beginning");
-    public static final Identifier DAGGER_THE_END_ID                   = McdwCommon.ID("dagger_the_end");
-    public static final Identifier DAGGER_VOID_TOUCHED_BLADE_ID        = McdwCommon.ID("dagger_void_touched_blade");
+    public static final Identifier DAGGER_BACKSTABBER_ID               = ModConstants.id("dagger_backstabber_");
+    public static final Identifier DAGGER_DAGGER_ID                    = ModConstants.id("dagger_dagger");
+    public static final Identifier DAGGER_CHILL_GALE_KNIFE_ID          = ModConstants.id("dagger_chill_gale_knife");
+    public static final Identifier DAGGER_FANGS_OF_FROST_ID            = ModConstants.id("dagger_fangs_of_frost");
+    public static final Identifier DAGGER_MOON_ID                      = ModConstants.id("dagger_moon");
+    public static final Identifier DAGGER_RESOLUTE_TEMPEST_KNIFE_ID    = ModConstants.id("dagger_resolute_tempest_knife");
+    public static final Identifier DAGGER_SHEAR_DAGGER_ID              = ModConstants.id("dagger_shear_dagger");
+    public static final Identifier DAGGER_SWIFT_STRIKER_ID             = ModConstants.id("dagger_swift_striker");
+    public static final Identifier DAGGER_TEMPEST_KNIFE_ID             = ModConstants.id("dagger_tempest_knife");
+    public static final Identifier DAGGER_THE_BEGINNING_ID             = ModConstants.id("dagger_the_beginning");
+    public static final Identifier DAGGER_THE_END_ID                   = ModConstants.id("dagger_the_end");
+    public static final Identifier DAGGER_VOID_TOUCHED_BLADE_ID        = ModConstants.id("dagger_void_touched_blade");
 
     public static final McdwDaggerItem DAGGER_BACKSTABBER              = register(DAGGER_BACKSTABBER_ID, McdwWeaponStatsConfig.CONFIG.getDaggerItemStats().getDaggerBackstabber());
     public static final McdwDaggerItem DAGGER_DAGGER                   = register(DAGGER_DAGGER_ID, McdwWeaponStatsConfig.CONFIG.getDaggerItemStats().getDaggerDagger());

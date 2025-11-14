@@ -9,8 +9,8 @@ package dev.timefall.mcdw.data;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.timefall.mcdw.McdwCommon;
-import dev.timefall.mcdw.configs.McdwEnchantmentSettingsConfig;
+import dev.timefall.mcdw.ModConstants;
+import dev.timefall.mcdw.configs.settings.McdwEnchantmentSettingsConfig;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
@@ -26,7 +26,7 @@ public record ConfigEnchantmentEnabledCondition(Identifier enchant) implements R
         ).apply(instance, ConfigEnchantmentEnabledCondition::new)
     );
 
-    private static final ResourceConditionType<ConfigEnchantmentEnabledCondition> TYPE = ResourceConditionType.create(McdwCommon.ID("enchant_enabled"), CODEC);
+    private static final ResourceConditionType<ConfigEnchantmentEnabledCondition> TYPE = ResourceConditionType.create(ModConstants.id("enchant_enabled"), CODEC);
 
     public static void register(){
         ResourceConditions.register(TYPE);

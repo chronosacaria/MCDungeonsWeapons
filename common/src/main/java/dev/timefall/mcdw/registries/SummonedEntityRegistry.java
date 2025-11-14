@@ -7,7 +7,7 @@
 package dev.timefall.mcdw.registries;
 
 
-import dev.timefall.mcdw.McdwCommon;
+import dev.timefall.mcdw.ModConstants;
 import dev.timefall.mcdw.enchantment.summons.entity.SummonedBeeEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.entity.Entity;
@@ -28,7 +28,7 @@ public class SummonedEntityRegistry {
 
     @SuppressWarnings("SameParameterValue")
     private static <T extends Entity> EntityType<T> registerEntity(String name, EntityType.Builder<T> entityBuilder) {
-        return Registry.register(Registries.ENTITY_TYPE, McdwCommon.ID(name), entityBuilder.build());
+        return Registry.register(Registries.ENTITY_TYPE, ModConstants.id(name), entityBuilder.build());
     }
 
     public static void register(){
@@ -36,7 +36,7 @@ public class SummonedEntityRegistry {
     }
 
     public static void registerEntity(String name, EntityType<? extends LivingEntity> entity, DefaultAttributeContainer.Builder attributes){
-        Registry.register(Registries.ENTITY_TYPE, McdwCommon.ID(name), entity);
+        Registry.register(Registries.ENTITY_TYPE, ModConstants.id(name), entity);
         FabricDefaultAttributeRegistry.register(entity, SummonedBeeEntity.createSummonedBeeEntityAttributes());
     }
 
